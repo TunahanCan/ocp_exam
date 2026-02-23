@@ -57,3 +57,6 @@ Bu klasor bu uniteyi calismak icin olusturuldu.
 
 ## Kaynak
 - ../ocp_resource.pdf
+
+## com.java Türkçe Notlar
+- `com/java/chapter_01_building_blocks_tr.md`: Chapter 1 tam kapsamlı Türkçe çeviri + konu konu örnekli anlatım.

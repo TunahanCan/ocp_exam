@@ -2,6 +2,16 @@
 
 Bu klasor bu uniteyi calismak icin olusturuldu.
 
+## İşlenen ders notları
+
+- [Classpath, JAR ve sınıf bildirim sırası](classpath_jars_and_class_order.md)
+- [Nesne oluşturma ve initialization sırası](creating_objects_and_initialization.md)
+
+## İngilizce ve YDS materyalleri
+
+- Vocabulary: [Markdown](vocabulary.md) · [PDF](vocabulary.pdf)
+- Grammar notes: [Markdown](grammar_notes.md) · [PDF](grammar_notes.pdf)
+
 ## Konular
 - Learning about theEnvironment
 - Review Questions
@@ -56,7 +66,7 @@ Bu klasor bu uniteyi calismak icin olusturuldu.
 - Distinguishing between Primitives and Reference Types
 
 ## Kaynak
-- ../ocp_resource.pdf
+- [OCP Java 17 çalışma kaynağı](../../ocp_resource.pdf)
 
 ## com.java Türkçe Notlar
-- `com/java/chapter_01_building_blocks_tr.md`: Chapter 1 tam kapsamlı Türkçe çeviri + konu konu örnekli anlatım.
+- [Chapter 1 tam kapsamlı Türkçe notlar](com/java/chapter_01_building_blocks_tr.md)

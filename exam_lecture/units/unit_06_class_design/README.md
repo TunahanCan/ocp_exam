@@ -1,45 +1,24 @@
-# Chapter 6 Class Design
+# Unit 06 · Class Design
 
-Bu klasor bu uniteyi calismak icin olusturuldu.
+Inheritance, constructor chaining, initialization order, overriding/hiding,
+abstract/concrete ve immutable class kuralları Java 17/OCP odağında işlenir.
 
-## Konular
-- Understanding Inheritance
-- Review Questions
-- Declaring aSubclass
-- Inheriting Object
-- Creating Classes
-- Exam Essentials
-- Class Modifiers
-- Single vs. Multiple Inheritance
-- Extending aClass
-- Calling the super Reference
-- Declaring Constructors
-- Applying Class Access Modifiers
-- Accessing the this Reference
-- Creating aConstructor
-- Calling Parent Constructors with super(
-- Initializing Objects
-- The Default Constructor
-- Calling Overloaded Constructors with this(
-- Initializing Classes
-- Initializing Instances
-- Inheriting Members
-- Initializing final Fields
-- Overriding aMethod
-- Writing final Methods
-- Creating Abstract Classes
-- Redeclaring private Methods
-- Hiding Variables
-- Introducing Abstract Classes
-- Spotting Invalid Declarations
-- Creating Immutable Objects
-- Declaring Abstract Methods
-- Creating Constructors inAbstract Classes
-- Declaring anImmutable Class
-- Performing aDefensive Copy
-- Summary
-- Hiding Static Methods
-- Creating aConcrete Class
+## İçindekiler
+
+1. [Eksiksiz çift dilli ana ders notu](bilingual_notes.md) · [PDF](bilingual_notes.pdf)
+2. [Teknik hafıza notu](technical_memory_notes.md) · [PDF](technical_memory_notes.pdf)
+3. [Unit 06 vocabulary](vocabulary.md) · [PDF](vocabulary.pdf)
+4. [Unit 06 grammar notes](grammar_notes.md) · [PDF](grammar_notes.pdf)
+
+## Teknik pekiştirme odağı
+
+Teknik hafıza notundaki rulebook; inheritance member'larını, constructor zincirini,
+complete initialization order'ı, S-R-A-E override kartını, abstract/final
+uyumluluğunu ve immutability checklist'ini birlikte ele alır.
 
 ## Kaynak
-- ../ocp_resource.pdf
+
+- [OCP Java 17 çalışma kaynağı](../../OCP_Java_SE17_Chapter1den_Itibaren.pdf),
+  Chapter 6 — Class Design, PDF sayfaları 275–344.
+- Ana not; bölüm açılışı, bütün konu anlatımı, tablolar/şekiller, Summary,
+  Exam Essentials ve Review Questions 1–26 dahil tam bölüm kapsamını izler.

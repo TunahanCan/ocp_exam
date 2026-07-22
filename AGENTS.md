@@ -114,6 +114,56 @@ zaman içinde birlikte geliştirilmelidir.
   dosyasında hem `vocabulary.md` hem de `grammar_notes.md` bağlantılarını
   içindekiler bölümüne ekle.
 
+## Ünite bazlı çift dilli ana ders PDF'si
+
+- Kullanıcının aynı ünite için verdiği kaynak metinleri birbirinden kopuk konu
+  PDF'lerine bölme. Her ünitede bütün işlenmiş kaynakları konu sırasıyla bir
+  araya getiren tek bir çift dilli ana ders kaynağı ve tek bir ana PDF tut:
+  - `bilingual_notes.md`
+  - `bilingual_notes.pdf`
+- Aynı üniteye daha sonra yeni bir kaynak metin verildiğinde yeni bir ana PDF
+  oluşturma; içeriği ilgili başlık altında mevcut `bilingual_notes.md` dosyasına
+  ekle ve `bilingual_notes.pdf` dosyasını yeniden üret.
+- Ana çift dilli içerikte kaynak metnin başlık, alt başlık ve paragraf sırasını
+  koru. Birbirini açıklayan paragrafları farklı dosyalara veya uzak bölümlere
+  dağıtma; okuyucu konuyu baştan sona kesintisiz takip edebilmelidir.
+- Her kaynak paragrafı aşağıdaki sırayla eşleştir:
+  1. **English:** Düzeltilmiş özgün İngilizce paragraf
+  2. **Türkçe:** Hemen altında paragrafın doğal ve teknik olarak doğru Türkçe
+     çevirisi
+- Bir konunun bütün İngilizce metnini verip Türkçe çevirilerin tamamını belgenin
+  sonuna toplama. İngilizce ve Türkçe paragrafları bire bir ardışık sun; böylece
+  karşılaştırma yapılırken konu bütünlüğü kaybolmamalıdır.
+- OCR veya kopyalama hatalarını (`- cp`, bölünmüş kelimeler, yanlış tireler gibi)
+  İngilizce paragrafta sessizce doğru teknik yazıma getir. Anlamı değiştiren
+  önemli bir düzeltme yapılırsa kısa bir editor notuyla belirt.
+- Kod ve terminal komutlarını çevirmeye çalışma. İlgili İngilizce-Türkçe paragraf
+  çiftinin hemen ardından bir kez, doğru dil etiketiyle göster ve Java 17 ile
+  mümkün olduğunda doğrula.
+- OCP açıklaması, exam trap, memory tip ve kısa teknik eklemeleri ilgili paragraf
+  çiftinden sonra ayrı ve görsel olarak ayırt edilen kutularda ver. Bu eklemeleri
+  İngilizce paragrafın veya Türkçe çevirinin içine karıştırma.
+- Vocabulary ve grammar açıklamalarını ana okuma akışını bölecek uzunlukta
+  paragrafların arasına yerleştirme. Paragraf çiftinde yalnızca kısa işaret veya
+  bağlantı kullan; ayrıntıları ünitenin `vocabulary.md` ve `grammar_notes.md`
+  kaynaklarında tut.
+- `bilingual_notes.md` düzenlenebilir ana kaynak olmalıdır. PDF içeriğini ayrı
+  biçimde elle çoğaltma; Markdown değiştiğinde aynı ünitenin ana PDF'sini de
+  güncelle.
+- Ana PDF'de İngilizce ve Türkçe blokları tutarlı fakat kolay ayırt edilen renk,
+  etiket veya kenarlıklarla göster. Görsel ayrım okunabilir olmalı, metnin
+  önüne geçmemelidir.
+- Bir İngilizce paragraf ile ona ait Türkçe çeviriyi mümkün olduğunda aynı
+  sayfada tut. Zorunlu sayfa kırılmasında çeviri bloğunun hangi İngilizce
+  paragrafa ait olduğu açıkça anlaşılmalıdır.
+- Ana PDF'de ünite adı, içindekiler, konu başlıkları, sayfa numaraları ve uygun
+  olduğunda bölüm sonu kısa tekrar özeti bulunsun. İlgili ünitenin `README.md`
+  dosyasından hem `bilingual_notes.md` hem de `bilingual_notes.pdf` sürümüne
+  bağlantı ver.
+- Ana PDF üretildikten sonra bütün sayfaları render edip İngilizce-Türkçe
+  eşleşmesini, paragraf sırasını, sayfa kırılmalarını, kod bloklarını, Türkçe
+  karakterleri ve metin taşmalarını görsel olarak kontrol et.
+
 ## Ünite bazlı vocabulary ve grammar PDF'leri
 
 - Her ünitede `vocabulary.md` ve `grammar_notes.md` kaynaklarına karşılık gelen
@@ -154,12 +204,10 @@ zaman içinde birlikte geliştirilmelidir.
   yapılarını açıkla.
 - Kaynak metindeki Java terminolojisini bozma. Teknik doğruluğu korumak için
   gerekli İngilizce terimi Türkçe karşılığının yanında göster.
-- Çeviri çalışması istendiğinde uygun olan şu düzeni kullan:
-  1. özgün İngilizce cümle veya kısa bölüm
-  2. doğal Türkçe çeviri
-  3. önemli kelime ve kalıplar
-  4. grammar / sentence structure notu
-  5. YDS açısından eş anlamlı, bağlaç veya çıkarım ipucu
+- Çeviri çalışması istendiğinde ana çift dilli notta her özgün İngilizce
+  paragrafı hemen doğal Türkçe çevirisiyle eşleştir. Önemli kelime/kalıp,
+  grammar yapısı ve YDS ipuçlarının ayrıntılarını ünitenin ayrı vocabulary ve
+  grammar kaynaklarında geliştir.
 - Kelime listelerinde mümkün olduğunda şu bilgileri ekle:
   - kelime veya phrase
   - sözcük türü

@@ -21,6 +21,7 @@ from reportlab.platypus import (
     KeepTogether,
     ListFlowable,
     ListItem,
+    PageBreak,
     PageTemplate,
     Paragraph,
     Preformatted,
@@ -66,19 +67,36 @@ def register_fonts() -> None:
 
 def inline_markup(value: str) -> str:
     """Convert the small inline-Markdown subset used by the study notes."""
-    value = escape(value.strip())
+    # Protect inline-code contents before applying emphasis substitutions.
+    # Otherwise operators/comment delimiters such as `*`, `*/`, and `<` can be
+    # mistaken for Markdown or ReportLab markup after the <font> tag is added.
+    code_spans: list[str] = []
+
+    def stash_code(match: re.Match[str]) -> str:
+        index = len(code_spans)
+        code_spans.append(match.group(1))
+        return f"@@CODE_SPAN_{index}@@"
+
+    value = re.sub(r"`([^`]+)`", stash_code, value.strip())
+    value = escape(value)
     value = re.sub(
         r"\[([^]]+)]\(([^)]+)\)",
         r'<font color="#087E8B"><u>\1</u></font>',
         value,
     )
+    value = re.sub(r"\*\*([^*]+)\*\*", r"<b>\1</b>", value)
+    # Do not interpret comment delimiters such as /* and */ (often shown in
+    # inline code) as emphasis markers.
     value = re.sub(
-        r"`([^`]+)`",
-        r'<font name="StudyMono" color="#A23E48">\1</font>',
+        r"(?<![*/`])\*([^*`]+)\*(?![*/`])",
+        r"<i>\1</i>",
         value,
     )
-    value = re.sub(r"\*\*([^*]+)\*\*", r"<b>\1</b>", value)
-    value = re.sub(r"(?<!\*)\*([^*]+)\*(?!\*)", r"<i>\1</i>", value)
+    for index, code in enumerate(code_spans):
+        value = value.replace(
+            f"@@CODE_SPAN_{index}@@",
+            f'<font name="StudyMono" color="#A23E48">{escape(code)}</font>',
+        )
     return value
 
 
@@ -132,6 +150,20 @@ def build_styles() -> dict[str, ParagraphStyle]:
             borderRadius=3,
             spaceBefore=9,
             spaceAfter=6,
+            keepWithNext=True,
+        ),
+        "h4": ParagraphStyle(
+            "StudyH4",
+            parent=base["Heading4"],
+            fontName="StudySans-Bold",
+            fontSize=10.4,
+            leading=13,
+            textColor=TEAL,
+            borderColor=LINE,
+            borderWidth=0,
+            borderPadding=(2, 0, 2, 0),
+            spaceBefore=8,
+            spaceAfter=5,
             keepWithNext=True,
         ),
         "callout": ParagraphStyle(
@@ -227,6 +259,7 @@ def make_cover(title: str, styles: dict[str, ParagraphStyle]):
             styles["cover_sub"],
         ),
         Spacer(1, 7 * mm),
+        PageBreak(),
     ]
 
 
@@ -293,6 +326,40 @@ def make_table(rows: list[list[str]], styles: dict[str, ParagraphStyle]):
     return table
 
 
+def split_table_row(line: str) -> list[str]:
+    """Split a Markdown table row without treating code-span pipes as columns."""
+    body = line.strip()
+    if body.startswith("|"):
+        body = body[1:]
+    if body.endswith("|") and not body.endswith(r"\|"):
+        body = body[:-1]
+
+    cells: list[str] = []
+    cell: list[str] = []
+    in_code = False
+    escaped = False
+    for char in body:
+        if escaped:
+            cell.append(char)
+            escaped = False
+            continue
+        if char == "\\":
+            escaped = True
+            cell.append(char)
+            continue
+        if char == "`":
+            in_code = not in_code
+            cell.append(char)
+            continue
+        if char == "|" and not in_code:
+            cells.append("".join(cell).strip())
+            cell.clear()
+            continue
+        cell.append(char)
+    cells.append("".join(cell).strip())
+    return cells
+
+
 def parse_table(lines: list[str], start: int) -> tuple[list[list[str]], int] | None:
     if start + 1 >= len(lines) or not lines[start].lstrip().startswith("|"):
         return None
@@ -303,7 +370,7 @@ def parse_table(lines: list[str], start: int) -> tuple[list[list[str]], int] | N
     index = start
     while index < len(lines) and lines[index].lstrip().startswith("|"):
         if index != start + 1:
-            rows.append([cell.strip() for cell in lines[index].strip().strip("|").split("|")])
+            rows.append(split_table_row(lines[index]))
         index += 1
     return rows, index
 
@@ -355,6 +422,23 @@ def markdown_to_story(markdown: str, styles: dict[str, ParagraphStyle]):
     while index < len(lines):
         line = lines[index]
 
+        if line.strip() == "<!-- page-break -->":
+            flush_paragraph()
+            flush_list()
+            story.append(PageBreak())
+            index += 1
+            continue
+
+        if line.lstrip().startswith("<!--"):
+            flush_paragraph()
+            flush_list()
+            while index < len(lines):
+                finished = "-->" in lines[index]
+                index += 1
+                if finished:
+                    break
+            continue
+
         if line.startswith("```"):
             flush_paragraph()
             flush_list()
@@ -382,10 +466,25 @@ def markdown_to_story(markdown: str, styles: dict[str, ParagraphStyle]):
             while index < len(lines) and lines[index].startswith(">"):
                 quote.append(lines[index][1:].lstrip())
                 index += 1
+            # In bilingual notes, keep the immediately following Turkish block
+            # in the same card so the source paragraph and its translation do
+            # not become detached across pages.
+            if (
+                quote
+                and quote[0].startswith("**English")
+                and index + 1 < len(lines)
+                and not lines[index].strip()
+                and lines[index + 1].startswith("> **Türkçe")
+            ):
+                index += 1
+                quote.append("\\")
+                while index < len(lines) and lines[index].startswith(">"):
+                    quote.append(lines[index][1:].lstrip())
+                    index += 1
             story.extend([make_callout(quote, styles), Spacer(1, 3 * mm)])
             continue
 
-        heading = re.match(r"^(#{1,3})\s+(.+)$", line)
+        heading = re.match(r"^(#{1,4})\s+(.+)$", line)
         if heading:
             flush_paragraph()
             flush_list()
@@ -395,7 +494,7 @@ def markdown_to_story(markdown: str, styles: dict[str, ParagraphStyle]):
                 story.extend(make_cover(title, styles))
                 seen_title = True
             else:
-                story.append(Paragraph(inline_markup(title), styles[f"h{min(level, 3)}"]))
+                story.append(Paragraph(inline_markup(title), styles[f"h{min(level, 4)}"]))
             index += 1
             continue
 
@@ -432,7 +531,7 @@ def markdown_to_story(markdown: str, styles: dict[str, ParagraphStyle]):
 
 
 class StudyDocTemplate(BaseDocTemplate):
-    def __init__(self, filename: str, title: str):
+    def __init__(self, filename: str, title: str, unit_label: str):
         super().__init__(
             filename,
             pagesize=A4,
@@ -444,6 +543,7 @@ class StudyDocTemplate(BaseDocTemplate):
             author="OCP Java 17 & YDS Study Project",
         )
         self.study_title = title
+        self.unit_label = unit_label
         frame = Frame(
             self.leftMargin,
             self.bottomMargin,
@@ -466,7 +566,7 @@ class StudyDocTemplate(BaseDocTemplate):
 
         canvas.setFont("StudySans-Bold", 7.5)
         canvas.setFillColor(TEAL)
-        canvas.drawString(22 * mm, height - 10 * mm, "UNIT 01 · BUILDING BLOCKS")
+        canvas.drawString(22 * mm, height - 10 * mm, self.unit_label)
 
         canvas.setFont("StudySans", 7.5)
         canvas.setFillColor(MUTED)
@@ -493,7 +593,13 @@ def main() -> None:
     title = title_match.group(1).strip()
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    document = StudyDocTemplate(str(args.output), title)
+    unit_match = re.match(r"Unit\s+(\d+)\s*·\s*([^·]+)", title, re.IGNORECASE)
+    unit_label = (
+        f"UNIT {unit_match.group(1)} · {unit_match.group(2).strip().upper()}"
+        if unit_match
+        else "JAVA 17 OCP · YDS"
+    )
+    document = StudyDocTemplate(str(args.output), title, unit_label)
     document.build(markdown_to_story(markdown, build_styles()))
     print(f"Generated {args.output}")
 

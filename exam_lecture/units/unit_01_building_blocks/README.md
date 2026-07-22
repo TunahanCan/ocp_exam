@@ -1,72 +1,47 @@
-# Chapter 1 Building Blocks
+# Unit 01 · Building Blocks
 
-Bu klasor bu uniteyi calismak icin olusturuldu.
+Bu ünite Java 17 programlarının en küçük yapı taşlarını, kaynak koddan çalışan
+programa giden yolu ve değişkenlerin yaşam döngüsünü OCP odaklı biçimde öğretir.
+İngilizce ve Türkçe paragraflar ana notta art arda verilmiştir; ayrıntılı dil
+çalışmaları ünitenin kendi vocabulary ve grammar kaynaklarındadır.
 
-## İşlenen ders notları
+## Learning objectives
 
-- [Classpath, JAR ve sınıf bildirim sırası](classpath_jars_and_class_order.md)
-- [Nesne oluşturma ve initialization sırası](creating_objects_and_initialization.md)
+- JDK, JVM, `javac`, `java` ve `jar` rollerini ayırt etmek
+- Class yapısını, `main()` imzasını, package/import kurallarını çözümlemek
+- Object oluşturma ve initialization sırasını izlemek
+- Primitive/reference type, wrapper, text block ve `var` kurallarını uygulamak
+- Variable scope ile garbage collection eligibility sorularını çözmek
 
-## İngilizce ve YDS materyalleri
+## İçindekiler
 
-- Vocabulary: [Markdown](vocabulary.md) · [PDF](vocabulary.pdf)
-- Grammar notes: [Markdown](grammar_notes.md) · [PDF](grammar_notes.pdf)
+1. [Çift dilli ana ders notu](bilingual_notes.md) · [PDF](bilingual_notes.pdf)
+2. [Teknik hafıza notu](technical_memory_notes.md) · [PDF](technical_memory_notes.pdf)
+3. [Unit 01 vocabulary](vocabulary.md) · [PDF](vocabulary.pdf)
+4. [Unit 01 grammar notes](grammar_notes.md) · [PDF](grammar_notes.pdf)
 
-## Konular
-- Learning about theEnvironment
-- Review Questions
-- Major Components ofJava
-- Downloading a JDK
-- Understanding theClass Structure
-- Exam Essentials
-- Fields and Methods
-- Classes and Source Files
-- Writing a main(
-- Comments
-- Creating a main(
-- Passing Parameters toa Java Program
-- Understanding Package Declarations and Imports
-- Packages
-- Ordering Elements ina Class
-- Creating Objects
-- Wildcards
-- Creating a JAR File
-- Calling Constructors
-- Following theOrder ofInitialization
-- Understanding Data Types
-- Reading and Writing Member Fields
-- Executing Instance Initializer Blocks
-- Using Primitive Types
-- Defining Text Blocks
-- Declaring Variables
-- Using Reference Types
-- Creating Wrapper Classes
-- Identifying Identifiers
-- Declaring Multiple Variables
-- Initializing Variables
-- Creating Local Variables
-- Inferring the Type with var
-- Managing Variable Scope
-- Passing Constructor and Method Parameters
-- Defining Instance and Class Variables
-- Limiting Scope
-- Reviewing Scope
-- Destroying Objects
-- Tracing Scope
-- Applying Scope toClasses
-- Understanding Garbage Collection
-- Tracing Eligibility
-- Summary
-- Redundant Imports
-- Naming Conflicts
-- Creating aNew Package
-- Compiling and Running Code withPackages
-- Compiling toAnother Directory
-- Compiling with JAR Files
-- Distinguishing between Primitives and Reference Types
+## Çalışma sırası
 
-## Kaynak
-- [OCP Java 17 çalışma kaynağı](../../ocp_resource.pdf)
+1. Ana nottaki English → Türkçe çiftlerini sırayla oku.
+2. Her bölümün OCP kutusunda kodun derleme/çalışma durumunu tahmin et.
+3. Vocabulary ve grammar notlarındaki mini quizleri çöz.
+4. Ana notun sonundaki özgün OCP tarzı çalışma sorularını yanıtla.
+5. Teknik hafıza notundaki karar kartlarını kapatıp active recall sorularını
+   sözlü yanıtla.
 
-## com.java Türkçe Notlar
-- [Chapter 1 tam kapsamlı Türkçe notlar](com/java/chapter_01_building_blocks_tr.md)
+## Teknik pekiştirme odağı
+
+Teknik hafıza notu compile → runtime → result çözüm sırasını; field/local
+initialization, `var`, literals, classpath ve reachability ayrımlarını tek memory
+map üzerinde birleştirir.
+
+## Kaynak ve kapsam notu
+
+- Ana kaynak: [OCP Java 17 çalışma kaynağı](../../OCP_Java_SE17_Chapter1den_Itibaren.pdf),
+  Chapter 1, PDF sayfaları 1–64.
+- [Çift dilli ana ders notu](bilingual_notes.md), her kaynak PDF sayfasını
+  `source-page` marker'ıyla izler; başlıkları, tabloları, şekil açıklamalarını,
+  Summary, Exam Essentials ve Review Questions bölümlerini kaynak sırasıyla içerir.
+- İngilizce metinde yalnızca running header/footer, basılı sayfa numarası ve OCR
+  kaynaklı tireleme temizlenmiştir. Review Questions kaynak kitabın çalışma
+  sorularıdır; gerçek OCP sınavından çıkmış sorular olarak sunulmaz.

@@ -1,6 +1,10 @@
-# OCP Unite Klasorleri
+# OCP Ünite Klasörleri
 
-Klasorler `ocp_resource.pdf` icindeki chapter basliklarina gore olusturuldu.
+Klasörler [`OCP_Java_SE17_Chapter1den_Itibaren.pdf`](../OCP_Java_SE17_Chapter1den_Itibaren.pdf)
+içindeki chapter başlıklarına göre oluşturuldu. İlk yedi ünite, kaynak PDF’nin
+başlık, paragraf, tablo, şekil açıklaması, kod, özet, Exam Essentials ve Review
+Questions sırası korunarak çift dilli çalışma materyali biçiminde yeniden
+hazırlanmıştır.
 
 - [Chapter 1 Building Blocks](unit_01_building_blocks/README.md)
 - [Chapter 2 Operators](unit_02_operators/README.md)

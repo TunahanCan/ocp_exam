@@ -278,6 +278,46 @@ main clause + before/after/once + subject + verb
 > **YDS tip:** Önce olayları zaman çizgisine yerleştir. `after X, Y` yapısında X
 > önce, Y sonra gerçekleşir; Türkçe sözcük sırası bunu bazen gizleyebilir.
 
+## 12. Reduced passive time clause: `when + V3`
+
+### Kısa açıklama
+
+`when` sonrasında özne ve `be` düşürülerek passive bir time/condition clause
+kısaltılabilir. Gizli özne, ana cümlenin öznesi veya bağlamdaki isimdir.
+
+### Formül
+
+```text
+when + subject + be + V3  →  when + V3
+```
+
+### Kaynak bağlamlı örnek
+
+**EN:** Which expressions, when inserted into the blank, allow the code to
+compile?\
+**TR:** Hangi ifadeler boşluğa yerleştirildiğinde kodun derlenmesini sağlar?
+
+Tam biçim: `when the expressions are inserted into the blank`.
+
+> **YDS tip:** `when inserted` ifadesini active biçimde “yerleştirdiğinde” diye
+> değil, passive anlamı koruyarak “yerleştirildiğinde” diye çöz. `inserted`
+> burada past tense değil, past participle'dır.
+
+## 13. `rather than` ile tercih ve karşıtlık
+
+`rather than`, bir seçeneğin diğerinin yerine kullanıldığını anlatır.
+
+```text
+X rather than Y
+```
+
+**EN:** Use `Integer` rather than `int` when `null` is required.
+
+**TR:** `null` gerektiğinde `int` yerine `Integer` kullan.
+
+> **YDS ipucu:** `rather than` sonrasındaki yapı, karşılaştırılan ilk yapıyla
+> parallel olmalıdır.
+
 ## Mini quiz
 
 ### 1. Boşluğu uygun seçenekle tamamla

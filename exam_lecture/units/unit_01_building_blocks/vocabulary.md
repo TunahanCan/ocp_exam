@@ -1,13 +1,23 @@
 # Unit 01 Vocabulary · Building Blocks
 
-Bu sözlük yalnızca Unit 01 kapsamında işlenen **classpath**, **JAR**,
-**class düzeni**, **object oluşturma** ve **initialization** metinlerinden seçilmiştir. Kelimeleri tek
-başına ezberlemek yerine örnek cümledeki teknik bağlamla birlikte çalış.
+Bu sözlük Unit 01 ana notundaki **Java environment**, **class structure**,
+**classpath**, **object initialization**, **data types**, **scope** ve **garbage
+collection** bağlamlarından seçilmiştir. Kelimeleri tek başına ezberlemek yerine
+örnek cümledeki teknik bağlamla birlikte çalış.
 
 > **Memory tip:** Önce İngilizce kelimeyi kapatıp Türkçe anlamı hatırla; sonra
 > Türkçe tarafı kapatıp kelimeyi bir Java cümlesinde kullan.
 
 ## A–C
+
+### accessible · adjective
+
+- **Türkçe:** erişilebilir
+- **Teknik bağlam:** Programın hâlâ bir reference zinciri üzerinden ulaşabildiği
+  object'i anlatır.
+- **Example:** The object is eligible when no accessible references remain.
+- **Çeviri:** Erişilebilir hiçbir reference kalmadığında object eligible olur.
+- **Word family:** access (n./v.), accessibility (n.); **antonym:** inaccessible
 
 ### alternatively · adverb
 
@@ -17,6 +27,15 @@ başına ezberlemek yerine örnek cümledeki teknik bağlamla birlikte çalış.
 - **Çeviri:** Alternatif olarak farklı bir çıktı dizini belirtebilirsin.
 - **Related:** alternative (n./adj.), option (n.); **synonym:** instead
 
+### ambiguous · adjective
+
+- **Türkçe:** belirsiz, birden fazla yoruma açık
+- **Teknik bağlam:** Aynı simple name'i sağlayan import'lar compiler açısından
+  hangi class'ın kullanılacağını belirsiz hâle getirir.
+- **Example:** The imports are ambiguous because both packages contain `Date`.
+- **Çeviri:** Her iki package da `Date` içerdiği için import'lar belirsizdir.
+- **Word family:** ambiguity (n.); **antonym:** unambiguous
+
 ### archive · noun / verb
 
 - **Türkçe:** arşiv; arşivlemek
@@ -25,6 +44,15 @@ başına ezberlemek yerine örnek cümledeki teknik bağlamla birlikte çalış.
 - **Example:** The tool creates an archive containing the compiled classes.
 - **Çeviri:** Araç, derlenmiş sınıfları içeren bir arşiv oluşturur.
 - **Word family:** archival (adj.), archive (v.)
+
+### associated · adjective
+
+- **Türkçe:** ilişkili, bağlantılı
+- **Teknik bağlam:** Bir reference variable ile onun işaret ettiği object
+  arasındaki bağı niteler.
+- **Example:** A final variable does not keep its associated object alive.
+- **Çeviri:** Final variable, ilişkili object'ini hayatta tutmaz.
+- **Word family:** associate (v.), association (n.); **synonym:** related
 
 ### assume · verb
 
@@ -51,6 +79,15 @@ başına ezberlemek yerine örnek cümledeki teknik bağlamla birlikte çalış.
 - **Example:** Add the library to the classpath before running the program.
 - **Çeviri:** Programı çalıştırmadan önce kütüphaneyi classpath'e ekle.
 - **Related:** path (n.), class loader (n.)
+
+### compatible · adjective
+
+- **Türkçe:** uyumlu
+- **Teknik bağlam:** Bytecode'u çalıştırabilen JVM veya birlikte çalışabilen
+  sürümleri anlatır.
+- **Example:** A compatible JVM can run the compiled bytecode.
+- **Çeviri:** Uyumlu bir JVM derlenmiş bytecode'u çalıştırabilir.
+- **Word family:** compatibility (n.); **antonym:** incompatible
 
 ### compile · verb
 
@@ -89,6 +126,24 @@ başına ezberlemek yerine örnek cümledeki teknik bağlamla birlikte çalış.
 - **Çeviri:** Package bildirimi import ifadelerinden önce gelmelidir.
 - **Word family:** declare (v.), declarative (adj.)
 
+### definite assignment · noun phrase
+
+- **Türkçe:** kesin atanmışlık
+- **Teknik bağlam:** Compiler'ın local variable'ın okunmadan önce her reachable
+  path'te değer aldığını kanıtlaması.
+- **Example:** Definite assignment is checked at compile time.
+- **Çeviri:** Kesin atanmışlık compile time'da kontrol edilir.
+- **Related:** initialize, reachable path
+
+### eligibility · noun
+
+- **Türkçe:** uygunluk, hak kazanma durumu
+- **Teknik bağlam:** Bir object'in garbage collection için artık reachable
+  olmaması.
+- **Example:** Scope loss alone does not guarantee garbage collection eligibility.
+- **Çeviri:** Yalnız scope kaybı garbage collection uygunluğunu garanti etmez.
+- **Word family:** eligible (adj.)
+
 ### elsewhere · adverb
 
 - **Türkçe:** başka bir yerde
@@ -125,6 +180,15 @@ başına ezberlemek yerine örnek cümledeki teknik bağlamla birlikte çalış.
 - **Çeviri:** Geliştiriciler kısa classpath seçeneğini sıklıkla kullanır.
 - **Word family:** frequent (adj.), frequency (n.); **synonym:** often
 
+### incidental whitespace · noun phrase
+
+- **Türkçe:** rastlantısal/biçimsel girinti boşluğu
+- **Teknik bağlam:** Text block source code'unu okunur kılan, fakat String
+  değerinin zorunlu bir parçası olmayan whitespace.
+- **Example:** Java removes incidental whitespace from a text block.
+- **Çeviri:** Java, text block'taki incidental whitespace'i kaldırır.
+- **Antonym:** essential whitespace
+
 ### include · verb
 
 - **Türkçe:** içermek, dahil etmek
@@ -132,6 +196,15 @@ başına ezberlemek yerine örnek cümledeki teknik bağlamla birlikte çalış.
 - **Example:** The wildcard does not include JARs in subdirectories.
 - **Çeviri:** Wildcard, alt dizinlerdeki JAR'ları dahil etmez.
 - **Word family:** inclusion (n.), inclusive (adj.); **antonym:** exclude
+
+### independently · adverb
+
+- **Türkçe:** birbirinden bağımsız olarak
+- **Teknik bağlam:** Her seçeneğin diğerleri eklenmeden ayrı ayrı denenmesini
+  belirtir.
+- **Example:** Insert each declaration independently into the method.
+- **Çeviri:** Her declaration'ı method'a birbirinden bağımsız olarak yerleştir.
+- **Word family:** independent (adj.), independence (n.); **antonym:** dependently
 
 ### initialize · verb
 
@@ -160,6 +233,14 @@ başına ezberlemek yerine örnek cümledeki teknik bağlamla birlikte çalış.
 - **Çeviri:** Yazmaya üşenenler daha kısa seçenekleri tercih etme eğilimindedir.
 - **Word family:** laziness (n.), lazily (adv.); **antonym:** diligent
 
+### lifetime · noun
+
+- **Türkçe:** yaşam süresi
+- **Teknik bağlam:** Object'in memory'de reachable kaldığı süre.
+- **Example:** A variable's scope and an object's lifetime are different concepts.
+- **Çeviri:** Variable scope'u ile object yaşam süresi farklı kavramlardır.
+- **Related:** lifecycle, reachability
+
 ### locate · verb
 
 - **Türkçe:** yerini bulmak; bir yerde bulunmak
@@ -175,6 +256,14 @@ başına ezberlemek yerine örnek cümledeki teknik bağlamla birlikte çalış.
 - **Example:** The asterisk matches all JAR files in the directory.
 - **Çeviri:** Yıldız işareti dizindeki tüm JAR dosyalarıyla eşleşir.
 - **Word family:** matching (n./adj.); **antonym:** mismatch
+
+### maximum · adjective / noun
+
+- **Türkçe:** en fazla; azami değer
+- **Teknik bağlam:** Kaldırılabilecek import sayısının üst sınırını sorar.
+- **Example:** What is the maximum number of removable imports?
+- **Çeviri:** Kaldırılabilir import'ların en fazla sayısı kaçtır?
+- **Related:** minimum; **synonym:** greatest
 
 ### merely · adverb
 
@@ -209,6 +298,24 @@ başına ezberlemek yerine örnek cümledeki teknik bağlamla birlikte çalış.
 - **Çeviri:** Constructor'ın amacı yeni bir nesneyi başlatmaktır.
 - **Word family:** purposeful (adj.), purposely (adv.); **synonym:** aim
 
+### reachable · adjective
+
+- **Türkçe:** erişilebilir, ulaşılabilir
+- **Teknik bağlam:** Bir object'e live reference zinciriyle hâlâ ulaşılabildiğini
+  belirtir.
+- **Example:** The object remains reachable through the first reference.
+- **Çeviri:** Object ilk reference üzerinden erişilebilir kalır.
+- **Word family:** reach (v./n.), reachability (n.); **antonym:** unreachable
+
+### reclaim · verb
+
+- **Türkçe:** geri kazanmak
+- **Teknik bağlam:** JVM'in unreachable object'lerin kapladığı memory'yi yeniden
+  kullanılabilir hâle getirmesini anlatır.
+- **Example:** Garbage collection may reclaim memory for other objects.
+- **Çeviri:** Garbage collection başka object'ler için memory'yi geri kazanabilir.
+- **Word family:** reclamation (n.); **synonym:** recover
+
 ### require · verb
 
 - **Türkçe:** gerektirmek
@@ -217,6 +324,15 @@ başına ezberlemek yerine örnek cümledeki teknik bağlamla birlikte çalış.
 - **Example:** The long option requires two dashes.
 - **Çeviri:** Uzun seçenek iki tire gerektirir.
 - **Word family:** requirement (n.), required (adj.); **synonym:** necessitate
+
+### restricted identifier · noun phrase
+
+- **Türkçe:** kısıtlı tanımlayıcı
+- **Teknik bağlam:** `var` gibi yalnız belirli syntax konumlarında özel anlamı
+  olan identifier.
+- **Example:** `var` is a restricted identifier, not a dynamic type.
+- **Çeviri:** `var` kısıtlı bir tanımlayıcıdır, dynamic type değildir.
+- **Related:** identifier, keyword
 
 ## S–W
 
@@ -228,6 +344,15 @@ başına ezberlemek yerine örnek cümledeki teknik bağlamla birlikte çalış.
 - **Example:** The constructor runs after the instance initializer blocks.
 - **Çeviri:** Constructor, instance initializer block'larından sonra çalışır.
 - **Related:** execute (v.), execution (n.), runtime (n./adj.)
+
+### snippet · noun
+
+- **Türkçe:** kısa kod parçası
+- **Teknik bağlam:** Tam program olmayan, belirli bir kuralı ölçen küçük code
+  example.
+- **Example:** Determine whether the snippet compiles.
+- **Çeviri:** Kod parçasının derlenip derlenmediğini belirle.
+- **Related:** code fragment, extract
 
 ### specify · verb
 
@@ -263,6 +388,24 @@ başına ezberlemek yerine örnek cümledeki teknik bağlamla birlikte çalış.
 - **Example:** This convention is used throughout the chapter.
 - **Çeviri:** Bu kullanım bölümün tamamında uygulanır.
 - **Related:** across, during
+
+### throwaway · adjective
+
+- **Türkçe:** geçici, sonradan atılacak
+- **Teknik bağlam:** Default package'ın yalnızca kısa ömürlü deneme kodu için
+  uygun olduğunu anlatır.
+- **Example:** Use the default package only for throwaway code.
+- **Çeviri:** Default package'ı yalnızca geçici kod için kullan.
+- **Synonym:** disposable; **related:** temporary
+
+### trailing whitespace · noun phrase
+
+- **Türkçe:** satır sonundaki boşluk karakterleri
+- **Teknik bağlam:** Text block satırında görünen son karakterden sonra korunan
+  space veya tab karakterlerini anlatır.
+- **Example:** The `\s` escape preserves trailing whitespace.
+- **Çeviri:** `\s` escape'i satır sonundaki boşluğu korur.
+- **Related:** leading whitespace, indentation
 
 ### wildcard · noun
 

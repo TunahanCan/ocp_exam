@@ -1,46 +1,31 @@
-# Chapter 7 Beyond Classes
+# Unit 07 · Beyond Classes
 
-Bu klasor bu uniteyi calismak icin olusturuldu.
+Bu ünite interface, enum, sealed class, record, nested class ve polymorphism
+konularını Java 17 kurallarıyla ele alır.
 
-## Konular
-- Implementing Interfaces
-- Review Questions
-- Declaring and Using anInterface
-- Declaring Concrete Interface Methods
-- Working withEnums
-- Exam Essentials
-- Extending anInterface
-- Inserting Implicit Modifiers
-- Creating Simple Enums
-- Adding Constructors, Fields, and Methods
-- Sealing Classes
-- Using Enums in switch Statements
-- Declaring aSealed Class
-- Reviewing Sealed Class Rules
-- Encapsulating Data withRecords
-- Compiling Sealed Classes
-- Sealing Interfaces
-- Understanding Encapsulation
-- Customizing Records
-- Creating Nested Classes
-- Applying Records
-- Declaring Constructors
-- Declaring anInner Class
-- Reviewing Nested Classes
-- Understanding Polymorphism
-- Creating a static Nested Class
-- Defining anAnonymous Class
-- Object vs. Reference
-- Overriding vs. Hiding Members
-- Summary
-- Casting Objects
-- Polymorphism and Method Overriding
-- Inheriting anInterface
-- Specifying theSubclass Modifier
-- Omitting the permits Clause
-- Understanding Record Immutability
-- Writing aLocal Class
-- The instanceof Operator
+## İçindekiler
 
-## Kaynak
-- ../ocp_resource.pdf
+1. [Çift dilli ana ders notu](bilingual_notes.md) · [PDF](bilingual_notes.pdf)
+2. [Teknik hafıza notu](technical_memory_notes.md) · [PDF](technical_memory_notes.pdf)
+3. [Unit 07 vocabulary](vocabulary.md) · [PDF](vocabulary.pdf)
+4. [Unit 07 grammar notes](grammar_notes.md) · [PDF](grammar_notes.pdf)
+
+## Teknik pekiştirme odağı
+
+Teknik hafıza notunun master map bölümü interface member modifier'larını,
+enum API'sini, sealed hierarchy kurallarını, record constructor/immutability
+ayrımını, nested type'ları ve casting kararını tek tekrar akışında toplar.
+
+## Kaynak ve kapsam
+
+- [OCP Java 17 çalışma kaynağı](../../OCP_Java_SE17_Chapter1den_Itibaren.pdf),
+  eksiksiz Chapter 7 · Beyond Classes, PDF sayfaları 345–418
+- Ana çift dilli not; chapter girişini, bütün konu anlatımını, code ve
+  table/figure metinlerini, Summary, Exam Essentials ve Review Questions 1–30'u
+  kaynak sırasıyla kapsar. Running header/footer ve basılı sayfa numaraları
+  kapsam dışıdır.
+- Önceden hazırlanmış Review Questions 15–29 teknik analizleri, ana kaynak
+  aktarımından sonra appendix olarak korunmuştur.
+
+> Bu dosyalardaki mini quiz'ler özgün OCP tarzı çalışma sorularıdır; gerçek
+> sınav sorusu olarak sunulmaz.

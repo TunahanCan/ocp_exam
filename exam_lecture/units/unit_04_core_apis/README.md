@@ -1,46 +1,34 @@
-# Chapter 4 Core APIs
+# Unit 04 · Core APIs
 
-Bu klasor bu uniteyi calismak icin olusturuldu.
+Bu ünite Java 17 `String`, `StringBuilder`, array, `Math` ve Date/Time API
+kurallarını OCP odaklı işler.
 
-## Konular
-- Creating and Manipulating Strings
-- Review Questions
-- Concatenating
-- Method Chaining
-- Using the StringBuilder Class
-- Exam Essentials
-- Important String Methods
-- Mutability and Chaining
-- Important StringBuilder Methods
-- Understanding Equality
-- Creating a StringBuilder
-- Comparing equals(
-- The String Pool
-- Understanding Arrays
-- Creating anArray ofPrimitives
-- Working withMultidimensional Arrays
-- Calculating with Math APIs
-- Creating anArray withReference Variables
-- Using Methods withVarargs
-- Finding theMinimum and Maximum
-- Generating Random Numbers
-- Working withDates and Times
-- Rounding Numbers
-- Calculating Exponents
-- Day vs. Date
-- Accounting forDaylight Saving Time
-- Summary
-- Creating Dates and Times
-- Working withInstants
-- Using anArray
-- Sorting
-- Searching
-- Comparing
-- Determining theCeiling and Floor
-- Manipulating Dates and Times
-- Working withPeriods
-- Working withDurations
-- Period vs. Duration
+## Learning objectives
 
-## Kaynak
-- ../ocp_resource.pdf
+- String immutability, pool, equality ve method sonuçlarını izlemek
+- StringBuilder mutation ve chaining işlemlerini uygulamak
+- Array sorting, searching, comparison ve mismatch sonuçlarını çözmek
+- `Math` method return type'larını ayırt etmek
+- `LocalDate`, `ZonedDateTime`, `Instant` ve daylight saving time davranışlarını
+  değerlendirmek
+
+## İçindekiler
+
+1. [Çift dilli ana ders notu](bilingual_notes.md) · [PDF](bilingual_notes.pdf)
+2. [Teknik hafıza notu](technical_memory_notes.md) · [PDF](technical_memory_notes.pdf)
+3. [Unit 04 vocabulary](vocabulary.md) · [PDF](vocabulary.pdf)
+4. [Unit 04 grammar notes](grammar_notes.md) · [PDF](grammar_notes.pdf)
+
+## Teknik pekiştirme odağı
+
+Teknik hafıza notundaki karar kartları immutable API'ler için I-R-A kuralını,
+String index aralıklarını, array search/compare önkoşullarını, Math return
+type'larını ve Date/Time type uyumluluğunu birlikte tekrar ettirir.
+
+## Kaynak ve kapsam notu
+
+- Ana kaynak: [OCP Java 17 çalışma kaynağı](../../OCP_Java_SE17_Chapter1den_Itibaren.pdf),
+  Chapter 4, PDF sayfaları 155–218.
+- Ana çift dilli not, bölüm metnini ve Review Questions 1–22'yi kaynak
+  sırasıyla içerir.
+- Bunlar kaynak kitabın review sorularıdır; gerçek sınav sorusu değildir.

@@ -1,7 +1,7 @@
 # OCP Ünite Klasörleri
 
 Klasörler [`OCP_Java_SE17_Chapter1den_Itibaren.pdf`](../OCP_Java_SE17_Chapter1den_Itibaren.pdf)
-içindeki chapter başlıklarına göre oluşturuldu. İlk yedi ünite, kaynak PDF’nin
+içindeki chapter başlıklarına göre oluşturuldu. İlk dokuz ünite, kaynak PDF’nin
 başlık, paragraf, tablo, şekil açıklaması, kod, özet, Exam Essentials ve Review
 Questions sırası korunarak çift dilli çalışma materyali biçiminde yeniden
 hazırlanmıştır.

@@ -28,6 +28,10 @@ PAIRED_TURKISH_LABEL = re.compile(
     r"^> \*\*Türkçe(?::|\s+—\s+[^:]+:)\*\*",
     re.MULTILINE,
 )
+PAIRED_LABEL = re.compile(
+    r"^> \*\*(English|Türkçe)(?::|\s+—\s+[^:]+:)\*\*",
+    re.MULTILINE,
+)
 GROUPED_OPTION_LABEL = re.compile(
     r"^> \*\*English(?::|\s+—\s+[^:]+:)\*\*\s+"
     r"(?:\d+\.\s+)?[A-H]\.\s+[A-H]\.",
@@ -51,6 +55,22 @@ KNOWN_BAD_TRANSLATIONS = re.compile(
     r"\bmethodin\b|\bruntimena\b|\bruntimenda\b|\bJavada\b|"
     r"['\"](?:Java|object|class|reference|method|runtime)['\"]|"
     r"pattern\s+matchingyi['\"]|String\s*-\s*Builder",
+)
+REVIEW_HEADING = re.compile(
+    r"^#{2,3}\s+Review Questions(?:\b|(?:\s*/))",
+    re.MULTILINE,
+)
+QUESTION_HEADING = re.compile(
+    r"^#{3,4}\s+Question\s+(\d+)(?:\b|$)",
+    re.MULTILINE,
+)
+QUESTION_LABEL = re.compile(
+    r"^> \*\*English:\*\*\s+(\d+)\.",
+    re.MULTILINE,
+)
+OFFICIAL_ANSWER_HEADING = re.compile(
+    r"^###\s+Official Answer\s+(\d+)(?:\b|$)",
+    re.MULTILINE,
 )
 
 
@@ -145,6 +165,32 @@ def broken_translation_lines(markdown: str) -> list[int]:
     return hits
 
 
+def source_markers_inside_code_fences(markdown: str) -> list[int]:
+    """Return line numbers for source markers accidentally placed in code."""
+    hits: list[int] = []
+    in_code = False
+    for line_number, line in enumerate(markdown.splitlines(), start=1):
+        if line.startswith("```"):
+            in_code = not in_code
+            continue
+        if in_code and PAGE_MARKER.fullmatch(line):
+            hits.append(line_number)
+    return hits
+
+
+def review_question_numbers(markdown: str) -> list[int]:
+    """Return source review-question numbers before appendices/coverage ledgers."""
+    heading = REVIEW_HEADING.search(markdown)
+    if not heading:
+        return []
+    review = markdown[heading.start() :]
+    review = re.split(r"^##\s+(?:Coverage ledger|Appendix)\b", review, maxsplit=1, flags=re.MULTILINE)[0]
+    heading_numbers = [int(value) for value in QUESTION_HEADING.findall(review)]
+    if heading_numbers:
+        return heading_numbers
+    return [int(value) for value in QUESTION_LABEL.findall(review)]
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("markdown", type=Path)
@@ -152,18 +198,25 @@ def main() -> int:
     parser.add_argument("start_page", type=int)
     parser.add_argument("end_page", type=int)
     parser.add_argument("--minimum-global-coverage", type=float, default=0.96)
+    parser.add_argument("--expected-review-questions", type=int)
+    parser.add_argument("--expected-official-answers", type=int)
     args = parser.parse_args()
 
     markdown = args.markdown.read_text(encoding="utf-8")
     pages = split_source_pages(markdown)
     expected_pages = list(range(args.start_page, args.end_page + 1))
+    marker_sequence = [int(page) for page in PAGE_MARKER.findall(markdown)]
     actual_pages = sorted(page for page in pages if page in expected_pages)
     structural_errors: list[str] = []
 
-    if actual_pages != expected_pages:
+    if marker_sequence != expected_pages:
         missing = sorted(set(expected_pages) - set(actual_pages))
-        unexpected = sorted(set(actual_pages) - set(expected_pages))
-        structural_errors.append(f"page marker mismatch; missing={missing}, unexpected={unexpected}")
+        unexpected = sorted(set(marker_sequence) - set(expected_pages))
+        structural_errors.append(
+            "page marker sequence mismatch; "
+            f"missing={missing}, unexpected={unexpected}, "
+            f"found={len(marker_sequence)}/{len(expected_pages)}"
+        )
 
     english_count = len(PAIRED_ENGLISH_LABEL.findall(markdown))
     turkish_count = len(PAIRED_TURKISH_LABEL.findall(markdown))
@@ -171,10 +224,23 @@ def main() -> int:
         structural_errors.append(
             f"English/Türkçe label mismatch: {english_count}/{turkish_count}"
         )
+    label_sequence = PAIRED_LABEL.findall(markdown)
+    expected_label_sequence = [
+        label
+        for _ in range(len(label_sequence) // 2)
+        for label in ("English", "Türkçe")
+    ]
+    if label_sequence != expected_label_sequence:
+        structural_errors.append("English/Türkçe labels do not strictly alternate")
 
     fence_count = len(re.findall(r"^```", markdown, re.MULTILINE))
     if fence_count % 2:
         structural_errors.append(f"unbalanced code fences: {fence_count}")
+    marker_fence_hits = source_markers_inside_code_fences(markdown)
+    if marker_fence_hits:
+        structural_errors.append(
+            f"source markers inside code fences at lines {marker_fence_hits[:10]}"
+        )
     if "FULL_SOURCE_INSERT" in markdown:
         structural_errors.append("FULL_SOURCE_INSERT placeholder remains")
     if "\u00ad" in markdown:
@@ -215,6 +281,29 @@ def main() -> int:
             f"known broken translation patterns at lines {bad_translation_hits[:10]}"
         )
 
+    review_numbers: list[int] = []
+    if args.expected_review_questions is not None:
+        review_numbers = review_question_numbers(markdown)
+        expected_review_numbers = list(range(1, args.expected_review_questions + 1))
+        if review_numbers != expected_review_numbers:
+            structural_errors.append(
+                "review question sequence mismatch; "
+                f"expected=1..{args.expected_review_questions}, found={review_numbers}"
+            )
+
+    official_answer_numbers: list[int] = []
+    if args.expected_official_answers is not None:
+        official_answer_numbers = [
+            int(value) for value in OFFICIAL_ANSWER_HEADING.findall(markdown)
+        ]
+        expected_answer_numbers = list(range(1, args.expected_official_answers + 1))
+        if official_answer_numbers != expected_answer_numbers:
+            structural_errors.append(
+                "official answer sequence mismatch; "
+                f"expected=1..{args.expected_official_answers}, "
+                f"found={official_answer_numbers}"
+            )
+
     total_source: list[str] = []
     total_notes: list[str] = []
     page_results: list[tuple[float, int]] = []
@@ -248,6 +337,16 @@ def main() -> int:
         "normalized source coverage: "
         f"{global_ratio:.2%} ({matched}/{source_count} source tokens; {note_count} note tokens)"
     )
+    if args.expected_review_questions is not None:
+        print(
+            "review questions: "
+            f"{len(review_numbers)}/{args.expected_review_questions}"
+        )
+    if args.expected_official_answers is not None:
+        print(
+            "official answers: "
+            f"{len(official_answer_numbers)}/{args.expected_official_answers}"
+        )
     print("lowest page ratios:")
     for ratio, page in sorted(page_results)[:10]:
         print(f"  {page:04d}: {ratio:.2%}")

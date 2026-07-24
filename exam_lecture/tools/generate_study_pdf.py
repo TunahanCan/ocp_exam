@@ -43,17 +43,73 @@ PAPER = colors.HexColor("#FCFDFE")
 
 
 def register_fonts() -> None:
-    font_dir = Path("/System/Library/Fonts/Supplemental")
-    fonts = {
-        "StudySans": font_dir / "Arial.ttf",
-        "StudySans-Bold": font_dir / "Arial Bold.ttf",
-        "StudySans-Italic": font_dir / "Arial Italic.ttf",
-        "StudyMono": font_dir / "Courier New.ttf",
-        "StudyMono-Bold": font_dir / "Courier New Bold.ttf",
-    }
-    missing = [str(path) for path in fonts.values() if not path.exists()]
-    if missing:
-        raise SystemExit(f"Required fonts not found: {', '.join(missing)}")
+    font_sets = (
+        {
+            "StudySans": Path("/System/Library/Fonts/Supplemental/Arial.ttf"),
+            "StudySans-Bold": Path(
+                "/System/Library/Fonts/Supplemental/Arial Bold.ttf"
+            ),
+            "StudySans-Italic": Path(
+                "/System/Library/Fonts/Supplemental/Arial Italic.ttf"
+            ),
+            "StudyMono": Path(
+                "/System/Library/Fonts/Supplemental/Courier New.ttf"
+            ),
+            "StudyMono-Bold": Path(
+                "/System/Library/Fonts/Supplemental/Courier New Bold.ttf"
+            ),
+        },
+        {
+            "StudySans": Path(
+                "/usr/share/fonts/truetype/msttcorefonts/Arial.ttf"
+            ),
+            "StudySans-Bold": Path(
+                "/usr/share/fonts/truetype/msttcorefonts/Arial_Bold.ttf"
+            ),
+            "StudySans-Italic": Path(
+                "/usr/share/fonts/truetype/msttcorefonts/Arial_Italic.ttf"
+            ),
+            "StudyMono": Path(
+                "/usr/share/fonts/truetype/msttcorefonts/Courier_New.ttf"
+            ),
+            "StudyMono-Bold": Path(
+                "/usr/share/fonts/truetype/msttcorefonts/Courier_New_Bold.ttf"
+            ),
+        },
+        {
+            "StudySans": Path(
+                "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
+            ),
+            "StudySans-Bold": Path(
+                "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+            ),
+            "StudySans-Italic": Path(
+                "/usr/share/fonts/truetype/dejavu/DejaVuSans-Oblique.ttf"
+            ),
+            "StudyMono": Path(
+                "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
+            ),
+            "StudyMono-Bold": Path(
+                "/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf"
+            ),
+        },
+    )
+    fonts = next(
+        (
+            candidate
+            for candidate in font_sets
+            if all(path.exists() for path in candidate.values())
+        ),
+        None,
+    )
+    if fonts is None:
+        searched = sorted(
+            {str(path) for candidate in font_sets for path in candidate.values()}
+        )
+        raise SystemExit(
+            "Required Unicode font set not found. Searched: "
+            + ", ".join(searched)
+        )
     for name, path in fonts.items():
         pdfmetrics.registerFont(TTFont(name, str(path)))
     pdfmetrics.registerFontFamily(
@@ -78,6 +134,10 @@ def inline_markup(value: str) -> str:
         return f"@@CODE_SPAN_{index}@@"
 
     value = re.sub(r"`([^`]+)`", stash_code, value.strip())
+    # The study notes use HTML-style breaks inside compact bilingual question
+    # and answer blocks. Preserve them through XML escaping so ReportLab
+    # renders an actual line break instead of the literal ``<br>`` text.
+    value = re.sub(r"<br\s*/?>", "@@HTML_BREAK@@", value, flags=re.IGNORECASE)
     value = escape(value)
     value = re.sub(
         r"\[([^]]+)]\(([^)]+)\)",
@@ -97,6 +157,7 @@ def inline_markup(value: str) -> str:
             f"@@CODE_SPAN_{index}@@",
             f'<font name="StudyMono" color="#A23E48">{escape(code)}</font>',
         )
+    value = value.replace("@@HTML_BREAK@@", "<br/>")
     return value
 
 
@@ -264,6 +325,18 @@ def make_cover(title: str, styles: dict[str, ParagraphStyle]):
 
 
 def make_callout(lines: list[str], styles: dict[str, ParagraphStyle]):
+    # GitHub-style admonitions are already visually rendered as callout cards in
+    # this PDF theme.  Suppress the raw ``[!IMPORTANT]``/``[!NOTE]`` marker while
+    # preserving any heading text that follows it on the same line.
+    if lines:
+        admonition = re.match(
+            r"^\[!(?:IMPORTANT|WARNING|NOTE|TIP|CAUTION)\]\s*(.*)$",
+            lines[0],
+            re.IGNORECASE,
+        )
+        if admonition:
+            remainder = admonition.group(1).strip()
+            lines = ([remainder] if remainder else []) + lines[1:]
     content = Paragraph(paragraph_markup(lines), styles["callout"])
     table = Table([[content]], colWidths=[165 * mm])
     table.setStyle(
@@ -463,15 +536,51 @@ def markdown_to_story(markdown: str, styles: dict[str, ParagraphStyle]):
             flush_paragraph()
             flush_list()
             quote: list[str] = []
+            bilingual_pair = lines[index].startswith("> **English:**")
+            admonition_block = bool(
+                re.match(
+                    r"^> \[!(?:IMPORTANT|WARNING|NOTE|TIP|CAUTION)\]",
+                    lines[index],
+                    re.IGNORECASE,
+                )
+            )
+            seen_turkish = False
             while index < len(lines) and lines[index].startswith(">"):
-                quote.append(lines[index][1:].lstrip())
+                quote_line = lines[index][1:].lstrip()
+                # An admonition and a following bilingual paragraph are
+                # separate semantic blocks even if an unquoted blank line was
+                # accidentally omitted in the Markdown source.
+                if (
+                    admonition_block
+                    and quote
+                    and quote_line.startswith("**English:**")
+                ):
+                    break
+                # Some generated bilingual Markdown keeps consecutive paragraph
+                # pairs inside one continuous blockquote.  Stop before the next
+                # English label once this pair's Turkish block has been read so
+                # each source paragraph and translation gets its own card.
+                if (
+                    bilingual_pair
+                    and seen_turkish
+                    and quote_line.startswith("**English:**")
+                ):
+                    break
+                if bilingual_pair and quote_line.startswith("**Türkçe:**"):
+                    while quote and not quote[-1].strip():
+                        quote.pop()
+                    if quote and quote[-1] != "\\":
+                        quote.append("\\")
+                quote.append(quote_line)
+                if quote_line.startswith("**Türkçe:**"):
+                    seen_turkish = True
                 index += 1
             # In bilingual notes, keep the immediately following Turkish block
             # in the same card so the source paragraph and its translation do
             # not become detached across pages.
             if (
-                quote
-                and quote[0].startswith("**English")
+                bilingual_pair
+                and not seen_turkish
                 and index + 1 < len(lines)
                 and not lines[index].strip()
                 and lines[index + 1].startswith("> **Türkçe")
@@ -479,7 +588,10 @@ def markdown_to_story(markdown: str, styles: dict[str, ParagraphStyle]):
                 index += 1
                 quote.append("\\")
                 while index < len(lines) and lines[index].startswith(">"):
-                    quote.append(lines[index][1:].lstrip())
+                    quote_line = lines[index][1:].lstrip()
+                    if quote_line.startswith("**English:**"):
+                        break
+                    quote.append(quote_line)
                     index += 1
             story.extend([make_callout(quote, styles), Spacer(1, 3 * mm)])
             continue

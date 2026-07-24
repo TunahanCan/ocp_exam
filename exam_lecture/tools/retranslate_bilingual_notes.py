@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Replace Turkish quote blocks in bilingual notes with local NLLB output.
+"""Replace Turkish quote blocks with local NLLB or Marian translation output.
 
 This optional quality pass keeps English source blocks and code unchanged. It
-uses a locally cached Hugging Face model and protects Java/OCP terminology with
-temporary XML-style placeholders before translation.
+uses a locally cached Hugging Face/CTranslate2 model and protects Java/OCP
+terminology with temporary XML-style placeholders before translation.
 """
 
 from __future__ import annotations
@@ -151,7 +151,23 @@ def main() -> None:
         default="facebook/nllb-200-distilled-600M",
     )
     parser.add_argument("--ct2-model", type=Path)
+    parser.add_argument(
+        "--sentencepiece-model",
+        type=Path,
+        help=(
+            "Use a local SentencePiece model directly with --ct2-model. "
+            "This avoids requiring Transformers tokenizer files."
+        ),
+    )
     parser.add_argument("--batch-size", type=int, default=8)
+    parser.add_argument(
+        "--max-batch-tokens",
+        type=int,
+        default=2048,
+        help="CTranslate2 token budget for each internal inference batch.",
+    )
+    parser.add_argument("--inter-threads", type=int, default=1)
+    parser.add_argument("--intra-threads", type=int, default=8)
     parser.add_argument(
         "--architecture",
         choices=("nllb", "marian"),
@@ -176,12 +192,53 @@ def main() -> None:
         f"Loading {args.model} for {len(unique_english)} unique prose blocks",
         flush=True,
     )
-    from transformers import AutoTokenizer
+    if args.sentencepiece_model and not args.ct2_model:
+        raise SystemExit("--sentencepiece-model requires --ct2-model")
+    if args.sentencepiece_model and args.architecture != "nllb":
+        raise SystemExit(
+            "--sentencepiece-model currently supports only --architecture nllb"
+        )
 
-    tokenizer_options = {"local_files_only": True}
-    if args.architecture == "nllb":
-        tokenizer_options["src_lang"] = "eng_Latn"
-    tokenizer = AutoTokenizer.from_pretrained(args.model, **tokenizer_options)
+    sentencepiece_processor = None
+    tokenizer = None
+    if args.sentencepiece_model:
+        import sentencepiece as spm
+
+        sentencepiece_processor = spm.SentencePieceProcessor(
+            model_file=str(args.sentencepiece_model)
+        )
+    else:
+        from transformers import AutoTokenizer
+
+        tokenizer_options = {"local_files_only": True}
+        if args.architecture == "nllb":
+            tokenizer_options["src_lang"] = "eng_Latn"
+        tokenizer = AutoTokenizer.from_pretrained(
+            args.model, **tokenizer_options
+        )
+
+    def encode_batch(batch: list[str]) -> list[list[str]]:
+        if sentencepiece_processor is not None:
+            return [
+                ["eng_Latn"]
+                + sentencepiece_processor.encode_as_pieces(text)
+                + ["</s>"]
+                for text in batch
+            ]
+        assert tokenizer is not None
+        return [
+            tokenizer.convert_ids_to_tokens(tokenizer.encode(text))
+            for text in batch
+        ]
+
+    def decode_tokens(tokens: list[str]) -> str:
+        if args.architecture == "nllb" and tokens[:1] == ["tur_Latn"]:
+            tokens = tokens[1:]
+        if sentencepiece_processor is not None:
+            return sentencepiece_processor.decode(tokens)
+        assert tokenizer is not None
+        target_ids = tokenizer.convert_tokens_to_ids(tokens)
+        return tokenizer.decode(target_ids, skip_special_tokens=True)
 
     chunk_records: list[tuple[str, dict[str, str], list[str]]] = []
     all_chunks: list[str] = []
@@ -199,30 +256,23 @@ def main() -> None:
             str(args.ct2_model),
             device="cpu",
             compute_type="int8",
-            inter_threads=1,
-            intra_threads=8,
+            inter_threads=args.inter_threads,
+            intra_threads=args.intra_threads,
         )
         for start in range(0, len(all_chunks), args.batch_size):
             batch = all_chunks[start : start + args.batch_size]
-            source_tokens = [
-                tokenizer.convert_ids_to_tokens(tokenizer.encode(text))
-                for text in batch
-            ]
+            source_tokens = encode_batch(batch)
             translate_options = {
                 "beam_size": args.beam_size,
                 "max_decoding_length": 512,
+                "batch_type": "tokens",
+                "max_batch_size": args.max_batch_tokens,
             }
             if args.architecture == "nllb":
                 translate_options["target_prefix"] = [["tur_Latn"]] * len(batch)
             results = translator.translate_batch(source_tokens, **translate_options)
             for result in results:
-                target_tokens = result.hypotheses[0]
-                if args.architecture == "nllb":
-                    target_tokens = target_tokens[1:]
-                target_ids = tokenizer.convert_tokens_to_ids(target_tokens)
-                translated_chunks.append(
-                    tokenizer.decode(target_ids, skip_special_tokens=True)
-                )
+                translated_chunks.append(decode_tokens(result.hypotheses[0]))
             print(
                 f"translated {min(start + len(batch), len(all_chunks))}/"
                 f"{len(all_chunks)} chunks",
@@ -255,13 +305,12 @@ def main() -> None:
             fallback_translations: list[str] = []
             for start in range(0, len(fallback_sources), args.batch_size):
                 batch = fallback_sources[start : start + args.batch_size]
-                source_tokens = [
-                    tokenizer.convert_ids_to_tokens(tokenizer.encode(text))
-                    for text in batch
-                ]
+                source_tokens = encode_batch(batch)
                 translate_options = {
                     "beam_size": args.beam_size,
                     "max_decoding_length": 512,
+                    "batch_type": "tokens",
+                    "max_batch_size": args.max_batch_tokens,
                 }
                 if args.architecture == "nllb":
                     translate_options["target_prefix"] = [
@@ -271,12 +320,8 @@ def main() -> None:
                     source_tokens, **translate_options
                 )
                 for result in results:
-                    target_tokens = result.hypotheses[0]
-                    if args.architecture == "nllb":
-                        target_tokens = target_tokens[1:]
-                    target_ids = tokenizer.convert_tokens_to_ids(target_tokens)
                     fallback_translations.append(
-                        tokenizer.decode(target_ids, skip_special_tokens=True)
+                        decode_tokens(result.hypotheses[0])
                     )
             for index, translated in zip(
                 fallback_indexes, fallback_translations, strict=True

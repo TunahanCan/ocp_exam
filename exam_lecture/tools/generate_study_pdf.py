@@ -448,6 +448,65 @@ def parse_table(lines: list[str], start: int) -> tuple[list[list[str]], int] | N
     return rows, index
 
 
+def structured_quote_to_story(
+    lines: list[str], styles: dict[str, ParagraphStyle]
+):
+    """Render code/tables nested inside a blockquote as real flowables.
+
+    The bilingual source sometimes keeps a figure or table and both language
+    captions inside one Markdown blockquote. Flattening that whole block into a
+    Paragraph destroys diagram whitespace and displays table pipes literally.
+    Split only these structured quotes into caption cards plus native code/table
+    flowables; ordinary bilingual paragraph pairs remain a single callout card.
+    """
+
+    story = []
+    prose: list[str] = []
+
+    def flush_prose() -> None:
+        while prose and not prose[-1].strip():
+            prose.pop()
+        if prose:
+            story.extend([make_callout(prose.copy(), styles), Spacer(1, 3 * mm)])
+            prose.clear()
+
+    index = 0
+    while index < len(lines):
+        line = lines[index]
+        if line.startswith("```"):
+            flush_prose()
+            index += 1
+            code: list[str] = []
+            while index < len(lines) and not lines[index].startswith("```"):
+                code.append(lines[index])
+                index += 1
+            story.extend([make_code(code, styles), Spacer(1, 3 * mm)])
+            if index < len(lines):
+                index += 1
+            continue
+
+        table_result = parse_table(lines, index)
+        if table_result:
+            flush_prose()
+            rows, index = table_result
+            story.extend([make_table(rows, styles), Spacer(1, 3 * mm)])
+            continue
+
+        # ``\`` is inserted between English and Turkish prose in an ordinary
+        # bilingual card.  Once a structured element separates the captions,
+        # it is just a segment boundary and should not render visibly.
+        if line == "\\":
+            flush_prose()
+        elif not line.strip():
+            flush_prose()
+        else:
+            prose.append(line)
+        index += 1
+
+    flush_prose()
+    return story
+
+
 def markdown_to_story(markdown: str, styles: dict[str, ParagraphStyle]):
     lines = markdown.splitlines()
     story = []
@@ -593,7 +652,14 @@ def markdown_to_story(markdown: str, styles: dict[str, ParagraphStyle]):
                         break
                     quote.append(quote_line)
                     index += 1
-            story.extend([make_callout(quote, styles), Spacer(1, 3 * mm)])
+            has_structured_content = any(
+                item.startswith("```") or item.lstrip().startswith("|")
+                for item in quote
+            )
+            if has_structured_content:
+                story.extend(structured_quote_to_story(quote, styles))
+            else:
+                story.extend([make_callout(quote, styles), Spacer(1, 3 * mm)])
             continue
 
         heading = re.match(r"^(#{1,4})\s+(.+)$", line)

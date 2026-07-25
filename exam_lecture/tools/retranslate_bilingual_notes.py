@@ -116,7 +116,7 @@ def normalize_technical_translation(text: str) -> str:
     replacements = (
         (
             r"\b(?:Opsiyonel|Seçenek|Seçmeli|İsteğe bağlı)"
-            r"(Double|Int|Long)?\b",
+            r"\s*(Double|Int|Long)\b",
             r"Optional\1",
         ),
         (r"\bilkel (?:Akış|Akım)(?:lar|ları)?\b", "primitive Streams"),

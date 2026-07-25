@@ -68,6 +68,32 @@ UNIT_TOPICS = {
         "Exam Essentials",
         "Review Questions",
     ],
+    14: [
+        "Conceptualizing the File System",
+        "Creating a File or Path",
+        "Operating on File and Path",
+        "Introducing I/O Streams",
+        "Reading and Writing Files",
+        "Serializing Data",
+        "Interacting with Users",
+        "Working with Advanced APIs",
+        "Summary",
+        "Exam Essentials",
+        "Review Questions",
+    ],
+    15: [
+        "Introducing Relational Databases and SQL",
+        "Introducing the Interfaces of JDBC",
+        "Connecting to a Database",
+        "Working with a PreparedStatement",
+        "Getting Data from a ResultSet",
+        "Calling a CallableStatement",
+        "Controlling Data with Transactions",
+        "Closing Database Resources",
+        "Summary",
+        "Exam Essentials",
+        "Review Questions",
+    ],
 }
 
 PROTECTED_TERMS = [
@@ -138,6 +164,49 @@ PROTECTED_TERMS = [
     "CopyOnWriteArraySet",
     "LinkedBlockingQueue",
     "ConcurrentHashMap",
+    "BufferedInputStream",
+    "BufferedOutputStream",
+    "BufferedReader",
+    "BufferedWriter",
+    "ByteArrayInputStream",
+    "ByteArrayOutputStream",
+    "DataInputStream",
+    "DataOutputStream",
+    "FileReader",
+    "FileWriter",
+    "ObjectInputStream",
+    "ObjectOutputStream",
+    "PrintStream",
+    "PrintWriter",
+    "Reader",
+    "Writer",
+    "InputStream",
+    "OutputStream",
+    "Serializable",
+    "SerialVersionUID",
+    "DirectoryStream",
+    "FileVisitor",
+    "BasicFileAttributes",
+    "FileTime",
+    "LinkOption",
+    "StandardCopyOption",
+    "FileVisitOption",
+    "FileVisitResult",
+    "FileSystem",
+    "FileSystems",
+    "Files",
+    "Path",
+    "Paths",
+    "Console",
+    "PreparedStatement",
+    "CallableStatement",
+    "ResultSet",
+    "ResultSetMetaData",
+    "DatabaseMetaData",
+    "DriverManager",
+    "Connection",
+    "Savepoint",
+    "Types",
     "AtomicBoolean",
     "AtomicInteger",
     "AtomicLong",
@@ -267,6 +336,34 @@ PROTECTED_TERMS = [
     "starvation",
     "livelock",
     "thread-safe",
+    "input stream",
+    "output stream",
+    "byte stream",
+    "character stream",
+    "buffered stream",
+    "low-level stream",
+    "high-level stream",
+    "absolute path",
+    "relative path",
+    "symbolic link",
+    "file system",
+    "serialization",
+    "deserialization",
+    "serialVersionUID",
+    "stored procedure",
+    "relational database",
+    "database driver",
+    "JDBC URL",
+    "bind variable",
+    "prepared statement",
+    "callable statement",
+    "result set",
+    "transaction",
+    "commit",
+    "rollback",
+    "savepoint",
+    "SQL injection",
+    "autocommit",
     "memory consistency",
     "atomic operation",
     "critical section",
@@ -305,6 +402,7 @@ class Line:
     width: float
     height: float
     font: float
+    family: str = ""
 
 
 @dataclass
@@ -395,6 +493,40 @@ TITLE_PAGE_CONTENT = {
             "partitioning on sequential and parallel streams.",
         ),
     ],
+    14: [
+        Block("heading", "Chapter 14 · I/O", 2),
+        Block(
+            "prose",
+            "OCP exam objectives covered in this chapter: Using the Java I/O API.",
+        ),
+        Block(
+            "prose",
+            "Read and write console and file data using I/O streams.",
+        ),
+        Block(
+            "prose",
+            "Serialize and deserialize Java objects.",
+        ),
+        Block(
+            "prose",
+            "Create, traverse, read, and write Path objects and their "
+            "properties using the java.nio.file API.",
+        ),
+    ],
+    15: [
+        Block("heading", "Chapter 15 · JDBC", 2),
+        Block(
+            "prose",
+            "OCP exam objectives covered in this chapter: Accessing databases "
+            "using JDBC.",
+        ),
+        Block(
+            "prose",
+            "Create connections, create and execute basic, prepared, and callable "
+            "statements, process query results, and control transactions using "
+            "the JDBC API.",
+        ),
+    ],
 }
 
 
@@ -412,6 +544,24 @@ def normalize_ocr(text: str) -> str:
     text = re.sub(r"-\s+>", "->", text)
     text = re.sub(r"<\s+-", "<-", text)
     text = re.sub(r"(?<=\w)-\s+(?=\w)", "-", text)
+    text = re.sub(
+        r"\bF\s*I\s*G\s*U\s*R\s*E\s+(\d+)\s*\.\s*(\d(?:\s*\d)*)",
+        lambda match: (
+            f"FIGURE {match.group(1)}."
+            f"{''.join(match.group(2).split())}"
+        ),
+        text,
+        flags=re.IGNORECASE,
+    )
+    text = re.sub(
+        r"\bT\s*A\s*B\s*L\s*E\s+(\d+)\s*\.\s*(\d(?:\s*\d)*)",
+        lambda match: (
+            f"TABLE {match.group(1)}."
+            f"{''.join(match.group(2).split())}"
+        ),
+        text,
+        flags=re.IGNORECASE,
+    )
     text = re.sub(r"\s+([,.;:?!])", r"\1", text)
     text = re.sub(r"[ \t]+", " ", text)
     return text.strip()
@@ -429,14 +579,33 @@ def load_page(path: Path, page_number: int) -> list[Line]:
             width=float(item["width"]),
             height=float(item["height"]),
             font=float(item["dominantFontSize"]),
+            family=str(item.get("fontFamily", "")),
         )
         for item in raw
         if normalize_ocr(item["text"])
     ]
     # PDF extractors may report slightly different baselines for font runs on
-    # the same visual line. Integer baseline grouping keeps page numbers,
-    # question numbers, and answer text in their intended left-to-right order.
-    lines.sort(key=lambda line: (-round(line.y / 2.0), line.x))
+    # the same visual line. Cluster nearby runs first, then order each visual
+    # line from left to right. A direct rounded-y sort can put all inline-code
+    # runs before the surrounding prose and scramble sentences.
+    y_bands: list[tuple[float, list[Line]]] = []
+    for line in sorted(lines, key=lambda item: -item.y):
+        for band_index, (baseline, members) in enumerate(y_bands):
+            if abs(baseline - line.y) <= 2.2:
+                members.append(line)
+                y_bands[band_index] = (
+                    sum(item.y for item in members) / len(members),
+                    members,
+                )
+                break
+        else:
+            y_bands.append((line.y, [line]))
+
+    lines = []
+    for baseline, members in sorted(y_bands, key=lambda item: -item[0]):
+        for line in sorted(members, key=lambda item: item.x):
+            line.y = baseline
+            lines.append(line)
 
     merged: list[Line] = []
     for line in lines:
@@ -445,17 +614,28 @@ def load_page(path: Path, page_number: int) -> list[Line]:
             gap = line.x - (previous.x + previous.width)
             if gap < 45:
                 separator = ""
-                if (
-                    previous.text
-                    and line.text
-                    and not previous.text.endswith((" ", ".", "/", "(", "<", "["))
-                    and not line.text.startswith((".", ",", ";", ":", ")", "]", ">"))
-                    and gap > 1.5
-                ):
-                    separator = " "
+                if previous.text and line.text:
+                    closes_without_space = line.text.startswith(
+                        (".", ",", ";", ":", ")", "]", ">", "}", "?")
+                    )
+                    opens_without_space = previous.text.endswith(
+                        (" ", "/", "(", "<", "[", "{", "-")
+                    )
+                    if (
+                        not closes_without_space
+                        and not opens_without_space
+                        and gap > -1.5
+                    ):
+                        separator = " "
                 previous.text = normalize_ocr(previous.text + separator + line.text)
                 previous.width = max(previous.width, line.x + line.width - previous.x)
                 previous.font = max(previous.font, line.font)
+                if line.family and line.family not in previous.family.split("|"):
+                    previous.family = (
+                        f"{previous.family}|{line.family}"
+                        if previous.family
+                        else line.family
+                    )
                 continue
         merged.append(line)
     return merged
@@ -468,20 +648,27 @@ def is_running_header(line: Line, page_number: int, chapter: int) -> bool:
     patterns = [
         rf"^{page_number}\s+Chapter\s+{chapter}\b",
         rf"^Chapter\s+{chapter}\b.*\s{page_number}$",
-        rf"^(?:Streams|Exceptions and Localization|Modules|Concurrency)\s+{page_number}$",
+        rf"^(?:Streams|Exceptions and Localization|Modules|Concurrency|I/O|JDBC)\s+{page_number}$",
         rf"^Review Questions\s+{page_number}$",
         rf"^{page_number}\s+Appendix\b",
-        rf"^Chapter\s+(?:10:\s+Streams|11:\s+Exceptions and Localization|12:\s+Modules|13:\s+Concurrency)\s+{page_number}$",
+        rf"^Chapter\s+(?:10:\s+Streams|11:\s+Exceptions and Localization|12:\s+Modules|13:\s+Concurrency|14:\s+I/O|15:\s+JDBC)\s+{page_number}$",
         rf"^.+\s+{page_number}$",
         rf"^{page_number}\s+.+$",
     ]
     return any(re.match(pattern, text) for pattern in patterns)
 
 
-def looks_like_code(text: str, font: float) -> bool:
+def looks_like_code(text: str, font: float, family: str = "") -> bool:
     stripped = re.sub(r"^\d+:\s*", "", text.strip())
     if not stripped:
         return False
+    families = {value for value in family.split("|") if value}
+    monospaced = bool(families) and all(
+        any(marker in value for marker in ("SourceCodePro", "Courier", "Mono"))
+        for value in families
+    )
+    if monospaced:
+        return True
     if font > 8.8:
         return False
     if re.match(r"^(?:java\.[\w.]+(?:Exception|Error)|Caused by:)", stripped):
@@ -494,6 +681,15 @@ def looks_like_code(text: str, font: float) -> bool:
         "::",
         "System.out",
         "Collectors.",
+        "Files.",
+        "Path.",
+        "Paths.",
+        "FileSystems.",
+        "DriverManager.",
+        "conn.",
+        "ps.",
+        "rs.",
+        "cs.",
         "IntStream.",
         "LongStream.",
         "DoubleStream.",
@@ -587,7 +783,7 @@ def page_to_blocks(
 
     for line in filtered:
         text = line.text
-        if line.font >= 11.5 and not looks_like_code(text, line.font):
+        if line.font >= 11.5 and not looks_like_code(text, line.font, line.family):
             flush()
             if line.font >= 19:
                 level = 2
@@ -599,7 +795,7 @@ def page_to_blocks(
             previous_y = line.y
             continue
 
-        code = looks_like_code(text, line.font)
+        code = looks_like_code(text, line.font, line.family)
         kind = "code" if code else "prose"
         y_gap = (previous_y - line.y) if previous_y is not None else 0
         starts_paragraph = (
@@ -675,7 +871,13 @@ def protect_terms(text: str) -> tuple[str, dict[str, str]]:
     text = token_pattern.sub(lambda match: stash(match.group(0)), text)
 
     for term in sorted(PROTECTED_TERMS, key=len, reverse=True):
-        pattern = re.compile(rf"\b{re.escape(term)}(?:s)?\b", re.IGNORECASE)
+        # Class/API names are case-sensitive in Java. Matching them
+        # case-insensitively also protected ordinary prose such as "files",
+        # "paths", and "properties" merely because File, Path, and Properties
+        # are API types. Keep lowercase technical phrases case-insensitive, but
+        # require the source spelling for identifiers that begin with a capital.
+        flags = 0 if term[:1].isupper() else re.IGNORECASE
+        pattern = re.compile(rf"\b{re.escape(term)}(?:s)?\b", flags)
         text = pattern.sub(lambda match: stash(match.group(0)), text)
 
     return text, replacements
@@ -793,7 +995,9 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("source_directory", type=Path)
     parser.add_argument("output", type=Path)
-    parser.add_argument("--unit", type=int, required=True, choices=(10, 11, 12, 13))
+    parser.add_argument(
+        "--unit", type=int, required=True, choices=(10, 11, 12, 13, 14, 15)
+    )
     parser.add_argument("--title", required=True)
     parser.add_argument("--start-page", type=int, required=True)
     parser.add_argument("--end-page", type=int, required=True)

@@ -51,6 +51,8 @@ arrow                ->
 Parentheses type kurallarını değiştirmez; yalnız grouping/evaluation order'ı
 değiştirir.
 
+<!-- page-break -->
+
 ## 3. Numeric promotion: en geniş kazanır
 
 Binary numeric expression için:
@@ -85,8 +87,8 @@ System.out.println("c" + 1 + 2); // c12
 System.out.println("c" + (1 + 2)); // c3
 ```
 
-**Hafıza cümlesi:** **Soldan giderken `String`e değdiğin anda devamı
-concatenation olur; parentheses yeni bir ada kurar.**
+**Hafıza cümlesi:** Soldan giderken `String`e değdiğin anda devamı
+concatenation olur; parentheses yeni bir ada kurar.
 
 ## 5. Assignment, constant narrowing ve compound assignment
 
@@ -110,6 +112,8 @@ s++;                // short olarak kalır
 ```
 
 `s = s + 7;` ise right side `int` olduğu için derlenmez.
+
+<!-- page-break -->
 
 **Hafıza cümlesi:** **`+=` daraltmayı saklar; `+` saklamaz.**
 

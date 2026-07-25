@@ -7,13 +7,13 @@ Java kodu çevrilmeden ve yinelenmeden gösterilir.
 
 [Vocabulary](vocabulary.md) · [Grammar notes](grammar_notes.md)
 
-## Kapsam manifesti
+## Kaynak ve kapsam özeti
 
 | Alan | Değer |
 |---|---|
 | Bölüm | Chapter 5 — Methods |
 | Kaynak PDF sayfaları | 0219–0274 |
-| Beklenen marker sayısı | 56 |
+| Beklenen kaynak sayfa sayısı | 56 |
 | Korunan içerik | Başlıklar, paragraflar/satırlar, kod, tablolar, şekiller, callout'lar, Summary, Exam Essentials ve Review Questions |
 | Çıkarılan içerik | Yalnız tekrarlanan running header/footer ve sayfa numarası |
 | Kaynak dışı içerik | Belgenin sonundaki açıkça etiketlenmiş teknik pekiştirme appendix'i |
@@ -62,13 +62,13 @@ Java kodu çevrilmeden ve yinelenmeden gösterilir.
 >
 > **Türkçe:** [x] Java Nesne Yönelimli Yaklaşımının Kullanımı
 
-> **English:** ■ Create classes and records, and define and use instance and static fields and methods, constructors, and instance and static initializers
+> **English:** • Create classes and records, and define and use instance and static fields and methods, constructors, and instance and static initializers
 >
-> **Türkçe:** ■ Class ve record oluşturun; instance ve `static` field'ları, method'ları, constructor'ları, instance initializer'ları ve `static` initializer'ları tanımlayıp kullanın
+> **Türkçe:** • Class ve record oluşturun; instance ve `static` field'ları, method'ları, constructor'ları, instance initializer'ları ve `static` initializer'ları tanımlayıp kullanın
 
-> **English:** ■ Implement overloading, including vararg methods
+> **English:** • Implement overloading, including vararg methods
 >
-> **Türkçe:** ■ Varargs method'lar dahil olmak üzere overloading uygulayın
+> **Türkçe:** • Varargs method'lar dahil olmak üzere overloading uygulayın
 
 <!-- source-page: 0220 -->
 
@@ -77,6 +77,8 @@ Java kodu çevrilmeden ve yinelenmeden gösterilir.
 > **English:** In previous chapters, you learned how to write snippets of code without much thought about the methods that contained the code. In this chapter, you explore methods in depth including modifiers, arguments, varargs, overloading, and autoboxing. Many of these fundamentals, such as access and static modifiers, are applicable to classes and other types throughout the rest of the book. If you’re having difficulty, you might want to read this chapter twice!
 >
 > **Türkçe:** Önceki bölümlerde, kodu barındıran method'lar üzerinde fazla düşünmeden kod parçaları yazmayı öğrendiniz. Bu bölümde modifier, argument, varargs, overloading ve autoboxing dahil olmak üzere method'ları ayrıntılı biçimde inceleyeceksiniz. Access modifier ve `static` modifier gibi bu temel kuralların çoğu, kitabın geri kalanındaki class'lar ve diğer type'lar için de geçerlidir. Zorlanırsanız bu bölümü iki kez okumak isteyebilirsiniz!
+
+<!-- page-break -->
 
 ### Designing Methods
 
@@ -531,8 +533,6 @@ public void run5(int a, int b) {}
 >
 > **Türkçe:** `run1()` parameter içermeyen geçerli bir bildirimdir. `run2()`, parameter list'i çevreleyen parantezler eksik olduğu için derlenmez. `run3()` tek parameter'lı geçerli bir bildirimdir. `run4()` ise parameter'lar virgül yerine noktalı virgülle ayrıldığı için derlenmez; noktalı virgül statement'ları ayırır, parameter list'lerini değil. `run5()` iki parameter'lı geçerli bir bildirimdir.
 
-<!-- page-break -->
-
 ### Method Signature
 
 **Türkçe başlık:** Method Signature
@@ -767,6 +767,8 @@ friends[2] = 2;
 >
 > **Türkçe:** Effectively final için hızlı test, variable declaration'a `final` ekleyip kodun hâlâ derlenip derlenmediğine bakmaktır. Bu örnekte `name` ve `wet` effectively final'dır ve `final` modifier ile bildirilebilir; `size` ise bildirilemez. `name` 12. satırda atanır ve yeniden atanmaz. 16. satır, sonucu hiç kullanılmayan yeni bir `String` value üretir; Chapter 4'ten hatırlayın, `String` immutable'dır. `size` 15. satırda artırılabildiği için effectively final değildir. `wet` yalnızca bir kez atanır ve sonrasında değiştirilmez.
 
+<!-- page-break -->
+
 ### Effective Final Parameters
 
 **Türkçe başlık:** Effectively Final Parameter'lar
@@ -834,6 +836,8 @@ name = "Robert";
 > **English:** In Chapter 1, we show that instance variables receive default values based on their type when not set. For example, int receives a default value of 0, while an object reference receives a default value of null. The compiler does not apply a default value to final variables, though. A final instance or final static variable must receive a value when it is declared or as part of initialization.
 >
 > **Türkçe:** Chapter 1'de instance variable'ların açıkça ayarlanmadığında type'larına göre default value aldığını gördük. Örneğin `int` için default `0`, object reference için `null` olur. Ancak compiler `final` variable'lara default value atamaz. `final` instance veya `final static` variable, declaration sırasında ya da initialization sürecinde bir value almak zorundadır.
+
+<!-- page-break -->
 
 ### Working with Varargs
 
@@ -1001,21 +1005,21 @@ walkDog(1, null); // Triggers NullPointerException in walkDog()
 >
 > **Türkçe:** Dört access düzeyini gördünüz: `private`, package, `protected` ve `public`. Şimdi bunları en kısıtlayıcıdan en az kısıtlayıcıya doğru inceleyeceğiz:
 
-> **English:** ■ `private`: Only accessible within the same class.
+> **English:** • `private`: Only accessible within the same class.
 >
-> **Türkçe:** ■ `private`: Yalnızca aynı class içinden erişilebilir.
+> **Türkçe:** • `private`: Yalnızca aynı class içinden erişilebilir.
 
-> **English:** ■ Package access: `private` plus other members of the same package. Sometimes referred to as package-private or default access.
+> **English:** • Package access: `private` plus other members of the same package. Sometimes referred to as package-private or default access.
 >
-> **Türkçe:** ■ Package access: `private` erişime ek olarak aynı package içindeki diğer member'lardan da erişim sağlar. Package-private veya default access olarak da adlandırılır.
+> **Türkçe:** • Package access: `private` erişime ek olarak aynı package içindeki diğer member'lardan da erişim sağlar. Package-private veya default access olarak da adlandırılır.
 
-> **English:** ■ `protected`: Package access plus access within subclasses.
+> **English:** • `protected`: Package access plus access within subclasses.
 >
-> **Türkçe:** ■ `protected`: Package access'e ek olarak subclass'lardan erişim sağlar.
+> **Türkçe:** • `protected`: Package access'e ek olarak subclass'lardan erişim sağlar.
 
-> **English:** ■ `public`: `protected` plus classes in the other packages.
+> **English:** • `public`: `protected` plus classes in the other packages.
 >
-> **Türkçe:** ■ `public`: `protected` erişime ek olarak diğer package'lerdeki class'lara da erişim sağlar.
+> **Türkçe:** • `public`: `protected` erişime ek olarak diğer package'lerdeki class'lara da erişim sağlar.
 
 > **English:** We will explore the impact of these four levels of access on members of a class.
 >
@@ -1381,13 +1385,13 @@ System.out.print(bird.text); // DOES NOT COMPILE
 >
 > **Türkçe:** Başka bir açıdan bakarsak `protected` kuralları iki senaryoda uygulanır:
 
-> **English:** ■ A member is used without referring to a variable. This is the case on lines 5 and 6. In this case, we are taking advantage of inheritance, and protected access is allowed.
+> **English:** • A member is used without referring to a variable. This is the case on lines 5 and 6. In this case, we are taking advantage of inheritance, and protected access is allowed.
 >
-> **Türkçe:** ■ Member bir variable üzerinden başvurulmadan kullanılır (5. ve 6. satırlar). Burada inheritance devrededir ve `protected` access geçerlidir.
+> **Türkçe:** • Member bir variable üzerinden başvurulmadan kullanılır (5. ve 6. satırlar). Burada inheritance devrededir ve `protected` access geçerlidir.
 
-> **English:** ■ A member is used through a variable. This is the case on lines 10, 11, 15, and 16. In this case, the rules for the reference type of the variable are what matter. If it is a subclass, protected access is allowed. This works for references to the same class or a subclass.
+> **English:** • A member is used through a variable. This is the case on lines 10, 11, 15, and 16. In this case, the rules for the reference type of the variable are what matter. If it is a subclass, protected access is allowed. This works for references to the same class or a subclass.
 >
-> **Türkçe:** ■ Member bir variable üzerinden kullanılır (10, 11, 15 ve 16. satırlar). Bu durumda variable'ın reference type'ı önemlidir. Aynı subclass type'ı veya onun bir subclass'ıysa `protected` access'e izin verilir.
+> **Türkçe:** • Member bir variable üzerinden kullanılır (10, 11, 15 ve 16. satırlar). Bu durumda variable'ın reference type'ı önemlidir. Aynı subclass type'ı veya onun bir subclass'ıysa `protected` access'e izin verilir.
 
 <!-- source-page: 0241 -->
 
@@ -1615,17 +1619,19 @@ Koala.main(new String[0]); // call static method
 >
 > **Türkçe:** `main()` dışında `static` method'ların iki temel kullanım amacı vardır:
 
-> **English:** ■ For utility or helper methods that don’t require any object state. Since there is no need to access instance variables, having static methods eliminates the need for the caller to instantiate an object just to call the method.
+> **English:** • For utility or helper methods that don’t require any object state. Since there is no need to access instance variables, having static methods eliminates the need for the caller to instantiate an object just to call the method.
 >
-> **Türkçe:** ■ Object state gerektirmeyen utility/helper method'lar için. Instance variable'a erişme ihtiyacı yoksa `static` method kullanmak, caller'ın yalnızca method'u çağırmak amacıyla object instantiate etmesini gereksiz kılar.
+> **Türkçe:** • Object state gerektirmeyen utility/helper method'lar için. Instance variable'a erişme ihtiyacı yoksa `static` method kullanmak, caller'ın yalnızca method'u çağırmak amacıyla object instantiate etmesini gereksiz kılar.
 
-> **English:** ■ For state that is shared by all instances of a class, like a counter. All instances must share the same state. Methods that merely use that state should be static as well.
+> **English:** • For state that is shared by all instances of a class, like a counter. All instances must share the same state. Methods that merely use that state should be static as well.
 >
-> **Türkçe:** ■ Counter gibi class'ın bütün instance'larınca paylaşılan state için. Bütün instance'lar aynı state'i paylaşmalıdır; yalnızca bu state'i kullanan method'lar da `static` olmalıdır.
+> **Türkçe:** • Counter gibi class'ın bütün instance'larınca paylaşılan state için. Bütün instance'lar aynı state'i paylaşmalıdır; yalnızca bu state'i kullanan method'lar da `static` olmalıdır.
 
 > **English:** In the following sections, we look at some examples covering other static concepts.
 >
 > **Türkçe:** Sonraki bölümlerde diğer `static` kavramları gösteren örnekleri inceleyeceğiz.
+
+<!-- page-break -->
 
 ### Accessing a static Variable or Method
 
@@ -2154,6 +2160,8 @@ import static zoo.B.TYPE; // DOES NOT COMPILE
 >
 > **Türkçe:** 3. satırda `num` value'su `4` olur. 4. satır bir method çağırır; 8. satırda method'un `num` parameter'ına `8` atanır. Bu parameter'ın 3. satırdaki variable ile aynı adı taşıması yalnızca bir tesadüftür; adı farklı da olabilirdi. Sınav kafa karıştırmak için sıkça aynı adı kullanır. 3. satırdaki variable'a hiçbir assignment yapılmadığından value'su değişmez.
 
+<!-- page-break -->
+
 ### Passing Objects
 
 **Türkçe başlık:** Object'leri Geçirme
@@ -2259,8 +2267,6 @@ b = temp;
 >
 > **Türkçe:** Özetle Java, veriyi method'a aktarmak için pass-by-value kullanır. Parameter'a yeni bir primitive value veya reference atamak caller'ı değiştirmez. Ancak bir object reference'ı üzerinden method çağırmak object state'ini değiştirerek caller tarafında görülebilir.
 
-<!-- page-break -->
-
 ### Returning Objects
 
 **Türkçe başlık:** Object Döndürme
@@ -2296,8 +2302,6 @@ b = temp;
 > **English:** This is a tricky one because there is a lot to keep track of. When you see such questions on the exam, write down the values of each variable. Lines 3 and 4 are straightforward assignments. Line 5 calls a method. Line 10 increments the method parameter to 3 but leaves the tickets variable in the main() method as 2. While line 11 returns the value, the caller ignores it. The method call on line 6 doesn’t ignore the result, so guests becomes "abcd". Remember that this is happening because of the returned value and not the method parameter.
 >
 > **Türkçe:** Bu örnekte izlenecek birçok value vardır; sınavda benzer bir soru görürseniz her variable'ın value'sunu not edin. 3. ve 4. satırlar normal assignment'lardır. 5. satır `addTickets()` method'unu çağırır. 10. satır method parameter'ını `3` yapar, ancak `main()` içindeki `tickets` variable'ı `2` kalır. 11. satır bu value'yu döndürse de caller return value'yu yok sayar. 6. satır ise method sonucunu `guests` variable'ına atar; bu nedenle `guests` value'su `"abcd"` olur. Değişikliğin parameter assignment'ından değil, kullanılan return value'dan kaynaklandığını unutmayın.
-
-<!-- page-break -->
 
 <!-- source-page: 0256 -->
 
@@ -2343,8 +2347,6 @@ long ears = e; // Unboxing, then implicit casting
 > **English:** Each of these examples compiles without issue. In the last line, e is unboxed to an int value. Since an int value can be stored in a long variable via implicit casting, the compiler allows the assignment.
 >
 > **Türkçe:** Bu örneklerin hepsi sorunsuz derlenir. Son satırda `e`, `int` value'ya unbox edilir. `int` value implicit cast ile `long` variable'da saklanabildiği için compiler assignment'a izin verir.
-
-<!-- page-break -->
 
 ### Limits of Autoboxing and Numeric Promotion
 
@@ -2428,6 +2430,8 @@ g.rest(8); // DOES NOT COMPILE
 > **English:** Java will cast or autobox the value automatically, but not both at the same time.
 >
 > **Türkçe:** Java value'yu otomatik olarak cast veya autobox eder; ikisini aynı çağrıda birlikte yapmaz.
+
+<!-- page-break -->
 
 <!-- source-page: 0258 -->
 
@@ -2877,17 +2881,19 @@ System.out.print(glide("a", "b", "c"));
 >
 > **Türkçe:** Doğru overloaded method'u tanıyın. Seçim sırası exact match, wider primitive, autoboxing ve varargs'tır. Method parameter'ına yeni value atamak caller'ı değiştirmez; parameter'ın gösterdiği object üzerinde method çağırmak ise object state'ini değiştirebilir.
 
-<!-- source-page: 0265 -->
+<!-- page-break -->
 
-## Source page 0265
+<!-- source-page: 0265 -->
 
 ### Review Questions
 
-**Türkçe başlık:** Review Questions
+> **Türkçe başlık:** İnceleme Soruları
 
 > **English:** The answers to the chapter review questions can be found in the Appendix.
 >
 > **Türkçe:** Bölüm inceleme sorularının yanıtlarını Appendix'de bulabilirsiniz.
+
+### Question 1 / Soru 1
 
 > **English:** 1. Which statements about the final modifier are correct? (Choose all that apply.)
 >
@@ -2913,67 +2919,43 @@ System.out.print(glide("a", "b", "c"));
 >
 > **Türkçe:** E. `final` olarak işaretlenen bir primitive değiştirilemez.
 
+### Question 2 / Soru 2
+
 > **English:** 2. Which of the following can fill in the blank in this code to make it compile? (Choose all that apply.)
 >
 > **Türkçe:** 2. Kodun derlenmesi için boşluğa aşağıdakilerden hangileri gelebilir? (Uygun olanların tümünü seçin.)
 
 ```java
 public class Ant {
-_____ void method() {}
+   _____ void method() {}
 }
 ```
 
-> **English:** A. default
->
-> **Türkçe:** A. `default`
+```text
+A. default
+B. final
+C. private
+D. Public
+E. String
+F. zzz:
+```
 
-> **English:** B. final
->
-> **Türkçe:** B. `final`
-
-> **English:** C. private
->
-> **Türkçe:** C. `private`
-
-> **English:** D. Public
->
-> **Türkçe:** D. `Public`
-
-> **English:** E. String
->
-> **Türkçe:** E. `String`
-
-> **English:** F. zzz:
->
-> **Türkçe:** F. `zzz:`
+### Question 3 / Soru 3
 
 > **English:** 3. Which of the following methods compile? (Choose all that apply.)
 >
 > **Türkçe:** 3. Aşağıdaki method'lardan hangileri derlenir? (Uygun olanların tümünü seçin.)
 
-> **English:** A. final static void rain() {}
->
-> **Türkçe:** A. `final static void rain() {}`
+```text
+A. final static void rain() {}
+B. public final int void snow() {}
+C. private void int hail() {}
+D. static final void sleet() {}
+E. void final ice() {}
+F. void public slush() {}
+```
 
-> **English:** B. public final int void snow() {}
->
-> **Türkçe:** B. `public final int void snow() {}`
-
-> **English:** C. private void int hail() {}
->
-> **Türkçe:** C. `private void int hail() {}`
-
-> **English:** D. static final void sleet() {}
->
-> **Türkçe:** D. `static final void sleet() {}`
-
-> **English:** E. void final ice() {}
->
-> **Türkçe:** E. `void final ice() {}`
-
-> **English:** F. void public slush() {}
->
-> **Türkçe:** F. `void public slush() {}`
+### Question 4 / Soru 4
 
 > **English:** 4. Which of the following can fill in the blank and allow the code to compile? (Choose all that apply.)
 >
@@ -2983,89 +2965,48 @@ _____ void method() {}
 final _____ song = 6;
 ```
 
-> **English:** A. int
->
-> **Türkçe:** A. `int`
-
-> **English:** B. Integer
->
-> **Türkçe:** B. `Integer`
-
-> **English:** C. long
->
-> **Türkçe:** C. `long`
-
-> **English:** D. Long
->
-> **Türkçe:** D. `Long`
-
-> **English:** E. double
->
-> **Türkçe:** E. `double`
-
-> **English:** F. Double
->
-> **Türkçe:** F. `Double`
+```text
+A. int
+B. Integer
+C. long
+D. Long
+E. double
+F. Double
+```
 
 <!-- source-page: 0266 -->
 
-## Source page 0266
+### Question 5 / Soru 5
 
 > **English:** 5. Which of the following methods compile? (Choose all that apply.)
 >
 > **Türkçe:** 5. Aşağıdaki method'lardan hangileri derlenir? (Uygun olanların tümünü seçin.)
 
-> **English:** A. public void january() { return; }
->
-> **Türkçe:** A. `public void january() { return; }`
+```text
+A. public void january() { return; }
+B. public int february() { return null;}
+C. public void march() {}
+D. public int april() { return 9;}
+E. public int may() { return 9.0;}
+F. public int june() { return;}
+```
 
-> **English:** B. public int february() { return null;}
->
-> **Türkçe:** B. `public int february() { return null;}`
-
-> **English:** C. public void march() {}
->
-> **Türkçe:** C. `public void march() {}`
-
-> **English:** D. public int april() { return 9;}
->
-> **Türkçe:** D. `public int april() { return 9;}`
-
-> **English:** E. public int may() { return 9.0;}
->
-> **Türkçe:** E. `public int may() { return 9.0;}`
-
-> **English:** F. public int june() { return;}
->
-> **Türkçe:** F. `public int june() { return;}`
+### Question 6 / Soru 6
 
 > **English:** 6. Which of the following methods compile? (Choose all that apply.)
 >
 > **Türkçe:** 6. Aşağıdaki method'lardan hangileri derlenir? (Uygun olanların tümünü seçin.)
 
-> **English:** A. public void violin(int... nums) {}
->
-> **Türkçe:** A. `public void violin(int... nums) {}`
+```text
+A. public void violin(int... nums) {}
+B. public void viola(String values, int... nums) {}
+C. public void cello(int... nums, String values) {}
+D. public void bass(String... values, int... nums) {}
+E. public void flute(String[] values, ...int nums) {}
+F. public void oboe(String[] values, int[] nums) {}
+```
 
-> **English:** B. public void viola(String values, int... nums) {}
->
-> **Türkçe:** B. `public void viola(String values, int... nums) {}`
-
-> **English:** C. public void cello(int... nums, String values) {}
->
-> **Türkçe:** C. `public void cello(int... nums, String values) {}`
-
-> **English:** D. public void bass(String... values, int... nums) {}
->
-> **Türkçe:** D. `public void bass(String... values, int... nums) {}`
-
-> **English:** E. public void flute(String[] values, ...int nums) {}
->
-> **Türkçe:** E. `public void flute(String[] values, ...int nums) {}`
-
-> **English:** F. public void oboe(String[] values, int[] nums) {}
->
-> **Türkçe:** F. `public void oboe(String[] values, int[] nums) {}`
+### Question 7 / Soru 7
 
 > **English:** 7. Given the following method, which of the method calls return 2? (Choose all that apply.)
 >
@@ -3073,33 +3014,20 @@ final _____ song = 6;
 
 ```java
 public int juggle(boolean b, boolean... b2) {
-return b2.length;
+   return b2.length;
 }
 ```
 
-> **English:** A. juggle();
->
-> **Türkçe:** A. `juggle();`
+```text
+A. juggle();
+B. juggle(true);
+C. juggle(true, true);
+D. juggle(true, true, true);
+E. juggle(true, {true, true});
+F. juggle(true, new boolean[2]);
+```
 
-> **English:** B. juggle(true);
->
-> **Türkçe:** B. `juggle(true);`
-
-> **English:** C. juggle(true, true);
->
-> **Türkçe:** C. `juggle(true, true);`
-
-> **English:** D. juggle(true, true, true);
->
-> **Türkçe:** D. `juggle(true, true, true);`
-
-> **English:** E. juggle(true, {true, true});
->
-> **Türkçe:** E. `juggle(true, {true, true});`
-
-> **English:** F. juggle(true, new boolean[2]);
->
-> **Türkçe:** F. `juggle(true, new boolean[2]);`
+### Question 8 / Soru 8
 
 > **English:** 8. Which of the following statements is correct?
 >
@@ -3127,7 +3055,7 @@ return b2.length;
 
 <!-- source-page: 0267 -->
 
-## Source page 0267
+### Question 9 / Soru 9
 
 > **English:** 9. Given the following class definitions, which lines in the main() method generate a compiler error? (Choose all that apply.)
 >
@@ -3137,25 +3065,25 @@ return b2.length;
 // Classroom.java
 package my.school;
 public class Classroom {
-private int roomNumber;
-protected static String teacherName;
-static int globalKey = 54321;
-public static int floor = 3;
-Classroom(int r, String t) {
-roomNumber = r;
-teacherName = t;
-} }
+   private int roomNumber;
+   protected static String teacherName;
+   static int globalKey = 54321;
+   public static int floor = 3;
+   Classroom(int r, String t) {
+      roomNumber = r;
+      teacherName = t;
+   } }
 
 // School.java
 1: package my.city;
 2: import my.school.*;
 3: public class School {
-4: public static void main(String[] args) {
-5: System.out.println(Classroom.globalKey);
-6: Classroom room = new Classroom(101, "Mrs. Anderson");
-7: System.out.println(room.roomNumber);
-8: System.out.println(Classroom.floor);
-9: System.out.println(Classroom.teacherName); } }
+4:    public static void main(String[] args) {
+5:       System.out.println(Classroom.globalKey);
+6:       Classroom room = new Classroom(101, "Mrs. Anderson");
+7:       System.out.println(room.roomNumber);
+8:       System.out.println(Classroom.floor);
+9:       System.out.println(Classroom.teacherName); } }
 ```
 
 > **English:** A. None: the code compiles fine.
@@ -3182,6 +3110,8 @@ teacherName = t;
 >
 > **Türkçe:** F. 9. satır
 
+### Question 10 / Soru 10
+
 > **English:** 10. What is the output of executing the Chimp program?
 >
 > **Türkçe:** 10. `Chimp` programı çalıştırıldığında output nedir?
@@ -3190,31 +3120,26 @@ teacherName = t;
 // Rope.java
 1: package rope;
 2: public class Rope {
-3: public static int LENGTH = 5;
-4: static {
-5: LENGTH = 10;
-6: }
-7: public static void swing() {
-```
-
-<!-- source-page: 0268 -->
-
-## Source page 0268
-
-```java
-8: System.out.print("swing ");
-9: } }
+3:    public static int LENGTH = 5;
+4:    static {
+5:       LENGTH = 10;
+6:    }
+7:    public static void swing() {
+8:       System.out.print("swing ");
+9:    } }
 
 // Chimp.java
 1: import rope.*;
 2: import static rope.Rope.*;
 3: public class Chimp {
-4: public static void main(String[] args) {
-5: Rope.swing();
-6: new Rope().swing();
-7: System.out.println(LENGTH);
-8: } }
+4:    public static void main(String[] args) {
+5:       Rope.swing();
+6:       new Rope().swing();
+7:       System.out.println(LENGTH);
+8:    } }
 ```
+
+<!-- source-page: 0268 -->
 
 > **English:** A. swing swing 5
 >
@@ -3240,34 +3165,34 @@ teacherName = t;
 >
 > **Türkçe:** F. `Chimp`'in 7. satırında compiler error
 
+### Question 11 / Soru 11
+
 > **English:** 11. Which statements are true of the following code? (Choose all that apply.)
 >
 > **Türkçe:** 11. Aşağıdaki kodla ilgili hangi ifadeler doğrudur? (Geçerli olanların tümünü seçin.)
 
 ```java
 1: public class Rope {
-2: public static void swing() {
-3: System.out.print("swing");
-4: }
-5: public void climb() {
-6: System.out.println("climb");
-7: }
-8: public static void play() {
-9: swing();
-10: climb();
-11: }
-12: public static void main(String[] args) {
-13: Rope rope = new Rope();
-14: rope.play();
-15: Rope rope2 = null;
-16: System.out.print("-");
-17: rope2.play();
-18: } }
+2:    public static void swing() {
+3:       System.out.print("swing");
+4:    }
+5:    public void climb() {
+6:       System.out.println("climb");
+7:    }
+8:    public static void play() {
+9:       swing();
+10:      climb();
+11:   }
+12:   public static void main(String[] args) {
+13:      Rope rope = new Rope();
+14:      rope.play();
+15:      Rope rope2 = null;
+16:      System.out.print("-");
+17:      rope2.play();
+18:   } }
 ```
 
 <!-- source-page: 0269 -->
-
-## Source page 0269
 
 > **English:** A. The code compiles as is.
 >
@@ -3293,24 +3218,26 @@ teacherName = t;
 >
 > **Türkçe:** F. Derleme hatası bulunan satırlar kaldırılırsa kod `NullPointerException` fırlatır.
 
+### Question 12 / Soru 12
+
 > **English:** 12. How many variables in the following method are effectively final?
 >
 > **Türkçe:** 12. Aşağıdaki method'da kaç variable effectively final'dır?
 
 ```java
 10: public void feed() {
-11: int monkey = 0;
-12: if(monkey > 0) {
-13: var giraffe = monkey++;
-14: String name;
-15: name = "geoffrey";
-16: }
-17: String name = "milly";
-18: var food = 10;
-19: while(monkey <= 10) {
-20: food = 0;
-21: }
-22: name = null;
+11:   int monkey = 0;
+12:   if(monkey > 0) {
+13:      var giraffe = monkey++;
+14:      String name;
+15:      name = "geoffrey";
+16:   }
+17:   String name = "milly";
+18:   var food = 10;
+19:   while(monkey <= 10) {
+20:      food = 0;
+21:   }
+22:   name = null;
 23: }
 ```
 
@@ -3338,6 +3265,8 @@ teacherName = t;
 >
 > **Türkçe:** F. Yukarıdakilerin hiçbiri. Kod derlenmez.
 
+### Question 13 / Soru 13
+
 > **English:** 13. What is the output of the following code?
 >
 > **Türkçe:** 13. Aşağıdaki kodun çıktısı nedir?
@@ -3347,30 +3276,26 @@ teacherName = t;
 import rope.*;
 import static rope.Rope.*;
 public class RopeSwing {
-private static Rope rope1 = new Rope();
-private static Rope rope2 = new Rope();
-{
-System.out.println(rope1.length);
+   private static Rope rope1 = new Rope();
+   private static Rope rope2 = new Rope();
+   {
+      System.out.println(rope1.length);
+   }
+   public static void main(String[] args) {
+      rope1.length = 2;
+      rope2.length = 8;
+      System.out.println(rope1.length);
+   }
+}
+
+// Rope.java
+package rope;
+public class Rope {
+   public static int length = 0;
 }
 ```
 
 <!-- source-page: 0270 -->
-
-## Source page 0270
-
-```java
-public static void main(String[] args) {
-rope1.length = 2;
-rope2.length = 8;
-System.out.println(rope1.length);
-}
-}
-// Rope.java
-package rope;
-public class Rope {
-public static int length = 0;
-}
-```
 
 > **English:** A. 02
 >
@@ -3396,27 +3321,29 @@ public static int length = 0;
 >
 > **Türkçe:** F. Bir exception fırlatılır.
 
+### Question 14 / Soru 14
+
 > **English:** 14. How many lines in the following code have compiler errors?
 >
 > **Türkçe:** 14. Aşağıdaki kodda kaç satırda derleyici hatası var?
 
 ```java
 1: public class RopeSwing {
-2: private static final String leftRope;
-3: private static final String rightRope;
-4: private static final String bench;
-5: private static final String name = "name";
-6: static {
-7: leftRope = "left";
-8: rightRope = "right";
-9: }
-10: static {
-11: name = "name";
-12: rightRope = "right";
-13: }
-14: public static void main(String[] args) {
-15: bench = "bench";
-16: }
+2:    private static final String leftRope;
+3:    private static final String rightRope;
+4:    private static final String bench;
+5:    private static final String name = "name";
+6:    static {
+7:       leftRope = "left";
+8:       rightRope = "right";
+9:    }
+10:   static {
+11:      name = "name";
+12:      rightRope = "right";
+13:   }
+14:   public static void main(String[] args) {
+15:      bench = "bench";
+16:   }
 17: }
 ```
 
@@ -3429,8 +3356,6 @@ public static int length = 0;
 > **Türkçe:** B. 1
 
 <!-- source-page: 0271 -->
-
-## Source page 0271
 
 > **English:** C. 2
 >
@@ -3448,43 +3373,32 @@ public static int length = 0;
 >
 > **Türkçe:** F. 5
 
+### Question 15 / Soru 15
+
 > **English:** 15. Which of the following can replace line 2 to make this code compile? (Choose all that apply.)
 >
-> **Türkçe:** 15. Bu kodun derlenmesi için 2. satırın yerine aşağıdakilerden hangisi gelebilir? (Geçerli olanların tümünü seçin.)
+> **Türkçe:** 15. Bu kodun derlenmesi için 2. satırın yerine aşağıdakilerden hangileri gelebilir? (Geçerli olanların tümünü seçin.)
 
 ```java
 1: import java.util.*;
 2: // INSERT CODE HERE
 3: public class Imports {
-4: public void method(ArrayList<String> list) {
-5: sort(list);
-6: }
+4:    public void method(ArrayList<String> list) {
+5:       sort(list);
+6:    }
 7: }
 ```
 
-> **English:** A. import static java.util.Collections;
->
-> **Türkçe:** A. `import static java.util.Collections;`
+```text
+A. import static java.util.Collections;
+B. import static java.util.Collections.*;
+C. import static java.util.Collections.sort(ArrayList<String>);
+D. static import java.util.Collections;
+E. static import java.util.Collections.*;
+F. static import java.util.Collections.sort(ArrayList<String>);
+```
 
-> **English:** B. `import static java.util.Collections.*;`
->
-> **Türkçe:** B. `import static java.util.Collections.*;`
-
-> **English:** C. `import static java.util.Collections.sort(ArrayList<String>);`
->
-> **Türkçe:** C. `import static java.util.Collections.sort(ArrayList<String>);`
-
-> **English:** D. static import java.util.Collections;
->
-> **Türkçe:** D. `static import java.util.Collections;`
-
-> **English:** E. `static import java.util.Collections.*;`
->
-> **Türkçe:** E. `static import java.util.Collections.*;`
-
-> **English:** F. `static import java.util.Collections.sort(ArrayList<String>);`
->
-> **Türkçe:** F. `static import java.util.Collections.sort(ArrayList<String>);`
+### Question 16 / Soru 16
 
 > **English:** 16. What is the result of the following statements?
 >
@@ -3492,34 +3406,29 @@ public static int length = 0;
 
 ```java
 1: public class Test {
-2: public void print(byte x) {
-3: System.out.print("byte-");
-4: }
-5: public void print(int x) {
-6: System.out.print("int-");
-7: }
-8: public void print(float x) {
-9: System.out.print("float-");
-10: }
-11: public void print(Object x) {
-12: System.out.print("Object-");
-13: }
-14: public static void main(String[] args) {
-15: Test t = new Test();
-16: short s = 123;
-17: t.print(s);
-18: t.print(true);
+2:    public void print(byte x) {
+3:       System.out.print("byte-");
+4:    }
+5:    public void print(int x) {
+6:       System.out.print("int-");
+7:    }
+8:    public void print(float x) {
+9:       System.out.print("float-");
+10:   }
+11:   public void print(Object x) {
+12:      System.out.print("Object-");
+13:   }
+14:   public static void main(String[] args) {
+15:      Test t = new Test();
+16:      short s = 123;
+17:      t.print(s);
+18:      t.print(true);
+19:      t.print(6.789);
+20:   }
+21: }
 ```
 
 <!-- source-page: 0272 -->
-
-## Source page 0272
-
-```java
-19: t.print(6.789);
-20: }
-21: }
-```
 
 > **English:** A. `byte-float-Object-`
 >
@@ -3545,22 +3454,24 @@ public static int length = 0;
 >
 > **Türkçe:** F. `byte-Object-Object-`
 
+### Question 17 / Soru 17
+
 > **English:** 17. What is the result of the following program?
 >
 > **Türkçe:** 17. Aşağıdaki programın sonucu nedir?
 
 ```java
 1: public class Squares {
-2: public static long square(int x) {
-3: var y = x * (long) x;
-4: x = -1;
-5: return y;
-6: }
-7: public static void main(String[] args) {
-8: var value = 9;
-9: var result = square(value);
-10: System.out.println(value);
-11: } }
+2:    public static long square(int x) {
+3:       var y = x * (long) x;
+4:       x = -1;
+5:       return y;
+6:    }
+7:    public static void main(String[] args) {
+8:       var value = 9;
+9:       var result = square(value);
+10:      System.out.println(value);
+11:   } }
 ```
 
 > **English:** A. -1
@@ -3583,35 +3494,32 @@ public static int length = 0;
 >
 > **Türkçe:** E. Farklı bir satırda derleme hatası
 
+### Question 18 / Soru 18
+
 > **English:** 18. Which of the following are output by the following code? (Choose all that apply.)
 >
 > **Türkçe:** 18. Aşağıdaki code hangi seçenekleri output olarak üretir? (Uygun olanların tümünü seçin.)
 
 ```java
 public class StringBuilders {
-public static StringBuilder work(StringBuilder a,
-StringBuilder b) {
-a = new StringBuilder("a");
-b.append("b");
-return a;
+   public static StringBuilder work(StringBuilder a,
+      StringBuilder b) {
+      a = new StringBuilder("a");
+      b.append("b");
+      return a;
+   }
+   public static void main(String[] args) {
+      var s1 = new StringBuilder("s1");
+      var s2 = new StringBuilder("s2");
+      var s3 = work(s1, s2);
+      System.out.println("s1 = " + s1);
+      System.out.println("s2 = " + s2);
+      System.out.println("s3 = " + s3);
+   }
 }
-public static void main(String[] args) {
-var s1 = new StringBuilder("s1");
-var s2 = new StringBuilder("s2");
 ```
 
 <!-- source-page: 0273 -->
-
-## Source page 0273
-
-```java
-var s3 = work(s1, s2);
-System.out.println("s1 = " + s1);
-System.out.println("s2 = " + s2);
-System.out.println("s3 = " + s3);
-}
-}
-```
 
 > **English:** A. s1 = a
 >
@@ -3637,46 +3545,42 @@ System.out.println("s3 = " + s3);
 >
 > **Türkçe:** F. Kod derlenmez.
 
+### Question 19 / Soru 19
+
 > **English:** 19. Which of the following will compile when independently inserted in the following code? (Choose all that apply.)
 >
 > **Türkçe:** 19. Aşağıdaki code'a birbirinden bağımsız olarak eklendiğinde seçeneklerden hangileri derlenir? (Uygun olanların tümünü seçin.)
 
 ```java
 1: public class Order3 {
-2: final String value1 = "red";
-3: static String value2 = "blue";
-4: String value3 = "yellow";
-5: {
-6: // CODE SNIPPET 1
-7: }
-8: static {
-9: // CODE SNIPPET 2
-10: } }
+2:    final String value1 = "red";
+3:    static String value2 = "blue";
+4:    String value3 = "yellow";
+5:    {
+6:       // CODE SNIPPET 1
+7:    }
+8:    static {
+9:       // CODE SNIPPET 2
+10:   } }
 ```
 
-> **English:** A. Insert at line 6: value1 = "green";
->
-> **Türkçe:** A. 6. satıra ekleyin: `value1 = "green";`
+```text
+A. Insert at line 6: value1 = "green";
+B. Insert at line 6: value2 = "purple";
+C. Insert at line 6: value3 = "orange";
+D. Insert at line 9: value1 = "magenta";
+E. Insert at line 9: value2 = "cyan";
+F. Insert at line 9: value3 = "turquoise";
+```
 
-> **English:** B. Insert at line 6: value2 = "purple";
->
-> **Türkçe:** B. 6. satıra ekleyin: `value2 = "purple";`
+> **Türkçe seçenekler:** A. 6. satıra `value1 = "green";` ekleyin.
+> B. 6. satıra `value2 = "purple";` ekleyin.
+> C. 6. satıra `value3 = "orange";` ekleyin.
+> D. 9. satıra `value1 = "magenta";` ekleyin.
+> E. 9. satıra `value2 = "cyan";` ekleyin.
+> F. 9. satıra `value3 = "turquoise";` ekleyin.
 
-> **English:** C. Insert at line 6: value3 = "orange";
->
-> **Türkçe:** C. 6. satıra ekleyin: `value3 = "orange";`
-
-> **English:** D. Insert at line 9: value1 = "magenta";
->
-> **Türkçe:** D. 9. satıra ekleyin: `value1 = "magenta";`
-
-> **English:** E. Insert at line 9: value2 = "cyan";
->
-> **Türkçe:** E. 9. satıra ekleyin: `value2 = "cyan";`
-
-> **English:** F. Insert at line 9: value3 = "turquoise";
->
-> **Türkçe:** F. 9. satıra ekleyin: `value3 = "turquoise";`
+### Question 20 / Soru 20
 
 > **English:** 20. Which of the following are true about the following code? (Choose all that apply.)
 >
@@ -3684,34 +3588,29 @@ System.out.println("s3 = " + s3);
 
 ```java
 public class Run {
-static void execute() {
-System.out.print("1-");
-}
-static void execute(int num) {
-System.out.print("2-");
+   static void execute() {
+      System.out.print("1-");
+   }
+   static void execute(int num) {
+      System.out.print("2-");
+   }
+   static void execute(Integer num) {
+      System.out.print("3-");
+   }
+   static void execute(Object num) {
+      System.out.print("4-");
+   }
+   static void execute(int... nums) {
+      System.out.print("5-");
+   }
+   public static void main(String[] args) {
+      Run.execute(100);
+      Run.execute(100L);
+   }
 }
 ```
 
 <!-- source-page: 0274 -->
-
-## Source page 0274
-
-```java
-static void execute(Integer num) {
-System.out.print("3-");
-}
-static void execute(Object num) {
-System.out.print("4-");
-}
-static void execute(int... nums) {
-System.out.print("5-");
-}
-public static void main(String[] args) {
-Run.execute(100);
-Run.execute(100L);
-}
-}
-```
 
 > **English:** A. The code prints out `2-4-`.
 >
@@ -3737,6 +3636,8 @@ Run.execute(100L);
 >
 > **Türkçe:** F. `static void execute(int num)` method'u kaldırılırsa kod `4-4-` çıktısını üretir.
 
+### Question 21 / Soru 21
+
 > **English:** 21. Which method signatures are valid overloads of the following method signature? (Choose all that apply.)
 >
 > **Türkçe:** 21. Hangi method signature'lar aşağıdaki method signature'ın geçerli overload'larıdır? (Uygun olanların tümünü seçin.)
@@ -3745,94 +3646,20 @@ Run.execute(100L);
 public void moo(int m, int... n)
 ```
 
-> **English:** A. public void moo(int a, int... b)
->
-> **Türkçe:** A. `public void moo(int a, int... b)`
+```text
+A. public void moo(int a, int... b)
+B. public int moo(char ch)
+C. public void moooo(int... z)
+D. private void moo(int... x)
+E. public void moooo(int y)
+F. public void moo(int... c, int d)
+G. public void moo(int... i, int j...)
+```
 
-> **English:** B. public int moo(char ch)
->
-> **Türkçe:** B. `public int moo(char ch)`
+## Kapsam doğrulaması
 
-> **English:** C. public void moooo(int... z)
->
-> **Türkçe:** C. `public void moooo(int... z)`
-
-> **English:** D. private void moo(int... x)
->
-> **Türkçe:** D. `private void moo(int... x)`
-
-> **English:** E. public void moooo(int y)
->
-> **Türkçe:** E. `public void moooo(int y)`
-
-> **English:** F. public void moo(int... c, int d)
->
-> **Türkçe:** F. `public void moo(int... c, int d)`
-
-> **English:** G. public void moo(int... i, int j...)
->
-> **Türkçe:** G. `public void moo(int... i, int j...)`
-
-## Page coverage ledger
-
-| Source page | Marker |
-|---:|:---:|
-| 0219 | `<!-- source-page: 0219 -->` |
-| 0220 | `<!-- source-page: 0220 -->` |
-| 0221 | `<!-- source-page: 0221 -->` |
-| 0222 | `<!-- source-page: 0222 -->` |
-| 0223 | `<!-- source-page: 0223 -->` |
-| 0224 | `<!-- source-page: 0224 -->` |
-| 0225 | `<!-- source-page: 0225 -->` |
-| 0226 | `<!-- source-page: 0226 -->` |
-| 0227 | `<!-- source-page: 0227 -->` |
-| 0228 | `<!-- source-page: 0228 -->` |
-| 0229 | `<!-- source-page: 0229 -->` |
-| 0230 | `<!-- source-page: 0230 -->` |
-| 0231 | `<!-- source-page: 0231 -->` |
-| 0232 | `<!-- source-page: 0232 -->` |
-| 0233 | `<!-- source-page: 0233 -->` |
-| 0234 | `<!-- source-page: 0234 -->` |
-| 0235 | `<!-- source-page: 0235 -->` |
-| 0236 | `<!-- source-page: 0236 -->` |
-| 0237 | `<!-- source-page: 0237 -->` |
-| 0238 | `<!-- source-page: 0238 -->` |
-| 0239 | `<!-- source-page: 0239 -->` |
-| 0240 | `<!-- source-page: 0240 -->` |
-| 0241 | `<!-- source-page: 0241 -->` |
-| 0242 | `<!-- source-page: 0242 -->` |
-| 0243 | `<!-- source-page: 0243 -->` |
-| 0244 | `<!-- source-page: 0244 -->` |
-| 0245 | `<!-- source-page: 0245 -->` |
-| 0246 | `<!-- source-page: 0246 -->` |
-| 0247 | `<!-- source-page: 0247 -->` |
-| 0248 | `<!-- source-page: 0248 -->` |
-| 0249 | `<!-- source-page: 0249 -->` |
-| 0250 | `<!-- source-page: 0250 -->` |
-| 0251 | `<!-- source-page: 0251 -->` |
-| 0252 | `<!-- source-page: 0252 -->` |
-| 0253 | `<!-- source-page: 0253 -->` |
-| 0254 | `<!-- source-page: 0254 -->` |
-| 0255 | `<!-- source-page: 0255 -->` |
-| 0256 | `<!-- source-page: 0256 -->` |
-| 0257 | `<!-- source-page: 0257 -->` |
-| 0258 | `<!-- source-page: 0258 -->` |
-| 0259 | `<!-- source-page: 0259 -->` |
-| 0260 | `<!-- source-page: 0260 -->` |
-| 0261 | `<!-- source-page: 0261 -->` |
-| 0262 | `<!-- source-page: 0262 -->` |
-| 0263 | `<!-- source-page: 0263 -->` |
-| 0264 | `<!-- source-page: 0264 -->` |
-| 0265 | `<!-- source-page: 0265 -->` |
-| 0266 | `<!-- source-page: 0266 -->` |
-| 0267 | `<!-- source-page: 0267 -->` |
-| 0268 | `<!-- source-page: 0268 -->` |
-| 0269 | `<!-- source-page: 0269 -->` |
-| 0270 | `<!-- source-page: 0270 -->` |
-| 0271 | `<!-- source-page: 0271 -->` |
-| 0272 | `<!-- source-page: 0272 -->` |
-| 0273 | `<!-- source-page: 0273 -->` |
-| 0274 | `<!-- source-page: 0274 -->` |
+> **Kapsam özeti:** `0219`–`0274` aralığındaki **56/56 kaynak sayfa**
+> doğrulandı; eksik sayfa yoktur.
 
 ## Appendix · Kaynak dışı teknik pekiştirme
 

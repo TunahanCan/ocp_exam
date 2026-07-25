@@ -4,20 +4,41 @@ Bu ünite Java 17 Java Platform Module System (JPMS) konularını; module
 oluşturma/çalıştırma, strong encapsulation, services, discovery tools, module
 türleri ve migration stratejileri boyunca çift dilli ana ders akışıyla ele alır.
 
-## Çalışma kaynakları
+## Amaç ve öğrenme hedefleri
 
-1. **Ana çift dilli ders**
-   - [Markdown kaynağı](bilingual_notes.md)
-   - [PDF çalışma sürümü](bilingual_notes.pdf)
-2. **Teknik hafıza ve karar notları**
-   - [Technical memory notes](technical_memory_notes.md)
-   - [PDF çalışma sürümü](technical_memory_notes.pdf)
-3. **Ünite vocabulary çalışması**
-   - [Markdown kaynağı](vocabulary.md)
-   - [PDF çalışma sürümü](vocabulary.pdf)
-4. **Ünite grammar çalışması**
-   - [Markdown kaynağı](grammar_notes.md)
-   - [PDF çalışma sürümü](grammar_notes.pdf)
+Bu ünitenin sonunda bir module graph'ı readability ve accessibility açısından
+çözebilmen; descriptor directive'lerini doğru role yerleştirebilmen; command,
+service ve migration sorularında named/automatic/unnamed module ayrımını
+uygulayabilmen hedeflenir.
+
+## Hangi belgeyi ne zaman kullanmalıyım?
+
+| İhtiyacın | Kullanacağın belge | Markdown | PDF |
+|---|---|---|---|
+| JPMS konularını English → Türkçe eşleşmesiyle kaynak sırasından öğrenmek | Ana çift dilli ders notu | [Aç](bilingual_notes.md) | [Aç](bilingual_notes.pdf) |
+| Directive, command ve migration kararlarını hızla tekrar etmek | Teknik hafıza notu | [Aç](technical_memory_notes.md) | [Aç](technical_memory_notes.pdf) |
+| Module ve service terimlerini bağlamıyla çalışmak | Vocabulary | [Aç](vocabulary.md) | [Aç](vocabulary.pdf) |
+| Teknik İngilizce yapıları ve YDS ipuçlarını pekiştirmek | Grammar notes | [Aç](grammar_notes.md) | [Aç](grammar_notes.pdf) |
+| Bilgiyi kaynaklar kapalıyken altı soruyla ölçmek | Özgün practice quiz | [Aç](practice_quiz.md) | [Aç](practice_quiz.pdf) |
+| Kaynaktaki bölüm sonu sorularını özgün kod ve seçenekleriyle çözmek | Review Questions | [Sorulara git](bilingual_notes.md#review-questions) | [Ana PDF](bilingual_notes.pdf) |
+
+> Practice quiz içindeki sorular OCP tarzı **özgün çalışma sorularıdır**;
+> gerçek sınavdan alınmış sorular olarak sunulmaz.
+
+## 45–60 dakikalık önerilen çalışma rotası
+
+1. **0–5 dk:** Konu haritasından descriptor/access, services veya migration
+   kümelerinden birini seç.
+2. **5–25 dk:** Ana çift dilli notta seçtiğin English → Türkçe paragraf
+   çiftlerini ve ilgili figure/table'ı çalış.
+3. **25–35 dk:** Teknik hafıza notunda module location → readability →
+   `exports`/`opens` karar sırasını kaynak kapalıyken uygula.
+4. **35–43 dk:** Vocabulary'den 6–8 terimle küçük bir module graph'ı sözlü
+   anlat.
+5. **43–50 dk:** Grammar notes içinden bir condition ve bir passive yapıyı
+   örnekleriyle tekrar et.
+6. **50–60 dk:** [Practice quiz](practice_quiz.md)'i çöz; her yanlış için
+   descriptor, command, readability veya English etiketi koy.
 
 ## Kaynak kapsamı
 
@@ -25,7 +46,7 @@ türleri ve migration stratejileri boyunca çift dilli ana ders akışıyla ele 
   [OCP Java SE 17 PDF](../../OCP_Java_SE17_Chapter1den_Itibaren.pdf)
 - Chapter 12 physical PDF pages: **661–720**
 - Chapter 12 Appendix official answers: **949–951**
-- Chapter gövdesi: **60/60 source marker**
+- Chapter gövdesi: **60/60 kaynak sayfa**
 - Bölüm sonu: Summary, Exam Essentials ve Review Questions **1–25**
 - Appendix: Official Answers **1–25** ve Java 17 gerekçeleri
 - Görsel kaynaklar: **Figure 12.1–12.19** ve **Table 12.1–12.18**
@@ -34,7 +55,10 @@ Physical page 720 chapter'ın son review-question sayfasıdır; Chapter 13 physi
 page 721'de başlar. Appendix page 951'in üst kısmı Chapter 12 Answers 20–25'i,
 alt kısmı Chapter 13 cevaplarını içerir. Ana not yalnız Chapter 12 bölümünü alır.
 
-## Konu haritası
+## Önkoşul ve konu haritası
+
+**Önkoşul:** Package, access modifier, classpath, JAR ve interface/implementation
+ayrımını hatırlamak; temel terminal command sözdizimine aşina olmak yararlıdır.
 
 - JPMS amacı, JAR hell, strong encapsulation ve module graph
 - `module-info.java` konumu, module kaynak düzeni ve modular JAR
@@ -49,6 +73,23 @@ alt kısmı Chapter 13 cevaplarını içerir. Ana not yalnız Chapter 12 bölüm
 - Named, automatic ve unnamed module karşılaştırması
 - `Automatic-Module-Name` ve filename'dan module adı türetme algoritması
 - Bottom-up / top-down migration ve cyclic dependency çözümü
+
+## Hazır mıyım?
+
+- [ ] Classpath ile module path'i ve unnamed/automatic/explicit named module'ü
+  ayırabiliyorum.
+- [ ] `requires`, `requires transitive`, `exports` ve `opens` etkilerini module
+  graph üzerinde gösterebiliyorum.
+- [ ] Service API, consumer ve provider için `uses` / `provides ... with ...`
+  directive'lerini yerleştirebiliyorum.
+- [ ] `javac`, `java`, `jar`, `jdeps` ve `jlink` option'larını doğru araçla
+  eşleştirebiliyorum.
+- [ ] Automatic module adını manifest veya filename kurallarından
+  türetebiliyorum.
+- [ ] Bottom-up ve top-down migration sırasını, cycle çözümüyle birlikte
+  açıklayabiliyorum.
+- [ ] Practice quiz'de en az **5/6** doğru yapıp yanlış seçenekleri
+  gerekçelendirebiliyorum.
 
 ## Figure ve Table envanteri
 

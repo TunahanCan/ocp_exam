@@ -8,20 +8,20 @@ prose soru seçenekleri teknik Türkçeye çevrilir.
 
 [Vocabulary](vocabulary.md) · [Grammar notes](grammar_notes.md)
 
-## Kapsam manifesti
+## Kaynak ve kapsam özeti
 
 | Alan | Değer |
 |---|---|
 | Bölüm | Chapter 6 — Class Design |
 | Kaynak PDF sayfaları | 0275–0344 |
-| Beklenen marker sayısı | 70 |
+| Beklenen kaynak sayfa sayısı | 70 |
 | Korunan içerik | Başlıklar, paragraflar/satırlar, kod, tablolar, şekiller, callout'lar, Summary, Exam Essentials ve Review Questions |
 | Çıkarılan içerik | Yalnız tekrarlanan running header/footer ve sayfa numarası |
-| Kaynak dışı içerik | Belgenin sonundaki açıkça etiketlenmiş teknik pekiştirme appendix'i |
+| Kaynak dışı içerik | Kapsam özetinden ayrı technical memory notes belgesine yönlendirme |
 
 ## İçindekiler
 
-- [Kapsam manifesti](#kapsam-manifesti)
+- [Kaynak ve kapsam özeti](#kaynak-ve-kapsam-özeti)
 - [Kaynak metin ve çeviri](#kaynak-metin-ve-çeviri)
 - [Understanding Inheritance](#understanding-inheritance)
 - [Creating Classes](#creating-classes)
@@ -33,8 +33,7 @@ prose soru seçenekleri teknik Türkçeye çevrilir.
 - [Summary](#summary)
 - [Exam Essentials](#exam-essentials)
 - [Review Questions](#review-questions)
-- [Page coverage ledger](#page-coverage-ledger)
-- [Teknik pekiştirme appendix'i](#appendix--kaynak-dışı-teknik-pekiştirme)
+- [Kapsam doğrulaması](#kapsam-doğrulaması)
 
 ## Kaynak metin ve çeviri
 
@@ -66,9 +65,9 @@ prose soru seçenekleri teknik Türkçeye çevrilir.
 >
 > **Türkçe:** [x] [x] Java Object-Oriented Approach (Java nesne yönelimli yaklaşım) kullanımı
 
-> **English:** ■ ■ ■ ■ ■ ■ Create classes and records, and define and use instance and static fields and methods, constructors, and instance and static initializers Understand variable scopes, use local variable type inference, apply encapsulation, and make objects immutable Implement polymorphism and differentiate object type versus reference type. Perform type casting, identify object types using instanceof operator and pattern matching
+> **English:** Create classes and records, and define and use instance and static fields and methods, constructors, and instance and static initializers Understand variable scopes, use local variable type inference, apply encapsulation, and make objects immutable Implement polymorphism and differentiate object type versus reference type. Perform type casting, identify object types using instanceof operator and pattern matching
 >
-> **Türkçe:** ■ ■ ■ ■ ■ ■ Class'lar ve record'lar oluşturun; instance ve static field'ları, method'ları, constructor'ları ve instance/static initializer'ları tanımlayıp kullanın. Variable scope'ları anlayın, local variable type inference kullanın, encapsulation uygulayın ve object'leri immutable hale getirin. Polymorphism uygulayın; object type ile reference type arasındaki farkı belirleyin. Casting yapın; `instanceof` operator'ü ve pattern matching kullanarak object type'larını saptayın.
+> **Türkçe:** Class'lar ve record'lar oluşturun; instance ve static field'ları, method'ları, constructor'ları ve instance/static initializer'ları tanımlayıp kullanın. Variable scope'ları anlayın, local variable type inference kullanın, encapsulation uygulayın ve object'leri immutable hale getirin. Polymorphism uygulayın; object type ile reference type arasındaki farkı belirleyin. Casting yapın; `instanceof` operator'ü ve pattern matching kullanarak object type'larını saptayın.
 
 <!-- source-page: 0276 -->
 
@@ -891,7 +890,7 @@ this(weight, "brown");
 >
 > **Türkçe:** Artık Java iki parameter alan constructor'ı çağırır ve `weight` ile `color` beklendiği gibi ayarlanır.
 
-#### this vs. this()
+### this vs. this()
 
 > **Türkçe başlık:** `this` ile `this()` karşılaştırması
 
@@ -954,13 +953,13 @@ this(); // DOES NOT COMPILE
 >
 > **Türkçe:** Bu kısımda ele alınan constructor kurallarını şöyle özetleyebiliriz; bunları iyi çalışın:
 
-> **English:** ■ ■ A class can contain many overloaded constructors, provided the signature for each is distinct.
+> **English:** A class can contain many overloaded constructors, provided the signature for each is distinct.
 >
-> **Türkçe:** ■ ■ Her birinin signature'ı farklı olmak koşuluyla bir class birçok overloaded constructor içerebilir.
+> **Türkçe:** Her birinin signature'ı farklı olmak koşuluyla bir class birçok overloaded constructor içerebilir.
 
-> **English:** ■ ■ ■ ■ ■ ■ The compiler inserts a default no-argument constructor if no constructors are declared.
+> **English:** The compiler inserts a default no-argument constructor if no constructors are declared.
 >
-> **Türkçe:** ■ ■ ■ ■ ■ ■ Hiç constructor bildirilmezse compiler default no-argument constructor ekler.
+> **Türkçe:** Hiç constructor bildirilmezse compiler default no-argument constructor ekler.
 
 > **English:** If a constructor calls this(), then it must be the first line of the constructor.
 >
@@ -1024,7 +1023,7 @@ this(4); // Refers to constructor in Zebra with int argument
 
 ## Source page 0293
 
-#### super vs. super()
+### super vs. super()
 
 > **Türkçe başlık:** `super` ile `super()` karşılaştırması
 
@@ -1214,7 +1213,7 @@ public class AfricanElephant extends Elephant {}
 >
 > **Türkçe:** Kural sayısı fazla olsa da sınavda ilk `Seal` ve `Elephant` uygulamalarının neden derlenmediğini hızla görebilmelisiniz.
 
-#### super() Always Refers to the Most Direct Parent
+### super() Always Refers to the Most Direct Parent
 
 > **Türkçe başlık:** `super()` Her Zaman En Yakın Doğrudan Parent'a Referans Verir
 
@@ -1226,17 +1225,17 @@ public class AfricanElephant extends Elephant {}
 >
 > **Türkçe:** Bu kısmı üç constructor kuralıyla tamamlayalım:
 
-> **English:** ■ ■ The first line of every constructor is a call to a parent constructor using super() or an overloaded constructor using this().
+> **English:** The first line of every constructor is a call to a parent constructor using super() or an overloaded constructor using this().
 >
-> **Türkçe:** ■ ■ Her constructor'ın first statement'ı `super()` ile parent constructor'a veya `this()` ile overloaded constructor'a yapılan çağrıdır.
+> **Türkçe:** Her constructor'ın first statement'ı `super()` ile parent constructor'a veya `this()` ile overloaded constructor'a yapılan çağrıdır.
 
-> **English:** ■ ■ If the constructor does not contain a this() or super() reference, then the compiler automatically inserts super() with no arguments as the first line of the constructor.
+> **English:** If the constructor does not contain a this() or super() reference, then the compiler automatically inserts super() with no arguments as the first line of the constructor.
 >
-> **Türkçe:** ■ ■ Constructor açık bir `this()` veya `super()` çağrısı içermiyorsa compiler, first statement olarak no-argument `super()` çağrısı ekler.
+> **Türkçe:** Constructor açık bir `this()` veya `super()` çağrısı içermiyorsa compiler, first statement olarak no-argument `super()` çağrısı ekler.
 
-> **English:** ■ ■ If a constructor calls super(), then it must be the first line of the constructor.
+> **English:** If a constructor calls super(), then it must be the first line of the constructor.
 >
-> **Türkçe:** ■ ■ Constructor `super()` çağırıyorsa çağrı first statement olmalıdır.
+> **Türkçe:** Constructor `super()` çağırıyorsa çağrı first statement olmalıdır.
 
 > **English:** Congratulations: you’ve learned everything we can teach you about declaring constructors. Next, we move on to initialization and discuss how to use constructors.
 >
@@ -1689,25 +1688,25 @@ new Chimpanzee();
 >
 > **Türkçe:** Sınav için bilmeniz gereken önemli kuralları sıralayarak bu bölümü sonlandırıyoruz:
 
-> **English:** ■ ■ ■ ■ A class is initialized at most once by the JVM before it is referenced or used.
+> **English:** A class is initialized at most once by the JVM before it is referenced or used.
 >
-> **Türkçe:** ■ ■ ■ ■ Bir class, kendisine reference verilmeden veya kullanılmadan önce JVM tarafından en fazla bir kez initialize edilir.
+> **Türkçe:** Bir class, kendisine reference verilmeden veya kullanılmadan önce JVM tarafından en fazla bir kez initialize edilir.
 
 > **English:** All static final variables must be assigned a value exactly once, either when they are declared or in a static initializer.
 >
 > **Türkçe:** Bütün `static final` variable'lara declaration sırasında veya static initializer'da exactly once değer atanmalıdır.
 
-> **English:** ■ ■ All final fields must be assigned a value exactly once, either when they are declared, in an instance initializer, or in a constructor.
+> **English:** All final fields must be assigned a value exactly once, either when they are declared, in an instance initializer, or in a constructor.
 >
-> **Türkçe:** ■ ■ Bütün `final` field'lara declaration'da, instance initializer'da veya constructor'da exactly once değer atanmalıdır.
+> **Türkçe:** Bütün `final` field'lara declaration'da, instance initializer'da veya constructor'da exactly once değer atanmalıdır.
 
-> **English:** ■ ■ Non-final static and instance variables defined without a value are assigned a default value based on their type.
+> **English:** Non-final static and instance variables defined without a value are assigned a default value based on their type.
 >
-> **Türkçe:** ■ ■ Explicit value verilmeden tanımlanan `final` olmayan static ve instance variable'lara type'larına göre default value atanır.
+> **Türkçe:** Explicit value verilmeden tanımlanan `final` olmayan static ve instance variable'lara type'larına göre default value atanır.
 
-> **English:** ■ ■ Order of initialization is as follows: variable declarations, then initializers, and finally constructors.
+> **English:** Order of initialization is as follows: variable declarations, then initializers, and finally constructors.
 >
-> **Türkçe:** ■ ■ Initialization order: variable declaration'ları, initializer'lar ve son olarak constructor'lar.
+> **Türkçe:** Initialization order: variable declaration'ları, initializer'lar ve son olarak constructor'lar.
 
 ### Inheriting Members
 
@@ -2302,9 +2301,9 @@ w.bark(); // Squeak!
 }
 ```
 
-> **English:** ■ ■ ■ ■ ■ ■ ■ ■ Easy so far. But there are some rules you need to be aware of: Only instance methods can be marked abstract within a class, not variables, constructors, or static methods.
+> **English:** Easy so far. But there are some rules you need to be aware of: Only instance methods can be marked abstract within a class, not variables, constructors, or static methods.
 >
-> **Türkçe:** ■ ■ ■ ■ ■ ■ ■ ■ Şimdi temel kurallar: Bir class içinde yalnızca instance method'lar `abstract` olabilir; variable, constructor ve static method `abstract` olamaz.
+> **Türkçe:** Şimdi temel kurallar: Bir class içinde yalnızca instance method'lar `abstract` olabilir; variable, constructor ve static method `abstract` olamaz.
 
 > **English:** An abstract method can only be declared in an abstract class.
 >
@@ -2979,8 +2978,6 @@ this.favoriteFoods = new ArrayList<String>(favoriteFoods);
 
 <!-- source-page: 0330 -->
 
-## Source page 0330
-
 ### Review Questions
 
 **Türkçe başlık:** Review Soruları
@@ -2988,6 +2985,8 @@ this.favoriteFoods = new ArrayList<String>(favoriteFoods);
 > **English:** The answers to the chapter review questions can be found in the Appendix.
 >
 > **Türkçe:** Chapter review sorularının cevaplarını Appendix'te bulabilirsiniz.
+
+### Question 1 / Soru 1
 
 > **English:** 1. Which code can be inserted to have the code print 2?
 >
@@ -3039,6 +3038,8 @@ System.out.print(seed.numberBags);
 >
 > **Türkçe:** G. Kod hiçbir değişiklik yapılmadan `2` yazdırır.
 
+### Question 2 / Soru 2
+
 > **English:** 2. Which modifier pairs can be used together in a method declaration? (Choose all that apply.)
 >
 > **Türkçe:** 2. Bir method declaration'ında hangi modifier çiftleri birlikte kullanılabilir? (Uygun olanların tümünü seçin.)
@@ -3069,7 +3070,7 @@ System.out.print(seed.numberBags);
 
 <!-- source-page: 0331 -->
 
-## Source page 0331
+### Question 3 / Soru 3
 
 > **English:** 3. Which of the following statements about methods are true? (Choose all that apply.)
 >
@@ -3099,27 +3100,26 @@ System.out.print(seed.numberBags);
 >
 > **Türkçe:** F. Hidden method'lar aynı return type'a sahip olmalıdır.
 
+### Question 4 / Soru 4
+
 > **English:** 4. What is the output of the following program?
 >
 > **Türkçe:** 4. Aşağıdaki programın çıktısı nedir?
 
 ```java
 1: class Mammal {
-2: private void sneeze() {}
-3: public Mammal(int age) {
-4: System.out.print("Mammal");
-5: } }
-```
-
-```java
+2:     private void sneeze() {}
+3:     public Mammal(int age) {
+4:         System.out.print("Mammal");
+5:     } }
 6: public class Platypus extends Mammal {
-7: int sneeze() { return 1; }
-8: public Platypus() {
-9: System.out.print("Platypus");
-10: }
-11: public static void main(String[] args) {
-12: new Mammal(5);
-13: } }
+7:     int sneeze() { return 1; }
+8:     public Platypus() {
+9:         System.out.print("Platypus");
+10:    }
+11:    public static void main(String[] args) {
+12:        new Mammal(5);
+13:    } }
 ```
 
 > **English:** A. Platypus
@@ -3146,32 +3146,31 @@ System.out.print(seed.numberBags);
 >
 > **Türkçe:** F. Line 9 değiştirilirse kod derlenir.
 
+### Question 5 / Soru 5
+
 > **English:** 5. Which of the following complete the constructor so that this code prints out 50? (Choose all that apply.)
 >
 > **Türkçe:** 5. Aşağıdakilerden hangileri constructor'ı tamamlayarak kodun `50` yazdırmasını sağlar? (Uygun olanların tümünü seçin.)
 
 ```java
 class Speedster {
-int numSpots;
+    int numSpots;
 }
 public class Cheetah extends Speedster {
-int numSpots;
-public Cheetah(int numSpots) {
-// INSERT CODE HERE
+    int numSpots;
+
+    public Cheetah(int numSpots) {
+        // INSERT CODE HERE
+    }
+
+    public static void main(String[] args) {
+        Speedster s = new Cheetah(50);
+        System.out.print(s.numSpots);
+    }
 }
 ```
 
 <!-- source-page: 0332 -->
-
-## Source page 0332
-
-```java
-public static void main(String[] args) {
-Speedster s = new Cheetah(50);
-System.out.print(s.numSpots);
-}
-}
-```
 
 > **English:** A. numSpots = numSpots;
 >
@@ -3200,6 +3199,8 @@ System.out.print(s.numSpots);
 > **English:** G. None of the above
 >
 > **Türkçe:** G. Yukarıdakilerin hiçbiri
+
+### Question 6 / Soru 6
 
 > **English:** 6. Which of the following declare immutable classes? (Choose all that apply.)
 >
@@ -3247,7 +3248,7 @@ private final Object o = new Object();
 
 <!-- source-page: 0333 -->
 
-## Source page 0333
+### Question 7 / Soru 7
 
 > **English:** 7. What is the output of the following code?
 >
@@ -3255,25 +3256,22 @@ private final Object o = new Object();
 
 ```java
 1: class Arthropod {
-2: protected void printName(long input) {
-3: System.out.print("Arthropod");
-4: }
-5: void printName(int input) {
-6: System.out.print("Spooky");
-7: } }
-```
-
-```java
+2:     protected void printName(long input) {
+3:         System.out.print("Arthropod");
+4:     }
+5:     void printName(int input) {
+6:         System.out.print("Spooky");
+7:     } }
 8: public class Spider extends Arthropod {
-9: protected void printName(int input) {
-10: System.out.print("Spider");
-11: }
-12: public static void main(String[] args) {
-13: Arthropod a = new Spider();
-14: a.printName((short)4);
-15: a.printName(4);
-16: a.printName(5L);
-17: } }
+9:     protected void printName(int input) {
+10:        System.out.print("Spider");
+11:    }
+12:    public static void main(String[] args) {
+13:        Arthropod a = new Spider();
+14:        a.printName((short)4);
+15:        a.printName(4);
+16:        a.printName(5L);
+17:    } }
 ```
 
 > **English:** A. SpiderSpiderArthropod
@@ -3304,6 +3302,8 @@ private final Object o = new Object();
 >
 > **Türkçe:** G. Yukarıdakilerin hiçbiri
 
+### Question 8 / Soru 8
+
 > **English:** 8. What is the result of the following code?
 >
 > **Türkçe:** 8. Aşağıdaki kodun sonucu nedir?
@@ -3311,10 +3311,10 @@ private final Object o = new Object();
 ```java
 1: abstract class Bird {
 2: private final void fly() { System.out.println("Bird"); }
-3: protected Bird() { System.out.print("Wow- "); }
+3: protected Bird() { System.out.print("Wow-"); }
 4: }
 5: public class Pelican extends Bird {
-6: public Pelican() { System.out.print("Oh- "); }
+6: public Pelican() { System.out.print("Oh-"); }
 7: protected void fly() { System.out.println("Pelican"); }
 8: public static void main(String[] args) {
 9: var chirp = new Pelican();
@@ -3324,23 +3324,21 @@ private final Object o = new Object();
 
 <!-- source-page: 0334 -->
 
-## Source page 0334
-
-> **English:** A. Oh- Bird
+> **English:** A. Oh-Bird
 >
-> **Türkçe:** A. Oh- Bird
+> **Türkçe:** A. Oh-Bird
 
-> **English:** B. Oh- Pelican
+> **English:** B. Oh-Pelican
 >
-> **Türkçe:** B. Oh- Pelican
+> **Türkçe:** B. Oh-Pelican
 
-> **English:** C. Wow- Oh- Bird
+> **English:** C. Wow-Oh-Bird
 >
-> **Türkçe:** C. Wow- Oh- Bird
+> **Türkçe:** C. Wow-Oh-Bird
 
-> **English:** D. Wow- Oh- Pelican
+> **English:** D. Wow-Oh-Pelican
 >
-> **Türkçe:** D. Wow- Oh- Pelican
+> **Türkçe:** D. Wow-Oh-Pelican
 
 > **English:** E. The code contains a compilation error.
 >
@@ -3349,6 +3347,8 @@ private final Object o = new Object();
 > **English:** F. None of the above
 >
 > **Türkçe:** F. Yukarıdakilerin hiçbiri
+
+### Question 9 / Soru 9
 
 > **English:** 9. Which of the following statements about overridden methods are true? (Choose all that apply.)
 >
@@ -3378,6 +3378,8 @@ private final Object o = new Object();
 >
 > **Türkçe:** F. Yukarıdakilerin hiçbiri
 
+### Question 10 / Soru 10
+
 > **English:** 10. Which of the following pairs, when inserted into the blanks, allow the code to compile? (Choose all that apply.)
 >
 > **Türkçe:** 10. Aşağıdaki çiftlerden hangileri boşluklara eklendiğinde kodun derlenmesini sağlar? (Uygun olanların tümünü seçin.)
@@ -3385,7 +3387,7 @@ private final Object o = new Object();
 ```java
 1: public class Howler {
 2: public Howler(long shadow) {
-3: ;
+3: ____________;
 4: }
 5: private Howler(int moon) {
 6: super();
@@ -3396,7 +3398,7 @@ private final Object o = new Object();
 11: super(2L);
 12: }
 13: public Wolf() {
-14: ;
+14: ____________;
 15: }
 16: }
 ```
@@ -3419,8 +3421,6 @@ private final Object o = new Object();
 
 <!-- source-page: 0335 -->
 
-## Source page 0335
-
 > **English:** E. this(2L) at line 3, super((short)2) at line 14
 >
 > **Türkçe:** E. Line 3'te `this(2L)`, line 14'te `super((short)2)`
@@ -3432,6 +3432,8 @@ private final Object o = new Object();
 > **English:** G. Remove lines 3 and 14.
 >
 > **Türkçe:** G. Line 3 ve 14'ü kaldırın.
+
+### Question 11 / Soru 11
 
 > **English:** 11. What is the result of the following?
 >
@@ -3487,31 +3489,28 @@ private final Object o = new Object();
 >
 > **Türkçe:** G. Bir exception fırlatılır.
 
+### Question 12 / Soru 12
+
 > **English:** 12. How many lines of the following program contain a compilation error?
 >
 > **Türkçe:** 12. Aşağıdaki programın kaç satırında compilation error vardır?
 
 ```java
 1: public class Rodent {
-2: public Rodent(Integer x) {}
-3: protected static Integer chew() throws Exception {
-4: System.out.println("Rodent is chewing");
-5: return 1;
-6: }
+2:     public Rodent(Integer x) {}
+3:     protected static Integer chew() throws Exception {
+4:         System.out.println("Rodent is chewing");
+5:         return 1;
+6:     }
 7: }
+8: class Beaver extends Rodent {
+9:     public Number chew() throws RuntimeException {
+10:        System.out.println("Beaver is chewing on wood");
+11:        return 2;
+12:    } }
 ```
 
 <!-- source-page: 0336 -->
-
-## Source page 0336
-
-```java
-8: class Beaver extends Rodent {
-9: public Number chew() throws RuntimeException {
-10: System.out.println("Beaver is chewing on wood");
-11: return 2;
-12: } }
-```
 
 > **English:** A. None
 >
@@ -3536,6 +3535,8 @@ private final Object o = new Object();
 > **English:** F. 5
 >
 > **Türkçe:** F. 5
+
+### Question 13 / Soru 13
 
 > **English:** 13. Which of these classes compile and will include a default constructor created by the compiler? (Choose all that apply.)
 >
@@ -3601,8 +3602,6 @@ private Bird(int age) {}
 
 <!-- source-page: 0337 -->
 
-## Source page 0337
-
 > **English:** G.
 >
 > **Türkçe:** G.
@@ -3612,6 +3611,8 @@ public class Bird {
 public Bird bird() { return null; }
 }
 ```
+
+### Question 14 / Soru 14
 
 > **English:** 14. Which of the following statements about inheritance are correct? (Choose all that apply.)
 >
@@ -3640,6 +3641,8 @@ public Bird bird() { return null; }
 > **English:** F. Multiple inheritance is the property of a class to have multiple direct superclasses.
 >
 > **Türkçe:** F. Multiple inheritance, bir class'ın birden fazla doğrudan superclass'a sahip olması özelliğidir.
+
+### Question 15 / Soru 15
 
 > **English:** 15. Which statements about the following program are correct? (Choose all that apply.)
 >
@@ -3685,37 +3688,34 @@ public Bird bird() { return null; }
 >
 > **Türkçe:** G. Yukarıdakilerin hiçbiri
 
+### Question 16 / Soru 16
+
 > **English:** 16. What is the result of the following?
 >
 > **Türkçe:** 16. Aşağıdakilerin sonucu nedir?
 
 ```java
 1: class Arachnid {
-2: static StringBuilder sb = new StringBuilder();
-3: { sb.append("c"); }
-4: static
-5: { sb.append("u"); }
-6: { sb.append("r"); }
+2:     static StringBuilder sb = new StringBuilder();
+3:     { sb.append("c"); }
+4:     static
+5:     { sb.append("u"); }
+6:     { sb.append("r"); }
 7: }
+8: public class Scorpion extends Arachnid {
+9:     static
+10:    { sb.append("q"); }
+11:    { sb.append("m"); }
+12:    public static void main(String[] args) {
+13:        System.out.print(Scorpion.sb + " ");
+14:        System.out.print(Scorpion.sb + " ");
+15:        new Arachnid();
+16:        new Scorpion();
+17:        System.out.print(Scorpion.sb);
+18:    } }
 ```
 
 <!-- source-page: 0338 -->
-
-## Source page 0338
-
-```java
-8: public class Scorpion extends Arachnid {
-9: static
-10: { sb.append("q"); }
-11: { sb.append("m"); }
-12: public static void main(String[] args) {
-13: System.out.print(Scorpion.sb + " ");
-14: System.out.print(Scorpion.sb + " ");
-15: new Arachnid();
-16: new Scorpion();
-17: System.out.print(Scorpion.sb);
-18: } }
-```
 
 > **English:** A. qu qu qumrcrc
 >
@@ -3745,6 +3745,8 @@ public Bird bird() { return null; }
 >
 > **Türkçe:** G. Kod derlenmez.
 
+### Question 17 / Soru 17
+
 > **English:** 17. Which of the following are true? (Choose all that apply.)
 >
 > **Türkçe:** 17. Aşağıdakilerden hangileri doğrudur? (Uygun olanların tümünü seçin.)
@@ -3773,32 +3775,29 @@ public Bird bird() { return null; }
 >
 > **Türkçe:** F. Aynı class içindeki `main()` method'u ile `private` constructor'a erişilebilir.
 
+### Question 18 / Soru 18
+
 > **English:** 18. Which statements about the following classes are correct? (Choose all that apply.)
 >
 > **Türkçe:** 18. Aşağıdaki class'larla ilgili hangi ifadeler doğrudur? (Uygun olanların tümünü seçin.)
 
 ```java
 1: public class Mammal {
-2: private void eat() {}
-3: protected static void drink() {}
-4: public Integer dance(String p) { return null; }
+2:     private void eat() {}
+3:     protected static void drink() {}
+4:     public Integer dance(String p) { return null; }
 5: }
 6: class Primate extends Mammal {
-7: public void eat(String p) {}
+7:     public void eat(String p) {}
 8: }
 9: class Monkey extends Primate {
+10:    public static void drink() throws RuntimeException {}
+11:    public Number dance(CharSequence p) { return null; }
+12:    public int eat(String p) {}
+13: }
 ```
 
 <!-- source-page: 0339 -->
-
-## Source page 0339
-
-```java
-10: public static void drink() throws RuntimeException {}
-11: public Number dance(CharSequence p) { return null; }
-12: public int eat(String p) {}
-13: }
-```
 
 > **English:** A. The eat() method in Mammal is correctly overridden on line 7.
 >
@@ -3831,6 +3830,8 @@ public Bird bird() { return null; }
 > **English:** H. The eat() method in Primate is correctly overloaded on line 12.
 >
 > **Türkçe:** H. `Primate` içindeki `eat()` method'u line 12'de doğru biçimde overload edilmiştir.
+
+### Question 19 / Soru 19
 
 > **English:** 19. What is the output of the following code?
 >
@@ -3881,7 +3882,7 @@ public Bird bird() { return null; }
 
 <!-- source-page: 0340 -->
 
-## Source page 0340
+### Question 20 / Soru 20
 
 > **English:** 20. Which statement about the following program is correct?
 >
@@ -3934,6 +3935,8 @@ public Bird bird() { return null; }
 >
 > **Türkçe:** F. Program derlenir ve `0` yazdırır.
 
+### Question 21 / Soru 21
+
 > **English:** 21. Which of the following are properties of immutable classes? (Choose all that apply.)
 >
 > **Türkçe:** 21. Aşağıdakilerden hangileri immutable class özellikleridir? (Uygun olanların tümünü seçin.)
@@ -3968,7 +3971,7 @@ public Bird bird() { return null; }
 
 <!-- source-page: 0341 -->
 
-## Source page 0341
+### Question 22 / Soru 22
 
 > **English:** 22. What does the following program print?
 >
@@ -4016,49 +4019,46 @@ public Bird bird() { return null; }
 >
 > **Türkçe:** F. Yukarıdakilerin hiçbiri
 
+### Question 23 / Soru 23
+
 > **English:** 23. What is the output of the following program?
 >
 > **Türkçe:** 23. Aşağıdaki programın çıktısı nedir?
 
 ```java
 1: class Canine {
-2: public Canine(boolean t) { logger.append("a"); }
-3: public Canine() { logger.append("q"); }
+2:     public Canine(boolean t) { logger.append("a"); }
+3:     public Canine() { logger.append("q"); }
 4:
-5: private StringBuilder logger = new StringBuilder();
-6: protected void print(String v) { logger.append(v); }
-7: protected String view() { return logger.toString(); }
+5:     private StringBuilder logger = new StringBuilder();
+6:     protected void print(String v) { logger.append(v); }
+7:     protected String view() { return logger.toString(); }
 8: }
 9:
 10: class Fox extends Canine {
-11: public Fox(long x) { print("p"); }
-12: public Fox(String name) {
-13: this(2);
-14: print("z");
-15: }
-```
-
-<!-- source-page: 0342 -->
-
-## Source page 0342
-
-```java
+11:    public Fox(long x) { print("p"); }
+12:    public Fox(String name) {
+13:        this(2);
+14:        print("z");
+15:    }
 16: }
 17:
 18: public class Fennec extends Fox {
-19: public Fennec(int e) {
-20: super("tails");
-21: print("j");
-22: }
-23: public Fennec(short f) {
-24: super("eevee");
-25: print("m");
-26: }
+19:    public Fennec(int e) {
+20:        super("tails");
+21:        print("j");
+22:    }
+23:    public Fennec(short f) {
+24:        super("eevee");
+25:        print("m");
+26:    }
 27:
-28: public static void main(String... unused) {
-29: System.out.println(new Fennec(1).view());
-30: } }
+28:    public static void main(String... unused) {
+29:        System.out.println(new Fennec(1).view());
+30:    } }
 ```
+
+<!-- source-page: 0342 -->
 
 > **English:** A. qpz
 >
@@ -4088,37 +4088,34 @@ public Bird bird() { return null; }
 >
 > **Türkçe:** G. Yukarıdakilerin hiçbiri
 
+### Question 24 / Soru 24
+
 > **English:** 24. What is printed by the following program?
 >
 > **Türkçe:** 24. Aşağıdaki program ne yazdırır?
 
 ```java
 1: class Antelope {
-2: public Antelope(int p) {
-3: System.out.print("4");
-4: }
-5: { System.out.print("2"); }
-6: static { System.out.print("1"); }
+2:     public Antelope(int p) {
+3:         System.out.print("4");
+4:     }
+5:     { System.out.print("2"); }
+6:     static { System.out.print("1"); }
 7: }
 8: public class Gazelle extends Antelope {
-9: public Gazelle(int p) {
-10: super(6);
-11: System.out.print("3");
-12: }
+9:     public Gazelle(int p) {
+10:        super(6);
+11:        System.out.print("3");
+12:    }
+13:    public static void main(String hopping[]) {
+14:        new Gazelle(0);
+15:    }
+16:    static { System.out.print("8"); }
+17:    { System.out.print("9"); }
+18: }
 ```
 
 <!-- source-page: 0343 -->
-
-## Source page 0343
-
-```java
-13: public static void main(String hopping[]) {
-14: new Gazelle(0);
-15: }
-16: static { System.out.print("8"); }
-17: { System.out.print("9"); }
-18: }
-```
 
 > **English:** A. 182640
 >
@@ -4144,6 +4141,8 @@ public Bird bird() { return null; }
 >
 > **Türkçe:** F. Çıktı runtime'a kadar belirlenemez.
 
+### Question 25 / Soru 25
+
 > **English:** 25. Which of the following are true about a concrete class? (Choose all that apply.)
 >
 > **Türkçe:** 25. Concrete class ile ilgili aşağıdakilerden hangileri doğrudur? (Uygun olanların tümünü seçin.)
@@ -4168,6 +4167,8 @@ public Bird bird() { return null; }
 >
 > **Türkçe:** E. Abstract method'u implement eden concrete method, abstract method'un declaration'ıyla tamamen eşleşmelidir.
 
+### Question 26 / Soru 26
+
 > **English:** 26. What is the output of the following code?
 >
 > **Türkçe:** 26. Aşağıdaki kodun çıktısı nedir?
@@ -4191,8 +4192,6 @@ public Bird bird() { return null; }
 ```
 
 <!-- source-page: 0344 -->
-
-## Source page 0344
 
 > **English:** A. Orca diving
 >
@@ -4226,82 +4225,8 @@ public Bird bird() { return null; }
 >
 > **Türkçe:** H. Yukarıdakilerin hiçbiri
 
-## Page coverage ledger
+## Kapsam doğrulaması
 
-| Source page | Marker |
-|---:|:---:|
-| 0275 | `<!-- source-page: 0275 -->` |
-| 0276 | `<!-- source-page: 0276 -->` |
-| 0277 | `<!-- source-page: 0277 -->` |
-| 0278 | `<!-- source-page: 0278 -->` |
-| 0279 | `<!-- source-page: 0279 -->` |
-| 0280 | `<!-- source-page: 0280 -->` |
-| 0281 | `<!-- source-page: 0281 -->` |
-| 0282 | `<!-- source-page: 0282 -->` |
-| 0283 | `<!-- source-page: 0283 -->` |
-| 0284 | `<!-- source-page: 0284 -->` |
-| 0285 | `<!-- source-page: 0285 -->` |
-| 0286 | `<!-- source-page: 0286 -->` |
-| 0287 | `<!-- source-page: 0287 -->` |
-| 0288 | `<!-- source-page: 0288 -->` |
-| 0289 | `<!-- source-page: 0289 -->` |
-| 0290 | `<!-- source-page: 0290 -->` |
-| 0291 | `<!-- source-page: 0291 -->` |
-| 0292 | `<!-- source-page: 0292 -->` |
-| 0293 | `<!-- source-page: 0293 -->` |
-| 0294 | `<!-- source-page: 0294 -->` |
-| 0295 | `<!-- source-page: 0295 -->` |
-| 0296 | `<!-- source-page: 0296 -->` |
-| 0297 | `<!-- source-page: 0297 -->` |
-| 0298 | `<!-- source-page: 0298 -->` |
-| 0299 | `<!-- source-page: 0299 -->` |
-| 0300 | `<!-- source-page: 0300 -->` |
-| 0301 | `<!-- source-page: 0301 -->` |
-| 0302 | `<!-- source-page: 0302 -->` |
-| 0303 | `<!-- source-page: 0303 -->` |
-| 0304 | `<!-- source-page: 0304 -->` |
-| 0305 | `<!-- source-page: 0305 -->` |
-| 0306 | `<!-- source-page: 0306 -->` |
-| 0307 | `<!-- source-page: 0307 -->` |
-| 0308 | `<!-- source-page: 0308 -->` |
-| 0309 | `<!-- source-page: 0309 -->` |
-| 0310 | `<!-- source-page: 0310 -->` |
-| 0311 | `<!-- source-page: 0311 -->` |
-| 0312 | `<!-- source-page: 0312 -->` |
-| 0313 | `<!-- source-page: 0313 -->` |
-| 0314 | `<!-- source-page: 0314 -->` |
-| 0315 | `<!-- source-page: 0315 -->` |
-| 0316 | `<!-- source-page: 0316 -->` |
-| 0317 | `<!-- source-page: 0317 -->` |
-| 0318 | `<!-- source-page: 0318 -->` |
-| 0319 | `<!-- source-page: 0319 -->` |
-| 0320 | `<!-- source-page: 0320 -->` |
-| 0321 | `<!-- source-page: 0321 -->` |
-| 0322 | `<!-- source-page: 0322 -->` |
-| 0323 | `<!-- source-page: 0323 -->` |
-| 0324 | `<!-- source-page: 0324 -->` |
-| 0325 | `<!-- source-page: 0325 -->` |
-| 0326 | `<!-- source-page: 0326 -->` |
-| 0327 | `<!-- source-page: 0327 -->` |
-| 0328 | `<!-- source-page: 0328 -->` |
-| 0329 | `<!-- source-page: 0329 -->` |
-| 0330 | `<!-- source-page: 0330 -->` |
-| 0331 | `<!-- source-page: 0331 -->` |
-| 0332 | `<!-- source-page: 0332 -->` |
-| 0333 | `<!-- source-page: 0333 -->` |
-| 0334 | `<!-- source-page: 0334 -->` |
-| 0335 | `<!-- source-page: 0335 -->` |
-| 0336 | `<!-- source-page: 0336 -->` |
-| 0337 | `<!-- source-page: 0337 -->` |
-| 0338 | `<!-- source-page: 0338 -->` |
-| 0339 | `<!-- source-page: 0339 -->` |
-| 0340 | `<!-- source-page: 0340 -->` |
-| 0341 | `<!-- source-page: 0341 -->` |
-| 0342 | `<!-- source-page: 0342 -->` |
-| 0343 | `<!-- source-page: 0343 -->` |
-| 0344 | `<!-- source-page: 0344 -->` |
-
-## Appendix · Kaynak dışı teknik pekiştirme
-
-Kaynak bölümün çevirisine ait olmayan önceki OCP pekiştirme içeriği ayrı ana
-kaynakta korunmuştur: [Unit 06 technical memory notes](technical_memory_notes.md).
+> **Kapsam özeti:** `0275`–`0344` aralığındaki **70/70 kaynak sayfa**
+> doğrulandı; eksik sayfa yoktur. Kaynak dışı OCP pekiştirmesi ayrı
+> [technical memory notes](technical_memory_notes.md) belgesinde korunur.

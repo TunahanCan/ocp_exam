@@ -1,5 +1,24 @@
 # Unit 05 Grammar Notes · Methods
 
+## Bu belge nasıl kullanılmalı?
+
+Bu kaynağı [README'deki çalışma rotasının](README.md#4560-dakikalık-önerilen-çalışma-rotası)
+**35–45. dakikalarında** her yapı için aynı dört adımla çalış:
+
+1. **Formula:** Başlıktaki kalıbı ve word order'ı belirle; değişmeyen parçaları
+   (`if + passive`, `provided that + clause` gibi) işaretle.
+2. **Çeviri:** Türkçe satırı kapatıp English örneği doğal biçimde çevir; sonra
+   verilen çeviriyle anlam ilişkisini karşılaştır.
+3. **Common mistake:** Koşul, neden, karşıtlık veya zaman ilişkisinin ters
+   çevrilip çevrilmediğini kontrol et; özellikle `unless`, `even though` ve
+   `not until` yapılarına dikkat et.
+4. **Quiz:** [Mini quiz](#mini-quiz) sorularını notsuz çöz; ardından aynı kalıpla
+   kendi method cümleni yaz.
+
+> **Self-check:** Yalnız kalıbın adını söylemek yetmez. Yapının cümlede hangi
+> anlam ilişkisini kurduğunu ve Java kuralını nasıl değiştirmeden aktardığını da
+> açıklayabilmelisin.
+
 ## 1. `which lines ...?`
 
 **EN:** Which lines in the method generate a compiler error?
@@ -78,6 +97,8 @@ sonrasında clause gelir.
 
 Tercih veya karşılaştırma formülü: `X rather than Y` → “Y yerine X”.
 Paralel yapıyı koruyun: noun–noun, verb–verb veya clause–clause.
+
+<!-- page-break -->
 
 ## 12. `whether + clause` ile dolaylı soru
 

@@ -5,20 +5,41 @@ collection, liveness problem'ları ve parallel stream konularını çift dilli a
 ders akışı; teknik hafıza, vocabulary ve grammar materyalleriyle birlikte ele
 alır.
 
-## Çalışma kaynakları
+## Amaç ve öğrenme hedefleri
 
-1. **Ana çift dilli ders**
-   - [Markdown kaynağı](bilingual_notes.md)
-   - [PDF çalışma sürümü](bilingual_notes.pdf)
-2. **Teknik hafıza ve karar notları**
-   - [Technical memory notes](technical_memory_notes.md)
-   - [PDF çalışma sürümü](technical_memory_notes.pdf)
-3. **Ünite vocabulary çalışması**
-   - [Markdown kaynağı](vocabulary.md)
-   - [PDF çalışma sürümü](vocabulary.pdf)
-4. **Ünite grammar çalışması**
-   - [Markdown kaynağı](grammar_notes.md)
-   - [PDF çalışma sürümü](grammar_notes.pdf)
+Bu ünitenin sonunda task execution ve lifecycle akışını izleyebilmen; shared
+state için visibility, atomicity ve mutual exclusion gereksinimlerini
+ayırabilmen; concurrent collection, liveness ve parallel reduction sorularında
+garanti edilen sonuçla possible sonucu ayırt edebilmen hedeflenir.
+
+## Hangi belgeyi ne zaman kullanmalıyım?
+
+| İhtiyacın | Kullanacağın belge | Markdown | PDF |
+|---|---|---|---|
+| Concurrency konularını English → Türkçe eşleşmesiyle kaynak sırasından öğrenmek | Ana çift dilli ders notu | [Aç](bilingual_notes.md) | [Aç](bilingual_notes.pdf) |
+| Thread, executor, lock ve parallel stream kararlarını hızla tekrar etmek | Teknik hafıza notu | [Aç](technical_memory_notes.md) | [Aç](technical_memory_notes.pdf) |
+| Concurrency terimlerini teknik bağlamıyla çalışmak | Vocabulary | [Aç](vocabulary.md) | [Aç](vocabulary.pdf) |
+| Teknik İngilizce yapıları ve YDS ipuçlarını pekiştirmek | Grammar notes | [Aç](grammar_notes.md) | [Aç](grammar_notes.pdf) |
+| Bilgiyi kaynaklar kapalıyken altı soruyla ölçmek | Özgün practice quiz | [Aç](practice_quiz.md) | [Aç](practice_quiz.pdf) |
+| Kaynaktaki bölüm sonu sorularını özgün kod ve seçenekleriyle çözmek | Review Questions | [Sorulara git](bilingual_notes.md#review-questions) | [Ana PDF](bilingual_notes.pdf) |
+
+> Practice quiz içindeki sorular OCP tarzı **özgün çalışma sorularıdır**;
+> gerçek sınavdan alınmış sorular olarak sunulmaz.
+
+## 45–60 dakikalık önerilen çalışma rotası
+
+1. **0–5 dk:** Konu haritasından executor, shared state veya parallel stream
+   kümelerinden birini seç.
+2. **5–25 dk:** Ana çift dilli notta ilgili English → Türkçe blokları ve kodları
+   oku; her kod için result category'yi önceden söyle.
+3. **25–35 dk:** Teknik hafıza notunda lifecycle, lock veya reduction karar
+   kartını kaynak kapalıyken yeniden kur.
+4. **35–43 dk:** Vocabulary'den 6–8 terimi birbirleriyle ilişkilendirerek kısa
+   bir concurrency senaryosu anlat.
+5. **43–50 dk:** Grammar notes içinden concession veya cause/result yapısını
+   örnekleriyle çözümle.
+6. **50–60 dk:** [Practice quiz](practice_quiz.md)'i cevap anahtarı kapalıyken
+   çöz; yanlışını compile, runtime, nondeterminism veya English etiketiyle yaz.
 
 ## Kaynak kapsamı
 
@@ -28,8 +49,8 @@ alır.
 - Chapter içerik sayfaları: **721–783**
 - Physical page 784: **boş chapter separator**
 - Chapter 13 Appendix official answers: **951–955**
-- Chapter gövdesi: **64/64 source marker**
-- Appendix: **5/5 appendix source marker**
+- Chapter gövdesi: **64/64 kaynak sayfa**
+- Appendix: **5/5 cevap kaynağı sayfası**
 - Bölüm sonu: Summary, Exam Essentials ve kaynak **Review Questions 1–25**
 - Kaynak Appendix: Official Answers **1–25**, bütün sonuç ve gerekçeleriyle
 
@@ -78,7 +99,10 @@ cevapları dışarıda bırakılmıştır.
 | 13.9 | Concurrent collection classes | 756 |
 | 13.10 | Synchronized Collections methods | 757 |
 
-## Konu haritası
+## Önkoşul ve konu haritası
+
+**Önkoşul:** Lambda ve functional interface'ler, collection/stream pipeline'ı,
+exception handling ve mutable object state konularını hatırlamak gerekir.
 
 - Thread, process, task, concurrency, scheduler ve context switch
 - `Runnable`, `Thread.start()`, `run()`, user/system ve daemon thread
@@ -94,6 +118,24 @@ cevapları dışarıda bırakılmıştır.
 - Deadlock, starvation, livelock ve race condition
 - Parallel stream creation, decomposition, ordering ve performance
 - Parallel `reduce()`/`collect()`, collector characteristics ve stateless pipeline
+
+## Hazır mıyım?
+
+- [ ] `run()` ile `start()` farkını ve altı `Thread.State` değerini
+  açıklayabiliyorum.
+- [ ] `execute()`, `submit()`, `shutdown()` ve `Future.get()` sonuçlarını
+  doğru sınıflandırabiliyorum.
+- [ ] Visibility, atomicity ve mutual exclusion ihtiyaçlarını ayrı ayrı
+  belirleyebiliyorum.
+- [ ] `volatile`, atomic class, `synchronized` ve `Lock` arasında amaca göre
+  seçim yapabiliyorum.
+- [ ] Concurrent collection iterator davranışlarını ve synchronized wrapper
+  iteration kuralını biliyorum.
+- [ ] Deadlock, starvation, livelock ve race condition'ı ayırabiliyorum.
+- [ ] Parallel reduction'da identity, associativity ve ordering tuzaklarını
+  kontrol edebiliyorum.
+- [ ] Practice quiz'de en az **5/6** doğru yapıp yanlış seçenekleri
+  gerekçelendirebiliyorum.
 
 ## Java 17 teknik doğruluk notları
 

@@ -5,29 +5,50 @@ stream'leri, serialization, `Console`, file attribute ve directory traversal
 konularını çift dilli ana ders akışı; teknik hafıza, vocabulary ve grammar
 materyalleriyle birlikte ele alır.
 
-## Çalışma kaynakları
+## Amaç ve öğrenme hedefleri
 
-1. **Ana çift dilli ders**
-   - [Markdown kaynağı](bilingual_notes.md)
-   - [PDF çalışma sürümü](bilingual_notes.pdf)
-2. **Teknik hafıza ve karar notları**
-   - [Technical memory notes](technical_memory_notes.md)
-   - [PDF çalışma sürümü](technical_memory_notes.pdf)
-3. **Ünite vocabulary çalışması**
-   - [Markdown kaynağı](vocabulary.md)
-   - [PDF çalışma sürümü](vocabulary.pdf)
-4. **Ünite grammar çalışması**
-   - [Markdown kaynağı](grammar_notes.md)
-   - [PDF çalışma sürümü](grammar_notes.pdf)
+Bu ünitenin sonunda `File`, `Path` ve `Files` rollerini ayırabilmen; path ve
+file operation'larında textual/runtime etkileri izleyebilmen; stream,
+serialization, attributes ve traversal sorularında resource ownership ile
+exception sonucunu doğru sınıflandırabilmen hedeflenir.
+
+## Hangi belgeyi ne zaman kullanmalıyım?
+
+| İhtiyacın | Kullanacağın belge | Markdown | PDF |
+|---|---|---|---|
+| I/O konularını English → Türkçe eşleşmesiyle kaynak sırasından öğrenmek | Ana çift dilli ders notu | [Aç](bilingual_notes.md) | [Aç](bilingual_notes.pdf) |
+| Path, stream ve serialization kararlarını hızla tekrar etmek | Teknik hafıza notu | [Aç](technical_memory_notes.md) | [Aç](technical_memory_notes.pdf) |
+| I/O terimlerini teknik bağlamıyla çalışmak | Vocabulary | [Aç](vocabulary.md) | [Aç](vocabulary.pdf) |
+| Teknik İngilizce yapıları ve YDS ipuçlarını pekiştirmek | Grammar notes | [Aç](grammar_notes.md) | [Aç](grammar_notes.pdf) |
+| Bilgiyi kaynaklar kapalıyken altı soruyla ölçmek | Özgün practice quiz | [Aç](practice_quiz.md) | [Aç](practice_quiz.pdf) |
+| Kaynaktaki bölüm sonu sorularını özgün kod ve seçenekleriyle çözmek | Review Questions | [Sorulara git](bilingual_notes.md#review-questions) | [Ana PDF](bilingual_notes.pdf) |
+
+> Practice quiz içindeki sorular OCP tarzı **özgün çalışma sorularıdır**;
+> gerçek sınavdan alınmış sorular olarak sunulmaz.
+
+## 45–60 dakikalık önerilen çalışma rotası
+
+1. **0–5 dk:** Konu haritasından path, stream/serialization veya advanced API
+   kümelerinden birini seç.
+2. **5–25 dk:** Ana çift dilli notta ilgili English → Türkçe blokları, API
+   tabloları ve kod örneklerini çalış.
+3. **25–35 dk:** Teknik hafıza notunda textual operation → file-system access →
+   checked exception karar sırasını seçtiğin örneğe uygula.
+4. **35–43 dk:** Vocabulary'den 6–8 terimle byte/character ve
+   input/output ayrımını sözlü anlat.
+5. **43–50 dk:** Grammar notes içinden cause, condition veya reduced relative
+   clause yapısını tekrar et.
+6. **50–60 dk:** [Practice quiz](practice_quiz.md)'i çöz; yanlışını path,
+   resource, serialization veya English etiketiyle kaydet.
 
 ## Kaynak kapsamı
 
 - Ana kaynak:
   [OCP Java SE 17 PDF](../../OCP_Java_SE17_Chapter1den_Itibaren.pdf)
 - Chapter 14 physical PDF pages: **785–862**
-- Chapter gövdesi: **78/78 source marker**
+- Chapter gövdesi: **78/78 kaynak sayfa**
 - Chapter 14 Appendix official answers: **955–959**
-- Appendix: **5/5 appendix source marker**
+- Appendix: **5/5 cevap kaynağı sayfası**
 - Bölüm sonu: Summary, Exam Essentials ve kaynak **Review Questions 1–25**
 - Kaynak Appendix: Official Answers **1–25**, bütün sonuç ve gerekçeleriyle
 
@@ -84,7 +105,11 @@ dışarıda bırakılmıştır.
 | 14.13 | Walking a directory with a cycle using breadth-first search | 846–847 |
 | 14.14 | Key APIs | 848 |
 
-## Konu haritası
+## Önkoşul ve konu haritası
+
+**Önkoşul:** Exception handling ve try-with-resources, object graph,
+collection/stream işlemleri ve temel `java.nio.file` path kavramlarına aşinalık
+yararlıdır.
 
 - File-system hierarchy, root, absolute/relative path, `.` ve `..`
 - Symbolic link ve provider-dependent path davranışı
@@ -101,6 +126,25 @@ dışarıda bırakılmıştır.
 - `mark()`, `reset()`, `skip()` ve concrete stream capability
 - Basic/DOS/POSIX/owner/user-defined file attribute view'ları
 - `Files.walk()`, `Files.find()`, max depth, symbolic-link cycle ve search
+
+## Hazır mıyım?
+
+- [ ] `File`, `Path` ve `Files` rollerini ve immutability farkını
+  açıklayabiliyorum.
+- [ ] `resolve()`, `relativize()`, `normalize()` ve `toRealPath()` sonuçlarını
+  file-system erişimi açısından ayırabiliyorum.
+- [ ] Copy/move/delete operation'larında target, optional parameter ve checked
+  exception durumunu belirleyebiliyorum.
+- [ ] Stream adından byte/character, input/output ve low/high-level
+  sınıflandırmasını yapabiliyorum.
+- [ ] Correct copy loop'ta `read()` count, EOF, flush ve close akışını
+  gösterebiliyorum.
+- [ ] Serialization hierarchy'sinde constructor ve `transient` field
+  davranışını izleyebiliyorum.
+- [ ] `Files.walk()` / `find()` için depth, symbolic link ve resource close
+  kurallarını uygulayabiliyorum.
+- [ ] Practice quiz'de en az **5/6** doğru yapıp yanlış seçenekleri
+  gerekçelendirebiliyorum.
 
 ## Java 17 teknik doğruluk notları
 

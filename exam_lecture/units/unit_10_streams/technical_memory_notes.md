@@ -79,8 +79,8 @@ System.out.print(value.orElseGet(() -> backup())); // main
 çalışmaz.
 
 > **OCP trap:** `orElseThrow(() -> throw new Exception())` derlenmez. Lambda
-> exception'ı **throw etmemeli**, exception object'ini **return etmelidir:
-> `orElseThrow(() -> new Exception())`.
+> exception'ı **throw etmemeli**, exception object'ini
+> **return etmelidir:** `orElseThrow(() -> new Exception())`.
 
 ## 4. `Optional` zinciri
 

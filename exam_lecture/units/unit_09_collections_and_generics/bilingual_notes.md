@@ -10,13 +10,13 @@ resmî cevap açıklamaları PDF sayfaları 939–942'den ayrıca eklenmiştir.
 [Vocabulary](vocabulary.md) · [Grammar notes](grammar_notes.md) ·
 [Teknik hafıza notu](technical_memory_notes.md)
 
-## Kaynak kapsam manifesti
+## Kaynak ve kapsam özeti
 
 - Kaynak: `exam_lecture/OCP_Java_SE17_Chapter1den_Itibaren.pdf`
 - Chapter: 9 · Collections and Generics
 - Chapter PDF sayfaları: 463–530
 - Appendix cevap sayfaları: 939–942 (yalnız Chapter 9, Answers 1–20)
-- Beklenen sayfa marker'ı: 68
+- Beklenen kaynak sayfa sayısı: 68
 - Beklenen resmî cevap: 20
 - Eşleme biçimi: English paragraf → hemen altında Türkçe çeviri → varsa kod
 
@@ -4823,7 +4823,7 @@ void fourth(List<? super B> list) {}
 >
 > **Türkçe:** Bölüm review question'larının cevapları Appendix'te bulunabilir.
 
-### Question 1
+### Question 1 / Soru 1
 
 > **English:** Suppose you need to display a collection of products for sale,
 > which may contain duplicates. Additionally, you have a collection of sales
@@ -4862,7 +4862,7 @@ void fourth(List<? super B> list) {}
 >
 > **Türkçe — F:** `TreeSet`
 
-### Question 2
+### Question 2 / Soru 2
 
 > **English:** Which of the following are true? (Choose all that apply.)
 >
@@ -4910,7 +4910,7 @@ void fourth(List<? super B> list) {}
 > **Türkçe — G:** Compiler error içeren satırlar kaldırılırsa bu code exception
 > fırlatır.
 
-### Question 3
+### Question 3 / Soru 3
 
 > **English:** What is the result of the following statements?
 >
@@ -4923,14 +4923,11 @@ void fourth(List<? super B> list) {}
 6: greetings.offerFirst("ola");
 7: greetings.pop();
 8: greetings.peek();
-```
-
-<!-- source-page: 0522 -->
-
-```java
 9: while (greetings.peek() != null)
 10:     System.out.print(greetings.pop());
 ```
+
+<!-- source-page: 0522 -->
 
 > **English — A:** `hello`
 >
@@ -4956,7 +4953,7 @@ void fourth(List<? super B> list) {}
 >
 > **Türkçe — F:** Exception fırlatılır.
 
-### Question 4
+### Question 4 / Soru 4
 
 > **English:** Which of these statements compile? (Choose all that apply.)
 >
@@ -4967,11 +4964,9 @@ void fourth(List<? super B> list) {}
 >
 > **Türkçe — A:** `HashSet<Number> hs = new HashSet<Integer>();`
 
-> **English — B:** `HashSet<? super ClassCastException> set = new
-> HashSet<Exception>();`
+> **English — B:** `HashSet<? super ClassCastException> set = new HashSet<Exception>();`
 >
-> **Türkçe — B:** `HashSet<? super ClassCastException> set = new
-> HashSet<Exception>();`
+> **Türkçe — B:** `HashSet<? super ClassCastException> set = new HashSet<Exception>();`
 
 > **English — C:** `List<> list = new ArrayList<String>();`
 >
@@ -4985,13 +4980,11 @@ void fourth(List<? super B> list) {}
 >
 > **Türkçe — E:** `List<Object> objects = new ArrayList<? extends Object>();`
 
-> **English — F:** `Map<String, ? extends Number> hm = new HashMap<String,
-> Integer>();`
+> **English — F:** `Map<String, ? extends Number> hm = new HashMap<String, Integer>();`
 >
-> **Türkçe — F:** `Map<String, ? extends Number> hm = new HashMap<String,
-> Integer>();`
+> **Türkçe — F:** `Map<String, ? extends Number> hm = new HashMap<String, Integer>();`
 
-### Question 5
+### Question 5 / Soru 5
 
 > **English:** What is the result of the following code?
 >
@@ -5035,7 +5028,7 @@ void fourth(List<? super B> list) {}
 
 <!-- source-page: 0523 -->
 
-### Question 6
+### Question 6 / Soru 6
 
 > **English:** Which of the following can fill in the blank to print
 > `[7, 5, 3]`? (Choose all that apply.)
@@ -5061,35 +5054,17 @@ void fourth(List<? super B> list) {}
 22: }
 ```
 
-> **English — A:** `(Platypus::beakLength)`
->
-> **Türkçe — A:** `(Platypus::beakLength)`
-
-> **English — B:** `(Platypus::beakLength).reversed()`
->
-> **Türkçe — B:** `(Platypus::beakLength).reversed()`
-
-> **English — C:** `(Platypus::name).thenComparing(Platypus::beakLength)`
->
-> **Türkçe — C:** `(Platypus::name).thenComparing(Platypus::beakLength)`
-
-> **English — D:** `(Platypus::name).thenComparing(
-> Comparator.comparing(Platypus::beakLength).reversed())`
->
-> **Türkçe — D:** `(Platypus::name).thenComparing(
-> Comparator.comparing(Platypus::beakLength).reversed())`
-
-> **English — E:** `(Platypus::name)
-> .thenComparingNumber(Platypus::beakLength).reversed()`
->
-> **Türkçe — E:** `(Platypus::name)
-> .thenComparingNumber(Platypus::beakLength).reversed()`
-
-> **English — F:** `(Platypus::name)
-> .thenComparingInt(Platypus::beakLength).reversed()`
->
-> **Türkçe — F:** `(Platypus::name)
-> .thenComparingInt(Platypus::beakLength).reversed()`
+```java
+A. (Platypus::beakLength)
+B. (Platypus::beakLength).reversed()
+C. (Platypus::name).thenComparing(Platypus::beakLength)
+D. (Platypus::name).thenComparing(
+      Comparator.comparing(Platypus::beakLength).reversed())
+E. (Platypus::name)
+      .thenComparingNumber(Platypus::beakLength).reversed()
+F. (Platypus::name)
+      .thenComparingInt(Platypus::beakLength).reversed()
+```
 
 > **English — G:** None of the above
 >
@@ -5097,7 +5072,7 @@ void fourth(List<? super B> list) {}
 
 <!-- source-page: 0524 -->
 
-### Question 7
+### Question 7 / Soru 7
 
 > **English:** Which of the following method signatures are valid overrides of
 > the `hairy()` method in the `Alpaca` class? (Choose all that apply.)
@@ -5114,41 +5089,31 @@ public class Alpaca {
 }
 ```
 
-> **English — A:** `public List<String> hairy(List<CharSequence> list) {
-> return null; }`
+> **English — A:** `public List<String> hairy(List<CharSequence> list) { return null; }`
 >
-> **Türkçe — A:** `public List<String> hairy(List<CharSequence> list) {
-> return null; }`
+> **Türkçe — A:** `public List<String> hairy(List<CharSequence> list) { return null; }`
 
-> **English — B:** `public List<String> hairy(ArrayList<String> list) {
-> return null; }`
+> **English — B:** `public List<String> hairy(ArrayList<String> list) { return null; }`
 >
-> **Türkçe — B:** `public List<String> hairy(ArrayList<String> list) {
-> return null; }`
+> **Türkçe — B:** `public List<String> hairy(ArrayList<String> list) { return null; }`
 
-> **English — C:** `public List<String> hairy(List<Integer> list) {
-> return null; }`
+> **English — C:** `public List<String> hairy(List<Integer> list) { return null; }`
 >
-> **Türkçe — C:** `public List<String> hairy(List<Integer> list) {
-> return null; }`
+> **Türkçe — C:** `public List<String> hairy(List<Integer> list) { return null; }`
 
-> **English — D:** `public List<CharSequence> hairy(List<String> list) {
-> return null; }`
+> **English — D:** `public List<CharSequence> hairy(List<String> list) { return null; }`
 >
-> **Türkçe — D:** `public List<CharSequence> hairy(List<String> list) {
-> return null; }`
+> **Türkçe — D:** `public List<CharSequence> hairy(List<String> list) { return null; }`
 
 > **English — E:** `public Object hairy(List<String> list) { return null; }`
 >
 > **Türkçe — E:** `public Object hairy(List<String> list) { return null; }`
 
-> **English — F:** `public ArrayList<String> hairy(List<String> list) {
-> return null; }`
+> **English — F:** `public ArrayList<String> hairy(List<String> list) { return null; }`
 >
-> **Türkçe — F:** `public ArrayList<String> hairy(List<String> list) {
-> return null; }`
+> **Türkçe — F:** `public ArrayList<String> hairy(List<String> list) { return null; }`
 
-### Question 8
+### Question 8 / Soru 8
 
 > **English:** What is the result of the following program?
 >
@@ -5192,7 +5157,7 @@ public class Alpaca {
 >
 > **Türkçe — F:** Runtime exception fırlatılır.
 
-### Question 9
+### Question 9 / Soru 9
 
 > **English:** Which of these statements can fill in the blank so that the
 > `Helper` class compiles successfully? (Choose all that apply.)
@@ -5205,17 +5170,14 @@ public class Alpaca {
 3:     public static <U extends Exception>
 4:         void printException(U u) {
 5:
-```
-
-<!-- source-page: 0525 -->
-
-```java
 6:         System.out.println(u.getMessage());
 7:     }
 8:     public static void main(String[] args) {
 9:         Helper.____________________;
 10:    } }
 ```
+
+<!-- source-page: 0525 -->
 
 > **English — A:** `printException(new FileNotFoundException("A"))`
 >
@@ -5229,17 +5191,15 @@ public class Alpaca {
 >
 > **Türkçe — C:** `<Throwable>printException(new Exception("C"))`
 
-> **English — D:** `<NullPointerException>printException(new
-> NullPointerException("D"))`
+> **English — D:** `<NullPointerException>printException(new NullPointerException("D"))`
 >
-> **Türkçe — D:** `<NullPointerException>printException(new
-> NullPointerException("D"))`
+> **Türkçe — D:** `<NullPointerException>printException(new NullPointerException("D"))`
 
 > **English — E:** `printException(new Throwable("E"))`
 >
 > **Türkçe — E:** `printException(new Throwable("E"))`
 
-### Question 10
+### Question 10 / Soru 10
 
 > **English:** Which of the following will compile when filling in the blank?
 > (Choose all that apply.)
@@ -5282,7 +5242,7 @@ ____________.forEach(System.out::println);
 >
 > **Türkçe — G:** `map.valueSet()`
 
-### Question 11
+### Question 11 / Soru 11
 
 > **English:** Which of these statements can fill in the blank so that the
 > `Wildcard` class compiles successfully? (Choose all that apply.)
@@ -5324,11 +5284,11 @@ ____________.forEach(System.out::println);
 >
 > **Türkçe — E:** `ArrayList<? extends Number> list = new ArrayList<Integer>()`
 
-> **English — F:** None of the above.
+> **English — F:** None of the above
 >
 > **Türkçe — F:** Yukarıdakilerin hiçbiri.
 
-### Question 12
+### Question 12 / Soru 12
 
 > **English:** What is the result of the following program?
 >
@@ -5380,7 +5340,7 @@ ____________.forEach(System.out::println);
 >
 > **Türkçe — F:** Runtime exception fırlatılır.
 
-### Question 13
+### Question 13 / Soru 13
 
 > **English:** What is the result of the following code? (Choose all that
 > apply.)
@@ -5391,17 +5351,14 @@ ____________.forEach(System.out::println);
 Comparator<Integer> c1 = (o1, o2) -> o2 - o1;
 Comparator<Integer> c2 = Comparator.naturalOrder();
 Comparator<Integer> c3 = Comparator.reverseOrder();
-```
-
-<!-- source-page: 0527 -->
-
-```java
 var list = Arrays.asList(5, 4, 7, 2);
 Collections.sort(list, ________);
 Collections.reverse(list);
 Collections.reverse(list);
 System.out.println(Collections.binarySearch(list, 2));
 ```
+
+<!-- source-page: 0527 -->
 
 > **English — A:** One or more of the comparators can fill in the blank so
 > that the code prints `0`.
@@ -5436,7 +5393,7 @@ System.out.println(Collections.binarySearch(list, 2));
 >
 > **Türkçe — F:** Code derlenmez.
 
-### Question 14
+### Question 14 / Soru 14
 
 > **English:** Which of the following lines can be inserted to make the code
 > compile? (Choose all that apply.)
@@ -5477,7 +5434,7 @@ class Z<Y> {
 >
 > **Türkçe — F:** `Y y1 = new Y();`
 
-### Question 15
+### Question 15 / Soru 15
 
 > **English:** Which options are true of the following code? (Choose all that
 > apply.)
@@ -5518,7 +5475,7 @@ class Z<Y> {
 
 <!-- source-page: 0528 -->
 
-### Question 16
+### Question 16 / Soru 16
 
 > **English:** What is the result of the following code?
 >
@@ -5539,15 +5496,15 @@ class Z<Y> {
 >
 > **Türkçe — B:** `true`
 
-> **English — C:** Compiler error on line 4.
+> **English — C:** Compiler error on line 4
 >
 > **Türkçe — C:** 4. satırda compiler error oluşur.
 
-> **English — D:** Compiler error on line 5.
+> **English — D:** Compiler error on line 5
 >
 > **Türkçe — D:** 5. satırda compiler error oluşur.
 
-> **English — E:** Compiler error on line 7.
+> **English — E:** Compiler error on line 7
 >
 > **Türkçe — E:** 7. satırda compiler error oluşur.
 
@@ -5555,7 +5512,7 @@ class Z<Y> {
 >
 > **Türkçe — F:** Runtime exception fırlatılır.
 
-### Question 17
+### Question 17 / Soru 17
 
 > **English:** What is the result of the following code? (Choose all that
 > apply.)
@@ -5612,7 +5569,7 @@ class Z<Y> {
 > **Türkçe — G:** Code hiçbir değişiklik yapılmadan derlenir ve
 > `[16, 32, 4]` yazdırır.
 
-### Question 18
+### Question 18 / Soru 18
 
 > **English:** What code change is needed to make the method compile, assuming
 > there is no class named `T`?
@@ -5652,7 +5609,7 @@ public static T identity(T t) {
 >
 > **Türkçe — F:** Değişiklik gerekmez. Code zaten derlenir.
 
-### Question 19
+### Question 19 / Soru 19
 
 > **English:** What is the result of the following?
 >
@@ -5700,7 +5657,7 @@ System.out.println(map);
 >
 > **Türkçe — H:** Exception fırlatılır.
 
-### Question 20
+### Question 20 / Soru 20
 
 > **English:** Which of the following statements are true? (Choose all that
 > apply.)

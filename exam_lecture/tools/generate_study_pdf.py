@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render the unit vocabulary/grammar Markdown sources as styled study PDFs."""
+"""Render a unit Markdown source as a styled study PDF."""
 
 from __future__ import annotations
 
@@ -40,6 +40,16 @@ INK = colors.HexColor("#23313D")
 MUTED = colors.HexColor("#5D6B78")
 LINE = colors.HexColor("#D8E2E8")
 PAPER = colors.HexColor("#FCFDFE")
+
+
+def compact_running_title(title: str) -> str:
+    """Return a short, meaningful title for the page header."""
+    if " — " in title:
+        return title.rsplit(" — ", maxsplit=1)[-1].strip()
+    parts = title.split(" · ")
+    if len(parts) >= 3:
+        return parts[-1].strip()
+    return title
 
 
 def register_fonts() -> None:
@@ -185,6 +195,16 @@ def build_styles() -> dict[str, ParagraphStyle]:
             leading=15,
             textColor=INK,
             spaceAfter=7,
+        ),
+        "body_keep": ParagraphStyle(
+            "StudyBodyKeep",
+            parent=base["BodyText"],
+            fontName="StudySans",
+            fontSize=10.2,
+            leading=15,
+            textColor=INK,
+            spaceAfter=7,
+            keepWithNext=True,
         ),
         "h2": ParagraphStyle(
             "StudyH2",
@@ -516,7 +536,20 @@ def markdown_to_story(markdown: str, styles: dict[str, ParagraphStyle]):
 
     def flush_paragraph() -> None:
         if paragraph_lines:
-            story.append(Paragraph(paragraph_markup(paragraph_lines), styles["body"]))
+            follows_heading = (
+                story
+                and isinstance(story[-1], Paragraph)
+                and story[-1].style.name in {"StudyH2", "StudyH3", "StudyH4"}
+            )
+            is_translated_heading = paragraph_lines[0].startswith(
+                "**Türkçe başlık:**"
+            )
+            style = (
+                styles["body_keep"]
+                if follows_heading and is_translated_heading
+                else styles["body"]
+            )
+            story.append(Paragraph(paragraph_markup(paragraph_lines), style))
             paragraph_lines.clear()
 
     def flush_list() -> None:
@@ -537,13 +570,19 @@ def markdown_to_story(markdown: str, styles: dict[str, ParagraphStyle]):
             bulletColor=TEAL,
             spaceAfter=6,
         )
-        if (
+        heading_chain = []
+        while (
             story
             and isinstance(story[-1], Paragraph)
-            and story[-1].style.name == "StudyH3"
+            and story[-1].style.name
+            in {"StudyH2", "StudyH3", "StudyH4", "StudyBodyKeep"}
         ):
-            heading = story.pop()
-            story.append(KeepTogether([heading, list_flowable]))
+            heading_chain.insert(0, story.pop())
+        if heading_chain:
+            # Keep a section heading (and, when present, its translated
+            # heading) with the first list that gives the section meaning.
+            # This also handles H2 alphabet bands followed by an H3 word card.
+            story.append(KeepTogether([*heading_chain, list_flowable]))
         else:
             story.append(list_flowable)
         list_items.clear()
@@ -656,7 +695,23 @@ def markdown_to_story(markdown: str, styles: dict[str, ParagraphStyle]):
                 item.startswith("```") or item.lstrip().startswith("|")
                 for item in quote
             )
-            if has_structured_content:
+            follows_heading = (
+                story
+                and isinstance(story[-1], Paragraph)
+                and story[-1].style.name in {"StudyH2", "StudyH3", "StudyH4"}
+            )
+            is_translated_heading = (
+                len(quote) == 1
+                and quote[0].startswith("**Türkçe başlık:**")
+            )
+            if follows_heading and is_translated_heading:
+                # Treat a translated heading as part of the heading hierarchy,
+                # not as a standalone callout.  The keep chain also carries the
+                # first explanatory block to the same page.
+                story.append(
+                    Paragraph(paragraph_markup(quote), styles["body_keep"])
+                )
+            elif has_structured_content:
                 story.extend(structured_quote_to_story(quote, styles))
             else:
                 story.extend([make_callout(quote, styles), Spacer(1, 3 * mm)])
@@ -705,6 +760,10 @@ def markdown_to_story(markdown: str, styles: dict[str, ParagraphStyle]):
 
     flush_paragraph()
     flush_list()
+    # A trailing layout spacer can overflow onto a header/footer-only page when
+    # the final card exactly fills the preceding frame.
+    while story and isinstance(story[-1], Spacer):
+        story.pop()
     return story
 
 
@@ -748,9 +807,18 @@ class StudyDocTemplate(BaseDocTemplate):
 
         canvas.setFont("StudySans", 7.5)
         canvas.setFillColor(MUTED)
-        short_title = self.study_title
-        if len(short_title) > 55:
-            short_title = short_title[:52] + "..."
+        short_title = compact_running_title(self.study_title)
+        left_edge = 22 * mm + canvas.stringWidth(
+            self.unit_label, "StudySans-Bold", 7.5
+        ) + 8 * mm
+        right_edge = width - 23 * mm
+        available_width = max(0, right_edge - left_edge)
+        while (
+            len(short_title) > 4
+            and canvas.stringWidth(short_title, "StudySans", 7.5)
+            > available_width
+        ):
+            short_title = short_title[:-4].rstrip(". ") + "..."
         canvas.drawRightString(width - 23 * mm, height - 10 * mm, short_title)
         canvas.drawString(22 * mm, 8 * mm, "Java 17 OCP + Teknik İngilizce")
         canvas.drawRightString(width - 23 * mm, 8 * mm, f"{doc.page}")

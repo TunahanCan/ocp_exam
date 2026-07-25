@@ -6,29 +6,50 @@ savepoint ve resource management konularıyla birlikte işler. Çift dilli ana
 ders, teknik hafıza, vocabulary ve grammar materyalleri aynı kaynak akışını
 tamamlar.
 
-## Çalışma kaynakları
+## Amaç ve öğrenme hedefleri
 
-1. **Ana çift dilli ders**
-   - [Markdown kaynağı](bilingual_notes.md)
-   - [PDF çalışma sürümü](bilingual_notes.pdf)
-2. **Teknik hafıza ve karar notları**
-   - [Technical memory notes](technical_memory_notes.md)
-   - [PDF çalışma sürümü](technical_memory_notes.pdf)
-3. **Ünite vocabulary çalışması**
-   - [Markdown kaynağı](vocabulary.md)
-   - [PDF çalışma sürümü](vocabulary.pdf)
-4. **Ünite grammar çalışması**
-   - [Markdown kaynağı](grammar_notes.md)
-   - [PDF çalışma sürümü](grammar_notes.pdf)
+Bu ünitenin sonunda JDBC interface/driver implementation sınırını
+gösterebilmen; statement ve execute method'unu SQL türüne göre seçebilmen;
+cursor, parameter, transaction ve resource sorularında compile-time kontrol ile
+driver/database runtime kontrolünü ayırabilmen hedeflenir.
+
+## Hangi belgeyi ne zaman kullanmalıyım?
+
+| İhtiyacın | Kullanacağın belge | Markdown | PDF |
+|---|---|---|---|
+| JDBC konularını English → Türkçe eşleşmesiyle kaynak sırasından öğrenmek | Ana çift dilli ders notu | [Aç](bilingual_notes.md) | [Aç](bilingual_notes.pdf) |
+| Statement, cursor ve transaction kararlarını hızla tekrar etmek | Teknik hafıza notu | [Aç](technical_memory_notes.md) | [Aç](technical_memory_notes.pdf) |
+| JDBC ve SQL terimlerini teknik bağlamıyla çalışmak | Vocabulary | [Aç](vocabulary.md) | [Aç](vocabulary.pdf) |
+| Teknik İngilizce yapıları ve YDS ipuçlarını pekiştirmek | Grammar notes | [Aç](grammar_notes.md) | [Aç](grammar_notes.pdf) |
+| Bilgiyi kaynaklar kapalıyken altı soruyla ölçmek | Özgün practice quiz | [Aç](practice_quiz.md) | [Aç](practice_quiz.pdf) |
+| Kaynaktaki bölüm sonu sorularını özgün kod ve seçenekleriyle çözmek | Review Questions | [Sorulara git](bilingual_notes.md#review-questions) | [Ana PDF](bilingual_notes.pdf) |
+
+> Practice quiz içindeki sorular OCP tarzı **özgün çalışma sorularıdır**;
+> gerçek sınavdan alınmış sorular olarak sunulmaz.
+
+## 45–60 dakikalık önerilen çalışma rotası
+
+1. **0–5 dk:** Konu haritasından statement/result set, callable veya
+   transaction/resource kümelerinden birini seç.
+2. **5–25 dk:** Ana çift dilli notta ilgili English → Türkçe blokları, SQL
+   örnekleri ve JDBC API tablolarını çalış.
+3. **25–35 dk:** Teknik hafıza notunda SQL türü → prepare method → execute
+   method → result karar ağacını kaynak kapalıyken uygula.
+4. **35–43 dk:** Vocabulary'den 6–8 terimle connection'dan result'a kadar
+   işlem akışını sözlü anlat.
+5. **43–50 dk:** Grammar notes içinden condition ve passive yapılardan birer
+   örnek çözümle.
+6. **50–60 dk:** [Practice quiz](practice_quiz.md)'i cevaplara bakmadan çöz;
+   yanlışını compile, driver/runtime, transaction veya English etiketiyle yaz.
 
 ## Kaynak kapsamı
 
 - Ana kaynak:
   [OCP Java SE 17 PDF](../../OCP_Java_SE17_Chapter1den_Itibaren.pdf)
 - Chapter 15 physical PDF pages: **863–908**
-- Chapter gövdesi: **46/46 source marker**
+- Chapter gövdesi: **46/46 kaynak sayfa**
 - Chapter 15 Appendix official answers: **959–961**
-- Appendix: **3/3 appendix source marker**
+- Appendix: **3/3 cevap kaynağı sayfası**
 - Bölüm sonu: Summary, Exam Essentials ve kaynak **Review Questions 1–21**
 - Kaynak Appendix: Official Answers **1–21**, sonuç ve gerekçeleriyle
 
@@ -75,7 +96,11 @@ bu üniteye alınmıştır. Appendix page 961'de Answer 21 ile ünite sona erer.
 | 15.8 | Stored procedure parameter types | 891 |
 | 15.9 | `Connection` APIs for transactions | 895 |
 
-## Konu haritası
+## Önkoşul ve konu haritası
+
+**Önkoşul:** Interface/concrete class, checked exception,
+try-with-resources ve temel relational database/SQL kavramlarını hatırlamak
+yararlıdır.
 
 - Relational database, table, row, column, SQL ve CRUD
 - JDBC interface'lerinin JDK/driver implementation ayrımı
@@ -90,6 +115,25 @@ bu üniteye alınmıştır. Appendix page 961'de Answer 21 ile ünite sona erer.
 - Autocommit, explicit commit/rollback ve transaction boundary
 - Savepoint oluşturma ve invalidation
 - JDBC resource ownership, reverse close order ve `SQLException`
+
+## Hazır mıyım?
+
+- [ ] JDK'nin sağladığı JDBC API type'larıyla driver implementation'larını
+  ayırabiliyorum.
+- [ ] JDBC URL bölümlerini ve `DriverManager.getConnection()` rolünü
+  açıklayabiliyorum.
+- [ ] Query/update/procedure için prepare ve execute method'larını doğru
+  seçebiliyorum.
+- [ ] Bind variable ve `ResultSet` column index'lerinin 1 tabanlı olduğunu,
+  cursor için önce `next()` gerektiğini biliyorum.
+- [ ] `IN`, `OUT` ve `INOUT` parameter işlemlerini setter/register adımlarıyla
+  gösterebiliyorum.
+- [ ] Autocommit, savepoint, explicit commit/rollback ve close sınırlarını
+  izleyebiliyorum.
+- [ ] JDBC resource'larının reverse close order'ını ve `SQLException`
+  zincirini açıklayabiliyorum.
+- [ ] Practice quiz'de en az **5/6** doğru yapıp yanlış seçenekleri
+  gerekçelendirebiliyorum.
 
 ## Java 17 teknik doğruluk notları
 

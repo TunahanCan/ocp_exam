@@ -9,12 +9,12 @@ Essentials ve Review Questions korunmuştur.
 [Vocabulary](vocabulary.md) · [Grammar notes](grammar_notes.md) ·
 [Teknik hafıza notu](technical_memory_notes.md)
 
-## Kaynak kapsam manifesti
+## Kaynak ve kapsam özeti
 
 - Kaynak: `exam_lecture/OCP_Java_SE17_Chapter1den_Itibaren.pdf`
 - Chapter: 7 · Beyond Classes
 - PDF sayfaları: 345–418
-- Beklenen sayfa marker'ı: 74
+- Beklenen kaynak sayfa sayısı: 74
 - Eşleme biçimi: English paragraf → hemen altında Türkçe çeviri → varsa kod
 
 ## İçindekiler
@@ -389,8 +389,8 @@ abstract class Bird: abstract boolean canSwoop()
              ↓ extends
 class Swan: ???
 
-interface Fly: void fly()   ── implements ──▶ Bird
-interface Swim: void swim() ── implements ──▶ Swan
+interface Fly: void fly()   -- implements --> Bird
+interface Swim: void swim() -- implements --> Swan
 ```
 
 > **Türkçe şekil açıklaması:** `Swan`, class zincirinden `getType()` ve
@@ -3911,9 +3911,9 @@ Object lemurAsObject = lemur;
 > class reference'ı; `primate`.
 
 ```text
-HasTail reference: hasTail ─┐
-Lemur reference:   lemur   ─┼─▶ Lemur object in memory
-Primate reference: primate ─┘      age = 10
+HasTail reference: hasTail -\
+Lemur reference:   lemur   -+--> Lemur object in memory
+Primate reference: primate -/      age = 10
                                   hasHair()
                                   isTailStriped()
 ```
@@ -4654,30 +4654,30 @@ false
 
 ## Exam Essentials / Sınav İçin Temel Noktalar
 
-> **English:** **Be able to write code that creates, extends, and implements
-> interfaces.** Interfaces are specialized abstract types that focus on
+> **English:** **Be able to write code that creates, extends, and implements interfaces.**
+> Interfaces are specialized abstract types that focus on
 > abstract methods and constant variables. An interface may extend any number
 > of interfaces and, in doing so, inherits their abstract methods. An
 > interface cannot extend a class, nor can a class extend an interface. A
 > class may implement any number of interfaces.
 >
-> **Türkçe:** **Interface oluşturan, extend ve implement eden kod
-> yazabilin.** Interface'ler abstract method'lara ve constant variable'lara
+> **Türkçe:** **Interface oluşturan, extend ve implement eden kod yazabilin.**
+> Interface'ler abstract method'lara ve constant variable'lara
 > odaklanan özelleşmiş abstract type'lardır. Bir interface herhangi sayıda
 > interface'i extend edebilir ve bunu yaparken onların abstract method'larını
 > inherit eder. Interface bir class'ı extend edemez; class da interface'i
 > extend edemez. Bir class herhangi sayıda interface'i implement edebilir.
 
-> **English:** **Know which interface methods an interface method can
-> reference.** Non-static private, default, and abstract interface methods are
+> **English:** **Know which interface methods an interface method can reference.**
+> Non-static private, default, and abstract interface methods are
 > associated with an instance of an interface. Non-static private and default
 > interface methods may reference any method within the interface declaration.
 > Alternatively, static interface methods are associated with class
 > membership and can only reference other static members. Finally, private
 > methods can only be referenced within the interface declaration.
 >
-> **Türkçe:** **Bir interface method'unun hangi interface method'larına
-> reference verebileceğini bilin.** Non-static private, default ve abstract
+> **Türkçe:** **Bir interface method'unun hangi interface method'larına reference verebileceğini bilin.**
+> Non-static private, default ve abstract
 > interface method'ları bir interface instance'ıyla ilişkilidir. Non-static
 > private ve default interface method'ları interface declaration'ındaki her
 > method'a reference verebilir. Buna karşılık static interface method'ları
@@ -4704,14 +4704,14 @@ false
 > içerebilir. Enum abstract bir method bildirirse her enum value onu implement
 > etmelidir.
 
-> **English:** **Be able to recognize when sealed classes are being correctly
-> used.** A sealed class is one that defines a list of permitted subclasses
+> **English:** **Be able to recognize when sealed classes are being correctly used.**
+> A sealed class is one that defines a list of permitted subclasses
 > that extend it. Be able to use the correct modifier (`final`, `sealed`, or
 > `non-sealed`) with sealed classes. Understand when the `permits` clause may
 > be excluded.
 >
-> **Türkçe:** **Sealed class'ların ne zaman doğru kullanıldığını
-> tanıyabilin.** Sealed class, kendisini extend eden permitted subclass'ların
+> **Türkçe:** **Sealed class'ların ne zaman doğru kullanıldığını tanıyabilin.**
+> Sealed class, kendisini extend eden permitted subclass'ların
 > listesini tanımlar. Sealed class'larla doğru modifier'ı (`final`, `sealed`
 > veya `non-sealed`) kullanabilin. `permits` clause'unun ne zaman
 > dışarıda bırakılabileceğini anlayın.
@@ -4727,8 +4727,8 @@ false
 > encapsulated class'lar accessor (getter) veya mutator (setter) method'ları
 > içerebilir.
 
-> **English:** **Understand records and know which members the compiler is
-> adding automatically.** Records are encapsulated and immutable types in
+> **English:** **Understand records and know which members the compiler is adding automatically.**
+> Records are encapsulated and immutable types in
 > which the compiler inserts a long constructor, accessor methods, and useful
 > implementations of `equals()`, `hashCode()`, and `toString()`. Each of these
 > elements may be overridden. Be able to recognize compact constructors and
@@ -4736,8 +4736,8 @@ false
 > constructor parameters, not for accessing fields. Recognize that when a
 > record is declared with an instance member, it does not compile.
 >
-> **Türkçe:** **Record'ları anlayın ve compiler'ın hangi member'ları otomatik
-> eklediğini bilin.** Record'lar compiler'ın long constructor, accessor
+> **Türkçe:** **Record'ları anlayın ve compiler'ın hangi member'ları otomatik eklediğini bilin.**
+> Record'lar compiler'ın long constructor, accessor
 > method'lar ve yararlı `equals()`, `hashCode()` ve `toString()`
 > implementation'ları eklediği encapsulated ve immutable type'lardır. Bu
 > element'lerin her biri override edilebilir. Compact constructor'ları
@@ -4782,7 +4782,7 @@ false
 >
 > **Türkçe:** Chapter review questions'ın cevapları Appendix'te bulunabilir.
 
-### Question 1
+### Question 1 / Soru 1
 
 > **English:** Which of the following are valid record declarations? (Choose
 > all that apply.)
@@ -4837,7 +4837,7 @@ public record Newt(long size) {
 >
 > **Türkçe — F:** Yukarıdakilerin hiçbiri
 
-### Question 2
+### Question 2 / Soru 2
 
 > **English:** Which of the following statements can be inserted in the blank
 > line so that the code will compile successfully? (Choose all that apply.)
@@ -4888,7 +4888,7 @@ class TurtleFrog extends Frog {}
 >
 > **Türkçe — G:** Yukarıdakilerin hiçbiri; kod bir compilation error içerir.
 
-### Question 3
+### Question 3 / Soru 3
 
 > **English:** What is the result of the following program?
 >
@@ -4932,7 +4932,7 @@ public class Favorites {
 >
 > **Türkçe — F:** Yukarıdakilerin hiçbiri
 
-### Question 4
+### Question 4 / Soru 4
 
 > **English:** What is the output of the following program?
 >
@@ -4979,7 +4979,7 @@ class Armadillo extends ArmoredAnimal {
 >
 > **Türkçe — E:** Yukarıdakilerin hiçbiri
 
-### Question 5
+### Question 5 / Soru 5
 
 > **English:** Which statements about the following program are correct?
 > (Choose all that apply.)
@@ -5026,7 +5026,7 @@ class Armadillo extends ArmoredAnimal {
 >
 > **Türkçe — F:** Kod line 10 nedeniyle derlenmez.
 
-### Question 6
+### Question 6 / Soru 6
 
 > **English:** Which statements about the following program are correct?
 > (Choose all that apply.)
@@ -5074,7 +5074,7 @@ class Armadillo extends ArmoredAnimal {
 > **Türkçe — F:** Line 8 geçersiz bir method override içerdiği için kod
 > derlenmez.
 
-### Question 7
+### Question 7 / Soru 7
 
 > **English:** What is the output of the following program?
 >
@@ -5089,8 +5089,7 @@ class Armadillo extends ArmoredAnimal {
 6:     int getNumOfGills(int input) { return 15; }
 7:     public static void main(String[] args) {
 8:         System.out.println(new ClownFish().getNumOfGills(-1));
-9:     }
-10: }
+9:     } }
 ```
 
 > **English — A:** `14`
@@ -5117,9 +5116,9 @@ class Armadillo extends ArmoredAnimal {
 >
 > **Türkçe — F:** Yukarıdakilerin hiçbiri
 
-### Question 8
+### Question 8 / Soru 8
 
-> **English:** When inserted in order, which modifiers can fill in the blanks
+> **English:** When inserted in order, which modifiers can fill in the blank
 > to create a properly encapsulated class? (Choose all that apply.)
 >
 > **Türkçe:** Sırayla eklendiğinde hangi modifier'lar boşlukları doldurarak
@@ -5166,7 +5165,7 @@ public class Rabbits {
 
 <!-- source-page: 0408 -->
 
-### Question 9
+### Question 9 / Soru 9
 
 > **English:** Which of the following statements can be inserted in the blank
 > so that the code will compile successfully? (Choose all that apply.)
@@ -5218,7 +5217,7 @@ public class SnakeHandler {
 > **Türkçe — G:** Yukarıdakilerin hiçbiri. Boşluğa eklenen değerden bağımsız
 > olarak class derlenmez.
 
-### Question 10
+### Question 10 / Soru 10
 
 > **English:** What types can be inserted in the blanks on the lines marked X
 > and Z that allow the code to compile? (Choose all that apply.)
@@ -5266,7 +5265,7 @@ class Panther implements Run {
 > **Türkçe — E:** Z ile işaretli satırda `ArrayList`
 
 > **English — F:** None of the above, since the `Run` interface does not
-> compile.
+> compile
 >
 > **Türkçe — F:** `Run` interface'i derlenmediği için yukarıdakilerin hiçbiri.
 
@@ -5274,7 +5273,7 @@ class Panther implements Run {
 >
 > **Türkçe — G:** Kod başka bir nedenle derlenmez.
 
-### Question 11
+### Question 11 / Soru 11
 
 > **English:** What is the result of the following code? (Choose all that
 > apply.)
@@ -5296,8 +5295,7 @@ class Panther implements Run {
 12:        var movie = new Movie();
 13:        Movie.Popcorn in = new Movie().new Popcorn();
 14:        in.startMovie();
-15:    }
-16: }
+15:    } }
 ```
 
 > **English — A:** The output is `5`.
@@ -5324,7 +5322,7 @@ class Panther implements Run {
 >
 > **Türkçe — F:** Kod derlenir ancak runtime'da exception üretir.
 
-### Question 12
+### Question 12 / Soru 12
 
 > **English:** Which of the following are true about encapsulation? (Choose all
 > that apply.)
@@ -5352,7 +5350,7 @@ class Panther implements Run {
 >
 > **Türkçe — E:** Private instance variable'lar gerektirir.
 
-### Question 13
+### Question 13 / Soru 13
 
 > **English:** What is the result of the following program?
 >
@@ -5363,11 +5361,6 @@ public class Weather {
     enum Seasons {
         WINTER, SPRING, SUMMER, FALL
     }
-```
-
-<!-- source-page: 0410 -->
-
-```java
     public static void main(String[] args) {
         Seasons v = null;
         switch (v) {
@@ -5379,6 +5372,8 @@ public class Weather {
     }
 }
 ```
+
+<!-- source-page: 0410 -->
 
 > **English — A:** `s`
 >
@@ -5408,7 +5403,7 @@ public class Weather {
 >
 > **Türkçe — G:** Kod derlenir ancak runtime'da exception üretir.
 
-### Question 14
+### Question 14 / Soru 14
 
 > **English:** Which statements about sealed classes are correct? (Choose all
 > that apply.)
@@ -5452,7 +5447,7 @@ public class Weather {
 >
 > **Türkçe — G:** Yukarıdakilerin hiçbiri
 
-### Question 15
+### Question 15 / Soru 15
 
 > **English:** Which lines, when entered independently into the blank, allow
 > the code to print `Not scared` at runtime? (Choose all that apply.)
@@ -5471,17 +5466,14 @@ public class Ghost {
             System.out.println("Booo!!!");
         }
     }
-```
-
-<!-- source-page: 0411 -->
-
-```java
     public static void main(String... haunt) {
         var g = new Ghost().new Spirit() {};
         ______;
     }
 }
 ```
+
+<!-- source-page: 0411 -->
 
 > **English — A:** `g.boo()`
 >
@@ -5511,7 +5503,7 @@ public class Ghost {
 >
 > **Türkçe — G:** Yukarıdakilerin hiçbiri
 
-### Question 16
+### Question 16 / Soru 16
 
 > **English:** The following code appears in a file named `Ostrich.java`. What
 > is the result of compiling the source file?
@@ -5525,9 +5517,7 @@ public class Ghost {
 3:     static class OstrichWrangler {
 4:         public int stampede() {
 5:             return count;
-6:         }
-7:     }
-8: }
+6:         } } }
 ```
 
 > **English — A:** The code compiles successfully, and one bytecode file is
@@ -5556,7 +5546,7 @@ public class Ghost {
 >
 > **Türkçe — E:** Line 5'te compiler error oluşur.
 
-### Question 17
+### Question 17 / Soru 17
 
 > **English:** Which lines of the following interface declarations do not
 > compile? (Choose all that apply.)
@@ -5578,13 +5568,13 @@ public class Ghost {
 
 <!-- source-page: 0412 -->
 
-> **English — A:** Line 2
+> **English — A:** All of the lines compile without issue.
 >
-> **Türkçe — A:** Line 2
+> **Türkçe — A:** Bütün satırlar sorunsuz derlenir.
 
-> **English — B:** All of the lines compile without issue.
+> **English — B:** Line 2
 >
-> **Türkçe — B:** Bütün satırlar sorunsuz derlenir.
+> **Türkçe — B:** Line 2
 
 > **English — C:** Line 3
 >
@@ -5610,7 +5600,7 @@ public class Ghost {
 >
 > **Türkçe — H:** Line 8
 
-### Question 18
+### Question 18 / Soru 18
 
 > **English:** What is printed by the following program?
 >
@@ -5662,7 +5652,7 @@ public class Deer {
 >
 > **Türkçe — G:** Yukarıdakilerin hiçbiri
 
-### Question 19
+### Question 19 / Soru 19
 
 > **English:** Which of the following are printed by the `Bear` program?
 > (Choose all that apply.)
@@ -5681,11 +5671,6 @@ public class Bear {
 
         public abstract boolean isHealthy();
     }
-```
-
-<!-- source-page: 0413 -->
-
-```java
     public static void main(String[] args) {
         System.out.print(FOOD.INSECTS);
         System.out.print(FOOD.INSECTS.ordinal());
@@ -5694,6 +5679,8 @@ public class Bear {
     }
 }
 ```
+
+<!-- source-page: 0413 -->
 
 > **English — A:** `insects`
 >
@@ -5723,7 +5710,7 @@ public class Bear {
 >
 > **Türkçe — G:** Kod derlenmez.
 
-### Question 20
+### Question 20 / Soru 20
 
 > **English:** Which statements about polymorphism and method inheritance are
 > correct? (Choose all that apply.)
@@ -5769,7 +5756,7 @@ public class Bear {
 > **Türkçe — F:** Runtime'da hangi hidden method'un çağrılacağını variable'ın
 > reference type'ı belirler.
 
-### Question 21
+### Question 21 / Soru 21
 
 > **English:** Given the following record declaration, which lines of code can
 > fill in the blank and allow the code to compile? (Choose all that apply.)
@@ -5797,11 +5784,9 @@ public record RabbitFood(int size, String brand, LocalDate expires) {
 
 <!-- source-page: 0414 -->
 
-> **English — C:** `if(expires.isAfter(LocalDate.now())) throw new
-> RuntimeException()`
+> **English — C:** `if(expires.isAfter(LocalDate.now())) throw new RuntimeException()`
 >
-> **Türkçe — C:** `if(expires.isAfter(LocalDate.now())) throw new
-> RuntimeException()`
+> **Türkçe — C:** `if(expires.isAfter(LocalDate.now())) throw new RuntimeException()`
 
 > **English — D:** `if(brand==null) super.brand = "Unknown"`
 >
@@ -5815,7 +5800,7 @@ public record RabbitFood(int size, String brand, LocalDate expires) {
 >
 > **Türkçe — F:** Yukarıdakilerin hiçbiri
 
-### Question 22
+### Question 22 / Soru 22
 
 > **English:** Which of the following can be inserted in the `rest()` method?
 > (Choose all that apply.)
@@ -5865,7 +5850,7 @@ public class Lion {
 >
 > **Türkçe — H:** `var h = new Cub()`
 
-### Question 23
+### Question 23 / Soru 23
 
 > **English:** Given the following program, what can be inserted into the blank
 > line that would allow it to print `Swim!` at runtime?
@@ -5922,7 +5907,7 @@ public class Penguin implements Swim, Dance {
 > **Türkçe — F:** Kod derlenir ancak polymorphism nedeniyle yeni bir object
 > oluşturmadan istenen çıktıyı üretmek mümkün değildir.
 
-### Question 24
+### Question 24 / Soru 24
 
 > **English:** Which lines of the following interface do not compile? (Choose
 > all that apply.)
@@ -5969,7 +5954,7 @@ public class Penguin implements Swim, Dance {
 >
 > **Türkçe — G:** Yukarıdakilerin hiçbiri
 
-### Question 25
+### Question 25 / Soru 25
 
 > **English:** What does the following program print?
 >
@@ -5989,17 +5974,13 @@ public class Penguin implements Swim, Dance {
 11:        var s = new Stripes() {};
 12:        s.print();
 13:        return x;
-```
-
-<!-- source-page: 0416 -->
-
-```java
 14:    }
 15:    public static void main(String[] args) {
 16:        new Zebra().hunt();
-17:    }
-18: }
+17:    } }
 ```
+
+<!-- source-page: 0416 -->
 
 > **English — A:** `x is 0`
 >
@@ -6025,7 +6006,7 @@ public class Penguin implements Swim, Dance {
 >
 > **Türkçe — F:** Yukarıdakilerin hiçbiri
 
-### Question 26
+### Question 26 / Soru 26
 
 > **English:** Which statements about the following enum are true? (Choose all
 > that apply.)
@@ -6076,7 +6057,7 @@ public class Penguin implements Swim, Dance {
 >
 > **Türkçe — G:** Kod başarıyla derlenir.
 
-### Question 27
+### Question 27 / Soru 27
 
 > **English:** Assuming a record is defined with at least one field, which
 > components does the compiler always insert, each of which may be overridden
@@ -6116,7 +6097,7 @@ public class Penguin implements Swim, Dance {
 >
 > **Türkçe — G:** `hashCode()` method'u
 
-### Question 28
+### Question 28 / Soru 28
 
 > **English:** Which of the following classes and interfaces do not compile?
 > (Choose all that apply.)
@@ -6160,7 +6141,7 @@ public interface Spider { default void crawl() {} }
 >
 > **Türkçe — F:** Class ve interface'lerin hiçbiri derlenmez.
 
-### Question 29
+### Question 29 / Soru 29
 
 > **English:** How many lines of the following program contain a compilation
 > error?
@@ -6182,33 +6163,30 @@ public interface Spider { default void crawl() {} }
 12:        this().age = 6;
 13:    }
 14:    public static void main(String[] bananas) {
-```
-
-<!-- source-page: 0418 -->
-
-```java
 15:        final Primate x = (Primate)new Orangutan();
 16:        System.out.println(x.age);
 17:    }
 18: }
 ```
 
-> **English — A:** `1`
->
-> **Türkçe — A:** `1`
+<!-- source-page: 0418 -->
 
-> **English — B:** None, and the program prints `1` at runtime.
+> **English — A:** None, and the program prints `1` at runtime.
 >
-> **Türkçe — B:** Hiçbiri; program runtime'da `1` yazdırır.
+> **Türkçe — A:** Hiçbiri; program runtime'da `1` yazdırır.
 
-> **English — C:** None, and the program prints `3` at runtime.
+> **English — B:** None, and the program prints `3` at runtime.
 >
-> **Türkçe — C:** Hiçbiri; program runtime'da `3` yazdırır.
+> **Türkçe — B:** Hiçbiri; program runtime'da `3` yazdırır.
 
-> **English — D:** None, but it causes a `ClassCastException` at runtime.
+> **English — C:** None, but it causes a `ClassCastException` at runtime.
 >
-> **Türkçe — D:** Hiçbiri; ancak runtime'da `ClassCastException` oluşmasına
+> **Türkçe — C:** Hiçbiri; ancak runtime'da `ClassCastException` oluşmasına
 > neden olur.
+
+> **English — D:** `1`
+>
+> **Türkçe — D:** `1`
 
 > **English — E:** `2`
 >
@@ -6222,7 +6200,7 @@ public interface Spider { default void crawl() {} }
 >
 > **Türkçe — G:** `4`
 
-### Question 30
+### Question 30 / Soru 30
 
 > **English:** Assuming the following classes are declared as top-level types
 > in the same file, which classes contain compiler errors? (Choose all that
@@ -6272,13 +6250,13 @@ final class Silly {}
 >
 > **Türkçe — G:** Class'ların tümü sorunsuz derlenir.
 
-## Coverage ledger / Kapsam kaydı
+## Kapsam doğrulaması
 
-| Kaynak aralığı | Marker aralığı | Kapsanan içerik | Durum |
+| Kaynak aralığı | Kaynak sayfa aralığı | Kapsanan içerik | Durum |
 |---|---|---|---|
 | Chapter 7, PDF 345–418 | `0345`–`0418` | Başlıklar, prose paragrafları, tablolar/figure metinleri, code, Summary, Exam Essentials ve Review Questions 1–30 | Eksiksiz işlendi |
 
-Toplam beklenen ve bulunan source-page marker sayısı: **74 / 74**.
+Toplam beklenen ve doğrulanan kaynak sayfa işareti: **74 / 74**.
 
 ## Appendix · Önceki review-question teknik analizleri
 

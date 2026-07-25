@@ -9,14 +9,14 @@ Essentials ve Review Questions korunmuştur.
 [Vocabulary](vocabulary.md) · [Grammar notes](grammar_notes.md) ·
 [Teknik hafıza notu](technical_memory_notes.md)
 
-## Kaynak kapsam manifesti
+## Kaynak ve kapsam özeti
 
 - Kaynak: `exam_lecture/OCP_Java_SE17_Chapter1den_Itibaren.pdf`
 - Chapter: 8 · Lambdas and Functional Interfaces
 - PDF sayfaları: 419–462
-- Beklenen sayfa marker'ı: 44
+- Beklenen kaynak sayfa sayısı: 44
 - Resmî Review Questions cevap eki: Appendix PDF sayfaları 936–939
-- Beklenen answer-source marker'ı: 4
+- Beklenen cevap kaynağı sayfa sayısı: 4
 - Eşleme biçimi: English paragraf → hemen altında Türkçe çeviri → varsa kod
 
 ## İçindekiler
@@ -2718,8 +2718,8 @@ a -> a.equals(b)
 > `final` keyword to these variables. Instance and class variables are always
 > allowed.
 >
-> **Türkçe:** **Bir variable'ın lambda body'sinde kullanılıp kullanılamayacağını
-> belirleyin.** Local variable ve method parameter'lara reference verilebilmesi
+> **Türkçe:** **Bir variable'ın lambda body'sinde kullanılıp kullanılamayacağını belirleyin.**
+> Local variable ve method parameter'lara reference verilebilmesi
 > için bunlar `final` veya effectively final olmalıdır. Bu, söz konusu
 > variable'lara `final` keyword'ünü ekleseydiniz kodun derlenmesi gerektiği
 > anlamına gelir. Instance ve class variable'lara her zaman izin verilir.
@@ -2743,22 +2743,22 @@ a -> a.equals(b)
 > abstract method count, nor do any public methods with signatures found in
 > `Object`.
 >
-> **Türkçe:** **Bir interface'in functional interface olup olmadığını
-> belirleyin.** Bir interface'in functional interface olup olmadığını belirlemek
+> **Türkçe:** **Bir interface'in functional interface olup olmadığını belirleyin.**
+> Bir interface'in functional interface olup olmadığını belirlemek
 > için single abstract method (SAM) kuralını kullanın. Diğer interface method
 > türleri (`default`, `private`, `static` ve `private static`) single abstract
 > method sayısına katılmaz; `Object`te bulunan signature'lara sahip public
 > method'lar da katılmaz.
 
-> **English:** **Identify the correct functional interface given the number of
-> parameters, return type, and method name—and vice versa.** The most common
+> **English:** **Identify the correct functional interface given the number of parameters, return type, and method name—and vice versa.**
+> The most common
 > functional interfaces are `Supplier`, `Consumer`, `Function`, and
 > `Predicate`. There are also binary versions and primitive versions of many of
 > these methods. You can use the number of parameters and return type to tell
 > them apart.
 >
-> **Türkçe:** **Parameter sayısı, return type ve method adı verildiğinde doğru
-> functional interface'i—ve tersini—belirleyin.** En yaygın functional
+> **Türkçe:** **Parameter sayısı, return type ve method adı verildiğinde doğru functional interface'i—ve tersini—belirleyin.**
+> En yaygın functional
 > interface'ler `Supplier`, `Consumer`, `Function` ve `Predicate`tır. Bu
 > method'ların birçoğunun binary ve primitive sürümleri de vardır. Bunları
 > birbirinden ayırmak için parameter sayısını ve return type'ı kullanabilirsiniz.
@@ -2772,7 +2772,7 @@ a -> a.equals(b)
 >
 > **Türkçe:** Chapter review questions'ın cevapları Appendix'te bulunabilir.
 
-### Question 1
+### Question 1 / Soru 1
 
 > **English:** What is the result of the following class?
 >
@@ -2820,7 +2820,7 @@ a -> a.equals(b)
 >
 > **Türkçe:** F. Runtime'da exception fırlatılır.
 
-### Question 2
+### Question 2 / Soru 2
 
 > **English:** What is the result of the following code?
 >
@@ -2838,16 +2838,13 @@ a -> a.equals(b)
 9:     private static void check(Climb climb, int height) {
 10:        if (climb.isTooHigh(height, 10))
 11:            System.out.println("too high");
-```
-
-<!-- source-page: 0453 -->
-
-```java
 12:        else
 13:            System.out.println("ok");
 14:    }
 15: }
 ```
+
+<!-- source-page: 0453 -->
 
 > **English:** A. `ok`
 >
@@ -2873,7 +2870,7 @@ a -> a.equals(b)
 >
 > **Türkçe:** F. Runtime'da exception fırlatılır.
 
-### Question 3
+### Question 3 / Soru 3
 
 > **English:** Which statements about functional interfaces are true? (Choose
 > all that apply.)
@@ -2912,7 +2909,7 @@ a -> a.equals(b)
 > **Türkçe:** E. Functional interface `@FunctionalInterface` annotation'ıyla
 > işaretlenmek zorundadır.
 
-### Question 4
+### Question 4 / Soru 4
 
 > **English:** Which lambda can replace the `MySecret` class to return the same
 > value? (Choose all that apply.)
@@ -2956,7 +2953,7 @@ class MySecret implements Secret {
 
 <!-- source-page: 0454 -->
 
-### Question 5
+### Question 5 / Soru 5
 
 > **English:** Which of the following functional interfaces contain an
 > abstract method that returns a primitive value? (Choose all that apply.)
@@ -2988,7 +2985,7 @@ class MySecret implements Secret {
 >
 > **Türkçe:** F. `StringSupplier`
 
-### Question 6
+### Question 6 / Soru 6
 
 > **English:** Which of the following lambda expressions can be passed to a
 > function of `Predicate<String>` type? (Choose all that apply.)
@@ -3020,7 +3017,7 @@ class MySecret implements Secret {
 >
 > **Türkçe:** F. `(StringBuilder s) --> s.isEmpty()`
 
-### Question 7
+### Question 7 / Soru 7
 
 > **English:** Which of these statements is true about the following code?
 >
@@ -3059,7 +3056,7 @@ public void x(Consumer<String> x, BinaryOperator<Boolean> y) {}
 > **Türkçe:** E. Kod derlenir ve her lambda'daki `x` farklı bir type'a gönderme
 > yapar.
 
-### Question 8
+### Question 8 / Soru 8
 
 > **English:** Which of the following is equivalent to this code? (Choose all
 > that apply.)
@@ -3097,7 +3094,7 @@ UnaryOperator<Integer> u = x -> x * x;
 
 <!-- source-page: 0455 -->
 
-### Question 9
+### Question 9 / Soru 9
 
 > **English:** Which statements are true? (Choose all that apply.)
 >
@@ -3131,7 +3128,7 @@ UnaryOperator<Integer> u = x -> x * x;
 >
 > **Türkçe:** F. `Predicate` interface'inin `test()` adlı bir method'u vardır.
 
-### Question 10
+### Question 10 / Soru 10
 
 > **English:** Which of the following can be inserted without causing a
 > compilation error? (Choose all that apply.)
@@ -3168,7 +3165,7 @@ public void remove(List<Character> chars) {
 >
 > **Türkçe:** E. Yukarıdakilerin hiçbiri
 
-### Question 11
+### Question 11 / Soru 11
 
 > **English:** How many times is `true` printed out by this code?
 >
@@ -3213,7 +3210,7 @@ public class Fantasy {
 >
 > **Türkçe:** E. Runtime'da exception fırlatılır.
 
-### Question 12
+### Question 12 / Soru 12
 
 > **English:** What does the following code output?
 >
@@ -3248,7 +3245,7 @@ System.out.print(c.apply(1));
 >
 > **Türkçe:** E. Kod başka bir nedenle derlenmez.
 
-### Question 13
+### Question 13 / Soru 13
 
 > **English:** Which is true of the following code?
 >
@@ -3290,7 +3287,7 @@ for (int i = 0; i < 3; i++) {
 
 <!-- source-page: 0457 -->
 
-### Question 14
+### Question 14 / Soru 14
 
 > **English:** Which of the following are valid lambda expressions? (Choose all
 > that apply.)
@@ -3326,7 +3323,7 @@ for (int i = 0; i < 3; i++) {
 >
 > **Türkçe:** G. `(Cat a, b) -> {}`
 
-### Question 15
+### Question 15 / Soru 15
 
 > **English:** Which lambda expression, when entered into the blank line in the
 > following code, causes the program to print `hahaha`? (Choose all that
@@ -3381,7 +3378,7 @@ public class Hyena {
 >
 > **Türkçe:** G. Yukarıdakilerin hiçbiri; çünkü kod derlenmez.
 
-### Question 16
+### Question 16 / Soru 16
 
 > **English:** Which of the following can be inserted without causing a
 > compilation error? (Choose all that apply.)
@@ -3392,16 +3389,13 @@ public class Hyena {
 ```java
 public void remove(List<Character> chars) {
     char end = 'z';
-```
-
-<!-- source-page: 0458 -->
-
-```java
     // INSERT LINE HERE
     Predicate<Character> predicate = c -> {
         char start = 'a'; return start <= c && c <= end; };
 }
 ```
+
+<!-- source-page: 0458 -->
 
 > **English:** A. `char start = 'a';`
 >
@@ -3423,7 +3417,7 @@ public void remove(List<Character> chars) {
 >
 > **Türkçe:** E. Yukarıdakilerin hiçbiri
 
-### Question 17
+### Question 17 / Soru 17
 
 > **English:** What is the result of running the following class?
 >
@@ -3473,7 +3467,7 @@ public void remove(List<Character> chars) {
 
 <!-- source-page: 0459 -->
 
-### Question 18
+### Question 18 / Soru 18
 
 > **English:** Which functional interfaces complete the following code? For
 > line 7, assume `m` and `n` are instances of functional interfaces that exist
@@ -3521,7 +3515,7 @@ public void remove(List<Character> chars) {
 >
 > **Türkçe:** H. `UnaryOperator<String, String>`
 
-### Question 19
+### Question 19 / Soru 19
 
 > **English:** Which of the following compiles and prints out the entire set?
 > (Choose all that apply.)
@@ -3560,7 +3554,7 @@ s.forEach(consumer);
 >
 > **Türkçe:** F. `System.out::println`
 
-### Question 20
+### Question 20 / Soru 20
 
 > **English:** Which lambdas can replace the `new Sloth()` call in the
 > `main()` method and produce the same output at runtime? (Choose all that
@@ -3579,11 +3573,6 @@ class Sloth implements Yawn {
     public String yawn(double zzz, List<Integer> time) {
         return "Sleep: " + zzz;
     } }
-```
-
-<!-- source-page: 0460 -->
-
-```java
 public class Vet {
     public static String takeNap(Yawn y) {
         return y.yawn(10, null);
@@ -3592,6 +3581,8 @@ public class Vet {
         System.out.print(takeNap(new Sloth()));
     } }
 ```
+
+<!-- source-page: 0460 -->
 
 > **English:** A. `(z,f) -> { String x = ""; return "Sleep: " + x }`
 >
@@ -3621,7 +3612,7 @@ public class Vet {
 >
 > **Türkçe:** G. Yukarıdakilerin hiçbiri; çünkü program derlenmez.
 
-### Question 21
+### Question 21 / Soru 21
 
 > **English:** Which of the following are valid functional interfaces? (Choose
 > all that apply.)
@@ -3648,16 +3639,14 @@ public interface Train extends Transport {}
 abstract interface Spaceship extends Transport {
     default int blastOff();
 }
-```
 
-<!-- source-page: 0461 -->
-
-```java
 public interface Boat {
     int hashCode();
     int hashCode(String input);
 }
 ```
+
+<!-- source-page: 0461 -->
 
 > **English:** A. `Boat`
 >
@@ -3690,15 +3679,16 @@ public interface Boat {
 <!-- source-page: 0462 -->
 
 > **Kaynak kapsam notu:** PDF sayfası 462 boştur; 419–462 fiziksel kaynak
-> aralığının eksiksiz izlendiğini göstermek için marker korunmuştur.
+> aralığının eksiksiz izlendiğini göstermek için kaynak sayfa işareti
+> korunmuştur.
 
 ## Appendix · Official Review Question Answers / Resmî Cevaplar
 
 Bu bölüm, kaynağın **Answers to the Review Questions** ekindeki Chapter 8
 cevaplarını PDF sayfaları 936–939'dan aktarır. Cevaplar, soruların okuma akışına
-sızmaması için bütün Question 1–21 metinlerinden sonra tutulur. Aşağıdaki
-`answer-source-page` işaretleri ana chapter'ın 419–462 marker kapsamından
-bağımsızdır.
+sızmaması için bütün Question 1–21 metinlerinden sonra tutulur. Aşağıdaki cevap
+kaynağı sayfa işaretleri, ana bölümün 419–462 sayfalarına ait kapsam
+doğrulamasından bağımsızdır.
 
 <!-- answer-source-page: 0936 -->
 

@@ -1,5 +1,14 @@
 # Unit 06 Grammar Notes · Class Design
 
+## Bu belge nasıl kullanılmalı?
+
+Bu kaynağı [README'deki çalışma rotasının](README.md#4560-dakikalık-önerilen-çalışma-rotası)
+grammar adımında kullan:
+
+1. Önce koyu formülü oku ve örnekteki yapıyı kendin bul.
+2. English cümleyi Türkçe satırı açmadan çevir.
+3. YDS ipucu/common mistake ayrımını kontrol et; mini quiz'i en son çöz.
+
 ## 1. `provided + clause`
 
 **EN:** Mutable data may be exposed, provided the caller cannot modify it.

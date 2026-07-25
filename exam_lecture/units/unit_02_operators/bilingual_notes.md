@@ -6,7 +6,7 @@ kod ve terminal komutları ise çevrilmeden yalnızca bir kez gösterilir. Ayrı
 dil çalışması için [vocabulary](vocabulary.md) ve [grammar notes](grammar_notes.md)
 dosyalarını kullan.
 
-## Kapsam manifesti
+## Kaynak ve kapsam özeti
 
 - **Kaynak:** `exam_lecture/OCP_Java_SE17_Chapter1den_Itibaren.pdf`
 - **PDF kapsamı:** 0065–0100
@@ -14,7 +14,7 @@ dosyalarını kullan.
 - **İşlenen anlamlı kaynak girdisi:** 1298
 - **Çıkarılan öğeler:** Yalnızca tekrarlanan running header, footer ve sayfa numarası
 - **OCR düzeltmeleri:** Soft hyphen ve satır bölünmesi kaynaklı tireler teknik yazıma getirildi
-- **İzlenebilirlik:** Her PDF sayfası `source-page` marker'ı ve sonda coverage ledger ile kayıtlıdır
+- **İzlenebilirlik:** Her kaynak PDF sayfası kaydedilir ve kapsam doğrulaması belgenin sonunda özetlenir
 
 ## İçindekiler
 
@@ -1626,15 +1626,15 @@ System.out.print(sheep + "," + zzz); // 1,2
 
 <!-- source-page: 0094 -->
 
-## Kaynak PDF sayfası 94
-
 ### Review Questions
 
-> **Türkçe başlık:** Review Questions
+> **Türkçe başlık:** İnceleme Soruları
 
 > **English:** The answers to the chapter review questions can be found in the Appendix.
 
 > **Türkçe:** Bölüm inceleme sorularının yanıtlarını Ek'te bulabilirsiniz.
+
+### Question 1 / Soru 1
 
 > **English:** 1. Which of the following Java operators can be used with boolean variables? (Choose all that apply.)
 
@@ -1647,8 +1647,12 @@ C. --
 D. !
 E. %
 F. ~
-G. Cast with (boolean) / (boolean) ile casting
+G. Cast with (boolean)
 ```
+
+> **Türkçe seçenek notu:** G. `(boolean)` ile casting
+
+### Question 2 / Soru 2
 
 > **English:** 2. What data type (or types) will allow the following code snippet to compile? (Choose all that apply.)
 
@@ -1668,6 +1672,8 @@ D. double
 E. short
 F. byte
 ```
+
+### Question 3 / Soru 3
 
 > **English:** 3. What change, when applied independently, would allow the following code snippet to compile? (Choose all that apply.)
 
@@ -1704,7 +1710,7 @@ F. byte
 
 <!-- source-page: 0095 -->
 
-## Kaynak PDF sayfası 95
+### Question 4 / Soru 4
 
 > **English:** 4. What is the output of the following code snippet?
 
@@ -1713,7 +1719,7 @@ F. byte
 ```java
 3: boolean canine = true, wolf = true;
 4: int teeth = 20;
-5: canine = (teeth!= 10) ^ (wolf=false);
+5: canine = (teeth != 10) ^ (wolf=false);
 6: System.out.println(canine+", "+teeth+", "+wolf);
 ```
 
@@ -1722,9 +1728,13 @@ A. true, 20, true
 B. true, 20, false
 C. false, 10, true
 D. false, 20, false
-E. The code will not compile because of line 5. / Kod 5. satır nedeniyle derlenmez.
-F. None of the above / Yukarıdakilerin hiçbiri
+E. The code will not compile because of line 5.
+F. None of the above.
 ```
+
+> **Türkçe seçenekler:** E. Kod 5. satır nedeniyle derlenmez. F. Yukarıdakilerin hiçbiri.
+
+### Question 5 / Soru 5
 
 > **English:** 5. Which of the following operators are ranked in increasing or the same order of precedence? Assume the + operator is binary addition, not the unary form. (Choose all that apply.)
 
@@ -1740,20 +1750,22 @@ F. !, ||, &
 G. ^, +, =, +=
 ```
 
+### Question 6 / Soru 6
+
 > **English:** 6. What is the output of the following program?
 
 > **Türkçe:** 6. Aşağıdaki programın output'u nedir?
 
 ```java
 1: public class CandyCounter {
-2: static long addCandy(double fruit, float vegetables) {
-3: return (int)fruit+vegetables;
-4: }
+2:    static long addCandy(double fruit, float vegetables) {
+3:       return (int)fruit+vegetables;
+4:    }
 5:
-6: public static void main(String[] args) {
-7: System.out.print(addCandy(1.4, 2.4f) + ", ");
-8: System.out.print(addCandy(1.9, (float)4) + ", ");
-9: System.out.print(addCandy((long)(int)(short)2, (float)4)); } }
+6:    public static void main(String[] args) {
+7:       System.out.print(addCandy(1.4, 2.4f) + ", ");
+8:       System.out.print(addCandy(1.9, (float)4) + ", ");
+9:       System.out.print(addCandy((long)(int)(short)2, (float)4)); } }
 ```
 
 ```text
@@ -1761,13 +1773,15 @@ A. 4, 6, 6.0
 B. 3, 5, 6
 C. 3, 6, 6
 D. 4, 5, 6
-E. The code does not compile because of line 9. / Kod 9. satır nedeniyle derlenmez.
-F. None of the above / Yukarıdakilerin hiçbiri
+E. The code does not compile because of line 9.
+F. None of the above.
 ```
+
+> **Türkçe seçenekler:** E. Kod 9. satır nedeniyle derlenmez. F. Yukarıdakilerin hiçbiri.
 
 <!-- source-page: 0096 -->
 
-## Kaynak PDF sayfası 96
+### Question 7 / Soru 7
 
 > **English:** 7. What is the output of the following code snippet?
 
@@ -1792,6 +1806,8 @@ G. false-false-true
 H. false-false-false
 ```
 
+### Question 8 / Soru 8
+
 > **English:** 8. What is the output of the following code snippet?
 
 > **Türkçe:** 8. Aşağıdaki code snippet'in output'u nedir?
@@ -1809,9 +1825,13 @@ A. 4 - 1
 B. 4 - 2
 C. 5 - 1
 D. 5 - 2
-E. The code does not compile due to line 7. / Kod 7. satır nedeniyle derlenmez.
-F. None of the above / Yukarıdakilerin hiçbiri
+E. The code does not compile due to line 7.
+F. None of the above.
 ```
+
+> **Türkçe seçenekler:** E. Kod 7. satır nedeniyle derlenmez. F. Yukarıdakilerin hiçbiri.
+
+### Question 9 / Soru 9
 
 > **English:** 9. What are the unique outputs of the following code snippet? (Choose all that apply.)
 
@@ -1819,9 +1839,9 @@ F. None of the above / Yukarıdakilerin hiçbiri
 
 ```java
 int a = 2, b = 4, c = 2;
-System.out.println(a > 2? --c: b++);
-System.out.println(b = (a!=c? a: b++));
-System.out.println(a > b? b < c? b: 2: 1);
+System.out.println(a > 2 ? --c : b++);
+System.out.println(b = (a!=c ? a : b++));
+System.out.println(a > b ? b < c ? b : 2 : 1);
 ```
 
 ```text
@@ -1831,12 +1851,14 @@ C. 3
 D. 4
 E. 5
 F. 6
-G. The code does not compile. / Kod derlenmez.
+G. The code does not compile.
 ```
+
+> **Türkçe seçenek notu:** G. Kod derlenmez.
 
 <!-- source-page: 0097 -->
 
-## Kaynak PDF sayfası 97
+### Question 10 / Soru 10
 
 > **English:** 10. What are the unique outputs of the following code snippet? (Choose all that apply.)
 
@@ -1859,8 +1881,12 @@ C. 3
 D. 4
 E. 5
 F. 6
-G. The code does not compile. / Kod derlenmez.
+G. The code does not compile.
 ```
+
+> **Türkçe seçenek notu:** G. Kod derlenmez.
+
+### Question 11 / Soru 11
 
 > **English:** 11. What is the output of the following code?
 
@@ -1880,8 +1906,12 @@ C. 2, 1, 5
 D. 2, 0, 5
 E. 3, 1, 10
 F. 3, 2, 6
-G. The code does not compile. / Kod derlenmez.
+G. The code does not compile.
 ```
+
+> **Türkçe seçenek notu:** G. Kod derlenmez.
+
+### Question 12 / Soru 12
 
 > **English:** 12. The _________ operator increases a value and returns the original value, while the _______ operator decreases a value and returns the new value.
 
@@ -1898,7 +1928,7 @@ F. pre-increment, post-decrement
 
 <!-- source-page: 0098 -->
 
-## Kaynak PDF sayfası 98
+### Question 13 / Soru 13
 
 > **English:** 13. What is the output of the following code snippet?
 
@@ -1907,10 +1937,10 @@ F. pre-increment, post-decrement
 ```java
 boolean sunny = true, raining = false, sunday = true;
 boolean goingToTheStore = sunny & raining ^ sunday;
-boolean goingToTheZoo = sunday &&!raining;
-boolean stayingHome =!(goingToTheStore && goingToTheZoo);
+boolean goingToTheZoo = sunday && !raining;
+boolean stayingHome = !(goingToTheStore && goingToTheZoo);
 System.out.println(goingToTheStore + "-" + goingToTheZoo
-+ "-" + stayingHome);
+   + "-" + stayingHome);
 ```
 
 ```text
@@ -1920,8 +1950,12 @@ C. true-true-true
 D. false-true-true
 E. false-false-false
 F. true-true-false
-G. None of the above / Yukarıdakilerin hiçbiri
+G. None of the above
 ```
+
+> **Türkçe seçenek notu:** G. Yukarıdakilerin hiçbiri.
+
+### Question 14 / Soru 14
 
 > **English:** 14. Which of the following statements are correct? (Choose all that apply.)
 
@@ -1955,6 +1989,8 @@ G. None of the above / Yukarıdakilerin hiçbiri
 
 > **Türkçe:** G. Logical complement operator (`!`) numeric value'ları tersine çevirmek için kullanılamaz.
 
+### Question 15 / Soru 15
+
 > **English:** 15. Which operators take three operands or values? (Choose all that apply.)
 
 > **Türkçe:** 15. Hangi operator'lar üç operand veya value alır? (Uygun olanların tümünü seçin.)
@@ -1971,7 +2007,7 @@ G. /
 
 <!-- source-page: 0099 -->
 
-## Kaynak PDF sayfası 99
+### Question 16 / Soru 16
 
 > **English:** 16. How many lines of the following code contain compiler errors?
 
@@ -1981,7 +2017,7 @@ G. /
 int note = 1 * 2 + (long)3;
 short melody = (byte)(double)(note *= 2);
 double song = melody;
-float symphony = (float)((song == 1_000f)? song * 2L: song);
+float symphony = (float)((song == 1_000f) ? song * 2L : song);
 ```
 
 ```text
@@ -1991,6 +2027,8 @@ C. 2
 D. 3
 E. 4
 ```
+
+### Question 17 / Soru 17
 
 > **English:** 17. Given the following code snippet, what are the values of the variables after it is executed? (Choose all that apply.)
 
@@ -2032,6 +2070,8 @@ ticketsSold += (long)1;
 
 > **Türkçe:** G. Kod derlenmez.
 
+### Question 18 / Soru 18
+
 > **English:** 18. Which of the following can be used to change the order of operation in an expression? (Choose all that apply.)
 
 > **Türkçe:** 18. Bir expression'daki operation order'ı değiştirmek için aşağıdakilerden hangileri kullanılabilir? (Uygun olanların tümünü seçin.)
@@ -2047,11 +2087,7 @@ F. " "
 
 <!-- source-page: 0100 -->
 
-## Kaynak PDF sayfası 100
-
-### Review Questions 19–21
-
-> **Türkçe başlık:** Review Questions 19–21
+### Question 19 / Soru 19
 
 > **English:** 19. What is the result of executing the following code snippet? (Choose all that apply.)
 
@@ -2096,6 +2132,8 @@ F. " "
 
 > **Türkçe:** H. Kod derlenir; ancak runtime'da exception fırlatır.
 
+### Question 20 / Soru 20
+
 > **English:** 20. Which of the following statements about unary operators are true? (Choose all that apply.)
 
 > **Türkçe:** 20. Unary operator'larla ilgili aşağıdaki statement'lardan hangileri doğrudur? (Uygun olanların tümünü seçin.)
@@ -2120,9 +2158,11 @@ F. " "
 
 > **Türkçe:** E. `!` operator'ı numeric value'larda kullanılamaz.
 
-> **English:** F. None of the above.
+> **English:** F. None of the above
 
 > **Türkçe:** F. Yukarıdakilerin hiçbiri.
+
+### Question 21 / Soru 21
 
 > **English:** 21. What is the result of executing the following code snippet?
 
@@ -2131,8 +2171,8 @@ F. " "
 ```java
 int myFavoriteNumber = 8;
 int bird = ~myFavoriteNumber;
-int plane = - myFavoriteNumber;
-var superman = bird == plane? 5: 10;
+int plane = -myFavoriteNumber;
+var superman = bird == plane ? 5 : 10;
 System.out.println(bird + "," + plane + "," + --superman);
 ```
 
@@ -2143,8 +2183,10 @@ C. -8,-8,4
 D. -8,-8,5
 E. -9,-8,9
 F. -9,-8,10
-G. None of the above / Yukarıdakilerin hiçbiri
+G. None of the above
 ```
+
+> **Türkçe seçenek notu:** G. Yukarıdakilerin hiçbiri.
 
 ## Kaynak dışı teknik pekiştirme
 
@@ -2152,46 +2194,7 @@ Bu belgedeki kaynak akışına ek açıklama karıştırılmamıştır. Java 17/
 kartları, exam trap'ler ve active recall çalışmaları ayrı
 [technical memory notes](technical_memory_notes.md) belgesinde korunur.
 
-## Page coverage ledger
+## Kapsam doğrulaması
 
-| PDF sayfası | Marker | Anlamlı kaynak girdisi | Durum |
-|---:|:---:|---:|:---:|
-| 0065 | `source-page: 0065` | 9 | Dahil |
-| 0066 | `source-page: 0066` | 28 | Dahil |
-| 0067 | `source-page: 0067` | 34 | Dahil |
-| 0068 | `source-page: 0068` | 43 | Dahil |
-| 0069 | `source-page: 0069` | 40 | Dahil |
-| 0070 | `source-page: 0070` | 51 | Dahil |
-| 0071 | `source-page: 0071` | 36 | Dahil |
-| 0072 | `source-page: 0072` | 32 | Dahil |
-| 0073 | `source-page: 0073` | 39 | Dahil |
-| 0074 | `source-page: 0074` | 34 | Dahil |
-| 0075 | `source-page: 0075` | 37 | Dahil |
-| 0076 | `source-page: 0076` | 39 | Dahil |
-| 0077 | `source-page: 0077` | 29 | Dahil |
-| 0078 | `source-page: 0078` | 39 | Dahil |
-| 0079 | `source-page: 0079` | 32 | Dahil |
-| 0080 | `source-page: 0080` | 40 | Dahil |
-| 0081 | `source-page: 0081` | 39 | Dahil |
-| 0082 | `source-page: 0082` | 37 | Dahil |
-| 0083 | `source-page: 0083` | 34 | Dahil |
-| 0084 | `source-page: 0084` | 33 | Dahil |
-| 0085 | `source-page: 0085` | 38 | Dahil |
-| 0086 | `source-page: 0086` | 40 | Dahil |
-| 0087 | `source-page: 0087` | 33 | Dahil |
-| 0088 | `source-page: 0088` | 55 | Dahil |
-| 0089 | `source-page: 0089` | 38 | Dahil |
-| 0090 | `source-page: 0090` | 33 | Dahil |
-| 0091 | `source-page: 0091` | 31 | Dahil |
-| 0092 | `source-page: 0092` | 30 | Dahil |
-| 0093 | `source-page: 0093` | 10 | Dahil |
-| 0094 | `source-page: 0094` | 38 | Dahil |
-| 0095 | `source-page: 0095` | 50 | Dahil |
-| 0096 | `source-page: 0096` | 40 | Dahil |
-| 0097 | `source-page: 0097` | 35 | Dahil |
-| 0098 | `source-page: 0098` | 36 | Dahil |
-| 0099 | `source-page: 0099` | 32 | Dahil |
-| 0100 | `source-page: 0100` | 54 | Dahil |
-
-**Coverage sonucu:** 0065–0100 aralığındaki
-36 sayfanın tamamı marker'lıdır; aralıkta eksik marker yoktur.
+> **Kapsam özeti:** `0065`–`0100` aralığındaki **36/36 kaynak sayfa**
+> doğrulandı; eksik sayfa yoktur.

@@ -26,9 +26,9 @@ anlamı verir.
 `allow` sonrasında doğrudan infinitive kullanma:
 
 ```text
-allows to access       ✗
-allows users to access ✓
-allows access          ✓
+allows to access       [YANLIŞ]
+allows users to access [DOĞRU]
+allows access          [DOĞRU]
 ```
 
 **YDS ipucu:** Passive biçim sık görülür:
@@ -142,9 +142,9 @@ Beklenen sonucun tersine bir durum bildirir: “... olmasına rağmen”.
 **Sık hata:** `despite` ile aynı syntax'ı sanmak:
 
 ```text
-even though + subject + verb ✓
-despite + noun / verb-ing    ✓
-despite + full clause        ✗
+even though + subject + verb [DOĞRU]
+despite + noun / verb-ing    [DOĞRU]
+despite + full clause        [YANLIŞ]
 ```
 
 ## 7. `given + noun` ve `given that + clause`
@@ -236,8 +236,8 @@ Indirect question'da normal statement order kullanılır; yardımcı fiil subjec
 > canlandırabileceğinizi gösterir.”
 
 ```text
-We know how the method works. ✓
-We know how does the method work. ✗
+We know how the method works. [DOĞRU]
+We know how does the method work. [YANLIŞ]
 ```
 
 **YDS ipucu:** `whether` iki olasılık arasındaki “olup olmadığı” anlamında,
@@ -472,8 +472,8 @@ unlike + noun phrase, clause
 `unlike` burada preposition'dır; ardından tam clause değil noun phrase gelir.
 
 ```text
-Unlike a List, a Set ... ✓
-Unlike a List allows duplicates ... ✗
+Unlike a List, a Set ... [DOĞRU]
+Unlike a List allows duplicates ... [YANLIŞ]
 ```
 
 ## 21. Contrast veya time bildiren `while`

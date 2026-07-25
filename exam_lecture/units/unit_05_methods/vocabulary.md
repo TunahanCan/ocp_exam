@@ -1,5 +1,24 @@
 # Unit 05 Vocabulary · Methods
 
+## Bu belge nasıl kullanılmalı?
+
+Bu sözlüğü [README'deki çalışma rotasının](README.md#4560-dakikalık-önerilen-çalışma-rotası)
+**35–45. dakikalarında** kısa active recall kartları gibi kullan:
+
+1. **Recall:** Terimin Türkçe ve bağlam satırlarını kapat; anlamını ve sözcük
+   türünü söyle.
+2. **Context:** Cevabı açıp terimin method declaration, access veya invocation
+   bağlamındaki özel anlamını kontrol et.
+3. **Example:** İngilizce örneği önce kendin çevir; ardından verilen doğal
+   çeviriyle karşılaştır ve terimle yeni bir Java cümlesi kur.
+4. **Quiz:** Oturum sonunda [Mini quiz](#mini-quiz) ve
+   [5 dakikalık active recall](#5-dakikalık-active-recall) görevlerini notlar
+   kapalıyken tamamla.
+
+> **Hızlı hedef:** Bir oturumda bütün liste yerine beş terim seç. Terimi yalnız
+> tanımak değil, `argument`–`parameter` veya `reassign`–`mutation` gibi yakın
+> kavramlardan ayırabilmek başarı ölçütüdür.
+
 ## A–I
 
 ### access modifier · noun phrase

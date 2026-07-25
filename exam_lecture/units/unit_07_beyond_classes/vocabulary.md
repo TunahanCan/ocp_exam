@@ -1,5 +1,15 @@
 # Unit 07 Vocabulary · Beyond Classes
 
+## Bu belge nasıl kullanılmalı?
+
+Bu sözlüğü [README'deki çalışma rotasının](README.md#4560-dakikalık-önerilen-çalışma-rotası)
+vocabulary adımında kullan:
+
+1. English terimden Türkçe anlamı active recall ile üret.
+2. `Bağlam` ve `Example` satırlarında record, enum, sealed type veya nested
+   class kullanımını ayırt et.
+3. Related/word-family bilgisini tekrar et; son mini quiz'i kapalı notla çöz.
+
 ## A–C
 
 ### accessor · noun

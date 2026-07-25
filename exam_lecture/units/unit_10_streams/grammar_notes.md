@@ -41,8 +41,8 @@ olduğu için sonrasında verb gelirse `-ing` alır.
 > **Türkçe:** “Lambda syntax'ı konusunda rahat olmalısınız.”
 
 ```text
-comfortable with use streams   ✗
-comfortable with using streams ✓
+comfortable with use streams   [YANLIŞ]
+comfortable with using streams [DOĞRU]
 ```
 
 ## 3. `both ... and ...`
@@ -97,9 +97,9 @@ Beklenen sonucun tersini bildirir: “... rağmen”.
 > hiç benzemezler.”
 
 ```text
-despite they use the same word             ✗
-despite using the same word                ✓
-despite the fact that they use the same word ✓
+despite they use the same word               [YANLIŞ]
+despite using the same word                  [DOĞRU]
+despite the fact that they use the same word [DOĞRU]
 ```
 
 ## 6. `tend to + base verb`
@@ -170,8 +170,8 @@ either + alternative A + or + alternative B
 **Sık hata:** İki tarafın grammar biçimi parallel olmalıdır:
 
 ```text
-either request ... or pass ...       ✓
-either requesting ... or to pass ... ✗
+either request ... or pass ...       [DOĞRU]
+either requesting ... or to pass ... [YANLIŞ]
 ```
 
 ## 10. `whether ... or ...`
@@ -244,8 +244,8 @@ Gerekli olumsuz koşulu kısa verir: “... olmadıkça”.
 > **Türkçe:** “Bir operation erken sonlandırmadıkça infinite pipeline bitmez.”
 
 ```text
-unless it does not stop ✗  (double negative)
-unless it stops         ✓
+unless it does not stop [YANLIŞ]  (double negative)
+unless it stops         [DOĞRU]
 ```
 
 ## 14. `by + gerund` ile yöntem
@@ -319,7 +319,7 @@ subject'i ise düşürülemez:
 
 ```text
 an operation produces a result  (ayrı cümle)
-an operation that produces a result ✓
+an operation that produces a result [DOĞRU]
 ```
 
 ## 18. `the first/only + noun + to-infinitive`

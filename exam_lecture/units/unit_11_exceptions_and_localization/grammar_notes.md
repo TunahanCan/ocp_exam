@@ -22,9 +22,9 @@ adapt something to + noun
 > hakkındadır.”
 
 ```text
-adapt to change   ✓
-adapt to changing requirements ✓
-adapt to change requirements   ✗
+adapt to change                [DOĞRU]
+adapt to changing requirements [DOĞRU]
+adapt to change requirements   [YANLIŞ]
 ```
 
 ## 2. `what happens if ...?`
@@ -186,7 +186,7 @@ Bir sorunu ele almak, yönetmek anlamındadır.
 > **Türkçe:** “Programın yapabileceği şey durumu ele almaktır.”
 
 `deal` sonrasında doğrudan object değil `with` gerekir:
-`deal the exception` ✗, `deal with the exception` ✓.
+`deal the exception` [YANLIŞ], `deal with the exception` [DOĞRU].
 
 ## 11. `either ... or ...`
 
@@ -255,7 +255,7 @@ Bir eylemi yapabilme kapasitesini bildirir.
 > **Türkçe:** “Try block `IOException` throw edebilecek durumda değildir.”
 
 `of` sonrasında infinitive değil gerund gelir:
-`capable of throwing` ✓.
+`capable of throwing` [DOĞRU].
 
 ## 15. `due to + noun`
 
@@ -276,9 +276,9 @@ Neden bildirir: “... nedeniyle”.
 `because` full clause, `due to` noun phrase alır:
 
 ```text
-because the catch is earlier ✓
-due to the earlier catch     ✓
-due to the catch is earlier  ✗
+because the catch is earlier [DOĞRU]
+due to the earlier catch     [DOĞRU]
+due to the catch is earlier  [YANLIŞ]
 ```
 
 ## 16. `regardless of + noun/clause word`

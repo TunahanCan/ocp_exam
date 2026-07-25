@@ -2,7 +2,7 @@
 
 Bu belge, yüklenen OCP Java SE 17 kaynağındaki bölüm metnini kaynak sırasını koruyarak işler. Her düzeltilmiş English parça hemen ardından doğal Türkçe karşılığıyla verilir; kod yalnız bir kez gösterilir. Ayrıntılı dil çalışması için [vocabulary](vocabulary.md) ve [grammar notes](grammar_notes.md) kaynaklarına bakın.
 
-## Kapsam manifesti
+## Kaynak ve kapsam özeti
 
 - Kaynak: `exam_lecture/OCP_Java_SE17_Chapter1den_Itibaren.pdf`
 - Bölüm: Chapter 3 · Making Decisions
@@ -10,7 +10,7 @@ Bu belge, yüklenen OCP Java SE 17 kaynağındaki bölüm metnini kaynak sıras�
 - Korunan temiz kaynak satırı: 1837
 - Çıkarılan öğeler: yalnız tekrarlanan running header/footer ve PDF sayfa numarası; soru numarasıyla birleşmiş üstbilgilerde soru numarası korunmuştur.
 - OCR düzenlemeleri: soft-hyphen, bölünmüş sözcük, `->`, `--`, `-=` ve tarih ayırıcıları teknik yazıma getirilmiştir.
-- İzlenebilirlik: Her kaynak sayfası `source-page` marker'ı, korunan satır sayısı ve kısa SHA-256 özeti taşır.
+- İzlenebilirlik: Her kaynak sayfası, korunan satır sayısı ve kısa SHA-256 özetiyle kayıtlıdır.
 
 ## İçindekiler
 
@@ -23,7 +23,7 @@ Bu belge, yüklenen OCP Java SE 17 kaynağındaki bölüm metnini kaynak sıras�
 7. [Exam Essentials](#exam-essentials)
 8. [Review Questions](#review-questions)
 9. [Kaynak dışı çözüm ve teknik pekiştirme appendix'i](#appendix--önceki-çözüm-ve-teknik-pekiştirme-notları-kaynak-dışı)
-10. [Page coverage ledger](#page-coverage-ledger)
+10. [Kapsam doğrulaması](#kapsam-doğrulaması)
 
 ## Kaynak sırasındaki çift dilli içerik
 
@@ -50,17 +50,17 @@ Bu belge, yüklenen OCP Java SE 17 kaynağındaki bölüm metnini kaynak sıras�
 
 > **Türkçe başlık:** [x] [x] Program Akışını Kontrol Etme
 
-> **English:** ■ ■ Create program flow control constructs including if/else, switch statements and expressions, loops, and break and continue statements
+> **English:** • Create program flow control constructs including if/else, switch statements and expressions, loops, and break and continue statements
 >
-> **Türkçe:** ■ ■ `if`/`else`, `switch` statement ve expression’ları, loop’lar ile `break` ve `continue` statement’ları dahil program akışı kontrol yapıları oluşturun.
+> **Türkçe:** • `if`/`else`, `switch` statement ve expression’ları, loop’lar ile `break` ve `continue` statement’ları dahil program akışı kontrol yapıları oluşturun.
 
 ### [x] [x] Utilizing Java Object-Oriented Approach
 
 > **Türkçe başlık:** [x] [x] Java Nesne Yönelimli Yaklaşımını Kullanma
 
-> **English:** ■ ■ Implement polymorphism and differentiate object type versus reference type. Perform type casting, identify object types using instanceof operator and pattern matching
+> **English:** • Implement polymorphism and differentiate object type versus reference type. Perform type casting, identify object types using instanceof operator and pattern matching
 >
-> **Türkçe:** ■ ■ Polymorphism uygulayın; object type ile reference type arasındaki farkı belirleyin. Type casting yapın; `instanceof` operator’ü ve pattern matching kullanarak object type’larını tanımlayın.
+> **Türkçe:** • Polymorphism uygulayın; object type ile reference type arasındaki farkı belirleyin. Type casting yapın; `instanceof` operator’ü ve pattern matching kullanarak object type’larını tanımlayın.
 
 <!-- source-page: 0102 -->
 <!-- retained-source-lines: 24; removed-running-header-lines: 0; sha256: 2873b0e8ce9ffed1 -->
@@ -303,13 +303,7 @@ System.out.println("Good Evening");
 ```java
 int hourOfDay = 1;
 if(hourOfDay) { // DOES NOT COMPILE
-```
-
-> **English:** ...
->
-> **Türkçe:** …
-
-```java
+    // ...
 }
 ```
 
@@ -586,13 +580,7 @@ else if(day == 2)
 System.out.print("Tuesday");
 else if(day == 3)
 System.out.print("Wednesday");
-```
-
-> **English:** ...
->
-> **Türkçe:** …
-
-```java
+// ...
 }
 ```
 
@@ -649,10 +637,6 @@ break;
 ### Optional break
 
 > **Türkçe başlık:** İsteğe Bağlı `break`
-
-> **English:** ...
->
-> **Türkçe:** …
 
 > **English:** Optional default that may appear anywhere within switch statement
 >
@@ -819,33 +803,33 @@ case 10, 11, 12: System.out.print("Fall");
 >
 > **Türkçe:** Şekil 3.3'te gösterildiği gibi bir `switch` statement'ının runtime'a kadar değerlendirilmeyen bir target variable'ı vardır. Bu target'ın type'ı belirli primitive data type'ları (`int`, `byte`, `short`, `char`) ve bunların wrapper class'larını (`Integer`, `Byte`, `Short`, `Character`) içerebilir. `switch` statement'larının desteklediği bütün data type'lar şunlardır:
 
-> **English:** ■ ■ int and Integer
+> **English:** • int and Integer
 >
-> **Türkçe:** ■ ■ int ve Integer
+> **Türkçe:** • int ve Integer
 
-> **English:** ■ ■ byte and Byte
+> **English:** • byte and Byte
 >
-> **Türkçe:** ■ ■ `byte` ve `Byte`
+> **Türkçe:** • `byte` ve `Byte`
 
-> **English:** ■ ■ short and Short
+> **English:** • short and Short
 >
-> **Türkçe:** ■ ■ `short` ve `Short`
+> **Türkçe:** • `short` ve `Short`
 
-> **English:** ■ ■ char and Character
+> **English:** • char and Character
 >
-> **Türkçe:** ■ ■ `char` ve `Character`
+> **Türkçe:** • `char` ve `Character`
 
-> **English:** ■ ■ String
+> **English:** • String
 >
-> **Türkçe:** ■ ■ `String`
+> **Türkçe:** • `String`
 
-> **English:** ■ ■ enum values
+> **English:** • enum values
 >
-> **Türkçe:** ■ ■ enum değerleri
+> **Türkçe:** • enum değerleri
 
-> **English:** ■ ■ var (if the type resolves to one of the preceding types) For this chapter, you just need to know that an enumeration, or enum, represents a fixed set of constants, such as days of the week, months of the year, and so on. We cover enums in more detail in Chapter 7, including showing how they can define variables, methods, and constructors.
+> **English:** • var (if the type resolves to one of the preceding types) For this chapter, you just need to know that an enumeration, or enum, represents a fixed set of constants, such as days of the week, months of the year, and so on. We cover enums in more detail in Chapter 7, including showing how they can define variables, methods, and constructors.
 >
-> **Türkçe:** ■ ■ `var` (type önceki type'lardan birine çözümleniyorsa) Bu bölümde enumeration'ın, yani enum'un haftanın günleri ve yılın ayları gibi sabit bir constant kümesini temsil ettiğini bilmeniz yeterlidir. Variable, method ve constructor tanımlayabilmeleri dahil enum'ları Bölüm 7'de daha ayrıntılı ele alıyoruz.
+> **Türkçe:** • `var` (type önceki type'lardan birine çözümleniyorsa) Bu bölümde enumeration'ın, yani enum'un haftanın günleri ve yılın ayları gibi sabit bir constant kümesini temsil ettiğini bilmeniz yeterlidir. Variable, method ve constructor tanımlayabilmeleri dahil enum'ları Bölüm 7'de daha ayrıntılı ele alıyoruz.
 
 > **English:** Notice that boolean, long, float, and double are excluded from switch statements, as are their associated Boolean, Long, Float, and Double classes. The reasons are varied, such as boolean having too small a range of values and floating-point numbers having quite a wide range of values. For the exam, though, you just need to know that they are not permitted in switch statements.
 >
@@ -1167,13 +1151,12 @@ case 1 -> "Goldfish" // DOES NOT COMPILE (missing semicolon)
 case 2 -> {yield "Trout";}; // DOES NOT COMPILE (extra semicolon)
 ```
 
-> **English:** ...
+> **English:** `}` // DOES NOT COMPILE (missing semicolon) A bit confusing,
+> right? It’s just one of those things you have to train yourself to spot on
+> the exam.
 >
-> **Türkçe:** …
-
-> **English:** } // DOES NOT COMPILE (missing semicolon) A bit confusing, right? It’s just one of those things you have to train yourself to spot on the exam.
->
-> **Türkçe:** } // DOES NOT COMPILE (semicolon eksik) Biraz kafa karıştırıcı, değil mi? Bu, sınavda görmeye alışmanız gereken ayrıntılardan biridir.
+> **Türkçe:** `}` // DOES NOT COMPILE (semicolon eksik) Biraz kafa karıştırıcı,
+> değil mi? Bu, sınavda görmeye alışmanız gereken ayrıntılardan biridir.
 
 ### Covering All Possible Values
 
@@ -1203,9 +1186,9 @@ case 3 -> "coyote";
 >
 > **Türkçe:** `5`i (veya `4`, `-1`, `0` vb.) kapsayan bir `case` branch'i yoktur. Öyleyse `switch` expression `null`, empty String, undefined veya başka bir değer mi döndürmelidir? Java'ya `switch` expression'ları eklenirken bu davranışın desteklenmemesine karar verilmiştir. Her `switch` expression, switch variable'ın bütün olası değerlerini işlemelidir. Bu sorunu çözmenin iki yolu vardır:
 
-> **English:** ■ ■ ■ ■ Add a default branch. If the switch expression takes an enum value, add a case branch for every possible enum value.
+> **English:** • Add a default branch. If the switch expression takes an enum value, add a case branch for every possible enum value.
 >
-> **Türkçe:** ■ ■ ■ ■ Bir default dal ekleyin. `switch` expression'ı bir enum değeri alıyorsa, olası her enum değeri için bir case dalı ekleyin.
+> **Türkçe:** • Bir default dal ekleyin. `switch` expression'ı bir enum değeri alıyorsa, olası her enum değeri için bir case dalı ekleyin.
 
 > **English:** In practice, the first solution is the one most often used. The second solution applies only to switch expressions that take an enum. You can try writing case statements for all possible int values, but we promise it doesn’t work! Even smaller types like byte are not permitted by the compiler, despite there being only 256 possible values.
 >
@@ -1753,13 +1736,13 @@ for (datatype instance: collection) {
 >
 > **Türkçe:** Birden çok statement içeren block için küme parantezleri zorunlu, tek statement için isteğe bağlıdır. `for-each` loop bildirimi bir initialization bölümü ile üzerinde iteration yapılacak object'ten oluşur. `for-each` loop'un sağ tarafı şunlardan biri olmalıdır:
 
-> **English:** ■ ■ A built-in Java array
+> **English:** • A built-in Java array
 >
-> **Türkçe:** ■ ■ Yerleşik bir Java array'i
+> **Türkçe:** • Yerleşik bir Java array'i
 
-> **English:** ■ ■ An object whose type implements java.lang.Iterable We cover what implements means in Chapter 7, but for now you just need to know that the right side must be an array or collection of items, such as a List or a Set. For the exam, you should know that this does not include all of the Collections Framework classes
+> **English:** • An object whose type implements java.lang.Iterable We cover what implements means in Chapter 7, but for now you just need to know that the right side must be an array or collection of items, such as a List or a Set. For the exam, you should know that this does not include all of the Collections Framework classes
 >
-> **Türkçe:** ■ ■ Type'ı `java.lang.Iterable`ı implement eden bir object. `implements` kavramını Bölüm 7'de ele alacağız; şimdilik sağ tarafın bir array veya `List` ya da `Set` gibi bir element collection'ı olması gerektiğini bilmeniz yeterlidir. Sınav için bunun bütün Collections Framework class'larını
+> **Türkçe:** • Type'ı `java.lang.Iterable`ı implement eden bir object. `implements` kavramını Bölüm 7'de ele alacağız; şimdilik sağ tarafın bir array veya `List` ya da `Set` gibi bir element collection'ı olması gerektiğini bilmeniz yeterlidir. Sınav için bunun bütün Collections Framework class'larını
 
 <!-- source-page: 0130 -->
 <!-- retained-source-lines: 40; removed-running-header-lines: 3; sha256: dfa6cf7b01b6b737 -->
@@ -2352,35 +2335,30 @@ case 2:
 
 ### Review Questions
 
-> **Türkçe başlık:** Review Questions
+> **Türkçe başlık:** İnceleme Soruları
 
 > **English:** The answers to the chapter review questions can be found in the Appendix.
 >
 > **Türkçe:** Bölüm inceleme sorularının yanıtlarını Ek'te bulabilirsiniz.
 
+### Question 1 / Soru 1
+
 > **English:** 1. Which of the following data types can be used in a switch expression? (Choose all that apply.)
 >
-> **Türkçe:** 1. Aşağıdaki veri türlerinden hangisi bir `switch` expression'ında kullanılabilir? (Geçerli olanların tümünü seçin.)
+> **Türkçe:** 1. Aşağıdaki veri türlerinden hangileri bir `switch` expression'ında kullanılabilir? (Geçerli olanların tümünü seçin.)
 
-> **English:** A. enum
->
-> **Türkçe:** A. enum
-
-```java
+```text
+A. enum
 B. int
-```
-
-### C. Byte
-
-> **Türkçe başlık:** C. Byte
-
-```java
+C. Byte
 D. long
 E. String
 F. char
 G. var
 H. double
 ```
+
+### Question 2 / Soru 2
 
 > **English:** 2. What is the output of the following code snippet? (Choose all that apply.)
 >
@@ -2390,22 +2368,16 @@ H. double
 3: int temperature = 4;
 4: long humidity = -temperature + temperature * 3;
 5: if (temperature>=4)
-6: if (humidity < 6) System.out.println("Too Low");
-7: else System.out.println("Just Right");
+6:    if (humidity < 6) System.out.println("Too Low");
+7:    else System.out.println("Just Right");
 8: else System.out.println("Too High");
 ```
 
-### A. Too Low
-
-> **Türkçe başlık:** A. Too Low
-
-### B. Just Right
-
-> **Türkçe başlık:** B. Just Right
-
-### C. Too High
-
-> **Türkçe başlık:** C. Too High
+```text
+A. Too Low
+B. Just Right
+C. Too High
+```
 
 > **English:** D. A NullPointerException is thrown at runtime.
 >
@@ -2419,49 +2391,27 @@ H. double
 >
 > **Türkçe:** F. Kod line 8 nedeniyle derlenmez.
 
-> **English:** 3. Which of the following data types are permitted on the right side of a for-each expression?
+### Question 3 / Soru 3
+
+> **English:** 3. Which of the following data types are permitted on the right side of a for-each expression? (Choose all that apply.)
 >
-> **Türkçe:** 3. `for-each` statement'ının sağ tarafında aşağıdaki data type'lardan hangilerine izin verilir?
+> **Türkçe:** 3. `for-each` expression'ının sağ tarafında aşağıdaki data type'lardan hangilerine izin verilir? (Geçerli olanların tümünü seçin.)
 
-> **English:** (Choose all that apply.)
->
-> **Türkçe:** (Geçerli olanların tümünü seçin.)
-
-### A. Double[][]
-
-> **Türkçe başlık:** A. Double[][]
-
-### B. Object
-
-> **Türkçe başlık:** B. Object
-
-### C. Map
-
-> **Türkçe başlık:** C. Map
-
-### D. List
-
-> **Türkçe başlık:** D. List
-
-```java
+```text
+A. Double[][]
+B. Object
+C. Map
+D. List
 E. String
 F. char[]
+G. Exception
+H. Set
 ```
-
-### G. Exception
-
-> **Türkçe başlık:** G. Exception
-
-### H. Set
-
-> **Türkçe başlık:** H. Set
 
 <!-- source-page: 0143 -->
 <!-- retained-source-lines: 39; removed-running-header-lines: 1; sha256: bd264dc28aa68434 -->
 
-### Questions 4 and 5
-
-> **Türkçe başlık:** Soru 4 ve 5
+### Question 4 / Soru 4
 
 > **English:** 4. What is the output of calling printReptile(6)?
 >
@@ -2469,39 +2419,29 @@ F. char[]
 
 ```java
 void printReptile(int category) {
-var type = switch(category) {
-case 1,2 -> "Snake";
-case 3,4 -> "Lizard";
-case 5,6 -> "Turtle";
-case 7,8 -> "Alligator";
-};
-System.out.print(type);
+   var type = switch(category) {
+      case 1,2 -> "Snake";
+      case 3,4 -> "Lizard";
+      case 5,6 -> "Turtle";
+      case 7,8 -> "Alligator";
+   };
+   System.out.print(type);
 }
 ```
 
-### A. Snake
-
-> **Türkçe başlık:** A. Snake
-
-### B. Lizard
-
-> **Türkçe başlık:** B. Lizard
-
-### C. Turtle
-
-> **Türkçe başlık:** C. Turtle
-
-### D. Alligator
-
-> **Türkçe başlık:** D. Alligator
-
-### E. TurtleAlligator
-
-> **Türkçe başlık:** E. TurtleAlligator
+```text
+A. Snake
+B. Lizard
+C. Turtle
+D. Alligator
+E. TurtleAlligator
+```
 
 > **English:** F. None of the above
 >
 > **Türkçe:** F. Yukarıdakilerin hiçbiri
+
+### Question 5 / Soru 5
 
 > **English:** 5. What is the output of the following code snippet?
 >
@@ -2512,15 +2452,15 @@ List<Integer> myFavoriteNumbers = new ArrayList<>();
 myFavoriteNumbers.add(10);
 myFavoriteNumbers.add(14);
 for (var a : myFavoriteNumbers) {
-System.out.print(a + ", ");
-break;
+   System.out.print(a + ", ");
+   break;
 }
 for (int b : myFavoriteNumbers) {
-continue;
-System.out.print(b + ", ");
+   continue;
+   System.out.print(b + ", ");
 }
 for (Object c : myFavoriteNumbers)
-System.out.print(c + ", ");
+   System.out.print(c + ", ");
 ```
 
 > **English:** A. It compiles and runs without issue but does not produce any output.
@@ -2558,6 +2498,8 @@ System.out.print(c + ", ");
 <!-- source-page: 0144 -->
 <!-- retained-source-lines: 38; removed-running-header-lines: 3; sha256: 306cc6821a29bc54 -->
 
+### Question 6 / Soru 6
+
 > **English:** 6. Which statements about decision structures are true? (Choose all that apply.)
 >
 > **Türkçe:** 6. Decision structure'larla ilgili hangi statement'lar doğrudur? (Geçerli olanların tümünü seçin.)
@@ -2586,39 +2528,26 @@ System.out.print(c + ", ");
 >
 > **Türkçe:** F. Bir `if` statement'ın birden fazla karşılık gelen `else` statement'ı olabilir.
 
-> **English:** 7. Assuming weather is a well-formed nonempty array, which code snippet, when inserted independently into the blank in the following code, prints all of the elements of weather?
->
-> **Türkçe:** 7. `weather`ın düzgün oluşturulmuş, boş olmayan bir array olduğunu varsayarsak aşağıdaki boşluğa bağımsız olarak yerleştirilen hangi code snippet'leri `weather`ın bütün element'larını yazdırır?
+### Question 7 / Soru 7
 
-> **English:** (Choose all that apply.)
+> **English:** 7. Assuming weather is a well-formed nonempty array, which code snippet, when inserted independently into the blank in the following code, prints all of the elements of weather? (Choose all that apply.)
 >
-> **Türkçe:** (Geçerli olanların tümünü seçin.)
+> **Türkçe:** 7. `weather`ın düzgün oluşturulmuş, boş olmayan bir array olduğunu varsayarsak aşağıdaki boşluğa bağımsız olarak yerleştirilen hangi code snippet'leri `weather`ın bütün element'larını yazdırır? (Geçerli olanların tümünü seçin.)
 
 ```java
 private void print(int[] weather) {
-for( ) {
-System.out.println(weather[i]);
+    for(__________________) {
+        System.out.println(weather[i]);
+    }
 }
-}
-A. int i=weather.length; i>0; i--
 ```
 
-> **English:** B.
->
-> **Türkçe:** B.
-
-```java
-int i=0; i<=weather.length-1; ++i
+```text
+A. int i=weather.length; i>0; i--
+B. int i=0; i<=weather.length-1; ++i
 C. var w : weather
 D. int i=weather.length-1; i>=0; i--
-```
-
-> **English:** E.
->
-> **Türkçe:** E.
-
-```java
-int i=0, int j=3; i<weather.length; ++i
+E. int i=0, int j=3; i<weather.length; ++i
 F. int i=0; ++i<10 && i<weather.length;
 ```
 
@@ -2626,42 +2555,35 @@ F. int i=0; ++i<10 && i<weather.length;
 >
 > **Türkçe:** G. Yukarıdakilerin hiçbiri
 
+### Question 8 / Soru 8
+
 > **English:** 8. What is the output of calling printType(11)?
 >
 > **Türkçe:** 8. printType(11)'i çağırmanın çıktısı nedir?
 
 ```java
 31: void printType(Object o) {
-32: if(o instanceof Integer bat) {
-33: System.out.print("int");
-34: } else if(o instanceof Integer bat && bat < 10) {
-35: System.out.print("small int");
-36: } else if(o instanceof Long bat || bat <= 20) {
-37: System.out.print("long");
-38: } default {
-39: System.out.print("unknown");
-40: }
+32:    if(o instanceof Integer bat) {
+33:       System.out.print("int");
+34:    } else if(o instanceof Integer bat && bat < 10) {
+35:       System.out.print("small int");
+36:    } else if(o instanceof Long bat || bat <= 20) {
+37:       System.out.print("long");
+38:    } default {
+39:       System.out.print("unknown");
+40:    }
 41: }
 ```
 
 <!-- source-page: 0145 -->
 <!-- retained-source-lines: 36; removed-running-header-lines: 1; sha256: 53810f1e44de3f74 -->
 
-```java
+```text
 A. int
-```
-
-> **English:** B. small int
->
-> **Türkçe:** B. small int
-
-```java
+B. small int
 C. long
+D. unknown
 ```
-
-> **English:** D. unknown
->
-> **Türkçe:** D. unknown
 
 > **English:** E. Nothing is printed.
 >
@@ -2679,6 +2601,8 @@ C. long
 >
 > **Türkçe:** H. Yukarıdakilerin hiçbiri
 
+### Question 9 / Soru 9
+
 > **English:** 9. Which statements, when inserted independently into the following blank, will cause the code to print 2 at runtime? (Choose all that apply.)
 >
 > **Türkçe:** 9. Hangi ifadeler aşağıdaki boşluğa bağımsız olarak eklendiğinde kodun runtime'da 2 basmasına neden olur? (Geçerli olanların tümünü seçin.)
@@ -2687,40 +2611,27 @@ C. long
 int count = 0;
 BUNNY: for(int row = 1; row <=3; row++)
 RABBIT: for(int col = 0; col <3 ; col++) {
-if((col + row) % 2 == 0)
-;
-count++;
+    if((col + row) % 2 == 0)
+        ________________;
+    count++;
 }
 System.out.println(count);
 ```
 
-### A. break BUNNY
-
-> **Türkçe başlık:** A. break BUNNY
-
-### B. break RABBIT
-
-> **Türkçe başlık:** B. break RABBIT
-
-### C. continue BUNNY
-
-> **Türkçe başlık:** C. continue BUNNY
-
-### D. continue RABBIT
-
-> **Türkçe başlık:** D. continue RABBIT
-
-### E. break
-
-> **Türkçe başlık:** E. break
-
-### F. continue
-
-> **Türkçe başlık:** F. continue
+```text
+A. break BUNNY
+B. break RABBIT
+C. continue BUNNY
+D. continue RABBIT
+E. break
+F. continue
+```
 
 > **English:** G. None of the above, as the code contains a compiler error.
 >
 > **Türkçe:** G. Kod bir derleyici hatası içerdiğinden yukarıdakilerin hiçbiri.
+
+### Question 10 / Soru 10
 
 > **English:** 10. Given the following method, how many lines contain compilation errors? (Choose all that apply.)
 >
@@ -2728,25 +2639,22 @@ System.out.println(count);
 
 ```java
 10: private DayOfWeek getWeekDay(int day, final int thursday) {
-11: int otherDay = day;
-12: int Sunday = 0;
-13: switch(otherDay) {
-14: default:
-15: case 1: continue;
-16: case thursday: return DayOfWeek.THURSDAY;
-17: case 2,10: break;
+11:    int otherDay = day;
+12:    int Sunday = 0;
+13:    switch(otherDay) {
+14:       default:
+15:       case 1: continue;
+16:       case thursday: return DayOfWeek.THURSDAY;
+17:       case 2,10: break;
+18:       case Sunday: return DayOfWeek.SUNDAY;
+19:       case DayOfWeek.MONDAY: return DayOfWeek.MONDAY;
+20:    }
+21:    return DayOfWeek.FRIDAY;
+22: }
 ```
 
 <!-- source-page: 0146 -->
 <!-- retained-source-lines: 37; removed-running-header-lines: 3; sha256: 846db9a7ef3ee8c3 -->
-
-```java
-18: case Sunday: return DayOfWeek.SUNDAY;
-19: case DayOfWeek.MONDAY: return DayOfWeek.MONDAY;
-20: }
-21: return DayOfWeek.FRIDAY;
-22: }
-```
 
 > **English:** A. None, the code compiles without issue.
 >
@@ -2780,22 +2688,24 @@ System.out.println(count);
 >
 > **Türkçe:** H. Kod derleniyor ancak runtime'da hata üretebilir.
 
+### Question 11 / Soru 11
+
 > **English:** 11. What is the output of calling printLocation(Animal.MAMMAL)?
 >
 > **Türkçe:** 11. `printLocation(Animal.MAMMAL)` çağrısının output'u nedir?
 
 ```java
 10: class Zoo {
-11: enum Animal {BIRD, FISH, MAMMAL}
-12: void printLocation(Animal a) {
-13: long type = switch(a) {
-14: case BIRD -> 1;
-15: case FISH -> 2;
-16: case MAMMAL -> 3;
-17: default -> 4;
-18: };
-19: System.out.print(type);
-20: } }
+11:    enum Animal {BIRD, FISH, MAMMAL}
+12:    void printLocation(Animal a) {
+13:       long type = switch(a) {
+14:          case BIRD -> 1;
+15:          case FISH -> 2;
+16:          case MAMMAL -> 3;
+17:          default -> 4;
+18:       };
+19:       System.out.print(type);
+20:   } }
 ```
 
 > **English:** A. 3
@@ -2822,6 +2732,8 @@ System.out.println(count);
 >
 > **Türkçe:** F. Yukarıdakilerin hiçbiri
 
+### Question 12 / Soru 12
+
 > **English:** 12. What is the result of the following code snippet?
 >
 > **Türkçe:** 12. Aşağıdaki kod parçacığının sonucu nedir?
@@ -2829,18 +2741,15 @@ System.out.println(count);
 ```java
 3: int sing = 8, squawk = 2, notes = 0;
 4: while(sing > squawk) {
-5: sing--;
-6: squawk += 2;
+5:    sing--;
+6:    squawk += 2;
+7:    notes += sing + squawk;
+8: }
+9: System.out.println(notes);
 ```
 
 <!-- source-page: 0147 -->
 <!-- retained-source-lines: 36; removed-running-header-lines: 1; sha256: da99bfe4e16ae9f2 -->
-
-```java
-7: notes += sing + squawk;
-8: }
-9: System.out.println(notes);
-```
 
 > **English:** A. 11
 >
@@ -2866,6 +2775,8 @@ System.out.println(count);
 >
 > **Türkçe:** F. Kod line 7 nedeniyle derlenmez.
 
+### Question 13 / Soru 13
+
 > **English:** 13. What is the output of the following code snippet?
 >
 > **Türkçe:** 13. Aşağıdaki kod parçacığının çıktısı nedir?
@@ -2874,9 +2785,9 @@ System.out.println(count);
 2: boolean keepGoing = true;
 3: int result = 15, meters = 10;
 4: do {
-5: meters--;
-6: if(meters==8) keepGoing = false;
-7: result -= 2;
+5:    meters--;
+6:    if(meters==8) keepGoing = false;
+7:    result -= 2;
 8: } while keepGoing;
 9: System.out.println(result);
 ```
@@ -2909,19 +2820,21 @@ System.out.println(count);
 >
 > **Türkçe:** G. Kod farklı bir nedenle derlenmez.
 
+### Question 14 / Soru 14
+
 > **English:** 14. Which statements about the following code snippet are correct? (Choose all that apply.)
 >
 > **Türkçe:** 14. Aşağıdaki kod parçacığına ilişkin hangi ifadeler doğrudur? (Geçerli olanların tümünü seçin.)
 
 ```java
 for(var penguin : new int[2])
-System.out.println(penguin);
+   System.out.println(penguin);
 var ostrich = new Character[3];
 for(var emu : ostrich)
-System.out.println(emu);
+   System.out.println(emu);
 List<Integer> parrots = new ArrayList<Integer>();
 for(var macaw : parrots)
-System.out.println(macaw);
+   System.out.println(macaw);
 ```
 
 <!-- source-page: 0148 -->
@@ -2955,6 +2868,8 @@ System.out.println(macaw);
 >
 > **Türkçe:** G. Kod derlenmediği için yukarıdakilerin hiçbiri.
 
+### Question 15 / Soru 15
+
 > **English:** 15. What is the result of the following code snippet?
 >
 > **Türkçe:** 15. Aşağıdaki kod parçacığının sonucu nedir?
@@ -2963,12 +2878,12 @@ System.out.println(macaw);
 final char a = 'A', e = 'E';
 char grade = 'B';
 switch (grade) {
-default:
-case a:
-case 'B': 'C': System.out.print("great ");
-case 'D': System.out.print("good "); break;
-case e:
-case 'F': System.out.print("not good ");
+   default:
+   case a:
+   case 'B': 'C': System.out.print("great ");
+   case 'D': System.out.print("good "); break;
+   case e:
+   case 'F': System.out.print("not good ");
 }
 ```
 
@@ -2996,6 +2911,8 @@ case 'F': System.out.print("not good ");
 >
 > **Türkçe:** F. Yukarıdakilerin hiçbiri
 
+### Question 16 / Soru 16
+
 > **English:** 16. Given the following array, which code snippets print the elements in reverse order from how they are declared? (Choose all that apply.)
 >
 > **Türkçe:** 16. Aşağıdaki array göz önüne alındığında, hangi kod parçacıkları öğeleri bildirilme biçimlerinin tersi sırayla yazdırır? (Geçerli olanların tümünü seçin.)
@@ -3011,8 +2928,8 @@ char[] wolf = {'W', 'e', 'b', 'b', 'y'};
 ```java
 int q = wolf.length;
 for( ; ; ) {
-System.out.print(wolf[--q]);
-if(q==0) break;
+   System.out.print(wolf[--q]);
+   if(q==0) break;
 }
 ```
 
@@ -3022,7 +2939,7 @@ if(q==0) break;
 
 ```java
 for(int m=wolf.length-1; m>=0; --m)
-System.out.print(wolf[m]);
+   System.out.print(wolf[m]);
 ```
 
 <!-- source-page: 0149 -->
@@ -3034,7 +2951,7 @@ System.out.print(wolf[m]);
 
 ```java
 for(int z=0; z<wolf.length; z++)
-System.out.print(wolf[wolf.length-z]);
+   System.out.print(wolf[wolf.length-z]);
 ```
 
 > **English:** D.
@@ -3044,7 +2961,7 @@ System.out.print(wolf[wolf.length-z]);
 ```java
 int x = wolf.length-1;
 for(int j=0; x>=0 && j==0; x--)
-System.out.print(wolf[x]);
+   System.out.print(wolf[x]);
 ```
 
 > **English:** E.
@@ -3054,7 +2971,7 @@ System.out.print(wolf[x]);
 ```java
 final int r = wolf.length;
 for(int w = r-1; r>-1; w = r-1)
-System.out.print(wolf[w]);
+   System.out.print(wolf[w]);
 ```
 
 > **English:** F.
@@ -3063,12 +2980,14 @@ System.out.print(wolf[w]);
 
 ```java
 for(int i=wolf.length; i>0; --i)
-System.out.print(wolf[i]);
+   System.out.print(wolf[i]);
 ```
 
 > **English:** G. None of the above
 >
 > **Türkçe:** G. Yukarıdakilerin hiçbiri
+
+### Question 17 / Soru 17
 
 > **English:** 17. What distinct numbers are printed when the following method is executed? (Choose all that apply.)
 >
@@ -3076,13 +2995,13 @@ System.out.print(wolf[i]);
 
 ```java
 private void countAttendees() {
-int participants = 4, animals = 2, performers = -1;
-while((participants = participants+1) < 10) {}
-do {} while (animals++ <= 1);
-for( ; performers<2; performers+=2) {}
-System.out.println(participants);
-System.out.println(animals);
-System.out.println(performers);
+   int participants = 4, animals = 2, performers = -1;
+   while((participants = participants+1) < 10) {}
+   do {} while (animals++ <= 1);
+   for( ; performers<2; performers+=2) {}
+   System.out.println(participants);
+   System.out.println(animals);
+   System.out.println(performers);
 }
 ```
 
@@ -3121,6 +3040,8 @@ System.out.println(performers);
 <!-- source-page: 0150 -->
 <!-- retained-source-lines: 40; removed-running-header-lines: 3; sha256: adeca93db460eb63 -->
 
+### Question 18 / Soru 18
+
 > **English:** 18. Which statements about pattern matching and flow scoping are correct? (Choose all that apply.)
 >
 > **Türkçe:** 18. Pattern matching ve flow scoping hakkında hangi statement'lar doğrudur? (Geçerli olanların tümünü seçin.)
@@ -3149,6 +3070,8 @@ System.out.println(performers);
 >
 > **Türkçe:** F. Pattern matching, `else` statement'ıyla bir variable bildirmek için kullanılabilir.
 
+### Question 19 / Soru 19
+
 > **English:** 19. What is the output of the following code snippet?
 >
 > **Türkçe:** 19. Aşağıdaki kod parçacığının çıktısı nedir?
@@ -3156,9 +3079,9 @@ System.out.println(performers);
 ```java
 2: double iguana = 0;
 3: do {
-4: int snake = 1;
-5: System.out.print(snake++ + " ");
-6: iguana--;
+4:    int snake = 1;
+5:    System.out.print(snake++ + " ");
+6:    iguana--;
 7: } while (snake <= 5);
 8: System.out.println(iguana);
 ```
@@ -3191,6 +3114,8 @@ System.out.println(performers);
 >
 > **Türkçe:** G. Yukarıdakilerin hiçbiri
 
+### Question 20 / Soru 20
+
 > **English:** 20. Which statements, when inserted into the following blanks, allow the code to compile and run without entering an infinite loop? (Choose all that apply.)
 >
 > **Türkçe:** 20. Hangi ifadeler aşağıdaki boşluklara eklendiğinde kodun sonsuz bir loop'a girmeden derlenmesine ve çalıştırılmasına olanak tanır? (Geçerli olanların tümünü seçin.)
@@ -3198,15 +3123,15 @@ System.out.println(performers);
 ```java
 4: int height = 1;
 5: L1: while(height++ <10) {
-6: long humidity = 12;
-7: L2: do {
-8: if(humidity-- % 12 == 0) ;
-9: int temperature = 30;
-10: L3: for( ; ; ) {
-11: temperature++;
-12: if(temperature>50) ;
-13: }
-14: } while (humidity > 4);
+6:    long humidity = 12;
+7:    L2: do {
+8:       if(humidity-- % 12 == 0) ________________;
+9:       int temperature = 30;
+10:      L3: for( ; ; ) {
+11:         temperature++;
+12:         if(temperature>50) ________________;
+13:      }
+14:   } while (humidity > 4);
 15: }
 ```
 
@@ -3237,45 +3162,34 @@ System.out.println(performers);
 >
 > **Türkçe:** F. Kod bir derleyici hatası içerdiğinden yukarıdakilerin hiçbiri
 
+### Question 21 / Soru 21
+
 > **English:** 21. A minimum of how many lines need to be corrected before the following method will compile?
 >
 > **Türkçe:** 21. Aşağıdaki method'un derlenmesi için en az kaç satırın düzeltilmesi gerekir?
 
 ```java
 21: void findZookeeper(Long id) {
-22: System.out.print(switch(id) {
-23: case 10 -> {"Jane"}
-24: case 20 -> {yield "Lisa";};
-25: case 30 -> "Kelly";
-26: case 30 -> "Sarah";
-27: default -> "Unassigned";
-28: });
+22:    System.out.print(switch(id) {
+23:       case 10 -> {"Jane"}
+24:       case 20 -> {yield "Lisa";};
+25:       case 30 -> "Kelly";
+26:       case 30 -> "Sarah";
+27:       default -> "Unassigned";
+28:    });
 29: }
 ```
 
-### A. Zero
+```text
+A. Zero
+B. One
+C. Two
+D. Three
+E. Four
+F. Five
+```
 
-> **Türkçe başlık:** A. Zero
-
-### B. One
-
-> **Türkçe başlık:** B. One
-
-### C. Two
-
-> **Türkçe başlık:** C. Two
-
-### D. Three
-
-> **Türkçe başlık:** D. Three
-
-### E. Four
-
-> **Türkçe başlık:** E. Four
-
-### F. Five
-
-> **Türkçe başlık:** F. Five
+### Question 22 / Soru 22
 
 > **English:** 22. What is the output of the following code snippet? (Choose all that apply.)
 >
@@ -3285,11 +3199,11 @@ System.out.println(performers);
 2: var tailFeathers = 3;
 3: final var one = 1;
 4: switch (tailFeathers) {
-5: case one: System.out.print(3 + " ");
-6: default: case 3: System.out.print(5 + " ");
+5:    case one: System.out.print(3 + " ");
+6:    default: case 3: System.out.print(5 + " ");
 7: }
 8: while (tailFeathers > 1) {
-9: System.out.print(--tailFeathers + " "); }
+9:    System.out.print(--tailFeathers + " "); }
 ```
 
 > **English:** A. 3
@@ -3312,7 +3226,7 @@ System.out.println(performers);
 >
 > **Türkçe:** E. 5 2 1
 
-> **English:** F. The code will not compile because of lines 3-5.
+> **English:** F. The code will not compile because of lines 3–5.
 >
 > **Türkçe:** F. Kod 3-5. satırlar nedeniyle derlenmez.
 
@@ -3322,6 +3236,8 @@ System.out.println(performers);
 
 <!-- source-page: 0152 -->
 <!-- retained-source-lines: 37; removed-running-header-lines: 3; sha256: fde43ff871b431df -->
+
+### Question 23 / Soru 23
 
 > **English:** 23. What is the output of the following code snippet?
 >
@@ -3335,17 +3251,11 @@ System.out.println(performers);
 19: else if(penguin != 50) System.out.println("Other");
 ```
 
-### A. Success
-
-> **Türkçe başlık:** A. Success
-
-### B. Failure
-
-> **Türkçe başlık:** B. Failure
-
-### C. Other
-
-> **Türkçe başlık:** C. Other
+```text
+A. Success
+B. Failure
+C. Other
+```
 
 > **English:** D. The code will not compile because of line 17.
 >
@@ -3359,40 +3269,34 @@ System.out.println(performers);
 >
 > **Türkçe:** F. Yukarıdakilerin hiçbiri
 
+### Question 24 / Soru 24
+
 > **English:** 24. Which of the following are possible data types for friends that would allow the code to compile? (Choose all that apply.)
 >
 > **Türkçe:** 24. Kodun derlenmesini sağlayacak `friends` data type'ları hangileridir? (Geçerli olanların tümünü seçin.)
 
 ```java
 for(var friend in friends) {
-System.out.println(friend);
+    System.out.println(friend);
 }
 ```
 
-### A. Set
-
-> **Türkçe başlık:** A. Set
-
-### B. Map
-
-> **Türkçe başlık:** B. Map
-
-```java
+```text
+A. Set
+B. Map
 C. String
 D. int[]
+E. Collection
+F. StringBuilder
 ```
-
-### E. Collection
-
-> **Türkçe başlık:** E. Collection
-
-### F. StringBuilder
-
-> **Türkçe başlık:** F. StringBuilder
 
 > **English:** G. None of the above
 >
 > **Türkçe:** G. Yukarıdakilerin hiçbiri
+
+<!-- page-break -->
+
+### Question 25 / Soru 25
 
 > **English:** 25. What is the output of the following code snippet?
 >
@@ -3404,11 +3308,11 @@ D. int[]
 8: String viola = "viola";
 9: int p = -1;
 10: switch(instrument) {
-11: case "bass" : break;
-12: case CELLO : p++;
-13: default: p++;
-14: case "VIOLIN": p++;
-15: case "viola" : ++p; break;
+11:    case "bass" : break;
+12:    case CELLO : p++;
+13:    default: p++;
+14:    case "VIOLIN": p++;
+15:    case "viola" : ++p; break;
 16: }
 17: System.out.print(p);
 ```
@@ -3440,6 +3344,8 @@ D. int[]
 >
 > **Türkçe:** F. Kod derlenmez.
 
+### Question 26 / Soru 26
+
 > **English:** 26. What is the output of the following code snippet? (Choose all that apply.)
 >
 > **Türkçe:** 26. Aşağıdaki kod parçacığının çıktısı nedir? (Geçerli olanların tümünü seçin.)
@@ -3448,27 +3354,21 @@ D. int[]
 9: int w = 0, r = 1;
 10: String name = "";
 11: while(w < 2) {
-12: name += "A";
-13: do {
-14: name += "B";
-15: if(name.length()>0) name += "C";
-16: else break;
-17: } while (r <=1);
-18: r++; w++; }
+12:   name += "A";
+13:   do {
+14:      name += "B";
+15:      if(name.length()>0) name += "C";
+16:      else break;
+17:   } while (r <=1);
+18:   r++; w++; }
 19: System.out.println(name);
 ```
 
-### A. ABC
-
-> **Türkçe başlık:** A. ABC
-
-### B. ABCABC
-
-> **Türkçe başlık:** B. ABCABC
-
-### C. ABCABCABC
-
-> **Türkçe başlık:** C. ABCABCABC
+```text
+A. ABC
+B. ABCABC
+C. ABCABCABC
+```
 
 > **English:** D. Line 15 contains a compilation error.
 >
@@ -3486,6 +3386,10 @@ D. int[]
 >
 > **Türkçe:** G. Kod derlenir ancak runtime'da bir `NullPointerException` fırlatır.
 
+<!-- page-break -->
+
+### Question 27 / Soru 27
+
 > **English:** 27. What is printed by the following code snippet?
 >
 > **Türkçe:** 27. Aşağıdaki kod parçacığında ne yazdırılıyor?
@@ -3494,10 +3398,10 @@ D. int[]
 23: byte amphibian = 1;
 24: String name = "Frog";
 25: String color = switch(amphibian) {
-26: case 1 -> { yield "Red"; }
-27: case 2 -> { if(name.equals("Frog")) yield "Green"; }
-28: case 3 -> { yield "Purple"; }
-29: default -> throw new RuntimeException();
+26:    case 1 -> { yield "Red"; }
+27:    case 2 -> { if(name.equals("Frog")) yield "Green"; }
+28:    case 3 -> { yield "Purple"; }
+29:    default -> throw new RuntimeException();
 30: };
 31: System.out.print(color);
 ```
@@ -3505,21 +3409,12 @@ D. int[]
 <!-- source-page: 0154 -->
 <!-- retained-source-lines: 42; removed-running-header-lines: 3; sha256: 74deb10e802d56b7 -->
 
-### A. Red
-
-> **Türkçe başlık:** A. Red
-
-### B. Green
-
-> **Türkçe başlık:** B. Green
-
-### C. Purple
-
-> **Türkçe başlık:** C. Purple
-
-### D. RedPurple
-
-> **Türkçe başlık:** D. RedPurple
+```text
+A. Red
+B. Green
+C. Purple
+D. RedPurple
+```
 
 > **English:** E. An exception is thrown at runtime.
 >
@@ -3529,18 +3424,20 @@ D. int[]
 >
 > **Türkçe:** F. Kod derlenmez.
 
+### Question 28 / Soru 28
+
 > **English:** 28. What is the output of calling getFish("goldie")?
 >
 > **Türkçe:** 28. getFish("goldie") çağrısının çıktısı nedir?
 
 ```java
 40: void getFish(Object fish) {
-41: if (!(fish instanceof String guppy))
-42: System.out.print("Eat!");
-43: else if (!(fish instanceof String guppy)) {
-44: throw new RuntimeException();
-45: }
-46: System.out.print("Swim!");
+41:    if (!(fish instanceof String guppy))
+42:       System.out.print("Eat!");
+43:    else if (!(fish instanceof String guppy)) {
+44:       throw new RuntimeException();
+45:    }
+46:    System.out.print("Swim!");
 47: }
 ```
 
@@ -3568,17 +3465,19 @@ D. int[]
 >
 > **Türkçe:** F. Yukarıdakilerin hiçbiri
 
+### Question 29 / Soru 29
+
 > **English:** 29. What is the result of the following code?
 >
 > **Türkçe:** 29. Aşağıdaki kodun sonucu nedir?
 
 ```java
 1: public class PrintIntegers {
-2: public static void main(String[] args) {
-3: int y = -2;
-4: do System.out.print(++y + " ");
-5: while(y <= 5);
-6: } }
+2:    public static void main(String[] args) {
+3:       int y = -2;
+4:       do System.out.print(++y + " ");
+5:       while(y <= 5);
+6:    } }
 ```
 
 > **English:** A. -2 -1 0 1 2 3 4 5
@@ -3609,7 +3508,7 @@ D. int[]
 
 > Bu appendix önceki kullanıcı çalışmasını kaybetmemek için korunmuştur. Aşağıdaki cevaplar ve hafıza kartları kaynak bölümün birebir çevirisi değildir.
 
-#### Unit 03 · Making Decisions · Bilingual Notes
+### Unit 03 · Making Decisions · Bilingual Notes
 
 Bu ana kaynak gönderilen Chapter 3 Review Questions 12–29 metnini sırasıyla
 işler. Her English soru özeti ve Türkçe karşılığı art arda gelir. Ayrıntılı dil
@@ -4101,6 +4000,8 @@ kabul edilir.
    genellikle görünmez?
 5. `do/while` ile `while` arasındaki tek garanti farkını söyle.
 
+<!-- page-break -->
+
 #### Hızlı kontrol
 
 1. Java 17 selector listesi `Integer`ı içerir, `Long`u içermez.
@@ -4109,63 +4010,7 @@ kabul edilir.
 4. `&&` sağında left match true'dur; `||` sağında left false olabilir.
 5. `do/while` body'yi en az bir kez çalıştırır.
 
-## Page coverage ledger
+## Kapsam doğrulaması
 
-| PDF page | Marker | Retained lines | Removed running-header lines | Status |
-|---:|---|---:|---:|---|
-| 0101 | `<!-- source-page: 0101 -->` | 12 | 0 | complete |
-| 0102 | `<!-- source-page: 0102 -->` | 24 | 0 | complete |
-| 0103 | `<!-- source-page: 0103 -->` | 33 | 1 | complete |
-| 0104 | `<!-- source-page: 0104 -->` | 31 | 3 | complete |
-| 0105 | `<!-- source-page: 0105 -->` | 33 | 1 | complete |
-| 0106 | `<!-- source-page: 0106 -->` | 29 | 3 | complete |
-| 0107 | `<!-- source-page: 0107 -->` | 33 | 1 | complete |
-| 0108 | `<!-- source-page: 0108 -->` | 30 | 3 | complete |
-| 0109 | `<!-- source-page: 0109 -->` | 35 | 1 | complete |
-| 0110 | `<!-- source-page: 0110 -->` | 32 | 3 | complete |
-| 0111 | `<!-- source-page: 0111 -->` | 32 | 1 | complete |
-| 0112 | `<!-- source-page: 0112 -->` | 35 | 3 | complete |
-| 0113 | `<!-- source-page: 0113 -->` | 36 | 1 | complete |
-| 0114 | `<!-- source-page: 0114 -->` | 35 | 3 | complete |
-| 0115 | `<!-- source-page: 0115 -->` | 38 | 1 | complete |
-| 0116 | `<!-- source-page: 0116 -->` | 46 | 3 | complete |
-| 0117 | `<!-- source-page: 0117 -->` | 34 | 1 | complete |
-| 0118 | `<!-- source-page: 0118 -->` | 34 | 3 | complete |
-| 0119 | `<!-- source-page: 0119 -->` | 36 | 1 | complete |
-| 0120 | `<!-- source-page: 0120 -->` | 38 | 3 | complete |
-| 0121 | `<!-- source-page: 0121 -->` | 28 | 1 | complete |
-| 0122 | `<!-- source-page: 0122 -->` | 38 | 3 | complete |
-| 0123 | `<!-- source-page: 0123 -->` | 33 | 1 | complete |
-| 0124 | `<!-- source-page: 0124 -->` | 35 | 3 | complete |
-| 0125 | `<!-- source-page: 0125 -->` | 34 | 1 | complete |
-| 0126 | `<!-- source-page: 0126 -->` | 30 | 3 | complete |
-| 0127 | `<!-- source-page: 0127 -->` | 40 | 1 | complete |
-| 0128 | `<!-- source-page: 0128 -->` | 34 | 3 | complete |
-| 0129 | `<!-- source-page: 0129 -->` | 29 | 1 | complete |
-| 0130 | `<!-- source-page: 0130 -->` | 40 | 3 | complete |
-| 0131 | `<!-- source-page: 0131 -->` | 36 | 1 | complete |
-| 0132 | `<!-- source-page: 0132 -->` | 34 | 3 | complete |
-| 0133 | `<!-- source-page: 0133 -->` | 30 | 1 | complete |
-| 0134 | `<!-- source-page: 0134 -->` | 35 | 3 | complete |
-| 0135 | `<!-- source-page: 0135 -->` | 30 | 1 | complete |
-| 0136 | `<!-- source-page: 0136 -->` | 37 | 3 | complete |
-| 0137 | `<!-- source-page: 0137 -->` | 36 | 1 | complete |
-| 0138 | `<!-- source-page: 0138 -->` | 34 | 3 | complete |
-| 0139 | `<!-- source-page: 0139 -->` | 29 | 1 | complete |
-| 0140 | `<!-- source-page: 0140 -->` | 34 | 3 | complete |
-| 0141 | `<!-- source-page: 0141 -->` | 11 | 1 | complete |
-| 0142 | `<!-- source-page: 0142 -->` | 35 | 3 | complete |
-| 0143 | `<!-- source-page: 0143 -->` | 39 | 1 | complete |
-| 0144 | `<!-- source-page: 0144 -->` | 38 | 3 | complete |
-| 0145 | `<!-- source-page: 0145 -->` | 36 | 1 | complete |
-| 0146 | `<!-- source-page: 0146 -->` | 37 | 3 | complete |
-| 0147 | `<!-- source-page: 0147 -->` | 36 | 1 | complete |
-| 0148 | `<!-- source-page: 0148 -->` | 39 | 3 | complete |
-| 0149 | `<!-- source-page: 0149 -->` | 36 | 1 | complete |
-| 0150 | `<!-- source-page: 0150 -->` | 40 | 3 | complete |
-| 0151 | `<!-- source-page: 0151 -->` | 41 | 1 | complete |
-| 0152 | `<!-- source-page: 0152 -->` | 37 | 3 | complete |
-| 0153 | `<!-- source-page: 0153 -->` | 38 | 1 | complete |
-| 0154 | `<!-- source-page: 0154 -->` | 42 | 3 | complete |
-
-**Coverage result:** `0101`–`0154` aralığındaki 54/54 sayfanın marker'ı vardır; eksik veya yinelenen marker yoktur.
+> **Kapsam özeti:** `0101`–`0154` aralığındaki **54/54 kaynak sayfa**
+> doğrulandı; eksik veya yinelenen sayfa yoktur.

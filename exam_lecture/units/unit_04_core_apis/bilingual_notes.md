@@ -2,7 +2,7 @@
 
 Bu belge, yüklenen OCP Java SE 17 kaynağındaki bölüm metnini kaynak sırasını koruyarak işler. Her düzeltilmiş English parça hemen ardından doğal Türkçe karşılığıyla verilir; kod yalnız bir kez gösterilir. Ayrıntılı dil çalışması için [vocabulary](vocabulary.md) ve [grammar notes](grammar_notes.md) kaynaklarına bakın.
 
-## Kapsam manifesti
+## Kaynak ve kapsam özeti
 
 - Kaynak: `exam_lecture/OCP_Java_SE17_Chapter1den_Itibaren.pdf`
 - Bölüm: Chapter 4 · Core APIs
@@ -10,7 +10,7 @@ Bu belge, yüklenen OCP Java SE 17 kaynağındaki bölüm metnini kaynak sıras�
 - Korunan temiz kaynak satırı: 2138
 - Çıkarılan öğeler: yalnız tekrarlanan running header/footer ve PDF sayfa numarası; soru numarasıyla birleşmiş üstbilgilerde soru numarası korunmuştur.
 - OCR düzenlemeleri: soft-hyphen, bölünmüş sözcük, `->`, `--`, `-=` ve tarih ayırıcıları teknik yazıma getirilmiştir.
-- İzlenebilirlik: Her kaynak sayfası `source-page` marker'ı, korunan satır sayısı ve kısa SHA-256 özeti taşır.
+- İzlenebilirlik: Her kaynak sayfası, korunan satır sayısı ve kısa SHA-256 özetiyle kayıtlıdır.
 
 ## İçindekiler
 
@@ -24,7 +24,7 @@ Bu belge, yüklenen OCP Java SE 17 kaynağındaki bölüm metnini kaynak sıras�
 8. [Exam Essentials](#exam-essentials)
 9. [Review Questions](#review-questions)
 10. [Kaynak dışı çözüm ve teknik pekiştirme appendix'i](#appendix--önceki-çözüm-ve-teknik-pekiştirme-notları-kaynak-dışı)
-11. [Page coverage ledger](#page-coverage-ledger)
+11. [Kapsam doğrulaması](#kapsam-doğrulaması)
 
 ## Kaynak sırasındaki çift dilli içerik
 
@@ -51,21 +51,21 @@ Bu belge, yüklenen OCP Java SE 17 kaynağındaki bölüm metnini kaynak sıras�
 >
 > **Türkçe:** [x] [x] Tarih, saat, metin, sayısal ve boolean değerlerinin işlenmesi
 
-> **English:** ■ Use primitives and wrapper classes including Math API, parentheses, type promotion, and casting to evaluate arithmetic and boolean expressions.
-> ■ Manipulate text, including text blocks, using String and StringBuilder classes.
-> ■ Manipulate date, time, duration, period, instant, and time-zone objects using Date-Time API.
+> **English:** • Use primitives and wrapper classes including Math API, parentheses, type promotion, and casting to evaluate arithmetic and boolean expressions.
+> • Manipulate text, including text blocks, using String and StringBuilder classes.
+> • Manipulate date, time, duration, period, instant, and time-zone objects using Date-Time API.
 >
-> **Türkçe:** ■ Aritmetik ve boolean ifadeleri değerlendirmek için `Math` API dahil primitive türleri, wrapper class'ları, parantezleri, type promotion'ı ve casting'i kullanın.
-> ■ `String` ve `StringBuilder` class'larıyla text block'lar dahil metni işleyin.
-> ■ Date-Time API ile tarih, saat, duration, period, instant ve time-zone nesnelerini işleyin.
+> **Türkçe:** • Aritmetik ve boolean ifadeleri değerlendirmek için `Math` API dahil primitive türleri, wrapper class'ları, parantezleri, type promotion'ı ve casting'i kullanın.
+> • `String` ve `StringBuilder` class'larıyla text block'lar dahil metni işleyin.
+> • Date-Time API ile tarih, saat, duration, period, instant ve time-zone nesnelerini işleyin.
 
 > **English:** [x] [x] Working with Arrays and Collections
 >
 > **Türkçe:** [x] [x] array'ler ve Koleksiyonlarla Çalışmak
 
-> **English:** ■ Create Java arrays and List, Set, Map, and Deque collections, and add, remove, update, retrieve, and sort their elements.
+> **English:** • Create Java arrays and List, Set, Map, and Deque collections, and add, remove, update, retrieve, and sort their elements.
 >
-> **Türkçe:** ■ Java array'leri ile `List`, `Set`, `Map` ve `Deque` koleksiyonlarını oluşturun; elemanlarını ekleyin, kaldırın, güncelleyin, alın ve sıralayın.
+> **Türkçe:** • Java array'leri ile `List`, `Set`, `Map` ve `Deque` koleksiyonlarını oluşturun; elemanlarını ekleyin, kaldırın, güncelleyin, alın ve sıralayın.
 
 <!-- source-page: 0156 -->
 <!-- retained-source-lines: 29; removed-running-header-lines: 0; sha256: 9c844533d6d642b1 -->
@@ -518,9 +518,9 @@ System.out.println("abc".equalsIgnoreCase("ABC")); // true
 >
 > **Türkçe:** `toString()`, `equals(Object)` ve `hashCode()` method'larını override etme: Bu method'ların doğru biçimde override edilmesi geçmiş Java sertifikasyon sınavlarında yer alıyordu. Profesyonel bir Java geliştiricisi olarak her biri için en azından temel kuralları bilmeniz hâlâ önemlidir:
 
-> **English:** ■ ■ ■ ■ ■ ■ toString(): The toString() method is called when you try to print an object or
+> **English:** • toString(): The toString() method is called when you try to print an object or
 >
-> **Türkçe:** ■ ■ ■ ■ ■ ■ toString(): Bir object yazdırmaya çalıştığınızda toString() method'u çağrılır veya
+> **Türkçe:** • toString(): Bir object yazdırmaya çalıştığınızda toString() method'u çağrılır veya
 
 > **English:** concatenate the object with a String. It is commonly overridden with a version that prints a unique description of the instance using its instance fields.
 >
@@ -2039,9 +2039,9 @@ System.out.print(s + " ");
 >
 > **Türkçe:** Öncelikle dönüş değerinin ne anlama geldiğini öğrenmeniz gerekir. Tam dönüş değerlerini bilmenize gerek yoktur ancak aşağıdakileri bilmeniz gerekir:
 
-> **English:** ■ ■ ■ ■ ■ ■ A negative number means the first array is smaller than the second.
+> **English:** • A negative number means the first array is smaller than the second.
 >
-> **Türkçe:** ■ ■ ■ ■ ■ ■ Negatif bir sayı, ilk array'in ikinciden daha küçük olduğu anlamına gelir.
+> **Türkçe:** • Negatif bir sayı, ilk array'in ikinciden daha küçük olduğu anlamına gelir.
 
 > **English:** A zero means the arrays are equal.
 >
@@ -2070,21 +2070,21 @@ System.out.println(Arrays.compare(new int[] {1}, new int[] {2}));
 >
 > **Türkçe:** Artık tek bir değeri nasıl karşılaştıracağınızı bildiğinize göre, farklı uzunluklardaki array'leri nasıl karşılaştıracağınıza bakalım:
 
-> **English:** ■ If both arrays are the same length and have the same values in each spot in the same order, return zero.
+> **English:** • If both arrays are the same length and have the same values in each spot in the same order, return zero.
 >
-> **Türkçe:** ■ İki array aynı uzunluktaysa ve aynı konumlardaki değerleri aynı sıradaysa `0` döndürün.
+> **Türkçe:** • İki array aynı uzunluktaysa ve aynı konumlardaki değerleri aynı sıradaysa `0` döndürün.
 
-> **English:** ■ If all the elements are the same but the second array has extra elements at the end, return a negative number.
+> **English:** • If all the elements are the same but the second array has extra elements at the end, return a negative number.
 >
-> **Türkçe:** ■ Ortak elemanların tümü aynıysa fakat ikinci array'in sonunda fazladan elemanlar varsa negatif bir sayı döndürün.
+> **Türkçe:** • Ortak elemanların tümü aynıysa fakat ikinci array'in sonunda fazladan elemanlar varsa negatif bir sayı döndürün.
 
-> **English:** ■ If all the elements are the same, but the first array has extra elements at the end, return a positive number.
+> **English:** • If all the elements are the same, but the first array has extra elements at the end, return a positive number.
 >
-> **Türkçe:** ■ Ortak elemanların tümü aynıysa fakat ilk array'in sonunda fazladan elemanlar varsa pozitif bir sayı döndürün.
+> **Türkçe:** • Ortak elemanların tümü aynıysa fakat ilk array'in sonunda fazladan elemanlar varsa pozitif bir sayı döndürün.
 
-> **English:** ■ If the first element that differs is smaller in the first array, return a negative number.
+> **English:** • If the first element that differs is smaller in the first array, return a negative number.
 >
-> **Türkçe:** ■ ■ ■ ■ İlk arrayde farklı olan ilk öğe daha küçükse, negatif bir sayı döndürün.
+> **Türkçe:** • İlk arrayde farklı olan ilk öğe daha küçükse, negatif bir sayı döndürün.
 
 > **English:** If the first element that differs is larger in the first array, return a positive number.
 >
@@ -2094,9 +2094,9 @@ System.out.println(Arrays.compare(new int[] {1}, new int[] {2}));
 >
 > **Türkçe:** Son olarak, daha küçük ne anlama geliyor? Bölüm 8, “Lambdalar ve Fonksiyonel Arayüzler”de göreceğiniz, burada ve compareTo() için geçerli olan bazı kurallar şunlardır:
 
-> **English:** ■ `null` is smaller than any other value.
+> **English:** • `null` is smaller than any other value.
 >
-> **Türkçe:** ■ `null`, diğer bütün değerlerden daha küçüktür.
+> **Türkçe:** • `null`, diğer bütün değerlerden daha küçüktür.
 
 > **English:** For numbers, normal numeric order applies.
 >
@@ -3527,11 +3527,13 @@ System.out.println(dateTime); // 2022-03-13T03:30-04:00[US/Eastern]
 
 ### Review Questions
 
-> **Türkçe başlık:** Review Questions
+> **Türkçe başlık:** İnceleme Soruları
 
 > **English:** The answers to the chapter review questions can be found in the Appendix.
 >
 > **Türkçe:** Bölüm inceleme sorularının yanıtlarını Ek'te bulabilirsiniz.
+
+### Question 1 / Soru 1
 
 > **English:** 1. What is output by the following code? (Choose all that apply.)
 >
@@ -3539,13 +3541,13 @@ System.out.println(dateTime); // 2022-03-13T03:30-04:00[US/Eastern]
 
 ```java
 1: public class Fish {
-2: public static void main(String[] args) {
-3: int numFish = 4;
-4: String fishType = "tuna";
-5: String anotherFish = numFish + 1;
-6: System.out.println(anotherFish + " " + fishType);
-7: System.out.println(numFish + " " + 1);
-8: } }
+2:    public static void main(String[] args) {
+3:       int numFish = 4;
+4:       String fishType = "tuna";
+5:       String anotherFish = numFish + 1;
+6:       System.out.println(anotherFish + " " + fishType);
+7:       System.out.println(numFish + " " + 1);
+8:    } }
 ```
 
 > **English:** A. 4 1
@@ -3572,33 +3574,22 @@ System.out.println(dateTime); // 2022-03-13T03:30-04:00[US/Eastern]
 >
 > **Türkçe:** F. Kod derlenmiyor.
 
+### Question 2 / Soru 2
+
 > **English:** 2. Which of these array declarations are not legal? (Choose all that apply.)
 >
 > **Türkçe:** 2. Bu array bildirimlerinden hangileri yasal değildir? (Uygun olanların tümünü seçin.)
 
-> **English:** A. int[][] scores = new int[5][];
->
-> **Türkçe:** A. `int[][] scores = new int[5][];`
+```text
+A. int[][] scores = new int[5][];
+B. Object[][][] cubbies = new Object[3][0][5];
+C. String beans[] = new beans[6];
+D. java.util.Date[] dates[] = new java.util.Date[2][];
+E. int[][] types = new int[];
+F. int[][] java = new int[][];
+```
 
-> **English:** B. Object[][][] cubbies = new Object[3][0][5];
->
-> **Türkçe:** B. `Object[][][] cubbies = new Object[3][0][5];`
-
-> **English:** C. String beans[] = new beans[6];
->
-> **Türkçe:** C. `String beans[] = new beans[6];`
-
-> **English:** D. java.util.Date[] dates[] = new java.util.Date[2][];
->
-> **Türkçe:** D. `java.util.Date[] dates[] = new java.util.Date[2][];`
-
-> **English:** E. int[][] types = new int[];
->
-> **Türkçe:** E. `int[][] types = new int[];`
-
-> **English:** F. int[][] java = new int[][];
->
-> **Türkçe:** F. `int[][] java = new int[][];`
+### Question 3 / Soru 3
 
 > **English:** 3. Note that March 13, 2022 is the weekend when we spring forward, and November 6, 2022 is when we fall back for daylight saving time. Which of the following can fill in the blank without the code throwing an exception? (Choose all that apply.)
 >
@@ -3606,37 +3597,27 @@ System.out.println(dateTime); // 2022-03-13T03:30-04:00[US/Eastern]
 
 ```java
 var zone = ZoneId.of("US/Eastern");
-var date = ;
+var date = ______________________________;
 var time = LocalTime.of(2, 15);
 var z = ZonedDateTime.of(date, time, zone);
 ```
 
-> **English:** A. LocalDate.of(2022, 3, 13)
->
-> **Türkçe:** A. `LocalDate.of(2022, 3, 13)`
-
-> **English:** B. LocalDate.of(2022, 3, 40)
->
-> **Türkçe:** B. `LocalDate.of(2022, 3, 40)`
-
-> **English:** C. LocalDate.of(2022, 11, 6)
->
-> **Türkçe:** C. `LocalDate.of(2022, 11, 6)`
+```text
+A. LocalDate.of(2022, 3, 13)
+B. LocalDate.of(2022, 3, 40)
+C. LocalDate.of(2022, 11, 6)
+```
 
 <!-- source-page: 0211 -->
 <!-- retained-source-lines: 36; removed-running-header-lines: 1; sha256: 036a3a7bab0a83ec -->
 
-> **English:** D. LocalDate.of(2022, 11, 7)
->
-> **Türkçe:** D. `LocalDate.of(2022, 11, 7)`
+```text
+D. LocalDate.of(2022, 11, 7)
+E. LocalDate.of(2023, 2, 29)
+F. LocalDate.of(2022, MonthEnum.MARCH, 13);
+```
 
-> **English:** E. LocalDate.of(2023, 2, 29)
->
-> **Türkçe:** E. `LocalDate.of(2023, 2, 29)`
-
-> **English:** F. LocalDate.of(2022, MonthEnum.MARCH, 13);
->
-> **Türkçe:** F. `LocalDate.of(2022, MonthEnum.MARCH, 13);`
+### Question 4 / Soru 4
 
 > **English:** 4. Which of the following are output by this code? (Choose all that apply.)
 >
@@ -3680,6 +3661,10 @@ var z = ZonedDateTime.of(date, time, zone);
 >
 > **Türkçe:** G. Yukarıdakilerin hiçbiri
 
+<!-- page-break -->
+
+### Question 5 / Soru 5
+
 > **English:** 5. What is the result of the following code?
 >
 > **Türkçe:** 5. Aşağıdaki kodun sonucu nedir?
@@ -3713,6 +3698,8 @@ var z = ZonedDateTime.of(date, time, zone);
 > **English:** F. The code does not compile.
 >
 > **Türkçe:** F. Kod derlenmiyor.
+
+### Question 6 / Soru 6
 
 > **English:** 6. How many of these lines contain a compiler error? (Choose all that apply.)
 >
@@ -3748,13 +3735,16 @@ var z = ZonedDateTime.of(date, time, zone);
 >
 > **Türkçe:** E. 4
 
+### Question 7 / Soru 7
+
 > **English:** 7. Which of these statements is true of the two values? (Choose all that apply.)
 >
 > **Türkçe:** 7. İki değerle ilgili statement'lardan hangileri doğrudur? (Uygun olanların tümünü seçin.)
 
-> **English:** 2022-08-28T05:00 GMT-04:00 2022-08-28T09:00 GMT-06:00
->
-> **Türkçe:** 2022-08-28T05:00 GMT-04:00 2022-08-28T09:00 GMT-06:00
+```text
+2022-08-28T05:00 GMT-04:00
+2022-08-28T09:00 GMT-06:00
+```
 
 > **English:** A. The first date/time is earlier.
 >
@@ -3780,6 +3770,8 @@ var z = ZonedDateTime.of(date, time, zone);
 >
 > **Türkçe:** F. Date/time değerleri arasında 10 saat vardır.
 
+### Question 8 / Soru 8
+
 > **English:** 8. Which of the following return 5 when run independently? (Choose all that apply.)
 >
 > **Türkçe:** 8. Aşağıdakilerden hangileri bağımsız olarak çalıştırıldığında `5` döndürür? (Uygun olanların tümünü seçin.)
@@ -3789,33 +3781,20 @@ var string = "12345";
 var builder = new StringBuilder("12345");
 ```
 
-> **English:** A. builder.charAt(4)
->
-> **Türkçe:** A. `builder.charAt(4)`
-
-> **English:** B. builder.replace(2, 4, "6").charAt(3)
->
-> **Türkçe:** B. `builder.replace(2, 4, "6").charAt(3)`
-
-> **English:** C. builder.replace(2, 5, "6").charAt(2)
->
-> **Türkçe:** C. `builder.replace(2, 5, "6").charAt(2)`
-
-> **English:** D. string.charAt(5)
->
-> **Türkçe:** D. `string.charAt(5)`
-
-> **English:** E. string.length
->
-> **Türkçe:** E. `string.length`
-
-> **English:** F. string.replace("123", "1").charAt(2)
->
-> **Türkçe:** F. `string.replace("123", "1").charAt(2)`
+```text
+A. builder.charAt(4)
+B. builder.replace(2, 4, "6").charAt(3)
+C. builder.replace(2, 5, "6").charAt(2)
+D. string.charAt(5)
+E. string.length
+F. string.replace("123", "1").charAt(2)
+```
 
 > **English:** G. None of the above
 >
 > **Türkçe:** G. Yukarıdakilerin hiçbiri
+
+### Question 9 / Soru 9
 
 > **English:** 9. Which of the following are true about arrays? (Choose all that apply.)
 >
@@ -3837,32 +3816,24 @@ var builder = new StringBuilder("12345");
 >
 > **Türkçe:** D. Array'ler immutable'dır.
 
-> **English:** E. Calling equals() on two different arrays containing the same primitive values always
+> **English:** E. Calling equals() on two different arrays containing the same primitive values always returns true.
 >
-> **Türkçe:** E. Aynı primitive değerleri içeren iki farklı array üzerinde `equals()` çağrılması her zaman
+> **Türkçe:** E. Aynı primitive değerleri içeren iki farklı array üzerinde `equals()` çağrılması her zaman `true` döndürür.
 
-> **English:** returns true.
+> **English:** F. Calling equals() on two different arrays containing the same primitive values always returns false.
 >
-> **Türkçe:** `true` döndürür.
+> **Türkçe:** F. Aynı primitive değerleri içeren iki farklı array üzerinde `equals()` çağrılması her zaman `false` döndürür.
 
-> **English:** F. Calling equals() on two different arrays containing the same primitive values always
+> **English:** G. Calling equals() on two different arrays containing the same primitive values can return true or false.
 >
-> **Türkçe:** F. Aynı primitive değerleri içeren iki farklı array üzerinde `equals()` çağrılması her zaman
-
-> **English:** returns false.
->
-> **Türkçe:** `false` döndürür.
-
-> **English:** G. Calling equals() on two different arrays containing the same primitive values can return
->
-> **Türkçe:** G. Aynı primitive değerleri içeren iki farklı array üzerinde `equals()` çağrılması
-
-> **English:** true or false.
->
-> **Türkçe:** `true` veya `false` döndürebilir.
+> **Türkçe:** G. Aynı primitive değerleri içeren iki farklı array üzerinde `equals()` çağrılması `true` veya `false` döndürebilir.
 
 <!-- source-page: 0213 -->
 <!-- retained-source-lines: 35; removed-running-header-lines: 1; sha256: 71b70615e5027f26 -->
+
+<!-- page-break -->
+
+### Question 10 / Soru 10
 
 > **English:** 10. How many of these lines contain a compiler error? (Choose all that apply.)
 >
@@ -3895,6 +3866,8 @@ var builder = new StringBuilder("12345");
 >
 > **Türkçe:** E. 4
 
+### Question 11 / Soru 11
+
 > **English:** 11. What is the output of the following code?
 >
 > **Türkçe:** 11. Aşağıdaki kodun çıktısı nedir?
@@ -3904,7 +3877,7 @@ var date = LocalDate.of(2022, 4, 3);
 date.plusDays(2);
 date.plusHours(3);
 System.out.println(date.getYear() + " " + date.getMonth()
-+ " " + date.getDayOfMonth());
+   + " " + date.getDayOfMonth());
 ```
 
 > **English:** A. 2022 MARCH 4
@@ -3930,6 +3903,8 @@ System.out.println(date.getYear() + " " + date.getMonth()
 > **English:** F. A runtime exception is thrown.
 >
 > **Türkçe:** F. Runtime'da bir exception fırlatılır.
+
+### Question 12 / Soru 12
 
 > **English:** 12. What is output by the following code? (Choose all that apply.)
 >
@@ -3974,22 +3949,24 @@ System.out.print(numbers.substring(7));
 <!-- source-page: 0214 -->
 <!-- retained-source-lines: 36; removed-running-header-lines: 3; sha256: 61e98a51443982a2 -->
 
+### Question 13 / Soru 13
+
 > **English:** 13. What is the result of the following code?
 >
 > **Türkçe:** 13. Aşağıdaki kodun sonucu nedir?
 
 ```java
 public class Lion {
-public void roar(String roar1, StringBuilder roar2) {
-roar1.concat("!!!");
-roar2.append("!!!");
-}
-public static void main(String[] args) {
-var roar1 = "roar";
-var roar2 = new StringBuilder("roar");
-new Lion().roar(roar1, roar2);
-System.out.println(roar1 + " " + roar2);
-} }
+   public void roar(String roar1, StringBuilder roar2) {
+      roar1.concat("!!!");
+      roar2.append("!!!");
+   }
+   public static void main(String[] args) {
+      var roar1 = "roar";
+      var roar2 = new StringBuilder("roar");
+      new Lion().roar(roar1, roar2);
+      System.out.println(roar1 + " " + roar2);
+   } }
 ```
 
 > **English:** A. roar roar
@@ -4016,6 +3993,8 @@ System.out.println(roar1 + " " + roar2);
 >
 > **Türkçe:** F. Kod derlenmiyor.
 
+### Question 14 / Soru 14
+
 > **English:** 14. Given the following, which can correctly fill in the blank? (Choose all that apply.)
 >
 > **Türkçe:** 14. Verilen koda göre seçeneklerden hangileri boşluğu doğru biçimde doldurabilir? (Uygun olanların tümünü seçin.)
@@ -4026,32 +4005,19 @@ var time = LocalTime.now();
 var dateTime = LocalDateTime.now();
 var zoneId = ZoneId.systemDefault();
 var zonedDateTime = ZonedDateTime.of(dateTime, zoneId);
-Instant instant = ;
+Instant instant = ______________________________;
 ```
 
-> **English:** A. Instant.now()
->
-> **Türkçe:** A. `Instant.now()`
+```text
+A. Instant.now()
+B. new Instant()
+C. date.toInstant()
+D. dateTime.toInstant()
+E. time.toInstant()
+F. zonedDateTime.toInstant()
+```
 
-> **English:** B. new Instant()
->
-> **Türkçe:** B. `new Instant()`
-
-> **English:** C. date.toInstant()
->
-> **Türkçe:** C. `date.toInstant()`
-
-> **English:** D. dateTime.toInstant()
->
-> **Türkçe:** D. `dateTime.toInstant()`
-
-> **English:** E. time.toInstant()
->
-> **Türkçe:** E. `time.toInstant()`
-
-> **English:** F. zonedDateTime.toInstant()
->
-> **Türkçe:** F. `zonedDateTime.toInstant()`
+### Question 15 / Soru 15
 
 > **English:** 15. What is the output of the following? (Choose all that apply.)
 >
@@ -4095,6 +4061,8 @@ System.out.println(Arrays.binarySearch(arr, "Pippa"));
 >
 > **Türkçe:** G. Bu örnekte `binarySearch()` sonuçları tanımsızdır.
 
+### Question 16 / Soru 16
+
 > **English:** 16. What is included in the output of the following code? (Choose all that apply.)
 >
 > **Türkçe:** 16. Aşağıdaki kodun çıktısında neler yer alır? (Uygun olanların tümünü seçin.)
@@ -4104,6 +4072,7 @@ var base = "ewe\nsheep\\t";
 int length = base.length();
 int indent = base.indent(2).length();
 int translate = base.translateEscapes().length();
+
 var formatted = "%s %s %s".formatted(length, indent, translate);
 System.out.format(formatted);
 ```
@@ -4136,6 +4105,8 @@ System.out.format(formatted);
 >
 > **Türkçe:** G. 16
 
+### Question 17 / Soru 17
+
 > **English:** 17. Which of these statements are true? (Choose all that apply.)
 >
 > **Türkçe:** 17. Bu statement'lardan hangileri doğrudur? (Uygun olanların tümünü seçin.)
@@ -4144,37 +4115,27 @@ System.out.format(formatted);
 var letters = new StringBuilder("abcdefg");
 ```
 
-> **English:** A. letters.substring(1, 2) returns a single-character String.
->
-> **Türkçe:** A. `letters.substring(1, 2)` tek karakterli bir `String` döndürür.
+```text
+A. letters.substring(1, 2) returns a single-character String.
+B. letters.substring(2, 2) returns a single-character String.
+C. letters.substring(6, 5) returns a single-character String.
+D. letters.substring(6, 6) returns a single-character String.
+E. letters.substring(1, 2) throws an exception.
+F. letters.substring(2, 2) throws an exception.
+G. letters.substring(6, 5) throws an exception.
+H. letters.substring(6, 6) throws an exception.
+```
 
-> **English:** B. letters.substring(2, 2) returns a single-character String.
->
-> **Türkçe:** B. `letters.substring(2, 2)` tek karakterli bir `String` döndürür.
+> **Türkçe seçenekler:** A. `letters.substring(1, 2)` tek karakterli bir
+> `String` döndürür. B. `letters.substring(2, 2)` tek karakterli bir `String`
+> döndürür. C. `letters.substring(6, 5)` tek karakterli bir `String` döndürür.
+> D. `letters.substring(6, 6)` tek karakterli bir `String` döndürür.
+> E. `letters.substring(1, 2)` exception fırlatır.
+> F. `letters.substring(2, 2)` exception fırlatır.
+> G. `letters.substring(6, 5)` exception fırlatır.
+> H. `letters.substring(6, 6)` exception fırlatır.
 
-> **English:** C. letters.substring(6, 5) returns a single-character String.
->
-> **Türkçe:** C. `letters.substring(6, 5)` tek karakterli bir `String` döndürür.
-
-> **English:** D. letters.substring(6, 6) returns a single-character String.
->
-> **Türkçe:** D. `letters.substring(6, 6)` tek karakterli bir `String` döndürür.
-
-> **English:** E. letters.substring(1, 2) throws an exception.
->
-> **Türkçe:** E. `letters.substring(1, 2)` exception fırlatır.
-
-> **English:** F. letters.substring(2, 2) throws an exception.
->
-> **Türkçe:** F. `letters.substring(2, 2)` exception fırlatır.
-
-> **English:** G. letters.substring(6, 5) throws an exception.
->
-> **Türkçe:** G. `letters.substring(6, 5)` exception fırlatır.
-
-> **English:** H. letters.substring(6, 6) throws an exception.
->
-> **Türkçe:** H. `letters.substring(6, 6)` exception fırlatır.
+### Question 18 / Soru 18
 
 > **English:** 18. What is the result of the following code? (Choose all that apply.)
 >
@@ -4182,13 +4143,7 @@ var letters = new StringBuilder("abcdefg");
 
 ```java
 13: String s1 = """
-14: purr""";
-```
-
-<!-- source-page: 0216 -->
-<!-- retained-source-lines: 35; removed-running-header-lines: 3; sha256: be8f635797063593 -->
-
-```java
+14:    purr""";
 15: String s2 = "";
 16:
 17: s1.toUpperCase();
@@ -4204,6 +4159,9 @@ var letters = new StringBuilder("abcdefg");
 27: if ( s2.equals("2cfalse")) System.out.println("equals");
 28: System.out.println(s1.length());
 ```
+
+<!-- source-page: 0216 -->
+<!-- retained-source-lines: 35; removed-running-header-lines: 3; sha256: be8f635797063593 -->
 
 > **English:** A. 2
 >
@@ -4237,6 +4195,8 @@ var letters = new StringBuilder("abcdefg");
 >
 > **Türkçe:** H. Kod derlenmiyor.
 
+### Question 19 / Soru 19
+
 > **English:** 19. Which of the following fill in the blank to print a positive integer? (Choose all that apply.)
 >
 > **Türkçe:** 19. Pozitif bir tam sayı yazdırmak için seçeneklerden hangileri boşluğu doldurabilir? (Uygun olanların tümünü seçin.)
@@ -4246,43 +4206,26 @@ String[] s1 = { "Camel", "Peacock", "Llama"};
 String[] s2 = { "Camel", "Llama", "Peacock"};
 String[] s3 = { "Camel"};
 String[] s4 = { "Camel", null};
-System.out.println(Arrays. );
+System.out.println(Arrays.__________________);
 ```
 
-> **English:** A. compare(s1, s2)
->
-> **Türkçe:** A. `compare(s1, s2)`
-
-> **English:** B. mismatch(s1, s2)
->
-> **Türkçe:** B. `mismatch(s1, s2)`
-
-> **English:** C. compare(s3, s4)
->
-> **Türkçe:** C. `compare(s3, s4)`
-
-> **English:** D. mismatch (s3, s4)
->
-> **Türkçe:** D. `mismatch(s3, s4)`
-
-> **English:** E. compare(s4, s4)
->
-> **Türkçe:** E. `compare(s4, s4)`
-
-> **English:** F. mismatch (s4, s4)
->
-> **Türkçe:** F. `mismatch(s4, s4)`
+```text
+A. compare(s1, s2)
+B. mismatch(s1, s2)
+C. compare(s3, s4)
+D. mismatch (s3, s4)
+E. compare(s4, s4)
+F. mismatch (s4, s4)
+```
 
 <!-- source-page: 0217 -->
 <!-- retained-source-lines: 36; removed-running-header-lines: 1; sha256: c36e3e93c532dbb6 -->
 
-> **English:** 20. Note that March 13, 2022 is the weekend that clocks spring ahead for daylight saving time.
->
-> **Türkçe:** 20. 13 Mart 2022'nin yaz saati uygulaması için saatlerin ileri alındığı hafta sonu olduğunu unutmayın.
+### Question 20 / Soru 20
 
-> **English:** What is the output of the following? (Choose all that apply.)
+> **English:** 20. Note that March 13, 2022 is the weekend that clocks spring ahead for daylight saving time. What is the output of the following? (Choose all that apply.)
 >
-> **Türkçe:** Aşağıdakinin çıktısı nedir? (Uygun olanların tümünü seçin.)
+> **Türkçe:** 20. 13 Mart 2022'nin yaz saati uygulaması için saatlerin ileri alındığı hafta sonu olduğunu unutmayın. Aşağıdakinin çıktısı nedir? (Uygun olanların tümünü seçin.)
 
 ```java
 var date = LocalDate.of(2022, Month.MARCH, 13);
@@ -4290,10 +4233,11 @@ var time = LocalTime.of(1, 30);
 var zone = ZoneId.of("US/Eastern");
 var dateTime1 = ZonedDateTime.of(date, time, zone);
 var dateTime2 = dateTime1.plus(1, ChronoUnit.HOURS);
+
 long diff = ChronoUnit.HOURS.between(dateTime1, dateTime2);
 int hour = dateTime2.getHour();
 boolean offset = dateTime1.getOffset()
-== dateTime2.getOffset();
+   == dateTime2.getOffset();
 System.out.println("diff = " + diff);
 System.out.println("hour = " + hour);
 System.out.println("offset = " + offset);
@@ -4327,35 +4271,30 @@ System.out.println("offset = " + offset);
 >
 > **Türkçe:** G. Runtime'da bir exception fırlatılır.
 
+### Question 21 / Soru 21
+
 > **English:** 21. Which of the following can fill in the blank to print avaJ? (Choose all that apply.)
 >
 > **Türkçe:** 21. `avaJ` yazdırmak için seçeneklerden hangileri boşluğu doldurabilir? (Uygun olanların tümünü seçin.)
 
 ```java
 3: var puzzle = new StringBuilder("Java");
-4: puzzle. ;
+4: puzzle.__________________;
 5: System.out.println(puzzle);
 ```
 
-> **English:** A. reverse()
->
-> **Türkçe:** A. reverse()
-
-> **English:** B. append("vaJ$").substring(0, 4)
->
-> **Türkçe:** B. `append("vaJ$").substring(0, 4)`
-
-> **English:** C. append("vaJ$").delete(0, 3).deleteCharAt(puzzle.length() -1)
->
-> **Türkçe:** C. `append("vaJ$").delete(0, 3).deleteCharAt(puzzle.length() -1)`
-
-> **English:** D. append("vaJ$").delete(0, 3).deleteCharAt(puzzle.length())
->
-> **Türkçe:** D. `append("vaJ$").delete(0, 3).deleteCharAt(puzzle.length())`
+```text
+A. reverse()
+B. append("vaJ$").substring(0, 4)
+C. append("vaJ$").delete(0, 3).deleteCharAt(puzzle.length() -1)
+D. append("vaJ$").delete(0, 3).deleteCharAt(puzzle.length())
+```
 
 > **English:** E. None of the above
 >
 > **Türkçe:** E. Yukarıdakilerin hiçbiri
+
+### Question 22 / Soru 22
 
 > **English:** 22. What is the output of the following code?
 >
@@ -4366,7 +4305,7 @@ var date = LocalDate.of(2022, Month.APRIL, 30);
 date.plusDays(2);
 date.plusYears(3);
 System.out.println(date.getYear() + " " + date.getMonth()
-+ " " + date.getDayOfMonth());
+   + " " + date.getDayOfMonth());
 ```
 
 <!-- source-page: 0218 -->
@@ -4404,7 +4343,7 @@ System.out.println(date.getYear() + " " + date.getMonth()
 
 > Bu appendix önceki kullanıcı çalışmasını kaybetmemek için korunmuştur. Aşağıdaki cevaplar ve hafıza kartları kaynak bölümün birebir çevirisi değildir.
 
-#### Unit 04 · Core APIs · Bilingual Notes
+### Unit 04 · Core APIs · Bilingual Notes
 
 Chapter 4 Review Questions 1–22, English–Türkçe eşleşmeleriyle ana bölümde
 işlenir. Bu appendix seçili sorular için Java 17 pekiştirmesi sunar. Dil ayrıntıları:
@@ -4831,6 +4770,8 @@ method return type'ını literal'ın görünüşünden değil signature'dan beli
 4. `Math.round(2.3)` ile `Math.round(2.3f)` return type'larını söyle.
 5. `Period` ile `Duration` arasındaki date/time ayrımını açıkla.
 
+<!-- page-break -->
+
 #### Hızlı kontrol
 
 1. `substring()` yeni bir `String` döndürür; mutator değildir.
@@ -4839,73 +4780,7 @@ method return type'ını literal'ın görünüşünden değil signature'dan beli
 4. Sırasıyla `long` ve `int`.
 5. `Period` date-based, `Duration` time-based amount'tır.
 
-## Page coverage ledger
+## Kapsam doğrulaması
 
-| PDF page | Marker | Retained lines | Removed running-header lines | Status |
-|---:|---|---:|---:|---|
-| 0155 | `<!-- source-page: 0155 -->` | 15 | 0 | complete |
-| 0156 | `<!-- source-page: 0156 -->` | 29 | 0 | complete |
-| 0157 | `<!-- source-page: 0157 -->` | 38 | 1 | complete |
-| 0158 | `<!-- source-page: 0158 -->` | 34 | 3 | complete |
-| 0159 | `<!-- source-page: 0159 -->` | 35 | 1 | complete |
-| 0160 | `<!-- source-page: 0160 -->` | 36 | 3 | complete |
-| 0161 | `<!-- source-page: 0161 -->` | 39 | 1 | complete |
-| 0162 | `<!-- source-page: 0162 -->` | 34 | 3 | complete |
-| 0163 | `<!-- source-page: 0163 -->` | 35 | 1 | complete |
-| 0164 | `<!-- source-page: 0164 -->` | 35 | 3 | complete |
-| 0165 | `<!-- source-page: 0165 -->` | 38 | 1 | complete |
-| 0166 | `<!-- source-page: 0166 -->` | 37 | 3 | complete |
-| 0167 | `<!-- source-page: 0167 -->` | 36 | 1 | complete |
-| 0168 | `<!-- source-page: 0168 -->` | 29 | 3 | complete |
-| 0169 | `<!-- source-page: 0169 -->` | 33 | 1 | complete |
-| 0170 | `<!-- source-page: 0170 -->` | 37 | 3 | complete |
-| 0171 | `<!-- source-page: 0171 -->` | 36 | 1 | complete |
-| 0172 | `<!-- source-page: 0172 -->` | 34 | 3 | complete |
-| 0173 | `<!-- source-page: 0173 -->` | 34 | 1 | complete |
-| 0174 | `<!-- source-page: 0174 -->` | 35 | 3 | complete |
-| 0175 | `<!-- source-page: 0175 -->` | 28 | 1 | complete |
-| 0176 | `<!-- source-page: 0176 -->` | 36 | 3 | complete |
-| 0177 | `<!-- source-page: 0177 -->` | 36 | 1 | complete |
-| 0178 | `<!-- source-page: 0178 -->` | 33 | 3 | complete |
-| 0179 | `<!-- source-page: 0179 -->` | 32 | 1 | complete |
-| 0180 | `<!-- source-page: 0180 -->` | 30 | 3 | complete |
-| 0181 | `<!-- source-page: 0181 -->` | 31 | 1 | complete |
-| 0182 | `<!-- source-page: 0182 -->` | 36 | 3 | complete |
-| 0183 | `<!-- source-page: 0183 -->` | 35 | 1 | complete |
-| 0184 | `<!-- source-page: 0184 -->` | 33 | 3 | complete |
-| 0185 | `<!-- source-page: 0185 -->` | 35 | 1 | complete |
-| 0186 | `<!-- source-page: 0186 -->` | 34 | 3 | complete |
-| 0187 | `<!-- source-page: 0187 -->` | 33 | 1 | complete |
-| 0188 | `<!-- source-page: 0188 -->` | 34 | 3 | complete |
-| 0189 | `<!-- source-page: 0189 -->` | 30 | 1 | complete |
-| 0190 | `<!-- source-page: 0190 -->` | 34 | 3 | complete |
-| 0191 | `<!-- source-page: 0191 -->` | 35 | 1 | complete |
-| 0192 | `<!-- source-page: 0192 -->` | 29 | 3 | complete |
-| 0193 | `<!-- source-page: 0193 -->` | 34 | 1 | complete |
-| 0194 | `<!-- source-page: 0194 -->` | 32 | 3 | complete |
-| 0195 | `<!-- source-page: 0195 -->` | 30 | 1 | complete |
-| 0196 | `<!-- source-page: 0196 -->` | 34 | 3 | complete |
-| 0197 | `<!-- source-page: 0197 -->` | 35 | 1 | complete |
-| 0198 | `<!-- source-page: 0198 -->` | 35 | 3 | complete |
-| 0199 | `<!-- source-page: 0199 -->` | 41 | 1 | complete |
-| 0200 | `<!-- source-page: 0200 -->` | 36 | 3 | complete |
-| 0201 | `<!-- source-page: 0201 -->` | 35 | 1 | complete |
-| 0202 | `<!-- source-page: 0202 -->` | 36 | 3 | complete |
-| 0203 | `<!-- source-page: 0203 -->` | 33 | 1 | complete |
-| 0204 | `<!-- source-page: 0204 -->` | 33 | 3 | complete |
-| 0205 | `<!-- source-page: 0205 -->` | 29 | 1 | complete |
-| 0206 | `<!-- source-page: 0206 -->` | 37 | 3 | complete |
-| 0207 | `<!-- source-page: 0207 -->` | 38 | 1 | complete |
-| 0208 | `<!-- source-page: 0208 -->` | 33 | 3 | complete |
-| 0209 | `<!-- source-page: 0209 -->` | 24 | 1 | complete |
-| 0210 | `<!-- source-page: 0210 -->` | 34 | 3 | complete |
-| 0211 | `<!-- source-page: 0211 -->` | 36 | 1 | complete |
-| 0212 | `<!-- source-page: 0212 -->` | 33 | 3 | complete |
-| 0213 | `<!-- source-page: 0213 -->` | 35 | 1 | complete |
-| 0214 | `<!-- source-page: 0214 -->` | 36 | 3 | complete |
-| 0215 | `<!-- source-page: 0215 -->` | 38 | 1 | complete |
-| 0216 | `<!-- source-page: 0216 -->` | 35 | 3 | complete |
-| 0217 | `<!-- source-page: 0217 -->` | 36 | 1 | complete |
-| 0218 | `<!-- source-page: 0218 -->` | 7 | 3 | complete |
-
-**Coverage result:** `0155`–`0218` aralığındaki 64/64 sayfanın marker'ı vardır; eksik veya yinelenen marker yoktur.
+> **Kapsam özeti:** `0155`–`0218` aralığındaki **64/64 kaynak sayfa**
+> doğrulandı; eksik veya yinelenen sayfa yoktur.

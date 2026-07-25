@@ -8,13 +8,13 @@ English → Türkçe paragraf çiftleriyle bir araya getirir. Kod ve terminal
 [Vocabulary](vocabulary.md) · [Grammar notes](grammar_notes.md) ·
 [Teknik hafıza notu](technical_memory_notes.md)
 
-## Kaynak kapsam manifesti
+## Kaynak ve kapsam özeti
 
 - Kaynak: `exam_lecture/OCP_Java_SE17_Chapter1den_Itibaren.pdf`
 - Chapter: 15 · JDBC
 - Chapter PDF sayfaları: 863–908
 - Appendix cevap sayfaları: 959–961
-- Beklenen sayfa marker'ı: 46
+- Beklenen kaynak sayfa sayısı: 46
 - Beklenen resmî cevap: 21
 - Eşleme biçimi: English paragraf → Türkçe çeviri → varsa kod
 
@@ -995,8 +995,8 @@ statement does not generate a result set
 
 > [!IMPORTANT]
 > **Java 17/JDBC contract:** `execute()` does not report whether execution
-> “succeeded” or classify the SQL text itself. It reports whether the **first
-> result** is a `ResultSet`; `false` can also represent an update count or no
+> “succeeded” or classify the SQL text itself. It reports whether the first
+> result is a `ResultSet`; `false` can also represent an update count or no
 > result. Multiple-result statements require the related JDBC result-navigation
 > APIs.
 
@@ -2369,6 +2369,9 @@ Column 'NOT_A_COLUMN' is either not in any table...
 > **English:** The answers to the chapter review questions can be found in the Appendix.
 >
 > **Türkçe:** Bölüm sonu review sorularının cevapları Appendix'te bulunmaktadır.
+
+### Question 1 / Soru 1
+
 > **English:** 1. Which interfaces or classes are in a database-specific JAR file? (Choose all that
 > apply.)
 >
@@ -2377,13 +2380,13 @@ Column 'NOT_A_COLUMN' is either not in any table...
 > **English:** A. Driver
 >
 > **Türkçe:** A. `Driver`
-> **English:** B. Driver ’s implementation
+> **English:** B. Driver’s implementation
 >
 > **Türkçe:** B. `Driver` implementation'ı
 > **English:** C. Manager
 >
 > **Türkçe:** C. `Manager`
-> **English:** D. DriverManager ’s implementation
+> **English:** D. DriverManager’s implementation
 >
 > **Türkçe:** D. `DriverManager` implementation'ı
 > **English:** E. PreparedStatement
@@ -2392,6 +2395,9 @@ Column 'NOT_A_COLUMN' is either not in any table...
 > **English:** F. PreparedStatement implementation
 >
 > **Türkçe:** F. `PreparedStatement` implementation'ı
+
+### Question 2 / Soru 2
+
 > **English:** 2. Which of the following is a valid JDBC URL?
 >
 > **Türkçe:** 2. Aşağıdakilerden hangisi geçerli bir JDBC URL'dir?
@@ -2413,21 +2419,21 @@ Column 'NOT_A_COLUMN' is either not in any table...
 > **English:** F. sybase::localhost::1234/db
 >
 > **Türkçe:** F. `sybase::localhost::1234/db`
+
+### Question 3 / Soru 3
+
 > **English:** 3. Which of the options can fill in the blank to make the code compile and run without
-> error?
+> error? (Choose all that apply.)
 >
 > **Türkçe:** 3. Code'un derlenmesini ve hata olmadan çalışmasını sağlamak için boşluğu hangi
-> seçenekler doldurabilir?
-> **English:** (Choose all that apply.)
->
-> **Türkçe:** (Geçerli olanların tümünü seçin.)
+> seçenekler doldurabilir? (Uygun olanların tümünü seçin.)
 ```java
 var sql = """
-UPDATE habitat SET environment = null
-WHERE environment = ? """;
+   UPDATE habitat SET environment = null
+   WHERE environment = ? """;
 try (var ps = conn.prepareStatement(sql)) {
-// INSERT OPTION HERE
-ps.executeUpdate();
+   ________________________________
+   ps.executeUpdate();
 }
 ```
 > **English:** A. ps.setString(0, "snow");
@@ -2450,6 +2456,9 @@ ps.executeUpdate();
 > **Türkçe:** F. `ps.setString("environment", "snow"); ps.setString("environment", "snow");`
 
 <!-- source-page: 0901 -->
+
+### Question 4 / Soru 4
+
 > **English:** 4. Suppose that you have a table named animal with two rows. What is the result of the
 > following code?
 >
@@ -2480,6 +2489,9 @@ ps.executeUpdate();
 > **English:** F. A runtime exception is thrown.
 >
 > **Türkçe:** F. Runtime'da exception fırlatılır.
+
+### Question 5 / Soru 5
+
 > **English:** 5. Which option can fill in the blanks to make the code compile?
 >
 > **Türkçe:** 5. Code'un derlenmesi için boşlukları hangi seçenek doldurabilir?
@@ -2506,6 +2518,9 @@ ResultSet rs = ps.________________();
 > **English:** F. executeUpdate, executeQuery, execute
 >
 > **Türkçe:** F. `executeUpdate, executeQuery, execute`
+
+### Question 6 / Soru 6
+
 > **English:** 6. Suppose there are two rows in the table before this code is run, and executeUpdate()
 > runs without error. How many rows are in the table after the code completes?
 >
@@ -2514,10 +2529,12 @@ ResultSet rs = ps.________________();
 > bulunur?
 ```java
 conn.setAutoCommit(true);
+
 String sql = "INSERT INTO games VALUES(3, Jenga);";
+
 try (PreparedStatement ps = conn.prepareStatement(sql,
-ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY)) {
-ps.executeUpdate();
+   ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY)) {
+   ps.executeUpdate();
 }
 conn.rollback();
 ```
@@ -2531,10 +2548,13 @@ conn.rollback();
 > **Türkçe:** B. Üç
 > **English:** C. The code does not compile.
 >
-> **Türkçe:** C. Code derlenmez.
+> **Türkçe:** C. Kod derlenmez.
 > **English:** D. The code throws an exception.
 >
 > **Türkçe:** D. Code exception fırlatır.
+
+### Question 7 / Soru 7
+
 > **English:** 7. Suppose that the table names has five rows and the following SQL statement updates
 > all of them. What is the result of this code?
 >
@@ -2542,12 +2562,13 @@ conn.rollback();
 > update ettiğini varsayalım. Bu code'un sonucu nedir?
 ```java
 public static void main(String[] args) throws SQLException {
-var sql = "UPDATE names SET name = 'Animal'";
-try (var conn = DriverManager.getConnection("jdbc:hsqldb:file:zoo");
-var ps = conn.prepareStatement(sql)) {
-var result = ps.executeUpdate();
-System.out.println(result);
-}
+   var sql = "UPDATE names SET name = 'Animal'";
+   try (var conn = DriverManager.getConnection("jdbc:hsqldb:file:zoo");
+      var ps = conn.prepareStatement(sql)) {
+
+      var result = ps.executeUpdate();
+      System.out.println(result);
+   }
 }
 ```
 > **English:** A. 0
@@ -2561,13 +2582,16 @@ System.out.println(result);
 > **Türkçe:** C. 5
 > **English:** D. The code does not compile.
 >
-> **Türkçe:** D. Code derlenmez.
+> **Türkçe:** D. Kod derlenmez.
 > **English:** E. A SQLException is thrown.
 >
 > **Türkçe:** E. `SQLException` fırlatılır.
 > **English:** F. A different exception is thrown.
 >
 > **Türkçe:** F. Farklı bir exception fırlatılır.
+
+### Question 8 / Soru 8
+
 > **English:** 8. Suppose learn() is a stored procedure that takes one IN parameter. What is wrong with
 > the following code? (Choose all that apply.)
 >
@@ -2612,6 +2636,9 @@ System.out.println(result);
 > değiştirmez.
 
 <!-- source-page: 0903 -->
+
+### Question 9 / Soru 9
+
 > **English:** 9. Suppose that the table enrichment has three rows with the animals bat, rat, and
 > snake. How many lines does this code print?
 >
@@ -2620,10 +2647,10 @@ System.out.println(result);
 ```java
 var sql = "SELECT toy FROM enrichment WHERE animal = ?";
 try (var ps = conn.prepareStatement(sql)) {
-try (var rs = ps.executeQuery()) {
-while (rs.next())
-System.out.println(rs.getString(1));
-}
+   try (var rs = ps.executeQuery()) {
+      while (rs.next())
+         System.out.println(rs.getString(1));
+   }
 }
 ```
 > **English:** A. 0
@@ -2637,13 +2664,16 @@ System.out.println(rs.getString(1));
 > **Türkçe:** C. 3
 > **English:** D. The code does not compile.
 >
-> **Türkçe:** D. Code derlenmez.
+> **Türkçe:** D. Kod derlenmez.
 > **English:** E. A SQLException is thrown.
 >
 > **Türkçe:** E. `SQLException` fırlatılır.
 > **English:** F. A different exception is thrown.
 >
 > **Türkçe:** F. Farklı bir exception fırlatılır.
+
+### Question 10 / Soru 10
+
 > **English:** 10. Suppose that the table food has five rows, and this SQL statement updates all of
 > them. What is the result of this code?
 >
@@ -2651,12 +2681,13 @@ System.out.println(rs.getString(1));
 > ettiğini varsayalım. Bu code'un sonucu nedir?
 ```java
 public static void main(String[] args) {
-var sql = "UPDATE food SET amount = amount + 1";
-try (var conn = DriverManager.getConnection("jdbc:hsqldb:file:zoo");
-var ps = conn.prepareStatement(sql)) {
-var result = ps.executeUpdate();
-System.out.println(result);
-}
+   var sql = "UPDATE food SET amount = amount + 1";
+   try (var conn = DriverManager.getConnection("jdbc:hsqldb:file:zoo");
+      var ps = conn.prepareStatement(sql)) {
+
+      var result = ps.executeUpdate();
+      System.out.println(result);
+   }
 }
 ```
 > **English:** A. 0
@@ -2670,7 +2701,7 @@ System.out.println(result);
 > **Türkçe:** C. 5
 > **English:** D. The code does not compile.
 >
-> **Türkçe:** D. Code derlenmez.
+> **Türkçe:** D. Kod derlenmez.
 > **English:** E. A SQLException is thrown.
 >
 > **Türkçe:** E. `SQLException` fırlatılır.
@@ -2679,6 +2710,9 @@ System.out.println(result);
 > **Türkçe:** F. Farklı bir exception fırlatılır.
 
 <!-- source-page: 0904 -->
+
+### Question 11 / Soru 11
+
 > **English:** 11. Suppose we have a JDBC program that calls a stored procedure, which returns a set of
 > results. Which is the correct order in which to close database resources for this call?
 >
@@ -2702,25 +2736,31 @@ System.out.println(result);
 > **English:** F. CallableStatement, ResultSet, Connection
 >
 > **Türkçe:** F. `CallableStatement`, `ResultSet`, `Connection`
+
+### Question 12 / Soru 12
+
 > **English:** 12. Suppose that the table counts has five rows with the numbers 1 to 5. How many lines
 > does this code print?
 >
 > **Türkçe:** 12. `counts` table'ında 1–5 sayılarını içeren beş row bulunduğunu varsayalım. Bu code
 > kaç satır yazdırır?
 ```java
-var sql = "SELECT num FROM counts WHERE num>?";
+var sql = "SELECT num FROM counts WHERE num> ?";
 try (var ps = conn.prepareStatement(sql,
-ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE)) {
-ps.setInt(1, 3);
-try (var rs = ps.executeQuery()) {
-while (rs.next())
-System.out.println(rs.getObject(1));
-}
-ps.setInt(1, 100);
-try (var rs = ps.executeQuery()) {
-while (rs.next())
-System.out.println(rs.getObject(1));
-}
+   ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE)) {
+   ps.setInt(1, 3);
+
+   try (var rs = ps.executeQuery()) {
+      while (rs.next())
+         System.out.println(rs.getObject(1));
+   }
+
+   ps.setInt(1, 100);
+
+   try (var rs = ps.executeQuery()) {
+      while (rs.next())
+         System.out.println(rs.getObject(1));
+   }
 }
 ```
 > **English:** A. 0
@@ -2737,10 +2777,13 @@ System.out.println(rs.getObject(1));
 > **Türkçe:** D. 4
 > **English:** E. The code does not compile.
 >
-> **Türkçe:** E. Code derlenmez.
+> **Türkçe:** E. Kod derlenmez.
 > **English:** F. The code throws an exception.
 >
 > **Türkçe:** F. Code exception fırlatır.
+
+### Question 13 / Soru 13
+
 > **English:** 13. Which of the following can fill in the blank correctly? (Choose all that apply.)
 >
 > **Türkçe:** 13. Aşağıdakilerden hangileri boşluğu doğru biçimde doldurabilir? (Geçerli olanların
@@ -2770,6 +2813,9 @@ if (rs.next())
 > **English:** F. Object s = rs.getObject(1)
 >
 > **Türkçe:** F. `Object s = rs.getObject(1)`
+
+### Question 14 / Soru 14
+
 > **English:** 14. Suppose learn() is a stored procedure that takes one IN parameter and one OUT
 > parameter. What is wrong with the following code? (Choose all that apply.)
 >
@@ -2794,13 +2840,16 @@ if (rs.next())
 > **Türkçe:** C. Parameter output için register edilmemiştir.
 > **English:** D. The code does not compile.
 >
-> **Türkçe:** D. Code derlenmez.
+> **Türkçe:** D. Kod derlenmez.
 > **English:** E. Something else is wrong with the code.
 >
 > **Türkçe:** E. Code'da başka bir sorun vardır.
 > **English:** F. None of the above. This code is correct.
 >
 > **Türkçe:** F. Yukarıdakilerin hiçbiri; bu code doğrudur.
+
+### Question 15 / Soru 15
+
 > **English:** 15. Which can fill in the blank and have the code run without error? (Choose all that
 > apply.)
 >
@@ -2835,19 +2884,22 @@ if (rs.next())
 > **Türkçe:** E. `conn.rollback()`
 > **English:** F. The code does not compile.
 >
-> **Türkçe:** F. Code derlenmez.
+> **Türkçe:** F. Kod derlenmez.
 
 <!-- source-page: 0906 -->
+
+### Question 16 / Soru 16
+
 > **English:** 16. Which of the following can fill in the blank? (Choose all that apply.)
 >
 > **Türkçe:** 16. Aşağıdakilerden hangileri boşluğu doldurabilir? (Geçerli olanların tümünü seçin.)
 ```java
-var sql = "____________________________";
+var sql = "____________________";
 try (var ps = conn.prepareStatement(sql)) {
-ps.setObject(3, "red");
-ps.setInt(2, 8);
-ps.setString(1, "ball");
-ps.executeUpdate();
+   ps.setObject(3, "red");
+   ps.setInt(2, 8);
+   ps.setString(1, "ball");
+   ps.executeUpdate();
 }
 ```
 > **English:** A. { call insert_toys(?,?) }
@@ -2868,23 +2920,27 @@ ps.executeUpdate();
 > **English:** F. INSERT INTO toys VALUES (?,?,?,?)
 >
 > **Türkçe:** F. `INSERT INTO toys VALUES (?,?,?,?)`
+
+### Question 17 / Soru 17
+
 > **English:** 17. Suppose that the table counts has five rows with the numbers 1 to 5. How many lines
 > does this code print?
 >
 > **Türkçe:** 17. `counts` table'ında 1–5 sayılarını içeren beş row bulunduğunu varsayalım. Bu code
 > kaç satır yazdırır?
 ```java
-var sql = "SELECT num FROM counts WHERE num>?";
+var sql = "SELECT num FROM counts WHERE num> ?";
 try (var ps = conn.prepareStatement(sql)) {
-ps.setInt(1, 3);
-try (var rs = ps.executeQuery()) {
-while (rs.next())
-System.out.println(rs.getObject(1));
-}
-try (var rs = ps.executeQuery()) {
-while (rs.next())
-System.out.println(rs.getObject(1));
-}
+   ps.setInt(1, 3);
+
+   try (var rs = ps.executeQuery()) {
+      while (rs.next())
+         System.out.println(rs.getObject(1));
+   }
+   try (var rs = ps.executeQuery()) {
+      while (rs.next())
+         System.out.println(rs.getObject(1));
+   }
 }
 ```
 > **English:** A. 0
@@ -2901,26 +2957,29 @@ System.out.println(rs.getObject(1));
 > **Türkçe:** D. 4
 > **English:** E. The code does not compile.
 >
-> **Türkçe:** E. Code derlenmez.
+> **Türkçe:** E. Kod derlenmez.
 > **English:** F. The code throws an exception.
 >
 > **Türkçe:** F. Code bir exception fırlatır.
 
 <!-- source-page: 0907 -->
+
+### Question 18 / Soru 18
+
 > **English:** 18. There are currently 100 rows in the table species before inserting a new row. What
 > is the output of the following code?
 >
 > **Türkçe:** 18. Yeni bir row eklenmeden önce `species` table'ında 100 row bulunmaktadır. Aşağıdaki
 > code'un çıktısı nedir?
 ```java
-String insert = "INSERT INTO species VALUES (3, 'Ant',.05)";
+String insert = "INSERT INTO species VALUES (3, 'Ant', .05)";
 String select = "SELECT count(*) FROM species";
 try (var ps = conn.prepareStatement(insert)) {
-ps.executeUpdate();
+   ps.executeUpdate();
 }
 try (var ps = conn.prepareStatement(select)) {
-var rs = ps.executeQuery();
-System.out.println(rs.getInt(1));
+   var rs = ps.executeQuery();
+   System.out.println(rs.getInt(1));
 }
 ```
 > **English:** A. 100
@@ -2931,26 +2990,26 @@ System.out.println(rs.getInt(1));
 > **Türkçe:** B. 101
 > **English:** C. The code does not compile.
 >
-> **Türkçe:** C. Code derlenmez.
+> **Türkçe:** C. Kod derlenmez.
 > **English:** D. A SQLException is thrown.
 >
 > **Türkçe:** D. `SQLException` fırlatılır.
 > **English:** E. A different exception is thrown.
 >
 > **Türkçe:** E. Farklı bir exception fırlatılır.
+
+### Question 19 / Soru 19
+
 > **English:** 19. Which of the options can fill in the blank to make the code compile and run without
-> error?
+> error? (Choose all that apply.)
 >
 > **Türkçe:** 19. Aşağıdaki seçeneklerden hangileri boşluğu doldurduğunda code derlenir ve hata
-> vermeden çalışır?
-> **English:** (Choose all that apply.)
->
-> **Türkçe:** (Geçerli olanların tümünü seçin.)
+> vermeden çalışır? (Uygun olanların tümünü seçin.)
 ```java
 var sql = "UPDATE habitat WHERE environment = ?";
 try (var ps = conn.prepareCall(sql)) {
-// INSERT OPTION HERE
-ps.executeUpdate();
+   ________________________________
+   ps.executeUpdate();
 }
 ```
 > **English:** A. ps.setString(0, "snow");
@@ -2964,10 +3023,13 @@ ps.executeUpdate();
 > **Türkçe:** C. `ps.setString("environment", "snow");`
 > **English:** D. The code does not compile.
 >
-> **Türkçe:** D. Code derlenmez.
+> **Türkçe:** D. Kod derlenmez.
 > **English:** E. The code throws an exception at runtime.
 >
 > **Türkçe:** E. Code çalışma zamanında bir exception fırlatır.
+
+### Question 20 / Soru 20
+
 > **English:** 20. Which is the first line containing a compiler error?
 >
 > **Türkçe:** 20. Derleyici hatası içeren ilk satır hangisidir?
@@ -2976,15 +3038,13 @@ ps.executeUpdate();
 26: try (var conn = DriverManager.getConnection(url);
 27:    var ps = conn.prepareStatement();
 28:    var rs = ps.executeQuery("SELECT * FROM swings")) {
-```
-
-<!-- source-page: 0908 -->
-```java
 29:    while (rs.next()) {
 30:       System.out.println(rs.getInteger(1));
 31:    }
 32: }
 ```
+
+<!-- source-page: 0908 -->
 > **English:** A. Line 26
 >
 > **Türkçe:** A. 26. satır
@@ -3003,22 +3063,22 @@ ps.executeUpdate();
 > **English:** F. None of the above
 >
 > **Türkçe:** F. Yukarıdakilerin hiçbiri
+
+### Question 21 / Soru 21
+
 > **English:** 21. Suppose conn is a valid connection object and the exhibits table is empty. Which are
-> true?
+> true? (Choose two.)
 >
 > **Türkçe:** 21. `conn` değişkeninin geçerli bir `Connection` object'i olduğunu ve `exhibits`
-> table'ının boş olduğunu varsayalım. Hangileri doğrudur?
-> **English:** (Choose two.)
->
-> **Türkçe:** (İkisini seçin.)
+> table'ının boş olduğunu varsayalım. Hangileri doğrudur? (İkisini seçin.)
 ```java
 try (conn) {
-conn.setAutoCommit(false);
-String sql = "INSERT INTO exhibits VALUES(3, 'Test', 2)";
-try (PreparedStatement ps = conn.prepareStatement(sql)) {
-ps.executeUpdate();
-}
-conn.setAutoCommit(true); // line W
+   conn.setAutoCommit(false);
+   String sql = "INSERT INTO exhibits VALUES(3, 'Test', 2)";
+   try (PreparedStatement ps = conn.prepareStatement(sql)) {
+      ps.executeUpdate();
+   }
+   conn.setAutoCommit(true); // line W
 }
 ```
 > **English:** A. As written, the table will remain empty after this code.
@@ -3293,10 +3353,10 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > bırakır. Dolayısıyla D, driver-independent garanti değildir; production code
 > close öncesinde explicit `commit()` veya `rollback()` çağırmalıdır.
 
-## Coverage ledger
+## Kapsam doğrulaması
 
-- Chapter body marker'ları: 863–908
-- Appendix answer marker'ları: 959–961
+- Ana bölüm kaynak sayfaları: 863–908
+- Ek cevap kaynağı sayfaları: 959–961
 - Resmî cevap hedefi: 1–21
 - Kod blokları özgün dilinde tutulmuştur.
 - Çeviri ayrıntıları ünite vocabulary ve grammar kaynaklarıyla desteklenir.

@@ -8,13 +8,13 @@ English → Türkçe paragraf çiftleriyle bir araya getirir. Kod ve terminal
 [Vocabulary](vocabulary.md) · [Grammar notes](grammar_notes.md) ·
 [Teknik hafıza notu](technical_memory_notes.md)
 
-## Kaynak kapsam manifesti
+## Kaynak ve kapsam özeti
 
 - Kaynak: `exam_lecture/OCP_Java_SE17_Chapter1den_Itibaren.pdf`
 - Chapter: 11 · Exceptions and Localization
 - Chapter PDF sayfaları: 591–660
 - Appendix cevap sayfaları: 945–948
-- Beklenen sayfa marker'ı: 70
+- Beklenen kaynak sayfa sayısı: 70
 - Beklenen resmî cevap: 26
 - Eşleme biçimi: English paragraf → Türkçe çeviri → varsa kod
 
@@ -75,9 +75,9 @@ English → Türkçe paragraf çiftleriyle bir araya getirir. Kod ve terminal
 > kolay uyarlanabileceği anlamına gelir. Bu bölümün sonunda, değişime daha iyi uyum
 > sağlayan uygulamalar tasarlamak için yapı sağladığımızı umuyoruz.
 ## Understanding Exceptions
-> **English:** A program can fail for just about any reason. Here are just a few possibilities: ■ ■ The
-> code tries to connect to a website, but the Internet connection is down. ■ ■ You made a
-> coding mistake and tried to access an invalid index in an array. ■ ■ One method calls
+> **English:** A program can fail for just about any reason. Here are just a few possibilities: • The
+> code tries to connect to a website, but the Internet connection is down. • You made a
+> coding mistake and tried to access an invalid index in an array. • One method calls
 > another with a value that the method doesn’t support.
 >
 > **Türkçe:** Bir program hemen hemen her nedenle başarısız olabilir. İşte sadece birkaç olasılık: Kod
@@ -2652,9 +2652,11 @@ DateTimeFormatter.ofPattern("'Time is: hh:mm: "); // Exception thrown
 ```
 > **English:** Failure to terminate an escape sequence will trigger an exception at runtime.
 >
-> **Türkçe:** Bir kaçış dizisini sonlandırmak, çalışma zamanında bir istisnayı tetikleyecektir.
-## Supporting Internationalization and
-## Localization
+> **Türkçe:** Bir escape sequence'i sonlandırmamak runtime'da exception
+> oluşmasına yol açar.
+
+## Supporting Internationalization and Localization
+
 > **English:** Many applications need to work in different countries and with different languages. For
 > example, consider the sentence “The zoo is holding a special event on 4/1/22 to look at
 > animal behaviors.” When is the event? In the United States, it is on April 1. However, a
@@ -3138,9 +3140,9 @@ formatters.map(s -> s.format(314_900_000)).forEach(System.out::println);
 > **English:** This prints the following when run in the en_US locale: 315M 315M 315 million 315 Mio.
 > 315 Millionen 314,900,000 Notice that the third digit is automatically rounded up for
 > the entries that use a CompactNumberFormat. The following summarizes the rules for
-> CompactNumberFormat: ■ ■ First it determines the highest range for the number, such as
-> thousand (K), million (M), billion (B), or trillion (T). ■ ■ It then returns up to the
-> first three digits of that range, rounding the last digit as needed. ■ ■ Finally, it
+> CompactNumberFormat: • First it determines the highest range for the number, such as
+> thousand (K), million (M), billion (B), or trillion (T). • It then returns up to the
+> first three digits of that range, rounding the last digit as needed. • Finally, it
 > prints an identifier. If SHORT is used, a symbol is returned. If LONG is used, a space
 > followed by a word is returned.
 >
@@ -3890,79 +3892,87 @@ props.get("open", "The zoo will be open soon"); // DOES NOT COMPILE
 ## Review Questions
 > **English:** The answers to the chapter review questions can be found in the Appendix.
 >
-> **Türkçe:** Bölüm inceleme sorularının cevapları Ek'te bulunabilir.
-> **English:** 1.Which of the following can be inserted on line 8 to make this code compile? (Choose
+> **Türkçe:** Bölüm sonu sorularının cevapları Appendix'te bulunmaktadır.
+
+### Question 1 / Soru 1
+
+> **English:** 1. Which of the following can be inserted on line 8 to make this code compile? (Choose
 > all that apply.)
 >
-> **Türkçe:** 1. Bu kodu derlemek için aşağıdakilerden hangisi 8. satıra eklenebilir? (Tüm geçerli
+> **Türkçe:** 1. Bu kodu derlemek için aşağıdakilerden hangileri 8. satıra eklenebilir? (Tüm geçerli
 > olanları seçin.)
 ```java
-public void whatHappensNext() throws IOException {
-// INSERT CODE HERE
-}
+7: public void whatHappensNext() throws IOException {
+8:    // INSERT CODE HERE
+9: }
 ```
 > **English:** A. System.out.println("it's ok");
 >
 > **Türkçe:** A. System.out.println("it's ok");
 > **English:** B. throw new Exception();
 >
-> **Türkçe:** B. yeni Exception() atın;
+> **Türkçe:** B. `throw new Exception();`
 > **English:** C. throw new IllegalArgumentException();
 >
-> **Türkçe:** C. yeni IllegalArgumentException() at;
+> **Türkçe:** C. `throw new IllegalArgumentException();`
 > **English:** D. throw new java.io.IOException();
 >
-> **Türkçe:** D. yeni java.io.IOException() atın;
+> **Türkçe:** D. `throw new java.io.IOException();`
 > **English:** E. throw new RuntimeException();
 >
-> **Türkçe:** E. yeni RuntimeException() at;
+> **Türkçe:** E. `throw new RuntimeException();`
 > **English:** F. None of the above
 >
 > **Türkçe:** F. Yukarıdakilerin hiçbiri
-> **English:** 2.Which statement about the following class is correct?
+
+### Question 2 / Soru 2
+
+> **English:** 2. Which statement about the following class is correct?
 >
 > **Türkçe:** 2. Aşağıdaki sınıfla ilgili hangi ifade doğrudur?
 ```java
-class Problem extends Exception {
-public Problem() {}
-}
-class YesProblem extends Problem {}
-public class MyDatabase {
-public static void connectToDatabase() throw Problem {
-throws new YesProblem();
-}
-public static void main(String[] c) throw Exception {
-connectToDatabase();
-}
-}
+1:  class Problem extends Exception {
+2:     public Problem() {}
+3:  }
+4:  class YesProblem extends Problem {}
+5:  public class MyDatabase {
+6:     public static void connectToDatabase() throw Problem {
+7:        throws new YesProblem();
+8:     }
+9:     public static void main(String[] c) throw Exception {
+10:      connectToDatabase();
+11:   }
+12: }
 ```
-> **English:** A.The code compiles and prints a stack trace for YesProblem at runtime.
+> **English:** A. The code compiles and prints a stack trace for YesProblem at runtime.
 >
-> **Türkçe:** A.The kodu, çalışma zamanında YesProblem için bir yığın izi derler ve yazdırır.
-> **English:** B.The code compiles and prints a stack trace for Problem at runtime.
+> **Türkçe:** A. Kod derlenir ve runtime'da `YesProblem` için bir stack trace yazdırır.
+> **English:** B. The code compiles and prints a stack trace for Problem at runtime.
 >
-> **Türkçe:** B.The kodu, çalışma zamanında Problem için bir yığın izi derler ve yazdırır.
-> **English:** C.The code does not compile because Problem defines a constructor.
+> **Türkçe:** B. Kod derlenir ve runtime'da `Problem` için bir stack trace yazdırır.
+> **English:** C. The code does not compile because Problem defines a constructor.
 >
-> **Türkçe:** C.The kodu derlemez çünkü Problem bir constructor tanımlar.
-> **English:** D.The code does not compile because YesProblem does not define a constructor.
+> **Türkçe:** C. Kod, `Problem` bir constructor tanımladığı için derlenmez.
+> **English:** D. The code does not compile because YesProblem does not define a constructor.
 >
-> **Türkçe:** D.The kodu derlemez çünkü YesProblem bir constructor tanımlamaz.
-> **English:** E.The code does not compile but would if Problem and YesProblem were switched on lines
+> **Türkçe:** D. Kod, `YesProblem` bir constructor tanımlamadığı için derlenmez.
+> **English:** E. The code does not compile but would if Problem and YesProblem were switched on lines
+> 6 and 7.
 >
-> **Türkçe:** E.The kodu derlemez, ancak Sorun ve YesProblem satırlarda açılırsa
-> **English:** 6 and 7.
->
-> **Türkçe:** 6 ve 7.
+> **Türkçe:** E. Kod derlenmez; ancak 6 ve 7. satırlardaki `Problem` ile `YesProblem`
+> yer değiştirirse derlenir.
 > **English:** F. None of the above
 >
 > **Türkçe:** F. Yukarıdakilerin hiçbiri
 
 <!-- source-page: 0649 -->
-> **English:** 3.Which of the following are common types to localize? (Choose all that apply.)
+
+### Question 3 / Soru 3
+
+> **English:** 3. Which of the following are common types to localize? (Choose all that apply.)
 >
-> **Türkçe:** 3. Aşağıdakilerden hangisini lokalize etmek için yaygın türleri vardır? (Tüm geçerli
-> olanları seçin.)
+> **Türkçe:** 3. Aşağıdakilerden hangileri yaygın olarak yerelleştirilir? (Uygun olanların
+> tümünü seçin.)
 > **English:** A. Dates
 >
 > **Türkçe:** A. Tarihler
@@ -3974,57 +3984,71 @@ connectToDatabase();
 > **Türkçe:** C. Sınıf isimleri
 > **English:** D. Currency
 >
-> **Türkçe:** D. Para Birimi
+> **Türkçe:** D. Para birimi
 > **English:** E. Numbers
 >
 > **Türkçe:** E. Sayılar
 > **English:** F. Variable names
 >
 > **Türkçe:** F. Değişken isimler
-> **English:** 4.What is the output of the following snippet, assuming a and b are both 0?
+
+### Question 4 / Soru 4
+
+> **English:** 4. What is the output of the following snippet, assuming a and b are both 0?
 >
-> **Türkçe:** 4. a ve b'nin her ikisinin de 0 olduğunu varsayarak aşağıdaki snippet'in çıktısı nedir?
+> **Türkçe:** 4. `a` ve `b` değerlerinin ikisinin de `0` olduğunu varsayarsak aşağıdaki
+> snippet'in çıktısı nedir?
 ```java
-try {
-System.out.print(a / b);
-} catch (RuntimeException e) {
-System.out.print(- 1);
-} catch (ArithmeticException e) {
-System.out.print(0);
-} finally {
-System.out.print("done");
-}
+3:  try {
+4:     System.out.print(a / b);
+5:  } catch (RuntimeException e) {
+6:     System.out.print(-1);
+7:  } catch (ArithmeticException e) {
+8:     System.out.print(0);
+9:  } finally {
+10:    System.out.print("done");
+11: }
 ```
-> **English:** A.
+> **English:** A. -1
 >
-> **Türkçe:** A.
-> **English:** ----  1 B. 0 C. done-1 D. done0 E.The code does not compile.
+> **Türkçe:** A. `-1`
+> **English:** B. 0
 >
-> **Türkçe:** ---- 1 B. 0 C. doed-1 D. doed0 E.The kodu derlemez.
-> **English:** F.An uncaught exception is thrown.
+> **Türkçe:** B. `0`
+> **English:** C. done-1
 >
-> **Türkçe:** F.An Yakalanamayan istisna atılır.
+> **Türkçe:** C. `done-1`
+> **English:** D. done0
+>
+> **Türkçe:** D. `done0`
+> **English:** E. The code does not compile.
+>
+> **Türkçe:** E. Kod derlenmez.
+> **English:** F. An uncaught exception is thrown.
+>
+> **Türkçe:** F. Yakalanmayan bir exception atılır.
 > **English:** G. None of the above
 >
 > **Türkçe:** G. Yukarıdakilerin hiçbiri
-> **English:** 5.Assuming the current locale uses dollars ($) and the following method is called with a
+
+### Question 5 / Soru 5
+
+> **English:** 5. Assuming the current locale uses dollars ($) and the following method is called with a
 > double value of 100_102.2, which of the following values are printed? (Choose all that
 > apply.)
 >
-> **Türkçe:** 5. Mevcut locale dolar kullandığını varsayarsak ($) ve aşağıdaki yöntem 100_102.2
-> değerinde bir double değeri ile adlandırılır, aşağıdaki değerlerden hangisi yazdırılır?
-> (Tüm geçerli olanları seçin.)
+> **Türkçe:** 5. Mevcut locale'in dolar (`$`) kullandığını ve aşağıdaki method'un
+> `100_102.2` değerindeki bir `double` ile çağrıldığını varsayalım. Hangi değerler
+> yazdırılır? (Uygun olanların tümünü seçin.)
 ```java
 public void print(double t) {
-System.out.print(NumberFormat.getCompactNumberInstance().format(t));
-System.out.print(
-```
-> **English:** NumberFormat.getCompactNumberInstance(
->
-> **Türkçe:** NumberFormat.getCompactNumberInstance(
-```java
-Locale.getDefault(), Style.SHORT).format(t));
-System.out.print(NumberFormat.getCurrencyInstance().format(t));
+   System.out.print(NumberFormat.getCompactNumberInstance().format(t));
+
+   System.out.print(
+      NumberFormat.getCompactNumberInstance(
+         Locale.getDefault(), Style.SHORT).format(t));
+
+   System.out.print(NumberFormat.getCurrencyInstance().format(t));
 }
 ```
 
@@ -4050,14 +4074,17 @@ System.out.print(NumberFormat.getCurrencyInstance().format(t));
 > **English:** G. None of the above
 >
 > **Türkçe:** G. Yukarıdakilerin hiçbiri
-> **English:** 6.What is the output of the following code?
+
+### Question 6 / Soru 6
+
+> **English:** 6. What is the output of the following code?
 >
 > **Türkçe:** 6. Aşağıdaki kodun çıktısı nedir?
 ```java
 LocalDate date = LocalDate.parse("2022-04-30",
-DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+   DateTimeFormatter.ISO_LOCAL_DATE_TIME);
 System.out.println(date.getYear() + " "
-+ date.getMonth() + " "+ date.getDayOfMonth());
+   + date.getMonth() + " "+ date.getDayOfMonth());
 ```
 > **English:** A. 2022 APRIL 2
 >
@@ -4068,27 +4095,30 @@ System.out.println(date.getYear() + " "
 > **English:** C. 2022 MAY 2
 >
 > **Türkçe:** C. 2022 MAY 2
-> **English:** D.The code does not compile.
+> **English:** D. The code does not compile.
 >
-> **Türkçe:** D.The kodu derlemez.
-> **English:** E.A runtime exception is thrown.
+> **Türkçe:** D. Kod derlenmez.
+> **English:** E. A runtime exception is thrown.
 >
-> **Türkçe:** E.A runtime exception atılır.
-> **English:** 7.What does the following method print?
+> **Türkçe:** E. Runtime'da bir exception atılır.
+
+### Question 7 / Soru 7
+
+> **English:** 7. What does the following method print?
 >
-> **Türkçe:** 7. Aşağıdaki yöntem ne yazdırır?
+> **Türkçe:** 7. Aşağıdaki method ne yazdırır?
 ```java
-public void tryAgain(String s) {
-try (FileReader r = null, p = new FileReader("")) {
-System.out.print("X");
-throw new IllegalArgumentException();
-} catch (Exception s) {
-System.out.print("A");
-throw new FileNotFoundException();
-} finally {
-System.out.print("O");
-}
-}
+11: public void tryAgain(String s) {
+12:    try (FileReader r = null, p = new FileReader("")) {
+13:       System.out.print("X");
+14:       throw new IllegalArgumentException();
+15:    } catch (Exception s) {
+16:       System.out.print("A");
+17:       throw new FileNotFoundException();
+18:    } finally {
+19:       System.out.print("O");
+20:    }
+21: }
 ```
 > **English:** A. XAO
 >
@@ -4096,35 +4126,35 @@ System.out.print("O");
 > **English:** B. XOA
 >
 > **Türkçe:** B. XOA
-> **English:** C.One line of this method contains a compiler error.
+> **English:** C. One line of this method contains a compiler error.
 >
-> **Türkçe:** Bu yöntemin C.One satırı bir derleyici hatası içerir.
-> **English:** D.Two lines of this method contain compiler errors.
+> **Türkçe:** C. Bu method'un bir satırı compiler error içerir.
+> **English:** D. Two lines of this method contain compiler errors.
 >
-> **Türkçe:** Bu yöntemin D.Two satırları derleyici hataları içerir.
-> **English:** E.Three or more lines of this method contain compiler errors.
+> **Türkçe:** D. Bu method'un iki satırı compiler error içerir.
+> **English:** E. Three or more lines of this method contain compiler errors.
 >
-> **Türkçe:** E.Three veya bu yöntemin daha fazla satırı derleyici hataları içerir.
-> **English:** F.The code compiles, but a NullPointerException is thrown at runtime.
+> **Türkçe:** E. Bu method'un üç veya daha fazla satırı compiler error içerir.
+> **English:** F. The code compiles, but a NullPointerException is thrown at runtime.
 >
-> **Türkçe:** F.The kodu derlenir, ancak çalışma zamanında bir NullPointerException atılır.
+> **Türkçe:** F. Kod derlenir, ancak runtime'da `NullPointerException` atılır.
 > **English:** G. None of the above
 >
 > **Türkçe:** G. Yukarıdakilerin hiçbiri
 
 <!-- source-page: 0651 -->
-> **English:** 8.Assume that all of the files mentioned in the answer choices exist and define the same
-> keys.
+
+### Question 8 / Soru 8
+
+> **English:** 8. Assume that all of the files mentioned in the answer choices exist and define the same
+> keys. Which one will be used to find the key in line 8?
 >
-> **Türkçe:** 8.Cevap seçeneklerinde belirtilen tüm dosyaların var olduğunu ve aynı anahtarları
-> tanımladığını varsayalım.
-> **English:** Which one will be used to find the key in line 8?
->
-> **Türkçe:** 8. satırdaki anahtarı bulmak için hangisini kullanacaksınız?
+> **Türkçe:** 8. Cevap seçeneklerinde belirtilen bütün dosyaların var olduğunu ve aynı key'leri
+> tanımladığını varsayalım. 8. satırdaki key'i bulmak için hangi dosya kullanılır?
 ```java
-Locale.setDefault(new Locale("en", "US"));
-var b = ResourceBundle.getBundle("Dolphins");
-System.out.println(b.getString("name"));
+6: Locale.setDefault(new Locale("en", "US"));
+7: var b = ResourceBundle.getBundle("Dolphins");
+8: System.out.println(b.getString("name"));
 ```
 > **English:** A. Dolphins.properties
 >
@@ -4141,22 +4171,26 @@ System.out.println(b.getString("name"));
 > **English:** E. Whales_en_US.properties
 >
 > **Türkçe:** E. Whales_en_US.properties
-> **English:** F.The code does not compile.
+> **English:** F. The code does not compile.
 >
-> **Türkçe:** F.The kodu derlemez.
+> **Türkçe:** F. Kod derlenmez.
+
+### Question 9 / Soru 9
+
 > **English:** 9. For what value of pattern will the following print <005.21> <008.49> <1,234.0>?
 >
-> **Türkçe:** 9. Aşağıdaki desenin hangi değeri için 005.21> 008.49> 1,234.0> yazdırılacak?
+> **Türkçe:** 9. Aşağıdaki kodun `<005.21> <008.49> <1,234.0>` yazdırması için
+> `pattern` hangi değeri almalıdır?
 ```java
-String pattern = " ";
+String pattern = "_________________";
 var message = DoubleStream.of(5.21, 8.49, 1234)
-.mapToObj(v -> new DecimalFormat(pattern).format(v))
-.collect(Collectors.joining("> <"));
+   .mapToObj(v -> new DecimalFormat(pattern).format(v))
+   .collect(Collectors.joining("> <"));
 System.out.println("<"+message+">");
 ```
 > **English:** A. ##.#
 >
-> **Türkçe:** A. ###
+> **Türkçe:** A. `##.#`
 > **English:** B. 0,000.0#
 >
 > **Türkçe:** B. 0,000.0#
@@ -4165,36 +4199,42 @@ System.out.println("<"+message+">");
 > **Türkçe:** C. #,###.0
 > **English:** D. #,###,000.0#
 >
-> **Türkçe:** D. #,##,000.0#
-> **English:** E.The code does not compile regardless of what is placed in the blank.
+> **Türkçe:** D. `#,###,000.0#`
+> **English:** E. The code does not compile regardless of what is placed in the blank.
 >
-> **Türkçe:** E.The kodu, boşluğa ne yerleştirildiğinden bağımsız olarak derlemez.
+> **Türkçe:** E. Boşluğa ne yazılırsa yazılsın kod derlenmez.
 > **English:** F. None of the above
 >
 > **Türkçe:** F. Yukarıdakilerin hiçbiri
-> **English:** 10.Which scenario is the best use of an exception?
+
+### Question 10 / Soru 10
+
+> **English:** 10. Which scenario is the best use of an exception?
 >
-> **Türkçe:** 10. Bir istisnanın en iyi kullanımı hangi senaryodur?
-> **English:** A.An element is not found when searching a list.
+> **Türkçe:** 10. Hangi senaryo bir exception için en uygun kullanım örneğidir?
+> **English:** A. An element is not found when searching a list.
 >
-> **Türkçe:** A.An öğesi bir list aramasında bulunamadı.
-> **English:** B.An unexpected parameter is passed into a method.
+> **Türkçe:** A. Bir listede aranan element bulunamaz.
+> **English:** B. An unexpected parameter is passed into a method.
 >
-> **Türkçe:** B.An beklenmeyen parametre bir yönteme aktarılır.
+> **Türkçe:** B. Bir method'a beklenmeyen bir parameter geçirilir.
 > **English:** C. The computer caught fire.
 >
 > **Türkçe:** C. Bilgisayar alev aldı.
-> **English:** D.You want to loop through a list.
+> **English:** D. You want to loop through a list.
 >
-> **Türkçe:** D.You bir list üzerinden döngü yapmak istiyor.
-> **English:** E.You don’t know how to code a method.
+> **Türkçe:** D. Bir liste üzerinde loop çalıştırmak istersiniz.
+> **English:** E. You don’t know how to code a method.
 >
-> **Türkçe:** E.You bir yöntemin nasıl kodlanacağını bilmiyor.
-> **English:** 11.Which of the following exceptions must be handled or declared in the method in which
+> **Türkçe:** E. Bir method'un nasıl kodlanacağını bilmiyorsunuz.
+
+### Question 11 / Soru 11
+
+> **English:** 11. Which of the following exceptions must be handled or declared in the method in which
 > they are thrown? (Choose all that apply.)
 >
-> **Türkçe:** 11. Atıldıkları yöntemde aşağıdaki istisnalardan hangisi ele alınmalı veya ilan
-> edilmelidir? (Tüm geçerli olanları seçin.)
+> **Türkçe:** 11. Aşağıdaki exception'lardan hangileri atıldıkları method içinde handle edilmeli
+> veya declare edilmelidir? (Uygun olanların tümünü seçin.)
 ```java
 class Apple extends RuntimeException {}
 class Orange extends Exception {}
@@ -4207,165 +4247,187 @@ class Peach extends Throwable {}
 <!-- source-page: 0652 -->
 > **English:** A. Apple
 >
-> **Türkçe:** A. Elma
+> **Türkçe:** A. `Apple`
 > **English:** B. Orange
 >
-> **Türkçe:** B. Portakal
+> **Türkçe:** B. `Orange`
 > **English:** C. Banana
 >
-> **Türkçe:** C. Muz
+> **Türkçe:** C. `Banana`
 > **English:** D. Pear
 >
-> **Türkçe:** D. Armut
+> **Türkçe:** D. `Pear`
 > **English:** E. Tomato
 >
-> **Türkçe:** E. Domates
+> **Türkçe:** E. `Tomato`
 > **English:** F. Peach
 >
-> **Türkçe:** F. Şeftali
-> **English:** 12.Which of the following changes, when made independently, would make this code
-> compile?
+> **Türkçe:** F. `Peach`
+
+### Question 12 / Soru 12
+
+> **English:** 12. Which of the following changes, when made independently, would make this code
+> compile? (Choose all that apply.)
 >
-> **Türkçe:** 12. Aşağıdaki değişikliklerden hangisi, bağımsız olarak yapıldığında, bu kodu
-> derleyecektir?
-> **English:** (Choose all that apply.)
->
-> **Türkçe:** (Tüm geçerli olanları seçin.)
+> **Türkçe:** 12. Aşağıdaki değişikliklerden hangileri bağımsız olarak yapıldığında bu kodun
+> derlenmesini sağlar? (Uygun olanların tümünü seçin.)
 ```java
-import java.io.*;
-public class StuckTurkeyCage implements AutoCloseable {
-public void close() throws IOException {
-throw new FileNotFoundException("Cage not closed");
-}
-public static void main(String[] args) {
-try (StuckTurkeyCage t = new StuckTurkeyCage()) {
-System.out.println("put turkeys in");
-}
-} }
+1:  import java.io.*;
+2:  public class StuckTurkeyCage implements AutoCloseable {
+3:     public void close() throws IOException {
+4:        throw new FileNotFoundException("Cage not closed");
+5:     }
+6:     public static void main(String[] args) {
+7:        try (StuckTurkeyCage t = new StuckTurkeyCage()) {
+8:           System.out.println("put turkeys in");
+9:        }
+10:   } }
 ```
-> **English:** A.Remove throws IOException from the declaration on line 3.
+> **English:** A. Remove throws IOException from the declaration on line 3.
 >
-> **Türkçe:** A.Remove, 3. satırdaki bildirimden IOException atar.
-> **English:** B.Add throws Exception to the declaration on line 6.
+> **Türkçe:** A. 3. satırdaki declaration'dan `throws IOException` ifadesini kaldırın.
+> **English:** B. Add throws Exception to the declaration on line 6.
 >
-> **Türkçe:** B.Add 6. satırdaki bildirime Exception atar.
+> **Türkçe:** B. 6. satırdaki declaration'a `throws Exception` ekleyin.
 > **English:** C. Change line 9 to } catch (Exception e) {}.
 >
-> **Türkçe:** C. 9. satırı yakalama (Exception e) olarak değiştir.
+> **Türkçe:** C. 9. satırı `} catch (Exception e) {}` olarak değiştirin.
 > **English:** D. Change line 9 to } finally {}.
 >
-> **Türkçe:** D. 9. satırı sonunda olarak değiştirin.
-> **English:** E.The code compiles as is.
+> **Türkçe:** D. 9. satırı `} finally {}` olarak değiştirin.
+> **English:** E. The code compiles as is.
 >
-> **Türkçe:** E.The kodu olduğu gibi derlenir.
+> **Türkçe:** E. Kod mevcut hâliyle derlenir.
 > **English:** F. None of the above
 >
 > **Türkçe:** F. Yukarıdakilerin hiçbiri
-> **English:** 13.Which of the following are true statements about exception handling in Java? (Choose
+
+### Question 13 / Soru 13
+
+> **English:** 13. Which of the following are true statements about exception handling in Java? (Choose
 > all that apply.)
 >
-> **Türkçe:** 13. Aşağıdakilerden hangisi Java 'da istisna işleme ile ilgili doğru ifadelerdir? (Tüm
-> geçerli olanları seçin.)
-> **English:** A.A traditional try statement without a catch block requires a finally block.
+> **Türkçe:** 13. Aşağıdakilerden hangileri Java'da exception handling hakkında doğrudur?
+> (Uygun olanların tümünü seçin.)
+> **English:** A. A traditional try statement without a catch block requires a finally block.
 >
-> **Türkçe:** A.A catch block olmadan geleneksel deneme ifadesi finally block gerektirir.
-> **English:** B.A traditional try statement without a finally block requires a catch block.
+> **Türkçe:** A. `catch` block'u olmayan geleneksel bir `try` statement, `finally` block'u gerektirir.
+> **English:** B. A traditional try statement without a finally block requires a catch block.
 >
-> **Türkçe:** B.Son olarak bir blok olmadan geleneksel bir deneme ifadesi bir yakalama bloğu
-> gerektirir.
-> **English:** C.A traditional try statement with only one statement can omit the {}.
+> **Türkçe:** B. `finally` block'u olmayan geleneksel bir `try` statement, `catch` block'u gerektirir.
+> **English:** C. A traditional try statement with only one statement can omit the {}.
 >
-> **Türkçe:** C.A geleneksel deneme ifadesi sadece bir ifade ile 'yi atlayabilir.
-> **English:** D.A try-with-resources statement without a catch block requires a finally block.
+> **Türkçe:** C. Yalnızca tek statement içeren geleneksel bir `try`, `{}` işaretlerini atlayabilir.
+> **English:** D. A try-with-resources statement without a catch block requires a finally block.
 >
-> **Türkçe:** catch block olmadan D.A try-with-resources statement bir finally block gerektirir.
-> **English:** E.A try-with-resources statement without a finally block requires a catch block.
+> **Türkçe:** D. `catch` block'u olmayan bir try-with-resources statement, `finally` block'u gerektirir.
+> **English:** E. A try-with-resources statement without a finally block requires a catch block.
 >
-> **Türkçe:** finally block olmadan E.A try-with-resources statement bir catch block gerektirir.
-> **English:** F.A try-with-resources statement with only one statement can omit the {}.
+> **Türkçe:** E. `finally` block'u olmayan bir try-with-resources statement, `catch` block'u gerektirir.
+> **English:** F. A try-with-resources statement with only one statement can omit the {}.
 >
-> **Türkçe:** F.A try-with-resources statement tek bir ifadeyle 'yi atlayabilir.
+> **Türkçe:** F. Yalnızca tek statement içeren bir try-with-resources statement, `{}` işaretlerini
+> atlayabilir.
 
 <!-- source-page: 0653 -->
-> **English:** 14.Assuming -g:vars is used when the code is compiled to include debug information, what
+
+### Question 14 / Soru 14
+
+> **English:** 14. Assuming -g:vars is used when the code is compiled to include debug information, what
 > is the output of the following code snippet?
 >
-> **Türkçe:** 14. Varsayım -g:vars kod hata ayıklama bilgilerini içerecek şekilde derlendiğinde
-> kullanılır, aşağıdaki kod snippet'inin çıktısı nedir?
+> **Türkçe:** 14. Debug bilgisini eklemek için kodun `-g:vars` ile derlendiğini varsayarsak
+> aşağıdaki snippet'in çıktısı nedir?
 ```java
 var huey = (String)null;
 Integer dewey = null;
 Object louie = null;
 if(louie == huey.substring(dewey.intValue())) {
-System.out.println("Quack!");
+   System.out.println("Quack!");
 }
 ```
-> **English:** A.A NullPointerException that does not include any variable names in the stack
+> **English:** A. A NullPointerException that does not include any variable names in the stack
+> trace
 >
-> **Türkçe:** A.A NullPointerException bu yığına herhangi bir değişken ad içermez
-> **English:** trace B.A NullPointerException naming huey in the stack trace C.A NullPointerException
-> naming dewey in the stack trace D.A NullPointerException naming louie in the stack trace
-> E.A NullPointerException naming huey and louie in the stack trace F.A
-> NullPointerException naming huey and dewey in the stack trace G. None of the above
+> **Türkçe:** A. Stack trace içinde hiçbir variable adı bulunmayan bir `NullPointerException`
+> **English:** B. A NullPointerException naming huey in the stack trace
 >
-> **Türkçe:** B.A NullPointerException yığın izinde huey adlandırma C.A NullPointerException yığın
-> izinde dewey adlandırma D.A NullPointerException yığın izinde louie adlandırma E.A
-> NullPointerException yığın izinde huey ve louie adlandırma F.A NullPointerException
-> yığın izinde huey ve dewey adlandırma G. Yukarıdakilerin hiçbiri
-> **English:** 15.Which of the following, when inserted independently in the blank, use locale
+> **Türkçe:** B. Stack trace içinde `huey` adını veren bir `NullPointerException`
+> **English:** C. A NullPointerException naming dewey in the stack trace
+>
+> **Türkçe:** C. Stack trace içinde `dewey` adını veren bir `NullPointerException`
+> **English:** D. A NullPointerException naming louie in the stack trace
+>
+> **Türkçe:** D. Stack trace içinde `louie` adını veren bir `NullPointerException`
+> **English:** E. A NullPointerException naming huey and louie in the stack trace
+>
+> **Türkçe:** E. Stack trace içinde `huey` ve `louie` adlarını veren bir `NullPointerException`
+> **English:** F. A NullPointerException naming huey and dewey in the stack trace
+>
+> **Türkçe:** F. Stack trace içinde `huey` ve `dewey` adlarını veren bir `NullPointerException`
+> **English:** G. None of the above
+>
+> **Türkçe:** G. Yukarıdakilerin hiçbiri
+
+### Question 15 / Soru 15
+
+> **English:** 15. Which of the following, when inserted independently in the blank, use locale
 > parameters that are properly formatted? (Choose all that apply.)
 >
-> **Türkçe:** 15. Aşağıdakilerden hangisi, boşluğa bağımsız olarak yerleştirildiğinde, uygun şekilde
-> biçimlendirilmiş locale parametrelerini kullanın? (Tüm geçerli olanları seçin.)
+> **Türkçe:** 15. Aşağıdakilerden hangileri boşluğa bağımsız olarak yazıldığında doğru
+> formatlanmış locale parameter'ları kullanır? (Uygun olanların tümünü seçin.)
 ```java
 import java.util.Locale;
 public class ReadMap implements AutoCloseable {
-private Locale locale;
-private boolean closed = false;
-@Override public void close() {
-System.out.println("Folding map");
-locale = null;
-closed = true;
-}
-public void open() {
-this.locale =;
-}
-public void use() {
-// Implementation omitted
-}
+   private Locale locale;
+   private boolean closed = false;
+   @Override public void close() {
+      System.out.println("Folding map");
+      locale = null;
+      closed = true;
+   }
+   public void open() {
+      this.locale = _________________;
+   }
+   public void use() {
+      // Implementation omitted
+   }
 }
 ```
 > **English:** A. new Locale("xM")
 >
-> **Türkçe:** A. yeni Locale("xM")
+> **Türkçe:** A. `new Locale("xM")`
 > **English:** B. new Locale("MQ", "ks")
 >
-> **Türkçe:** B. yeni Locale("MQ", "ks")
+> **Türkçe:** B. `new Locale("MQ", "ks")`
 > **English:** C. new Locale("qw")
 >
-> **Türkçe:** C. yeni Locale("qw")
+> **Türkçe:** C. `new Locale("qw")`
 > **English:** D. new Locale("wp", "VW")
 >
-> **Türkçe:** D. yeni Locale("wp", "VW")
+> **Türkçe:** D. `new Locale("wp", "VW")`
 
 <!-- source-page: 0654 -->
 > **English:** E. Locale.create("zp")
 >
-> **Türkçe:** E. Locale.create("zp")
+> **Türkçe:** E. `Locale.create("zp")`
 > **English:** F. new Locale.Builder().setLanguage("yw").setRegion("PM")
 >
-> **Türkçe:** F. yeni Locale.Builder().setLanguage("yw").setRegion("PM")
-> **English:** G.The code does not compile regardless of what is placed in the blank.
+> **Türkçe:** F. `new Locale.Builder().setLanguage("yw").setRegion("PM")`
+> **English:** G. The code does not compile regardless of what is placed in the blank.
 >
-> **Türkçe:** G.The kodu, boşluğa ne yerleştirildiğinden bağımsız olarak derlemez.
-> **English:** 16.Which of the following can be inserted into the blank to allow the code to compile
+> **Türkçe:** G. Boşluğa ne yazılırsa yazılsın kod derlenmez.
+
+### Question 16 / Soru 16
+
+> **English:** 16. Which of the following can be inserted into the blank to allow the code to compile
 > and run without throwing an exception? (Choose all that apply.)
 >
-> **Türkçe:** 16. Kodun bir istisna atmadan derlenip çalıştırılmasına izin vermek için aşağıdakilerden
-> hangisi boşluğa eklenebilir? (Tüm geçerli olanları seçin.)
+> **Türkçe:** 16. Kodun exception atmadan derlenip çalışması için aşağıdakilerden
+> hangileri boşluğa eklenebilir? (Tüm geçerli olanları seçin.)
 ```java
 var f = DateTimeFormatter.ofPattern("hh o'clock");
-System.out.println(f.format(.now()));
+System.out.println(f.format(_________________.now()));
 ```
 > **English:** A. ZonedDateTime
 >
@@ -4375,73 +4437,75 @@ System.out.println(f.format(.now()));
 > **Türkçe:** B. LocalDate
 > **English:** C. LocalDateTime
 >
-> **Türkçe:** C. YerelDateTime
+> **Türkçe:** C. `LocalDateTime`
 > **English:** D. LocalTime
 >
-> **Türkçe:** D. Yerel Zaman
-> **English:** E.The code does not compile regardless of what is placed in the blank.
+> **Türkçe:** D. `LocalTime`
+> **English:** E. The code does not compile regardless of what is placed in the blank.
 >
-> **Türkçe:** E.The kodu, boşluğa ne yerleştirildiğinden bağımsız olarak derlemez.
+> **Türkçe:** E. Boşluğa ne yazılırsa yazılsın kod derlenmez.
 > **English:** F. None of the above
 >
 > **Türkçe:** F. Yukarıdakilerin hiçbiri
-> **English:** 17.Which of the following statements about resource bundles are correct? (Choose all
+
+### Question 17 / Soru 17
+
+> **English:** 17. Which of the following statements about resource bundles are correct? (Choose all
 > that apply.)
 >
-> **Türkçe:** 17. resource bundles ile ilgili aşağıdaki ifadelerden hangisi doğrudur? (Tüm geçerli
-> olanları seçin.)
-> **English:** A.All keys must be in the same resource bundle to be used.
+> **Türkçe:** 17. Resource bundle'larla ilgili aşağıdaki ifadelerden hangileri doğrudur?
+> (Uygun olanların tümünü seçin.)
+> **English:** A. All keys must be in the same resource bundle to be used.
 >
-> **Türkçe:** A.All tuşları kullanılacak aynı resource bundle içinde olmalıdır.
-> **English:** B.A resource bundle is loaded by calling the new ResourceBundle() constructor.
+> **Türkçe:** A. Kullanılacak bütün key'ler aynı resource bundle içinde bulunmalıdır.
+> **English:** B. A resource bundle is loaded by calling the new ResourceBundle() constructor.
 >
-> **Türkçe:** B.A resource bundle yeni ResourceBundle() constructor'u çağırarak yüklenir.
-> **English:** C.Resource bundle values are always read using the Properties class.
+> **Türkçe:** B. Bir resource bundle, `new ResourceBundle()` constructor'ı çağrılarak yüklenir.
+> **English:** C. Resource bundle values are always read using the Properties class.
 >
-> **Türkçe:** C.Resource demet değerleri her zaman Properties sınıfı kullanılarak okunur.
-> **English:** D.Changing the default locale lasts for only a single run of the program.
+> **Türkçe:** C. Resource bundle değerleri her zaman `Properties` class'ı kullanılarak okunur.
+> **English:** D. Changing the default locale lasts for only a single run of the program.
 >
-> **Türkçe:** D.Changing default locale programı sadece tek bir çalışma için sürer.
-> **English:** E.If a resource bundle for a specific locale is requested, then the resource bundle for
-> the
+> **Türkçe:** D. Default locale'i değiştirmek yalnızca programın tek bir çalışması boyunca geçerlidir.
+> **English:** E. If a resource bundle for a specific locale is requested, then the resource bundle for
+> the default locale will not be used.
 >
-> **Türkçe:** Belirli bir locale için E.If a resource bundle istenir, daha sonra resource bundle için
-> **English:** default locale will not be used.
->
-> **Türkçe:** default locale kullanılmayacaktır.
-> **English:** F.It is possible to use a resource bundle for a locale without specifying a default
+> **Türkçe:** E. Belirli bir locale için resource bundle istenirse default locale'e ait
+> resource bundle kullanılmaz.
+> **English:** F. It is possible to use a resource bundle for a locale without specifying a default
 > locale.
 >
-> **Türkçe:** F.It bir default locale belirtmeden resource bundle için locale kullanmak mümkündür.
-> **English:** 18.What is the output of the following code?
+> **Türkçe:** F. Default locale belirtmeden bir locale'e ait resource bundle'ı kullanmak mümkündür.
+
+### Question 18 / Soru 18
+
+> **English:** 18. What is the output of the following code?
 >
 > **Türkçe:** 18. Aşağıdaki kodun çıktısı nedir?
 ```java
 import java.io.*;
 public class FamilyCar {
-static class Door implements AutoCloseable {
-public void close() {
-System.out.print("D");
-} }
-static class Window implements Closeable {
-public void close() {
-System.out.print("W");
-throw new RuntimeException();
-} }
-public static void main(String[] args) {
-var d = new Door();
-try (d; var w = new Window()) {
+   static class Door implements AutoCloseable {
+      public void close() {
+         System.out.print("D");
+   } }
+   static class Window implements Closeable {
+      public void close() {
+         System.out.print("W");
+         throw new RuntimeException();
+   } }
+   public static void main(String[] args) {
+      var d = new Door();
+      try (d; var w = new Window()) {
+         System.out.print("T");
+      } catch (Exception e) {
+         System.out.print("E");
+      } finally {
+         System.out.print("F");
+      } } }
 ```
 
 <!-- source-page: 0655 -->
-```java
-System.out.print("T");
-} catch (Exception e) {
-System.out.print("E");
-} finally {
-System.out.print("F");
-} } }
-```
 > **English:** A. TWF
 >
 > **Türkçe:** A. TWF
@@ -4451,34 +4515,44 @@ System.out.print("F");
 > **English:** C. TWDEF
 >
 > **Türkçe:** C. TWDEF
-> **English:** D.TWF followed by an exception
+> **English:** D. TWF followed by an exception
 >
-> **Türkçe:** D.TWF ardından bir istisna
-> **English:** E.TWDF followed by an exception
+> **Türkçe:** D. `TWF`, ardından bir exception
+> **English:** E. TWDF followed by an exception
 >
-> **Türkçe:** E.TWDF ardından bir istisna
-> **English:** F.TWEF followed by an exception
+> **Türkçe:** E. `TWDF`, ardından bir exception
+> **English:** F. TWEF followed by an exception
 >
-> **Türkçe:** F.TWEF ardından bir istisna
-> **English:** G.The code does not compile.
+> **Türkçe:** F. `TWEF`, ardından bir exception
+> **English:** G. The code does not compile.
 >
-> **Türkçe:** G.The kodu derlemez.
-> **English:** 19.Suppose that we have the following three properties files and code. Which bundles are
+> **Türkçe:** G. Kod derlenmez.
+
+### Question 19 / Soru 19
+
+> **English:** 19. Suppose that we have the following three properties files and code. Which bundles are
 > used on lines 8 and 9, respectively?
 >
-> **Türkçe:** 19. Aşağıdaki üç properties files ve koda sahip olduğumuzu varsayalım. 8 ve 9
-> satırlarında sırasıyla hangi demetler kullanılır?
-> **English:** Dolphins.properties name=The Dolphin age=0 Dolphins_en.properties name=Dolly age=4
-> Dolphins_fr.properties name=Dolly
->
-> **Türkçe:** Dolphins.properties name=The Dolphin age=0 Dolphins_en.properties name=Dolly age=4
-> Dolphins_fr.properties name=Dolly
+> **Türkçe:** 19. Aşağıdaki üç properties file'ın ve kodun bulunduğunu varsayalım. Sırasıyla
+> 8 ve 9. satırlar için hangi bundle'lar kullanılır?
+```text
+Dolphins.properties
+name=The Dolphin
+age=0
+
+Dolphins_en.properties
+name=Dolly
+age=4
+
+Dolphins_fr.properties
+name=Dolly
+```
 ```java
-var fr = new Locale("fr");
-Locale.setDefault(new Locale("en", "US"));
-var b = ResourceBundle.getBundle("Dolphins", fr);
-b.getString("name");
-b.getString("age");
+5: var fr = new Locale("fr");
+6: Locale.setDefault(new Locale("en", "US"));
+7: var b = ResourceBundle.getBundle("Dolphins", fr);
+8: b.getString("name");
+9: b.getString("age");
 ```
 > **English:** A. Dolphins.properties and Dolphins.properties
 >
@@ -4495,39 +4569,42 @@ b.getString("age");
 > **English:** E. Dolphins_fr.properties and Dolphins_en.properties
 >
 > **Türkçe:** E. Dolphins_fr.properties ve Dolphins_en.properties
-> **English:** F.The code does not compile.
+> **English:** F. The code does not compile.
 >
-> **Türkçe:** F.The kodu derlemez.
+> **Türkçe:** F. Kod derlenmez.
 > **English:** G. None of the above
 >
 > **Türkçe:** G. Yukarıdakilerin hiçbiri
 
 <!-- source-page: 0656 -->
-> **English:** 20.What is printed by the following program?
+
+### Question 20 / Soru 20
+
+> **English:** 20. What is printed by the following program?
 >
-> **Türkçe:** 20. Aşağıdaki program tarafından ne basılır?
+> **Türkçe:** 20. Aşağıdaki program ne yazdırır?
 ```java
-public class DriveBus {
-public void go() {
-System.out.print("A");
-try {
-stop();
-} catch (ArithmeticException e) {
-System.out.print("B");
-} finally {
-System.out.print("C");
-}
-System.out.print("D");
-}
-public void stop() {
-System.out.print("E");
-Object x = null;
-x.toString();
-System.out.print("F");
-}
-public static void main(String n[]) {
-new DriveBus().go();
-} }
+1:  public class DriveBus {
+2:     public void go() {
+3:        System.out.print("A");
+4:        try {
+5:           stop();
+6:        } catch (ArithmeticException e) {
+7:           System.out.print("B");
+8:        } finally {
+9:           System.out.print("C");
+10:       }
+11:       System.out.print("D");
+12:   }
+13:   public void stop() {
+14:       System.out.print("E");
+15:       Object x = null;
+16:       x.toString();
+17:       System.out.print("F");
+18:   }
+19:   public static void main(String n[]) {
+20:       new DriveBus().go();
+21:   } }
 ```
 > **English:** A. AE
 >
@@ -4541,68 +4618,72 @@ new DriveBus().go();
 > **English:** D. AECD
 >
 > **Türkçe:** D. AECD
-> **English:** E.AE followed by a stack trace
+> **English:** E. AE followed by a stack trace
 >
-> **Türkçe:** E.AE ardından bir yığın izi
-> **English:** F.AEBCD followed by a stack trace
+> **Türkçe:** E. `AE`, ardından bir stack trace
+> **English:** F. AEBCD followed by a stack trace
 >
-> **Türkçe:** F.AEBCD ardından bir yığın izi
-> **English:** G.AEC followed by a stack trace
+> **Türkçe:** F. `AEBCD`, ardından bir stack trace
+> **English:** G. AEC followed by a stack trace
 >
-> **Türkçe:** G.AEC ardından bir yığın izi
-> **English:** H.A stack trace with no other output
+> **Türkçe:** G. `AEC`, ardından bir stack trace
+> **English:** H. A stack trace with no other output
 >
-> **Türkçe:** H.A başka bir çıkış olmadan yığın izi
-> **English:** 21.Which changes, when made independently, allow the following program to compile?
+> **Türkçe:** H. Başka bir output olmadan yalnızca bir stack trace
+
+### Question 21 / Soru 21
+
+> **English:** 21. Which changes, when made independently, allow the following program to compile?
 > (Choose all that apply.)
 >
-> **Türkçe:** 21.Hangi değişiklikler, bağımsız olarak yapıldığında, aşağıdaki programın derlenmesine
+> **Türkçe:** 21. Hangi değişiklikler bağımsız olarak yapıldığında aşağıdaki programın derlenmesine
 > izin verir? (Tüm geçerli olanları seçin.)
 ```java
-public class AhChoo {
-static class SneezeException extends Exception {}
-static class SniffleException extends SneezeException {}
-public static void main(String[] args) {
-try {
-throw new SneezeException();
+1: public class AhChoo {
+2:    static class SneezeException extends Exception {}
+3:    static class SniffleException extends SneezeException {}
+4:    public static void main(String[] args) {
+5:       try {
+6:          throw new SneezeException();
+7:       } catch (SneezeException | SniffleException e) {
+8:       } finally {}
+9:    } }
 ```
 
 <!-- source-page: 0657 -->
-```java
-} catch (SneezeException | SniffleException e) {
-} finally {}
-} }
-```
-> **English:** A.Add throws SneezeException to the declaration on line 4.
+> **English:** A. Add throws SneezeException to the declaration on line 4.
 >
-> **Türkçe:** A.Add, 4. satırdaki bildirime SneezeException atar.
-> **English:** B.Add throws Throwable to the declaration on line 4.
+> **Türkçe:** A. 4. satırdaki declaration'a `throws SneezeException` ekleyin.
+> **English:** B. Add throws Throwable to the declaration on line 4.
 >
-> **Türkçe:** B.Add, 4. satırdaki bildirime Throwable atar.
+> **Türkçe:** B. 4. satırdaki declaration'a `throws Throwable` ekleyin.
 > **English:** C. Change line 7 to } catch (SneezeException e) {.
 >
-> **Türkçe:** C. 7. satırı yakalama (SneezeException e) olarak değiştir.
+> **Türkçe:** C. 7. satırı `} catch (SneezeException e) {` olarak değiştirin.
 > **English:** D. Change line 7 to } catch (SniffleException e) {.
 >
-> **Türkçe:** D. 7. satırı yakalama (SniffleException e) olarak değiştir.
+> **Türkçe:** D. 7. satırı `} catch (SniffleException e) {` olarak değiştirin.
 > **English:** E. Remove line 7.
 >
 > **Türkçe:** E. 7. satırı kaldır.
-> **English:** F.The code compiles correctly as is.
+> **English:** F. The code compiles correctly as is.
 >
-> **Türkçe:** F.The kodu olduğu gibi doğru bir şekilde derlenir.
+> **Türkçe:** F. Kod mevcut hâliyle doğru biçimde derlenir.
 > **English:** G. None of the above
 >
 > **Türkçe:** G. Yukarıdakilerin hiçbiri
-> **English:** 22.What is the output of the following code?
+
+### Question 22 / Soru 22
+
+> **English:** 22. What is the output of the following code?
 >
 > **Türkçe:** 22. Aşağıdaki kodun çıktısı nedir?
 ```java
 try {
-LocalDateTime book = LocalDateTime.of(2022, 4, 5, 12, 30, 20);
-System.out.print(book.format(DateTimeFormatter.ofPattern("m")));
-System.out.print(book.format(DateTimeFormatter.ofPattern("z")));
-System.out.print(DateTimeFormatter.ofPattern("y").format(book));
+   LocalDateTime book = LocalDateTime.of(2022, 4, 5, 12, 30, 20);
+   System.out.print(book.format(DateTimeFormatter.ofPattern("m")));
+   System.out.print(book.format(DateTimeFormatter.ofPattern("z")));
+   System.out.print(DateTimeFormatter.ofPattern("y").format(book));
 } catch (Throwable e) {}
 ```
 > **English:** A. 4
@@ -4626,128 +4707,130 @@ System.out.print(DateTimeFormatter.ofPattern("y").format(book));
 > **English:** G. None of the above
 >
 > **Türkçe:** G. Yukarıdakilerin hiçbiri
-> **English:** 23.Fill in the blank: A class that implements _________________ may be in a
+
+### Question 23 / Soru 23
+
+> **English:** 23. Fill in the blank: A class that implements _________________ may be in a
 > try-with-resources statement. (Choose all that apply.)
 >
-> **Türkçe:** 23. Boşlukta Doldur: try-with-resources statement içinde ____________ uygulayan bir
-> sınıf olabilir. (Tüm geçerli olanları seçin.)
+> **Türkçe:** 23. Boşluğu doldurun: _________________ interface'ini implement eden bir class,
+> try-with-resources statement içinde yer alabilir. (Uygun olanların tümünü seçin.)
 > **English:** A. AutoCloseable
 >
 > **Türkçe:** A. AutoCloseable
 > **English:** B. Resource
 >
-> **Türkçe:** B. Kaynak
+> **Türkçe:** B. `Resource`
 > **English:** C. Exception
 >
 > **Türkçe:** C. Exception
 > **English:** D. AutomaticResource
 >
-> **Türkçe:** D. OtomatikKaynak
+> **Türkçe:** D. `AutomaticResource`
 > **English:** E. Closeable
 >
-> **Türkçe:** E. Kapatılabilir
+> **Türkçe:** E. `Closeable`
 > **English:** F. RuntimeException
 >
 > **Türkçe:** F. RuntimeException
 > **English:** G. Serializable
 >
-> **Türkçe:** G. Serileştirilebilir
+> **Türkçe:** G. `Serializable`
 
 <!-- source-page: 0658 -->
-> **English:** 24.What is the output of the following program?
+
+### Question 24 / Soru 24
+
+> **English:** 24. What is the output of the following program?
 >
 > **Türkçe:** 24. Aşağıdaki programın çıktısı nedir?
 ```java
 public class SnowStorm {
-static class WalkToSchool implements AutoCloseable {
-public void close() {
-throw new RuntimeException("flurry");
-} }
-public static void main(String[] args) {
-WalkToSchool walk1 = new WalkToSchool();
-try (walk1; WalkToSchool walk2 = new WalkToSchool()) {
-throw new RuntimeException("blizzard");
-} catch(Exception e) {
-System.out.println(e.getMessage()
-+ " " + e.getSuppressed().length);
-}
-walk1 = null;
-} }
+   static class WalkToSchool implements AutoCloseable {
+      public void close() {
+         throw new RuntimeException("flurry");
+   } }
+   public static void main(String[] args) {
+      WalkToSchool walk1 = new WalkToSchool();
+      try (walk1; WalkToSchool walk2 = new WalkToSchool()) {
+         throw new RuntimeException("blizzard");
+      } catch(Exception e) {
+         System.out.println(e.getMessage()
+            + " " + e.getSuppressed().length);
+      }
+      walk1 = null;
+   } }
 ```
 > **English:** A. blizzard 0
 >
-> **Türkçe:** A. kar fırtınası 0
+> **Türkçe:** A. `blizzard 0`
 > **English:** B. blizzard 1
 >
-> **Türkçe:** B. kar fırtınası 1
+> **Türkçe:** B. `blizzard 1`
 > **English:** C. blizzard 2
 >
-> **Türkçe:** C. kar fırtınası 2
+> **Türkçe:** C. `blizzard 2`
 > **English:** D. flurry 0
 >
-> **Türkçe:** D. flury 0
+> **Türkçe:** D. `flurry 0`
 > **English:** E. flurry 1
 >
-> **Türkçe:** E. flury 1
+> **Türkçe:** E. `flurry 1`
 > **English:** F. flurry 2
 >
-> **Türkçe:** F. Flury 2
+> **Türkçe:** F. `flurry 2`
 > **English:** G. None of the above
 >
 > **Türkçe:** G. Yukarıdakilerin hiçbiri
-> **English:** 25.Assuming U.S. currency is in dollars ($) and German currency is in euros (€), what is
+
+### Question 25 / Soru 25
+
+> **English:** 25. Assuming U.S. currency is in dollars ($) and German currency is in euros (€), what is
 > the output of the following program?
 >
-> **Türkçe:** 25. U.S. para biriminin dolar ($) ve Alman para biriminin avro () olduğunu varsayarsak,
+> **Türkçe:** 25. ABD para biriminin dolar (`$`), Alman para biriminin avro (`€`) olduğunu varsayarsak,
 > aşağıdaki programın çıktısı nedir?
 ```java
 import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Locale.Category;
 public record Wallet(double money) {
-private String openWallet() {
-```
-> **English:** Locale.setDefault(Category.DISPLAY,
->
-> **Türkçe:** Locale.setDefault(Category.DISPLAY,
-```java
-new Locale.Builder().setRegion("us").build());
-```
-> **English:** Locale.setDefault(Category.FORMAT,
->
-> **Türkçe:** Locale.setDefault(Category.FORMAT,
-```java
-new Locale.Builder().setLanguage("en").build());
-return NumberFormat.getCurrencyInstance(Locale.GERMANY)
-.format(money);
-}
-public void printBalance() {
-System.out.println(openWallet());
-}
+   private String openWallet() {
+      Locale.setDefault(Category.DISPLAY,
+         new Locale.Builder().setRegion("us").build());
+      Locale.setDefault(Category.FORMAT,
+         new Locale.Builder().setLanguage("en").build());
+      return NumberFormat.getCurrencyInstance(Locale.GERMANY)
+         .format(money);
+   }
+   public void printBalance() {
+      System.out.println(openWallet());
+   }
+   public static void main(String... unused) {
+      new Wallet(2.4).printBalance();
+   } }
 ```
 
 <!-- source-page: 0659 -->
-```java
-public static void main(String... unused) {
-new Wallet(2.4).printBalance();
-} }
-```
 > **English:** A. 2,40 €
 >
-> **Türkçe:** A. 2,40
+> **Türkçe:** A. `2,40 €`
 > **English:** B. $2.40
 >
 > **Türkçe:** B. $2.40
 > **English:** C. 2.4
 >
 > **Türkçe:** C. 2.4
-> **English:** D.The code does not compile.
+> **English:** D. The code does not compile.
 >
-> **Türkçe:** D.The kodu derlemez.
+> **Türkçe:** D. Kod derlenmez.
 > **English:** E. None of the above
 >
 > **Türkçe:** E. Yukarıdakilerin hiçbiri
-> **English:** 26.Which lines can fill in the blank to make the following code compile? (Choose all
+
+### Question 26 / Soru 26
+
+> **English:** 26. Which lines can fill in the blank to make the following code compile? (Choose all
 > that apply.)
 >
 > **Türkçe:** 26. Aşağıdaki kodu derlemek için boşluğu hangi satırlar doldurabilir? (Tüm geçerli
@@ -4755,11 +4838,10 @@ new Wallet(2.4).printBalance();
 ```java
 void rollOut() throws ClassCastException {}
 public void transform(String c) {
-try {
-rollOut();
-} catch (IllegalArgumentException |
-) {
-}
+   try {
+      rollOut();
+   } catch (IllegalArgumentException | ________________________________) {
+   }
 }
 ```
 > **English:** A. IOException a
@@ -4780,12 +4862,10 @@ rollOut();
 > **English:** F. ClassCastException f
 >
 > **Türkçe:** F. ClassCastException f
-> **English:** G.None of the above. The code contains a compiler error regardless of what is inserted
+> **English:** G. None of the above. The code contains a compiler error regardless of what is inserted
+> into the blank.
 >
-> **Türkçe:** Yukarıdaki G.None. Kod, eklenenden bağımsız olarak bir derleyici hatası içerir
-> **English:** into the blank.
->
-> **Türkçe:** Boşluğa doğru.
+> **Türkçe:** G. Yukarıdakilerin hiçbiri. Boşluğa ne yazılırsa yazılsın kod bir compiler error içerir.
 
 <!-- source-page: 0660 -->
 
@@ -5168,10 +5248,9 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > IllegalArgumentException'den miras alır ve ikinci bildirimi gereksiz kılar. B ve F
 > seçenekleri doğru olduğundan, G seçeneği yanlıştır.
 
-## Coverage ledger
+## Kapsam doğrulaması
 
-- Chapter body marker'ları: 591–660
-- Appendix answer marker'ları: 945–948
-- Resmî cevap hedefi: 1–26
-- Kod blokları özgün dilinde tutulmuştur.
-- Çeviri ayrıntıları ünite vocabulary ve grammar kaynaklarıyla desteklenir.
+> **Kapsam özeti:** Ana bölüm kaynak sayfaları **591–660**, ek cevap kaynağı
+> sayfaları **945–948** ve resmî cevap hedefi **1–26** olarak doğrulandı.
+> Kod blokları özgün dilinde tutuldu; dil ayrıntıları ünitenin vocabulary ve
+> grammar kaynaklarıyla desteklendi.

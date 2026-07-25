@@ -1,8 +1,8 @@
 # Unit 01 Vocabulary · Building Blocks
 
 Bu sözlük Unit 01 ana notundaki **Java environment**, **class structure**,
-**classpath**, **object initialization**, **data types**, **scope** ve **garbage
-collection** bağlamlarından seçilmiştir. Kelimeleri tek başına ezberlemek yerine
+**classpath**, **object initialization**, **data types**, **scope** ve
+**garbage collection** bağlamlarından seçilmiştir. Kelimeleri tek başına ezberlemek yerine
 örnek cümledeki teknik bağlamla birlikte çalış.
 
 > **Memory tip:** Önce İngilizce kelimeyi kapatıp Türkçe anlamı hatırla; sonra

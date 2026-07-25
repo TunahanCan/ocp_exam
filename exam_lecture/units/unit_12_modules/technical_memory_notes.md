@@ -74,9 +74,9 @@ feeding module'ı tarafından export edilmemişse `requires` tek başına yeterl
 değildir.
 
 ```text
-caller requires target        ✓ readability
-target exports package        ✓ accessibility
-public class/member            ✓ Java access control
+caller requires target        [GEREKLİ] readability
+target exports package        [GEREKLİ] accessibility
+public class/member           [GEREKLİ] Java access control
 ```
 
 Üç koşuldan biri eksikse erişim derlenmeyebilir.
@@ -365,8 +365,8 @@ Service graph'ında:
 
 ## 14. Explicit named, automatic ve unnamed module
 
-OCP karşılaştırmalarında “named module” çoğunlukla descriptor'lı **explicit
-named module** anlamında kullanılır. Java API terminolojisinde automatic module
+OCP karşılaştırmalarında “named module” çoğunlukla descriptor'lı explicit
+named module anlamında kullanılır. Java API terminolojisinde automatic module
 de bir ada sahip olduğu için named module'dür; aşağıdaki tabloda iki tür ayrı
 gösterilir.
 

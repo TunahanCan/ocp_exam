@@ -1,5 +1,14 @@
 # Unit 07 Grammar Notes · Beyond Classes
 
+## Bu belge nasıl kullanılmalı?
+
+Bu kaynağı [README'deki çalışma rotasının](README.md#4560-dakikalık-önerilen-çalışma-rotası)
+grammar adımında kullan:
+
+1. Yapının formülünü ve cümlede nitelediği öğeyi belirle.
+2. English örneği doğal Türkçeye kendin çevir.
+3. YDS ipucu/common mistake bölümünü kontrol et; mini quiz'i en son çöz.
+
 ## 1. Reduced passive clause: `when + past participle`
 
 **EN:** Which lines, when entered independently, allow the code to compile?

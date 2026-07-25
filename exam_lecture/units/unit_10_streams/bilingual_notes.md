@@ -8,13 +8,13 @@ English → Türkçe paragraf çiftleriyle bir araya getirir. Kod ve terminal
 [Vocabulary](vocabulary.md) · [Grammar notes](grammar_notes.md) ·
 [Teknik hafıza notu](technical_memory_notes.md)
 
-## Kaynak kapsam manifesti
+## Kaynak ve kapsam özeti
 
 - Kaynak: `exam_lecture/OCP_Java_SE17_Chapter1den_Itibaren.pdf`
 - Chapter: 10 · Streams
 - Chapter PDF sayfaları: 531–590
 - Appendix cevap sayfaları: 942–945
-- Beklenen sayfa marker'ı: 60
+- Beklenen kaynak sayfa sayısı: 60
 - Beklenen resmî cevap: 21
 - Eşleme biçimi: English paragraf → Türkçe çeviri → varsa kod
 
@@ -25,7 +25,7 @@ English → Türkçe paragraf çiftleriyle bir araya getirir. Kod ve terminal
 3. [Using Common Terminal Operations](#using-common-terminal-operations)
 4. [Using Common Intermediate Operations](#using-common-intermediate-operations)
 5. [Working with Primitive Streams](#working-with-primitive-streams)
-6. [Working with Advanced Stream Pipeline Concepts](#working-with-advanced-stream-pipeline-concepts)
+6. [Working with Advanced Stream Pipeline Concepts](#working-with-advanced-stream)
 7. [Summary](#summary)
 8. [Exam Essentials](#exam-essentials)
 9. [Review Questions](#review-questions)
@@ -443,7 +443,7 @@ ifPresent() and the other methods rather than needing an if statement. Finally, 
 > gerçekleşir. Birinin işi başlatması ve bitirmesi gerekiyor ve aralarında herhangi bir
 > sayıda istasyon olabilir. Sonuçta, bir kişi ile bir iş bir montaj hattı değildir! Şekil
 > 10.2'de gösterildiği gibi, bir stream pipeline için üç bölüm vardır.
-> **English:** ■ ■ Source: Where the stream comes from. ■ ■ Intermediate operations: Transforms the
+> **English:** • Source: Where the stream comes from. • Intermediate operations: Transforms the
 > stream into another one. There can be as few or as many intermediate operations as you’d
 > like. Since streams use lazy evaluation, the intermediate operations do not run until
 > the terminal operation runs.
@@ -452,7 +452,7 @@ ifPresent() and the other methods rather than needing an if statement. Finally, 
 > dönüştürür. İstediğiniz kadar az veya intermediate operations olabilir. streams lazy
 > evaluation kullandığından, terminal operation çalışana kadar intermediate operations
 > çalışmaz.
-> **English:** ■ ■ Terminal operation: Produces a result. Since streams can be used only once, the
+> **English:** • Terminal operation: Produces a result. Since streams can be used only once, the
 > stream is no longer valid after a terminal operation completes.
 >
 > **Türkçe:** Terminal operation: Bir sonuç üretir. streams sadece bir kez kullanılabildiğinden,
@@ -1121,8 +1121,8 @@ System.out.println(stream.reduce(1, (a, b) -> a*b)); // 90
 > **English:** We set the identity to 1 and the accumulator to multiplication. In many cases, the
 > identity isn’t really necessary, so Java lets us omit it. When you don’t specify an
 > identity, an Optional is returned because there might not be any data. There are three
-> choices for what is in the Optional: ■ ■ If the stream is empty, an empty Optional is
-> returned. ■ ■ If the stream has one element, it is returned. ■ ■ If the stream has
+> choices for what is in the Optional: • If the stream is empty, an empty Optional is
+> returned. • If the stream has one element, it is returned. • If the stream has
 > multiple elements, the accumulator is applied to combine them.
 >
 > **Türkçe:** Biz set identity ile 1 ve accumulator ile çarpma işlemini yapıyoruz. Birçok durumda,
@@ -1938,8 +1938,8 @@ System.out.println(avg.getAsDouble()); // 2.0
 > primitive streams çok önemlidir. optionals ve functional interfaces de dahil olmak üzere
 > bu tür streams oluşturmaya ve kullanmaya bakıyoruz.
 ### Creating Primitive Streams
-> **English:** Here are the three types of primitive streams: ■ ■ IntStream: Used for the primitive
-> types int, short, byte, and char ■ ■ LongStream: Used for the primitive type long ■ ■
+> **English:** Here are the three types of primitive streams: • IntStream: Used for the primitive
+> types int, short, byte, and char • LongStream: Used for the primitive type long •
 > DoubleStream: Used for the primitive types double and float
 >
 > **Türkçe:** İlkel akışların üç türü şunlardır: IntStream: İlkel tipler için kullanılan int, kısa,
@@ -2344,12 +2344,12 @@ return stats.getMax()- stats.getMin();
 }
 ```
 > **English:** Here we asked Java to perform many calculations about the stream. Summary statistics
-> include the following: ■ ■ getCount(): Returns a long representing the number of values.
-> ■ ■ getAverage(): Returns a double representing the average. If the stream is empty,
-> returns 0. ■ ■ getSum(): Returns the sum as a double for DoubleSummaryStream and long
-> for IntSummaryStream and LongSummaryStream. ■ ■ getMin(): Returns the smallest number
+> include the following: • getCount(): Returns a long representing the number of values.
+> • getAverage(): Returns a double representing the average. If the stream is empty,
+> returns 0. • getSum(): Returns the sum as a double for DoubleSummaryStream and long
+> for IntSummaryStream and LongSummaryStream. • getMin(): Returns the smallest number
 > (minimum) as a double, int, or long, depending on the type of the stream. If the stream
-> is empty, returns the largest numeric value based on the type. ■ ■ getMax(): Returns the
+> is empty, returns the largest numeric value based on the type. • getMax(): Returns the
 > largest number (maximum) as a double, int, or long depend-ing on the type of the stream.
 > If the stream is empty, returns the smallest numeric value based on the type.
 >
@@ -3187,12 +3187,12 @@ When working with collect(), there are often many levels of generics, making com
 > **English:** errors unreadable. Here are three useful techniques for dealing with this situation:
 >
 > **Türkçe:** Hatalar okunamaz. İşte bu durumla başa çıkmak için üç yararlı teknik:
-> **English:** ■ ■ Start over with a simple statement, and keep adding to it. By making one tiny change
+> **English:** • Start over with a simple statement, and keep adding to it. By making one tiny change
 > at a time, you will know which code introduced the error.
 >
 > **Türkçe:** Basit bir ifadeyle baştan başlayın ve eklemeye devam edin. Bir seferde küçük bir
 > değişiklik yaparak, hangi kodun hatayı başlattığını bileceksiniz.
-> **English:** ■ ■ Extract parts of the statement into separate statements. For example, try writing
+> **English:** • Extract parts of the statement into separate statements. For example, try writing
 > Collectors.groupingBy(String::length, Collectors.counting());. If it compiles, you know
 > that the problem lies elsewhere. If it doesn’t compile, you have a much shorter
 > statement to troubleshoot.
@@ -3201,7 +3201,7 @@ When working with collect(), there are often many levels of generics, making com
 > Collectors.groupingBy(String::length, Collectors.counting() yazmayı deneyin; Eğer
 > derlenirse, sorunun başka bir yerde olduğunu bilirsiniz. Derlemiyorsa, sorun gidermek
 > için çok daha kısa bir ifadeniz vardır.
-> **English:** ■ ■ Use generic wildcards for the return type of the final statement: for example,
+> **English:** • Use generic wildcards for the return type of the final statement: for example,
 > Map<?,?>. If that change alone allows the code to compile, you’ll know that the problem
 > lies with the return type not being what you expect.
 >
@@ -3475,7 +3475,9 @@ System.out.println(result);
 > **English:** The answers to the chapter review questions can be found in the Appendix.
 >
 > **Türkçe:** Bölüm inceleme sorularının cevapları Ek'te bulunabilir.
-> **English:** 1.What could be the output of the following?
+### Question 1 / Soru 1
+
+> **English:** 1. What could be the output of the following?
 >
 > **Türkçe:** 1. Aşağıdakilerin çıktısı ne olabilir?
 ```java
@@ -3494,16 +3496,18 @@ System.out.println(stream.limit(2).map(x -> x + "2"));
 > **English:** D. java.util.stream.ReferencePipeline$3@4517d9a3
 >
 > **Türkçe:** D. java.util.stream.ReferencePipeline$3@4517d9a3
-> **English:** E.The code does not compile.
+> **English:** E. The code does not compile.
 >
-> **Türkçe:** E.The kodu derlemez.
+> **Türkçe:** E. Kod derlenmez.
 > **English:** F. An exception is thrown.
 >
-> **Türkçe:** F. Bir istisna atılır.
+> **Türkçe:** F. Bir exception fırlatılır.
 > **English:** G. The code hangs.
 >
-> **Türkçe:** G. Kod asılı.
-> **English:** 2.What could be the output of the following?
+> **Türkçe:** G. Program takılır ve sona ermez.
+### Question 2 / Soru 2
+
+> **English:** 2. What could be the output of the following?
 >
 > **Türkçe:** 2. Aşağıdakilerin çıktısı ne olabilir?
 ```java
@@ -3516,28 +3520,30 @@ System.out.println(b1 + " " + b2);
 ```
 > **English:** A. true false
 >
-> **Türkçe:** A. gerçek yanlış
+> **Türkçe:** A. `true false`
 > **English:** B. true true
 >
-> **Türkçe:** B. gerçek
+> **Türkçe:** B. `true true`
 > **English:** C. java.util.stream.ReferencePipeline$3@4517d9a3
 >
 > **Türkçe:** C. java.util.stream.ReferencePipeline$3@4517d9a3
-> **English:** D.The code does not compile.
+> **English:** D. The code does not compile.
 >
-> **Türkçe:** D.The kodu derlemez.
+> **Türkçe:** D. Kod derlenmez.
 > **English:** E. An exception is thrown.
 >
-> **Türkçe:** E. Bir istisna atılır.
+> **Türkçe:** E. Bir exception fırlatılır.
 > **English:** F. The code hangs.
 >
-> **Türkçe:** F. Kod asılı.
-> **English:** 3.What could be the output of the following?
+> **Türkçe:** F. Program takılır ve sona ermez.
+### Question 3 / Soru 3
+
+> **English:** 3. What could be the output of the following?
 >
 > **Türkçe:** 3. Aşağıdakilerin çıktısı ne olabilir?
 ```java
 Predicate<String> predicate = s -> s.length()> 3;
-var stream = Stream.iterate("- ",
+var stream = Stream.iterate("-",
 s ->! s.isEmpty(), (s) -> s + s);
 var b1 = stream.noneMatch(predicate);
 var b2 = stream.anyMatch(predicate);
@@ -3547,50 +3553,53 @@ System.out.println(b1 + " " + b2);
 <!-- source-page: 0582 -->
 > **English:** A. false false
 >
-> **Türkçe:** A. yanlış yanlış
+> **Türkçe:** A. `false false`
 > **English:** B. false true
 >
-> **Türkçe:** B. yanlış doğru
+> **Türkçe:** B. `false true`
 > **English:** C. java.util.stream.ReferencePipeline$3@4517d9a3
 >
 > **Türkçe:** C. java.util.stream.ReferencePipeline$3@4517d9a3
-> **English:** D.The code does not compile.
+> **English:** D. The code does not compile.
 >
-> **Türkçe:** D.The kodu derlemez.
+> **Türkçe:** D. Kod derlenmez.
 > **English:** E. An exception is thrown.
 >
-> **Türkçe:** E. Bir istisna atılır.
+> **Türkçe:** E. Bir exception fırlatılır.
 > **English:** F. The code hangs.
 >
-> **Türkçe:** F. Kod asılı.
-> **English:** 4.Which are true statements about terminal operations in a stream that runs
-> successfully?
+> **Türkçe:** F. Program takılır ve sona ermez.
+### Question 4 / Soru 4
+
+> **English:** 4. Which are true statements about terminal operations in a stream that runs
+> successfully? (Choose all that apply.)
 >
-> **Türkçe:** 4. Başarılı çalışan bir stream içindeki terminal operations ile ilgili doğru ifadeler
-> nelerdir?
-> **English:** (Choose all that apply.)
+> **Türkçe:** 4. Başarıyla çalışan bir stream'deki terminal operation'lar hakkında hangi ifadeler
+> doğrudur? (Uygun olanların tümünü seçin.)
+> **English:** A. At most one terminal operation can exist in a stream pipeline.
 >
-> **Türkçe:** (Tüm geçerli olanları seçin.)
-> **English:** A.At most one terminal operation can exist in a stream pipeline.
->
-> **Türkçe:** A.At çoğu terminal operation bir stream pipeline içinde bulunabilir.
-> **English:** B.Terminal operations are a required part of the stream pipeline in order to get a
+> **Türkçe:** A. Bir stream pipeline'ında en fazla bir terminal operation bulunabilir.
+> **English:** B. Terminal operations are a required part of the stream pipeline in order to get a
 > result.
 >
-> **Türkçe:** B.Terminal işlemleri, bir sonuç elde etmek için stream pipeline 'in gerekli bir
+> **Türkçe:** B. Bir sonuç elde etmek için terminal operation, stream pipeline'ının zorunlu bir
 > parçasıdır.
-> **English:** C.Terminal operations have Stream as the return type.
+> **English:** C. Terminal operations have Stream as the return type.
 >
-> **Türkçe:** C.Terminal işlemlerinde return type olarak Stream bulunur.
-> **English:** D.The peek() method is an example of a terminal operation.
+> **Türkçe:** C. Terminal operation'ların return type'ı `Stream` olur.
+> **English:** D. The peek() method is an example of a terminal operation.
 >
-> **Türkçe:** D.The peek() yöntemi bir terminal operation örneğidir.
-> **English:** E.The referenced Stream may be used after calling a terminal operation.
+> **Türkçe:** D. `peek()` method'u bir terminal operation örneğidir.
+> **English:** E. The referenced Stream may be used after calling a terminal operation.
 >
-> **Türkçe:** E.The referanslı Stream bir terminal operation çağrıldıktan sonra kullanılabilir.
-> **English:** 5.Which of the following sets result to 8.0? (Choose all that apply.)
+> **Türkçe:** E. Referansı tutulan `Stream`, bir terminal operation çağrıldıktan sonra yeniden
+> kullanılabilir.
+### Question 5 / Soru 5
+
+> **English:** 5. Which of the following sets result to 8.0? (Choose all that apply.)
 >
-> **Türkçe:** 5. Aşağıdaki sets sonuçlarından hangisi 8.0? (Tüm geçerli olanları seçin.)
+> **Türkçe:** 5. Aşağıdakilerden hangileri `result` değişkenini `8.0` değerine ayarlar?
+> (Uygun olanların tümünü seçin.)
 > **English:** A.
 >
 > **Türkçe:** A.
@@ -3663,14 +3672,16 @@ double result = LongStream.of(6L, 8L, 10L)
 .stream()
 .collect(Collectors.averagingInt(x -> x));
 ```
-> **English:** 6.Which of the following can fill in the blank so that the code prints out false?
+### Question 6 / Soru 6
+
+> **English:** 6. Which of the following can fill in the blank so that the code prints out false?
 > (Choose all that apply.)
 >
-> **Türkçe:** 6. Aşağıdakilerden hangisi boşluğu doldurabilir, böylece kod yanlış yazdırır? (Tüm
-> geçerli olanları seçin.)
+> **Türkçe:** 6. Kodun `false` yazdırması için boşluk aşağıdakilerden hangileriyle doldurulabilir?
+> (Uygun olanların tümünü seçin.)
 ```java
 var s = Stream.generate(() -> "meow");
-var match = s. (String::isEmpty);
+var match = s.________(String::isEmpty);
 System.out.println(match);
 ```
 > **English:** A. allMatch
@@ -3693,11 +3704,14 @@ System.out.println(match);
 > **Türkçe:** F. Yukarıdakilerin hiçbiri
 
 <!-- source-page: 0584 -->
-> **English:** 7.We have a method that returns a sorted list without changing the original. Which of
-> the fol-lowing can replace the method implementation to do the same with streams?
+### Question 7 / Soru 7
+
+> **English:** 7. We have a method that returns a sorted list without changing the original. Which of
+> the following can replace the method implementation to do the same with streams?
 >
-> **Türkçe:** 7. Orijinalini değiştirmeden sıralanmış bir list döndüren bir yöntemimiz var. streams
-> ile aynı şeyi yapmak için yöntem uygulamasının yerine hangi fol-lowing kullanılabilir?
+> **Türkçe:** 7. Elimizde, özgün listeyi değiştirmeden sıralanmış bir liste döndüren bir method var.
+> Aynı işlemi stream'lerle yapmak için method gövdesinin yerine aşağıdakilerden hangisi
+> kullanılabilir?
 ```java
 private static List<String> sort(List<String> list) {
 var copy = new ArrayList<String>(list);
@@ -3753,42 +3767,46 @@ return list.stream()
 .sorted((a, b) -> b.compareTo(a))
 .collect(Collectors.toList());
 ```
-> **English:** 8.Which of the following are true given this declaration? (Choose all that apply.)
+### Question 8 / Soru 8
+
+> **English:** 8. Which of the following are true given this declaration? (Choose all that apply.)
 >
-> **Türkçe:** 8. Bu beyan göz önüne alındığında aşağıdakilerden hangisi doğrudur? (Tüm geçerli
-> olanları seçin.)
+> **Türkçe:** 8. Bu declaration göz önüne alındığında aşağıdakilerden hangileri doğrudur?
+> (Uygun olanların tümünü seçin.)
 ```java
 var is = IntStream.empty();
 ```
-> **English:** A.is.average() returns the type int.
+> **English:** A. is.average() returns the type int.
 >
-> **Türkçe:** A.is.average() int türünü döndürür.
-> **English:** B.is.average() returns the type OptionalInt.
+> **Türkçe:** A. `is.average()` method'unun return type'ı `int` olur.
+> **English:** B. is.average() returns the type OptionalInt.
 >
-> **Türkçe:** B.is.average() OptionalInt türünü döndürür.
-> **English:** C.is.findAny() returns the type int.
+> **Türkçe:** B. `is.average()` method'unun return type'ı `OptionalInt` olur.
+> **English:** C. is.findAny() returns the type int.
 >
-> **Türkçe:** C.is.findAny() int türünü döndürür.
+> **Türkçe:** C. `is.findAny()` method'unun return type'ı `int` olur.
 
 <!-- source-page: 0585 -->
-> **English:** D.is.findAny() returns the type OptionalInt.
+> **English:** D. is.findAny() returns the type OptionalInt.
 >
-> **Türkçe:** D.is.findAny() OptionalInt türünü döndürür.
-> **English:** E.is.sum() returns the type int.
+> **Türkçe:** D. `is.findAny()` method'unun return type'ı `OptionalInt` olur.
+> **English:** E. is.sum() returns the type int.
 >
-> **Türkçe:** E.is.sum() int türünü döndürür.
-> **English:** F.is.sum() returns the type OptionalInt.
+> **Türkçe:** E. `is.sum()` method'unun return type'ı `int` olur.
+> **English:** F. is.sum() returns the type OptionalInt.
 >
-> **Türkçe:** F.is.sum() OptionalInt türünü döndürür.
-> **English:** 9.Which of the following can we add after line 6 for the code to run without error and
-> not pro-duce any output? (Choose all that apply.)
+> **Türkçe:** F. `is.sum()` method'unun return type'ı `OptionalInt` olur.
+### Question 9 / Soru 9
+
+> **English:** 9. Which of the following can we add after line 6 for the code to run without error and
+> not produce any output? (Choose all that apply.)
 >
-> **Türkçe:** 9. Kodun hatasız çalışması ve herhangi bir çıktıyı üretmemesi için aşağıdakilerden
-> hangisini ekleyebiliriz? (Tüm geçerli olanları seçin.)
+> **Türkçe:** 9. Kodun hata vermeden çalışması ve hiçbir çıktı üretmemesi için line 6'dan sonra
+> aşağıdakilerden hangileri eklenebilir? (Uygun olanların tümünü seçin.)
 ```java
-var stream = LongStream.of(1, 2, 3);
-var opt = stream.map(n -> n * 10)
-.filter(n -> n < 5).findFirst();
+4: var stream = LongStream.of(1, 2, 3);
+5: var opt = stream.map(n -> n * 10)
+6:    .filter(n -> n < 5).findFirst();
 ```
 > **English:** A.
 >
@@ -3816,24 +3834,25 @@ opt.ifPresent(System.out.println);
 ```java
 opt.ifPresent(System.out::println);
 ```
-> **English:** E.None of these; the code does not compile.
+> **English:** E. None of these; the code does not compile.
 >
-> **Türkçe:** Bunlardan E.None; kod derlemez.
-> **English:** F.None of these; line 6 throws an exception at runtime.
+> **Türkçe:** E. Hiçbiri; kod derlenmez.
+> **English:** F. None of these; line 6 throws an exception at runtime.
 >
-> **Türkçe:** Bunlardan F.None; hat 6 çalışma zamanında bir istisna atar.
-> **English:** 10.Given the four statements (L, M, N, O), select and order the ones that would complete
+> **Türkçe:** F. Hiçbiri; line 6 runtime'da exception fırlatır.
+### Question 10 / Soru 10
+
+> **English:** 10. Given the four statements (L, M, N, O), select and order the ones that would complete
 > the expression and cause the code to output 10 lines. (Choose all that apply.)
 >
-> **Türkçe:** 10. Dört ifade (L, M, N, O) göz önüne alındığında, ifadeyi tamamlayacak ve kodun 10
-> satır çıkmasına neden olacak olanları seçin ve sipariş edin. (Tüm geçerli olanları
-> seçin.)
+> **Türkçe:** 10. Dört statement'ı (L, M, N, O) kullanarak expression'ı tamamlayacak ve kodun 10
+> satır çıktı üretmesini sağlayacak sıralamaları seçin. (Uygun olanların tümünü seçin.)
 ```java
 Stream.generate(() -> "1")
-L:.filter(x -> x.length()> 1)
-M:.forEach(System.out::println)
-N:.limit(10)
-O:.peek(System.out::println)
+L: .filter(x -> x.length()> 1)
+M: .forEach(System.out::println)
+N: .limit(10)
+O: .peek(System.out::println)
 ;
 ```
 > **English:** A. L, N
@@ -3859,11 +3878,13 @@ O:.peek(System.out::println)
 > **Türkçe:** G. N, O
 
 <!-- source-page: 0586 -->
-> **English:** 11.What changes need to be made together for this code to print the string 12345?
+### Question 11 / Soru 11
+
+> **English:** 11. What changes need to be made together for this code to print the string 12345?
 > (Choose all that apply.)
 >
-> **Türkçe:** 11. string 12345'i yazdırmak için bu kod için birlikte hangi değişikliklerin yapılması
-> gerekir? (Tüm geçerli olanları seçin.)
+> **Türkçe:** 11. Bu kodun `12345` String'ini yazdırması için hangi değişikliklerin birlikte
+> yapılması gerekir? (Uygun olanların tümünü seçin.)
 ```java
 Stream.iterate(1, x -> x++)
 .limit(5).map(x -> x)
@@ -3871,23 +3892,25 @@ Stream.iterate(1, x -> x++)
 ```
 > **English:** A. Change Collectors.joining() to Collectors.joining(",").
 >
-> **Türkçe:** A. Collectors.joining() ile Collectors.joining(",") arasında değişiklik yapın.
+> **Türkçe:** A. `Collectors.joining()` ifadesini `Collectors.joining(",")` olarak değiştirin.
 > **English:** B. Change map(x -> x) to map(x -> "" + x).
 >
-> **Türkçe:** B. map(x -> x) ile map(x -> "" + x) arasında değişiklik yapın.
+> **Türkçe:** B. `map(x -> x)` ifadesini `map(x -> "" + x)` olarak değiştirin.
 > **English:** C. Change x -> x++ to x -> ++x.
 >
-> **Türkçe:** C. x> x++'ı x> ++x'e değiştirin.
-> **English:** D.Add.forEach(System.out::print) after the call to collect().
+> **Türkçe:** C. `x -> x++` ifadesini `x -> ++x` olarak değiştirin.
+> **English:** D. Add `.forEach(System.out::print)` after the call to `collect()`.
 >
-> **Türkçe:** collect() çağrısından sonra D.Add.forEach(System.out::print).
-> **English:** E.Wrap the entire line in a System.out.print statement.
+> **Türkçe:** D. `collect()` çağrısından sonra `.forEach(System.out::print)` ekleyin.
+> **English:** E. Wrap the entire line in a `System.out.print` statement.
 >
-> **Türkçe:** E.Wrap bir System.out.print ifadesinde tüm satır.
-> **English:** F.None of the above. The code already prints 12345.
+> **Türkçe:** E. Bütün satırı bir `System.out.print` statement'ı içine alın.
+> **English:** F. None of the above. The code already prints `12345`.
 >
-> **Türkçe:** Yukarıdaki F.None. Kod zaten 12345'i basıyor.
-> **English:** 12.Which is true of the following code?
+> **Türkçe:** F. Yukarıdakilerin hiçbiri; kod zaten `12345` yazdırır.
+### Question 12 / Soru 12
+
+> **English:** 12. Which is true of the following code?
 >
 > **Türkçe:** 12. Aşağıdaki kod için hangisi doğrudur?
 ```java
@@ -3898,31 +3921,36 @@ Stream.concat(birds.stream(), birds.stream(), birds.stream())
 .findAny()
 .ifPresent(System.out::println);
 ```
-> **English:** A.It is guaranteed to print flamingo as is and when line X is removed.
+> **English:** A. It is guaranteed to print `flamingo` as is and when line X is removed.
 >
-> **Türkçe:** A.It flamingoyu olduğu gibi ve X satırı çıkarıldığında yazdırmayı garanti eder.
-> **English:** B.It is guaranteed to print oriole as is and when line X is removed.
+> **Türkçe:** A. Kodun hem mevcut hâliyle hem de line X kaldırıldığında `flamingo` yazdırması
+> garantidir.
+> **English:** B. It is guaranteed to print `oriole` as is and when line X is removed.
 >
-> **Türkçe:** B.It olduğu gibi ve X satırı çıkarıldığında oriole yazdırmak için garanti edilir.
-> **English:** C.It is guaranteed to print flamingo as is, but not when line X is removed.
+> **Türkçe:** B. Kodun hem mevcut hâliyle hem de line X kaldırıldığında `oriole` yazdırması
+> garantidir.
+> **English:** C. It is guaranteed to print `flamingo` as is, but not when line X is removed.
 >
-> **Türkçe:** C.It flamingoyu olduğu gibi yazdırmayı garanti eder, ancak X satırı kaldırıldığında
-> değil.
-> **English:** D.It is guaranteed to print oriole as is, but not when line X is removed.
+> **Türkçe:** C. Kodun mevcut hâliyle `flamingo` yazdırması garantidir; ancak line X kaldırıldığında
+> garanti değildir.
+> **English:** D. It is guaranteed to print `oriole` as is, but not when line X is removed.
 >
-> **Türkçe:** D.It olduğu gibi oriole yazdırmak için garanti edilir, ancak X satırı kaldırıldığında
-> değil.
-> **English:** E.The output may vary as is.
+> **Türkçe:** D. Kodun mevcut hâliyle `oriole` yazdırması garantidir; ancak line X kaldırıldığında
+> garanti değildir.
+> **English:** E. The output may vary as is.
 >
-> **Türkçe:** E.The çıktısı olduğu gibi değişebilir.
-> **English:** F.The code does not compile.
+> **Türkçe:** E. Kodun mevcut hâlindeki çıktı değişebilir.
+> **English:** F. The code does not compile.
 >
-> **Türkçe:** F.The kodu derlemez.
-> **English:** G.It throws an exception because the same list is used as the source for multiple
+> **Türkçe:** F. Kod derlenmez.
+> **English:** G. It throws an exception because the same list is used as the source for multiple
 > streams.
 >
-> **Türkçe:** G.It bir istisna atar çünkü aynı list çoklu streams için kaynak olarak kullanılır.
-> **English:** 13.Which of the following is true?
+> **Türkçe:** G. Aynı liste birden fazla stream'in kaynağı olarak kullanıldığı için exception
+> fırlatılır.
+### Question 13 / Soru 13
+
+> **English:** 13. Which of the following is true?
 >
 > **Türkçe:** 13. Aşağıdakilerden hangisi doğrudur?
 ```java
@@ -3933,140 +3961,141 @@ Stream.of(x1, x2, x3).map(x -> x + 1)
 .flatMap(x -> x.stream())
 .forEach(System.out::print);
 ```
-> **English:** A.The code compiles and prints 123456.
+> **English:** A. The code compiles and prints `123456`.
 >
-> **Türkçe:** A.The kodu 123456'ı derler ve yazdırır.
-> **English:** B.The code compiles and prints 234567.
+> **Türkçe:** A. Kod derlenir ve `123456` yazdırır.
+> **English:** B. The code compiles and prints `234567`.
 >
-> **Türkçe:** B.The kodu 234567'yi derler ve yazdırır.
-> **English:** C.The code compiles but does not print anything.
+> **Türkçe:** B. Kod derlenir ve `234567` yazdırır.
+> **English:** C. The code compiles but does not print anything.
 >
-> **Türkçe:** C.The kodu derlenir ancak hiçbir şey yazdırmaz.
-> **English:** D.The code compiles but prints stream references.
+> **Türkçe:** C. Kod derlenir ancak hiçbir şey yazdırmaz.
+> **English:** D. The code compiles but prints stream references.
 >
-> **Türkçe:** D.The kodu derler ancak stream referanslarını yazdırır.
+> **Türkçe:** D. Kod derlenir ancak stream reference'larını yazdırır.
 
 <!-- source-page: 0587 -->
 > **English:** E. The code runs infinitely.
 >
 > **Türkçe:** E. Kod sonsuza kadar çalışır.
-> **English:** F.The code does not compile.
+> **English:** F. The code does not compile.
 >
-> **Türkçe:** F.The kodu derlemez.
-> **English:** G.The code throws an exception.
+> **Türkçe:** F. Kod derlenmez.
+> **English:** G. The code throws an exception.
 >
-> **Türkçe:** G.The kodu bir istisna atar.
-> **English:** 14.Which of the following are true? (Choose all that apply.)
+> **Türkçe:** G. Kod bir exception fırlatır.
+### Question 14 / Soru 14
+
+> **English:** 14. Which of the following are true? (Choose all that apply.)
 >
-> **Türkçe:** 14. Aşağıdakilerden hangisi doğrudur? (Tüm geçerli olanları seçin.)
+> **Türkçe:** 14. Aşağıdakilerden hangileri doğrudur? (Uygun olanların tümünü seçin.)
 ```java
-Stream<Integer> s = Stream.of(1);
-IntStream is = s.boxed();
-DoubleStream ds = s.mapToDouble(x -> x);
-Stream<Integer> s2 = ds.mapToInt(x -> x);
-s2.forEach(System.out::print);
+4: Stream<Integer> s = Stream.of(1);
+5: IntStream is = s.boxed();
+6: DoubleStream ds = s.mapToDouble(x -> x);
+7: Stream<Integer> s2 = ds.mapToInt(x -> x);
+8: s2.forEach(System.out::print);
 ```
-> **English:** A.Line 4 causes a compiler error.
+> **English:** A. Line 4 causes a compiler error.
 >
-> **Türkçe:** A.Line 4 bir derleyici hatasına neden olur.
-> **English:** B.Line 5 causes a compiler error.
+> **Türkçe:** A. Line 4 compiler error'a yol açar.
+> **English:** B. Line 5 causes a compiler error.
 >
-> **Türkçe:** B.Line 5 bir derleyici hatasına neden olur.
-> **English:** C.Line 6 causes a compiler error.
+> **Türkçe:** B. Line 5 compiler error'a yol açar.
+> **English:** C. Line 6 causes a compiler error.
 >
-> **Türkçe:** C.Line 6 bir derleyici hatasına neden olur.
-> **English:** D.Line 7 causes a compiler error.
+> **Türkçe:** C. Line 6 compiler error'a yol açar.
+> **English:** D. Line 7 causes a compiler error.
 >
-> **Türkçe:** D.Line 7 bir derleyici hatasına neden olur.
-> **English:** E.Line 8 causes a compiler error.
+> **Türkçe:** D. Line 7 compiler error'a yol açar.
+> **English:** E. Line 8 causes a compiler error.
 >
-> **Türkçe:** E.Line 8 bir derleyici hatasına neden olur.
-> **English:** F.The code compiles but throws an exception at runtime.
+> **Türkçe:** E. Line 8 compiler error'a yol açar.
+> **English:** F. The code compiles but throws an exception at runtime.
 >
-> **Türkçe:** F.The kodu derlenir ancak çalışma zamanında bir istisna atar.
-> **English:** G.The code compiles and prints 1.
+> **Türkçe:** F. Kod derlenir ancak runtime'da exception fırlatır.
+> **English:** G. The code compiles and prints `1`.
 >
-> **Türkçe:** G.The kodu derler ve yazdırır 1.
-> **English:** 15.Given the generic type String, the partitioningBy() collector creates a Map<Boolean,
-> List<String>> when passed to collect() by default. When a down-stream collector is
-> passed to partitioningBy(), which return types can be created?
+> **Türkçe:** G. Kod derlenir ve `1` yazdırır.
+### Question 15 / Soru 15
+
+> **English:** 15. Given the generic type `String`, the `partitioningBy()` collector creates a
+> `Map<Boolean, List<String>>` when passed to `collect()` by default. When a downstream
+> collector is passed to `partitioningBy()`, which return types can be created?
+> (Choose all that apply.)
 >
-> **Türkçe:** 15.Genel String tipi göz önüne alındığında, partitioningBy() collector varsayılan olarak
-> collect()'ye geçtiğinde Map<Boolean, List<String> oluşturur. Bir aşağı akış toplayıcı
-> bölümleme By()'ye geçirildiğinde, hangi geri dönüş türleri oluşturulabilir?
-> **English:** (Choose all that apply.)
->
-> **Türkçe:** (Tüm geçerli olanları seçin.)
+> **Türkçe:** 15. Generic type `String` olduğunda `partitioningBy()` collector'ı, varsayılan olarak
+> `collect()` ile kullanıldığında `Map<Boolean, List<String>>` oluşturur. `partitioningBy()`'a
+> bir downstream collector verildiğinde hangi return type'lar oluşturulabilir?
+> (Uygun olanların tümünü seçin.)
 > **English:** A. Map<boolean, List<String>>
 >
-> **Türkçe:** A. Map<boolean, List<String>
+> **Türkçe:** A. `Map<boolean, List<String>>`
 > **English:** B. Map<Boolean, List<String>>
 >
-> **Türkçe:** B. Map<Boolean, List<String>
+> **Türkçe:** B. `Map<Boolean, List<String>>`
 > **English:** C. Map<Boolean, Map<String>>
 >
-> **Türkçe:** C. Map<Boolean, Map<String>
+> **Türkçe:** C. `Map<Boolean, Map<String>>`
 > **English:** D. Map<Boolean, Set<String>>
 >
-> **Türkçe:** D. Map<Boolean, Set<String>
+> **Türkçe:** D. `Map<Boolean, Set<String>>`
 > **English:** E. Map<Long, TreeSet<String>>
 >
-> **Türkçe:** E. Map<Long, TreeSet<String>
+> **Türkçe:** E. `Map<Long, TreeSet<String>>`
 > **English:** F. None of the above
 >
 > **Türkçe:** F. Yukarıdakilerin hiçbiri
-> **English:** 16.Which of the following statements are true about this code? (Choose all that apply.)
+### Question 16 / Soru 16
+
+> **English:** 16. Which of the following statements are true about this code? (Choose all that apply.)
 >
-> **Türkçe:** 16. Aşağıdaki ifadelerden hangisi bu kod hakkında doğrudur? (Tüm geçerli olanları
+> **Türkçe:** 16. Aşağıdaki ifadelerden hangileri bu kod hakkında doğrudur? (Uygun olanların tümünü
 > seçin.)
+
 ```java
-Predicate<String> empty = String::isEmpty;
-Predicate<String> notEmpty = empty.negate();
-```
-> **English:** 22:
->
-> **Türkçe:** 22:
-```java
-var result = Stream.generate(() -> "")
-.limit(10)
-.filter(notEmpty)
-.collect(Collectors.groupingBy(k -> k))
-.entrySet()
-.stream()
-.map(Entry::getValue)
+20: Predicate<String> empty = String::isEmpty;
+21: Predicate<String> notEmpty = empty.negate();
+22:
+23: var result = Stream.generate(() -> "")
+24:     .limit(10)
+25:     .filter(notEmpty)
+26:     .collect(Collectors.groupingBy(k -> k))
+27:     .entrySet()
+28:     .stream()
+29:     .map(Entry::getValue)
+30:     .flatMap(Collection::stream)
+31:     .collect(Collectors.partitioningBy(notEmpty));
+32: System.out.println(result);
 ```
 
 <!-- source-page: 0588 -->
-```java
-.flatMap(Collection::stream)
-.collect(Collectors.partitioningBy(notEmpty));
-System.out.println(result);
-```
+
 > **English:** A. It outputs {}.
 >
-> **Türkçe:** A. çıktısı verir.
+> **Türkçe:** A. Çıktı `{}` olur.
 > **English:** B. It outputs {false=[], true=[]}.
 >
-> **Türkçe:** B. false=[], true=[] çıktısını alır.
-> **English:** C.If we changed line 31 from partitioningBy(notEmpty) to
+> **Türkçe:** B. Çıktı `{false=[], true=[]}` olur.
+> **English:** C. If we changed line 31 from `partitioningBy(notEmpty)` to
+> `groupingBy(n -> n)`, it would output `{}`.
 >
-> **Türkçe:** C.If partitioningBy(notEmpty) satırından partitioningBy(notEmpty) satırına değiştirdik.
-> **English:** groupingBy(n -> n), it would output {}.
+> **Türkçe:** C. Line 31'deki `partitioningBy(notEmpty)` yerine
+> `groupingBy(n -> n)` yazılsaydı çıktı `{}` olurdu.
+> **English:** D. If we changed line 31 from `partitioningBy(notEmpty)` to
+> `groupingBy(n -> n)`, it would output `{false=[], true=[]}`.
 >
-> **Türkçe:** groupingBy(n -> n), çıktısını alırdı.
-> **English:** D.If we changed line 31 from partitioningBy(notEmpty) to
+> **Türkçe:** D. Line 31'deki `partitioningBy(notEmpty)` yerine
+> `groupingBy(n -> n)` yazılsaydı çıktı `{false=[], true=[]}` olurdu.
+> **English:** E. The code does not compile.
 >
-> **Türkçe:** D.If partitioningBy(notEmpty) satırından partitioningBy(notEmpty) satırına değiştirdik.
-> **English:** groupingBy(n -> n), it would output {false=[], true=[]}.
+> **Türkçe:** E. Kod derlenmez.
+> **English:** F. The code compiles but does not terminate at runtime.
 >
-> **Türkçe:** groupingBy(n -> n), false=[], true=[] çıktısını alırdı.
-> **English:** E.The code does not compile.
->
-> **Türkçe:** E.The kodu derlemez.
-> **English:** F.The code compiles but does not terminate at runtime.
->
-> **Türkçe:** F.The kodu derlenir ancak çalışma zamanında sona ermez.
-> **English:** 17.What is the result of the following?
+> **Türkçe:** F. Kod derlenir ancak runtime'da sona ermez.
+### Question 17 / Soru 17
+
+> **English:** 17. What is the result of the following?
 >
 > **Türkçe:** 17. Aşağıdakilerin sonucu nedir?
 ```java
@@ -4088,80 +4117,71 @@ s.peek(System.out::println).filter(x -> x> 2).count();
 > **English:** E. There is no output.
 >
 > **Türkçe:** E. Çıktısı yok.
-> **English:** F.The code does not compile.
+> **English:** F. The code does not compile.
 >
-> **Türkçe:** F.The kodu derlemez.
+> **Türkçe:** F. Kod derlenmez.
 > **English:** G. An exception is thrown.
 >
-> **Türkçe:** G. Bir istisna atılır.
-> **English:** 18.What is the output of the following?
+> **Türkçe:** G. Bir exception fırlatılır.
+### Question 18 / Soru 18
+
+> **English:** 18. What is the output of the following?
 >
 > **Türkçe:** 18. Aşağıdakilerin çıktısı nedir?
+
 ```java
-public class Paging {
-record Sesame(String name, boolean human) {
-@Override public String toString() {
-return name();
-}
-}
-record Page(List<Sesame> list, long count) {}
+11: public class Paging {
+12:     record Sesame(String name, boolean human) {
+13:         @Override public String toString() {
+14:             return name();
+15:         }
+16:     }
+17:     record Page(List<Sesame> list, long count) {}
+18:
+19:     public static void main(String[] args) {
+20:         var monsters = Stream.of(new Sesame("Elmo", false));
+21:         var people = Stream.of(new Sesame("Abby", true));
+22:         printPage(monsters, people);
+23:     }
+24:
+25:     private static void printPage(Stream<Sesame> monsters,
+26:             Stream<Sesame> people) {
+27:         Page page = Stream.concat(monsters, people)
+28:             .collect(Collectors.teeing(
+29:                 Collectors.filtering(s -> s.name().startsWith("E"),
+30:                     Collectors.toList()),
+31:                 Collectors.counting(),
+32:                 (l, c) -> new Page(l, c)));
+33:         System.out.println(page);
+34:     } }
 ```
-> **English:** 18:
->
-> **Türkçe:** 18:
-```java
-public static void main(String[] args) {
-var monsters = Stream.of(new Sesame("Elmo", false));
-var people = Stream.of(new Sesame("Abby", true));
-printPage(monsters, people);
-}
-```
-> **English:** 24:
->
-> **Türkçe:** 24:
 
 <!-- source-page: 0589 -->
-> **English:** 25: private static void printPage(Stream<Sesame> monsters,
->
-> **Türkçe:** 25: özel statik void printPage(Stream<Sesame> canavarlar,
-```java
-Stream<Sesame> people) {
-Page page = Stream.concat(monsters, people)
-.collect(Collectors.teeing(
-Collectors.filtering(s -> s.name().startsWith("E"),
-Collectors.toList()),
-Collectors.counting(),
-```
-> **English:** 32:
->
-> **Türkçe:** 32:
-```java
-(l, c) -> new Page(l, c)));
-System.out.println(page);
-} }
-```
+
 > **English:** A. Page[list=[Abby], count=1]
 >
-> **Türkçe:** A. Sayfa[list=[Abby], sayım=1]
+> **Türkçe:** A. `Page[list=[Abby], count=1]`
 > **English:** B. Page[list=[Abby], count=2]
 >
-> **Türkçe:** B. Sayfa[list=[Abby], sayım=2]
+> **Türkçe:** B. `Page[list=[Abby], count=2]`
 > **English:** C. Page[list=[Elmo], count=1]
 >
-> **Türkçe:** C. Sayfa[list=[Elmo], sayım=1]
+> **Türkçe:** C. `Page[list=[Elmo], count=1]`
 > **English:** D. Page[list=[Elmo], count=2]
 >
-> **Türkçe:** D. Sayfa[list=[Elmo], sayım=2]
-> **English:** E.The code does not compile due to Stream.concat().
+> **Türkçe:** D. `Page[list=[Elmo], count=2]`
+> **English:** E. The code does not compile due to Stream.concat().
 >
-> **Türkçe:** Stream.concat() nedeniyle E.The kodu derlemez.
-> **English:** F.The code does not compile due to Collectors.teeing().
+> **Türkçe:** E. Kod `Stream.concat()` nedeniyle derlenmez.
+> **English:** F. The code does not compile due to Collectors.teeing().
 >
-> **Türkçe:** Collectors.teeing() nedeniyle F.The kodu derlemez.
-> **English:** G.The code does not compile for another reason.
+> **Türkçe:** F. Kod `Collectors.teeing()` nedeniyle derlenmez.
+> **English:** G. The code does not compile for another reason.
 >
-> **Türkçe:** G.The kodu başka bir nedenden dolayı derlemez.
-> **English:** 19.What is the simplest way of rewriting this code?
+> **Türkçe:** G. Kod başka bir nedenle derlenmez.
+### Question 19 / Soru 19
+
+> **English:** 19. What is the simplest way of rewriting this code?
 >
 > **Türkçe:** 19. Bu kodu yeniden yazmanın en basit yolu nedir?
 ```java
@@ -4191,41 +4211,45 @@ IntStream.range(1, 6)
 .mapToObj(i -> i)
 .forEach(System.out::println);
 ```
-> **English:** D.None of the above is equivalent.
+> **English:** D. None of the above is equivalent.
 >
-> **Türkçe:** Yukarıdaki D.None eşdeğerdir.
-> **English:** E.The provided code does not compile.
+> **Türkçe:** D. Yukarıdakilerin hiçbiri eşdeğer değildir.
+> **English:** E. The provided code does not compile.
 >
-> **Türkçe:** E.The sağlanan kod derlemez.
+> **Türkçe:** E. Verilen kod derlenmez.
 
 <!-- source-page: 0590 -->
-> **English:** 20.Which of the following throw an exception when an Optional is empty? (Choose all that
+### Question 20 / Soru 20
+
+> **English:** 20. Which of the following throw an exception when an Optional is empty? (Choose all that
 > apply.)
 >
-> **Türkçe:** 20. Aşağıdakilerden hangisi bir Optional boş olduğunda bir istisna atar? (Tüm geçerli
-> olanları seçin.)
+> **Türkçe:** 20. Bir `Optional` boşken aşağıdakilerden hangileri exception fırlatır?
+> (Uygun olanların tümünü seçin.)
 > **English:** A. opt.orElse("");
 >
-> **Türkçe:** A. opt.orElse("");
+> **Türkçe:** A. `opt.orElse("");`
 > **English:** B. opt.orElseGet(() -> "");
 >
-> **Türkçe:** B. opt.orElseGet(() -> "");
+> **Türkçe:** B. `opt.orElseGet(() -> "");`
 > **English:** C. opt.orElseThrow();
 >
-> **Türkçe:** C. opt.orElseThrow();
+> **Türkçe:** C. `opt.orElseThrow();`
 > **English:** D. opt.orElseThrow(() -> throw new Exception());
 >
-> **Türkçe:** D. opt.orElseThrow(() -> yeni Exception() atın;
+> **Türkçe:** D. `opt.orElseThrow(() -> throw new Exception());`
 > **English:** E. opt.orElseThrow(RuntimeException::new);
 >
-> **Türkçe:** E. opt.orElseThrow(RuntimeException::new);
+> **Türkçe:** E. `opt.orElseThrow(RuntimeException::new);`
 > **English:** F. opt.get();
 >
-> **Türkçe:** F. opt.get();
+> **Türkçe:** F. `opt.get();`
 > **English:** G. opt.get("");
 >
-> **Türkçe:** G. opt.get("");
-> **English:** 21.What is the output of the following?
+> **Türkçe:** G. `opt.get("");`
+### Question 21 / Soru 21
+
+> **English:** 21. What is the output of the following?
 >
 > **Türkçe:** 21. Aşağıdakilerin çıktısı nedir?
 ```java
@@ -4241,18 +4265,18 @@ split.tryAdvance(System.out::print);
 > **English:** B. xx
 >
 > **Türkçe:** B. xx
-> **English:** C.A long list of x’s
+> **English:** C. A long list of x’s
 >
-> **Türkçe:** C.A long list x'in
+> **Türkçe:** C. Uzun bir `x` listesi
 > **English:** D. There is no output.
 >
 > **Türkçe:** D. Çıktısı yok.
-> **English:** E.The code does not compile.
+> **English:** E. The code does not compile.
 >
-> **Türkçe:** E.The kodu derlemez.
-> **English:** F.The code compiles but does not terminate at runtime.
+> **Türkçe:** E. Kod derlenmez.
+> **English:** F. The code compiles but does not terminate at runtime.
 >
-> **Türkçe:** F.The kodu derlenir ancak çalışma zamanında sona ermez.
+> **Türkçe:** F. Kod derlenir ancak runtime'da sona ermez.
 
 ## Appendix · Official Review Question Answers / Resmî Cevaplar
 
@@ -4581,10 +4605,10 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > almaya çalışmaz. Daha sonra tryAdvance() yeni bölünmüş değişkene çağrılır ve başka bir x
 > yazdırılır. Basılı iki değer olduğundan, B seçeneği doğrudur.
 
-## Coverage ledger
+## Kapsam doğrulaması
 
-- Chapter body marker'ları: 531–590
-- Appendix answer marker'ları: 942–945
+- Ana bölüm kaynak sayfaları: 531–590
+- Ek cevap kaynağı sayfaları: 942–945
 - Resmî cevap hedefi: 1–21
 - Kod blokları özgün dilinde tutulmuştur.
 - Çeviri ayrıntıları ünite vocabulary ve grammar kaynaklarıyla desteklenir.

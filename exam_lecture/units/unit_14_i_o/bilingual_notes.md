@@ -8,13 +8,13 @@ English → Türkçe paragraf çiftleriyle bir araya getirir. Kod ve terminal
 [Vocabulary](vocabulary.md) · [Grammar notes](grammar_notes.md) ·
 [Teknik hafıza notu](technical_memory_notes.md)
 
-## Kaynak kapsam manifesti
+## Kaynak ve kapsam özeti
 
 - Kaynak: `exam_lecture/OCP_Java_SE17_Chapter1den_Itibaren.pdf`
 - Chapter: 14 · I/O
 - Chapter PDF sayfaları: 785–862
 - Appendix cevap sayfaları: 955–959
-- Beklenen sayfa marker'ı: 78
+- Beklenen kaynak sayfa sayısı: 78
 - Beklenen resmî cevap: 25
 - Eşleme biçimi: English paragraf → Türkçe çeviri → varsa kod
 
@@ -464,15 +464,15 @@ Path zooPath2 = FileSystems.getDefault()
 > yaklaşımla rahat olmalısınız. NIO.2 ile etkileşimlerinizin çoğu iki tür gerektirecektir:
 > bir abstract sınıfı veya arayüzü ve bir fabrika veya yardımcı sınıfı. FIGURE 14.3, bu
 > bölümde şimdiye kadar kullandığımız sınıflar ve arayüz arasındaki ilişkileri gösterir.
-> **English:** **FIGURE 14.3 — I/O and NIO.2 class and interface
-> relationships**
+> **English:** FIGURE 14.3 — I/O and NIO.2 class and interface
+> relationships
 >
 > ```text
-> FileSystems ──creates──▶ FileSystem ──creates──▶ Path
-> Paths ────────────────────────────────creates──▶ Path
-> java.io.File ◀──────────────converts──────────▶ Path
-> java.net.URI ◀──────────────converts──────────▶ Path
-> Files ──────────────────────────────────uses──▶ Path
+> FileSystems --creates--> FileSystem --creates--> Path
+> Paths ------------------------------creates--> Path
+> java.io.File <--converts--> Path
+> java.net.URI <--converts--> Path
+> Files ----------------------------------uses--> Path
 > ```
 >
 > **Türkçe:** **ŞEKİL 14.3 — I/O ile NIO.2 class ve interface ilişkileri.**
@@ -584,8 +584,8 @@ Path zooPath2 = FileSystems.getDefault()
 > | Resource regular file mı test eder | `isFile()` | `isRegularFile(Path p, LinkOption... o)` |
 
 <!-- source-page: 0794 -->
-> **English:** **TABLE 14.4 — Common `File` and `Files` operations
-> (continued)**
+> **English:** TABLE 14.4 — Common `File` and `Files` operations
+> (continued)
 >
 > | Description | I/O `File` instance method | NIO.2 `Files` static method |
 > |---|---|---|
@@ -596,8 +596,8 @@ Path zooPath2 = FileSystems.getDefault()
 > | Creates directory and missing parents | `mkdirs()` | `createDirectories(Path p, FileAttribute... a) throws IOException` |
 > | Renames/moves denoted file or directory | `renameTo(File dest)` | `move(Path src, Path dest, CopyOption... o) throws IOException` |
 >
-> **Türkçe:** **TABLO 14.4 — Ortak `File` ve `Files` operation'ları
-> (devam)**
+> **Türkçe:** TABLO 14.4 — Ortak `File` ve `Files` operation'ları
+> (devam)
 >
 > | Açıklama | I/O `File` instance method | NIO.2 `Files` static method |
 > |---|---|---|
@@ -1691,7 +1691,7 @@ Files.deleteIfExists(Paths.get("/pigeon"));
 >
 > ```text
 > animals\
-> ├── cobra\ ◀──────────────────┐
+> ├── cobra\ <──────────────────┐
 > ├── monkey\                   │
 > │   ├── tail.gif              │
 > │   └── ears.png              │
@@ -1793,7 +1793,7 @@ Path.of("/animals/monkey.txt")));
 >
 > ```text
 > Toward stream head                                  Toward stream tail
-> ◀────────────────────────────────────────────────────────────────────▶
+> <────────────────────────────────────────────────────────────────────>
 > ...01001010 01100001 01110110 01100001 [00100000] 00111101 01000010...
 >                                        ▲
 >                               next block / byte
@@ -2680,8 +2680,8 @@ writer.newLine();
 > ```text
 > Java Virtual Machine                         File system
 > ┌──────────────────────┐   Serialization    ┌─────────────┐
-> │ Giraffe object       │ ─────────────────▶ │ giraffe.txt │
-> │ var g = new Giraffe();│ ◀───────────────── │             │
+> │ Giraffe object       │ ------------------> │ giraffe.txt │
+> │ var g = new Giraffe();│ <------------------ │             │
 > └──────────────────────┘  Deserialization   └─────────────┘
 > ```
 >
@@ -4110,11 +4110,11 @@ FileVisitOption.FOLLOW_LINKS)) {
 >
 > ```text
 > birds\
-> └── robin\                        ◀── start
+> └── robin\                        <-- start
 >     ├── pictures\
 >     │   ├── nest.png
 >     │   └── wings.gif
->     └── allBirds\ ──symbolic link──▶ /birds
+>     └── allBirds\ --symbolic link--> /birds
 > ```
 >
 > **Türkçe:** **ŞEKİL 14.7 — Cycle içeren file system.**
@@ -4127,8 +4127,8 @@ FileVisitOption.FOLLOW_LINKS)) {
 > **Türkçe:** `/birds/robin`den başlayıp bütün symbolic link'leri izlersek ne olur?
 > TABLE 14.13, maximum depth 3 ile ziyaret edilen path'leri gösterir. Kaynak, kolaylık
 > amacıyla breadth-first order kullanır; ancak search strategy ne olursa olsun cycle oluşur.
-> **English:** **TABLE 14.13 — Walking a directory with a cycle using
-> breadth-first search**
+> **English:** TABLE 14.13 — Walking a directory with a cycle using
+> breadth-first search
 >
 > | Depth | Path reached |
 > |---:|---|
@@ -4138,8 +4138,8 @@ FileVisitOption.FOLLOW_LINKS)) {
 > | 2 | `/birds/robin/pictures/nest.png` |
 > | 2 | `/birds/robin/pictures/wings.gif` |
 >
-> **Türkçe:** **TABLO 14.13 — Cycle içeren directory'nin kaynakta
-> breadth-first varsayımıyla yürünmesi.** Root depth 0'dır; symbolic link'in
+> **Türkçe:** TABLO 14.13 — Cycle içeren directory'nin kaynakta
+> breadth-first varsayımıyla yürünmesi. Root depth 0'dır; symbolic link'in
 > çözüldüğü target okla gösterilir.
 
 > [!IMPORTANT]
@@ -4149,7 +4149,7 @@ FileVisitOption.FOLLOW_LINKS)) {
 > belirtir.
 
 <!-- source-page: 0847 -->
-> **English:** **TABLE 14.13 — Continued**
+> **English:** TABLE 14.13 — Continued
 >
 > | Depth | Path reached |
 > |---:|---|
@@ -4157,9 +4157,9 @@ FileVisitOption.FOLLOW_LINKS)) {
 > | 3 | `/birds/robin/allBirds/robin/pictures` → `/birds/robin/pictures` |
 > | 3 | `/birds/robin/allBirds/robin/pictures/allBirds` → `/birds/robin/allBirds` → `/birds` |
 >
-> **Türkçe:** **TABLO 14.13 — Devam.** Depth 2'de daha önce ziyaret edilen
+> **Türkçe:** TABLO 14.13 — Devam. Depth 2'de daha önce ziyaret edilen
 > `/birds/robin`e yeniden ulaşılır; cycle burada ortaya çıkar.
-> **English:** ➢ After walking a distance of 1 from the start, we hit the symbolic link
+> **English:** - After walking a distance of 1 from the start, we hit the symbolic link
 > /birds/robin/allBirds and go back to the top of the directory tree /birds. That’s okay
 > because we haven’t visited /birds yet, so there’s no cycle yet!
 >
@@ -4461,6 +4461,9 @@ s.forEach(System.out::println);
 > **English:** The answers to the chapter review questions can be found in the Appendix.
 >
 > **Türkçe:** Bölüm inceleme sorularının cevapları Ek'te bulunabilir.
+
+### Question 1 / Soru 1
+
 > **English:** 1. Which class would be best to use to read a binary file into a Java object?
 >
 > **Türkçe:** 1. Binary bir dosyayı okuyup Java nesnesine dönüştürmek için en uygun sınıf hangisidir?
@@ -4485,6 +4488,9 @@ s.forEach(System.out::println);
 > **English:** G. None of the above
 >
 > **Türkçe:** G. Yukarıdakilerin hiçbiri
+
+### Question 2 / Soru 2
+
 > **English:** 2. Assuming that / is the root directory within the file system, which of the following
 > are true statements? (Choose all that apply.)
 >
@@ -4514,19 +4520,22 @@ s.forEach(System.out::println);
 >
 > **Türkçe:** G. Bir `Reader`, multithreading desteği sunduğu için `InputStream`'den daha
 > kullanışlıdır.
+
+### Question 3 / Soru 3
+
 > **English:** 3. What are possible results of executing the following code? (Choose all that apply.)
 >
 > **Türkçe:** 3. Aşağıdaki kodu çalıştırmanın olası sonuçları nelerdir? (Tüm geçerli olanları seçin.)
 ```java
 public static void main(String[] args) throws IOException {
-String line;
-var c = System.console();
-Writer w = c.writer();
-try (w) {
-if ((line = c.readLine("Enter your name: ")) != null)
-w.append(line);
-w.flush();
-}
+   String line;
+   var c = System.console();
+   Writer w = c.writer();
+   try (w) {
+      if ((line = c.readLine("Enter your name: ")) != null)
+         w.append(line);
+      w.flush();
+   }
 }
 ```
 > **English:** A. The code runs, but nothing is printed.
@@ -4552,6 +4561,9 @@ w.flush();
 > **English:** G. The code does not compile.
 >
 > **Türkçe:** G. Kod derlenmiyor.
+
+### Question 4 / Soru 4
+
 > **English:** 4. For which values of path sent to this method would it be possible for the following
 > code to output Success? (Choose all that apply.)
 >
@@ -4559,9 +4571,9 @@ w.flush();
 > yazdırması mümkün olur? (Uygun olanların tümünü seçin.)
 ```java
 public void removeBadFile(Path path) {
-if(Files.isDirectory(path))
-System.out.println(Files.deleteIfExists(path)
-? "Success": "Try Again");
+   if(Files.isDirectory(path))
+      System.out.println(Files.deleteIfExists(path)
+         ? "Success": "Try Again");
 }
 ```
 > **English:** A. path refers to a regular file in the file system.
@@ -4582,6 +4594,9 @@ System.out.println(Files.deleteIfExists(path)
 > **English:** F. The code does not compile.
 >
 > **Türkçe:** F. Kod derlenmiyor.
+
+### Question 5 / Soru 5
+
 > **English:** 5. Assume that the directory /animals exists and is empty. What is the result of
 > executing the following code?
 >
@@ -4590,10 +4605,10 @@ System.out.println(Files.deleteIfExists(path)
 ```java
 Path path = Path.of("/animals");
 try (var z = Files.walk(path)) {
-boolean b = z
-.filter((p,a) -> a.isDirectory() &&!path.equals(p)) // x
-.findFirst().isPresent(); // y
-System.out.print(b? "No Sub": "Has Sub");
+   boolean b = z
+      .filter((p,a) -> a.isDirectory() && !path.equals(p)) // x
+      .findFirst().isPresent(); // y
+   System.out.print(b ? "No Sub": "Has Sub");
 }
 ```
 > **English:** A. It prints No Sub.
@@ -4614,6 +4629,9 @@ System.out.print(b? "No Sub": "Has Sub");
 > **English:** F. It produces an infinite loop at runtime.
 >
 > **Türkçe:** F. Çalışma zamanında sonsuz bir döngü üretir.
+
+### Question 6 / Soru 6
+
 > **English:** 6. What would be the value of name if the instance of Eagle created in the main() method
 > were serialized and then deserialized?
 >
@@ -4622,28 +4640,26 @@ System.out.print(b? "No Sub": "Has Sub");
 ```java
 import java.io.Serializable;
 class Bird {
-protected transient String name;
+   protected transient String name;
+   public void setName(String name) { this.name = name; }
+   public String getName() { return name; }
+   public Bird() {
+      this.name = "Matt";
+   }
+}
+public class Eagle extends Bird implements Serializable {
+   { this.name = "Olivia"; }
+   public Eagle() {
+      this.name = "Bridget";
+   }
+   public static void main(String[] args) {
+      var e = new Eagle();
+      e.name = "Adeline";
+   }
+}
 ```
 
 <!-- source-page: 0854 -->
-```java
-public void setName(String name) { this.name = name; }
-public String getName() { return name; }
-public Bird() {
-this.name = "Matt";
-}
-}
-public class Eagle extends Bird implements Serializable {
-{ this.name = "Olivia"; }
-public Eagle() {
-this.name = "Bridget";
-}
-public static void main(String[] args) {
-var e = new Eagle();
-e.name = "Adeline";
-}
-}
-```
 > **English:** A. Adeline
 >
 > **Türkçe:** A. Adeline
@@ -4665,18 +4681,20 @@ e.name = "Adeline";
 > **English:** G. The code compiles but throws an exception at runtime.
 >
 > **Türkçe:** G. Kod derlenir ancak çalışma zamanında bir istisna atar.
+
+### Question 7 / Soru 7
+
 > **English:** 7. Assume that /kang exists as a symbolic link to the directory /mammal/kangaroo within
 > the file system. Which of the following statements are correct about this code snippet?
+> (Choose all that apply.)
 >
 > **Türkçe:** 7. `/kang` path'inin file system içindeki `/mammal/kangaroo` directory'sine
 > symbolic link olduğunu varsayın. Bu kod parçasıyla ilgili ifadelerden hangileri doğrudur?
-> **English:** (Choose all that apply.)
->
-> **Türkçe:** (Tüm geçerli olanları seçin.)
+> (Uygun olanların tümünü seçin.)
 ```java
 var path = Paths.get("/kang");
 if(Files.isDirectory(path) && Files.isSymbolicLink(path))
-Files.createDirectory(path.resolve("joey"));
+   Files.createDirectory(path.resolve("joey"));
 ```
 > **English:** A. A new directory will always be created.
 >
@@ -4698,6 +4716,9 @@ Files.createDirectory(path.resolve("joey"));
 > **Türkçe:** F. Kod derlenecek ancak çalışma zamanında her zaman bir istisna atacaktır.
 
 <!-- source-page: 0855 -->
+
+### Question 8 / Soru 8
+
 > **English:** 8. Assuming that the /fox/food-schedule.csv file exists with the specified contents,
 > what is the expected output of calling printData() on it?
 >
@@ -4709,11 +4730,14 @@ Files.createDirectory(path.resolve("joey"));
 9am,SecondBreakfast
 12pm,Lunch
 6pm,Dinner
+```
+
+```java
 void printData(Path path) throws IOException {
-Files.readAllLines(path) // r1
-.flatMap(p -> Stream.of(p.split(","))) // r2
-.map(q -> q.toUpperCase()) // r3
-.forEach(System.out::println);
+   Files.readAllLines(path) // r1
+      .flatMap(p -> Stream.of(p.split(","))) // r2
+      .map(q -> q.toUpperCase()) // r3
+      .forEach(System.out::println);
 }
 ```
 > **English:** A. The code will not compile because of line r1.
@@ -4734,19 +4758,22 @@ Files.readAllLines(path) // r1
 > **English:** F. None of the above
 >
 > **Türkçe:** F. Yukarıdakilerin hiçbiri
+
+### Question 9 / Soru 9
+
 > **English:** 9. Given the following method, which statements are correct? (Choose all that apply.)
 >
 > **Türkçe:** 9. Aşağıdaki method için hangi ifadeler doğrudur? (Uygun olanların tümünü seçin.)
 ```java
 public void copyFile(File file1, File file2) throws Exception {
-var reader = new InputStreamReader(new FileInputStream(file1));
-try (var writer = new FileWriter(file2)) {
-char[] buffer = new char[10];
-while(reader.read(buffer) != -1) {
-writer.write(buffer);
-// n1
-}
-}
+   var reader = new InputStreamReader(new FileInputStream(file1));
+   try (var writer = new FileWriter(file2)) {
+      char[] buffer = new char[10];
+      while(reader.read(buffer) != -1) {
+         writer.write(buffer);
+         // n1
+      }
+   }
 }
 ```
 > **English:** A. The code does not compile because reader is not a buffered stream.
@@ -4776,6 +4803,9 @@ writer.write(buffer);
 > **Türkçe:** G. Bu yöntem bir kaynak sızıntısı içerir.
 
 <!-- source-page: 0856 -->
+
+### Question 10 / Soru 10
+
 > **English:** 10. Which of the following correctly create Path instances? (Choose all that apply.)
 >
 > **Türkçe:** 10. Aşağıdakilerden hangileri `Path` instance'ını doğru biçimde oluşturur?
@@ -4801,13 +4831,16 @@ writer.write(buffer);
 > **English:** G. Path.of(Path.of(".").toUri())
 >
 > **Türkçe:** G. `Path.of(Path.of(".").toUri())`
+
+### Question 11 / Soru 11
+
 > **English:** 11. Which classes will allow the following to compile? (Choose all that apply.)
 >
-> **Türkçe:** 11. Hangi sınıflar aşağıdakilerin derlenmesine izin verecek? (Tüm geçerli olanları
+> **Türkçe:** 11. Aşağıdaki kodun derlenmesini hangi class'lar sağlar? (Tüm geçerli olanları
 > seçin.)
 ```java
 var is = new BufferedInputStream(new FileInputStream("z.txt"));
-InputStream wrapper = new(is);
+InputStream wrapper = new ________________(is);
 try (wrapper) {}
 ```
 > **English:** A. BufferedInputStream
@@ -4831,16 +4864,19 @@ try (wrapper) {}
 > **English:** G. None of the above, as the first line does not compile
 >
 > **Türkçe:** G. İlk satır derlenmediği için yukarıdakilerin hiçbiri
+
+### Question 12 / Soru 12
+
 > **English:** 12. What is the result of executing the following code? (Choose all that apply.)
 >
-> **Türkçe:** 12. Aşağıdaki kodun çalıştırılmasının sonucu nedir? (Tüm geçerli olanları seçin.)
+> **Türkçe:** 12. Aşağıdaki kod çalıştırıldığında sonuç ne olur? (Tüm geçerli olanları seçin.)
 ```java
-var p = Paths.get("sloth.schedule");
-var a = Files.readAttributes(p, BasicFileAttributes.class);
-Files.mkdir(p.resolve(".backup"));
-if(a.size()>0 && a.isDirectory()) {
-a.setTimes(null,null,null);
-}
+4: var p = Paths.get("sloth.schedule");
+5: var a = Files.readAttributes(p, BasicFileAttributes.class);
+6: Files.mkdir(p.resolve(".backup"));
+7: if(a.size()>0 && a.isDirectory()) {
+8:    a.setTimes(null,null,null);
+9: }
 ```
 > **English:** A. It compiles and runs without issue.
 >
@@ -4862,6 +4898,9 @@ a.setTimes(null,null,null);
 > **Türkçe:** F. Yukarıdakilerin hiçbiri
 
 <!-- source-page: 0857 -->
+
+### Question 13 / Soru 13
+
 > **English:** 13. Which of the following are true statements about serialization in Java? (Choose all
 > that apply.)
 >
@@ -4889,6 +4928,9 @@ a.setTimes(null,null,null);
 > **English:** G. The class must implement the Serializable interface.
 >
 > **Türkçe:** G. Class, `Serializable` interface'ini implement etmelidir.
+
+### Question 14 / Soru 14
+
 > **English:** 14. What is the output of the following code? (Choose three.)
 >
 > **Türkçe:** 14. Aşağıdaki kodun çıktısı nedir? (Üç seçeneği işaretleyin.)
@@ -4922,6 +4964,9 @@ a.setTimes(null,null,null);
 > **English:** F. /pets/../cat.txt/./dog.txt
 >
 > **Türkçe:** F. `/pets/../cat.txt/./dog.txt`
+
+### Question 15 / Soru 15
+
 > **English:** 15. Suppose that the working directory is /weather and the absolute path
 > /weather/winter/snow.dat represents a file that exists within the file system. Which of
 > the following lines of code create an object that represents the file? (Choose all that
@@ -4961,6 +5006,9 @@ a.setTimes(null,null,null);
 > Java 17'e göre değerlendirildiğinde savunulabilir cevap **B, E**'dir.
 
 <!-- source-page: 0858 -->
+
+### Question 16 / Soru 16
+
 > **English:** 16. Assuming zoo-data.txt exists and is not empty, what statements about the following
 > method are correct? (Choose all that apply.)
 >
@@ -4968,12 +5016,12 @@ a.setTimes(null,null,null);
 > method hakkında hangi ifadeler doğrudur? (Uygun olanların tümünü seçin.)
 ```java
 private void echo() throws IOException {
-var o = new FileWriter("new-zoo.txt");
-try (var f = new FileReader("zoo-data.txt");
-var b = new BufferedReader(f); o) {
-o.write(b.readLine());
-}
-o.write("");
+   var o = new FileWriter("new-zoo.txt");
+   try (var f = new FileReader("zoo-data.txt");
+      var b = new BufferedReader(f); o) {
+      o.write(b.readLine());
+   }
+   o.write("");
 }
 ```
 > **English:** A. When run, the method creates a new file with one line of text in it.
@@ -4996,6 +5044,9 @@ o.write("");
 > **English:** F. The method uses byte stream classes.
 >
 > **Türkçe:** F. Method, byte stream class'larını kullanır.
+
+### Question 17 / Soru 17
+
 > **English:** 17. Which are true statements? (Choose all that apply.)
 >
 > **Türkçe:** 17. Hangileri doğru ifadelerdir? (Tüm geçerli olanları seçin.)
@@ -5019,6 +5070,9 @@ o.write("");
 > **English:** F. Files.readAttributes() works with the File object.
 >
 > **Türkçe:** F. `Files.readAttributes()`, `File` object'iyle çalışır.
+
+### Question 18 / Soru 18
+
 > **English:** 18. Assume that reader is a valid stream whose next characters are PEACOCKS. What is
 > true about the output of the following code snippet? (Choose all that apply.)
 >
@@ -5030,18 +5084,16 @@ var sb = new StringBuilder();
 sb.append((char)reader.read());
 reader.mark(10);
 for(int i=0; i<2; i++) {
-sb.append((char)reader.read());
-reader.skip(2);
+   sb.append((char)reader.read());
+   reader.skip(2);
 }
 reader.reset();
 reader.skip(0);
-```
-
-<!-- source-page: 0859 -->
-```java
 sb.append((char)reader.read());
 System.out.println(sb.toString());
 ```
+
+<!-- source-page: 0859 -->
 > **English:** A. The code may print PEAE.
 >
 > **Türkçe:** A. Kod `PEAE` yazdırabilir.
@@ -5066,6 +5118,9 @@ System.out.println(sb.toString());
 > **English:** H. The code will always print PEOS.
 >
 > **Türkçe:** H. Kod her zaman `PEOS` yazdırır.
+
+### Question 19 / Soru 19
+
 > **English:** 19. Assuming that the directories and files referenced exist and are not symbolic links,
 > what is the result of executing the following code?
 >
@@ -5104,6 +5159,9 @@ System.out.print(Files.mismatch(p1,p2));
 > **English:** H. The result cannot be determined.
 >
 > **Türkçe:** H. Sonuç belirlenemez.
+
+### Question 20 / Soru 20
+
 > **English:** 20. Assume that monkey.txt is a file that exists in the current working directory. Which
 > statements about the following code snippet are correct? (Choose all that apply.)
 >
@@ -5112,8 +5170,8 @@ System.out.print(Files.mismatch(p1,p2));
 > (Uygun olanların tümünü seçin.)
 ```java
 Files.move(Path.of("monkey.txt"), Paths.get("/animals"),
-StandardCopyOption.ATOMIC_MOVE,
-LinkOption.NOFOLLOW_LINKS);
+   StandardCopyOption.ATOMIC_MOVE,
+   LinkOption.NOFOLLOW_LINKS);
 ```
 > **English:** A. If /animals/monkey.txt exists, it will be overwritten at runtime.
 >
@@ -5136,6 +5194,9 @@ LinkOption.NOFOLLOW_LINKS);
 > **English:** E. None of the above
 >
 > **Türkçe:** E. Yukarıdakilerin hiçbiri
+
+### Question 21 / Soru 21
+
 > **English:** 21. Assume that /monkeys exists as a directory containing multiple files, symbolic
 > links, and subdirectories. Which statement about the following code is correct?
 >
@@ -5144,18 +5205,18 @@ LinkOption.NOFOLLOW_LINKS);
 ```java
 var f = Path.of("/monkeys");
 try (var m =
-Files.find(f, 0, (p,a) -> a.isSymbolicLink())) { // y1
-m.map(s -> s.toString())
-.collect(Collectors.toList())
-.stream()
-.filter(s -> s.toString().endsWith(".txt")) // y2
-.forEach(System.out::println);
+   Files.find(f, 0, (p,a) -> a.isSymbolicLink())) { // y1
+   m.map(s -> s.toString())
+      .collect(Collectors.toList())
+      .stream()
+      .filter(s -> s.toString().endsWith(".txt")) // y2
+      .forEach(System.out::println);
 }
 ```
-> **English:** A. It will print all symbolic links in the directory tree ending in.txt.
+> **English:** A. It will print all symbolic links in the directory tree ending in .txt.
 >
 > **Türkçe:** A. Directory tree'de `.txt` ile biten bütün symbolic link'leri yazdırır.
-> **English:** B. It will print the target of all symbolic links in the directory ending in.txt.
+> **English:** B. It will print the target of all symbolic links in the directory ending in .txt.
 >
 > **Türkçe:** B. Directory'de `.txt` ile biten bütün symbolic link'lerin target'ını yazdırır.
 > **English:** C. It will print nothing.
@@ -5170,6 +5231,9 @@ m.map(s -> s.toString())
 > **English:** F. It compiles but throws an exception at runtime.
 >
 > **Türkçe:** F. Kod derlenir ancak çalışma zamanında bir exception fırlatır.
+
+### Question 22 / Soru 22
+
 > **English:** 22. Which of the following fields will be null after an instance of the class created on
 > line 17 is serialized and then deserialized using ObjectOutputStream and
 > ObjectInputStream? (Choose all that apply.)
@@ -5178,30 +5242,28 @@ m.map(s -> s.toString())
 > serialize, ardından `ObjectInputStream` ile deserialize edildikten sonra aşağıdaki
 > field'lardan hangileri `null` olur? (Uygun olanların tümünü seçin.)
 ```java
-import java.io.Serializable;
-import java.util.List;
-public class Zebra implements Serializable {
-private transient String name = "George";
-private static String birthPlace = "Africa";
-private transient Integer age;
-List<Zebra> friends = new java.util.ArrayList<>();
-private Object stripes = new Object();
-{ age = 10;}
-public Zebra() {
-this.name = "Sophia";
-}
-static Zebra writeAndRead(Zebra z) {
+1:  import java.io.Serializable;
+2:  import java.util.List;
+3:  public class Zebra implements Serializable {
+4:     private transient String name = "George";
+5:     private static String birthPlace = "Africa";
+6:     private transient Integer age;
+7:     List<Zebra> friends = new java.util.ArrayList<>();
+8:     private Object stripes = new Object();
+9:     { age = 10;}
+10:   public Zebra() {
+11:      this.name = "Sophia";
+12:   }
+13:   static Zebra writeAndRead(Zebra z) {
+14:      // Implementation omitted
+15:   }
+16:   public static void main(String[] args) {
+17:      var zebra = new Zebra();
+18:      zebra = writeAndRead(zebra);
+19:   }
 ```
 
 <!-- source-page: 0861 -->
-```java
-// Implementation omitted
-}
-public static void main(String[] args) {
-var zebra = new Zebra();
-zebra = writeAndRead(zebra);
-}
-```
 > **English:** A. age
 >
 > **Türkçe:** A. `age`
@@ -5223,6 +5285,9 @@ zebra = writeAndRead(zebra);
 > **English:** G. The code compiles but throws an exception at runtime.
 >
 > **Türkçe:** G. Kod derlenir ancak çalışma zamanında bir istisna atar.
+
+### Question 23 / Soru 23
+
 > **English:** 23. What are some possible results of executing the following code? (Choose all that
 > apply.)
 >
@@ -5231,9 +5296,9 @@ zebra = writeAndRead(zebra);
 ```java
 var x = Path.of("/animals/fluffy/..");
 Files.walk(x.toRealPath().getParent()) // u1
-.map(p -> p.toAbsolutePath().toString()) // u2
-.filter(s -> s.endsWith(".java"))
-.forEach(System.out::println);
+   .map(p -> p.toAbsolutePath().toString()) // u2
+   .filter(s -> s.endsWith(".java"))
+   .forEach(System.out::println);
 ```
 > **English:** A. It prints some files in the root directory.
 >
@@ -5253,24 +5318,24 @@ Files.walk(x.toRealPath().getParent()) // u1
 > **English:** F. The code will not compile because of line u2.
 >
 > **Türkçe:** F. Kod, `u2` satırı nedeniyle derlenmez.
+
+### Question 24 / Soru 24
+
 > **English:** 24. Assume that the source instance passed to the following method represents a file
-> that exists.
->
-> **Türkçe:** 24. Aşağıdaki method'a geçirilen `source` instance'ının var olan bir file'ı
-> temsil ettiğini varsayalım.
-> **English:** Also assume that /flip/sounds.txt exists as a file prior to executing this method. When
+> that exists. Also assume that /flip/sounds.txt exists as a file prior to executing this method. When
 > this method is executed, which statement correctly copies the file to the path specified
 > by /flip/sounds.txt?
 >
-> **Türkçe:** Ayrıca method çalıştırılmadan önce `/flip/sounds.txt` path'inde bir file
+> **Türkçe:** 24. Aşağıdaki method'a geçirilen `source` instance'ının var olan bir file'ı
+> temsil ettiğini varsayalım. Ayrıca method çalıştırılmadan önce `/flip/sounds.txt` path'inde bir file
 > bulunduğunu varsayın. Method çalıştırıldığında hangi statement file'ı doğru biçimde
 > `/flip/sounds.txt` path'ine kopyalar?
 ```java
 void copyIntoFlipDirectory(Path source) throws IOException {
-var dolphinDir = Path.of("/flip");
-dolphinDir = Files.createDirectories(dolphinDir);
-var n = Paths.get("sounds.txt");
-/* INSERT CODE HERE */;
+   var dolphinDir = Path.of("/flip");
+   dolphinDir = Files.createDirectories(dolphinDir);
+   var n = Paths.get("sounds.txt");
+   ________________________________;
 }
 ```
 
@@ -5296,6 +5361,9 @@ var n = Paths.get("sounds.txt");
 >
 > **Türkçe:** F. Boşluğa ne yazılırsa yazılsın method derlenir ancak çalışma zamanında
 > exception fırlatır.
+
+### Question 25 / Soru 25
+
 > **English:** 25. Suppose that you need to read text data from a file and want the data to be
 > performant on large files. Which two java.io stream classes can be chained together to
 > best achieve this result? (Choose two.)
@@ -5760,10 +5828,10 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > elenir. E ve G var olmayan class'ları gösterdiğinden yanlıştır. B ile D birlikte bir
 > file'dan character okur ve performance için buffer sağlar; ikisi de doğrudur.
 
-## Coverage ledger
+## Kapsam doğrulaması
 
-- Chapter body marker'ları: 785–862
-- Appendix answer marker'ları: 955–959
+- Ana bölüm kaynak sayfaları: 785–862
+- Ek cevap kaynağı sayfaları: 955–959
 - Resmî cevap hedefi: 1–25
 - Kod blokları özgün dilinde tutulmuştur.
 - Çeviri ayrıntıları ünite vocabulary ve grammar kaynaklarıyla desteklenir.

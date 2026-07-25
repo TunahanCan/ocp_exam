@@ -1,5 +1,16 @@
 # Unit 06 Vocabulary · Class Design
 
+## Bu belge nasıl kullanılmalı?
+
+Bu sözlüğü [README'deki çalışma rotasının](README.md#4560-dakikalık-önerilen-çalışma-rotası)
+vocabulary adımında kullan:
+
+1. Terimin Türkçe karşılığını kapatıp English başlıktan hatırlamaya çalış.
+2. `Bağlam` ve `Example` satırlarıyla kelimenin inheritance/class-design
+   anlamını doğrula.
+3. Related/antonym bilgisini sesli tekrar et; son mini quiz'i notlara bakmadan
+   çöz.
+
 ## A–I
 
 ### abstract · adjective

@@ -8,13 +8,13 @@ English → Türkçe paragraf çiftleriyle bir araya getirir. Kod ve terminal
 [Vocabulary](vocabulary.md) · [Grammar notes](grammar_notes.md) ·
 [Teknik hafıza notu](technical_memory_notes.md)
 
-## Kaynak kapsam manifesti
+## Kaynak ve kapsam özeti
 
 - Kaynak: `exam_lecture/OCP_Java_SE17_Chapter1den_Itibaren.pdf`
 - Chapter: 12 · Modules
 - Chapter PDF sayfaları: 661–720
 - Appendix cevap sayfaları: 949–951
-- Beklenen sayfa marker'ı: 60
+- Beklenen kaynak sayfa sayısı: 60
 - Beklenen resmî cevap: 25
 - Eşleme biçimi: English paragraf → Türkçe çeviri → varsa kod
 
@@ -138,8 +138,8 @@ English → Türkçe paragraf çiftleriyle bir araya getirir. Kod ve terminal
 > JAR dosyasına benzer; ancak geliştirici modül dışından hangi paketlere
 > erişilebileceğini seçer. Şimdi modüllerin ne olduğuna ve hangi sorunları çözmek üzere
 > tasarlandığına bakalım.
-> **English:** The Java Platform Module System includes the following: ■■ A format for module JAR files
-> ■■ Partitioning of the JDK into modules ■■ Additional command-line options for Java
+> **English:** The Java Platform Module System includes the following: • A format for module JAR files
+> • Partitioning of the JDK into modules • Additional command-line options for Java
 > tools
 >
 > **Türkçe:** Java Platform Module System şunları içerir: modüler JAR dosyaları için bir
@@ -209,16 +209,16 @@ English → Türkçe paragraf çiftleriyle bir araya getirir. Kod ve terminal
 ### Benefits of Modules
 > **English:** Modules look like another layer of things you need to know in order to program. While
 > using modules is optional, it is important to understand the problems they are designed
-> to solve: ■■ Better access control: In addition to the levels of access control covered
+> to solve: • Better access control: In addition to the levels of access control covered
 > in Chapter 5, “Methods,” you can have packages that are only accessible to other
-> packages in the module. ■■ Clearer dependency management: Since modules specify what
+> packages in the module. • Clearer dependency management: Since modules specify what
 > they rely on, Java can complain about a missing JAR when starting up the program rather
-> than when it is first accessed at runtime. ■■ Custom Java builds: You can create a Java
+> than when it is first accessed at runtime. • Custom Java builds: You can create a Java
 > runtime that has only the parts of the JDK that your program needs rather than the full
-> one at over 150 MB. ■■ Improved security: Since you can omit parts of the JDK from your
+> one at over 150 MB. • Improved security: Since you can omit parts of the JDK from your
 > custom build, you don’t have to worry about vulnerabilities discovered in a part you
-> don’t use. ■■ Improved performance: Another benefit of a smaller Java package is
-> improved startup time and a lower memory requirement. ■■ Unique package enforcement:
+> don’t use. • Improved performance: Another benefit of a smaller Java package is
+> improved startup time and a lower memory requirement. • Unique package enforcement:
 > Since modules specify exposed packages, Java can ensure that each package comes from
 > only one module and avoid confusion about what is being run.
 >
@@ -286,9 +286,9 @@ module zoo.animal.feeding {
 }
 ```
 > **English:** There are a few key differences between a module declaration and a regular Java class
-> declaration: ■■ The module-info.java file must be in the root directory of your module.
-> Regular Java classes should be in packages. ■■ The module declaration must use the
-> keyword module instead of class, interface, or enum. ■■ The module name follows the
+> declaration: • The module-info.java file must be in the root directory of your module.
+> Regular Java classes should be in packages. • The module declaration must use the
+> keyword module instead of class, interface, or enum. • The module name follows the
 > naming rules for package names. It often includes periods (.) in its name. Regular class
 > and package names are not allowed to have dashes (-).
 >
@@ -961,14 +961,15 @@ requires zoo.animal.care;
 > **English:** FIGURE 12.12 — Transitive dependency version of our modules. Solid
 > arrows: `zoo.animal.care` → `zoo.animal.feeding`; `zoo.animal.talks` →
 > `zoo.animal.care`; `zoo.staff` → `zoo.animal.talks`. Dashed arrows show redundant
-> readability edges: `zoo.animal.talks` ⇢ `zoo.animal.feeding`; `zoo.staff` ⇢
-> `zoo.animal.care`, `zoo.animal.feeding`.
+> readability edges: `zoo.animal.talks` --reads--> `zoo.animal.feeding`;
+> `zoo.staff` --reads--> `zoo.animal.care`, `zoo.animal.feeding`.
 >
 > **Türkçe:** **Şekil 12.12 — Modüllerin transitive dependency kullanan sürümü.**
 > Düz oklar: `zoo.animal.care` → `zoo.animal.feeding`; `zoo.animal.talks` →
 > `zoo.animal.care`; `zoo.staff` → `zoo.animal.talks`. Kesikli oklar redundant
-> readability ilişkilerini gösterir: `zoo.animal.talks` ⇢ `zoo.animal.feeding`;
-> `zoo.staff` ⇢ `zoo.animal.care`, `zoo.animal.feeding`.
+> readability ilişkilerini gösterir: `zoo.animal.talks` --reads-->
+> `zoo.animal.feeding`; `zoo.staff` --reads--> `zoo.animal.care`,
+> `zoo.animal.feeding`.
 > **English:** For example, zoo.animal.talks depends on zoo.animal.care, which depends on
 > zoo.animal.feeding. That means the direct solid dependency arrow between
 > zoo.animal.talks and zoo.animal.feeding no longer appears in Figure 12.12.
@@ -1041,7 +1042,7 @@ requires zoo.animal.talks;
 #### Effects of requires transitive
 > **English:** Given our new module declarations, and using Figure 12.12, what is the effect of
 > applying the transitive modifier to the requires statement in our zoo.animal.care
-> module? Applying the transitive modifiers has the following effects: ■■ Module
+> module? Applying the transitive modifiers has the following effects: • Module
 > zoo.animal.talks can optionally declare that it requires the zoo.animal.feeding module,
 > but it is not required.
 >
@@ -1052,8 +1053,8 @@ requires zoo.animal.talks;
 > ekleyebilir, ancak bunu yapması zorunlu değildir.
 
 <!-- source-page: 0679 -->
-> **English:** ■■ Module zoo.animal.care cannot be compiled or executed without access to the
-> zoo.animal.feeding module. ■■ Module zoo.animal.talks cannot be compiled or executed
+> **English:** • Module zoo.animal.care cannot be compiled or executed without access to the
+> zoo.animal.feeding module. • Module zoo.animal.talks cannot be compiled or executed
 > without access to the zoo.animal.feeding module.
 >
 > **Türkçe:** `zoo.animal.care` modülü, `zoo.animal.feeding` modülüne erişim olmadan
@@ -2538,12 +2539,12 @@ jlink --module-path mods --add-modules zoo.animal.talks --output zooApp
 > böylece module adı `holiday.calendar` olur. Ardışık dot’lar birleştirilir ve baştaki ya
 > da sondaki dot’lar kaldırılır.
 > **English:** Since that’s a number of rules, let’s review the algorithm in a list for determining the
-> name of an automatic module: ■■ If the MANIFEST.MF specifies an Automatic-Module-Name,
-> use that. Otherwise, proceed with the remaining rules. ■■ Remove the file extension
-> from the JAR name. ■■ Remove any version information from the end of the name. A version
+> name of an automatic module: • If the MANIFEST.MF specifies an Automatic-Module-Name,
+> use that. Otherwise, proceed with the remaining rules. • Remove the file extension
+> from the JAR name. • Remove any version information from the end of the name. A version
 > is digits and dots with possible extra information at the end: for example, -1.0.0 or
-> -1.0-RC. ■■ Replace any remaining characters other than letters and numbers with dots.
-> ■■ Replace any sequences of dots with a single dot. ■■ Remove the dot if it is the first
+> -1.0-RC. • Replace any remaining characters other than letters and numbers with dots.
+> • Replace any sequences of dots with a single dot. • Remove the dot if it is the first
 > or last character of the result.
 >
 > **Türkçe:** Automatic module adı şu algoritmayla belirlenir: `MANIFEST.MF` içinde
@@ -3158,6 +3159,9 @@ requires zoo.butterfly;
 > **English:** The answers to the chapter review questions can be found in the Appendix.
 >
 > **Türkçe:** Bölüm inceleme sorularının cevapları Ek'te bulunabilir.
+
+### Question 1 / Soru 1
+
 > **English:** 1. Which statement is true of the following module?
 >
 > **Türkçe:** 1. Aşağıdaki modül için hangi ifade doğrudur?
@@ -3192,6 +3196,9 @@ requires zoo.butterfly;
 > **English:** F. None of these changes would make this directory structure a valid module.
 >
 > **Türkçe:** F. Bu değişikliklerin hiçbiri dizin yapısını geçerli bir modül hâline getirmez.
+
+### Question 2 / Soru 2
+
 > **English:** 2. Suppose module puppy depends on module dog and module dog depends on module animal.
 > Fill in the blank so that code in module dog can access the animal.behavior package in
 > module animal.
@@ -3201,7 +3208,7 @@ requires zoo.butterfly;
 > paketine erişebilmesi için boşluğu doldurun.
 ```java
 module animal {
-_____ animal.behavior;
+   _______ animal.behavior;
 }
 ```
 > **English:** A. export
@@ -3225,11 +3232,16 @@ _____ animal.behavior;
 > **English:** G. None of the above
 >
 > **Türkçe:** G. Yukarıdakilerin hiçbiri
+
+### Question 3 / Soru 3
+
 > **English:** 3. Fill in the blanks so this command to run the program is correct:
 >
 > **Türkçe:** 3. Programı çalıştıran komutun doğru olması için boşlukları doldurun:
 ```bash
-java _____ zoo.animal.talks/zoo/animal/talks/Peacocks _____ modules
+java
+_____ zoo.animal.talks/zoo/animal/talks/Peacocks
+_____ modules
 ```
 
 <!-- source-page: 0714 -->
@@ -3254,9 +3266,12 @@ java _____ zoo.animal.talks/zoo/animal/talks/Peacocks _____ modules
 > **English:** G. None of the above
 >
 > **Türkçe:** G. Yukarıdakilerin hiçbiri
+
+### Question 4 / Soru 4
+
 > **English:** 4. Which of the following pairs make up a service?
 >
-> **Türkçe:** 4. Aşağıdaki çiftlerden hangisi bir hizmet oluşturur?
+> **Türkçe:** 4. Aşağıdaki çiftlerden hangisi bir service'i oluşturur?
 > **English:** A. Consumer and service locator
 >
 > **Türkçe:** A. Consumer ve service locator
@@ -3272,6 +3287,9 @@ java _____ zoo.animal.talks/zoo/animal/talks/Peacocks _____ modules
 > **English:** E. Service provider and service provider interface
 >
 > **Türkçe:** E. Service provider ve service provider interface
+
+### Question 5 / Soru 5
+
 > **English:** 5. A(n) _______________ module is on the classpath while a(n) ____________ module is on
 > the module path. (Choose all that apply.)
 >
@@ -3298,6 +3316,9 @@ java _____ zoo.animal.talks/zoo/animal/talks/Peacocks _____ modules
 > **English:** G. None of the above
 >
 > **Türkçe:** G. Yukarıdakilerin hiçbiri
+
+### Question 6 / Soru 6
+
 > **English:** 6. Which of the following statements are true in a module-info.java file? (Choose all
 > that apply.)
 >
@@ -3321,6 +3342,9 @@ java _____ zoo.animal.talks/zoo/animal/talks/Peacocks _____ modules
 > **English:** F. The uses directive declares that an API is called.
 >
 > **Türkçe:** F. `uses` directive bir API’nin çağrıldığını bildirir.
+
+### Question 7 / Soru 7
+
 > **English:** 7. An automatic module name is generated if one is not supplied. Which of the following
 > JAR filenames and generated automatic module name pairs are correct? (Choose all that
 > apply.)
@@ -3351,9 +3375,12 @@ java _____ zoo.animal.talks/zoo/animal/talks/Peacocks _____ modules
 > **English:** G. emily.$.jar and emily..
 >
 > **Türkçe:** G. `emily.$.jar` ve `emily..`
+
+### Question 8 / Soru 8
+
 > **English:** 8. Which of the following statements are true? (Choose all that apply.)
 >
-> **Türkçe:** 8. Aşağıdaki ifadelerden hangisi doğrudur? (Tüm geçerli olanları seçin.)
+> **Türkçe:** 8. Aşağıdaki ifadelerden hangileri doğrudur? (Tüm geçerli olanları seçin.)
 > **English:** A. Modules with cyclic dependencies will not compile.
 >
 > **Türkçe:** A. Cyclic dependency içeren module’ler derlenmez.
@@ -3369,6 +3396,9 @@ java _____ zoo.animal.talks/zoo/animal/talks/Peacocks _____ modules
 > **English:** E. An unnamed module can be involved in a cyclic dependency with an automatic module.
 >
 > **Türkçe:** E. Unnamed module, automatic module ile cyclic dependency içinde olabilir.
+
+### Question 9 / Soru 9
+
 > **English:** 9. Suppose you are creating a service provider that contains the following class. Which
 > line of code needs to be in your module-info.java?
 >
@@ -3378,9 +3408,9 @@ java _____ zoo.animal.talks/zoo/animal/talks/Peacocks _____ modules
 package dragon;
 import magic.*;
 public class Dragon implements Magic {
-public String getPower() {
-return "breathe fire";
-}
+   public String getPower() {
+      return "breathe fire";
+   }
 }
 ```
 > **English:** A. provides dragon.Dragon by magic.Magic;
@@ -3401,6 +3431,9 @@ return "breathe fire";
 > **English:** F. provides magic.Magic with dragon.Dragon;
 >
 > **Türkçe:** F. `provides magic.Magic with dragon.Dragon;`
+
+### Question 10 / Soru 10
+
 > **English:** 10. What is true of a module containing a file named module-info.java with the following
 > contents? (Choose all that apply.)
 >
@@ -3429,6 +3462,9 @@ module com.food.supplier {}
 > **Türkçe:** F. `module-info.java` filename’i yanlıştır.
 
 <!-- source-page: 0716 -->
+
+### Question 11 / Soru 11
+
 > **English:** 11. Suppose module puppy depends on module dog and module dog depends on module animal.
 > Which lines allow module puppy to access the animal.behavior package in module animal?
 > (Choose all that apply.)
@@ -3438,13 +3474,13 @@ module com.food.supplier {}
 > `animal.behavior` paketine erişmesini sağlar? (Tüm geçerli seçenekleri işaretleyin.)
 ```java
 module animal {
-exports animal.behavior;
+   exports animal.behavior;
 }
 module dog {
-_____ animal; // line S
+   _____ animal; // line S
 }
 module puppy {
-_____ dog; // line T
+   _____ dog;     // line T
 }
 ```
 > **English:** A. require on line S
@@ -3471,9 +3507,12 @@ _____ dog; // line T
 > **English:** H. requires transitive on line T
 >
 > **Türkçe:** H. Line T üzerinde `requires transitive`
+
+### Question 12 / Soru 12
+
 > **English:** 12. Which of the following modules are provided by the JDK? (Choose all that apply.)
 >
-> **Türkçe:** 12. Aşağıdaki modüllerden hangisi JDK tarafından sağlanır? (Tüm geçerli olanları seçin.)
+> **Türkçe:** 12. Aşağıdaki modüllerden hangileri JDK tarafından sağlanır? (Tüm geçerli olanları seçin.)
 > **English:** A. java.base
 >
 > **Türkçe:** A. java.base
@@ -3495,21 +3534,24 @@ _____ dog; // line T
 > **English:** G. jdk.xerces
 >
 > **Türkçe:** G. jdk.xerces
+
+### Question 13 / Soru 13
+
 > **English:** 13. Which of the following compiles and is equivalent to this loop?
 >
 > **Türkçe:** 13. Aşağıdakilerden hangisi derlenir ve bu loop’a eşdeğerdir?
 ```java
 List<Unicorn> all = new ArrayList<>();
-for (Unicorn current: ServiceLoader.load(Unicorn.class))
-all.add(current);
+for (Unicorn current : ServiceLoader.load(Unicorn.class))
+   all.add(current);
 ```
 > **English:** A.
 >
 > **Türkçe:** A.
 ```java
 List<Unicorn> all = ServiceLoader.load(Unicorn.class)
-.getStream()
-.collect(Collectors.toList());
+   .getStream()
+   .collect(Collectors.toList());
 ```
 
 <!-- source-page: 0717 -->
@@ -3518,30 +3560,33 @@ List<Unicorn> all = ServiceLoader.load(Unicorn.class)
 > **Türkçe:** B.
 ```java
 List<Unicorn> all = ServiceLoader.load(Unicorn.class)
-.stream()
-.collect(Collectors.toList());
+   .stream()
+   .collect(Collectors.toList());
 ```
 > **English:** C.
 >
 > **Türkçe:** C.
 ```java
 List<Unicorn> all = ServiceLoader.load(Unicorn.class)
-.getStream()
-.map(Provider::get)
-.collect(Collectors.toList());
+   .getStream()
+   .map(Provider::get)
+   .collect(Collectors.toList());
 ```
 > **English:** D.
 >
 > **Türkçe:** D.
 ```java
 List<Unicorn> all = ServiceLoader.load(Unicorn.class)
-.stream()
-.map(Provider::get)
-.collect(Collectors.toList());
+   .stream()
+   .map(Provider::get)
+   .collect(Collectors.toList());
 ```
 > **English:** E. None of the above
 >
 > **Türkçe:** E. Yukarıdakilerin hiçbiri
+
+### Question 14 / Soru 14
+
 > **English:** 14. Which of the following are legal commands to run a modular program where n is the
 > module name and c is the fully qualified class name? (Choose all that apply.)
 >
@@ -3569,6 +3614,9 @@ List<Unicorn> all = ServiceLoader.load(Unicorn.class)
 > **English:** G. None of the above
 >
 > **Türkçe:** G. Yukarıdakilerin hiçbiri
+
+### Question 15 / Soru 15
+
 > **English:** 15. For a top-down migration, all modules other than named modules are _____________
 > modules and are on the ____________.
 >
@@ -3591,6 +3639,9 @@ List<Unicorn> all = ServiceLoader.load(Unicorn.class)
 > **Türkçe:** E. Yukarıdakilerin hiçbiri
 
 <!-- source-page: 0718 -->
+
+### Question 16 / Soru 16
+
 > **English:** 16. Suppose you have separate modules for a service provider interface, service
 > provider, service locator, and consumer. If you add a second service provider module,
 > how many of these modules do you need to recompile?
@@ -3613,6 +3664,9 @@ List<Unicorn> all = ServiceLoader.load(Unicorn.class)
 > **English:** E. Four
 >
 > **Türkçe:** E. Dört
+
+### Question 17 / Soru 17
+
 > **English:** 17. Suppose we have a JAR file named cat-1.2.3-RC1.jar, and Automatic-Module-Name in the
 > MANIFEST.MF is set to dog. What should an unnamed module referencing this automatic
 > module include in module-info.java?
@@ -3635,6 +3689,9 @@ List<Unicorn> all = ServiceLoader.load(Unicorn.class)
 > **English:** E. None of the above
 >
 > **Türkçe:** E. Yukarıdakilerin hiçbiri
+
+### Question 18 / Soru 18
+
 > **English:** 18. Which commands are used to create a smaller Java image and work with native code,
 > respectively?
 >
@@ -3658,13 +3715,16 @@ List<Unicorn> all = ServiceLoader.load(Unicorn.class)
 > **English:** F. jmod and jmod
 >
 > **Türkçe:** F. `jmod` ve `jmod`
+
+### Question 19 / Soru 19
+
 > **English:** 19. Which are true statements about the following module? (Choose all that apply.)
 >
 > **Türkçe:** 19. Aşağıdaki modülle ilgili doğru ifadeler nelerdir? (Tüm geçerli olanları seçin.)
 ```java
 class dragon {
-exports com.dragon.fire;
-exports com.dragon.scales to castle;
+   exports com.dragon.fire;
+   exports com.dragon.scales to castle;
 }
 ```
 > **English:** A. All modules can reference the com.dragon.fire package.
@@ -3684,6 +3744,9 @@ exports com.dragon.scales to castle;
 > **Türkçe:** E. Yukarıdakilerin hiçbiri
 
 <!-- source-page: 0719 -->
+
+### Question 20 / Soru 20
+
 > **English:** 20. Which would you expect to see when describing any module?
 >
 > **Türkçe:** 20. Herhangi bir modülü açıklayan çıktıda hangisini görmeyi beklersiniz?
@@ -3708,6 +3771,9 @@ exports com.dragon.scales to castle;
 > **English:** G. None of the above
 >
 > **Türkçe:** G. Yukarıdakilerin hiçbiri
+
+### Question 21 / Soru 21
+
 > **English:** 21. Suppose you have separate modules for a service provider interface, service
 > provider, service locator, and consumer. Which module(s) need to specify a requires
 > directive on the service provider?
@@ -3739,6 +3805,9 @@ exports com.dragon.scales to castle;
 > **English:** H. None of the above
 >
 > **Türkçe:** H. Yukarıdakilerin hiçbiri
+
+### Question 22 / Soru 22
+
 > **English:** 22. Which are true statements? (Choose all that apply.)
 >
 > **Türkçe:** 22. Hangileri doğru ifadelerdir? (Tüm geçerli olanları seçin.)
@@ -3760,16 +3829,19 @@ exports com.dragon.scales to castle;
 > **English:** F. An unnamed module exports no packages to named modules.
 >
 > **Türkçe:** F. Unnamed module named module’lere hiçbir package export etmez.
+
+### Question 23 / Soru 23
+
 > **English:** 23. Which is the first line to contain a compiler error?
 >
 > **Türkçe:** 23. Compile-time error içeren ilk satır hangisidir?
 ```java
-module snake {                         // line 1
-exports com.snake.tail;                // line 2
-exports com.snake.fangs to bird;       // line 3
-requires skin;                         // line 4
-requires transitive skin;              // line 5
-}                                      // line 6
+1: module snake {
+2:    exports com.snake.tail;
+3:    exports com.snake.fangs to bird;
+4:    requires skin;
+5:    requires transitive skin;
+6: }
 ```
 > **English:** A. Line 1
 >
@@ -3791,6 +3863,9 @@ requires transitive skin;              // line 5
 > **English:** F. The code does not contain any compiler errors.
 >
 > **Türkçe:** F. Kod hiçbir derleme hatası içermez.
+
+### Question 24 / Soru 24
+
 > **English:** 24. Which are true statements about a package in a JAR on the classpath containing a
 > module-info.java file? (Choose all that apply.)
 >
@@ -3815,16 +3890,16 @@ requires transitive skin;              // line 5
 > classpath.
 >
 > **Türkçe:** E. Paketin classpath üzerindeki hiçbir modüle açık olmamasını sağlamak mümkündür.
+
+### Question 25 / Soru 25
+
 > **English:** 25. Suppose you have separate modules for a service provider interface, service
 > provider, service locator, and consumer. Which statements are true about the directives
-> you need to specify?
+> you need to specify? (Choose all that apply.)
 >
 > **Türkçe:** 25. Service provider interface, service provider, service locator ve consumer için ayrı
 > modülleriniz olduğunu varsayalım. Belirtmeniz gereken directive’lerle ilgili hangi
-> ifadeler doğrudur?
-> **English:** (Choose all that apply.)
->
-> **Türkçe:** (Tüm geçerli olanları seçin.)
+> ifadeler doğrudur? (Uygun olanların tümünü seçin.)
 > **English:** A. The consumer must use the requires directive.
 >
 > **Türkçe:** A. Consumer, `requires` directive’ini kullanmalıdır.
@@ -4144,10 +4219,10 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > bağımlı olduğundan A ve C doğrudur. Ayrıca service locator, arama yapacağı service
 > provider interface’i `uses` ile belirtmelidir; bu nedenle D de doğrudur.
 
-## Coverage ledger
+## Kapsam doğrulaması
 
-- Chapter body marker'ları: 661–720
-- Appendix answer marker'ları: 949–951
+- Ana bölüm kaynak sayfaları: 661–720
+- Ek cevap kaynağı sayfaları: 949–951
 - Resmî cevap hedefi: 1–25
 - Kod blokları özgün dilinde tutulmuştur.
 - Çeviri ayrıntıları ünite vocabulary ve grammar kaynaklarıyla desteklenir.

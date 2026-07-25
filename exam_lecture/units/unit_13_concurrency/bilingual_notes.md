@@ -8,13 +8,13 @@ English → Türkçe paragraf çiftleriyle bir araya getirir. Kod ve terminal
 [Vocabulary](vocabulary.md) · [Grammar notes](grammar_notes.md) ·
 [Teknik hafıza notu](technical_memory_notes.md)
 
-## Kaynak kapsam manifesti
+## Kaynak ve kapsam özeti
 
 - Kaynak: `exam_lecture/OCP_Java_SE17_Chapter1den_Itibaren.pdf`
 - Chapter: 13 · Concurrency
 - Chapter PDF sayfaları: 721–784
 - Appendix cevap sayfaları: 951–955
-- Beklenen sayfa marker'ı: 64
+- Beklenen kaynak sayfa sayısı: 64
 - Beklenen resmî cevap: 25
 - Eşleme biçimi: English paragraf → Türkçe çeviri → varsa kod
 
@@ -302,7 +302,7 @@ System.out.println("end");
 > method'un tamamlanmasını bekler. Önceki programın aksine bu code sample her
 > çalıştırıldığında aynı çıktıyı üretir.
 > **English:** More generally, we can create a Thread and its associated task one of two ways in Java:
-> ■■ Provide a Runnable object or lambda expression to the Thread constructor. ■■ Create a
+> • Provide a Runnable object or lambda expression to the Thread constructor. • Create a
 > class that extends Thread and overrides the run() method.
 >
 > **Türkçe:** Daha genel olarak Java'da bir Thread ve ilişkili task iki yoldan biriyle oluşturulabilir:
@@ -2109,8 +2109,8 @@ new Thread(() -> System.out.print(lock.tryLock())).start(); // false
 > döndürmüşse çağrılmalıdır.
 #### Reviewing the Lock Framework
 > **English:** To review, the ReentrantLock class supports the same features as a synchronized block
-> while adding a number of improvements: ■■ Ability to request a lock without blocking. ■■
-> Ability to request a lock while blocking for a specified amount of time. ■■ A lock can
+> while adding a number of improvements: • Ability to request a lock without blocking. •
+> Ability to request a lock while blocking for a specified amount of time. • A lock can
 > be created with a fairness property, in which the lock is granted to threads in the
 > order in which it was requested.
 >
@@ -2801,9 +2801,9 @@ service.shutdown();
 >
 > **Türkçe:** Şekil 13.6'da iki kullanıcı aynı username ile hesap açmaya çalıştığında web
 > server hangi sonucu döndürür?
-> **English:** Possible Outcomes for This Race Condition ■■ Both users are able to create accounts with
-> the username ZooFan. ■■ Neither user is able to create an account with the username
-> ZooFan, and an error message is returned to both users. ■■ One user is able to create
+> **English:** Possible Outcomes for This Race Condition • Both users are able to create accounts with
+> the username ZooFan. • Neither user is able to create an account with the username
+> ZooFan, and an error message is returned to both users. • One user is able to create
 > an account with the username ZooFan, while the other user receives an error message.
 >
 > **Türkçe:** **Bu race condition için olası sonuçlar:** (1) İki kullanıcı da `ZooFan`
@@ -3276,9 +3276,9 @@ System.out.println(set); // [f, l, o, w]
 > çalışır, tek shared result container'ında concurrent accumulation yapmaz.
 
 <!-- source-page: 0768 -->
-> **English:** Requirements for Parallel Reduction with collect() ■■ The stream is parallel. ■■ The
+> **English:** Requirements for Parallel Reduction with collect() • The stream is parallel. • The
 > parameter of the collect() operation has the Characteristics.CONCURRENT characteristic.
-> ■■ Either the stream is unordered or the collector has the characteristic
+> • Either the stream is unordered or the collector has the characteristic
 > Characteristics.UNORDERED.
 >
 > **Türkçe:** `collect()` ile concurrent parallel reduction koşulları şunlardır: stream
@@ -3509,8 +3509,8 @@ return source.filter(s -> s % 2 == 0)
 > ScheduledExecutorService can be used to schedule tasks at a fixed rate or with a fixed
 > interval between executions.
 >
-> **Türkçe:** **`Runnable` ve `Callable` ile executor service üzerinde concurrent task
-> oluşturabilme:** `ExecutorService` tek bir thread'i veya thread pool'u oluşturup
+> **Türkçe:** `Runnable` ve `Callable` ile executor service üzerinde concurrent task
+> oluşturabilme: `ExecutorService` tek bir thread'i veya thread pool'u oluşturup
 > yönetir. Hem `Runnable` hem `Callable`, service'teki uygun thread'lerde tamamlanmak üzere
 > executor'a submit edilebilir. `Callable`, `Runnable`'dan farklı olarak generic data
 > type döndürür ve checked exception atabilir. `ScheduledExecutorService`, task'ları
@@ -3558,6 +3558,9 @@ return source.filter(s -> s % 2 == 0)
 > **English:** The answers to the chapter review questions can be found in the Appendix.
 >
 > **Türkçe:** Chapter review sorularının cevapları Appendix'te bulunabilir.
+
+### Question 1 / Soru 1
+
 > **English:** 1. Given the following code snippet, which options correctly create a parallel stream?
 > (Choose all that apply.)
 >
@@ -3586,6 +3589,9 @@ var p = ______;
 > **English:** F. s.parallel()
 >
 > **Türkçe:** F. `s.parallel()`
+
+### Question 2 / Soru 2
+
 > **English:** 2. Given that the sum of the numbers from 1 (inclusive) to 10 (exclusive) is 45, what are
 > the possible results of executing the following program? (Choose all that apply.)
 >
@@ -3593,23 +3599,23 @@ var p = ______;
 > olduğuna göre aşağıdaki programın olası sonuçları nelerdir? (Uygun olanların tümünü
 > seçin.)
 ```java
-import java.util.concurrent.locks.*;
-import java.util.stream.*;
-public class Bank {
-private Lock vault = new ReentrantLock();
-private int total = 0;
-public void deposit(int value) {
-try {
-vault.tryLock(); // line 8
-total += value;
-} finally { vault.unlock(); } // line 10
-}
-public static void main(String[] unused) {
-var bank = new Bank();
-IntStream.range(1, 10).parallel()
-.forEach(s -> bank.deposit(s));
-System.out.println(bank.total);
-} }
+1:  import java.util.concurrent.locks.*;
+2:  import java.util.stream.*;
+3:  public class Bank {
+4:     private Lock vault = new ReentrantLock();
+5:     private int total = 0;
+6:     public void deposit(int value) {
+7:        try {
+8:           vault.tryLock();
+9:           total += value;
+10:       } finally { vault.unlock(); }
+11:   }
+12:   public static void main(String[] unused) {
+13:       var bank = new Bank();
+14:       IntStream.range(1, 10).parallel()
+15:          .forEach(s -> bank.deposit(s));
+16:       System.out.println(bank.total);
+17:   } }
 ```
 > **English:** A. 45 is printed.
 >
@@ -3628,6 +3634,9 @@ System.out.println(bank.total);
 > **Türkçe:** E. Yukarıdakilerin hiçbiri; kod derlenmez.
 
 <!-- source-page: 0773 -->
+
+### Question 3 / Soru 3
+
 > **English:** 3. Which of the following statements about the Callable call() and Runnable run()
 > methods are correct? (Choose all that apply.)
 >
@@ -3651,19 +3660,22 @@ System.out.println(bank.total);
 > **English:** F. Callable returns a generic type.
 >
 > **Türkçe:** F. `Callable` generic bir type döndürür.
+
+### Question 4 / Soru 4
+
 > **English:** 4. Which lines need to be changed to make the code compile? (Choose all that apply.)
 >
 > **Türkçe:** 4. Kodun derlenmesi için hangi line'ların değiştirilmesi gerekir? (Uygun
 > olanların tümünü seçin.)
 ```java
 ExecutorService service = // w1
-Executors.newSingleThreadScheduledExecutor();
+   Executors.newSingleThreadScheduledExecutor();
 service.scheduleWithFixedDelay(() -> {
-System.out.println("Open Zoo");
-return null; // w2
+   System.out.println("Open Zoo");
+   return null; // w2
 }, 0, 1, TimeUnit.MINUTES);
 var result = service.submit(() -> // w3
-System.out.println("Wake Staff"));
+   System.out.println("Wake Staff"));
 System.out.println(result.get()); // w4
 ```
 > **English:** A. It compiles and runs without issue.
@@ -3684,6 +3696,9 @@ System.out.println(result.get()); // w4
 > **English:** F. It compiles but throws an exception at runtime.
 >
 > **Türkçe:** F. Kod derlenir, ancak runtime'da exception atar.
+
+### Question 5 / Soru 5
+
 > **English:** 5. What statement about the following code is true?
 >
 > **Türkçe:** 5. Aşağıdaki kodla ilgili hangi ifade doğrudur?
@@ -3691,9 +3706,9 @@ System.out.println(result.get()); // w4
 var value1 = new AtomicLong(0);
 final long[] value2 = {0};
 IntStream.iterate(1, i -> 1).limit(100).parallel()
-.forEach(i -> value1.incrementAndGet());
+   .forEach(i -> value1.incrementAndGet());
 IntStream.iterate(1, i -> 1).limit(100).parallel()
-.forEach(i -> ++value2[0]);
+   .forEach(i -> ++value2[0]);
 System.out.println(value1+" "+value2[0]);
 ```
 > **English:** A. It outputs 100 100.
@@ -3719,6 +3734,9 @@ System.out.println(value1+" "+value2[0]);
 > **English:** G. None of the above
 >
 > **Türkçe:** G. Yukarıdakilerin hiçbiri
+
+### Question 6 / Soru 6
+
 > **English:** 6. Which statements about the following code are correct? (Choose all that apply.)
 >
 > **Türkçe:** 6. Aşağıdaki kodla ilgili hangi ifadeler doğrudur? (Uygun olanların
@@ -3726,9 +3744,9 @@ System.out.println(value1+" "+value2[0]);
 ```java
 var data = List.of(2,5,1,9,8);
 data.stream().parallel()
-.mapToInt(s -> s)
-.peek(System.out::print)
-.forEachOrdered(System.out::print);
+   .mapToInt(s -> s)
+   .peek(System.out::print)
+   .forEachOrdered(System.out::print);
 ```
 > **English:** A. The peek() method will print the entries in the sorted order: 12589.
 >
@@ -3754,6 +3772,9 @@ data.stream().parallel()
 > **English:** G. The code does not compile.
 >
 > **Türkçe:** G. Kod derlenmez.
+
+### Question 7 / Soru 7
+
 > **English:** 7. Fill in the blanks: __________ occur(s) when two or more threads are blocked forever
 > but both appear active. _______ occur(s) when two or more threads try to complete a related task at
 > the same time, resulting in invalid or unexpected data.
@@ -3780,6 +3801,9 @@ data.stream().parallel()
 > **English:** F. Deadlock, Livelock
 >
 > **Türkçe:** F. Deadlock, Livelock
+
+### Question 8 / Soru 8
+
 > **English:** 8. Assuming this class is accessed by only a single thread at a time, what is the result
 > of calling the countIceCreamFlavors() method?
 >
@@ -3788,14 +3812,14 @@ data.stream().parallel()
 ```java
 import java.util.stream.LongStream;
 public class Flavors {
-private static int counter;
-public static void countIceCreamFlavors() {
-counter = 0;
-Runnable task = () -> counter++;
-LongStream.range(0, 500)
-.forEach(m -> new Thread(task).run());
-System.out.println(counter);
-} }
+   private static int counter;
+   public static void countIceCreamFlavors() {
+      counter = 0;
+      Runnable task = () -> counter++;
+      LongStream.range(0, 500)
+         .forEach(m -> new Thread(task).run());
+      System.out.println(counter);
+   } }
 ```
 
 <!-- source-page: 0775 -->
@@ -3818,6 +3842,9 @@ System.out.println(counter);
 > **English:** F. None of the above
 >
 > **Türkçe:** F. Yukarıdakilerin hiçbiri.
+
+### Question 9 / Soru 9
+
 > **English:** 9. Which happens when a new task is submitted to an ExecutorService in which no threads
 > are available?
 >
@@ -3842,6 +3869,9 @@ System.out.println(counter);
 > **English:** E. The executor stops an existing task and starts the newly submitted one.
 >
 > **Türkçe:** E. Executor mevcut bir task'ı durdurup yeni gönderilen task'ı başlatır.
+
+### Question 10 / Soru 10
+
 > **English:** 10. What is the result of executing the following code snippet?
 >
 > **Türkçe:** 10. Aşağıdaki kod parçasını çalıştırmanın sonucu nedir?
@@ -3853,7 +3883,7 @@ bears.addAll(lions);
 for(Integer item: tigers) tigers.add(4); // x1
 for(Integer item: bears) bears.add(5); // x2
 System.out.println(lions.size() + " " + tigers.size()
-+ " " + bears.size());
+   + " " + bears.size());
 ```
 > **English:** A. It outputs 3 6 4.
 >
@@ -3876,6 +3906,9 @@ System.out.println(lions.size() + " " + tigers.size()
 > **English:** G. It compiles but enters an infinite loop at runtime.
 >
 > **Türkçe:** G. Derlenir fakat runtime'da infinite loop'a girer.
+
+### Question 11 / Soru 11
+
 > **English:** 11. What statements about the following code are true? (Choose all that apply.)
 >
 > **Türkçe:** 11. Aşağıdaki kodla ilgili hangi ifadeler doğrudur? (Uygun olanların
@@ -3883,11 +3916,11 @@ System.out.println(lions.size() + " " + tigers.size()
 ```java
 Integer i1 = List.of(1, 2, 3, 4, 5).stream().findAny().get();
 synchronized(i1) { // y1
-Integer i2 = List.of(6, 7, 8, 9, 10)
-.parallelStream()
-.sorted()
-.findAny().get(); // y2
-System.out.println(i1 + " " + i2);
+   Integer i2 = List.of(6, 7, 8, 9, 10)
+      .parallelStream()
+      .sorted()
+      .findAny().get(); // y2
+   System.out.println(i1 + " " + i2);
 }
 ```
 
@@ -3913,6 +3946,9 @@ System.out.println(i1 + " " + i2);
 > **English:** G. It compiles but waits forever at runtime.
 >
 > **Türkçe:** G. Derlenir fakat runtime'da sonsuza kadar bekler.
+
+### Question 12 / Soru 12
+
 > **English:** 12. Assuming each call to takeNap() takes five seconds to execute without throwing an
 > exception, what is the expected result of executing the following code snippet?
 >
@@ -3921,11 +3957,11 @@ System.out.println(i1 + " " + i2);
 ```java
 ExecutorService service = Executors.newFixedThreadPool(4);
 try {
-service.execute(() -> takeNap());
-service.execute(() -> takeNap());
-service.execute(() -> takeNap());
+   service.execute(() -> takeNap());
+   service.execute(() -> takeNap());
+   service.execute(() -> takeNap());
 } finally {
-service.shutdown();
+   service.shutdown();
 }
 service.awaitTermination(2, TimeUnit.SECONDS);
 System.out.println("DONE!");
@@ -3948,15 +3984,18 @@ System.out.println("DONE!");
 > **English:** F. None of the above, as the code does not compile.
 >
 > **Türkçe:** F. Yukarıdakilerin hiçbiri; kod derlenmez.
+
+### Question 13 / Soru 13
+
 > **English:** 13. What statements about the following code are true? (Choose all that apply.)
 >
 > **Türkçe:** 13. Aşağıdaki kodla ilgili hangi ifadeler doğrudur? (Tüm geçerli olanları seçin.)
 ```java
 System.out.print(List.of("duck","flamingo","pelican")
-.parallelStream().parallel() // q1
-.reduce(0,
-(c1, c2) -> c1.length() + c2.length(), // q2
-(s1, s2) -> s1 + s2)); // q3
+   .parallelStream().parallel() // q1
+   .reduce(0,
+      (c1, c2) -> c1.length() + c2.length(), // q2
+      (s1, s2) -> s1 + s2)); // q3
 ```
 
 <!-- source-page: 0777 -->
@@ -3980,6 +4019,9 @@ System.out.print(List.of("duck","flamingo","pelican")
 > **English:** F. None of the above
 >
 > **Türkçe:** F. Yukarıdakilerin hiçbiri.
+
+### Question 14 / Soru 14
+
 > **English:** 14. What statements about the following code snippet are true? (Choose all that apply.)
 >
 > **Türkçe:** 14. Aşağıdaki kod parçasıyla ilgili hangi ifadeler doğrudur? (Uygun
@@ -3989,14 +4031,14 @@ Object o1 = new Object();
 Object o2 = new Object();
 var service = Executors.newFixedThreadPool(2);
 var f1 = service.submit(() -> {
-synchronized (o1) {
-synchronized (o2) { System.out.print("Tortoise"); }
-}
+   synchronized (o1) {
+      synchronized (o2) { System.out.print("Tortoise"); }
+   }
 });
 var f2 = service.submit(() -> {
-synchronized (o2) {
-synchronized (o1) { System.out.print("Hare"); }
-}
+   synchronized (o2) {
+      synchronized (o1) { System.out.print("Hare"); }
+   }
 });
 f1.get();
 f2.get();
@@ -4022,18 +4064,21 @@ f2.get();
 > **English:** G. It compiles but throws an exception at runtime.
 >
 > **Türkçe:** G. Derlenir fakat runtime'da exception atar.
+
+### Question 15 / Soru 15
+
 > **English:** 15. Which statement about the following code snippet is correct?
 >
 > **Türkçe:** 15. Aşağıdaki kod parçasıyla ilgili hangi ifade doğrudur?
 ```java
-var cats = Stream.of("leopard", "lynx", "ocelot", "puma")
-.parallel();
-var bears = Stream.of("panda","grizzly","polar").parallel();
-var data = Stream.of(cats,bears).flatMap(s -> s)
-.collect(Collectors.groupingByConcurrent( // line 6
-s -> !s.startsWith("p"))); // line 7
-System.out.println(data.get(false).size() // line 8
-+ " " + data.get(true).size());
+2: var cats = Stream.of("leopard", "lynx", "ocelot", "puma")
+3:    .parallel();
+4: var bears = Stream.of("panda","grizzly","polar").parallel();
+5: var data = Stream.of(cats,bears).flatMap(s -> s)
+6:    .collect(Collectors.groupingByConcurrent(
+7:       s -> !s.startsWith("p")));
+8: System.out.println(data.get(false).size()
+9:    + " " + data.get(true).size());
 ```
 
 <!-- source-page: 0778 -->
@@ -4055,6 +4100,9 @@ System.out.println(data.get(false).size() // line 8
 > **English:** F. It compiles but throws an exception at runtime.
 >
 > **Türkçe:** F. Derlenir fakat runtime'da exception atar.
+
+### Question 16 / Soru 16
+
 > **English:** 16. Assuming one minute is enough time for all the threads within this program to
 > complete, what are the possible results of executing the following program? (Choose all
 > that apply.)
@@ -4064,21 +4112,21 @@ System.out.println(data.get(false).size() // line 8
 > seçin.)
 ```java
 public class RocketShip {
-private volatile int fuel;
-private void launch(int checks) {
-var p = new ArrayList<Thread>();
-for (int i = 0; i < checks; i++)
-p.add(new Thread(() -> fuel++));
-p.forEach(Thread::interrupt);
-p.forEach(Thread::start);
-p.forEach(Thread::interrupt);
-}
-public static void main(String[] args) throws Exception {
-var ship = new RocketShip();
-ship.launch(100);
-Thread.sleep(60*1000);
-System.out.print(ship.fuel);
-} }
+   private volatile int fuel;
+   private void launch(int checks) {
+      var p = new ArrayList<Thread>();
+      for (int i = 0; i < checks; i++)
+         p.add(new Thread(() -> fuel++));
+      p.forEach(Thread::interrupt);
+      p.forEach(Thread::start);
+      p.forEach(Thread::interrupt);
+   }
+   public static void main(String[] args) throws Exception {
+      var ship = new RocketShip();
+      ship.launch(100);
+      Thread.sleep(60*1000);
+      System.out.print(ship.fuel);
+   } }
 ```
 > **English:** A. It prints a number less than 100.
 >
@@ -4095,6 +4143,9 @@ System.out.print(ship.fuel);
 > **English:** E. It compiles but throws an InterruptedException at runtime.
 >
 > **Türkçe:** E. Derlenir fakat runtime'da `InterruptedException` atar.
+
+### Question 17 / Soru 17
+
 > **English:** 17. Which statements about methods in ReentrantLock are correct? (Choose all that
 > apply.)
 >
@@ -4127,6 +4178,9 @@ System.out.print(ship.fuel);
 > **English:** F. None of the above
 >
 > **Türkçe:** F. Yukarıdakilerin hiçbiri.
+
+### Question 18 / Soru 18
+
 > **English:** 18. Which of the following are valid Callable expressions? (Choose all that apply.)
 >
 > **Türkçe:** 18. Aşağıdakilerden hangileri geçerli `Callable` expression'dır? (Uygun
@@ -4152,6 +4206,9 @@ System.out.print(ship.fuel);
 > **English:** G. () -> {System.out.println("Giraffe"); return 10;}
 >
 > **Türkçe:** G. `() -> {System.out.println("Giraffe"); return 10;}`
+
+### Question 19 / Soru 19
+
 > **English:** 19. What is the result of executing the following application? (Choose all that apply.)
 >
 > **Türkçe:** 19. Aşağıdaki application çalıştırıldığında sonuç ne olur? (Uygun
@@ -4160,13 +4217,13 @@ System.out.print(ship.fuel);
 import java.util.concurrent.*;
 import java.util.stream.*;
 public class PrintConstants {
-public static void main(String[] args) {
-var s = Executors.newScheduledThreadPool(10);
-DoubleStream.of(3.14159,2.71828) // b1
-.forEach(c -> s.submit( // b2
-() -> System.out.println(10*c))); // b3
-s.execute(() -> System.out.println("Printed"));
-} }
+   public static void main(String[] args) {
+      var s = Executors.newScheduledThreadPool(10);
+      DoubleStream.of(3.14159,2.71828) // b1
+         .forEach(c -> s.submit( // b2
+            () -> System.out.println(10*c))); // b3
+      s.execute(() -> System.out.println("Printed"));
+   } }
 ```
 > **English:** A. It compiles and outputs the two numbers followed by Printed.
 >
@@ -4189,6 +4246,9 @@ s.execute(() -> System.out.println("Printed"));
 > **English:** G. It compiles but waits forever at runtime.
 >
 > **Türkçe:** G. Derlenir fakat runtime'da sonsuza kadar bekler.
+
+### Question 20 / Soru 20
+
 > **English:** 20. What is the result of executing the following program? (Choose all that apply.)
 >
 > **Türkçe:** 20. Aşağıdaki program çalıştırıldığında sonuç ne olur? (Uygun olanların
@@ -4198,24 +4258,23 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.stream.*;
 public class PrintCounter {
-static int count = 0;
-public static void main(String[] args) throws InterruptedException, ExecutionException {
+   static int count = 0;
+   public static void main(String[] args) throws
+                         InterruptedException, ExecutionException {
+      var service = Executors.newSingleThreadExecutor();
+      try {
+         var r = new ArrayList<Future<?>>();
+         IntStream.iterate(0,i -> i+1).limit(5).forEach(
+            i -> r.add(service.execute(() -> {count++;})) // n1
+         );
+         for(Future<?> result : r) {
+            System.out.print(result.get()+" "); // n2
+         }
+      } finally { service.shutdown(); }
+   } }
 ```
 
 <!-- source-page: 0780 -->
-```java
-var service = Executors.newSingleThreadExecutor();
-try {
-var r = new ArrayList<Future<?>>();
-IntStream.iterate(0,i -> i+1).limit(5).forEach(
-i -> r.add(service.execute(() -> {count++;})) // n1
-);
-for(Future<?> result: r) {
-System.out.print(result.get()+" "); // n2
-}
-} finally { service.shutdown(); }
-} }
-```
 > **English:** A. It prints 0 1 2 3 4
 >
 > **Türkçe:** A. `0 1 2 3 4` yazdırır.
@@ -4237,6 +4296,9 @@ System.out.print(result.get()+" "); // n2
 > **English:** G. The code will not compile because of line n2.
 >
 > **Türkçe:** G. Kod line n2 nedeniyle derlenmez.
+
+### Question 21 / Soru 21
+
 > **English:** 21. Given the following code snippet and blank lines on p1 and p2, which values
 > guarantee that 1 is printed at runtime? (Choose all that apply.)
 >
@@ -4244,12 +4306,12 @@ System.out.print(result.get()+" "); // n2
 > yazılırsa runtime'da `1` basılması garanti edilir? (Uygun olanların tümünü seçin.)
 ```java
 var data = List.of(List.of(1,2),
-List.of(3,4),
-List.of(5,6));
-data. // p1
-.flatMap(s -> s.stream())
-. // p2
-.ifPresent(System.out::print);
+   List.of(3,4),
+   List.of(5,6));
+data.__________ // p1
+   .flatMap(s -> s.stream())
+   .__________ // p2
+   .ifPresent(System.out::print);
 ```
 > **English:** A. stream() on line p1, findFirst() on line p2
 >
@@ -4271,6 +4333,9 @@ data. // p1
 > **Türkçe:** F. Yukarıdakilerin hiçbiri.
 
 <!-- source-page: 0781 -->
+
+### Question 22 / Soru 22
+
 > **English:** 22. Assuming one minute is enough time for the tasks submitted to the service executor
 > to complete, what is the result of executing countSheep()? (Choose all that apply.)
 >
@@ -4281,21 +4346,21 @@ data. // p1
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.*;
 public class BedTime {
-private AtomicInteger s1 = new AtomicInteger(0); // w1
-private int s2 = 0;
-private void countSheep() throws InterruptedException {
-var service = Executors.newSingleThreadExecutor(); // w2
-try {
-for (int i = 0; i < 100; i++)
-service.execute(() -> {
-s1.getAndIncrement(); s2++; }); // w3
-Thread.sleep(60*1000);
-System.out.println(s1 + " " + s2);
-} finally { service.shutdown(); }
-}
-public static void main(String... nap) throws InterruptedException {
-new BedTime().countSheep();
-} }
+   private AtomicInteger s1 = new AtomicInteger(0); // w1
+   private int s2 = 0;
+   private void countSheep() throws InterruptedException {
+      var service = Executors.newSingleThreadExecutor(); // w2
+      try {
+         for (int i = 0; i < 100; i++)
+            service.execute(() -> {
+               s1.getAndIncrement(); s2++; }); // w3
+         Thread.sleep(60*1000);
+         System.out.println(s1 + " " + s2);
+      } finally { service.shutdown(); }
+   }
+   public static void main(String... nap) throws InterruptedException {
+      new BedTime().countSheep();
+   } }
 ```
 > **English:** A. The method consistently prints 100 99.
 >
@@ -4318,6 +4383,9 @@ new BedTime().countSheep();
 > **English:** G. It compiles but throws an exception at runtime.
 >
 > **Türkçe:** G. Derlenir fakat runtime'da exception atar.
+
+### Question 23 / Soru 23
+
 > **English:** 23. What is the result of executing the following application? (Choose all that apply.)
 >
 > **Türkçe:** 23. Aşağıdaki application çalıştırıldığında sonuç ne olur? (Uygun
@@ -4326,20 +4394,18 @@ new BedTime().countSheep();
 import java.util.concurrent.*;
 import java.util.stream.*;
 public class StockRoomTracker {
-public static void await(CyclicBarrier cb) { // j1
-try { cb.await(); } catch (Exception e) {}
-}
-public static void main(String[] args) {
-var cb = new CyclicBarrier(10,
-() -> System.out.println("Stock Room Full!")); // j2
+   public static void await(CyclicBarrier cb) { // j1
+      try { cb.await(); } catch (Exception e) {}
+   }
+   public static void main(String[] args) {
+      var cb = new CyclicBarrier(10,
+         () -> System.out.println("Stock Room Full!")); // j2
+      IntStream.iterate(1, i -> 1).limit(9).parallel()
+         .forEach(i -> await(cb)); // j3
+   } }
 ```
 
 <!-- source-page: 0782 -->
-```java
-IntStream.iterate(1, i -> 1).limit(9).parallel()
-.forEach(i -> await(cb)); // j3
-} }
-```
 > **English:** A. It outputs Stock Room Full!
 >
 > **Türkçe:** A. Literal olarak `Stock Room Full!` yazdırır.
@@ -4358,6 +4424,9 @@ IntStream.iterate(1, i -> 1).limit(9).parallel()
 > **English:** F. It compiles but waits forever at runtime.
 >
 > **Türkçe:** F. Derlenir fakat runtime'da sonsuza kadar bekler.
+
+### Question 24 / Soru 24
+
 > **English:** 24. What statements about the following class definition are true? (Choose all that
 > apply.)
 >
@@ -4365,19 +4434,19 @@ IntStream.iterate(1, i -> 1).limit(9).parallel()
 > olanların tümünü seçin.)
 ```java
 public final class TicketManager {
-private int tickets;
-private static TicketManager instance;
-private TicketManager() {}
-static synchronized TicketManager getInstance() { // k1
-if (instance==null) instance = new TicketManager(); // k2
-return instance;
-}
-public int getTicketCount() { return tickets; }
-public void addTickets(int value) {tickets += value;} // k3
-public void sellTickets(int value) {
-synchronized (this) { // k4
-tickets -= value;
-} } }
+   private int tickets;
+   private static TicketManager instance;
+   private TicketManager() {}
+   static synchronized TicketManager getInstance() { // k1
+      if (instance==null) instance = new TicketManager(); // k2
+      return instance;
+   }
+   public int getTicketCount() { return tickets; }
+   public void addTickets(int value) {tickets += value;} // k3
+   public void sellTickets(int value) {
+      synchronized (this) { // k4
+         tickets -= value;
+   } } }
 ```
 > **English:** A. It compiles without issue.
 >
@@ -4399,6 +4468,9 @@ tickets -= value;
 >
 > **Türkçe:** F. Bu class'ı kullanan bir uygulamada en fazla bir `TicketManager` instance'ı
 > oluşturulur.
+
+### Question 25 / Soru 25
+
 > **English:** 25. Assuming an implementation of the performCount() method is provided prior to
 > runtime, which of the following are possible results of executing the following
 > application? (Choose all that apply.)
@@ -4409,33 +4481,31 @@ tickets -= value;
 ```java
 import java.util.*;
 import java.util.concurrent.*;
+public class CountZooAnimals {
+   public static void performCount(int animal) {
+      // IMPLEMENTATION OMITTED
+   }
+   public static void printResults(Future<?> f) {
+      try {
+         System.out.println(f.get(1, TimeUnit.DAYS)); // o1
+      } catch (Exception e) {
+         System.out.println("Exception!");
+      }
+   }
+   public static void main(String[] args) throws Exception {
+      final var r = new ArrayList<Future<?>>();
+      ExecutorService s = Executors.newSingleThreadExecutor();
+      try {
+         for(int i = 0; i < 10; i++) {
+            final int animal = i;
+            r.add(s.submit(() -> performCount(animal))); // o2
+         }
+         r.forEach(f -> printResults(f));
+      } finally { s.shutdown(); }
+   } }
 ```
 
 <!-- source-page: 0783 -->
-```java
-public class CountZooAnimals {
-public static void performCount(int animal) {
-// IMPLEMENTATION OMITTED
-}
-public static void printResults(Future<?> f) {
-try {
-System.out.println(f.get(1, TimeUnit.DAYS)); // o1
-} catch (Exception e) {
-System.out.println("Exception!");
-}
-}
-public static void main(String[] args) throws Exception {
-final var r = new ArrayList<Future<?>>();
-ExecutorService s = Executors.newSingleThreadExecutor();
-try {
-for(int i = 0; i < 10; i++) {
-final int animal = i;
-r.add(s.submit(() -> performCount(animal))); // o2
-}
-r.forEach(f -> printResults(f));
-} finally { s.shutdown(); }
-} }
-```
 > **English:** A. It outputs a number 10 times.
 >
 > **Türkçe:** A. On kez bir sayı yazdırır.
@@ -4874,10 +4944,10 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > Dolayısıyla teknik olarak savunulabilir seçenek kümesi **C, D ve E**'dir. Kaynak
 > resmî cevabı, kaynak sadakati için hemen üstte değiştirilmeden korunmuştur.
 
-## Coverage ledger
+## Kapsam doğrulaması
 
-- Chapter body marker'ları: 721–784
-- Appendix answer marker'ları: 951–955
+- Ana bölüm kaynak sayfaları: 721–784
+- Ek cevap kaynağı sayfaları: 951–955
 - Resmî cevap hedefi: 1–25
 - Kod blokları özgün dilinde tutulmuştur.
 - Çeviri ayrıntıları ünite vocabulary ve grammar kaynaklarıyla desteklenir.

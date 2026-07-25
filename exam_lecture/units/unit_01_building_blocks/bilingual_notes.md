@@ -6,7 +6,7 @@ kod ve terminal komutları ise çevrilmeden yalnızca bir kez gösterilir. Ayrı
 dil çalışması için [vocabulary](vocabulary.md) ve [grammar notes](grammar_notes.md)
 dosyalarını kullan.
 
-## Kapsam manifesti
+## Kaynak ve kapsam özeti
 
 - **Kaynak:** `exam_lecture/OCP_Java_SE17_Chapter1den_Itibaren.pdf`
 - **PDF kapsamı:** 0001–0064
@@ -14,7 +14,7 @@ dosyalarını kullan.
 - **İşlenen anlamlı kaynak girdisi:** 2176
 - **Çıkarılan öğeler:** Yalnızca tekrarlanan running header, footer ve sayfa numarası
 - **OCR düzeltmeleri:** Soft hyphen ve satır bölünmesi kaynaklı tireler teknik yazıma getirildi
-- **İzlenebilirlik:** Her PDF sayfası `source-page` marker'ı ve sonda coverage ledger ile kayıtlıdır
+- **İzlenebilirlik:** Her kaynak PDF sayfası kaydedilir ve kapsam doğrulaması belgenin sonunda özetlenir
 
 ## İçindekiler
 
@@ -983,6 +983,8 @@ System.out.println("Got it");
 > **English:** The first step is to create the two files from the previous section. Table 1.1 shows the expected fully qualified filenames and the command to get into the directory for the next steps.
 
 > **Türkçe:** İlk adım, önceki bölümdeki iki file'ı oluşturmaktır. Tablo 1.1, beklenen fully qualified file adlarını ve sonraki adımlar için ilgili directory'ye geçme command'ını gösterir.
+
+<!-- page-break -->
 
 <!-- source-page: 0017 -->
 
@@ -3216,15 +3218,15 @@ A reference name                    The heap
 
 <!-- source-page: 0054 -->
 
-## Kaynak PDF sayfası 54
-
 ### Review Questions
 
-> **Türkçe başlık:** Soruları İncele
+> **Türkçe başlık:** İnceleme Soruları
 
 > **English:** The answers to the chapter review questions can be found in the Appendix.
 
 > **Türkçe:** Bölüm inceleme sorularının yanıtlarını Ek'te bulabilirsiniz.
+
+### Question 1 / Soru 1
 
 > **English:** 1. Which of the following are legal entry point methods that can be run from the command line? (Choose all that apply.)
 
@@ -3238,6 +3240,8 @@ D. public static final void main(String[] args)
 E. public static void main(String[] args)
 F. public static main(String[] args)
 ```
+
+### Question 2 / Soru 2
 
 > **English:** 2. Which answer options represent the order in which the following statements can be assembled into a program that will compile successfully? (Choose all that apply.)
 
@@ -3258,9 +3262,11 @@ E. Z, X
 F. X, Z
 ```
 
-> **English:** G. None of the above.
+> **English:** G. None of the above
 
 > **Türkçe:** G. Yukarıdakilerin hiçbiri.
+
+### Question 3 / Soru 3
 
 > **English:** 3. Which of the following are true? (Choose all that apply.)
 
@@ -3268,9 +3274,9 @@ F. X, Z
 
 ```java
 public class Bunny {
-public static void main(String[] x) {
-Bunny bun = new Bunny();
-} }
+    public static void main(String[] x) {
+        Bunny bun = new Bunny();
+    } }
 ```
 
 > **English:** A. Bunny is a class.
@@ -3303,7 +3309,7 @@ Bunny bun = new Bunny();
 
 <!-- source-page: 0055 -->
 
-## Kaynak PDF sayfası 55
+### Question 4 / Soru 4
 
 > **English:** 4. Which of the following are valid Java identifiers? (Choose all that apply.)
 
@@ -3319,24 +3325,26 @@ F. 1980_s
 G. _Q2_
 ```
 
+### Question 5 / Soru 5
+
 > **English:** 5. Which statements about the following program are correct? (Choose all that apply.)
 
 > **Türkçe:** 5. Aşağıdaki programla ilgili hangi statement'lar doğrudur? (Uygun olanların tümünü seçin.)
 
 ```java
 2: public class Bear {
-3: private Bear pandaBear;
-4: private void roar(Bear b) {
-5: System.out.println("Roar!");
-6: pandaBear = b;
-7: }
-8: public static void main(String[] args) {
-9: Bear brownBear = new Bear();
-10: Bear polarBear = new Bear();
-11: brownBear.roar(polarBear);
-12: polarBear = null;
-13: brownBear = null;
-14: System.gc(); } }
+3:    private Bear pandaBear;
+4:    private void roar(Bear b) {
+5:       System.out.println("Roar!");
+6:       pandaBear = b;
+7:    }
+8:    public static void main(String[] args) {
+9:       Bear brownBear = new Bear();
+10:      Bear polarBear = new Bear();
+11:      brownBear.roar(polarBear);
+12:      polarBear = null;
+13:      brownBear = null;
+14:      System.gc(); } }
 ```
 
 > **English:** A. The object created on line 9 is eligible for garbage collection after line 13.
@@ -3367,34 +3375,29 @@ G. _Q2_
 
 > **Türkçe:** G. Kod derlenmez.
 
+### Question 6 / Soru 6
+
 > **English:** 6. Assuming the following class compiles, how many variables defined in the class or method are in scope on the line marked on line 14?
 
 > **Türkçe:** 6. Aşağıdaki class'ın derlendiğini varsayarsak 14. satırda class veya method içinde declare edilmiş kaç variable scope'tadır?
 
 ```java
 1: public class Camel {
-2: { int hairs = 3_000_0; }
-3: long water, air=2;
-4: boolean twoHumps = true;
-5: public void spit(float distance) {
-6: var path = "";
-```
-
-<!-- source-page: 0056 -->
-
-## Kaynak PDF sayfası 56
-
-```java
-7: { double teeth = 32 + distance++; }
-8: while(water > 0) {
-9: int age = twoHumps? 1: 2;
-10: short i=-1;
-11: for(i=0; i<10; i++) {
-12: var Private = 2;
-13: }
-14: // SCOPE
-15: }
-16: }
+2:    { int hairs = 3_000_0; }
+3:    long water, air=2;
+4:    boolean twoHumps = true;
+5:    public void spit(float distance) {
+6:       var path = "";
+7:       { double teeth = 32 + distance++; }
+8:       while(water > 0) {
+9:          int age = twoHumps ? 1 : 2;
+10:         short i=-1;
+11:         for(i=0; i<10; i++) {
+12:            var Private = 2;
+13:         }
+14:         // SCOPE
+15:      }
+16:   }
 17: }
 ```
 
@@ -3407,9 +3410,13 @@ E. 6
 F. 7
 ```
 
-> **English:** G. None of the above.
+> **English:** G. None of the above
 
 > **Türkçe:** G. Yukarıdakilerin hiçbiri.
+
+<!-- source-page: 0056 -->
+
+### Question 7 / Soru 7
 
 > **English:** 7. Which are true about this code? (Choose all that apply.)
 
@@ -3417,14 +3424,15 @@ F. 7
 
 ```java
 public class KitchenSink {
-private int numForks;
-public static void main(String[] args) {
-int numKnives;
-System.out.print("""
-    "# forks = " + numForks +
-    " # knives = " + numKnives +
-    # cups = 0""");
-}
+    private int numForks;
+
+    public static void main(String[] args) {
+        int numKnives;
+        System.out.print("""
+            "# forks = " + numForks +
+             " # knives = " + numKnives +
+            # cups = 0""");
+    }
 }
 ```
 
@@ -3454,7 +3462,7 @@ System.out.print("""
 
 <!-- source-page: 0057 -->
 
-## Kaynak PDF sayfası 57
+### Question 8 / Soru 8
 
 > **English:** 8. Which of the following code snippets about var compile without issue when used in a method? (Choose all that apply.)
 
@@ -3470,6 +3478,8 @@ F. var winter = 12, cold;
 G. var fall = 2, autumn = 2;
 H. var morning = ""; morning = null;
 ```
+
+### Question 9 / Soru 9
 
 > **English:** 9. Which of the following are correct? (Choose all that apply.)
 
@@ -3503,14 +3513,16 @@ H. var morning = ""; morning = null;
 
 > **Türkçe:** G. Yukarıdakilerin hiçbiri.
 
+### Question 10 / Soru 10
+
 > **English:** 10. Which of the following expressions, when inserted independently into the blank line, allow the code to compile? (Choose all that apply.)
 
 > **Türkçe:** 10. Aşağıdaki expression'lardan hangileri boş satıra ayrı ayrı eklendiğinde kodun derlenmesini sağlar? (Uygun olanların tümünü seçin.)
 
 ```java
 public void printMagicData() {
-var magic = ;
-System.out.println(magic);
+    var magic = ______________;
+    System.out.println(magic);
 }
 ```
 
@@ -3526,6 +3538,8 @@ F. 9___6
 G. _1_3_5_0
 ```
 
+### Question 11 / Soru 11
+
 > **English:** 11. Given the following two class files, what is the maximum number of imports that can be removed and have the code still compile?
 
 > **Türkçe:** 11. Aşağıdaki iki class file'ı verildiğinde kod derlenmeye devam edecek biçimde en fazla kaç `import` kaldırılabilir?
@@ -3534,13 +3548,7 @@ G. _1_3_5_0
 // Water.java
 package aquarium;
 public class Water { }
-```
 
-<!-- source-page: 0058 -->
-
-## Kaynak PDF sayfası 58
-
-```java
 // Tank.java
 package aquarium;
 import java.lang.*;
@@ -3548,8 +3556,8 @@ import java.lang.System;
 import aquarium.Water;
 import aquarium.*;
 public class Tank {
-public void print(Water water) {
-System.out.println(water); } }
+    public void print(Water water) {
+        System.out.println(water); } }
 ```
 
 ```text
@@ -3560,9 +3568,13 @@ D. 3
 E. 4
 ```
 
-> **English:** F. Does not compile.
+> **English:** F. Does not compile
 
 > **Türkçe:** F. Derlenmez.
+
+<!-- source-page: 0058 -->
+
+### Question 12 / Soru 12
 
 > **English:** 12. Which statements about the following class are correct? (Choose all that apply.)
 
@@ -3570,14 +3582,14 @@ E. 4
 
 ```java
 1: public class ClownFish {
-2: int gills = 0, double weight=2;
-3: { int fins = gills; }
-4: void print(int length = 3) {
-5: System.out.println(gills);
-6: System.out.println(weight);
-7: System.out.println(fins);
-8: System.out.println(length);
-9: } }
+2:    int gills = 0, double weight=2;
+3:    { int fins = gills; }
+4:    void print(int length = 3) {
+5:       System.out.println(gills);
+6:       System.out.println(weight);
+7:       System.out.println(fins);
+8:       System.out.println(length);
+9:    } }
 ```
 
 > **English:** A. Line 2 generates a compiler error.
@@ -3614,34 +3626,31 @@ E. 4
 
 <!-- source-page: 0059 -->
 
-## Kaynak PDF sayfası 59
+### Question 13 / Soru 13
 
 > **English:** 13. Given the following classes, which of the following snippets can independently be inserted in place of INSERT IMPORTS HERE and have the code compile? (Choose all that apply.)
 
 > **Türkçe:** 13. Aşağıdaki class'lar verildiğinde hangi snippet'ler birbirinden bağımsız olarak `INSERT IMPORTS HERE` yerine eklenip kodun derlenmesini sağlayabilir? (Uygun olanların tümünü seçin.)
 
 ```java
-// aquarium/Water.java
 package aquarium;
 public class Water {
-boolean salty = false;
+    boolean salty = false;
 }
 ```
 
 ```java
-// aquarium/jellies/Water.java
 package aquarium.jellies;
 public class Water {
-boolean salty = true;
+    boolean salty = true;
 }
 ```
 
 ```java
-// employee/WaterFiller.java
 package employee;
-// INSERT IMPORTS HERE
+INSERT IMPORTS HERE
 public class WaterFiller {
-Water water;
+    Water water;
 }
 ```
 
@@ -3659,7 +3668,9 @@ E. import aquarium.Water;
 
 > **English:** F. None of these imports can make the code compile.
 
-> **Türkçe:** F. Bu import'ların hiçbiri kodu derleyemez.
+> **Türkçe:** F. Bu import'ların hiçbiri kodun derlenmesini sağlayamaz.
+
+### Question 14 / Soru 14
 
 > **English:** 14. Which of the following statements about the code snippet are true? (Choose all that apply.)
 
@@ -3675,8 +3686,6 @@ E. import aquarium.Water;
 ```
 
 <!-- source-page: 0060 -->
-
-## Kaynak PDF sayfası 60
 
 > **English:** A. Line 3 generates a compiler error.
 
@@ -3701,6 +3710,8 @@ E. import aquarium.Water;
 > **English:** F. Line 8 generates a compiler error.
 
 > **Türkçe:** F. 8. satır compiler error oluşturur.
+
+### Question 15 / Soru 15
 
 > **English:** 15. Which of the following statements about garbage collection are correct? (Choose all that apply.)
 
@@ -3734,6 +3745,8 @@ E. import aquarium.Water;
 
 > **Türkçe:** G. Bir variable'ı `final` yapmak, ilişkili object'in hiçbir zaman garbage collection'a alınmayacağı anlamına gelir.
 
+### Question 16 / Soru 16
+
 > **English:** 16. Which are true about this code? (Choose all that apply.)
 
 > **Türkçe:** 16. Bu kodla ilgili hangileri doğrudur? (Uygun olanların tümünü seçin.)
@@ -3741,7 +3754,7 @@ E. import aquarium.Water;
 ```java
 var blocky = """
     squirrel \s
-    pigeon \
+    pigeon   \
     termite""";
 System.out.print(blocky);
 ```
@@ -3770,29 +3783,26 @@ System.out.print(blocky);
 
 > **Türkçe:** F. Her satıra beş karakter girinti yaparsak çıktı değişir.
 
+### Question 17 / Soru 17
+
 > **English:** 17. What lines are printed by the following program? (Choose all that apply.)
 
 > **Türkçe:** 17. Aşağıdaki program hangi satırları yazdırır? (Uygun olanların tümünü seçin.)
 
 ```java
 1: public class WaterBottle {
-2: private String brand;
-3: private boolean empty;
-4: public static float code;
-5: public static void main(String[] args) {
-6: WaterBottle wb = new WaterBottle();
+2:    private String brand;
+3:    private boolean empty;
+4:    public static float code;
+5:    public static void main(String[] args) {
+6:       WaterBottle wb = new WaterBottle();
+7:       System.out.println("Empty = " + wb.empty);
+8:       System.out.println("Brand = " + wb.brand);
+9:       System.out.println("Code = " + code);
+10:   } }
 ```
 
 <!-- source-page: 0061 -->
-
-## Kaynak PDF sayfası 61
-
-```java
-7: System.out.println("Empty = " + wb.empty);
-8: System.out.println("Brand = " + wb.brand);
-9: System.out.println("Code = " + code);
-10: } }
-```
 
 > **English:** A. Line 8 generates a compiler error.
 
@@ -3826,6 +3836,8 @@ System.out.print(blocky);
 
 > **Türkçe:** H. `Code = 0f`
 
+### Question 18 / Soru 18
+
 > **English:** 18. Which of the following statements about var are true? (Choose all that apply.)
 
 > **Türkçe:** 18. `var` hakkında aşağıdaki statement'lardan hangileri doğrudur? (Uygun olanların tümünü seçin.)
@@ -3858,6 +3870,8 @@ System.out.print(blocky);
 
 > **Türkçe:** G. `var` sözcüğü Java'da reserved word'dür.
 
+### Question 19 / Soru 19
+
 > **English:** 19. Which are true about the following code? (Choose all that apply.)
 
 > **Türkçe:** 19. Aşağıdaki kodla ilgili hangileri doğrudur? (Uygun olanların tümünü seçin.)
@@ -3888,37 +3902,34 @@ System.out.println(Long.max(num1, num2));
 
 > **Türkçe:** E. `num2` bir primitive'dir.
 
+### Question 20 / Soru 20
+
 > **English:** 20. Which statements about the following class are correct? (Choose all that apply.)
 
 > **Türkçe:** 20. Aşağıdaki class ile ilgili hangi statement'lar doğrudur? (Uygun olanların tümünü seçin.)
 
 ```java
 1: public class PoliceBox {
-2: String color;
-3: long age;
-4: public void PoliceBox() {
-5: color = "blue";
-6: age = 1200;
+2:    String color;
+3:    long age;
+4:    public void PoliceBox() {
+5:       color = "blue";
+6:       age = 1200;
+7:    }
+8:    public static void main(String []time) {
+9:       var p = new PoliceBox();
+10:      var q = new PoliceBox();
+11:      p.color = "green";
+12:      p.age = 1400;
+13:      p = q;
+14:      System.out.println("Q1="+q.color);
+15:      System.out.println("Q2="+q.age);
+16:      System.out.println("P1="+p.color);
+17:      System.out.println("P2="+p.age);
+18:   } }
 ```
 
 <!-- source-page: 0062 -->
-
-## Kaynak PDF sayfası 62
-
-```java
-7: }
-8: public static void main(String []time) {
-9: var p = new PoliceBox();
-10: var q = new PoliceBox();
-11: p.color = "green";
-12: p.age = 1400;
-13: p = q;
-14: System.out.println("Q1="+q.color);
-15: System.out.println("Q2="+q.age);
-16: System.out.println("P1="+p.color);
-17: System.out.println("P2="+p.age);
-18: } }
-```
 
 > **English:** A. It prints `Q1=blue`.
 
@@ -3952,28 +3963,28 @@ System.out.println(Long.max(num1, num2));
 
 > **Türkçe:** H. Yukarıdakilerin hiçbiri.
 
+### Question 21 / Soru 21
+
 > **English:** 21. What is the output of executing the following class?
 
 > **Türkçe:** 21. Aşağıdaki class çalıştırıldığında çıktı ne olur?
 
 ```java
 1: public class Salmon {
-2: int count;
-3: { System.out.print(count+"-"); }
-4: { count++; }
-5: public Salmon() {
-6: count = 4;
-7: System.out.print(2+"-");
-8: }
-9: public static void main(String[] args) {
-10: System.out.print(7+"-");
-11: var s = new Salmon();
-12: System.out.print(s.count+"-"); } }
+2:    int count;
+3:    { System.out.print(count+"-"); }
+4:    { count++; }
+5:    public Salmon() {
+6:       count = 4;
+7:       System.out.print(2+"-");
+8:    }
+9:    public static void main(String[] args) {
+10:      System.out.print(7+"-");
+11:      var s = new Salmon();
+12:      System.out.print(s.count+"-"); } }
 ```
 
 <!-- source-page: 0063 -->
-
-## Kaynak PDF sayfası 63
 
 > **English:** A. `7-0-2-1-`
 
@@ -4007,49 +4018,32 @@ System.out.println(Long.max(num1, num2));
 
 > **Türkçe:** H. Yukarıdakilerin hiçbiri.
 
-> **English:** 22. Given the following class, which of the following lines of code can independently replace `INSERT CODE HERE` to make the code compile? (Choose all that apply.)
+### Question 22 / Soru 22
+
+> **English:** 22. Given the following class, which of the following lines of code can independently replace INSERT CODE HERE to make the code compile? (Choose all that apply.)
 
 > **Türkçe:** 22. Aşağıdaki class verildiğinde hangi code line'lar birbirinden bağımsız olarak `INSERT CODE HERE` yerine geçerek kodun derlenmesini sağlar? (Uygun olanların tümünü seçin.)
 
 ```java
 public class Price {
-public void admission() {
-// INSERT CODE HERE
-System.out.print(amount);
-} }
+    public void admission() {
+        INSERT CODE HERE
+        System.out.print(amount);
+    } }
 ```
 
-> **English:** A. `int Amount = 0b11;`
+```text
+A. int Amount = 0b11;
+B. int amount = 9L;
+C. int amount = 0xE;
+D. int amount = 1_2.0;
+E. double amount = 1_0_.0;
+F. int amount = 0b101;
+G. double amount = 9_2.1_2;
+H. double amount = 1_2_.0_0;
+```
 
-> **Türkçe:** A. `int Amount = 0b11;`
-
-> **English:** B. `int amount = 9L;`
-
-> **Türkçe:** B. `int amount = 9L;`
-
-> **English:** C. `int amount = 0xE;`
-
-> **Türkçe:** C. `int amount = 0xE;`
-
-> **English:** D. `int amount = 1_2.0;`
-
-> **Türkçe:** D. `int amount = 1_2.0;`
-
-> **English:** E. `double amount = 1_0_.0;`
-
-> **Türkçe:** E. `double amount = 1_0_.0;`
-
-> **English:** F. `int amount = 0b101;`
-
-> **Türkçe:** F. `int amount = 0b101;`
-
-> **English:** G. `double amount = 9_2.1_2;`
-
-> **Türkçe:** G. `double amount = 9_2.1_2;`
-
-> **English:** H. `double amount = 1_2_.0_0;`
-
-> **Türkçe:** H. `double amount = 1_2_.0_0;`
+### Question 23 / Soru 23
 
 > **English:** 23. Which statements about the following class are true? (Choose all that apply.)
 
@@ -4057,27 +4051,22 @@ System.out.print(amount);
 
 ```java
 1: public class River {
-2: int Depth = 1;
-3: float temp = 50.0;
-4: public void flow() {
-5: for (int i = 0; i < 1; i++) {
-6: int depth = 2;
-7: depth++;
-8: temp--;
-9: }
+2:    int Depth = 1;
+3:    float temp = 50.0;
+4:    public void flow() {
+5:       for (int i = 0; i < 1; i++) {
+6:          int depth = 2;
+7:          depth++;
+8:          temp--;
+9:       }
+10:      System.out.println(depth);
+11:      System.out.println(temp); }
+12:   public static void main(String... s) {
+13:      new River().flow();
+14: } }
 ```
 
 <!-- source-page: 0064 -->
-
-## Kaynak PDF sayfası 64
-
-```java
-10: System.out.println(depth);
-11: System.out.println(temp); }
-12: public static void main(String... s) {
-13: new River().flow();
-14: } }
-```
 
 > **English:** A. Line 3 generates a compiler error.
 
@@ -4111,80 +4100,18 @@ System.out.print(amount);
 
 > **Türkçe:** H. Program 11. satırda `49.0` yazdırır.
 
-## Kaynak dışı teknik pekiştirme
+## Bölüm sonu aktif tekrar
 
-Bu belgedeki kaynak akışına ek açıklama karıştırılmamıştır. Java 17/OCP karar
-kartları, exam trap'ler ve active recall çalışmaları ayrı
-[technical memory notes](technical_memory_notes.md) belgesinde korunur.
+> [!TIP]
+> **Kaynak dışı özgün çalışma:** Cevap vermeden önce her maddeyi
+> `Does not compile` → runtime → output sırasıyla değerlendir.
 
-## Page coverage ledger
+1. JDK, JVM ve bytecode arasındaki ilişkiyi tek cümleyle açıkla.
+2. Geçerli bir `main()` declaration'ının zorunlu parçalarını say.
+3. İki wildcard import aynı simple class name'i getirirse ne olacağını belirt.
+4. `var` kullanımında initializer ve scope bakımından iki sınır yaz.
+5. Reference scope'u ile object'in garbage collection'a uygunluğu arasındaki
+   farkı açıkla.
 
-| PDF sayfası | Marker | Anlamlı kaynak girdisi | Durum |
-|---:|:---:|---:|:---:|
-| 0001 | `source-page: 0001` | 15 | Dahil |
-| 0002 | `source-page: 0002` | 29 | Dahil |
-| 0003 | `source-page: 0003` | 33 | Dahil |
-| 0004 | `source-page: 0004` | 34 | Dahil |
-| 0005 | `source-page: 0005` | 37 | Dahil |
-| 0006 | `source-page: 0006` | 32 | Dahil |
-| 0007 | `source-page: 0007` | 36 | Dahil |
-| 0008 | `source-page: 0008` | 38 | Dahil |
-| 0009 | `source-page: 0009` | 34 | Dahil |
-| 0010 | `source-page: 0010` | 33 | Dahil |
-| 0011 | `source-page: 0011` | 32 | Dahil |
-| 0012 | `source-page: 0012` | 38 | Dahil |
-| 0013 | `source-page: 0013` | 37 | Dahil |
-| 0014 | `source-page: 0014` | 37 | Dahil |
-| 0015 | `source-page: 0015` | 39 | Dahil |
-| 0016 | `source-page: 0016` | 34 | Dahil |
-| 0017 | `source-page: 0017` | 28 | Dahil |
-| 0018 | `source-page: 0018` | 33 | Dahil |
-| 0019 | `source-page: 0019` | 47 | Dahil |
-| 0020 | `source-page: 0020` | 33 | Dahil |
-| 0021 | `source-page: 0021` | 40 | Dahil |
-| 0022 | `source-page: 0022` | 33 | Dahil |
-| 0023 | `source-page: 0023` | 35 | Dahil |
-| 0024 | `source-page: 0024` | 34 | Dahil |
-| 0025 | `source-page: 0025` | 37 | Dahil |
-| 0026 | `source-page: 0026` | 37 | Dahil |
-| 0027 | `source-page: 0027` | 28 | Dahil |
-| 0028 | `source-page: 0028` | 32 | Dahil |
-| 0029 | `source-page: 0029` | 36 | Dahil |
-| 0030 | `source-page: 0030` | 36 | Dahil |
-| 0031 | `source-page: 0031` | 31 | Dahil |
-| 0032 | `source-page: 0032` | 37 | Dahil |
-| 0033 | `source-page: 0033` | 38 | Dahil |
-| 0034 | `source-page: 0034` | 34 | Dahil |
-| 0035 | `source-page: 0035` | 33 | Dahil |
-| 0036 | `source-page: 0036` | 32 | Dahil |
-| 0037 | `source-page: 0037` | 38 | Dahil |
-| 0038 | `source-page: 0038` | 33 | Dahil |
-| 0039 | `source-page: 0039` | 37 | Dahil |
-| 0040 | `source-page: 0040` | 35 | Dahil |
-| 0041 | `source-page: 0041` | 35 | Dahil |
-| 0042 | `source-page: 0042` | 36 | Dahil |
-| 0043 | `source-page: 0043` | 39 | Dahil |
-| 0044 | `source-page: 0044` | 27 | Dahil |
-| 0045 | `source-page: 0045` | 35 | Dahil |
-| 0046 | `source-page: 0046` | 36 | Dahil |
-| 0047 | `source-page: 0047` | 37 | Dahil |
-| 0048 | `source-page: 0048` | 36 | Dahil |
-| 0049 | `source-page: 0049` | 30 | Dahil |
-| 0050 | `source-page: 0050` | 38 | Dahil |
-| 0051 | `source-page: 0051` | 28 | Dahil |
-| 0052 | `source-page: 0052` | 40 | Dahil |
-| 0053 | `source-page: 0053` | 22 | Dahil |
-| 0054 | `source-page: 0054` | 34 | Dahil |
-| 0055 | `source-page: 0055` | 39 | Dahil |
-| 0056 | `source-page: 0056` | 35 | Dahil |
-| 0057 | `source-page: 0057` | 37 | Dahil |
-| 0058 | `source-page: 0058` | 33 | Dahil |
-| 0059 | `source-page: 0059` | 32 | Dahil |
-| 0060 | `source-page: 0060` | 36 | Dahil |
-| 0061 | `source-page: 0061` | 36 | Dahil |
-| 0062 | `source-page: 0062` | 33 | Dahil |
-| 0063 | `source-page: 0063` | 34 | Dahil |
-| 0064 | `source-page: 0064` | 13 | Dahil |
-
-**Coverage sonucu:** 0001–0064 aralığındaki
-64 sayfanın tamamı marker'lıdır; aralıkta eksik marker yoktur.
+> Ayrıntılı pekiştirme için [Unit 01 practice quiz](practice_quiz.md) belgesini
+> notlara bakmadan çöz.

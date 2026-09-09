@@ -416,8 +416,21 @@ def audit_unit(unit: Path) -> tuple[int, int, list[str]]:
         quiz_text = quiz.read_text(encoding="utf-8").lower()
         if "özgün" not in quiz_text:
             errors.append(f"{quiz}: must identify questions as original study material")
-        if question_count != 6:
-            errors.append(f"{quiz}: expected 6 questions, found {question_count}")
+        if question_count < 6:
+            errors.append(f"{quiz}: expected at least 6 questions, found {question_count}")
+        answers = re.split(r"^##\s+Cevap[^\n]*", quiz_text, maxsplit=1,
+                           flags=re.MULTILINE | re.IGNORECASE)
+        question_numbers = [int(number) for number in re.findall(
+            r"^###\s+Soru\s+(\d+)\b", answers[0], re.MULTILINE | re.IGNORECASE
+        )]
+        if question_numbers != list(range(1, question_count + 1)):
+            errors.append(f"{quiz}: non-sequential question numbers {question_numbers}")
+        if len(answers) == 2:
+            answer_numbers = [int(number) for number in re.findall(
+                r"^###\s+(?:soru\s+)?(\d+)\b", answers[1], re.MULTILINE
+            )]
+            if answer_numbers != question_numbers:
+                errors.append(f"{quiz}: answer headings do not match questions")
         if not re.search(
             r"^##\s+(?:Cevap|Answers?)",
             quiz_text,
@@ -434,6 +447,13 @@ def audit_unit(unit: Path) -> tuple[int, int, list[str]]:
             expected_review_count,
             errors,
         )
+        answer_numbers = [int(number) for number in re.findall(
+            r"^###\s+Official Answer\s+(\d+)\b",
+            bilingual_notes.read_text(encoding="utf-8"), re.MULTILINE
+        )]
+        if answer_numbers != list(range(1, expected_review_count + 1)):
+            errors.append(f"{bilingual_notes}: source answer key incomplete; "
+                          f"expected 1..{expected_review_count}, found {answer_numbers}")
 
     return question_count, review_count, errors
 
@@ -456,8 +476,16 @@ def main() -> int:
     index = args.units_root / "README.md"
     if not index.exists():
         all_errors.append(f"{args.units_root}: missing README.md")
-    else:
-        audit_markdown(index, all_errors)
+    shared_markdown = sorted(args.units_root.glob("*.md"))
+    for path in shared_markdown:
+        audit_markdown(path, all_errors)
+    plan = args.units_root / "study_plan.md"
+    plan_pdf = plan.with_suffix(".pdf")
+    if plan.exists():
+        if not plan_pdf.exists():
+            all_errors.append(f"{plan}: missing PDF")
+        elif plan_pdf.stat().st_mtime_ns < plan.stat().st_mtime_ns:
+            all_errors.append(f"{plan}: stale PDF")
 
     for unit in units:
         question_count, review_count, errors = audit_unit(unit)
@@ -476,8 +504,8 @@ def main() -> int:
 
     print(
         f"PASS: {len(units)} units; "
-        f"{len(units) * len(REQUIRED_MARKDOWN) + 1} Markdown files; "
-        f"{len(units) * len(PDF_STEMS)} PDFs; "
+        f"{len(units) * len(REQUIRED_MARKDOWN) + len(shared_markdown)} Markdown files; "
+        f"{len(units) * len(PDF_STEMS) + int(plan_pdf.exists())} PDFs; "
         f"{sum(REVIEW_QUESTION_COUNTS.values())} source review questions"
     )
     return 0

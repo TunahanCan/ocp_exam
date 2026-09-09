@@ -1,7 +1,7 @@
 # Unit 14 · I/O — Practice Quiz
 
-Bu belge altı adet **OCP tarzı özgün çalışma sorusu** içerir; sorular gerçek
-sınavdan alınmamıştır. Önerilen süre 15–20 dakikadır. Path sorularında textual
+Bu belge sekiz adet **OCP tarzı özgün çalışma sorusu** içerir; sorular gerçek
+sınavdan alınmamıştır. Önerilen süre 25–30 dakikadır; istersen 1–4 ve 5–8 olarak iki oturuma böl. Path sorularında textual
 operation ile file-system access'i, stream sorularında byte ile character
 hierarchy'sini önce ayır.
 
@@ -128,6 +128,70 @@ belirt:
 > Files.walk() should be used within try-with-resources because the returned
 > stream may hold open directory handles.
 
+### Soru 7
+
+**Odak:** Tampon kapasitesi ile gerçekten okunan miktar
+
+Aşağıdaki tam program için **tek doğru** sonuç hangisidir?
+
+```java
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+
+public class PartialBuffer {
+    public static void main(String[] args) throws IOException {
+        var source = new ByteArrayInputStream(new byte[]{65, 66});
+        var target = new ByteArrayOutputStream();
+        byte[] buffer = new byte[4];
+        int count = source.read(buffer);
+        target.write(buffer, 0, count);
+        System.out.print(count + ":" + target.size() + ":"
+                + target.toString(StandardCharsets.US_ASCII));
+    }
+}
+```
+
+A. `2:2:AB`
+
+B. `4:4:AB` ve iki görünmez karakter
+
+C. Derlenmez; `write()` uzunluk alamaz.
+
+D. `IndexOutOfBoundsException` oluşur.
+
+**Karşı örnek:** `write(buffer, 0, count)` yerine `write(buffer)` kullanılırsa
+hedefte kaç bayt olur? Cevaba bakmadan gerekçeni yaz.
+
+### Soru 8
+
+**Odak:** `Path` işlemi ile dosyanın varlığı
+
+Unix biçimli varsayılan dosya sistemi kabul edildiğinde aşağıdaki tam program
+nasıl sonuçlanır? **Tek seçenek** seç.
+
+```java
+import java.nio.file.Path;
+
+public class MixedPaths {
+    public static void main(String[] args) {
+        var base = Path.of("/work/java");
+        var other = Path.of("notes.txt");
+        System.out.print(base.relativize(other));
+    }
+}
+```
+
+A. `../../notes.txt` yazdırır.
+
+B. `notes.txt` yazdırır.
+
+C. Derlenmez; `relativize()` checked exception bildirir.
+
+D. Derlenir; çalışma zamanında `IllegalArgumentException` oluşur.
+
+**Dil aktarımı:** “The call fails because one path is absolute whereas the
+other is relative.” cümlesinde neden ve karşıtlık bağlaçlarını ayır.
+
 <!-- page-break -->
 
 ## Cevaplar ve açıklamalar
@@ -198,3 +262,20 @@ stream açık directory handle'ları tutabilir.”
 `because` doğrudan neden bildirir. `should be used` modal passive
 (`should + be + V3`) bir öneri verir; `returned` ise “döndürülen” anlamındaki
 reduced passive relative clause'dur.
+
+### Soru 7 — A
+
+- **A doğru:** Kaynakta yalnız iki bayt vardır; `read()` 2 döndürür. Yalnız `count` kadar yazıldığı için hedef de iki bayttır: `2:2:AB`.
+- **B yanlış:** Tamponun kapasitesi 4 olması, dört bayt okunduğu anlamına gelmez.
+- **C yanlış:** `write(byte[], int, int)` geçerli bir overload'dur; program derlenir.
+- **D yanlış:** Başlangıç 0 ve uzunluk 2, dört elemanlı tamponun sınırları içindedir.
+
+Karşı örnek: `write(buffer)` dört bayt yazar; son iki bayt dizinin başlangıç değeri olan `0` olur. Dosya kopyalamada her yinelemede yalnız gerçekte okunan miktarı yaz.
+
+### Soru 8 — D
+
+- **D doğru:** Unix varsayımında `base` mutlak, `other` göreli yoldur; bu iki biçim doğrudan `relativize()` edilemez. Kod derlenir, çalışma zamanında `IllegalArgumentException` oluşur.
+- **A ve B yanlış:** Sonuç yolu hesaplanmadan yol türleri uyuşmazlığı nedeniyle işlem durur.
+- **C yanlış:** `relativize()` bu işlem için checked `IOException` bildirmez; dosyanın varlığını da sorgulamaz.
+
+Çeviri: “Yollardan biri mutlak, diğeri göreli olduğundan çağrı başarısız olur.” `because` neden, `whereas` iki yolun özelliği arasındaki karşıtlığı bildirir.

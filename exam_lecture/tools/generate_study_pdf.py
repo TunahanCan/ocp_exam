@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import re
 from pathlib import Path
+from urllib.parse import unquote
 from xml.sax.saxutils import escape
 
 from reportlab.lib import colors
@@ -40,6 +41,13 @@ INK = colors.HexColor("#23313D")
 MUTED = colors.HexColor("#5D6B78")
 LINE = colors.HexColor("#D8E2E8")
 PAPER = colors.HexColor("#FCFDFE")
+
+
+def heading_slug(title: str) -> str:
+    title = re.sub(r"`([^`]*)`", r"\1", title)
+    title = re.sub(r"<[^>]+>", "", title).strip().lower()
+    title = "".join(char for char in title if char.isalnum() or char in " _-")
+    return re.sub(r"\s", "-", title)
 
 
 def compact_running_title(title: str) -> str:
@@ -149,11 +157,18 @@ def inline_markup(value: str) -> str:
     # renders an actual line break instead of the literal ``<br>`` text.
     value = re.sub(r"<br\s*/?>", "@@HTML_BREAK@@", value, flags=re.IGNORECASE)
     value = escape(value)
-    value = re.sub(
-        r"\[([^]]+)]\(([^)]+)\)",
-        r'<font color="#087E8B"><u>\1</u></font>',
-        value,
-    )
+    def render_link(match: re.Match[str]) -> str:
+        label, target = match.groups()
+        # Internal contents links are actual PDF destinations. Relative files
+        # remain visual references; their Markdown links remain available in
+        # the editable source. Do not invent PDF destinations in other files.
+        if target.startswith("#"):
+            return f'<link href="{unquote(target)}" color="#087E8B"><u>{label}</u></link>'
+        if target.startswith(("https://", "http://", "mailto:")):
+            return f'<link href="{target}" color="#087E8B"><u>{label}</u></link>'
+        return f'<font color="#087E8B"><u>{label}</u></font>'
+
+    value = re.sub(r"\[([^]]+)]\(([^)]+)\)", render_link, value)
     value = re.sub(r"\*\*([^*]+)\*\*", r"<b>\1</b>", value)
     # Do not interpret comment delimiters such as /* and */ (often shown in
     # inline code) as emphasis markers.
@@ -176,12 +191,14 @@ def paragraph_markup(lines: list[str]) -> str:
     for line in lines:
         hard_break = line.endswith("  ") or line.endswith("\\")
         clean_line = line[:-1] if line.endswith("\\") else line.rstrip()
-        parts.append(inline_markup(clean_line))
+        parts.append(clean_line)
         if hard_break:
             parts.append("<br/>")
         else:
             parts.append(" ")
-    return "".join(parts).strip()
+    # Markdown emphasis, inline code and links may span source lines. Parse
+    # the complete paragraph, after preserving explicit Markdown line breaks.
+    return inline_markup("".join(parts).strip())
 
 
 def build_styles() -> dict[str, ParagraphStyle]:
@@ -195,6 +212,8 @@ def build_styles() -> dict[str, ParagraphStyle]:
             leading=15,
             textColor=INK,
             spaceAfter=7,
+            allowWidows=0,
+            allowOrphans=0,
         ),
         "body_keep": ParagraphStyle(
             "StudyBodyKeep",
@@ -205,6 +224,8 @@ def build_styles() -> dict[str, ParagraphStyle]:
             textColor=INK,
             spaceAfter=7,
             keepWithNext=True,
+            allowWidows=0,
+            allowOrphans=0,
         ),
         "h2": ParagraphStyle(
             "StudyH2",
@@ -533,6 +554,7 @@ def markdown_to_story(markdown: str, styles: dict[str, ParagraphStyle]):
     paragraph_lines: list[str] = []
     list_items: list[str] = []
     list_ordered = False
+    heading_counts: dict[str, int] = {}
 
     def flush_paragraph() -> None:
         if paragraph_lines:
@@ -635,21 +657,14 @@ def markdown_to_story(markdown: str, styles: dict[str, ParagraphStyle]):
             flush_list()
             quote: list[str] = []
             bilingual_pair = lines[index].startswith("> **English:**")
-            admonition_block = bool(
-                re.match(
-                    r"^> \[!(?:IMPORTANT|WARNING|NOTE|TIP|CAUTION)\]",
-                    lines[index],
-                    re.IGNORECASE,
-                )
-            )
             seen_turkish = False
             while index < len(lines) and lines[index].startswith(">"):
                 quote_line = lines[index][1:].lstrip()
-                # An admonition and a following bilingual paragraph are
+                # A note/link card and a following bilingual paragraph are
                 # separate semantic blocks even if an unquoted blank line was
                 # accidentally omitted in the Markdown source.
                 if (
-                    admonition_block
+                    not bilingual_pair
                     and quote
                     and quote_line.startswith("**English:**")
                 ):
@@ -723,11 +738,20 @@ def markdown_to_story(markdown: str, styles: dict[str, ParagraphStyle]):
             flush_list()
             level = len(heading.group(1))
             title = heading.group(2)
+            slug = heading_slug(title)
+            duplicate = heading_counts.get(slug, 0)
+            heading_counts[slug] = duplicate + 1
+            anchor = slug if duplicate == 0 else f"{slug}-{duplicate}"
             if level == 1 and not seen_title:
                 story.extend(make_cover(title, styles))
                 seen_title = True
             else:
-                story.append(Paragraph(inline_markup(title), styles[f"h{min(level, 4)}"]))
+                paragraph = Paragraph(
+                    f'<a name="{anchor}"/>' + inline_markup(title),
+                    styles[f"h{min(level, 4)}"],
+                )
+                paragraph.study_heading = (level, title, anchor)
+                story.append(paragraph)
             index += 1
             continue
 
@@ -764,7 +788,49 @@ def markdown_to_story(markdown: str, styles: dict[str, ParagraphStyle]):
     # the final card exactly fills the preceding frame.
     while story and isinstance(story[-1], Spacer):
         story.pop()
-    return story
+    return keep_exercises_together(story)
+
+
+def keep_exercises_together(story):
+    """Keep short exercises and their separate answer explanations intact.
+
+    KeepTogether still permits a genuinely long exercise to span pages. Explicit
+    answer-section page breaks retain their role of hiding answers from view.
+    """
+    output = []
+    group = []
+    in_answers = False
+
+    def flush():
+        if group:
+            output.append(KeepTogether(group.copy()))
+            group.clear()
+
+    for item in story:
+        heading = getattr(item, "study_heading", None)
+        if isinstance(item, PageBreak):
+            flush()
+            output.append(item)
+            continue
+        if heading:
+            level, title, _ = heading
+            if level <= 3:
+                flush()
+            if level == 2:
+                in_answers = bool(re.match(r"Cevap|Answers", title, re.IGNORECASE))
+            if level == 3 and (
+                re.match(r"Official Answer\s+\d+", title)
+                or re.fullmatch(r"Soru\s+\d+", title)
+                or (in_answers and re.match(r"(?:Soru\s+)?\d+\b", title))
+            ):
+                group.append(item)
+                continue
+        if group:
+            group.append(item)
+        else:
+            output.append(item)
+    flush()
+    return output
 
 
 class StudyDocTemplate(BaseDocTemplate):
@@ -781,6 +847,7 @@ class StudyDocTemplate(BaseDocTemplate):
         )
         self.study_title = title
         self.unit_label = unit_label
+        self.outline_levels: list[int] = []
         frame = Frame(
             self.leftMargin,
             self.bottomMargin,
@@ -789,6 +856,24 @@ class StudyDocTemplate(BaseDocTemplate):
             id="study-frame",
         )
         self.addPageTemplates(PageTemplate(id="study", frames=[frame], onPage=self.decorate_page))
+
+    def afterFlowable(self, flowable) -> None:
+        heading = getattr(flowable, "study_heading", None)
+        if heading is None:
+            return
+        level, title, anchor = heading
+        # Source-page labels preserve traceability in the body, but the PDF
+        # sidebar should help the reader find topics, exercises and answers.
+        if re.match(r"(?:Kaynak PDF sayfası|Source page)\s+\d+", title):
+            self.outline_levels.clear()
+            return
+        while self.outline_levels and self.outline_levels[-1] >= level:
+            self.outline_levels.pop()
+        self.canv.addOutlineEntry(
+            re.sub(r"[*`]", "", title), anchor,
+            level=len(self.outline_levels), closed=True,
+        )
+        self.outline_levels.append(level)
 
     def decorate_page(self, canvas, doc) -> None:
         canvas.saveState()

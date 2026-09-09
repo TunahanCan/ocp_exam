@@ -21,27 +21,55 @@ Kaynak metin ile Türkçe çeviri ana notta art arda verilmiştir.
 | [Teknik hafıza notu](technical_memory_notes.md) · [PDF](technical_memory_notes.pdf) | İşlem sırası veya promotion kuralları karıştığında | Expression'ı type, precedence ve side effect adımlarına ayırmak |
 | [Unit 02 vocabulary](vocabulary.md) · [PDF](vocabulary.pdf) | `operand`, `precedence`, `narrowing` gibi terimleri tekrar ederken | Teknik kelimeyi gerçek operator bağlamında kullanmak |
 | [Unit 02 grammar notes](grammar_notes.md) · [PDF](grammar_notes.pdf) | Koşul, karşıtlık ve sonuç bağlaçlarını çalışırken | Teknik İngilizce ve YDS sentence structure'larını tanımak |
-| [Özgün practice quiz](practice_quiz.md) · [PDF](practice_quiz.pdf) | Konu tekrarından sonra, süre tutarak | Altı soruyla compile/runtime/output ve English anlama düzeyini ölçmek |
+| [Özgün practice quiz](practice_quiz.md) · [PDF](practice_quiz.pdf) | Konu tekrarından sonra, süre tutarak | Sekiz soruyla compile/runtime/output ve English anlama düzeyini ölçmek |
 | [Kaynak Review Questions](bilingual_notes.md#review-questions) · [Ana PDF](bilingual_notes.pdf) | Ana konuyu bitirdikten sonra kaynak bölüm-sonu sorularını çözerken | Özgün soru metnini, Java kodunu ve seçenekleri eksiksiz takip etmek |
 
 > **İlk ziyaret için:** Ana notu baştan sona tek oturumda bitirmek yerine konu
 > haritasından bir operator ailesi seçip örneklerini çöz.
 
-## 45–60 dakikalık önerilen çalışma rotası
+## Çalışanlar için 25–30 dakikalık çalışma rotası
 
-1. **0–5 dk · Hedef koy:** Promotion, assignment, comparison veya
-   short-circuit başlıklarından birini seç.
-2. **5–25 dk · Ana okuma:** İlgili ana not bölümünü oku; expression'larda
-   operator precedence ve operand type'larını işaretle. Üç Exam Essentials
-   paragrafını tara ve bir Review Question'ı cevaplamadan önce sonucu tahmin et.
-3. **25–35 dk · Teknik sıkıştırma:** Teknik hafıza notundaki karar kartını
-   notlar kapalıyken yeniden kur.
-4. **35–45 dk · Dil tekrarı:** Vocabulary'den beş kelime, grammar notundan bir
-   bağlaç seç ve mini quizleri çöz.
-5. **45–55 dk · Ölçme:** Practice quiz'i çöz; her cevap için `Does not
-   compile`, runtime exception veya output etiketini açıkça yaz.
-6. **55–60 dk · Hata kaydı:** Yanlış yaptığın expression'da ilk hatalı
-   varsayımını bir cümleyle kaydet.
+Her satır bir **konu durağıdır**; ünitenin tamamını tek oturumda bitirme hedefi
+koymaz. Özellikle soru sayısı fazla olan durağı aynı düzenle birkaç güne böl.
+Bir oturumda 2–3 kaynak sorusu ve en fazla 5 yeni kelime yeterlidir. Soru
+numaraları bu ünitenin kitabındaki Review Questions numaralarıdır.
+
+| Durak | Ana notta okunacak bölüm | Kaynak soruları | Kelime ve grammar odağı |
+|---|---|---|---|
+| 1. Gruplama ve unary işlemler | [Precedence, parentheses, prefix/postfix](bilingual_notes.md#operator-precedence) | 5, 11, 12, 18, 20, 21 | precedence / associativity / complement; `the order in which` |
+| 2. Sayısal dönüşüm | [Promotion, cast, overflow](bilingual_notes.md#numeric-promotion) | 2, 3, 6, 10, 16, 19 | promotion / narrowing / overflow; `when applied independently` |
+| 3. Atama ve yan etki | [Normal/compound assignment, dönüş değeri](bilingual_notes.md#compound-assignment-operators) | 8, 14, 17 | assign / resulting / side effect; `allow + object + to + V1` |
+| 4. Mantıksal işlemler | [Boolean, kısa devre, ternary](bilingual_notes.md#conditional-operators) | 1, 4, 7, 9, 13, 15 | operand / short-circuit / vice versa; `except that`, `may be + V3` |
+
+**Tek oturumun akışı:** 3 dk önceki kuralı notsuz hatırla → 10 dk bir alt
+başlıkta English/Türkçe okuma → 8 dk iki kaynak sorusu → 5 dk kelime ve bir
+cümle çözümleme → 2 dk hata kaydı. Metni yetiştirmek için tahmin yapma; kalan
+alt başlığa sonraki oturumda devam et.
+
+Soruyu çözerken önce **derlenir mi → çalışırsa exception/sonlanma sorunu var mı
+→ çıktı ne** sırasını izle. Ardından [kaynak cevaplarıyla kontrol](bilingual_notes.md#appendix--kaynak-cevaplarıyla-kontrol)
+bölümünü aç. Bu bölüm kitabın cevap harflerini özgün Türkçe gerekçeyle açıklar;
+[practice quiz](practice_quiz.md) ise ayrı özgün sorulardır.
+
+### 1 / 3 / 7 / 14 gün tekrar
+
+- **1 gün sonra · 5 dk:** Dünkü beş kelimenin Türkçesini kapat, iki yanlış
+  sorunun kuralını söyle, bir English cümlede özne ve çekimli fiili işaretle.
+- **3 gün sonra · 8 dk:** İki eski soruyu seçenekleri kapatarak yeniden çöz;
+  aynı grammar kalıbıyla bir Java cümlesi kur.
+- **7 gün sonra · 10 dk:** [Practice quiz](practice_quiz.md) içinden dört
+  soruyu karışık çöz; yanlışının nedenini [teknik notta](technical_memory_notes.md) bul.
+- **14 gün sonra · 10 dk:** Önce yanlış yaptığın iki kaynak sorusu, beş kelime
+  ve bir çeviriyi yeniden dene. Hâlâ açıklayamadığın maddeyi bir sonraki tekrar
+  gününe taşı. Bunlar önerilen çalışma aralıklarıdır; kişisel tempona uyarla.
+
+**İlerleme ölçütü:** Son beş kaynak sorusunun en az dördünü bütün seçenekleriyle
+doğru gerekçelendirebil; seçtiğin beş kelimeden dördünü yeni cümlede kullan;
+bir cümlenin ana yargısını ve koşul/karşıtlık ilişkisini çeviriyi açmadan söyle.
+Yapamıyorsan bütün üniteyi yeniden okumak yerine ilgili alt başlığa dön.
+
+**Kısa hata kaydı:** `Tarih | Soru/kelime | Benim cevabım | Doğru kural ve neden |
+Bir sonraki tekrar`. Yalnız harf kaydetmek, aynı tuzağı yeniden fark etmeyi sağlamaz.
 
 ## Önkoşul ve konu haritası
 

@@ -195,7 +195,7 @@ type'ın gerekli alanlarını taşımalıdır; yalnız date, `LocalDateTime` iç
 
 ## Aktif hatırlama · Özgün çalışma soruları
 
-1. `String.trim()` çağrısının return value'su atılmazsa original değişir mi?
+1. `String.trim()` dönüş değeri değişkene atanırsa özgün String nesnesi değişir mi?
 2. `Arrays.binarySearch()` için temel ön koşul nedir?
 3. `Math.round(2.4)` return type'ı nedir?
 4. DST gününde `Period.ofDays(1)` ile `Duration.ofHours(24)` neden ayrışabilir?

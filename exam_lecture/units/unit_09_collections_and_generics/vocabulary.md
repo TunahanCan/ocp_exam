@@ -5,6 +5,15 @@ açısından değerli kelime/kalıpları bağlam içinde toplar. Maddeler alfabe
 
 ## A–C
 
+### absent · adjective
+
+- **Türkçe:** mevcut olmayan, bulunmayan
+- **Bağlam:** Map’te key’in bulunmaması. Bazı API işlemleri null ile eşlenmiş key’i de ayrı kural gereği absent gibi ele alır.
+- **Example (özgün çalışma cümlesi):** The key is absent from the map.
+- **Çeviri:** Anahtar map’te bulunmuyor.
+- **Related:** Antonym: present; word family: absence.
+- **Kaynak bağlam:** [absent](bilingual_notes.md#putting-if-absent).
+
 ### arbitrary · adjective
 
 - **Türkçe:** keyfî, belirli bir kurala bağlı olmayan
@@ -78,6 +87,15 @@ açısından değerli kelime/kalıpları bağlam içinde toplar. Maddeler alfabe
 - **Example:** “Pass a comparator when the class has no natural order.”
 - **Çeviri:** “Class'ın natural order'ı yoksa bir comparator geçirin.”
 - **Related:** compare, comparative; contrast: `Comparable`
+
+### consistent · adjective
+
+- **Türkçe:** tutarlı, birbiriyle uyumlu
+- **Bağlam:** `compareTo()` sonucu 0 olması ile `equals()` sonucunun true olması arasındaki uyum.
+- **Example (özgün çalışma cümlesi):** Keep the ordering consistent with equals.
+- **Çeviri:** Sıralama ilişkisini equals ile tutarlı tutun.
+- **Related:** Antonym: inconsistent; word family: consistency, consistently.
+- **Kaynak bağlam:** [consistent](bilingual_notes.md#keeping-compareto-and-equals-consistent).
 
 ### constant time · noun phrase
 
@@ -264,7 +282,7 @@ açısından değerli kelime/kalıpları bağlam içinde toplar. Maddeler alfabe
 - **Java bağlamı:** `Vector`, `Hashtable` ve `Stack` gibi modern code'da
   genellikle tercih edilmeyen eski API'ler.
 - **Example:** “The legacy class remains for backward compatibility.”
-- **Çeviri:** “Legacy class backward compatibility için varlığını sürdürür.”
+- **Çeviri:** “Eski sınıf, geriye dönük uyumluluğu korumak için varlığını sürdürür.”
 - **Related:** heritage (noun); phrase: legacy code
 
 ### lower bound · noun phrase
@@ -290,7 +308,7 @@ açısından değerli kelime/kalıpları bağlam içinde toplar. Maddeler alfabe
 - **Java bağlamı:** Class'ın `Comparable.compareTo()` ile tanımladığı default
   order.
 - **Example:** “Strings use lexicographic natural order.”
-- **Çeviri:** “String'ler lexicographic natural order kullanır.”
+- **Çeviri:** “String değerlerinin doğal sıralaması sözlükbilimseldir (lexicographic).”
 - **Related:** natural ordering; contrast: custom order
 
 ### parameterized type · noun phrase
@@ -308,7 +326,7 @@ açısından değerli kelime/kalıpları bağlam içinde toplar. Maddeler alfabe
 - **Java bağlamı:** `binarySearch()` öncesinde list'in aynı order ile sorted
   olması gibi çağrı şartı.
 - **Example:** “Sorting the list satisfies the search precondition.”
-- **Çeviri:** “List'i sıralamak search precondition'ını sağlar.”
+- **Çeviri:** “Listeyi sıralamak, aramanın ön koşulunu karşılar.”
 - **Related:** prerequisite; antonym: postcondition
 
 <!-- page-break -->
@@ -321,7 +339,7 @@ açısından değerli kelime/kalıpları bağlam içinde toplar. Maddeler alfabe
 - **Java bağlamı:** `List` yazıp `List<String>` yazmamak; warning ve type
   safety kaybı doğurur.
 - **Example:** “Using a raw type may postpone an error until runtime.”
-- **Çeviri:** “Raw type kullanmak bir hatayı runtime'a erteleyebilir.”
+- **Çeviri:** “Ham tür kullanmak, bir hatanın ancak çalışma zamanında ortaya çıkmasına yol açabilir.”
 - **Related:** unchecked warning, parameterized type
 
 ### retrieve · verb
@@ -338,7 +356,7 @@ açısından değerli kelime/kalıpları bağlam içinde toplar. Maddeler alfabe
 - **Java bağlamı:** Natural order'ın `Comparator.reverseOrder()` veya
   `reversed()` ile çevrilmiş hâli.
 - **Example:** “The comparator arranges the values in reverse order.”
-- **Çeviri:** “Comparator value'ları reverse order'da düzenler.”
+- **Çeviri:** “Comparator değerleri ters sıraya koyar.”
 - **Related:** reverse (verb/adjective); antonym: natural order
 
 ### shorthand notation · noun phrase
@@ -357,7 +375,7 @@ açısından değerli kelime/kalıpları bağlam içinde toplar. Maddeler alfabe
 - **Java bağlamı:** Belirli comparator veya natural order'a göre düzenlenmiş
   collection.
 - **Example:** “Binary search requires a sorted list.”
-- **Çeviri:** “Binary search sorted bir list gerektirir.”
+- **Çeviri:** “İkili arama, aynı karşılaştırma düzenine göre sıralanmış bir liste gerektirir.”
 - **Related:** sort (verb), sorting (noun); antonym: unsorted
 
 ### subtype · noun
@@ -375,7 +393,7 @@ açısından değerli kelime/kalıpları bağlam içinde toplar. Maddeler alfabe
 - **Java bağlamı:** `TreeSet`in sorted olması karşılığında hash lookup'tan daha
   yavaş olabilmesi.
 - **Example:** “The trade-off for ordering is additional processing cost.”
-- **Çeviri:** “Ordering'in trade-off'u ek işlem maliyetidir.”
+- **Çeviri:** “Sıralı tutmanın karşılığında ek işlem maliyeti ödenir.”
 - **Related:** compromise; phrase: cost-benefit trade-off
 
 ### type erasure · noun phrase
@@ -390,7 +408,7 @@ açısından değerli kelime/kalıpları bağlam içinde toplar. Maddeler alfabe
 
 ### unbounded wildcard · noun phrase
 
-- **Türkçe:** sınırsız wildcard
+- **Türkçe:** sınır belirtilmemiş wildcard
 - **Java bağlamı:** `?`, herhangi bir generic type'ı temsil eder; read type'ı
   güvenli olarak `Object`tir.
 - **Example:** “`List<?>` accepts a list of any element type.”
@@ -402,7 +420,7 @@ açısından değerli kelime/kalıpları bağlam içinde toplar. Maddeler alfabe
 - **Türkçe:** altta yatan, temel oluşturan
 - **Java bağlamı:** Bir view'nun bağlı olduğu özgün array veya data structure.
 - **Example:** “Changing the list also changes the underlying array.”
-- **Çeviri:** “List'i değiştirmek underlying array'i de değiştirir.”
+- **Çeviri:** “Listeyi değiştirmek, listenin dayandığı diziyi de değiştirir.”
 - **Related:** underlie (verb); synonym: foundational
 
 ### upper bound · noun phrase
@@ -421,6 +439,22 @@ açısından değerli kelime/kalıpları bağlam içinde toplar. Maddeler alfabe
 - **Example:** “Use a wildcard when the exact generic type is not important.”
 - **Çeviri:** “Exact generic type önemli olmadığında wildcard kullanın.”
 - **Related:** unbounded wildcard, bounded wildcard
+
+## Karıştırılan anlamlar ve kapalı kitap hatırlama
+
+| Karşılaştırma | Karar verirken kullan |
+|---|---|
+| `absent` / null-mapped | Key yok / key var ama değeri null. `containsKey()` bunları ayırabilir. |
+| `fixed-size` / unmodifiable | Boyut sabit ama set mümkün / değişiklik işlemleri desteklenmez. |
+| `sorted` / arbitrary order | Belirli karşılaştırma düzeni / sırası garanti edilmeyen dolaşım. |
+
+Aşağıdaki özgün cümleyi Türkçeye çevir; ardından vurgulanan anlam farkını kendi Java örneğine aktar. Cevabı açmadan önce bir tahmin yaz.
+
+> The collection is backed by an array.
+
+**Kendini kontrol et:** Collection, depolama için bir diziye dayanır; kopya oluşturulduğu sonucu çıkarılamaz.
+
+Dört işaretli terim için 1/3/7/14. günlerde iki yönlü hatırlama yap: English → Türkçe anlam, sonra Türkçe teknik durum → English terim. Anlamını hatırlayıp örnek kuramadığın terimi “öğrendim” diye işaretleme.
 
 ## Mini vocabulary quiz
 

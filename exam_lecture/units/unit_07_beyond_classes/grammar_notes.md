@@ -2,7 +2,7 @@
 
 ## Bu belge nasıl kullanılmalı?
 
-Bu kaynağı [README'deki çalışma rotasının](README.md#4560-dakikalık-önerilen-çalışma-rotası)
+Bu kaynağı [README'deki çalışma rotasının](README.md#işten-sonra-çalışma-rotası)
 grammar adımında kullan:
 
 1. Yapının formülünü ve cümlede nitelediği öğeyi belirle.
@@ -100,6 +100,12 @@ anlamında güçlü bir condition bildirir.
 **Sık hata:** Buradaki `provided`, “sağlandı” anlamında passive verb değil,
 condition bağlacıdır.
 
+**Çözümleme:** `Inner, local, and anonymous classes` ana özne, `can access` ana yüklem; `the latter two` local ve anonymous class’lara döner, `are used` edilgen yan yüklemdir.
+
+**Teknik sınır:** Kaynak cümlesi erişim izni ile örtük outer nesneyi birleştirerek fazla geneller. Static bağlamdaki local/anonymous class private **static** üyeyi okuyabilir; private instance üyesi için erişilebilir bir outer nesne referansı gerekir. Instance method içinde tanımlanmak her private erişim için zorunlu değildir.
+
+**Kaynak bağlam:** [Summary](bilingual_notes.md#summary--özet); [nested class erişimi](bilingual_notes.md#reviewing-nested-classes).
+
 ## 10. `given + noun phrase`
 
 **EN:** Given the following record declaration, which lines of code can fill
@@ -122,8 +128,12 @@ metinlerinde imperative olarak “... yapabilin” hedefini belirtir.
 
 ## 12. `since + clause`: neden bildiren bağlaç
 
-**EN:** Since the method is static, it is not inherited.
-**TR:** Method static olduğu için inherit edilmez.
+**EN (özgün çalışma cümlesi):** Since the interface method is static, it is not inherited by implementing classes.
+**TR:** Interface method’u static olduğu için onu gerçekleştiren sınıflara kalıtımla geçmez.
+
+**Çözümleme:** `the interface method` neden yan cümlesinin öznesi, `is` fiilidir; ana cümlede `it` aynı method’a döner, `is not inherited` edilgen yüklemdir. Bu kural **interface static method** içindir; class static method’ları uygun erişim koşullarıyla kalıtımla alınabilir.
+
+**Kaynak bağlam:** [Declaring static Interface Methods](bilingual_notes.md#declaring-static-interface-methods).
 
 Buradaki `since`, zaman başlangıcı değil reason (neden) bildirir ve `because`
 ile yakın anlamlıdır. Formül: `since + subject + verb, result clause`.
@@ -148,8 +158,7 @@ sealed class.
 **TR:** Aksi belirtilmedikçe subclass'ın sealed class'ı doğrudan extend ettiğini
 varsayın.
 
-`unless`, `if ... not` anlamı taşır. Aynı clause içinde gereksiz ikinci bir
-negation kurma: `unless it does not...` çoğu bağlamda yanlış anlam üretir.
+`unless`, çoğu koşul cümlesinde `if ... not` anlamı taşır. `unless + not` **dilbilgisel olarak yasak değildir**; iki olumsuzluğun anlamını ayrı çöz. `unless it compiles` = derlenmedikçe; `unless it does not compile` = derlenmemesi durumu dışında. İkinci biçim farklı bir koşuldur, birincinin eş anlamlısı değildir.
 
 ## 15. Correlative comparison: `the more ..., the less ...`
 

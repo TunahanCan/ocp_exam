@@ -69,7 +69,7 @@ English → Türkçe paragraf çiftleriyle bir araya getirir. Kod ve terminal
 >
 > **Türkçe:** Bu bölümdeki Streams API fonksiyonel programlama için kullanıldığına dikkat edin. Buna
 > karşılık, Bölüm 14'te bahsettiğimiz java.io streams da var, "I/O." Her ikisi de stream
-> kelimesini kullanmasına rağmen, hiçbir şey birbirine benzemez.
+> kelimesini kullanmasına rağmen, bu iki kavram birbirine benzemez.
 > **English:** In this chapter, we introduce Optional. Then we introduce the Stream pipeline and tie it
 > all together. You might want to read this chapter twice before doing the review
 > questions so that you really get it. Functional programming tends to have a steep
@@ -78,7 +78,7 @@ English → Türkçe paragraf çiftleriyle bir araya getirir. Kod ve terminal
 > **Türkçe:** Bu bölümde Optional'i tanıtıyoruz. Sonra Stream pipeline'u tanıtıyoruz ve hepsini bir
 > araya getiriyoruz. Konuyu gerçekten kavramak için review questions bölümüne geçmeden
 > önce bu chapter'ı iki kez okumak isteyebilirsiniz. Functional programming'in başlangıçta
-> dik bir öğrenme eğrisi vardır; ancak alışınca oldukça heyecan verici olabilir.
+> öğrenilmesi genellikle zordur; ancak mantığını kavradığınızda oldukça heyecan verici olabilir. [Kelime kalıpları](vocabulary.md) · [Grammar: tend to](grammar_notes.md#6-tend-to--base-verb).
 ## Returning an Optional
 > **English:** Suppose that you are taking an introductory Java class and receive scores of 90 and 100
 > on the first two exams. Now, we ask you what your average is. An average is calculated
@@ -719,47 +719,24 @@ n -> n + 2); // UnaryOperator to get next value
 >
 > **Türkçe:** İncelemek için Tablo 10.3'teki tüm yöntemleri bildiğinizden emin olun. Bunlar streams
 > için bir kaynak oluşturmanın yollarıdır, bir Collection örnek coll verilir.
-> **English:** TABLE 10.3 Creating a source Finite Method or infinite? Notes
->
-> **Türkçe:** TABLE 10.3 Kaynak Sonlu Yöntem mi yoksa sonsuz mu Yaratmak? Kaynakça
-```java
-Stream.empty() Finite Creates Stream with zero elements.
-Stream.of(varargs) Finite Creates Stream with elements listed.
-```
-> **English:** coll.stream() Finite Creates Stream from Collection.
->
-> **Türkçe:** coll.stream() Sonlu Collection dan Stream oluşturur.
-> **English:** coll.parallelStream() Finite Creates Stream from Collection where the stream can run in
-> parallel.
->
-> **Türkçe:** coll.parallelStream () Sonlu, akışın paralel olarak çalışabileceği Koleksiyondan Akış
-> Oluşturur.
-> **English:** Stream.
->
-> **Türkçe:** Stream.
-> **English:** Infinite Creates Stream by calling Supplier for each element upon request.
-> generate(supplier)
->
-> **Türkçe:** Infinite, istek üzerine her eleman için Supplier diyerek Stream oluşturur.
-> generate(supplier)
-> **English:** Stream.iterate(seed, Infinite Creates Stream by using seed for first element and then
-> calling UnaryOperator for each unaryOperator)
->
-> **Türkçe:** Stream.iterate(seed, Infinite Creates Stream by using seed for first element and then
-> calling UnaryOperator for each unaryOperator)
-> **English:** subsequent element upon request.
->
-> **Türkçe:** talep üzerine sonraki eleman.
-> **English:** Finite or Stream.iterate(seed, Creates Stream by using seed for first element infinite
-> and then calling UnaryOperator for each predicate, subsequent element upon request.
-> Stops if unaryOperator)
->
-> **Türkçe:** Sonlu veya Stream.iterate(seed, Creates Stream by using seed for first element infinite
-> and then calling UnaryOperator for each predicate, subsequent element upon request.
-> Stops if unaryOperator)
-> **English:** Predicate returns false.
->
-> **Türkçe:** Predicate yanlış döndürür.
+#### Table 10.3 · Creating a source
+
+**English:** Creating a source.
+
+**Türkçe:** Stream için kaynak oluşturma. Tablo, kaynak fiziksel sayfa 541’deki satır ve sütun ilişkileri korunarak yeniden düzenlendi; `coll`, bir `Collection` nesnesidir.
+
+| Method / Metot | Finite or infinite? / Sonlu mu, sonsuz mu? | Notes / Açıklama |
+|---|---|---|
+| `Stream.empty()` | Finite / Sonlu | **English:** Creates Stream with zero elements. **Türkçe:** Sıfır elemanlı bir stream oluşturur. |
+| `Stream.of(varargs)` | Finite / Sonlu | **English:** Creates Stream with elements listed. **Türkçe:** Verilen elemanlardan bir stream oluşturur. |
+| `coll.stream()` | Finite / Sonlu | **English:** Creates Stream from Collection. **Türkçe:** Koleksiyondan bir stream oluşturur. |
+| `coll.parallelStream()` | Finite / Sonlu | **English:** Creates Stream from Collection where the stream can run in parallel. **Türkçe:** Koleksiyondan paralel çalışabilen bir stream oluşturur. |
+| `Stream.generate(supplier)` | Infinite / Sonsuz | **English:** Creates Stream by calling Supplier for each element upon request. **Türkçe:** İstenen her eleman için Supplier’ı çağırarak stream oluşturur. |
+| `Stream.iterate(seed, unaryOperator)` | Infinite / Sonsuz | **English:** Creates Stream by using seed for first element and then calling UnaryOperator for each subsequent element upon request. **Türkçe:** İlk eleman olarak seed kullanır; istenen sonraki her eleman için UnaryOperator’ı çağırır. |
+| `Stream.iterate(seed, predicate, unaryOperator)` | Finite or infinite / Sonlu veya sonsuz | **English:** Creates Stream by using seed for first element and then calling UnaryOperator for each subsequent element upon request. Stops if Predicate returns false. **Türkçe:** Seed ile başlar; istenen sonraki her eleman için UnaryOperator’ı çağırır. Predicate false döndüğünde durur. |
+
+> **Kısa kontrol:** Üç parametreli `iterate()` içinde Predicate, seed için de kontrol edilir; ilk kontrol false ise stream boştur. “Finite or infinite”, predicate’in sonunda false olup olmamasına bağlıdır.
+
 ### Using Common Terminal Operations
 > **English:** You can perform a terminal operation without any intermediate operations but not the
 > other way around. This is why we talk about terminal operations first. Reductions are a
@@ -780,31 +757,24 @@ Stream.of(varargs) Finite Creates Stream with elements listed.
 > **Türkçe:** Tablo 10.4 bu bölümü özetler. Her birinden bireysel olarak geçerken en önemli noktaları
 > hatırlamak için bir rehber olarak kullanmaktan çekinmeyin. Alfabetik olarak değil, en
 > basitten en karmaşıka kadar açıklarız.
-> **English:** TABLE 10.4 Terminal stream operations Method What happens for infinite streams Return
-> value Reduction
->
-> **Türkçe:** TABLE 10.4 Terminal stream işlemleri Yöntem infinite streams Dönüş değeri Reduction için
-> ne olur
-```java
-count() Does not terminate long Yes
-```
-> **English:** min()
->
-> **Türkçe:** min()
-> **English:** Does not terminate Optional<T> Yes max()
->
-> **Türkçe:** Optional<T> Evet max() sonlandırmaz
-> **English:** findAny() Terminates Optional<T> No findFirst()
->
-> **Türkçe:** findAny() Optional<T> Hayır findFirst() Sonlandırır
-> **English:** allMatch() Sometimes terminates boolean No anyMatch() noneMatch()
->
-> **Türkçe:** allMatch() Bazen boolean Hayır anyMatch() noneMatch() sona erer
-```java
-forEach() Does not terminate void No
-reduce() Does not terminate Varies Yes
-collect() Does not terminate Varies Yes
-```
+#### Table 10.4 · Terminal stream operations
+
+**English:** Terminal stream operations.
+
+**Türkçe:** Stream’in terminal işlemleri. Aşağıdaki tablo kaynak fiziksel sayfa 542’deki satır ve sütun düzeniyle yeniden kurulmuştur.
+
+| Method / Metot | Infinite stream behavior / Sonsuz stream davranışı | Return value / Dönüş | Reduction / İndirgeme |
+|---|---|---|---|
+| `count()` | Does not terminate / Sona ermez | `long` | Yes / Evet |
+| `min()`, `max()` | Does not terminate / Sona ermez | `Optional<T>` | Yes / Evet |
+| `findAny()`, `findFirst()` | Terminates / Sona erer | `Optional<T>` | No / Hayır |
+| `allMatch()`, `anyMatch()`, `noneMatch()` | Sometimes terminates / Bazen sona erer | `boolean` | No / Hayır |
+| `forEach()` | Does not terminate / Sona ermez | `void` | No / Hayır |
+| `reduce()` | Does not terminate / Sona ermez | Varies / Değişir | Yes / Evet |
+| `collect()` | Does not terminate / Sona ermez | Varies / Değişir | Yes / Evet |
+
+> **Editör notu · Koşulu unutma:** Bu, kaynak tablonun özetidir; tüm olası pipeline’lara koşulsuz garanti vermez. `findFirst()` öncesindeki sonsuz kaynağa `filter(x -> false)` uygulanırsa hiçbir öğe ulaşmaz ve işlem sona ermez. `limit()` gibi adımlar da kaynağın sonsuz olmasına rağmen sonlu bir sonuç sağlayabilir. [Pipeline analizi](technical_memory_notes.md#6-pipeline-flow-ve-lazy-evaluation).
+
 #### Counting
 > **English:** The count() method determines the number of elements in a finite stream. For an infinite
 > stream, it never terminates. Why? Count from 1 to infinity, and let us know when you are
@@ -3300,6 +3270,7 @@ System.out.println(result);
 > çünkü sadece bir nesne döndürülür ve biz mutluyuz çünkü stream üzerinden iki kez geçmek
 > zorunda değiliz.
 ## Summary
+
 > **English:** An Optional<T> can be empty or store a value. You can check whether it contains a value
 > with isPresent() and get() the value inside. You can return a different value with
 > orElse(T t) or throw an exception with orElseThrow(). There are even three methods that
@@ -3308,31 +3279,33 @@ System.out.println(result);
 > OptionalDouble, OptionalInt, and OptionalLong. These have the methods getAsDouble(),
 > getAsInt(), and getAsLong(), respectively.
 >
-> **Türkçe:** Bir Optional<T> boş olabilir veya bir değer saklayabilir. İçinde isPresent() ve get()
-> değeri olan bir değer olup olmadığını kontrol edebilirsiniz. orElse(T t) ile farklı bir
-> değer döndürebilir veya orElseThrow() ile bir istisna atabilirsiniz. Parametre olarak
-> functional interfaces alan üç yöntem bile vardır: ifPresent(Consumer c),
-> orElseGet(Supplier s) ve orElseThrow(Supplier s). İlkeller için üç optional türü vardır:
-> OptionalDouble, OptionalInt ve OptionalLong. Bunlar sırasıyla getAsDouble(), getAsInt()
-> ve getAsLong() yöntemlerine sahiptir.
+> **Türkçe:** Bir `Optional<T>` boş olabilir veya bir değer içerebilir. Değer bulunup bulunmadığı `isPresent()` ile
+> kontrol edilir; varsa değer `get()` ile alınır. Boş durumda `orElse(T t)` ile alternatif değer
+> kullanılabilir veya `orElseThrow()` ile exception fırlatılabilir. Functional interface alan seçenekler
+> arasında `ifPresent(Consumer c)`, `orElseGet(Supplier s)` ve `orElseThrow(Supplier s)` vardır. Primitive
+> değerler için `OptionalDouble`, `OptionalInt` ve `OptionalLong` kullanılır; bunların değer alma
+> metotları sırasıyla `getAsDouble()`, `getAsInt()` ve `getAsLong()`dur.
+
 > **English:** A stream pipeline has three parts. The source is required, and it creates the data in
 > the stream. There can be zero or more intermediate operations, which aren’t executed
 > until the
 >
-> **Türkçe:** stream pipeline üç bölüme sahiptir. Kaynak gereklidir ve verileri stream içinde
-> oluşturur. Sıfır veya daha fazla intermediate operations olabilir, bunlar çalıştırılana
-> kadar çalıştırılmaz.
+> **Türkçe:** Bir stream pipeline üç bölümden oluşur. Zorunlu olan kaynak, stream'in verilerini sağlar. Sıfır veya
+> daha fazla intermediate operation (ara işlem) bulunabilir; ancak bu işlemler…
 
 <!-- source-page: 0579 -->
+
 > **English:** terminal operation runs. The first stream class we covered was Stream<T>, which takes a
 > generic argument T. The Stream<T> class includes many useful intermediate operations
 > including filter(), map(), flatMap(), and sorted(). Examples of terminal operations
 > include allMatch(), count(), and forEach().
 >
-> **Türkçe:** terminal operation çalışır. Kaptığımız ilk stream sınıfı, genel bir argüman T alan
-> Stream<T> idi. Stream<T> sınıfı, filter(), map(), flatMap() ve sorted() dahil olmak
-> üzere birçok yararlı intermediate operations içerir. terminal operations örnekleri
-> arasında allMatch(), count() ve forEach() bulunur.
+> **Türkçe:** …terminal operation (sonlandırıcı işlem) çalışana kadar yürütülmez. İlk ele aldığımız stream türü, `T`
+> tür parametresini kullanan `Stream<T>` idi. `filter()`, `map()`, `flatMap()` ve `sorted()` yararlı ara
+> işlemlerdir. `allMatch()`, `count()` ve `forEach()` ise sonlandırıcı işlem örnekleridir.
+
+> **Editör notu · Java 17:** Kaynakta “class” denilen `Stream<T>`, `DoubleStream`, `IntStream` ve `LongStream` Java'da interface'tir. `Optional` türleri ise sınıftır.
+
 > **English:** Besides the Stream<T> class, there are three primitive streams: DoubleStream, IntStream,
 > and LongStream. In addition to the usual Stream<T> methods, IntStream and LongStream
 > have range() and rangeClosed(). The call range(1, 10) on IntStream and LongStream
@@ -3341,134 +3314,144 @@ System.out.println(result);
 > including average(), max(), and sum(). They also have summaryStatistics() to get many
 > statistics in one call.
 >
-> **Türkçe:** Stream<T> sınıfının yanı sıra üç primitive streams vardır: DoubleStream, IntStream ve
-> LongStream. Her zamanki Stream<T> yöntemlerine ek olarak, IntStream ve LongStream
-> range() ve rangeClosed() var. IntStream ve LongStream üzerindeki range(1, 10) çağrısı,
-> 1'den 9'a kadar ilkellerin stream çağrısını oluşturur. Buna karşılık, rangeClosed(1, 10)
-> ilkellerin 1 ile 10 arasında bir stream oluşturur. primitive streams average(), max() ve
-> sum() dahil olmak üzere matematik işlemlerine sahiptir. Ayrıca, bir çağrıda birçok
-> istatistik elde etmek için summaryStatistics() vardır.
+> **Türkçe:** `Stream<T>` dışında üç primitive stream türü vardır: `DoubleStream`, `IntStream` ve `LongStream`.
+> `IntStream` ve `LongStream`, yaygın stream işlemlerine ek olarak `range()` ve `rangeClosed()` sağlar.
+> `range(1, 10)`, 1'den 9'a kadar primitive değerleri üretir; `rangeClosed(1, 10)` ise 10'u da kapsar.
+> Primitive stream'lerde `average()`, `max()` ve `sum()` gibi sayısal işlemler vardır.
+> `summaryStatistics()` ile birçok istatistik tek çağrıda elde edilir.
+
 > **English:** You can use a Collector to transform a stream into a traditional collection. You can
 > even group fields to create a complex map in one line. Partitioning works the same way
 > as grouping, except that the keys are always true and false. A partitioned map always
 > has two keys, even if the value is empty for the key. A teeing collector allows you to
 > combine the results of two other collectors.
 >
-> **Türkçe:** Bir stream'yı geleneksel bir collection'ye dönüştürmek için Collector kullanabilirsiniz.
-> Bir satırda karmaşık bir map oluşturmak için alanları bile gruplayabilirsiniz.
-> Partitioning tuşların her zaman doğru ve yanlış olması dışında grouping ile aynı şekilde
-> çalışır. Bölümlü bir map, anahtar için değer boş olsa bile her zaman iki tuşa sahiptir.
-> Bir teeing collector, diğer iki collectors sonucunu birleştirmenizi sağlar.
+> **Türkçe:** Bir stream'i alışılmış bir koleksiyona dönüştürmek için `Collector` kullanabilirsiniz. Gruplama ile tek
+> ifadede karmaşık bir map oluşturmak da mümkündür. Partitioning (iki gruba ayırma), anahtarların her
+> zaman `true` ve `false` olması bakımından genel gruplamadan ayrılır. Eşleşen eleman bulunmasa da sonuç
+> map'inde her iki anahtar bulunur. Teeing collector, diğer iki collector'ın sonuçlarını birleştirir.
+
 > **English:** You should memorize Table 10.6 and Table 10.7. At the least, be able to spot
 > incompatibilities, such as type differences. Finally, remember that streams are lazily
 > evaluated. They take lambdas or method references as parameters, which execute later
 > when the method is run.
 >
-> **Türkçe:** Tablo 10.6 ve Tablo 10.7'yi ezberlemelisiniz. En azından, tip farklılıkları gibi
-> uyumsuzlukları fark edebilme. Son olarak, streams'in tembel bir şekilde
-> değerlendirildiğini unutmayın. lambdas veya method references parametrelerini alır, bu
-> da yöntem çalıştırıldığında daha sonra çalışır.
+> **Türkçe:** Tablo 10.6 ve 10.7'deki eşleşmeleri öğrenmelisiniz; en azından türler arasındaki uyumsuzlukları fark
+> edebilmelisiniz. Stream'lerin lazy evaluation (gerektikçe değerlendirme) kullandığını unutmayın.
+> İşlemlere verilen lambda ve method reference'lar, pipeline yürütülürken gerektiğinde çalıştırılır.
+
+> **Editör notu · Java 17:** Lazy evaluation bütün lambda'ların mutlaka çalışacağı anlamına gelmez; kısa devre veya optimizasyon bazı işlemleri atlayabilir. [peek ve count açıklaması](technical_memory_notes.md).
 ## Exam Essentials
-> **English:** Write code that uses Optional.Creating an Optional uses Optional.empty() or
+
+> **English:** Write code that uses Optional. Creating an Optional uses Optional.empty() or
 > Optional.of(). Retrieval frequently uses isPresent() and get(). Alternatively, there are
 > the functional ifPresent() and orElseGet() methods.
 >
-> **Türkçe:** Optional.Creating ve Optional kodlarını kullanan Optional.empty() veya Optional.of()
-> kodlarını yazın. Retrieval sık sık isPresent() ve get() kullanır. Alternatif olarak,
-> fonksiyonel ifPresent() ve orElseGet() yöntemleri vardır.
-> **English:** Recognize which operations cause a stream pipeline to execute.Intermediate operations do
+> **Türkçe:** **Optional kullanan kod yazın.** `Optional.empty()` boş, `Optional.of()` ise null olmayan bir değer
+> içeren Optional oluşturur. Değeri okumada `isPresent()` ve `get()` sık kullanılır. İşlevsel
+> alternatifler arasında `ifPresent()` ve `orElseGet()` bulunur.
+
+> **English:** Recognize which operations cause a stream pipeline to execute. Intermediate operations do
 > not run until the terminal operation is encountered. If no terminal operation is in the
 > pipeline, a Stream is returned but not executed. Examples of terminal operations include
 > collect(), forEach(), min(), and reduce().
 >
-> **Türkçe:** stream pipeline ile execute.Intermediate arasındaki işlemlerin terminal operation ile
-> karşılaşılıncaya kadar çalışmadığını kabul edin. pipeline içinde terminal operation
-> yoksa, bir Stream döndürülür ancak çalıştırılmaz. terminal operations örnekleri arasında
-> collect(), forEach(), min() ve reduce() bulunur.
-> **English:** Determine which terminal operations are reductions.Reductions use all elements of the
+> **Türkçe:** **Pipeline'ı hangi işlemlerin yürüttüğünü tanıyın.** Ara işlemler, sonlandırıcı işlem çağrılmadan
+> yürütülmez. Sonlandırıcı işlem yoksa bir `Stream` elde edilir, fakat pipeline işlenmez. `collect()`,
+> `forEach()`, `min()` ve `reduce()` sonlandırıcı işlem örnekleridir.
+
+> **English:** Determine which terminal operations are reductions. Reductions use all elements of the
 > stream in determining the result. The reductions that you need to know are collect(),
 > count(), max(), min(), and reduce(). A mutable reduction collects into the same object
 > as it goes. The collect() method is a mutable reduction.
 >
-> **Türkçe:** terminal operations sonucunun hangi reductions.Reductions olduğunu belirlemek için
-> stream öğesinin tüm elemanlarını kullanın. Bilmeniz gereken reductions collect(),
-> count(), max(), min() ve reduce() dir. Değiştirilebilir bir reduction, gittiği gibi aynı
-> nesneye toplanır. collect() yöntemi reduction değişkenidir.
-> **English:** Write code for common intermediate operations.The filter() method returns a Stream<T>
+> **Türkçe:** **Hangi sonlandırıcı işlemlerin reduction (indirgeme) olduğunu belirleyin.** Reduction, stream'in
+> elemanlarından toplu bir sonuç üretir. Burada ele alınan işlemler `collect()`, `count()`, `max()`,
+> `min()` ve `reduce()`dır. Mutable reduction, elemanları işledikçe aynı sonuç kabını günceller;
+> `collect()` buna örnektir.
+
+> **Editör notu · Java 17:** Kaynakta “use all elements” tüm girdi kümesinden sonuç elde etmeyi anlatır; her ara lambda'nın tek tek çağrılması garanti değildir. Örneğin `count()` bilinen boyuttan hesaplanabilir.
+
+> **English:** Write code for common intermediate operations. The filter() method returns a Stream<T>
 > filtering on a Predicate<T>. The map() method returns a Stream, transforming each
-> element of type T to another type R through a Function <T,R>. The flatMap() method
+> element of type T to another type R through a Function<T,R>. The flatMap() method
 > flattens nested streams into a single level and removes empty streams.
 >
-> **Türkçe:** Ortak ara operations.The filter() yöntemi için kod yazın, bir Predicate<T> üzerinde bir
-> Stream<T> filtreleme döndürür. map() yöntemi bir Stream döndürür ve her T tipi elemanını
-> bir Function T,R> aracılığıyla başka bir R türüne dönüştürür. flatMap() yöntemi, streams
-> yuvalanmış streams'u tek bir seviyeye düzleştirir ve boş streams'u kaldırır.
+> **Türkçe:** **Yaygın ara işlemleri kullanın.** `filter()`, bir `Predicate` koşulunu sağlayan elemanlardan oluşan
+> `Stream<T>` döndürür. `map()`, bir `Function` yardımıyla `T` türündeki elemanları `R` türündeki
+> sonuçlara dönüştürür. `flatMap()`, iç içe stream'leri tek düzeyde birleştirir; boş iç stream'ler sonuca
+> eleman eklemez.
 
 <!-- source-page: 0580 -->
-> **English:** Compare primitive streams to Stream<T>.Primitive streams are useful for performing
+
+> **English:** Compare primitive streams to Stream<T>. Primitive streams are useful for performing
 > common operations on numeric types, including statistics like average(), sum(), and so
 > on. There are three primitive stream classes: DoubleStream, IntStream, and LongStream.
 > There are also three primitive Optional classes: OptionalDouble, OptionalInt, and
 > OptionalLong. Aside from BooleanSupplier, they all involve the double, int, or long
 > primitives.
 >
-> **Türkçe:** primitive streams ile Stream<T> karşılaştırması.Primitive streams, average(), sum() gibi
-> istatistikler de dahil olmak üzere sayısal türlerde ortak işlemler yapmak için
-> kullanışlıdır. Üç primitive stream sınıfı vardır: DoubleStream, IntStream ve LongStream.
-> Ayrıca üç ilkel Optional sınıfı vardır: OptionalDouble, OptionalInt ve OptionalLong.
-> Boolean Supplier dışında, hepsi double, int veya long ilkellerini içerir.
-> **English:** Convert primitive stream types to other primitive stream types.Normally, when mapping,
+> **Türkçe:** **Primitive stream'leri `Stream<T>` ile karşılaştırın.** Primitive stream'ler sayısal değerler üzerinde
+> `average()` ve `sum()` gibi işlemler için kullanışlıdır. Üç türü `DoubleStream`, `IntStream` ve
+> `LongStream`dir. Bunlara karşılık `OptionalDouble`, `OptionalInt` ve `OptionalLong` sınıfları vardır.
+> Ele alınan primitive uzmanlaştırmalar `double`, `int` ve `long` üzerinedir; `BooleanSupplier` ise
+> `boolean` üretir.
+
+> **Editör notu · Java 17:** Kaynağın `BooleanSupplier` istisnası functional interface'lerle ilgilidir; Java 17'de `BooleanStream` veya `OptionalBoolean` bulunduğu anlamına gelmez.
+
+> **English:** Convert primitive stream types to other primitive stream types. Normally, when mapping,
 > you just call the map() method. When changing the class used for the stream, a different
 > method is needed. To convert to Stream, you use mapToObj(). To convert to DoubleStream,
 > you use mapToDouble(). To convert to IntStream, you use mapToInt(). To convert to
 > LongStream, you use mapToLong().
 >
-> **Türkçe:** primitive stream türlerini diğer primitive stream types.Normally türlerine dönüştürün,
-> mapping olduğunda, sadece map() yöntemini çağırırsınız. stream için kullanılan sınıfı
-> değiştirirken, farklı bir yöntem gereklidir. Stream konumuna dönüştürmek için mapToObj()
-> kullanılır. DoubleStream 'e dönüştürmek için mapToDouble() kullanılır. IntStream
-> konumuna dönüştürmek için mapToInt() kullanılır. LongStream'a dönüştürmek için
-> mapToLong() kullanılır.
-> **English:** Use peek() to inspect the stream.The peek() method is an intermediate operation often
+> **Türkçe:** **Primitive stream türleri arasında dönüşüm yapın.** Türü koruyan dönüşümlerde `map()` kullanılır. Hedef
+> stream türü değişiyorsa uygun `mapTo...` metodu gerekir. Nesne stream'i için `mapToObj()`, sayısal
+> hedefe göre `mapToDouble()`, `mapToInt()` veya `mapToLong()` kullanılır.
+
+> **English:** Use peek() to inspect the stream. The peek() method is an intermediate operation often
 > used for debugging purposes. It executes a lambda or method reference on the input and
 > passes that same input through the pipeline to the next operator. It is useful for
 > printing out what passes through a certain point in a stream.
 >
-> **Türkçe:** stream.The peek() yöntemini incelemek için peek() kullanın, genellikle hata ayıklama
-> amacıyla kullanılan bir intermediate operation yöntemidir. Girdi üzerinde bir lambda
-> veya method reference çalıştırır ve bir sonraki operatöre pipeline üzerinden aynı
-> girdiyi geçirir. Bir stream içinde belirli bir noktadan geçenleri yazdırmak için
-> kullanışlıdır.
-> **English:** Search a stream.The findFirst() and findAny() methods return a single element from a
+> **Türkçe:** **Stream'i incelemek için `peek()` kullanın.** Bu ara işlem çoğunlukla hata ayıklamaya yardım eder.
+> İşlenen eleman üzerinde bir lambda veya method reference çalıştırır ve aynı elemanı pipeline'daki
+> sonraki işleme iletir. Belirli bir noktadan geçen elemanları yazdırmak için kullanılabilir.
+
+> **Editör notu · Java 17:** `peek()` yan etkisini zorunlu iş mantığı olarak kullanma: kısa devre veya `count()` optimizasyonu nedeniyle hiç çağrılmayabilir.
+
+> **English:** Search a stream. The findFirst() and findAny() methods return a single element from a
 > stream in an Optional. The anyMatch(), allMatch(), and noneMatch() methods return a
 > boolean. Be careful, because these three can hang if called on an infinite stream with
 > some data. All of these methods are terminal operations.
 >
-> **Türkçe:** stream.The findFirst() ve findAny() yöntemlerinde tek bir elemanı stream içinde Optional
-> döndürün. anyMatch(), allMatch() ve noneMatch() yöntemleri bir boolean döndürür.
-> Dikkatli olun, çünkü bu üçü bazı verilerle bir infinite stream üzerinde çağrıldıklarında
-> asılabilir. Tüm bu yöntemler terminal operations dir.
-> **English:** Sort a stream.The sorted() method is an intermediate operation that sorts a stream.
+> **Türkçe:** **Stream içinde arama yapın.** `findFirst()` ve `findAny()`, bulunan elemanı bir `Optional` içinde
+> döndürür; eleman yoksa Optional boştur. `anyMatch()`, `allMatch()` ve `noneMatch()` boolean sonuç
+> üretir. Sonsuz stream'lerde bazı veri ve koşul birleşimlerinde sonuç bulunamayabilir ve işlem
+> bitmeyebilir. Bunların hepsi sonlandırıcı işlemdir.
+
+> **English:** Sort a stream. The sorted() method is an intermediate operation that sorts a stream.
 > There are two versions: the signature with zero parameters that sorts using the natural
 > sort order, and the signature with one parameter that sorts using that Comparator as the
 > sort order.
 >
-> **Türkçe:** Bir stream.The sorted() metodu, bir stream'i sıralayan bir ara işlemdir. İki sürüm
-> vardır: doğal sıralama sırasını kullanarak sıralayan sıfır parametreli imza ve sıralama
-> sırası olarak bu Comparator kullanarak sıralayan bir parametreli imza.
-> **English:** Compare groupingBy() and partitioningBy().The groupingBy() method is a terminal
+> **Türkçe:** **Stream'i sıralayın.** `sorted()` bir ara işlemdir. Parametresiz sürüm doğal sıralamayı kullanır; tek
+> parametreli sürüm verilen `Comparator` kuralına göre sıralar.
+
+> **English:** Compare groupingBy() and partitioningBy(). The groupingBy() method is a terminal
 > operation that creates a Map. The keys and return types are determined by the parameters
 > you pass. The values in the Map are a Collection for all the entries that map to that
 > key. The partitioningBy() method also returns a Map. This time, the keys are true and
 > false. The values are again a Collection of matches. If there are no matches for that
 > boolean, the Collection is empty.
 >
-> **Türkçe:** groupingBy() ve partitioningBy() ile karşılaştırın. groupingBy() yöntemi, Map oluşturan
-> bir terminal operation yöntemidir. Anahtarlar ve return types geçtiğiniz parametrelerle
-> belirlenir. Map içindeki değerler, o anahtara map yazan tüm girdiler için Collection
-> değeridir. partitioningBy() yöntemi de Map döndürür. Bu sefer anahtarlar doğru ve
-> yanlış. Değerler yine maçların Collection değeridir. Bu boolean için eşleşme yoksa,
-> Collection boştur.
+> **Türkçe:** **groupingBy() ile partitioningBy() kullanımını karşılaştırın.** `groupingBy()`, gruplama sonucunun bir
+> map'te toplanmasını sağlar; anahtarlar ve sonuç türleri seçilen parametrelere bağlıdır. Varsayılan
+> biçimde her anahtarın değeri, o gruba düşen elemanların listesidir. `partitioningBy()` ile elde edilen
+> map'in anahtarları `true` ve `false` olur. Varsayılan biçimde değerler eşleşen eleman listeleridir;
+> eşleşme yoksa ilgili liste boştur.
+
+> **Editör notu · Java 17:** Kaynağın “groupingBy is a terminal operation” ifadesi teknik olarak yanlıştır: `Collectors.groupingBy()` ve `partitioningBy()` bir **Collector** üretir; sonlandırıcı işlem `stream.collect(...)` çağrısıdır. Downstream collector kullanılırsa map değerleri liste yerine sayı gibi başka türlerde olabilir.
 
 <!-- source-page: 0581 -->
 ## Review Questions

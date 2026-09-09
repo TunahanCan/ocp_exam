@@ -4,6 +4,12 @@ Bu dosya, [ana çift dilli nottaki](bilingual_notes.md) thread, synchronization
 ve parallel processing anlatımından seçilen gerçek teknik İngilizce yapılarını
 YDS/teknik okuma açısından açıklar.
 
+
+Örnekler kaynak bağlamını öğretmek için seçilmiş veya sadeleştirilmiştir;
+“kaynak alıntısı” diye belirtilmeyen cümleler birebir kitap alıntısı değildir.
+Her oturumda bir yapıyı çalış: **ana yüklem → özne → bağlaç → yan cümle →
+doğal Türkçe** sırasını izle. Yapıyı ertesi gün örneğe bakmadan yeniden kur.
+
 ## 1. `as compared to/with`
 
 ### Yapı
@@ -16,7 +22,7 @@ Bir şeyi başka bir referansa göre karşılaştırır.
 
 > **English:** “Disk operations are slow as compared to CPU operations.”
 >
-> **Türkçe:** “Disk operation'ları CPU operation'larına kıyasla yavaştır.”
+> **Türkçe:** “Disk işlemleri, CPU işlemlerine kıyasla yavaştır.”
 
 YDS ipucu: `compared with/to`, `in comparison with` aynı comparison alanına
 aittir.
@@ -34,10 +40,9 @@ Derece ve onun sonucunu bildirir.
 > **English:** “The operation may be so slow that the application appears to
 > freeze.”
 >
-> **Türkçe:** “Operation o kadar yavaş olabilir ki application donmuş gibi
-> görünür.”
+> **Türkçe:** “İşlem o kadar yavaş olabilir ki uygulama donmuş gibi görünür.”
 
-`so that + clause` amaç; `so ... that` derece-sonuç yapısıdır.
+`so that + clause` bağlama göre amaç veya sonuç; `so ... that` derece-sonuç yapısıdır. Bağlacı tek karşılıkla ezberleme.
 
 ## 3. `allow + object + to + V1`
 
@@ -52,8 +57,7 @@ Bir kişi veya bileşene eylem olanağı verir.
 > **English:** “Multithreaded processing allows an application to execute
 > several tasks.”
 >
-> **Türkçe:** “Multithreaded processing application'ın birden çok task
-> yürütmesine olanak sağlar.”
+> **Türkçe:** “Çok iş parçacıklı işleme, uygulamanın birden fazla görev yürütmesine olanak sağlar.”
 
 Passive: `Tasks are allowed to continue.` Sık hata: object'ten sonra `to`
 unutmak.
@@ -71,8 +75,7 @@ what is known as + term
 > **English:** “Operating systems support what is known as multithreaded
 > processing.”
 >
-> **Türkçe:** “Operating system'ler multithreaded processing olarak bilinen
-> yapıyı destekler.”
+> **Türkçe:** “İşletim sistemleri, çok iş parçacıklı işleme olarak bilinen yapıyı destekler.”
 
 `what` kendi antecedent'ını içerir; önüne ayrıca `the thing` getirilmez.
 
@@ -89,7 +92,7 @@ clause, whereas + contrasting clause
 > **English:** “`Runnable` returns no value, whereas `Callable` returns a
 > generic value.”
 >
-> **Türkçe:** “`Runnable` value döndürmezken `Callable` generic value döndürür.”
+> **Türkçe:** “`Runnable` değer döndürmezken `Callable` tür parametresiyle belirlenen bir değer döndürür.”
 
 YDS'de `whereas` çoğunlukla `while`ın contrast anlamına eşittir; zaman
 bildirmez.
@@ -106,8 +109,7 @@ Bir sonuca ulaşma yöntemini açıklar.
 
 > **English:** “The executor improves efficiency by reusing worker threads.”
 >
-> **Türkçe:** “Executor worker thread'leri yeniden kullanarak verimliliği
-> artırır.”
+> **Türkçe:** “Yürütücü, çalışan iş parçacıklarını yeniden kullanarak verimliliği artırır.”
 
 `by` sonrası base verb değil gerund gerekir.
 
@@ -125,8 +127,7 @@ Genel kural veya gelecekteki koşullu zamanı anlatır.
 > **English:** “When the final thread arrives, the barrier releases all
 > parties.”
 >
-> **Türkçe:** “Son thread ulaştığında barrier bütün party'leri serbest
-> bırakır.”
+> **Türkçe:** “Son iş parçacığı ulaştığında bariyer, bütün katılımcıları serbest bırakır.”
 
 Future anlamında time clause içinde çoğunlukla `will arrive` değil `arrives`
 kullanılır.
@@ -144,7 +145,7 @@ Eşzamanlılık veya contrast bildirir.
 
 > **English:** “One thread waits while another thread holds the lock.”
 >
-> **Türkçe:** “Bir thread beklerken diğer thread lock'u tutar.”
+> **Türkçe:** “Bir iş parçacığı beklerken diğeri kilidi tutar.”
 
 Context'e göre “...iken” zaman, “oysa” contrast anlamını ayır.
 
@@ -176,9 +177,9 @@ subject + may/might/can + base verb
 
 `may/might` possibility; `can` ability veya genel possibility bildirir.
 
-> **English:** “A parallel operation may produce a different encounter order.”
+> **English:** “A parallel forEach operation may process elements out of encounter order.”
 >
-> **Türkçe:** “Parallel operation farklı encounter order üretebilir.”
+> **Türkçe:** “Paralel bir `forEach` işlemi, öğeleri karşılaşma sırasından farklı bir sırada işleyebilir.”
 
 Modal'dan sonra `to` gelmez ve verb çekimlenmez.
 
@@ -296,9 +297,16 @@ Güçlü concessive contrast bildirir.
 > **English:** “Even though the field is volatile, the increment is not
 > atomic.”
 >
-> **Türkçe:** “Field volatile olsa da increment atomic değildir.”
+> **Türkçe:** “Alan `volatile` olsa da artırma işlemi atomik değildir.”
 
 `even though` gerçek olgu; `even if` varsayımsal koşul için daha doğaldır.
+
+
+**Cümleyi parçala:** `[Even though the field is volatile]` ödünleme yan cümlesi; `[the increment]` ana özne; `[is not atomic]` ana yüklem. Beklenen çıkarım “görünürse güvenlidir” olabilir; ikinci bölüm bunun geçerli olmadığını söyler.
+
+**Dönüştür:** “Despite the field being volatile, the increment is not atomic.” `even though` tam cümle; `despite` isim/gerund yapısı alır. `despite the field is volatile` bu anlamda yanlıştır.
+
+**Kaynak bağlamı:** [Accessing Data with volatile](bilingual_notes.md#accessing-data-with-volatile).
 
 ## 18. `due to / because of + noun`
 
@@ -314,7 +322,7 @@ Neden bildirir.
 
 > **English:** “The result varies because of different thread interleavings.”
 >
-> **Türkçe:** “Sonuç farklı thread interleaving'leri nedeniyle değişir.”
+> **Türkçe:** “Sonuç, iş parçacıklarının adımlarının farklı sıralarda iç içe geçmesi nedeniyle değişir.”
 
 YDS ipucu: `because` tam clause, `because of` noun phrase alır.
 
@@ -330,8 +338,7 @@ Bir eylemin gerçekleşmesini engeller.
 
 > **English:** “An unclosed executor may prevent the JVM from terminating.”
 >
-> **Türkçe:** “Kapatılmamış executor JVM'in terminate olmasını
-> engelleyebilir.”
+> **Türkçe:** “Kapatılmamış bir yürütücü, JVM’in sonlanmasını engelleyebilir.”
 
 `from` sonrası gerund zorunludur: `from terminating`.
 
@@ -347,10 +354,16 @@ Neden → sonuç yönünde ilişki kurar.
 
 > **English:** “Ignoring the return value may result in an invalid unlock.”
 >
-> **Türkçe:** “Return value'yu göz ardı etmek invalid unlock ile
-> sonuçlanabilir.”
+> **Türkçe:** “Dönüş değerini göz ardı etmek, geçersiz bir kilit bırakma işlemiyle sonuçlanabilir.”
 
 Ters yön: `result from + cause` = “...den kaynaklanmak”.
+
+
+**Neden ve sonucu ters çevir:** “Lost updates result from a race condition.” → “Kaybolan güncellemeler bir yarış durumundan kaynaklanır.” Burada `[lost updates]` sonuç olan özne, `[result from]` yüklem, `[a race condition]` nedendir. “A race condition can result in lost updates.” cümlesinde yön neden → sonuç olur.
+
+**Kapalı kitap sorusu:** İki cümleyi birbirine dönüştürürken yalnız edatı değil özne ve tamamlayıcının yerini de değiştir.
+
+**Kaynak bağlamı:** [Managing Race Conditions](bilingual_notes.md#managing-race-conditions).
 
 ## 21. `cause + object + to + V1`
 
@@ -365,8 +378,7 @@ Bir durumun başka bir eylemi doğurmasını anlatır.
 > **English:** “An interrupt can cause a sleeping thread to throw an
 > exception.”
 >
-> **Türkçe:** “Interrupt sleeping thread'in exception fırlatmasına neden
-> olabilir.”
+> **Türkçe:** “Bir kesme isteği, uyuyan iş parçacığının istisna fırlatmasına yol açabilir.”
 
 Passive: `The thread is caused to wake` grammatical olsa da teknik metinde
 çoğunlukla active neden yapısı kullanılır.
@@ -384,8 +396,7 @@ Bir API/class'ın amaçlanan görevini bildirir.
 > **English:** “Concurrent collections are designed to support safe concurrent
 > access.”
 >
-> **Türkçe:** “Concurrent collection'lar safe concurrent access'i desteklemek
-> üzere tasarlanmıştır.”
+> **Türkçe:** “Eşzamanlı koleksiyonlar, güvenli eşzamanlı erişimi desteklemek için tasarlanmıştır.”
 
 YDS'de “tasarım amacı” ile gerçek guarantee'yi karıştırma; object'in contract'ı
 ayrıca okunmalıdır.
@@ -404,8 +415,7 @@ Seçenek veya derecenin sonucu değiştirmediğini gösterir.
 > **English:** “The output is not guaranteed no matter how often one order is
 > observed.”
 >
-> **Türkçe:** “Bir sıra ne kadar sık gözlemlenirse gözlemlensin output garanti
-> değildir.”
+> **Türkçe:** “Belirli bir sıra ne kadar sık gözlemlenirse gözlemlensin çıktı garanti değildir.”
 
 `no matter how` concessive anlamlıdır; soru cümlesi değildir.
 
@@ -422,8 +432,7 @@ the + comparative + clause, the + comparative + clause
 > **English:** “The more shared state a task modifies, the harder it is to
 > reason about thread safety.”
 >
-> **Türkçe:** “Task ne kadar fazla shared state değiştirirse thread safety
-> hakkında reasoning yapmak o kadar zorlaşır.”
+> **Türkçe:** “Bir görev paylaşılan durumu ne kadar çok değiştirirse iş parçacığı güvenliğini değerlendirmek o kadar zorlaşır.”
 
 İlk `the` article değil, comparative correlative marker'dır.
 
@@ -440,7 +449,7 @@ either + alternative A + or + alternative B
 > **English:** “A task either completes normally or records an exception in
 > its future.”
 >
-> **Türkçe:** “Task ya normal tamamlanır ya da future'ına exception kaydeder.”
+> **Türkçe:** “Bir görev ya normal biçimde tamamlanır ya da `Future` nesnesine bir istisna kaydeder.”
 
 Subject agreement yakın öğeye göre değişebilir; teknik listelerde parallel
 structure'ı koru.

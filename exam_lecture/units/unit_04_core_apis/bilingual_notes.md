@@ -14,6 +14,8 @@ Bu belge, yüklenen OCP Java SE 17 kaynağındaki bölüm metnini kaynak sıras�
 
 ## İçindekiler
 
+- [Kaynak cevaplarıyla kontrol](#appendix--kaynak-cevaplarıyla-kontrol) · Soruları çözdükten sonra aç.
+
 1. [Creating and Manipulating Strings](#creating-and-manipulating-strings)
 2. [Using the StringBuilder Class](#using-the-stringbuilder-class)
 3. [Understanding Equality](#understanding-equality)
@@ -369,6 +371,8 @@ System.out.println(name.indexOf("al", 5)); // -1
 > **Türkçe:** İndeksler `0`'dan başladığı için ilk `'a'` bu konumda eşleşir. İkinci statement daha belirli bir `String` aradığından daha sonraki bir konumda eşleşir. Üçüncü statement, Java'nın indeks `4`'e gelmeden karakterlere bakmamasını ister. Son statement ise aramaya mevcut eşleşmeden sonra başladığı için hiçbir şey bulamaz. `charAt()`'tan farklı olarak `indexOf()`, eşleşme bulamadığında exception fırlatmaz; `-1` döndürür. İndeksler `0`'dan başladığı için caller (method'u çağıran kod), `-1`'in geçerli bir indeks olamayacağını bilir. Bu nedenle `-1`, eşleşme bulunamadığını bildiren yaygın bir dönüş değeridir.
 
 #### Getting a Substring
+
+> **Dil çalışması:** `one past` için [ünite sözlüğü](vocabulary.md); cümle yapıları için [grammar notu](grammar_notes.md).
 
 > **Türkçe başlık:** Substring Alma
 
@@ -3471,6 +3475,8 @@ System.out.println(dateTime); // 2022-03-13T03:30-04:00[US/Eastern]
 >
 > **Türkçe:** `String` nesnelerinde `==`, referansların havuzdaki aynı nesneyi gösterip göstermediğini denetler. `StringBuilder` referanslarında da `==`, aynı `StringBuilder` nesnesinin gösterilip gösterilmediğini denetler. `String.equals()` karakter dizilerini içerik bakımından karşılaştırır. Buna karşılık `StringBuilder.equals()` içeriklere bakmaz; referansların aynı nesneyi gösterip göstermediğini denetler.
 
+> **Editör notu · Referans eşitliği:** Kaynaktaki “in the pool” ifadesi kuralı gereksiz yere daraltır. `==`, havuz dışında oluşturulmuş nesnelerde de aynı referansı denetler. Örneğin `String a = new String("x"); String b = a;` sonrasında `a == b` sonucu `true` olur; nesnenin string pool'da olması gerekmez.
+
 > **English:** An array is a fixed-size area of memory on the heap that has space for primitives or pointers to objects. You specify the size when creating it. For example, `int[] a = new int[6];`. Indexes begin with 0, and elements are referred to using `a[0]`. The `Arrays.sort()` method sorts an array. `Arrays.binarySearch()` searches a sorted array and returns the index of a match. If no match is found, it negates the position where the element would need to be inserted and subtracts 1. `Arrays.compare()` and `Arrays.mismatch()` check whether two arrays are equivalent. Methods that are passed varargs (`...`) can be used as if a normal array was passed in. In a multidimensional array, the second-level arrays and beyond can be different sizes.
 >
 > **Türkçe:** Array, heap'te primitive değerler veya nesne referansları için yer ayıran sabit boyutlu bir bellek alanıdır; boyut oluşturulurken belirtilir. Örneğin `int[] a = new int[6];` altı elemanlık bir array oluşturur. İndeksler `0`'dan başlar ve elemanlara `a[0]` biçiminde erişilir. `Arrays.sort()` array'i sıralar. `Arrays.binarySearch()` sıralı bir array'de arama yapar ve eşleşme varsa indeksini döndürür. Eşleşme yoksa elemanın eklenmesi gereken konumun negatifini alıp `1` çıkarır. `Arrays.compare()` ve `Arrays.mismatch()` iki array'i karşılaştırır. Varargs (`...`) alan method'lar, normal bir array verilmiş gibi kullanılabilir. Çok boyutlu bir array'de ikinci düzey ve daha derindeki array'ler farklı uzunluklarda olabilir.
@@ -4784,3 +4790,148 @@ method return type'ını literal'ın görünüşünden değil signature'dan beli
 
 > **Kapsam özeti:** `0155`–`0218` aralığındaki **64/64 kaynak sayfa**
 > doğrulandı; eksik veya yinelenen sayfa yoktur.
+
+## Appendix · Kaynak cevaplarıyla kontrol
+
+Bu bölüm, kaynak kitabın **Appendix: Answers to the Review Questions** bölümündeki
+Chapter 4 cevaplarından hazırlanmış özgün Türkçe çözüm rehberidir; İngilizce
+açıklamaların birebir çevirisi ve gerçek OCP sınav cevapları değildir. Kaynak:
+[ana PDF](../../OCP_Java_SE17_Chapter1den_Itibaren.pdf), fiziksel PDF sayfaları 921–924.
+`Official Answer` başlıkları kitabın kaynak cevaplarına karşılık gelir.
+
+Önce soruyu kapalı notla çöz; seçtiğin her harfin yanına bir cümle gerekçe yaz.
+Sonra aşağıdan kontrol et. Yanlış seçenek veya yanlış gerekçe, hata günlüğüne
+ayrı kayıt olarak girer. Kaynakta tespit edilen anlatım sorunları **Editör notu**
+olarak ayrılmıştır.
+
+### Official Answer 1 / Kaynak Cevap 1
+
+**Kaynak cevap: F.** [Soru 1](#question-1--soru-1)
+
+`numFish + 1` sayısal `int` toplamıdır; `String` değişkene doğrudan atanamaz. Bir operand String olmadan birleştirme başlamaz, dolayısıyla program derlenmez.
+
+### Official Answer 2 / Kaynak Cevap 2
+
+**Kaynak cevap: C, E, F.** [Soru 2](#question-2--soru-2)
+
+C'de değişken adı tür olarak kullanılır; E/F'de boyutsuz `new` ifadesi geçersizdir. A/B/D'deki çok boyutlu array biçimleri geçerlidir; sonraki boyutlar boş bırakılabilir.
+
+### Official Answer 3 / Kaynak Cevap 3
+
+**Kaynak cevap: A, C, D.** [Soru 3](#question-3--soru-3)
+
+Geçerli tarihler ve DST boşluk/çakışmalarını ayarlayan `ZonedDateTime` çağrıları kabul edilir. Mart 40 ve 2023 Şubat 29 runtime hatasıdır; `MonthEnum` ise derleme sorunudur.
+
+### Official Answer 4 / Kaynak Cevap 4
+
+**Kaynak cevap: A, C, D.** [Soru 4](#question-4--soru-4)
+
+`equals()` içerik eşitliğini, `==` nesne kimliğini sınar; `intern()` havuzdaki referansı döndürür. `new String(s)` ile elde edilen `t`, havuzdaki nesnenin kendisi değildir.
+
+### Official Answer 5 / Kaynak Cevap 5
+
+**Kaynak cevap: B.** [Soru 5](#question-5--soru-5)
+
+Builder sırasıyla `aaa → abbaa → abbaccca` olur; çıktı `abbaccca`dır. Her `insert` indeksini önceki çağrının değiştirdiği dizi üzerinde yeniden say.
+
+### Official Answer 6 / Kaynak Cevap 6
+
+**Kaynak cevap: C.** [Soru 6](#question-6--soru-6)
+
+İki derleme hatası vardır: `round(double)` sonucu `long`, `random()` sonucu `double`dır. Bunları sırasıyla `int` ve `float`a doğrudan atayamazsın.
+
+### Official Answer 7 / Kaynak Cevap 7
+
+**Kaynak cevap: A, E.** [Soru 7](#question-7--soru-7)
+
+UTC'ye çevrilince zamanlar 09:00 ve 15:00 olur; ilk an altı saat erkendir. Yerel saatleri offset'i yok sayarak karşılaştırma.
+
+### Official Answer 8 / Kaynak Cevap 8
+
+**Kaynak cevap: A, B, F.** [Soru 8](#question-8--soru-8)
+
+Her seçenek aynı başlangıç değeriyle ayrı denenir; doğru çağrılar `'5'` karakterini verir. D sınır dışı, E eksik `length()` parantezi yüzünden derlenmez; `'5'` ile sayısal `5`in türünü ayır.
+
+### Official Answer 9 / Kaynak Cevap 9
+
+**Kaynak cevap: A, C, F.** [Soru 9](#question-9--soru-9)
+
+Array indeksleri 0'dan başlar, uzunluğu sabittir ve miras aldığı `equals()` nesne kimliğini karşılaştırır. Sabit uzunluk, eleman değerlerinin de değiştirilemez olduğu anlamına gelmez.
+
+### Official Answer 10 / Kaynak Cevap 10
+
+**Kaynak cevap: A.** [Soru 10](#question-10--soru-10)
+
+Bütün satırlar derlenir: `min(int,int) → int`, `round(double) → long`, `floor(double) → double`. `double[]` diğer sayısal değerleri uygun widening ile alır.
+
+### Official Answer 11 / Kaynak Cevap 11
+
+**Kaynak cevap: E.** [Soru 11](#question-11--soru-11)
+
+`LocalDate` saat bileşeni taşımaz ve `plusHours()` metodu yoktur; kod derlenmez. Atanmayan `plusDays()` sonucu ayrı bir immutability tuzağıdır ama derleme hatasını ortadan kaldırmaz.
+
+### Official Answer 12 / Kaynak Cevap 12
+
+**Kaynak cevap: A, D, E.** [Soru 12](#question-12--soru-12)
+
+Çıktı `12`, boş satır ve `78` satırıdır. **Editör notu:** `indent(1)` ayrıca son `\n` ekler; `stripLeading()` bu sondaki karakteri silmez. Kitabın “hiç etkisi yok” açıklaması tam doğru değildir; cevap seçenekleri değişmez.
+
+### Official Answer 13 / Kaynak Cevap 13
+
+**Kaynak cevap: B.** [Soru 13](#question-13--soru-13)
+
+`String.concat()` sonucu atanmadığı için ilk metin değişmez; `StringBuilder.append()` ortak nesneyi değiştirir. Çıktı `roar roar!!!` olur.
+
+### Official Answer 14 / Kaynak Cevap 14
+
+**Kaynak cevap: A, F.** [Soru 14](#question-14--soru-14)
+
+`Instant.now()` doğrudan bir an üretir; `ZonedDateTime.toInstant()` mevcut anı dönüştürür. `LocalDateTime` tek başına offset/zone taşımadığı için aynı çağrıyla bir an belirleyemez; public constructor da yoktur.
+
+### Official Answer 15 / Kaynak Cevap 15
+
+**Kaynak cevap: C, E.** [Soru 15](#question-15--soru-15)
+
+Sıralama `[123, PIG, pig]` olur; `Pippa` için ekleme indeksi 2, arama sonucu `-3`tür. `-(insertion point)-1` formülünde indeksi sıfırdan say.
+
+### Official Answer 16 / Kaynak Cevap 16
+
+**Kaynak cevap: A, B, G.** [Soru 16](#question-16--soru-16)
+
+Üç uzunluk 11, 16 ve 10'dur: `indent(2)` iki satıra dört boşluk ve sona newline ekler; `translateEscapes()` metindeki `\t`yi tek tab karakterine çevirir. Kaynak escape yazımı ile runtime karakterlerini ayır.
+
+### Official Answer 17 / Kaynak Cevap 17
+
+**Kaynak cevap: A, G.** [Soru 17](#question-17--soru-17)
+
+`substring(1,2)` tek karakter, `substring(2,2)` boş String verir. Başlangıcın bitişten büyük olması runtime exception'dır; boş aralık hata değildir.
+
+### Official Answer 18 / Kaynak Cevap 18
+
+**Kaynak cevap: C, F.** [Soru 18](#question-18--soru-18)
+
+Atanmayan String metotları `s1`i değiştirmez; `+= "two"` sonrası uzunluk 7'dir. `s2` içeriği `2cfalse` olur; `equals()` true, havuz literal'iyle `==` false'tur.
+
+### Official Answer 19 / Kaynak Cevap 19
+
+**Kaynak cevap: A, B, D.** [Soru 19](#question-19--soru-19)
+
+`compare(s1,s2)` ilk farklı elemanda `Peacock` ile `Llama`yı karşılaştırır ve pozitiftir. `mismatch` B/D için 1 verir; aynı array'de -1, aynı array'i `compare` ile karşılaştırınca 0 çıkar.
+
+### Official Answer 20 / Kaynak Cevap 20
+
+**Kaynak cevap: A, D.** [Soru 20](#question-20--soru-20)
+
+New York'ta verilen DST geçişinde 01:30'a bir saat eklenince 03:30 olur ama geçen süre bir saattir. Offset değiştiği için yerel saat farkı ile timeline farkını eşitleme.
+
+### Official Answer 21 / Kaynak Cevap 21
+
+**Kaynak cevap: A, C.** [Soru 21](#question-21--soru-21)
+
+`reverse()` doğrudan, C'deki append/delete zinciri adım adım `avaJ` üretir. B'nin `substring()` sonucu builder'ı değiştirmez; D'deki son indeks sınır dışıdır.
+
+### Official Answer 22 / Kaynak Cevap 22
+
+**Kaynak cevap: A.** [Soru 22](#question-22--soru-22)
+
+`LocalDate` immutable'dır; `plusDays()` ve `plusYears()` sonuçları atanmadığı için değer 30 Nisan 2022 kalır. Metot adı “plus” olsa da yerinde güncelleme yapılmaz.

@@ -24,7 +24,7 @@ ayrımları birlikte tekrar ettirir:
 - Java class'ları multiple class inheritance desteklemez.
 - Bir class birden fazla interface implement edebilir.
 - Subclass inherited accessible members'ı alır; constructors inherited değildir.
-- `private` member child source code'undan direct erişilemez ve override edilmez.
+- `private` member kalıtımla alınmaz ve private method override edilmez. Nested sınıfların aynı top-level sınıf içindeki private erişim izni ayrı bir kuraldır; buna Unit 07’de dönülür.
 
 ```java
 class Animal {}
@@ -78,7 +78,7 @@ yoksa anahtarı sen verirsin.
 
 ## 4. Complete initialization order
 
-Class ilk aktif kullanımında:
+Sınıfın initialization gerektiren ilk aktif kullanımında (örneğin `new Child()`):
 
 1. parent static fields/blocks source order,
 2. child static fields/blocks source order.
@@ -190,7 +190,7 @@ Immutable object tasarlarken:
 4. subclass ile mutability eklenmesi engellenmeli (`final` class veya controlled
    hierarchy),
 5. mutable input alınırken defensive copy yapılmalı,
-6. mutable internal state döndürülürken defensive copy/read-only view verilmeli.
+6. mutable iç durum dışarı verilmeden korunmalı; koleksiyonun değiştirilemeyen görünümü mutable öğelerini kendiliğinden korumaz. Gerekirse öğelerin de koruyucu kopyası alınmalıdır.
 
 ```java
 final class Schedule {
@@ -206,8 +206,9 @@ final class Schedule {
 }
 ```
 
-Yalnız fields'ı `final` yapmak yeterli değildir; final reference mutable object'i
-gösterebilir.
+Yalnız alanları `final` yapmak yeterli değildir; final referans mutable nesneyi gösterebilir. Örnekte List.copyOf liste değişikliğini engeller, String öğeleri zaten immutable’dır. Mutable öğe türünde yalnız liste kopyası almak derin değişmezlik sağlamaz.
+
+**Kapalı kitap karşılaştırması:** Giriş listesini kopyalamazsan dışarıdaki değişiklik hangi alana ulaşır? Getter aynı mutable listeyi verirse constructor kopyası neden tek başına yeterli olmaz? [Soru 5](practice_quiz.md#soru-5) ve [Ünite 07 record karşılaştırması](../unit_07_beyond_classes/practice_quiz.md#soru-7--record-ve-mutable-component) ile kontrol et.
 
 ## OCP için 20 saniyelik analiz sırası
 

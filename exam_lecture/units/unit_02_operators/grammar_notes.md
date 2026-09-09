@@ -22,7 +22,7 @@ Whenever + subject + verb, subject + verb
 > **YDS tip:** `when` tek bir olayı da anlatabilir; `whenever` “her seferinde”
 > anlamını daha açık taşır.
 
-## 2. Indirect question: `the order in which`
+## 2. Preposition + relative clause: `the order in which`
 
 ### Kısa açıklama
 
@@ -138,7 +138,7 @@ rule.
 yoktur.
 
 > **Common mistake:** Bu bağlamda `as long as` süre uzunluğunu değil, koşulu
-bildirir.
+> bildirir.
 
 ## 9. Beklenmeyen karşıtlık: `even though`
 
@@ -157,7 +157,7 @@ Even though + subject + verb, main clause
 **TR:** Tablo casting'i içermesine rağmen onu ele almayı erteliyoruz.
 
 > **YDS tip:** `despite/in spite of` sonrasında noun veya `V-ing`; `even though`
-sonrasında subject + verb bulunan tam clause beklenir.
+> sonrasında subject + verb bulunan tam clause beklenir.
 
 ## 10. İstisna bildiren `unless`
 
@@ -176,7 +176,7 @@ main clause + unless + affirmative clause
 **TR:** Negatif unary operator eşlik etmedikçe sayılar pozitiftir.
 
 > **Common mistake:** `unless` zaten negatif condition taşır; ardından gereksiz
-bir `not` kullanma.
+> bir `not` kullanma.
 
 ## 11. Farkı sınırlayan `except that`
 
@@ -214,7 +214,7 @@ compile.
 **TR:** Value bir `int`e atanamaz; dolayısıyla kod derlenmez.
 
 > **YDS tip:** `therefore` bir conjunctive adverb'dür; iki independent clause'u
-tek başına virgülle bağlamaz.
+> tek başına virgülle bağlamaz.
 
 ## 13. Alternatif durum: `otherwise`
 
@@ -243,7 +243,7 @@ subject + may + be + V3
 **TR:** Expression'ın sağ tarafı hiçbir zaman değerlendirilmeyebilir.
 
 > **Common mistake:** Modal'dan sonra `be` yalın kalır: `may be evaluated`; `may
-is evaluated` kullanılmaz.
+> is evaluated` kullanılmaz.
 
 ## 15. Paralel karşılaştırma: `the + comparative, the + comparative`
 
@@ -262,7 +262,20 @@ The + comparative + clause, the + comparative + clause
 **TR:** Bu bölümü ne kadar iyi anlarsanız o kadar hazırlıklı olursunuz.
 
 > **YDS tip:** İlk `the` article değil, comparative correlation yapısının
-parçasıdır.
+> parçasıdır.
+
+## Cümleyi parçalayarak okuma
+
+[İlgili kaynak bölümü](bilingual_notes.md#checking-for-unperformed-side-effects). Aşağıdaki çalışma cümlesi
+kaynak bağlamına dayanır; gerektiğinde öğretim amacıyla sadeleştirilmiştir.
+
+**English:** The right side of the expression may never be evaluated.
+
+**Çözümleme:** `The right side of the expression` = özne; `may be evaluated` = olasılık bildiren edilgen yüklem; `never` = değerlendirmemenin kapsamı. `of the expression`, `side` adını tamamlar; ayrı yüklem değildir.
+
+**Doğal Türkçe:** İfadenin sağ tarafı hiç değerlendirilmeyebilir.
+
+**Kapalı kitap kontrolü:** `may never be evaluated` ile `must never be evaluated` aynı kesinlikte mi? Modal değişince teknik iddia nasıl değişir?
 
 ## Mini quiz
 

@@ -20,26 +20,51 @@ garanti edilen sonuçla possible sonucu ayırt edebilmen hedeflenir.
 | Thread, executor, lock ve parallel stream kararlarını hızla tekrar etmek | Teknik hafıza notu | [Aç](technical_memory_notes.md) | [Aç](technical_memory_notes.pdf) |
 | Concurrency terimlerini teknik bağlamıyla çalışmak | Vocabulary | [Aç](vocabulary.md) | [Aç](vocabulary.pdf) |
 | Teknik İngilizce yapıları ve YDS ipuçlarını pekiştirmek | Grammar notes | [Aç](grammar_notes.md) | [Aç](grammar_notes.pdf) |
-| Bilgiyi kaynaklar kapalıyken altı soruyla ölçmek | Özgün practice quiz | [Aç](practice_quiz.md) | [Aç](practice_quiz.pdf) |
+| Bilgiyi kaynaklar kapalıyken sekiz soruyla ölçmek | Özgün practice quiz | [Aç](practice_quiz.md) | [Aç](practice_quiz.pdf) |
 | Kaynaktaki bölüm sonu sorularını özgün kod ve seçenekleriyle çözmek | Review Questions | [Sorulara git](bilingual_notes.md#review-questions) | [Ana PDF](bilingual_notes.pdf) |
 
 > Practice quiz içindeki sorular OCP tarzı **özgün çalışma sorularıdır**;
 > gerçek sınavdan alınmış sorular olarak sunulmaz.
 
-## 45–60 dakikalık önerilen çalışma rotası
+## Çalışan biri için çalışma rotası · 25–30 dakikalık oturumlar
 
-1. **0–5 dk:** Konu haritasından executor, shared state veya parallel stream
-   kümelerinden birini seç.
-2. **5–25 dk:** Ana çift dilli notta ilgili English → Türkçe blokları ve kodları
-   oku; her kod için result category'yi önceden söyle.
-3. **25–35 dk:** Teknik hafıza notunda lifecycle, lock veya reduction karar
-   kartını kaynak kapalıyken yeniden kur.
-4. **35–43 dk:** Vocabulary'den 6–8 terimi birbirleriyle ilişkilendirerek kısa
-   bir concurrency senaryosu anlat.
-5. **43–50 dk:** Grammar notes içinden concession veya cause/result yapısını
-   örnekleriyle çözümle.
-6. **50–60 dk:** [Practice quiz](practice_quiz.md)'i cevap anahtarı kapalıyken
-   çöz; yanlışını compile, runtime, nondeterminism veya English etiketiyle yaz.
+Bu tablo bir **ilk tur rotasıdır**; bütün üniteyi tek oturumda bitirme hedefi değildir.
+Yoğun başlığı veya uzun soru grubunu aynı rota satırında ikinci güne böl.
+Her oturumda **3 dk kapalı kitap hatırlama → 9 dk okuma → 10 dk soru →
+5 dk dil çalışması → 3 dk hata kaydı** uygula. Okuma bölümünde önce İngilizce
+paragrafı sesli veya yazılı özetle, sonra Türkçe çeviriyle karşılaştır.
+
+| Oturum | Okuma ve teknik hedef | Kaynak Review Questions | Kelime odağı | Grammar odağı |
+|---|---|---|---|---|
+| 1 · Thread ve görev türleri | [Introducing Threads](bilingual_notes.md#introducing-threads) | [3](bilingual_notes.md#question-3--soru-3), [18](bilingual_notes.md#question-18--soru-18), [25](bilingual_notes.md#question-25--soru-25) | task / worker / callable | 3: allow; 5: whereas |
+| 2 · Executor, Future ve zamanlama | [Creating Threads with the Concurrency API](bilingual_notes.md#creating-threads-with-the-concurrency-api) | [4](bilingual_notes.md#question-4--soru-4), [9](bilingual_notes.md#question-9--soru-9), [12](bilingual_notes.md#question-12--soru-12), [19](bilingual_notes.md#question-19--soru-19), [20](bilingual_notes.md#question-20--soru-20) | submit / await / timeout | 6: by; 19: prevent |
+| 3 · Görünürlük, atomiklik ve kilit | [Writing Thread-Safe Code](bilingual_notes.md#writing-thread-safe-code) | [2](bilingual_notes.md#question-2--soru-2), [5](bilingual_notes.md#question-5--soru-5), [16](bilingual_notes.md#question-16--soru-16), [17](bilingual_notes.md#question-17--soru-17), [22](bilingual_notes.md#question-22--soru-22), [24](bilingual_notes.md#question-24--soru-24) | visibility / atomic / acquire / release | 9: if; 17: even though |
+| 4 · Koleksiyonlar ve ilerleme sorunları | [Using Concurrent Collections](bilingual_notes.md#using-concurrent-collections) | [7](bilingual_notes.md#question-7--soru-7), [10](bilingual_notes.md#question-10--soru-10), [14](bilingual_notes.md#question-14--soru-14), [23](bilingual_notes.md#question-23--soru-23) | deadlock / starvation / livelock | 18: because of; 20: result in |
+| 5 · Paralel akış ve indirgeme | [Working with Parallel Streams](bilingual_notes.md#working-with-parallel-streams) | [1](bilingual_notes.md#question-1--soru-1), [6](bilingual_notes.md#question-6--soru-6), [8](bilingual_notes.md#question-8--soru-8), [11](bilingual_notes.md#question-11--soru-11), [13](bilingual_notes.md#question-13--soru-13), [15](bilingual_notes.md#question-15--soru-15), [21](bilingual_notes.md#question-21--soru-21) | decompose / reduction / nondeterministic | 15: regardless of; 23: no matter |
+| 6 · Karışık kontrol | [Teknik hafıza notu](technical_memory_notes.md): önce karar kuralını bellekten yaz | Önceki oturumların en zor 3 sorusu + [özgün quiz 7–8](practice_quiz.md#soru-7) | Yanlış yaptığın 5 kelime | Bir uzun cümlede özne, yüklem ve bağlacı işaretle |
+
+Kaynak soruların seçenek sayısı ve “Choose all that apply” yönergesi korunmuştur.
+Cevaplara geçmeden seçtiğin her şık için bir gerekçe yaz. Kaynak cevapla Java 17
+notu ayrışıyorsa ilgili editör notunu da oku; yalnız harf ezberleme.
+
+### 1 / 3 / 7 / 14 gün tekrar döngüsü
+
+Her oturumun tekrarını kendi çalışma tarihinden itibaren planla:
+
+- **1. gün · 5 dk:** O günün 3–5 kelimesini Türkçeden İngilizceye üret; kuralı bir örnekle anlat.
+- **3. gün · 8 dk:** Yanlış veya tahminle doğru yaptığın iki soruyu seçenekleri kapatarak yeniden çöz.
+- **7. gün · 10 dk:** Farklı konulardan üç soru ve bir cümle çözümlemesi yap.
+- **14. gün · 10 dk:** Hâlâ karıştırdığın kuralları ve kelimeleri tekrar yokla; doğru cevapla birlikte nedenini söyle.
+
+Hata kaydına tek satır yeter: **soru → benim gerekçem → doğru kural →
+yeni örnek → tekrar tarihi**. Hatanın türünü `Java kuralı`, `kod izleme`,
+`kelime` veya `cümle yapısı` olarak belirt; böylece bir sonraki kısa oturumun
+hedefi belli olur.
+
+**Geçiş ölçütü:** İki ayrı günde özgün quiz'de en az **7/8**; kaynaklarda
+yanlış yapılan soruların doğru gerekçesi; seçilen 5 kelimeden en az 4'ünü
+cümlenin içinde kullanma; bir İngilizce cümlede ana yüklemi ve koşul/karşıtlık
+ilişkisini açıklama. Sağlanmayan beceri için yalnız ilgili oturumu yinele.
 
 ## Kaynak kapsamı
 
@@ -134,7 +159,7 @@ exception handling ve mutable object state konularını hatırlamak gerekir.
 - [ ] Deadlock, starvation, livelock ve race condition'ı ayırabiliyorum.
 - [ ] Parallel reduction'da identity, associativity ve ordering tuzaklarını
   kontrol edebiliyorum.
-- [ ] Practice quiz'de en az **5/6** doğru yapıp yanlış seçenekleri
+- [ ] Practice quiz'de en az **7/8** doğru yapıp yanlış seçenekleri
   gerekçelendirebiliyorum.
 
 ## Java 17 teknik doğruluk notları

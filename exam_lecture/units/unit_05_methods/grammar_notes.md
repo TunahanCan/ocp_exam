@@ -2,8 +2,8 @@
 
 ## Bu belge nasıl kullanılmalı?
 
-Bu kaynağı [README'deki çalışma rotasının](README.md#4560-dakikalık-önerilen-çalışma-rotası)
-**35–45. dakikalarında** her yapı için aynı dört adımla çalış:
+Bu kaynağı [README'deki oturum rotasının](README.md#çalışanlar-için-2530-dakikalık-çalışma-rotası)
+dil çalışması bölümünde her yapı için aynı dört adımla çalış:
 
 1. **Formula:** Başlıktaki kalıbı ve word order'ı belirle; değişmeyen parçaları
    (`if + passive`, `provided that + clause` gibi) işaretle.
@@ -49,8 +49,11 @@ Koşul formülü: `main clause + provided (that) + clause`.
 
 ## 5. `since` ile neden
 
-**EN:** The caller is unchanged since Java is pass-by-value.
-**TR:** Java pass-by-value olduğu için caller değişmez.
+**EN:** Reassigning the parameter does not reassign the caller’s variable, since Java is pass-by-value.
+**TR:** Java değere göre aktarım kullandığı için parametreye yeniden atama yapmak, çağıran koddaki değişkene yeniden atama yapmaz.
+
+Ortak nesnenin içeriği yine değiştirilebilir. `append()` gibi mutation ile
+parametreye yeni reference atamayı ayrı değerlendir.
 
 ## 6. `even though`
 
@@ -93,7 +96,10 @@ sonrasında clause gelir.
 ## 11. `rather than`
 
 **EN:** The parameters are separated by a semicolon rather than a comma.
-**TR:** Parameter'lar virgül yerine noktalı virgülle ayrılmıştır.
+**TR:** Parametreler virgül yerine noktalı virgülle ayrılmıştır.
+
+Bu, kaynakta **hatalı bir bildirim örneğinin** açıklamasıdır; Java kuralı değildir.
+Geçerli parametre listesi virgül kullanır.
 
 Tercih veya karşılaştırma formülü: `X rather than Y` → “Y yerine X”.
 Paralel yapıyı koruyun: noun–noun, verb–verb veya clause–clause.
@@ -144,8 +150,11 @@ clause içinde genellikle present tense kullanılır.
 
 ## 17. `unless + passive clause`
 
-**EN:** Methods are required to have a body unless they are declared `abstract`.
-**TR:** Method'lar `abstract` bildirilmedikçe body'ye sahip olmak zorundadır.
+**EN:** A class method needs a body unless it is declared `abstract` or `native`.
+**TR:** Bir sınıf metodu, `abstract` veya `native` bildirilmedikçe gövdeye sahip olmalıdır.
+
+Kaynak örneğinin eksik genellemesi burada `native` istisnasıyla tamamlandı.
+`abstract` ve `native` metot bildirimleri gövde yerine `;` ile biter.
 
 `unless`, “if ... not” anlamındadır:
 `main clause + unless + subject + be + past participle`. Aynı clause'a ayrıca
@@ -158,6 +167,19 @@ clause içinde genellikle present tense kullanılır.
 
 Bu cleft structure, olayın belirtilen ana kadar gerçekleşmediğini vurgular:
 `It is/was not until + time/event + that + clause`; Türkçede çoğu kez “ancak” kullanılır.
+
+## Cümleyi parçalayarak okuma
+
+[İlgili kaynak bölümü](bilingual_notes.md#overloading-methods). Aşağıdaki çalışma cümlesi
+kaynak bağlamına dayanır; gerektiğinde öğretim amacıyla sadeleştirilmiştir.
+
+**English:** It isn’t until the third call that the varargs version is used.
+
+**Çözümleme:** `It ... that ...` odak yapısıdır; `not until the third call` zaman sınırını vurgular. `that` sonrasındaki `the varargs version` özne, `is used` edilgen yüklemdir.
+
+**Doğal Türkçe:** Varargs sürümü ancak üçüncü çağrıda kullanılır.
+
+**Kapalı kitap kontrolü:** “Üçüncü çağrıya kadar kullanılır” çevirisi niçin yönü tersine çevirir? Olay sınırdan önce mi, sınırda mı gerçekleşiyor?
 
 ## Mini quiz
 
@@ -178,5 +200,5 @@ Bu cleft structure, olayın belirtilen ana kadar gerçekleşmediğini vurgular:
 | 2. *A local variable is effectively final, provided that it is not reassigned.* |
 | 3. *The static call succeeds even though the reference is null.* |
 | 4. *A method can have at most one varargs parameter.* |
-| 5. *Methods need a body unless they are declared abstract.* |
+| 5. *A class method needs a body unless it is declared abstract or native.* |
 | 6. *The parameters are separated by a semicolon rather than a comma.* |

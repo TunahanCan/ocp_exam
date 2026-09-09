@@ -1,8 +1,10 @@
 # Unit 09 · Collections and Generics — Practice Quiz
 
 Bu belge Java 17/OCP odağında hazırlanmış **özgün çalışma soruları** içerir;
-gerçek sınav sorusu değildir. Önerilen süre 15–20 dakikadır. Her soruda önce
+gerçek sınav sorusu değildir. Önerilen süre 20–25 dakikadır. Her soruda önce
 collection contract'ını veya generic bound'u belirle.
+
+Bu sette **8 özgün soru** vardır; her soruda aksi belirtilmedikçe tek doğru seçenek seçilir.
 
 ## Sorular
 
@@ -112,6 +114,55 @@ uyumluluğuyla ilgisi yoktur.
 
 <!-- page-break -->
 
+### Soru 7 · Map’te null ve absent ayrımı
+
+Aşağıdaki tam Java 17 programı için doğru sonuç hangisidir? **Bir seçenek seçin.**
+
+```java
+import java.util.HashMap;
+
+public class MapAbsenceQuiz {
+    public static void main(String[] args) {
+        var map = new HashMap<String, Integer>();
+        map.put("x", null);
+        System.out.print(map.getOrDefault("x", 9) + ":");
+        map.merge("x", 2, Integer::sum);
+        map.merge("x", 3, (oldValue, newValue) -> null);
+        System.out.print(map.containsKey("x"));
+    }
+}
+```
+
+A. `9:false`<br>
+B. `null:true`<br>
+C. Kod derlenir, ilk merge çağrısında NullPointerException oluşur.<br>
+D. `null:false`<br>
+
+### Soru 8 · Lower bound’dan güvenli okuma
+
+Aşağıdaki tam Java 17 programı için doğru sonuç hangisidir? **Bir seçenek seçin.**
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class LowerBoundReadQuiz {
+    public static void main(String[] args) {
+        List<? super Integer> values = new ArrayList<Number>();
+        values.add(3);
+        Integer first = values.get(0);
+        System.out.print(first);
+    }
+}
+```
+
+A. Başarıyla derlenir ve `3` yazar.<br>
+B. Kod derlenmez; `values.add(3)` geçersizdir.<br>
+C. Kod derlenmez; okunan değer doğrudan Integer’a atanamaz.<br>
+D. Başarıyla derlenir fakat ClassCastException fırlatır.<br>
+
+<!-- page-break -->
+
 ## Cevaplar ve açıklamalar
 
 ### Soru 1 — B
@@ -174,3 +225,11 @@ uyumluluğuyla ilgisi yoktur.
 - **C yanlış:** Wildcard, invariance'ı silmez; kontrollü bir assignment/API
   esnekliği sağlar.
 - **D yanlış:** Generic bound'lar esas olarak compile-time type safety sağlar.
+
+### Soru 7 — D
+
+Başarıyla derlenir. getOrDefault, anahtar mevcut olduğundan null döndürür; A bu davranışı merge ile karıştırır. İlk merge null eşlemeyi 2 ile doldurur ve Integer::sum çağrılmaz, dolayısıyla C yanlıştır. İkinci merge’in remapping sonucu null olduğu için anahtar silinir; B yanlıştır. Çıktı `null:false` olur.
+
+### Soru 8 — C
+
+`? super Integer` güvenli Integer eklemeyi sağlar; fakat okumada garanti edilen tür Object’tir. B yanlıştır: ekleme geçerlidir. A derleyicinin gerçek listedeki son eklemeyi izleyerek wildcard’ı Integer’a daralttığını varsayar; D yanlıştır çünkü kod derlenmez. `Object first = values.get(0)` değişikliğiyle program derlenip 3 yazar.

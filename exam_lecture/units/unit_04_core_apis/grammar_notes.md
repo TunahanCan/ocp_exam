@@ -6,15 +6,16 @@ yapılar tek başlık altında birleştirilmiştir.
 
 ## 1. `which of the following + plural verb`
 
-Bir seçenek grubundan seçim ister. `which` sonrasındaki çoğul noun nedeniyle
-relative clause içindeki verb çoğul olabilir.
+Bir seçenek grubundan seçim ister; bu yapı bir doğrudan sorudur, relative clause
+değildir. Seçilecek öğe tekilse `returns`, çoğulsa `return` kullanılır.
 
 **Formül:** `Which of the following + plural verb ...?`
 **EN:** Which of the following return 5?
 **TR:** Aşağıdakilerden hangileri 5 döndürür?
 
-**YDS/OCP ipucu:** Soru tekil görünen `which` ile başlasa da verb'in gerçek
-subject'i seçenekleri temsil eden çoğul yapıdır.
+**YDS/OCP ipucu:** `Which of the following` özne, `return` yüklemdir.
+`Which ... returns?` tek seçim, `Which ... return?` çoğul seçim niyeti gösterebilir;
+OCP sorusunda kaç seçenek istendiğini ayrıca yönergeden kontrol et.
 
 ## 2. `whether ... (or not)` ile iki olasılık
 
@@ -75,8 +76,11 @@ anlamı taşır.
 İki seçenek ya da davranış arasındaki farkı vurgular.
 
 **Formül:** `A rather than B` / `V-ing rather than V-ing`
-**EN:** `equals()` checks content rather than reference identity.
-**TR:** `equals()`, referans kimliği yerine içeriği kontrol eder.
+**EN:** `String.equals()` checks content rather than reference identity.
+**TR:** `String.equals()`, referans kimliği yerine içeriği kontrol eder.
+
+Bu özellik bütün sınıfların `equals()` metotlarına genellenmez; `StringBuilder`
+varsayılan identity davranışını korur.
 
 Paralel yapı korunmalıdır: noun–noun veya V-ing–V-ing.
 
@@ -97,8 +101,10 @@ Bir eylemin başka bir işlem yapılmadan gerçekleştiğini veya gerçekleşeme
 anlatır.
 
 **Formül:** `without + noun/V-ing`
-**EN:** You cannot identify an `Instant` without supplying a zone or offset.
-**TR:** Zone veya offset sağlamadan bir `Instant` belirleyemezsiniz.
+**EN:** You cannot convert a `LocalDateTime` to an `Instant` without supplying a zone or offset.
+**TR:** Zone veya offset sağlamadan bir `LocalDateTime` değerini `Instant` değerine dönüştüremezsiniz.
+
+Kural bu dönüşüme aittir; `Instant.now()` çağrısına zone vermek gerekmez.
 
 **Sık hata:** `without to supply` kullanılmaz; `without supplying` gerekir.
 
@@ -190,6 +196,19 @@ Sonucun belirtilen değişkenden etkilenmediğini vurgular.
 **TR:** Array nasıl bildirilmiş olursa olsun kural geçerlidir.
 
 **Synonym structure:** `regardless of how ...`
+
+## Cümleyi parçalayarak okuma
+
+[İlgili kaynak bölümü](bilingual_notes.md#getting-a-substring). Aşağıdaki çalışma cümlesi
+kaynak bağlamına dayanır; gerektiğinde öğretim amacıyla sadeleştirilmiştir.
+
+**English:** The method returns characters up to, but not including, the end index.
+
+**Çözümleme:** `The method` = özne; `returns` = ana fiil; `characters` = nesne. `up to ... the end index` sınırı belirtir; aradaki `but not including` bu sınırın dahil olmadığını kesinleştirir.
+
+**Doğal Türkçe:** Metot, bitiş indeksine kadar olan karakterleri döndürür; bitiş indeksi dahil değildir.
+
+**Kapalı kitap kontrolü:** `not` kaldırılırsa sınırda hangi karakterin dahil olduğu değişir? `[1, 3)` aralığında kaç karakter var?
 
 ## Mini quiz
 

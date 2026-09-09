@@ -1,8 +1,10 @@
 # Unit 08 · Lambdas and Functional Interfaces — Practice Quiz
 
 Bu belge Java 17/OCP odağında hazırlanmış **özgün çalışma soruları** içerir;
-gerçek sınav sorusu değildir. Önerilen süre 15–20 dakikadır. Her lambda için
+gerçek sınav sorusu değildir. Önerilen süre 20–25 dakikadır. Her lambda için
 önce target type ve SAM signature'ını yazman önerilir.
+
+Bu sette **8 özgün soru** vardır; her soruda aksi belirtilmedikçe tek doğru seçenek seçilir.
 
 ## Sorular
 
@@ -126,6 +128,50 @@ değiştirilebilir.” Compile-time kısıt yoktur.
 
 <!-- page-break -->
 
+### Soru 7 · Dönüş değerini yok sayan Consumer
+
+Aşağıdaki tam Java 17 programı için doğru sonuç hangisidir? **Bir seçenek seçin.**
+
+```java
+import java.util.function.Consumer;
+
+public class ConsumerReturnQuiz {
+    public static void main(String[] args) {
+        var text = new StringBuilder("J");
+        Consumer<String> append = text::append;
+        append.accept("17");
+        System.out.print(text);
+    }
+}
+```
+
+A. Kod derlenmez; append() StringBuilder döndürür, Consumer void bekler.<br>
+B. Başarıyla derlenir ve `J17` yazar.<br>
+C. Başarıyla derlenir ve `J` yazar.<br>
+D. Kod derlenmez; capture edilen nesne değiştirilemez.<br>
+
+### Soru 8 · Boxing zinciri ve hedef dönüş türü
+
+Aşağıdaki tam Java 17 programı için doğru sonuç hangisidir? **Bir seçenek seçin.**
+
+```java
+import java.util.function.Function;
+
+public class LambdaBoxingQuiz {
+    public static void main(String[] args) {
+        Function<String, Long> length = String::length;
+        System.out.print(length.apply("Java"));
+    }
+}
+```
+
+A. Başarıyla derlenir ve `4` yazar.<br>
+B. Başarıyla derlenir fakat ClassCastException fırlatır.<br>
+C. Kod derlenmez; int sonucu Long’a otomatik dönüştürülemez.<br>
+D. Başarıyla derlenir ve `4.0` yazar.<br>
+
+<!-- page-break -->
+
 ## Cevaplar ve açıklamalar
 
 ### Soru 1 — B
@@ -183,3 +229,11 @@ değiştirilebilir.” Compile-time kısıt yoktur.
 - **C yanlış:** Lambda local variable capture edebilir; koşul final/effectively
   final olmasıdır.
 - **D yanlış:** Sonraki yeniden atama capture'ı compile-time'da geçersiz kılar.
+
+### Soru 7 — B
+
+Method reference, void dönen Consumer.accept ile uyumludur; append() dönüş değeri yok sayılır, StringBuilder içeriği değişir. A bu uyarlamayı, C method’un yan etkisini kaçırır. D yanlıştır: local text referansı yeniden atanmaz; gösterdiği nesnenin içeriği değişebilir. Lambda eşdeğeri `s -> text.append(s)` biçimindedir.
+
+### Soru 8 — C
+
+String.length() int döndürür; int → long → Long zinciri bu hedef dönüş uyarlamasında otomatik uygulanmaz. A ve D bu geçersiz dönüşümü varsayar; B yanlıştır çünkü hata derleme aşamasındadır. `s -> (long) s.length()` geçerlidir: explicit long sonucu Long’a box edilir.

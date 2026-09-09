@@ -4674,12 +4674,11 @@ void fourth(List<? super B> list) {}
 > **English:** `List`: An ordered collection of elements that allows duplicate
 > entries.
 >
-> **Türkçe:** `List`: Duplicate entry'lere izin veren ordered element
-> collection'ı.
+> **Türkçe:** `List`: Elemanların konum sırasını koruyan ve yinelenen değerlere izin veren koleksiyon.
 
 > **English:** `ArrayList`: Standard resizable list.
 >
-> **Türkçe:** `ArrayList`: Standard resizable list.
+> **Türkçe:** `ArrayList`: Boyutu değişebilen, dizi tabanlı standart liste.
 
 > **English:** `LinkedList`: Can easily add/remove from beginning or end.
 >
@@ -4692,23 +4691,25 @@ void fourth(List<? super B> list) {}
 
 > **English:** `HashSet`: Uses `hashCode()` to find unordered elements.
 >
-> **Türkçe:** `HashSet`: Unordered element'ları bulmak için `hashCode()` kullanır.
+> **Türkçe:** `HashSet`: Elemanları bulurken `hashCode()` kullanır; dolaşım sırası garanti edilmez.
 
 > **English:** `TreeSet`: Sorted. Does not allow `null` values.
 >
-> **Türkçe:** `TreeSet`: Sorted'dır. `null` value'lara izin vermez.
+> **Türkçe:** `TreeSet`: Elemanları sıralı tutar. Doğal sıralamayla kullanıldığında `null` kabul etmez.
+
+> **Editör notu · Java 17:** Kaynağın `null` genellemesi doğal sıralama için geçerlidir; `null` destekleyen özel bir Comparator ile farklı davranış mümkündür.
 
 > **English:** `Queue`/`Deque`: Orders elements for processing.
 >
-> **Türkçe:** `Queue`/`Deque`: Element'ları işlenmek üzere order'a koyar.
+> **Türkçe:** `Queue`/`Deque`: Elemanları işlenmek üzere belirli bir düzende tutar.
 
 > **English:** `ArrayDeque`: Double-ended queue.
 >
-> **Türkçe:** `ArrayDeque`: Double-ended queue.
+> **Türkçe:** `ArrayDeque`: Her iki uçtan ekleme ve çıkarma yapılabilen kuyruk.
 
 > **English:** `LinkedList`: Double-ended queue and list.
 >
-> **Türkçe:** `LinkedList`: Double-ended queue ve list.
+> **Türkçe:** `LinkedList`: Hem çift uçlu kuyruk hem liste olarak kullanılabilen bağlı liste.
 
 <!-- source-page: 0520 -->
 
@@ -4722,7 +4723,9 @@ void fourth(List<? super B> list) {}
 
 > **English:** `TreeMap`: Sorted map. Does not allow `null` keys.
 >
-> **Türkçe:** `TreeMap`: Sorted map'tir. `null` key'lere izin vermez.
+> **Türkçe:** `TreeMap`: Anahtarları sıralı tutar. Doğal sıralamayla kullanıldığında `null` anahtar kabul etmez.
+
+> **Editör notu · Java 17:** `TreeSet`te olduğu gibi, `null` destekleyen özel bir Comparator anahtar davranışını değiştirebilir; `TreeMap` değerleri zaten `null` olabilir.
 
 > **English:** The `Comparable` interface declares the `compareTo()` method.
 > This method returns a negative number if the object is smaller than its
@@ -4734,14 +4737,14 @@ void fourth(List<? super B> list) {}
 > can be declared in any code, and it takes two parameters. A `Comparator` is
 > often implemented using a lambda.
 >
-> **Türkçe:** `Comparable` interface'i `compareTo()` method'unu bildirir. Bu
-> method object argument'ından küçükse negative number, ikisi equal ise 0, aksi
-> hâlde positive number döndürür. `compareTo()` karşılaştırılan object üzerinde
-> bildirilir ve tek parameter alır. `Comparator` interface'i `compare()`
-> method'unu tanımlar. İlk argument küçükse negative number, equal ise zero,
-> aksi hâlde positive number döndürülür. `compare()` herhangi bir code içinde
-> bildirilebilir ve iki parameter alır. `Comparator` sıklıkla lambda ile
-> implement edilir.
+> **Türkçe:** `Comparable` interface'i `compareTo()` metodunu bildirir. Karşılaştırılan nesne, argümanından sıralama
+> bakımından küçükse negatif, eşdeğerse sıfır, büyükse pozitif sonuç döner. Bu metot karşılaştırılan
+> sınıfta uygulanır ve bir parametre alır. `Comparator` ise iki parametreli `compare()` metodunu tanımlar:
+> ilk argüman ikinciye göre küçükse negatif, sıralama bakımından eşdeğerse sıfır, büyükse pozitif sonuç
+> üretir. Karşılaştırma kuralı karşılaştırılan sınıfın dışında da tanımlanabilir; bunun için sıklıkla
+> lambda kullanılır.
+
+> **Editör notu · Java 17:** Karşılaştırmanın sıfır dönmesi, sıralama kuralına göre eşdeğerliktir; mutlaka `equals()` sonucunun true olması demek değildir.
 
 > **English:** Generics are type parameters for code. To create a class with a
 > generic parameter, add `<T>` after the class name. You can use any name you
@@ -4754,16 +4757,14 @@ void fourth(List<? super B> list) {}
 > that attempts to add an item in a list with an unbounded or upper-bounded
 > wildcard.
 >
-> **Türkçe:** Generics code için type parameter'lardır. Generic parameter'lı
-> class oluşturmak için class adından sonra `<T>` ekleyin. Type parameter için
-> istediğiniz adı kullanabilirsiniz; tek uppercase letter'lar yaygın seçimdir.
-> Generics wildcard belirtmenize izin verir. `<?>` herhangi bir type anlamına
-> gelen unbounded wildcard'dır. `<? extends Object>`, `Object` veya onu extend
-> eden herhangi bir type anlamındaki upper bound'dur. `<? extends MyInterface>`,
-> `MyInterface`i implement eden herhangi bir type demektir. `<? super Number>`,
-> `Number` veya superclass'ı olan herhangi bir type anlamındaki lower bound'dur.
-> Unbounded veya upper-bounded wildcard'lı list'e öğe eklemeye çalışan code
-> compiler error üretir.
+> **Türkçe:** Generics, kodda tür parametreleri kullanmayı sağlar. Generic sınıf için adından sonra `<T>` yazılır;
+> başka adlar da geçerlidir, tek büyük harf yaygın bir tercihtir. `<?>` üst sınırı `Object` olan
+> bilinmeyen bir türü; `<? extends Object>` aynı üst sınırı açıkça ifade eder. `<? extends MyInterface>`,
+> `MyInterface`i veya onun alt türlerini kapsar. `<? super Number>`, `Number` veya onun üst türlerinden
+> birini ifade eder. Unbounded veya upper-bounded wildcard'lı bir listeye sıradan bir nesne ekleme
+> girişimi, kabul edilen kesin tür bilinmediği için derleme hatası verir.
+
+> **Editör notu · Java 17:** “Hiçbir öğe eklenemez” genellemesinde `null` ayrıntısını unutma: `List<?>` ve `List<? extends Number>` için `add(null)` derlenebilir. Listenin çalışma zamanında `null` veya değişiklik kabul edip etmemesi ayrı konudur.
 
 ## Exam Essentials / Sınav İçin Temel Noktalar
 
@@ -4773,11 +4774,10 @@ void fourth(List<? super B> list) {}
 > back. A `Map` maps keys to values. Be familiar with the differences in
 > implementations of these interfaces.
 >
-> **Türkçe:** Description'dan doğru collection type'ını seçin. `List`
-> duplicate'lere izin verir ve element'ları order'a koyar. `Set` duplicate'lere
-> izin vermez. `Deque`, front veya back'ten retrieval'ı kolaylaştırmak için
-> element'larını order'a koyar. `Map` key'leri value'lara map eder. Bu
-> interface'lerin implementation'larındaki farklara aşina olun.
+> **Türkçe:** Verilen açıklamaya uygun koleksiyon türünü seçin. `List` tekrar eden elemanlara izin verir ve konum
+> sırasını korur; bu, elemanları kendiliğinden küçükten büyüğe sıraladığı anlamına gelmez. `Set` tekrar
+> eden elemanlara izin vermez. `Deque`, elemanları iki uçtan erişime uygun tutar. `Map`, anahtarları
+> değerlerle eşler. Bu interface'lerin farklı uygulamalarını karşılaştırın.
 
 > **English:** Work with convenience methods. The Collections Framework
 > contains many methods such as `contains()`, `forEach()`, and `removeIf()` that

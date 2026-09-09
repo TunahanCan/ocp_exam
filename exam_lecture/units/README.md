@@ -8,6 +8,12 @@ teknik hafıza notuna, vocabulary ve grammar çalışmalarına sahiptir.
 
 ## Hızlı başlangıç
 
+**Günlük düzen için önce [İş Gününe Uyan Çalışma Planı](study_plan.md)
+([PDF](study_plan.pdf)) dosyasını aç.** Plan, 25–30 dakikada bir konu dilimini
+nasıl çalışacağını, bilmediğin kelimeleri nasıl seçeceğini, uzun bir İngilizce
+cümleyi nasıl ayıracağını ve yanlışlarını ne zaman tekrar edeceğini gösterir.
+Bir üniteyi tek günde bitirme hedefi koymaz.
+
 İlk kez çalışıyorsan şu sırayı kullan:
 
 1. Ünitenin **giriş sayfasını** aç ve önkoşulları kontrol et.
@@ -17,7 +23,8 @@ teknik hafıza notuna, vocabulary ve grammar çalışmalarına sahiptir.
    **Does not compile → runtime exception → output** ayrımıyla tekrar et.
 4. `vocabulary.md` ve `grammar_notes.md` mini quiz'lerini çöz.
 5. `bilingual_notes.md` sonundaki kaynak **Review Questions** bölümünü, kod
-   bloklarını satır satır izleyerek çöz.
+   bloklarını satır satır izleyerek çöz. Ardından aynı belgenin **Appendix**
+   bölümündeki kaynak cevapları ve gerekçeleriyle kontrol et.
 6. `practice_quiz.md` içindeki ek özgün OCP tarzı soruları notlara bakmadan
    tamamla; cevap açıklamalarını en son oku.
 
@@ -33,6 +40,7 @@ teknik hafıza notuna, vocabulary ve grammar çalışmalarına sahiptir.
 | Teknik İngilizce geliştirmek | `vocabulary.md` / `.pdf` | Kartları kapat-aç yöntemiyle çalış, mini quiz'i çöz |
 | YDS sentence structure çalışmak | `grammar_notes.md` / `.pdf` | Formülü bul, örneği çevir, common mistake'i kontrol et |
 | Kaynaktaki bölüm sonu sorularını çözmek | `bilingual_notes.md` içindeki Review Questions | Özgün soru, kod ve seçenekleri eksiksiz kullan |
+| Kaynak sorusunun nedenini öğrenmek | Aynı belgenin Appendix bölümü | Önce kendi cevabını yaz, sonra kitap cevabı ve teknik açıklamayı karşılaştır |
 | Bilgiyi ölçmek | `practice_quiz.md` / `.pdf` | Önce süre tutarak çöz, sonra ayrıntılı cevapları incele |
 
 Markdown sürümleri arama, not alma ve bağlantıları izleme için; PDF sürümleri
@@ -41,6 +49,23 @@ ekrandan veya çıktı alarak kesintisiz çalışma için uygundur.
 On beş ünitenin ana notlarında toplam **356 kaynak Review Question** bulunur.
 Bu sorular ek practice quiz'lerden ayrıdır; kaynak metin, seçenek sırası,
 line number ve Java code block'ları korunarak sunulur.
+`Official Answer` başlıkları kaynak kitabın Appendix bölümündeki cevaplara
+karşılık gelir; soruların gerçek sertifika sınavından alındığını ifade etmez.
+
+## Bu düzeni kullanırken
+
+- Ünite girişindeki oturum sırasını takip et; yalnız çalıştığın konuya ait
+  birkaç paragrafı, kelimeyi ve soruyu seç.
+- Sözlük maddeleri aday kelimelerdir. Bilmediğin sözcükleri kendi hatırlama
+  denemene göre seç; tamamını yeniden öğrenmek zorunda değilsin.
+- Kaynak cevaplarını çözümden sonra aç. Doğru harfin yanında yanlış seçeneğin
+  nedenini de açıklayabildiğinde ilerle.
+- PDF'de konu bulmak için okuyucunun **yer imleri / bookmarks** panelini kullan.
+  Belge içindeki içindekiler bağlantıları ilgili başlığa gider. Dosyalar arası
+  bağlantıları izlemek için Markdown sürümlerini kullan.
+
+Yapılan incelemenin kapsamı ve doğrulamalar [doküman inceleme notunda](review_report.md)
+kayıtlıdır.
 
 ## Ünite rotası
 

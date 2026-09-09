@@ -4,6 +4,12 @@ Bu dosya, [ana çift dilli nottaki](bilingual_notes.md) file, path, stream,
 serialization ve directory traversal anlatımından seçilen teknik İngilizce
 yapılarını YDS/teknik okuma açısından açıklar.
 
+
+Örnekler kaynak bağlamını öğretmek için seçilmiş veya sadeleştirilmiştir;
+“kaynak alıntısı” diye belirtilmeyen cümleler birebir kitap alıntısı değildir.
+Her oturumda bir yapıyı çalış: **ana yüklem → özne → bağlaç → yan cümle →
+doğal Türkçe** sırasını izle. Yapıyı ertesi gün örneğe bakmadan yeniden kur.
+
 ## 1. `so that` — amaç ve sonuç
 
 ### Yapı
@@ -70,8 +76,7 @@ A as well as B
 
 > **English:** “A directory can contain files as well as other directories.”
 >
-> **Türkçe:** “Bir directory, başka directory'lerin yanı sıra file'lar da
-> içerebilir.”
+> **Türkçe:** “Bir dizin, başka dizinlerin yanı sıra dosyalar da içerebilir.”
 
 YDS tuzağı: `A as well as B` subject olduğunda verb agreement genellikle A'ya
 göredir; yapı basit `and` ile tamamen aynı değildir.
@@ -88,7 +93,7 @@ Sorumluluk bildirir.
 
 > **English:** “The file system is in charge of reading and writing data.”
 >
-> **Türkçe:** “File system, data'yı okumak ve yazmaktan sorumludur.”
+> **Türkçe:** “Dosya sistemi, verileri okumaktan ve yazmaktan sorumludur.”
 
 `of` preposition olduğu için ardından verb gelirse `V-ing` kullanılır.
 
@@ -105,8 +110,7 @@ Bir component'e action gerçekleştirme olanağı verir.
 > **English:** “The JVM allows the same operations to run across multiple
 > platforms.”
 >
-> **Türkçe:** “JVM, aynı operation'ların birden çok platformda çalışmasına
-> olanak verir.”
+> **Türkçe:** “JVM, aynı işlemlerin birden fazla platformda çalışmasına olanak verir.”
 
 Passive form:
 
@@ -129,7 +133,7 @@ Preposition'ı relative pronoun önüne taşıyan formal relative clause'dur.
 > **English:** “The root is the topmost directory from which all other paths
 > descend.”
 >
-> **Türkçe:** “Root, diğer bütün path'lerin türediği en üst directory'dir.”
+> **Türkçe:** “Kök, diğer bütün yolların türediği en üst dizindir.”
 
 Daha gündelik karşılık: `which ... from`. YDS metinlerinde preposition +
 `which/whom` yapısı sık görülür.
@@ -147,8 +151,7 @@ clause, whereas contrasting clause
 > **English:** “Unix systems use a forward slash, whereas Windows systems use
 > a backslash.”
 >
-> **Türkçe:** “Unix system'ler forward slash kullanırken Windows system'ler
-> backslash kullanır.”
+> **Türkçe:** “Unix sistemleri eğik çizgi kullanırken Windows sistemleri ters eğik çizgi kullanır.”
 
 `whereas` neden değil contrast bildirir. Türkçede “oysa”, “-iken” veya “buna
 karşılık” olabilir.
@@ -166,8 +169,7 @@ Sonucun bağlı olduğu varsayımı açıklar.
 > **English:** “Assuming that the target exists, the method returns its real
 > path.”
 >
-> **Türkçe:** “Target'ın var olduğunu varsayarsak method onun real path'ini
-> döndürür.”
+> **Türkçe:** “Hedefin var olduğunu varsayarsak metot, onun gerçek yolunu döndürür.”
 
 OCP sorularında `assuming`, environment-dependent belirsizliği daraltır.
 Sorunun verdiği assumption'ı Java language guarantee ile karıştırma.
@@ -185,8 +187,7 @@ whether + alternative A + or + alternative B
 > **English:** “The Path can represent a record whether it is a file or a
 > directory.”
 >
-> **Türkçe:** “Path, kayıt ister file ister directory olsun onu temsil
-> edebilir.”
+> **Türkçe:** “`Path`, bir dosyayı da bir dizini de temsil edebilir.”
 
 `whether or not` = “olup olmadığı”. Indirect question'da `if` bazen mümkün
 olsa da preposition sonrası ve `to-infinitive` öncesi `whether` gerekir.
@@ -204,8 +205,7 @@ not only + X + but also + parallel Y
 > **English:** “The API can not only read attributes but also modify them
 > through a view.”
 >
-> **Türkçe:** “API yalnız attribute'ları okumakla kalmaz, onları view
-> aracılığıyla değiştirebilir de.”
+> **Türkçe:** “API, öznitelikleri okumakla kalmaz; bir görünüm aracılığıyla değiştirebilir de.”
 
 X ve Y grammatical olarak parallel olmalıdır. Cümle `Not only` ile başlarsa
 ilk clause'da inversion görülebilir:
@@ -262,7 +262,7 @@ Bir action gerçekleşmeden başka bir action'ın olduğunu bildirir.
 > **English:** “normalize() simplifies the path without accessing the file
 > system.”
 >
-> **Türkçe:** “normalize(), file system'e erişmeden path'i sadeleştirir.”
+> **Türkçe:** “`normalize()`, dosya sistemine erişmeden yolu sadeleştirir.”
 
 `without to access` yanlış; `without` preposition olduğu için gerund gerekir.
 
@@ -279,8 +279,7 @@ Zorunluluk belirten formal passive yapıdır.
 > **English:** “The caller is required to handle or declare the checked
 > exception.”
 >
-> **Türkçe:** “Caller'ın checked exception'ı handle veya declare etmesi
-> gerekir.”
+> **Türkçe:** “Çağıran kodun, checked exception’ı ele alması veya bildirmesi gerekir.”
 
 Yakın anlam:
 
@@ -302,7 +301,7 @@ main clause + provided (that) + condition
 
 > **English:** “The reset succeeds provided that the mark is still valid.”
 >
-> **Türkçe:** “Mark hâlâ geçerliyse reset başarılı olur.”
+> **Türkçe:** “İşaretlenen konum hâlâ geçerliyse sıfırlama işlemi başarılı olur.”
 
 Yakın anlam: `as long as`, `on condition that`. `provided` burada past
 participle değil conjunction'dır.
@@ -317,12 +316,18 @@ main clause + unless + affirmative condition
 
 `if ... not` anlamı verir.
 
-> **English:** “The copy fails unless REPLACE_EXISTING is supplied.”
+> **English:** “For an existing target file and a different source, the copy fails unless REPLACE_EXISTING is supplied.”
 >
-> **Türkçe:** “REPLACE_EXISTING verilmedikçe copy başarısız olur.”
+> **Türkçe:** “Hedef dosya zaten mevcutsa ve kaynak farklı bir dosyaysa, `REPLACE_EXISTING` verilmedikçe kopyalama başarısız olur.”
 
-Sık hata: `unless` clause'unda ayrıca `not` kullanıp double negative
-oluşturmak.
+Sık hata: Türkçedeki “-medikçe” ekini gördüğün için `unless` yanına otomatik olarak `not` eklemek; önce koşulun anlamını denetle.
+
+
+**Öncülü koru:** Hedef dosya mevcutsa, farklı bir kaynak dosyayı onun üzerine kopyalamak için `REPLACE_EXISTING` gerekir. Hedefin olmadığı bir durumda bu seçenek olmadan da kopyalama yapılabilir. İngilizce koşulu çevirirken soru kökündeki varsayımı atlama.
+
+**Cümleyi parçala:** `[The copy]` özne, `[fails]` ana yüklem, `[unless REPLACE_EXISTING is supplied]` olumsuz koşul. `unless` yerine `if … not` koyarak anlamı kontrol et. `unless … not` her durumda dilbilgisi hatası değildir; iki olumsuzluk bu sorudaki anlamı değiştireceğinden gelişigüzel eklenmez.
+
+**Kaynak bağlamı:** [Creating, Moving, and Deleting Files and Directories](bilingual_notes.md#creating-moving-and-deleting-files-and-directories).
 
 ## 18. `once + clause`
 
@@ -338,8 +343,7 @@ bildirir.
 > **English:** “Once the stream is closed, further writes may throw an
 > exception.”
 >
-> **Türkçe:** “Stream kapatıldıktan sonra sonraki write'lar exception
-> üretebilir.”
+> **Türkçe:** “Akış kapatıldıktan sonra yapılacak yazma işlemleri bir istisna fırlatabilir.”
 
 `once` burada “bir kez” sayısı değil temporal conjunction'dır.
 
@@ -356,8 +360,7 @@ not X; rather, Y
 > **English:** “The Path does not contain the file data; rather, it represents
 > a location.”
 >
-> **Türkçe:** “Path file data'yı içermez; bunun yerine bir location'ı temsil
-> eder.”
+> **Türkçe:** “`Path`, dosya verisini içermez; bir konumu temsil eder.”
 
 `rather than` karşılaştırma/preference yapısı; standalone `rather` düzeltme
 bağlacıdır.
@@ -375,7 +378,7 @@ A and B correspond to X and Y, respectively.
 > **English:** “InputStream and OutputStream read and write bytes,
 > respectively.”
 >
-> **Türkçe:** “InputStream ve OutputStream sırasıyla byte okur ve yazar.”
+> **Türkçe:** “`InputStream` ve `OutputStream`, sırasıyla bayt okur ve yazar.”
 
 Eşlemeyi çapraz yapma:
 
@@ -396,7 +399,7 @@ X, as opposed to Y
 
 > **English:** “A character stream processes text, as opposed to raw bytes.”
 >
-> **Türkçe:** “Character stream, raw byte'ların aksine text işler.”
+> **Türkçe:** “Karakter akışı, ham baytların aksine metin işler.”
 
 Yakın anlam: `in contrast to`, `rather than`. `opposed` sonrasında `to`
 preposition'dır.
@@ -414,7 +417,7 @@ the + comparative + clause, the + comparative + clause
 > **English:** “The larger the buffer is, the fewer individual I/O calls may
 > be needed.”
 >
-> **Türkçe:** “Buffer ne kadar büyükse o kadar az tekil I/O call gerekebilir.”
+> **Türkçe:** “Tampon ne kadar büyükse o kadar az tekil I/O çağrısı gerekebilir.”
 
 Bu yapı ordinary definite article değildir; iki comparative clause birlikte
 okunur.
@@ -439,6 +442,13 @@ noun + V3           ← noun that is/was V3
 
 `monitoring` active; `returned` passive anlam taşır.
 
+
+**Özne–yüklem denetimi:** “The path returned by the method is absolute.” cümlesinde `[The path returned by the method]` bütün olarak öznedir; ana yüklem `[is]` olur. `returned` ana geçmiş zaman yüklemi değildir: `the path that was returned by the method` biçiminde açılır.
+
+**Özgün çeviri:** “Metodun döndürdüğü yol mutlaktır.” Önce ana cümleyi bul: `The path is absolute`; sonra yolu niteleyen parçayı çevir.
+
+**Kaynak bağlamı:** [Interacting with NIO.2 Paths](bilingual_notes.md#interacting-with-nio2-paths).
+
 ## 24. `which` ile non-defining relative clause
 
 ### Yapı
@@ -451,7 +461,7 @@ Ana iddiaya ek bilgi verir; comma ile ayrılır.
 
 > **English:** “Files.lines() returns a stream, which must be closed.”
 >
-> **Türkçe:** “Files.lines() kapatılması gereken bir stream döndürür.”
+> **Türkçe:** “`Files.lines()`, kapatılması gereken bir akış döndürür.”
 
 `which` bütün önceki clause'a da gönderme yapabilir. Defining clause'da comma
 yoktur ve hangi öğeden söz edildiğini sınırlar.
@@ -469,8 +479,7 @@ Technical metinde koşula bağlı possibility veya consequence bildirir.
 > **English:** “If the provider does not support atomic moves, the call may
 > throw an exception.”
 >
-> **Türkçe:** “Provider atomic move'u desteklemiyorsa çağrı exception
-> üretebilir.”
+> **Türkçe:** “Sağlayıcı atomik taşıma işlemlerini desteklemiyorsa çağrı bir istisna fırlatabilir.”
 
 `may`, garantiyi değil olasılığı gösterir. OCP sorularında `may`, `must` ve
 `will` ayrımı sonucu tamamen değiştirebilir.

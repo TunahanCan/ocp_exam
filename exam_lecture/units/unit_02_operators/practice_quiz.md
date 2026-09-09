@@ -1,8 +1,14 @@
 # Unit 02 · Operators — Practice Quiz
 
-Bu belge altı adet **OCP tarzı özgün çalışma sorusu** içerir. Sorular gerçek
+Bu belge sekiz adet **OCP tarzı özgün çalışma sorusu** içerir. Sorular gerçek
 sınavdan alınmamıştır. Her kod sorusunda önce operator precedence ve operand
 type'larını işaretle; ardından side effect'leri soldan sağa uygula.
+
+## Çalışma yönergesi
+Yanlış yaptığın sorunun kuralını [teknik notta](technical_memory_notes.md) bul;
+cevabı kapatıp aynı kodda tek bir değeri değiştirerek sonucu yeniden tahmin et.
+Dil sorusunda hem doğal çeviriyi hem bağlacın kurduğu ilişkiyi açıklayabildiysen
+başarılı say. [README oturum rotası](README.md) kaynak sorularına dönüşü gösterir.
 
 ## Sorular
 
@@ -102,6 +108,50 @@ belirt:
 
 <!-- page-break -->
 
+### Soru 7
+
+**Odak:** Gruplama ile operand değerlendirme sırası
+
+Aşağıdaki program için hangisi doğrudur? **Bir seçenek seç.**
+
+```java
+public class OrderCheck {
+    public static void main(String[] args) {
+        int x = 1;
+        int result = x++ + (x = 4) * 2;
+        System.out.println(x + ":" + result);
+    }
+}
+```
+
+A. `4:9`<br>
+B. `5:12`<br>
+C. `4:12`<br>
+D. Kod derlenmez.
+
+<!-- page-break -->
+
+### Soru 8
+
+**Odak:** Negative division ve remainder
+
+Aşağıdaki program için hangisi doğrudur? **Bir seçenek seç.**
+
+```java
+public class RemainderCheck {
+    public static void main(String[] args) {
+        System.out.println((-7 / 3) + ":" + (-7 % 3));
+    }
+}
+```
+
+A. `-3:2`<br>
+B. `-2:1`<br>
+C. `-2:-1`<br>
+D. `ArithmeticException` oluşur.
+
+<!-- page-break -->
+
 ## Cevaplar ve açıklamalar
 
 ### 1. B — `4:10`
@@ -149,3 +199,11 @@ değerlendirilmez.”
 
 `because` neden bildirir. `is not evaluated`, `be + V3` biçiminde passive
 voice'tur; odağı değerlendirmeyi yapan mekanizmadan sağ operand'a taşır.
+
+### 7. A
+
+Sol operand `x++` önce eski 1 değerini üretir. Sağdaki atama x değerini 4 yapar; çarpım 8, toplam 9 olur. B/C, çarpmanın gruplama önceliğini sol operandı atlama izni sanır; D yanlıştır, bütün türler uygundur.
+
+### 8. C
+
+Tamsayı bölümü sıfıra doğru kesilir: -2. `a = (a / b) * b + a % b` bağıntısıyla kalan -1 olur. A floor division sanır; B kalan işaretini değiştirir; bölen 3 olduğu için D yanlıştır.

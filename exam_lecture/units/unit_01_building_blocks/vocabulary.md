@@ -5,8 +5,9 @@ Bu sözlük Unit 01 ana notundaki **Java environment**, **class structure**,
 **garbage collection** bağlamlarından seçilmiştir. Kelimeleri tek başına ezberlemek yerine
 örnek cümledeki teknik bağlamla birlikte çalış.
 
-> **Memory tip:** Önce İngilizce kelimeyi kapatıp Türkçe anlamı hatırla; sonra
-> Türkçe tarafı kapatıp kelimeyi bir Java cümlesinde kullan.
+> **Memory tip:** Önce Türkçe tarafı kapatıp İngilizce kelimenin anlamını
+> hatırla; sonra İngilizce tarafı kapatıp Türkçe anlamdan kelimeyi geri çağır.
+> Son olarak ikisini de kapatıp bir Java cümlesi kur.
 
 ## A–C
 
@@ -153,6 +154,15 @@ Bu sözlük Unit 01 ana notundaki **Java environment**, **class structure**,
 - **Çeviri:** Gerekli sınıflar başka bir yerde bulunuyorsa classpath kullan.
 - **Related:** somewhere, anywhere; **antonym:** here
 
+### essential whitespace · noun phrase
+
+- **Türkçe:** değerin parçası olarak kalan boşluk
+- **Teknik bağlam:** Text block içinde biçimsel ortak girinti temizlendikten sonra kalan anlamlı boşluk.
+- **Example:** The text block keeps its essential whitespace.
+- **Çeviri:** Metin bloğu, değerinin parçası olan boşlukları korur.
+- **Word family / karşılaştırma:** essential (adj.); karşıt bağlam: incidental whitespace
+- **Kaynak bağlam:** [İlgili ana not](bilingual_notes.md#defining-text-blocks).
+
 ### explicitly · adverb
 
 - **Türkçe:** açıkça, doğrudan
@@ -179,6 +189,18 @@ Bu sözlük Unit 01 ana notundaki **Java environment**, **class structure**,
 - **Example:** Developers frequently use the short classpath option.
 - **Çeviri:** Geliştiriciler kısa classpath seçeneğini sıklıkla kullanır.
 - **Word family:** frequent (adj.), frequency (n.); **synonym:** often
+
+### guarantee · noun / verb
+
+- **Türkçe:** garanti, güvence; garanti etmek
+- **Teknik bağlam:** Bir olayın mutlaka gerçekleşeceğine ilişkin kesinlik. GC'ye
+  uygunluk, belleğin hemen geri kazanılacağını garanti etmez.
+- **Example:** Calling `System.gc()` does not guarantee that collection occurs.
+- **Çeviri:** `System.gc()` çağrısı, çöp toplamanın gerçekleşeceğini garanti etmez.
+- **Word family:** guaranteed (adj./V3), guarantee (n./v.); **related:** ensure
+- **Anlam ayrımı:** `eligible` = koşulları karşılayan; `guaranteed` = gerçekleşmesi
+  güvence altına alınmış. “Uygun” ile “kesin” aynı şey değildir.
+- **Kaynak bağlam:** [Understanding Garbage Collection](bilingual_notes.md#understanding-garbage-collection).
 
 ### incidental whitespace · noun phrase
 
@@ -236,7 +258,9 @@ Bu sözlük Unit 01 ana notundaki **Java environment**, **class structure**,
 ### lifetime · noun
 
 - **Türkçe:** yaşam süresi
-- **Teknik bağlam:** Object'in memory'de reachable kaldığı süre.
+- **Teknik bağlam:** Nesnenin yaratılmasıyla belleğinin geri kazanılması
+  arasındaki yaşam süresi. Erişilemez olmak, belleğin o anda geri kazanıldığı
+  anlamına gelmez; scope ise kaynak koddaki görünürlük bölgesidir.
 - **Example:** A variable's scope and an object's lifetime are different concepts.
 - **Çeviri:** Variable scope'u ile object yaşam süresi farklı kavramlardır.
 - **Related:** lifecycle, reachability
@@ -272,6 +296,19 @@ Bu sözlük Unit 01 ana notundaki **Java environment**, **class structure**,
 - **Example:** Fields merely have to remain inside a class body.
 - **Çeviri:** Field'ların yalnızca bir class gövdesi içinde bulunması gerekir.
 - **Synonym:** simply, only
+
+### otherwise · adverb
+
+- **Türkçe:** aksi, başka türlü; aksi takdirde
+- **Teknik bağlam:** `unless the question says otherwise`, soru açıkça başka
+  bir durum belirtmediği sürece verilen varsayımı korumanı ister.
+- **Example:** Assume separate files unless the question says otherwise.
+- **Çeviri:** Soru aksini söylemedikçe dosyaların ayrı olduğunu varsay.
+- **Anlam ayrımı:** `says otherwise` = aksini söyler; `Do X; otherwise, Y` =
+  X'i yap; aksi takdirde Y. Her kullanımda “aksi takdirde” diye çevrilmez.
+- **Related:** differently, or else (bağlama göre)
+- **Kaynak bağlam:** [Classes and Source Files](bilingual_notes.md#classes-and-source-files);
+  koşul çözümlemesi için [grammar notu](grammar_notes.md#6-koşul-yapıları-if-ve-unless).
 
 ### parentheses · plural noun
 
@@ -315,6 +352,15 @@ Bu sözlük Unit 01 ana notundaki **Java environment**, **class structure**,
 - **Example:** Garbage collection may reclaim memory for other objects.
 - **Çeviri:** Garbage collection başka object'ler için memory'yi geri kazanabilir.
 - **Word family:** reclamation (n.); **synonym:** recover
+
+### redundant · adjective
+
+- **Türkçe:** gereksiz, fazladan
+- **Teknik bağlam:** Kaldırılması kodun anlamını veya derlenmesini değiştirmeyen import.
+- **Example:** An import from java.lang is redundant here.
+- **Çeviri:** Burada java.lang paketinden yapılan import gereksizdir.
+- **Word family / karşılaştırma:** redundancy (n.); unnecessary
+- **Kaynak bağlam:** [İlgili ana not](bilingual_notes.md#redundant-imports).
 
 ### require · verb
 

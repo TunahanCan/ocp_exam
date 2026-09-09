@@ -1001,6 +1001,9 @@ statement does not generate a result set
 > APIs.
 
 ### Working with Parameters
+
+> **Dil çalışması:** Bu başlıktaki kelimeler için [ünite sözlüğüne](vocabulary.md) bak.
+
 > **English:** Suppose our zoo acquires a new elephant and we want to register it in our names table.
 > We’ve already learned enough to do this.
 >
@@ -1210,9 +1213,10 @@ ps.executeUpdate();
 > PreparedStatement is smart enough to remember the parameters that were already set and
 > retain them. You only have to set the ones that are different.
 >
-> **Türkçe:** Ester'i eklerken üç parametreyi de ayarladığımızı unutmayın, ancak Elias için sadece
-> iki. `PreparedStatement`, önceden ayarlanmış olan parametreleri hatırlayacak ve tutacak
-> kadar akıllıdır. Sadece farklı olanları ayarlamanız gerekir.
+> **Türkçe:** Ester’i eklerken üç parametreye de değer atadığımıza, Elias içinse yalnız
+> ikisini değiştirdiğimize dikkat edin. `PreparedStatement`, daha önce atanmış
+> parametre değerlerini hatırlar ve korur. Yalnız değişen değerlere yeniden atama
+> yapmanız gerekir.
 #### Batching Statements
 
 > **English:** JDBC supports batching so you can run multiple statements in fewer
@@ -1914,6 +1918,9 @@ ResultSet.CONCUR_UPDATABLE);
 > transaction başından itibaren yapılan değişiklikleri atar. Önce `commit()` ve
 > `rollback()` code'unu, sonra rollback point'lerini yönetmeyi inceleyeceğiz.
 ### Committing and Rolling Back
+
+> **Dil çalışması:** Bu başlıktaki kelimeler için [ünite sözlüğüne](vocabulary.md) bak.
+
 > **English:** Our zoo is renovating and has decided to give more space to the elephants. However, we
 > only have so much space, so the zebra exhibit will need to be made smaller. Since we
 > can’t invent space out of thin air, we want to ensure that the total amount of space
@@ -2223,25 +2230,28 @@ Column 'NOT_A_COLUMN' is either not in any table...
 > operations: create (INSERT) a new row, read (SELECT) data, update (UPDATE) one or more
 > rows, and delete (DELETE) one or more rows.
 >
-> **Türkçe:** Sınav için her CRUD operation'a karşılık gelen dört temel SQL statement'ını
-> bilmelisiniz: `INSERT` yeni row oluşturur, `SELECT` data okur, `UPDATE` bir veya daha
-> çok row'u günceller, `DELETE` ise bir veya daha çok row'u siler.
+> **Türkçe:** Her CRUD işlemi için bir temel SQL deyimini bilin: `INSERT` yeni satır ekler, `SELECT`
+> veri okur, `UPDATE` bir veya daha fazla satırı günceller, `DELETE` bir veya daha
+> fazla satırı siler.
+
 > **English:** For the exam, you should be familiar with five JDBC interfaces: Driver, Connection,
 > PreparedStatement, CallableStatement, and ResultSet. The interfaces are part of the Java
 > API. A database-specific JAR file provides the implementations.
 >
-> **Türkçe:** Sınav için beş JDBC interface'ini bilmelisiniz: `Driver`, `Connection`,
-> `PreparedStatement`, `CallableStatement` ve `ResultSet`. Interface'ler Java API'nin
-> parçasıdır; implementation'ları veritabanına özgü JAR dosyası sağlar.
+> **Türkçe:** Beş temel JDBC arayüzünü tanıyın: `Driver`, `Connection`, `PreparedStatement`,
+> `CallableStatement` ve `ResultSet`. Arayüzler Java API’sinin parçasıdır; somut
+> gerçekleştirimleri veritabanına özgü JAR dosyası sağlar.
+
 > **English:** To connect to a database, you need the JDBC URL. A JDBC URL has three parts separated by
 > colons. The first part is jdbc. The second part is the name of the vendor/product. The
 > third part varies by database, but it includes the location and/or name of the database.
 > The location is either localhost or an IP address followed by an optional port.
 >
-> **Türkçe:** Veritabanına bağlanmak için JDBC URL gerekir. JDBC URL, colon ile ayrılan üç parçadan
-> oluşur. İlk parça `jdbc`, ikinci parça vendor/product adıdır. Üçüncü parça veritabanına
-> göre değişir fakat veritabanının konumunu ve/veya adını içerir. Konum `localhost` ya da
-> optional port'un izlediği bir IP address olabilir.
+> **Türkçe:** Veritabanına bağlanmak için JDBC URL gerekir. URL, iki noktayla ayrılan üç ana bölümden
+> oluşur: `jdbc`, sağlayıcı/ürün adı ve veritabanına özgü bölüm. Son bölüm konum
+> ve/veya veritabanı adı içerir; sunucu adresi ve isteğe bağlı bağlantı noktası
+> bulunabilir.
+
 > **English:** The DriverManager class provides a factory method called getConnection() to get a
 > Connection implementation. You create a PreparedStatement or CallableStatement using
 > prepareStatement() and prepareCall(), respectively. A PreparedStatement is used when the
@@ -2249,120 +2259,127 @@ Column 'NOT_A_COLUMN' is either not in any table...
 > the database. A PreparedStatement allows you to set the values of bind variables. A
 > CallableStatement also allows you to set IN, OUT, and INOUT parameters.
 >
-> **Türkçe:** `DriverManager`, bir `Connection` implementation'ı almak için `getConnection()` adlı
-> factory method'u sağlar. `prepareStatement()` ile `PreparedStatement`,
-> `prepareCall()` ile `CallableStatement` oluşturulur. SQL uygulama içinde belirtilmişse
-> `PreparedStatement`, SQL veritabanındaysa `CallableStatement` kullanılır.
-> `PreparedStatement` bind variable değerlerini; `CallableStatement` ise ayrıca `IN`,
-> `OUT` ve `INOUT` parameter'larını ayarlamayı sağlar.
+> **Türkçe:** `DriverManager`, bir `Connection` gerçekleştirimi edinmek için `getConnection()`
+> üretici metodunu sunar. `prepareStatement()` ile `PreparedStatement`, `prepareCall()`
+> ile `CallableStatement` oluşturulur. İlki uygulamada verilen SQL’i; ikincisi
+> veritabanında saklanan yordamı çağırmak için kullanılır. `PreparedStatement`, bağlama
+> değişkenlerine değer vermeyi; `CallableStatement`, ayrıca `IN`, `OUT` ve `INOUT`
+> parametreleriyle çalışmayı sağlar.
 
 <!-- source-page: 0898 -->
+
 > **English:** When running a SELECT SQL statement, the executeQuery() method returns a ResultSet. When
 > running a DELETE, INSERT, or UPDATE SQL statement, the executeUpdate() method returns
 > the number of rows that were affected. There is also an execute() method that returns a
 > boolean to indicate whether the statement was a query.
 >
-> **Türkçe:** `SELECT` SQL statement'ı çalıştırılırken `executeQuery()` bir `ResultSet` döndürür.
-> `DELETE`, `INSERT` veya `UPDATE` çalıştırılırken `executeUpdate()` etkilenen row
-> sayısını döndürür. Statement'ın query olup olmadığını belirtmek için bir `boolean`
-> döndüren bir `execute()` yöntemi de vardır.
+> **Türkçe:** `SELECT` çalıştırıldığında `executeQuery()` bir `ResultSet` döndürür. `DELETE`,
+> `INSERT` veya `UPDATE` için `executeUpdate()`, etkilenen satır sayısını döndürür.
+> `execute()` ise ilk sonucun bir `ResultSet` olup olmadığını gösteren `boolean` değer
+> döndürür.
+
 > **English:** You call rs.next() from an if statement or while loop to advance the cursor position. To
 > get data from a column, call a method like getString(1) or getString("a"). Column
 > indexes begin with 1, not 0. In addition to getting a String or primitive, you can call
 > getObject() to get any type.
 >
-> **Türkçe:** Cursor konumunu ilerletmek için `if` statement veya `while` loop içinde `rs.next()`
-> çağırırsınız. Column'dan data almak için `getString(1)` veya `getString("a")` gibi bir
-> method çağırın. Column index'leri 0'dan değil 1'den başlar. `String` veya primitive
-> dışında herhangi bir type almak için `getObject()` çağırabilirsiniz.
+> **Türkçe:** İmleci ilerletmek için `if` veya `while` içinde `rs.next()` çağrılır. Sütun değeri,
+> `getString(1)` veya `getString("a")` gibi metotlarla okunur. Sütun indeksleri 0’dan
+> değil 1’den başlar. `String` ve primitive değerleri okumanın yanı sıra `getObject()`
+> ile nesne türünde değer alınabilir.
+
 > **English:** JDBC lets you choose whether to automatically commit your statements or manage
 > transactions yourself. If you choose the latter, you can control when data is committed
 > or rolled back. Additionally, you can set savepoints to roll back to specific points.
 >
-> **Türkçe:** JDBC, statement'ların otomatik commit edilmesini veya transaction'ları kendiniz
-> yönetmenizi seçmenize izin verir. İkinci durumda data'nın ne zaman commit ya da rollback
-> edileceğini kontrol edebilir, belirli noktalara dönmek için savepoint
-> oluşturabilirsiniz.
+> **Türkçe:** JDBC, deyimleri otomatik olarak kalıcılaştırmayı veya transaction’ları kendiniz
+> yönetmeyi seçmenize olanak sağlar. İkinci durumda değişikliklerin ne zaman
+> kalıcılaştırılacağını veya geri alınacağını siz belirlersiniz. Ayrıca belirli
+> noktalara dönebilmek için kayıt noktaları oluşturabilirsiniz.
+
 > **English:** It is important to close JDBC resources when finished with them to avoid leaking
 > resources. Closing a Connection automatically closes the Statement and ResultSet
 > objects. Closing a Statement automatically closes the ResultSet object. Also, running
 > another SQL statement closes the previous ResultSet object from that Statement.
 >
-> **Türkçe:** Resource leak'i önlemek için JDBC resource'ları işiniz bittiğinde kapatılmalıdır.
-> `Connection`ı kapatmak onun `Statement` ve `ResultSet` object'lerini; `Statement`ı
-> kapatmak onun `ResultSet` object'ini otomatik kapatır. Aynı `Statement`tan başka bir SQL
-> statement'ı çalıştırmak da önceki `ResultSet` object'ini kapatır.
+> **Türkçe:** Kaynak sızıntısını önlemek için işiniz bittiğinde JDBC kaynaklarını kapatın.
+> `Connection` kapatıldığında ilişkili `Statement` ve `ResultSet` nesneleri;
+> `Statement` kapatıldığında onun `ResultSet` nesnesi otomatik kapanır. Aynı
+> `Statement` ile başka bir SQL deyimi çalıştırmak da önceki sonuç kümesini kapatır.
 ## Exam Essentials
 > **English:** Name the core five JDBC interfaces that you need to know for the exam and where they are
 > defined. The five key interfaces are Driver, Connection, PreparedStatement,
 > CallableStatement, and ResultSet. The interfaces are part of the core Java APIs. The
 > implementations are part of a database driver JAR file.
 >
-> **Türkçe:** Sınav için gereken beş temel JDBC interface'ini ve nerede tanımlandıklarını söyleyin.
-> Bunlar `Driver`, `Connection`, `PreparedStatement`, `CallableStatement` ve `ResultSet`tir.
-> Interface'ler core Java API'lerinin, implementation'lar ise veritabanına özgü driver
-> JAR dosyasının parçasıdır.
+> **Türkçe:** Beş temel JDBC arayüzünü ve nerede tanımlandıklarını söyleyebilmelisiniz: `Driver`,
+> `Connection`, `PreparedStatement`, `CallableStatement` ve `ResultSet`. Arayüzler Java
+> API’sinde, gerçekleştirimler veritabanı sürücüsünün JAR dosyasında bulunur.
+
 > **English:** Identify correct and incorrect JDBC URLs. A JDBC URL starts with jdbc:, followed by the
 > vendor/product name. Next comes another colon and then a database-specific connection
 > string. This database-specific string includes the location, such as localhost or an IP
 > address with an optional port. It may also contain the name of the database.
 >
-> **Türkçe:** Doğru ve yanlış JDBC URL'leri belirleyin. JDBC URL `jdbc:` ile başlar ve ardından
-> vendor/product adı gelir. Sonraki colon (`:`) veritabanına özgü connection string'i
-> başlatır. Bu string, `localhost` veya optional port içeren bir IP address gibi konum
-> bilgisini ve ayrıca veritabanı adını içerebilir.
+> **Türkçe:** Doğru ve yanlış JDBC URL biçimlerini ayırt edin. URL, `jdbc:` ile başlar;
+> sağlayıcı/ürün adı ve bir iki noktadan sonra veritabanına özgü bağlantı metni gelir.
+> Bu bölüm sunucu konumu, isteğe bağlı bağlantı noktası ve veritabanı adı içerebilir.
+
 > **English:** Describe how to get a Connection using DriverManager. After including the driver JAR in
 > the classpath, call DriverManager.getConnection(url) or DriverManager.getConnection(url,
 > username, password) to get a driver-specific Connection implementation class.
 >
-> **Türkçe:** `DriverManager` kullanarak `Connection` almayı açıklayın. Driver JAR'ını `classpath`e
-> ekledikten sonra driver'a özgü bir `Connection` implementation class'ı almak için
-> `DriverManager.getConnection(url)` veya
-> `DriverManager.getConnection(url, username, password)` çağırın.
+> **Türkçe:** `DriverManager` ile bağlantı almayı açıklayın. Sürücü JAR dosyasını classpath üzerine
+> ekledikten sonra `DriverManager.getConnection(url)` veya
+> `DriverManager.getConnection(url, username, password)` çağırarak sürücüye özgü bir
+> `Connection` nesnesi alın.
+
 > **English:** Run queries using a PreparedStatement. When using a PreparedStatement, the SQL contains
 > question marks (?) for the parameters or bind variables. This SQL is passed at the time
 > the PreparedStatement is created, not when it is run. You must call a setter for each of
 > these with the proper value before executing the query.
 >
-> **Türkçe:** `PreparedStatement` kullanarak query çalıştırın. SQL, parameter veya bind variable'ları
-> question mark (`?`) ile gösterir ve çalışma anında değil `PreparedStatement`
-> oluşturulurken geçirilir. Query çalıştırılmadan önce her bind variable için uygun değeri
-> veren bir setter çağrılmalıdır.
+> **Türkçe:** `PreparedStatement` ile sorgu çalıştırın. SQL içindeki parametreler soru işaretleriyle
+> (`?`) gösterilir. SQL metni, deyim yürütülürken değil `PreparedStatement`
+> oluşturulurken verilir. Çalıştırma öncesinde gerekli bütün bağlama değişkenlerine
+> uygun setter metotlarıyla değer atanmış olmalıdır.
+
 > **English:** Run queries using a CallableStatement. When using a CallableStatement, the SQL looks
 > like { call my_proc(?)}. If you are returning a value, {?= call my_proc(?)} is also
 > permitted. You must set any parameter values before executing the query. Additionally,
 > you must call registerOutParameter() for any OUT or INOUT parameters.
 >
-> **Türkçe:** `CallableStatement` ile query çalıştırın. Kullanılan SQL
-> `{ call my_proc(?) }` biçimindedir. Bir değer döndürülüyorsa
-> `{?= call my_proc(?)}` biçimine de izin verilir. Query çalıştırılmadan önce tüm
-> parameter değerleri ayarlanmalı; her `OUT` veya `INOUT` parameter için
-> `registerOutParameter()` çağrılmalıdır.
+> **Türkçe:** `CallableStatement` ile saklı yordam çağırın. Temel sözdizimi `{call my_proc(?)}`
+> biçimindedir; bir fonksiyonun dönüş değeri alınacaksa `{?= call my_proc(?)}` biçimi
+> kullanılır. Çalıştırmadan önce giriş değerlerini atayın. Her `OUT` veya `INOUT`
+> parametresi için `registerOutParameter()` çağırın.
 
 <!-- source-page: 0899 -->
+
 > **English:** Loop through a ResultSet. Before trying to get data from a ResultSet, you call rs.next()
 > inside an if statement or while loop. This ensures that the cursor is in a valid
 > position. To get data from a column, call a method like getString(1) or getString("a").
 > Remember that column indexes begin with 1.
 >
-> **Türkçe:** `ResultSet` üzerinde loop'a girin. `ResultSet`ten data almadan önce bir `if` statement
-> veya `while` loop içinde `rs.next()` çağırın. Bu, cursor'ın geçerli bir konumda olmasını
-> sağlar. Column'dan data almak için `getString(1)` veya `getString("a")` gibi bir method
-> çağırın. Column index'lerinin 1'den başladığını unutmayın.
+> **Türkçe:** `ResultSet` üzerinde ilerleyin. Veri okumadan önce `if` veya `while` içinde `rs.next()`
+> çağırın ve dönen `true` değeriyle geçerli satırda olduğunuzu doğrulayın. Sütunu
+> `getString(1)` veya `getString("a")` gibi bir metotla okuyun. Sütun indekslerinin
+> 1’den başladığını unutmayın.
+
 > **English:** Work with transactions. When autocommit is false, the commit() and rollback() methods
 > control the transaction. There is an overloaded rollback method taking a Savepoint to
 > roll back to a specific point.
 >
-> **Türkçe:** Transaction'larla çalışın. Autocommit `false` iken transaction'ı `commit()` ve
-> `rollback()` method'ları yönetir. Belirli bir noktaya dönmek için `Savepoint` alan bir
-> `rollback()` overload'u vardır.
+> **Türkçe:** Transaction’ları yönetebilmelisiniz. Otomatik kalıcılaştırma kapalıyken `commit()` ve
+> `rollback()` sonucu belirler. `Savepoint` alan `rollback()` overload’u, yalnız
+> belirtilen kayıt noktasına kadar geri dönmek için kullanılır.
+
 > **English:** Identify when a resource should be closed. If you’re closing all three resources, the
 > ResultSet must be closed first, followed by the PreparedStatement / CallableStatement,
 > and the Connection.
 >
-> **Türkçe:** Bir resource'un ne zaman kapatılması gerektiğini belirleyin. Üç resource da
-> kapatılıyorsa önce `ResultSet`, sonra `PreparedStatement` / `CallableStatement`, en son
-> `Connection` kapatılmalıdır.
+> **Türkçe:** Kaynakların ne zaman kapatılacağını belirleyin. Üç kaynak da açıkça kapatılacaksa sıra
+> `ResultSet` → `PreparedStatement`/`CallableStatement` → `Connection` olmalıdır.
 
 <!-- source-page: 0900 -->
 ## Review Questions

@@ -12,7 +12,7 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** Root'tan başlayan ve current working directory'den bağımsız
   path.
 - **Example:** “An absolute path contains the route from the root.”
-- **Çeviri:** “Absolute path, root'tan başlayan yolu içerir.”
+- **Çeviri:** “Mutlak yol, kök dizinden başlayan güzergâhı içerir.”
 - **Related:** absolutely; antonym: relative
 
 ### access · noun / verb
@@ -20,7 +20,7 @@ kelimelerini alfabetik olarak toplar.
 - **Türkçe:** erişim; erişmek
 - **Java bağlamı:** File data veya metadata'yı okuma/değiştirme yeteneği.
 - **Example:** “The process may not have permission to access the file.”
-- **Çeviri:** “Process file'a erişme iznine sahip olmayabilir.”
+- **Çeviri:** “Sürecin dosyaya erişim izni olmayabilir.”
 - **Related:** accessible, accessibility; antonym: inaccessible
 
 ### ancestor · noun
@@ -29,7 +29,7 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** Directory tree'de bir path'in parent, grandparent veya daha
   yukarıdaki node'ları.
 - **Example:** “The walk visits the ancestors before their descendants.”
-- **Çeviri:** “Walk, descendant'lardan önce ancestor'ları ziyaret eder.”
+- **Çeviri:** “Dolaşım, üst düğümleri alt düğümlerinden önce ziyaret eder.”
 - **Related:** ancestry; antonym: descendant
 
 ### append · verb
@@ -37,7 +37,7 @@ kelimelerini alfabetik olarak toplar.
 - **Türkçe:** sona eklemek
 - **Java bağlamı:** Existing content'i silmeden file'ın sonuna data yazmak.
 - **Example:** “The option appends the text to the existing file.”
-- **Çeviri:** “Option, text'i existing file'ın sonuna ekler.”
+- **Çeviri:** “Bu seçenek, metni mevcut dosyanın sonuna ekler.”
 - **Related:** appendable, appended; contrast: overwrite
 
 ### attribute · noun
@@ -46,8 +46,7 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** Size, creation time, permission veya file type gibi
   metadata.
 - **Example:** “Reading the attributes together can reduce file-system calls.”
-- **Çeviri:** “Attribute'ları birlikte okumak file-system çağrılarını
-  azaltabilir.”
+- **Çeviri:** “Öznitelikleri birlikte okumak, dosya sistemi çağrılarının sayısını azaltabilir.”
 - **Related:** attributable; synonym: property, metadata
 
 ### backing · adjective
@@ -56,7 +55,7 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** Stream, buffer veya view'ın veriyi aldığı underlying
   resource.
 - **Example:** “The wrapper closes its backing stream.”
-- **Çeviri:** “Wrapper, backing stream'ini kapatır.”
+- **Çeviri:** “Sarmalayıcı, arkasındaki veri akışını kapatır.”
 - **Related:** back, backed; synonym: underlying
 
 ### binary · adjective / noun
@@ -64,7 +63,7 @@ kelimelerini alfabetik olarak toplar.
 - **Türkçe:** ikili, binary data
 - **Java bağlamı:** Character decoding uygulanmadan byte olarak işlenen data.
 - **Example:** “Use an input stream to read binary content.”
-- **Çeviri:** “Binary content okumak için input stream kullan.”
+- **Çeviri:** “İkili içeriği okumak için bir girdi akışı kullanın.”
 - **Related:** byte-oriented; contrast: textual
 
 ### buffer · noun / verb
@@ -73,7 +72,7 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** I/O call sayısını azaltmak için data'yı geçici bölgede
   toplamak.
 - **Example:** “The buffer improves performance for many small writes.”
-- **Çeviri:** “Buffer, çok sayıda küçük write için performance'ı iyileştirir.”
+- **Çeviri:** “Tampon, çok sayıdaki küçük yazma işleminde performansı artırır.”
 - **Related:** buffered, buffering
 
 ### chain · noun / verb
@@ -82,7 +81,7 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** High-level stream'leri birbirinin constructor'ına vererek
   işlevleri birleştirmek.
 - **Example:** “The two readers can be chained together.”
-- **Çeviri:** “İki reader birbiriyle zincirlenebilir.”
+- **Çeviri:** “İki okuyucu birbirine bağlanabilir.”
 - **Related:** chained; synonym: wrap, compose
 
 ### close · verb
@@ -91,7 +90,7 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** Resource'u serbest bırakıp stream'i daha fazla operation'a
   kapatmak.
 - **Example:** “The resource is closed at the end of the statement.”
-- **Çeviri:** “Resource, statement sonunda kapatılır.”
+- **Çeviri:** “Kaynak, deyimin sonunda kapatılır.”
 - **Related:** closure, closed; antonym: open
 
 ### convenience · noun used attributively
@@ -99,7 +98,7 @@ kelimelerini alfabetik olarak toplar.
 - **Türkçe:** kolaylık sağlayan
 - **Java bağlamı:** Common operation'ı daha az kodla sunan API method'ı.
 - **Example:** “Files provides convenience methods for reading text.”
-- **Çeviri:** “Files, text okumak için convenience method'lar sağlar.”
+- **Çeviri:** “`Files`, metin okumayı kolaylaştıran metotlar sunar.”
 - **Related:** convenient, conveniently
 
 ### copy · noun / verb
@@ -107,8 +106,7 @@ kelimelerini alfabetik olarak toplar.
 - **Türkçe:** kopya; kopyalamak
 - **Java bağlamı:** Source data veya entry'yi ayrı target'a çoğaltmak.
 - **Example:** “Copying a directory does not copy its contents recursively.”
-- **Çeviri:** “Bir directory'yi kopyalamak içeriğini recursive olarak
-  kopyalamaz.”
+- **Çeviri:** “Bir dizini kopyalamak, içeriğini alt dizinleriyle birlikte kopyalamaz.”
 - **Related:** copied, copying; contrast: move
 
 ## D–H
@@ -119,7 +117,7 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** Byte sequence'i charset aracılığıyla character sequence'e
   çevirmek.
 - **Example:** “The reader decodes bytes as UTF-8 characters.”
-- **Çeviri:** “Reader, byte'ları UTF-8 character'ları olarak decode eder.”
+- **Çeviri:** “Okuyucu, baytları UTF-8 karakterleri olarak çözümler.”
 - **Related:** decoder, decoding; antonym: encode
 
 ### descendant · noun
@@ -128,8 +126,7 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** Directory tree'de bir node'un child veya daha derindeki
   üyeleri.
 - **Example:** “A depth limit prevents deeper descendants from being visited.”
-- **Çeviri:** “Depth limit daha derindeki descendant'ların ziyaret edilmesini
-  önler.”
+- **Çeviri:** “Derinlik sınırı, daha aşağıdaki düğümlerin ziyaret edilmesini önler.”
 - **Related:** descend; antonym: ancestor
 
 ### deserialize · verb
@@ -137,7 +134,7 @@ kelimelerini alfabetik olarak toplar.
 - **Türkçe:** seriden nesneye dönüştürmek
 - **Java bağlamı:** Stored byte representation'dan object graph oluşturmak.
 - **Example:** “ObjectInputStream deserializes the stored object.”
-- **Çeviri:** “ObjectInputStream stored object'i deserialize eder.”
+- **Çeviri:** “`ObjectInputStream`, saklanan nesneyi baytlardan yeniden oluşturur.”
 - **Related:** deserialization; antonym: serialize
 
 ### directory · noun
@@ -146,8 +143,17 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** File ve başka directory entry'leri içerebilen file-system
   node'u.
 - **Example:** “A nonempty directory cannot be deleted with one call.”
-- **Çeviri:** “Nonempty directory tek çağrıyla silinemez.”
+- **Çeviri:** “Boş olmayan bir dizin, tek bir silme çağrısıyla silinemez.”
 - **Related:** folder, directory entry
+
+### discard · verb
+
+- **Türkçe:** atmak, kullanmadan geçmek
+- **Java bağlamı:** skip() ile geçilen verinin sonuç olarak kullanılmaması.
+- **Example · özgün:** “The stream reads and discards bytes instead of returning their contents.”
+- **Çeviri:** “Akış, baytların içeriğini döndürmek yerine onları okuyup atar.”
+- **Related:** discarded; synonym: drop; discard, delete ile aynı dosya işlemi değildir.
+- **Kaynak bağlamı:** [manipulating input streams](bilingual_notes.md#manipulating-input-streams)
 
 ### eager · adjective
 
@@ -155,7 +161,7 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** Method result dönmeden bütün data'yı memory'ye yükleyen
   operation.
 - **Example:** “readAllLines() is eager and returns a list.”
-- **Çeviri:** “readAllLines() eager'dır ve list döndürür.”
+- **Çeviri:** “`readAllLines()` bütün satırları hemen okur ve bir liste döndürür.”
 - **Related:** eagerly; antonym: lazy
 
 ### encoding · noun
@@ -163,7 +169,7 @@ kelimelerini alfabetik olarak toplar.
 - **Türkçe:** karakter kodlama
 - **Java bağlamı:** Character ile byte arasındaki mapping, örneğin UTF-8.
 - **Example:** “An explicit encoding avoids platform-dependent output.”
-- **Çeviri:** “Explicit encoding, platform-dependent output'u önler.”
+- **Çeviri:** “Karakter kodlamasını açıkça belirtmek, platforma bağlı çıktıyı önler.”
 - **Related:** encode, encoded; antonym: decoding
 
 ### encounter · noun / verb
@@ -172,7 +178,7 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** Tree traversal sırasında path'e ulaşılması; stream'de
   encounter order.
 - **Example:** “The visitor may encounter a symbolic-link cycle.”
-- **Çeviri:** “Visitor symbolic-link cycle ile karşılaşabilir.”
+- **Çeviri:** “Dolaşımı yapan kod, bir sembolik bağlantı döngüsüyle karşılaşabilir.”
 - **Related:** encountered; synonym: meet
 
 ### entry · noun
@@ -180,7 +186,7 @@ kelimelerini alfabetik olarak toplar.
 - **Türkçe:** kayıt, directory girdisi
 - **Java bağlamı:** Directory içindeki file, directory veya symbolic link.
 - **Example:** “Each entry is represented by a Path.”
-- **Çeviri:** “Her entry bir Path ile temsil edilir.”
+- **Çeviri:** “Her dosya sistemi öğesi bir `Path` ile temsil edilir.”
 - **Related:** directory entry
 
 ### exist · verb
@@ -189,7 +195,7 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** Referenced file-system record'ın erişilebilir biçimde
   bulunması.
 - **Example:** “Creating a Path does not require the target to exist.”
-- **Çeviri:** “Path oluşturmak target'ın var olmasını gerektirmez.”
+- **Çeviri:** “Bir `Path` oluşturmak, hedefin var olmasını gerektirmez.”
 - **Related:** existence, existing; antonym: absent
 
 ### file system · noun phrase
@@ -198,7 +204,7 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** File/directory storage, naming ve access kurallarını
   sağlayan provider yapısı.
 - **Example:** “Path behavior can depend on the file-system provider.”
-- **Çeviri:** “Path davranışı file-system provider'a bağlı olabilir.”
+- **Çeviri:** “`Path` davranışı, dosya sistemi sağlayıcısına bağlı olabilir.”
 - **Related:** `FileSystem`, provider
 
 ### flush · verb
@@ -206,7 +212,7 @@ kelimelerini alfabetik olarak toplar.
 - **Türkçe:** tamponu hedefe aktarmak
 - **Java bağlamı:** Buffered output'u downstream resource'a zorlamak.
 - **Example:** “Flush the writer before inspecting the file.”
-- **Çeviri:** “File'ı incelemeden önce writer'ı flush et.”
+- **Çeviri:** “Dosyayı incelemeden önce yazıcının tamponunu boşaltın.”
 - **Related:** flushed, flushing
 
 ### hierarchy · noun
@@ -214,10 +220,8 @@ kelimelerini alfabetik olarak toplar.
 - **Türkçe:** hiyerarşi
 - **Java bağlamı:** Directory tree veya stream class inheritance düzeni.
 - **Example:** “Reader belongs to the character-stream hierarchy.”
-- **Çeviri:** “Reader character-stream hierarchy'sine aittir.”
+- **Çeviri:** “`Reader`, karakter akışı hiyerarşisine aittir.”
 - **Related:** hierarchical, hierarchically
-
-<!-- page-break -->
 
 ## I–M
 
@@ -226,9 +230,8 @@ kelimelerini alfabetik olarak toplar.
 - **Türkçe:** değişmez
 - **Java bağlamı:** Operation sonrası mevcut `Path` yerine yeni value
   döndürülmesi.
-- **Example:** “Path is immutable, so normalize() returns another value.”
-- **Çeviri:** “Path immutable olduğu için normalize() başka bir value
-  döndürür.”
+- **Example:** “Path is immutable, so normalize() does not modify the original path.”
+- **Çeviri:** “`Path` değiştirilemez; bu nedenle `normalize()` özgün yolu değiştirmeden sonuç döndürür.”
 - **Related:** immutability; antonym: mutable
 
 ### input · noun / adjective
@@ -236,7 +239,7 @@ kelimelerini alfabetik olarak toplar.
 - **Türkçe:** girdi
 - **Java bağlamı:** Programın file, console veya başka source'tan okuduğu data.
 - **Example:** “The input stream reads one byte.”
-- **Çeviri:** “Input stream bir byte okur.”
+- **Çeviri:** “Girdi akışı bir bayt okur.”
 - **Related:** input stream; antonym: output
 
 ### lazily · adverb
@@ -245,7 +248,7 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** Stream element'lerinin terminal operation sırasında
   okunması.
 - **Example:** “Files.lines() reads the file lazily.”
-- **Çeviri:** “Files.lines() file'ı ihtiyaç oldukça okur.”
+- **Çeviri:** “`Files.lines()`, dosyayı ihtiyaç duyuldukça okur.”
 - **Related:** lazy, laziness; antonym: eagerly
 
 ### link · noun / verb
@@ -253,7 +256,7 @@ kelimelerini alfabetik olarak toplar.
 - **Türkçe:** bağlantı; bağlamak
 - **Java bağlamı:** Başka file-system entry'sine işaret eden symbolic link.
 - **Example:** “The option prevents the method from following the link.”
-- **Çeviri:** “Option, method'ın link'i izlemesini önler.”
+- **Çeviri:** “Bu seçenek, metodun bağlantıyı izlemesini engeller.”
 - **Related:** symbolic link, linked; synonym: reference
 
 ### marker interface · noun phrase
@@ -262,7 +265,7 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** Method içermeden bir class'a semantic property bildiren
   `Serializable` gibi interface.
 - **Example:** “Serializable is a marker interface.”
-- **Çeviri:** “Serializable bir marker interface'tir.”
+- **Çeviri:** “`Serializable`, işaretleyici bir arayüzdür.”
 - **Related:** mark, marker
 
 ### metadata · noun
@@ -271,7 +274,7 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** File size, owner, time veya permissions gibi content dışı
   bilgi.
 - **Example:** “The attribute view exposes file metadata.”
-- **Çeviri:** “Attribute view file metadata'sını açar.”
+- **Çeviri:** “Öznitelik görünümü, dosyanın üst verilerine erişim sağlar.”
 - **Related:** attribute
 
 ### mismatch · noun / verb
@@ -279,7 +282,7 @@ kelimelerini alfabetik olarak toplar.
 - **Türkçe:** uyuşmazlık; uyuşmamak
 - **Java bağlamı:** İki file content'i arasındaki ilk farklı byte position'ı.
 - **Example:** “A return value of minus one means no mismatch was found.”
-- **Çeviri:** “Eksi bir return value, mismatch bulunmadığı anlamına gelir.”
+- **Çeviri:** “Eksi bir dönüş değeri, hiçbir farklılık bulunmadığını gösterir.”
 - **Related:** match; antonym: correspondence
 
 ### move · noun / verb
@@ -288,7 +291,7 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** Source path'i target location'a yeniden yerleştirmek veya
   rename etmek.
 - **Example:** “An atomic move exposes no incomplete intermediate file.”
-- **Çeviri:** “Atomic move incomplete intermediate file göstermez.”
+- **Çeviri:** “Atomik taşıma, tamamlanmamış bir ara dosyayı dışarıya göstermez.”
 - **Related:** relocation, rename; contrast: copy
 
 ## N–R
@@ -299,7 +302,7 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** Redundant `.` ve uygun `name/..` path parçalarını textual
   olarak temizlemek.
 - **Example:** “Normalize the value without accessing the disk.”
-- **Çeviri:** “Disk'e erişmeden value'yu normalize et.”
+- **Çeviri:** “Diske erişmeden yol değerini sadeleştirin.”
 - **Related:** normalized, normalization
 
 ### output · noun / adjective
@@ -307,7 +310,7 @@ kelimelerini alfabetik olarak toplar.
 - **Türkçe:** çıktı
 - **Java bağlamı:** Programın file, console veya başka sink'e yazdığı data.
 - **Example:** “The output stream writes binary data.”
-- **Çeviri:** “Output stream binary data yazar.”
+- **Çeviri:** “Çıktı akışı ikili veri yazar.”
 - **Related:** output stream; antonym: input
 
 ### overwrite · verb
@@ -315,8 +318,7 @@ kelimelerini alfabetik olarak toplar.
 - **Türkçe:** üzerine yazmak
 - **Java bağlamı:** Existing target content'ini yeni data ile değiştirmek.
 - **Example:** “REPLACE_EXISTING allows the copy to overwrite the target.”
-- **Çeviri:** “REPLACE_EXISTING copy operation'ının target üzerine yazmasına
-  izin verir.”
+- **Çeviri:** “`REPLACE_EXISTING`, kopyalama işleminin hedefin üzerine yazmasına izin verir.”
 - **Related:** replacement; contrast: append
 
 ### parent · noun
@@ -324,7 +326,7 @@ kelimelerini alfabetik olarak toplar.
 - **Türkçe:** üst öğe
 - **Java bağlamı:** Bir path element'ini doğrudan içeren directory.
 - **Example:** “The root has no parent.”
-- **Çeviri:** “Root'un parent'ı yoktur.”
+- **Çeviri:** “Kök dizinin üst dizini yoktur.”
 - **Related:** parental; antonym: child
 
 ### persist · verb
@@ -333,8 +335,17 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** Program execution sona erdikten sonra data'nın storage'da
   tutulması.
 - **Example:** “Serialization can persist object state.”
-- **Çeviri:** “Serialization object state'i kalıcılaştırabilir.”
+- **Çeviri:** “Serileştirme, nesnenin durumunu kalıcı olarak saklayabilir.”
 - **Related:** persistence, persistent; antonym: transient
+
+### prior to · preposition phrase
+
+- **Türkçe:** -den önce
+- **Java bağlamı:** Console girdisi istenmeden önce istem mesajı yazma.
+- **Example · özgün:** “Display a prompt prior to requesting input.”
+- **Çeviri:** “Girdi istemeden önce bir yönlendirme mesajı gösterin.”
+- **Related:** synonym: before; to bir edattır: prior to requesting.
+- **Kaynak bağlamı:** [acquiring input with console](bilingual_notes.md#acquiring-input-with-console)
 
 ### provider · noun
 
@@ -342,7 +353,7 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** `Path` ve `Files` operation'larının concrete file-system
   davranışını uygulayan bileşen.
 - **Example:** “The provider may not support atomic moves.”
-- **Çeviri:** “Provider atomic move'u desteklemeyebilir.”
+- **Çeviri:** “Sağlayıcı, atomik taşıma işlemlerini desteklemeyebilir.”
 - **Related:** provide, provision
 
 ### read-ahead limit · noun phrase
@@ -351,7 +362,7 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** `mark(int)` sonrasında mark'ın korunması için bildirilen
   character miktarı.
 - **Example:** “Reading beyond the limit may invalidate the mark.”
-- **Çeviri:** “Limit'in ötesinde okumak mark'ı geçersiz kılabilir.”
+- **Çeviri:** “Sınırın ötesini okumak, işaretlenen konumu geçersiz kılabilir.”
 - **Related:** mark, reset
 
 ### reciprocal · adjective / noun
@@ -360,7 +371,7 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** Serialization ile deserialization arasındaki ters işlem
   ilişkisi.
 - **Example:** “Deserialization is the reciprocal process.”
-- **Çeviri:** “Deserialization karşı yöndeki işlemdir.”
+- **Çeviri:** “Baytlardan nesneyi yeniden oluşturma, serileştirmenin ters işlemidir.”
 - **Related:** reciprocally; synonym: inverse
 
 ### reference · noun / verb
@@ -369,7 +380,7 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** File-system location'ı temsil eden object veya symbolic
   link pointer'ı.
 - **Example:** “The Path references a location that may not exist.”
-- **Çeviri:** “Path, var olmayabilecek bir location'ı referans eder.”
+- **Çeviri:** “`Path`, var olmayabilecek bir konumu gösterir.”
 - **Related:** refer, referenced
 
 ### relative · adjective
@@ -378,7 +389,7 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** Current working directory veya başka base'e göre yorumlanan
   path.
 - **Example:** “The relative path does not start at the root.”
-- **Çeviri:** “Relative path root'tan başlamaz.”
+- **Çeviri:** “Göreli yol, kök dizinden başlamaz.”
 - **Related:** relatively; antonym: absolute
 
 ### resolve · verb
@@ -386,7 +397,7 @@ kelimelerini alfabetik olarak toplar.
 - **Türkçe:** çözmek, base ile birleştirmek
 - **Java bağlamı:** Bir path'i başka bir path'e göre konumlandırmak.
 - **Example:** “Resolve the filename against the directory.”
-- **Çeviri:** “Filename'i directory'ye göre resolve et.”
+- **Çeviri:** “Dosya adını temel dizine göre çözümleyin.”
 - **Related:** resolution, resolved
 
 ### resource leak · noun phrase
@@ -394,10 +405,8 @@ kelimelerini alfabetik olarak toplar.
 - **Türkçe:** kaynak sızıntısı
 - **Java bağlamı:** Açılan file/stream resource'un kapatılmaması.
 - **Example:** “The unclosed reader causes a resource leak.”
-- **Çeviri:** “Kapatılmayan reader resource leak'e yol açar.”
+- **Çeviri:** “Kapatılmayan okuyucu, kaynak sızıntısına yol açar.”
 - **Related:** leak, leaked resource
-
-<!-- page-break -->
 
 ## S–Z
 
@@ -408,8 +417,7 @@ kelimelerini alfabetik olarak toplar.
   dönüştürmek.
 - **Example:** “Every non-transient reference value must be null or
   serializable.”
-- **Çeviri:** “Her non-transient reference value `null` veya serializable
-  olmalıdır; primitive field'lar doğrudan serialize edilir.”
+- **Çeviri:** “`transient` olmayan her başvuru değeri `null` olmalı veya serileştirilebilir bir nesneyi göstermelidir.”
 - **Related:** serialization, serializable; antonym: deserialize
 
 ### sink · noun
@@ -418,7 +426,7 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** Output stream'in data yazdığı file, memory veya network
   endpoint.
 - **Example:** “A FileOutputStream uses a file as its sink.”
-- **Çeviri:** “FileOutputStream sink olarak bir file kullanır.”
+- **Çeviri:** “`FileOutputStream`, çıktı hedefi olarak bir dosya kullanır.”
 - **Related:** destination; contrast: source
 
 ### skip · verb
@@ -427,7 +435,7 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** Input üzerindeki bazı byte/character'ları result'a almadan
   ilerlemek.
 - **Example:** “The method returns the number of characters actually skipped.”
-- **Çeviri:** “Method gerçekten atlanan character sayısını döndürür.”
+- **Çeviri:** “Metot, gerçekte atlanan karakter sayısını döndürür.”
 - **Related:** skipped, skipping
 
 ### storage · noun
@@ -436,7 +444,7 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** File data'nın program execution'ları arasında kalıcı
   tutulduğu ortam.
 - **Example:** “The object is written to persistent storage.”
-- **Çeviri:** “Object persistent storage'a yazılır.”
+- **Çeviri:** “Nesne, kalıcı depolama ortamına yazılır.”
 - **Related:** store, stored
 
 ### stream · noun
@@ -445,7 +453,7 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** Source ile sink arasında sıralı byte veya character
   taşıyan abstraction.
 - **Example:** “A stream processes data in sequence.”
-- **Çeviri:** “Stream data'yı sıra halinde işler.”
+- **Çeviri:** “Akış, verileri sırayla işler.”
 - **Related:** streaming
 
 ### structured · adjective
@@ -453,7 +461,7 @@ kelimelerini alfabetik olarak toplar.
 - **Türkçe:** yapılandırılmış
 - **Java bağlamı:** Field/type ilişkileri olan object formundaki data.
 - **Example:** “The binary data is restored as a structured object.”
-- **Çeviri:** “Binary data structured object olarak geri yüklenir.”
+- **Çeviri:** “İkili veri, yapılandırılmış bir nesne olarak geri yüklenir.”
 - **Related:** structure, structurally
 
 ### symbolic link · noun phrase
@@ -461,7 +469,7 @@ kelimelerini alfabetik olarak toplar.
 - **Türkçe:** sembolik bağlantı
 - **Java bağlamı:** Başka file-system entry'sine yönlendiren özel entry.
 - **Example:** “The walk does not follow symbolic links by default.”
-- **Çeviri:** “Walk varsayılan olarak symbolic link'leri izlemez.”
+- **Çeviri:** “Dolaşım, varsayılan olarak sembolik bağlantıları izlemez.”
 - **Related:** symlink, target
 
 ### target · noun
@@ -470,7 +478,7 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** Copy/move destination veya symbolic link'in gösterdiği
   entry.
 - **Example:** “The target is the complete destination path.”
-- **Çeviri:** “Target, destination path'in tamamıdır.”
+- **Çeviri:** “Hedef, varış yolunun tamamıdır.”
 - **Related:** destination; antonym: source
 
 ### transient · adjective / Java modifier
@@ -478,7 +486,7 @@ kelimelerini alfabetik olarak toplar.
 - **Türkçe:** geçici
 - **Java bağlamı:** Ordinary serialization'a dahil edilmeyen instance field.
 - **Example:** “The transient cache returns to its default value.”
-- **Çeviri:** “Transient cache default value'suna döner.”
+- **Çeviri:** “`transient` önbellek alanı, varsayılan değerine döner.”
 - **Related:** transience; antonym: persistent
 
 ### traverse · verb
@@ -487,7 +495,7 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** Directory tree node'larını belirli strategy ve depth ile
   ziyaret etmek.
 - **Example:** “Files.walk() traverses the directory tree lazily.”
-- **Çeviri:** “Files.walk() directory tree'yi lazy biçimde dolaşır.”
+- **Çeviri:** “`Files.walk()`, dizin ağacını ihtiyaç duyuldukça dolaşır.”
 - **Related:** traversal
 
 ### underlying · adjective
@@ -495,7 +503,7 @@ kelimelerini alfabetik olarak toplar.
 - **Türkçe:** altta yatan
 - **Java bağlamı:** Wrapper'ın çevrelediği stream veya file-system resource.
 - **Example:** “Closing the wrapper closes the underlying stream.”
-- **Çeviri:** “Wrapper'ı kapatmak underlying stream'i kapatır.”
+- **Çeviri:** “Sarmalayıcıyı kapatmak, onun yönettiği alttaki akışı da kapatır.”
 - **Related:** underlying resource; synonym: backing
 
 ### wrap · verb
@@ -504,8 +512,28 @@ kelimelerini alfabetik olarak toplar.
 - **Java bağlamı:** Bir stream instance'ını high-level stream constructor'ına
   vererek behavior eklemek.
 - **Example:** “Wrap the file reader in a buffered reader.”
-- **Çeviri:** “File reader'ı buffered reader ile wrap et.”
+- **Çeviri:** “Dosya okuyucuyu, tamponlu bir okuyucuyla sarmalayın.”
 - **Related:** wrapper, wrapped; synonym: decorate
+
+## Karıştırılan anlamları ayır
+
+**resolve / normalize / toRealPath:** `resolve` bir yolu temel yola göre birleştirir; `normalize` gereksiz yol parçalarını metinsel olarak sadeleştirir; `toRealPath` dosya sistemine erişerek gerçek yolu çözer.
+
+`append` sona ekler; `overwrite` mevcut içeriğin üzerine yazar. `actual` gerçekteki demektir; “güncel” için bu bağlamda `current` gerekir.
+
+## Kapalı kitap hatırlama · 5 dakika
+
+Her oturumda en fazla 5 kelime seç. Önce Türkçeyi kapatıp İngilizce cümleyi
+çevir; ardından İngilizceyi kapatıp Türkçe anlamdan sözcüğü ve kendi örneğini
+üret. Yalnız “tanıdık geldi” yanıtını başarı sayma: **0 = çıkaramadım,
+1 = anlamını söyledim, 2 = doğru teknik cümlede kullandım**. 0–1 puanlıları
+ünite [tekrar rotasına](README.md) göre geri getir.
+
+**Özgün aktarım sorusu:** `skip()` dönüş değerine neden bakmalıyız? `requested`, `actually skipped`, `may` ile açıkla.
+
+Cevabını yazdıktan sonra kontrol et.
+
+**Örnek yanıt:** The number of bytes actually skipped may be smaller than the number requested.
 
 ## Mini quiz
 

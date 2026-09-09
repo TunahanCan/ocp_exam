@@ -72,8 +72,12 @@ Geçmişte gerçekleşmeyen bir condition'ın varsayımsal sonucunu anlatır.
 
 ## 7. `since` ile neden
 
-**EN:** The loop runs once since it is a `do/while` loop.
-**TR:** `do/while` loop olduğu için loop bir kez çalışır.
+**EN:** The body is entered at least once since the condition is checked afterward.
+**TR:** Koşul sonradan kontrol edildiği için gövdeye en az bir kez girilir.
+
+Bu cümle girilen bir `do/while` içindir; `at least once` alt sınır verir,
+“tam bir kez” anlamına gelmez. Gövde içindeki `break`, `return` veya exception
+koşul değerlendirmesine ulaşılmasını engelleyebilir.
 
 `since` başlangıç zamanı da anlatabilir; ardından bir neden clause'u geldiğinde
 “-dığı için” çevirisini kontrol et.
@@ -91,14 +95,30 @@ gösterir.
 - `main clause + unless + affirmative clause`
 - `main clause + as long as + clause`
 
-**EN:** A default branch is required unless all cases are covered.
-**TR:** Bütün case'ler kapsanmadıkça bir default branch gerekir.
+**EN:** A Java 17 switch expression needs `default` unless every enum constant is covered.
+**TR:** Java 17 switch expression, bütün enum sabitleri kapsanmıyorsa `default` gerektirir.
+
+Bu kural standart Java 17 switch expression içindir; statement aynı zorunluluğu
+taşımaz. `String` veya integral selector için `default` gerekir.
 
 **EN:** The loop continues as long as the expression evaluates to true.
 **TR:** Expression `true` ürettiği sürece loop devam eder.
 
 > **YDS tip:** `unless` içeren clause'u ayrıca `not` ile olumsuz yapmak çoğu
 > bağlamda çift olumsuzluğa yol açar. Önce “if ... not” dönüşümünü kontrol et.
+
+## Cümleyi parçalayarak okuma
+
+[İlgili kaynak bölümü](bilingual_notes.md#the-dowhile-statement). Aşağıdaki çalışma cümlesi
+kaynak bağlamına dayanır; gerektiğinde öğretim amacıyla sadeleştirilmiştir.
+
+**English:** The body is entered at least once since the condition is checked afterward.
+
+**Çözümleme:** `The body` = özne; `is entered` = edilgen ana yüklem. `since` neden yan cümlesini başlatır; onun öznesi `the condition`, yüklemi `is checked`tir. `at least once` sayı alt sınırı; `afterward` olay sırasıdır.
+
+**Doğal Türkçe:** Koşul sonradan kontrol edildiği için gövdeye en az bir kez girilir.
+
+**Kapalı kitap kontrolü:** `since`i `although` yapınca neden ilişkisi mi karşıtlık mı oluşur? `once` ve `at least once` arasında hangi teknik fark var?
 
 ## Mini quiz
 
@@ -114,7 +134,7 @@ gösterir.
 2. *Determine whether the loop terminates.*
 3. Örnek: *If the condition had changed, the loop would have terminated.*
 4. *The variable is out of scope, so the code does not compile.*
-5. *A default branch is required unless all cases are covered.*
+5. *A Java 17 switch expression needs `default` unless every enum constant is covered.*
 
 ## Kısa tekrar özeti
 

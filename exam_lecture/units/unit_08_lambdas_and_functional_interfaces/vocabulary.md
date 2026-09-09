@@ -72,7 +72,7 @@ toplar.
 - **Bağlam:** State ve loop adımlarından çok istenen sonucu ifade eden functional
   programming yaklaşımı.
 - **Example:** Functional code often describes the task declaratively.
-- **Çeviri:** Functional kod çoğu zaman görevi declarative biçimde açıklar.
+- **Çeviri:** Fonksiyonel kod çoğu zaman görevi, istenen sonucu belirterek açıklar.
 - **Related:** declarative (adj.), declaration (n.); **Contrast:** imperatively
 
 ### deferred execution · noun phrase
@@ -80,14 +80,14 @@ toplar.
 - **Bağlam:** Lambda kodunun şimdi tanımlanıp invocation method çağrıldığında
   daha sonra çalışması.
 - **Example:** Lambdas support deferred execution of a block of code.
-- **Çeviri:** Lambda'lar bir kod bloğunun deferred execution'ını destekler.
+- **Çeviri:** Lambda’lar bir kod bloğunun çalıştırılmasının ertelenmesini destekler.
 - **Related:** defer (v.), immediate execution
 
 ### determine · verb
 - **Türkçe:** belirlemek, saptamak
 - **Bağlam:** Context'in lambda parameter type'ını veya overload'u seçmesi.
 - **Example:** The target type determines the lambda parameter types.
-- **Çeviri:** Target type, lambda parameter type'larını belirler.
+- **Çeviri:** Hedef tür, lambda parametrelerinin türlerini belirler.
 - **Related:** determination (n.), determine whether
 
 ### distinct · adjective
@@ -95,14 +95,14 @@ toplar.
 - **Bağlam:** `Function<T,R>` içinde input type'tan farklı bir return type
   gerekebilmesi.
 - **Example:** Use `R` when a distinct return type is needed.
-- **Çeviri:** Farklı bir return type gerektiğinde `R` kullanın.
+- **Çeviri:** Farklı bir dönüş türü gerektiğinde `R` kullanın.
 - **Synonym:** separate; **Antonym:** identical
 
 ### effectively final · adjective phrase
-- **Türkçe:** fiilen final, ilk assignment sonrasında değiştirilmeyen
+- **Türkçe:** fiilen final; ilk atamadan sonra yeniden değer atanmayan
 - **Bağlam:** Lambda'nın capture edebildiği local variable/method parameter.
-- **Example:** The captured variable must remain effectively final.
-- **Çeviri:** Capture edilen variable effectively final kalmalıdır.
+- **Example:** The captured local variable must be final or effectively final.
+- **Çeviri:** Lambda’nın kullandığı yerel değişken, final veya fiilen final olmalıdır; referansın gösterdiği nesnenin içeriği değişebilir.
 - **Related:** final, reassignment
 
 ### equivalent · adjective
@@ -117,7 +117,7 @@ toplar.
 - **Türkçe:** açıkça
 - **Bağlam:** Lambda parameter type'ının source code'da yazılması.
 - **Example:** Parentheses are required when the type is stated explicitly.
-- **Çeviri:** Type açıkça belirtildiğinde parentheses gereklidir.
+- **Çeviri:** Tür açıkça belirtildiğinde parametre parantezleri zorunludur.
 - **Related:** explicit (adj.); **Antonym:** implicitly
 
 ### facilitate · verb
@@ -190,6 +190,15 @@ toplar.
 - **Example:** A constructor reference can instantiate a new object.
 - **Çeviri:** Constructor reference yeni bir object instantiate edebilir.
 - **Related:** instance (n.), instantiation (n.)
+
+### insufficient · adjective
+
+- **Türkçe:** yetersiz
+- **Bağlam:** Yalnız default method’lar, functional interface’in tek abstract method koşulunu karşılamaya yetmez.
+- **Example (özgün çalışma cümlesi):** Default methods are insufficient for satisfying the SAM requirement.
+- **Çeviri:** Default method’lar, SAM koşulunu karşılamak için yetersizdir.
+- **Related:** Antonym: sufficient; word family: insufficiency, sufficiently.
+- **Kaynak bağlam:** [insufficient](bilingual_notes.md#defining-a-functional-interface).
 
 ### interchangeable · adjective
 - **Türkçe:** birbirinin yerine kullanılabilir
@@ -353,6 +362,22 @@ toplar.
 - **Çeviri:** Method reference'ı lambda'ya, tersini de method reference'a
   dönüştürün.
 - **Related:** conversely
+
+## Karıştırılan anlamlar ve kapalı kitap hatırlama
+
+| Karşılaştırma | Karar verirken kullan |
+|---|---|
+| `infer` / `imply` | Okuyucu/derleyici bilgiye bakıp sonuç çıkarır; ifade veya kural o sonucu ima eder. |
+| `sufficient` / `necessary` | Yeterli / gerekli: “only if” bir koşulun gerekli olduğunu söyler. |
+| `capture` / modify | Bir local referansı kullanmak ile gösterdiği mutable nesneyi değiştirmek farklıdır. |
+
+Aşağıdaki özgün cümleyi Türkçeye çevir; ardından vurgulanan anlam farkını kendi Java örneğine aktar. Cevabı açmadan önce bir tahmin yaz.
+
+> The annotation is not required, but the target type is necessary.
+
+**Kendini kontrol et:** Annotation zorunlu değildir; ancak hedef tür gereklidir. “not required” yasak anlamına gelmez.
+
+Dört işaretli terim için 1/3/7/14. günlerde iki yönlü hatırlama yap: English → Türkçe anlam, sonra Türkçe teknik durum → English terim. Anlamını hatırlayıp örnek kuramadığın terimi “öğrendim” diye işaretleme.
 
 ## Mini quiz · Vocabulary recall
 

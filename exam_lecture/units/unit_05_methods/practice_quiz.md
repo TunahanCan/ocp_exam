@@ -1,6 +1,6 @@
 # Unit 05 · Methods — Practice Quiz
 
-Bu belge altı adet **OCP tarzı özgün çalışma sorusu** içerir. Sorular gerçek
+Bu belge sekiz adet **OCP tarzı özgün çalışma sorusu** içerir. Sorular gerçek
 sınavdan alınmamıştır. Method sorularında üç aşamayı ayır: declaration'ın
 geçerliliği, overload seçimi ve seçilen method'un runtime davranışı.
 
@@ -120,6 +120,53 @@ koşulu belirt:
 
 <!-- page-break -->
 
+### Soru 7
+
+**Odak:** Varargs için açık null
+
+Aşağıdaki program için hangisi doğrudur? **Bir seçenek seç.**
+
+```java
+public class NullVarargs {
+    static int count(int... values) {
+        return values.length;
+    }
+    public static void main(String[] args) {
+        System.out.println(count(null));
+    }
+}
+```
+
+A. `0`<br>
+B. `1`<br>
+C. Kod derlenmez.<br>
+D. Kod derlenir; `NullPointerException` oluşur.
+
+<!-- page-break -->
+
+### Soru 8
+
+**Odak:** Varargs metodunun array olarak uygulanması
+
+Aşağıdaki program için hangisi doğrudur? **Bir seçenek seç.**
+
+```java
+public class NullOverload {
+    static void pick(Object value) { System.out.print("O"); }
+    static void pick(int... values) { System.out.print("A"); }
+    public static void main(String[] args) {
+        pick(null);
+    }
+}
+```
+
+A. `O`<br>
+B. `A`<br>
+C. Belirsiz çağrı nedeniyle derlenmez.<br>
+D. Null array yüzünden exception oluşur.
+
+<!-- page-break -->
+
 ## Cevaplar ve açıklamalar
 
 ### 1. A — `L`
@@ -169,3 +216,18 @@ boxing yerine primitive widening'i tercih eder.”
 `when`, iki conversion'ın da aday üretebildiği koşulu kurar. Cümlenin ana
 kuralı, bu koşul altında widening phase'inin boxing phase'inden önce
 değerlendirilmesidir.
+
+### 7. D
+
+`null`, int[] reference olarak kabul edilir; sıfır elemanlı array oluşturmaz. Gövdede `values.length` null üzerinde çalıştığı için NPE oluşur; A boş çağrının, B tek elemanlı çağrının davranışıdır.
+
+### 8. B
+
+Varargs bildirimi ilk aşamada int[] parametreli metot olarak da değerlendirilir. Null her iki reference türe uyarken int[], Object türünden daha özeldir; A seçilir. Gövde array nesnesini okumadığı için D yoktur; C, unrelated reference overload durumundaki ambiguity ile karıştırır.
+
+## Sonraki çalışma adımı
+
+Yanlış yaptığın sorunun kuralını [teknik notta](technical_memory_notes.md) bul;
+cevabı kapatıp aynı kodda tek bir değeri değiştirerek sonucu yeniden tahmin et.
+Dil sorusunda hem doğal çeviriyi hem bağlacın kurduğu ilişkiyi açıklayabildiysen
+başarılı say. [README oturum rotası](README.md) kaynak sorularına dönüşü gösterir.

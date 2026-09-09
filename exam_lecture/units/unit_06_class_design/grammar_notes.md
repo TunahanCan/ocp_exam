@@ -2,7 +2,7 @@
 
 ## Bu belge nasıl kullanılmalı?
 
-Bu kaynağı [README'deki çalışma rotasının](README.md#4560-dakikalık-önerilen-çalışma-rotası)
+Bu kaynağı [README'deki çalışma rotasının](README.md#işten-sonra-çalışma-rotası)
 grammar adımında kullan:
 
 1. Önce koyu formülü oku ve örnekteki yapıyı kendin bul.
@@ -14,29 +14,47 @@ grammar adımında kullan:
 **EN:** Mutable data may be exposed, provided the caller cannot modify it.
 **TR:** Caller değiştiremediği sürece mutable data gösterilebilir.
 
-`provided (that)` güçlü bir condition bildirir.
+**Formül:** `sonuç cümlesi + provided (that) + özne + fiil`.
+
+**Çözümleme:** `Mutable data` özne; `may be exposed` edilgen yüklem; `provided ...` koşul yan cümlesidir. Bu yan cümlede `the caller` özne, `cannot modify` yüklem, `it` ise mutable data’ya dönen nesnedir.
+
+**Doğal çeviri:** Çağıran taraf değiştiremediği koşuluyla, değiştirilebilir veriye erişim sağlanabilir.
+
+**Kaynak bağlam:** [Creating Immutable Objects](bilingual_notes.md#creating-immutable-objects). Yukarıdaki kısa cümle bu bağlamdan hazırlanmış çalışma örneğidir.
 
 ## 2. `regardless of`
 
 **EN:** The overridden method runs regardless of the reference type.
 **TR:** Reference type ne olursa olsun overridden method çalışır.
 
-Ardından noun/noun phrase gelir; “-den bağımsız olarak” anlamı taşır.
+**Formül:** `regardless of + isim/isim grubu`; “-den bağımsız olarak / ne olursa olsun”. `regardless of whether + cümle` de mümkündür.
+
+**Çözümleme:** `The overridden method` özne, `runs` yüklem, `regardless of the reference type` sonuç üzerinde etkisiz olan koşuldur. “Regardless” sözcüğünü görüp referans türünün derleme aşamasında önemsiz olduğunu çıkarma; cümle çalışma zamanındaki geçerli instance override seçimini anlatır.
+
+**Kaynak bağlam:** [Inheriting Members](bilingual_notes.md#inheriting-members).
 
 ## 3. `since` ile neden
 
 **EN:** The code fails since the parent has no no-argument constructor.
-**TR:** Parent no-argument constructor'a sahip olmadığı için kod derlenmez.
+**TR:** Üst sınıfın parametresiz constructor’ı olmadığı için kod derlenmez.
+
+**Formül:** `sonuç + since + neden cümlesi`. `The code` özne, `fails` yüklem; `the parent` yan cümle öznesi, `has` yan cümle fiilidir. Örnekte alt constructor’ın örtük `super()` çağırdığı varsayılır; `super(1)` gibi geçerli açık çağrı varsa sonuç değişir.
+
+**Kaynak bağlam:** [Understanding Compiler Enhancements](bilingual_notes.md#understanding-compiler-enhancements).
 
 ## 4. `by definition`
 
 **EN:** A concrete class is, by definition, not abstract.
-**TR:** Concrete class tanımı gereği abstract değildir.
+**TR:** Somut sınıf, tanımı gereği abstract değildir.
+
+**Formül:** `özne + is, by definition, + tamamlayıcı`. Virgüller arasındaki ifade ana yüklemi değiştirmeyen açıklama zarfıdır.
 
 ## 5. `not only ... but also`
 
 **EN:** The subclass not only inherits members but also adds behavior.
-**TR:** Subclass yalnız member'ları inherit etmekle kalmaz, davranış da ekler.
+**TR:** Alt sınıf yalnızca üyeleri kalıtımla almakla kalmaz, yeni davranış da ekler.
+
+**Formül:** `özne + not only + fiil grubu A + but also + fiil grubu B`. `inherits` ve `adds` aynı özneye bağlı paralel yüklemlerdir.
 
 ## 6. `followed by`
 
@@ -87,8 +105,9 @@ bildirir.
 **Formül:** `result + by the time + event`
 **EN:** By the time the constructor completes, every final instance variable
 must be assigned exactly once.
-**TR:** Constructor tamamlanıncaya kadar her `final` instance variable'a exactly
-once değer atanmış olmalıdır.
+**TR:** Constructor normal biçimde tamamlanıncaya kadar her `final` instance alanına tam olarak bir kez değer atanmış olmalıdır.
+
+Bu Java açıklaması **normal tamamlanma** içindir: constructor exception ile sonlanıyorsa nesne oluşturma başarıyla tamamlanmaz. Static final alanların ataması constructor’a ait değildir.
 
 `by the time`, belirtilen son ana kadar sonucun tamamlanmış olmasını bekler.
 YDS'de tense uyumuna ve deadline (son sınır) anlamına dikkat edin.
@@ -118,4 +137,4 @@ Güçlü contrast/concession (karşıtlık/ödünleme) bildirir. `despite` ve
 3. *Static initialization is followed by instance initialization.*
 4. *A concrete class is, by definition, not abstract.*
 5. *Every class has a constructor, whether you declare one or not.*
-6. *By the time the constructor completes, every final field must be assigned.*
+6. *By the time a constructor completes normally, every final instance field must have been assigned.*

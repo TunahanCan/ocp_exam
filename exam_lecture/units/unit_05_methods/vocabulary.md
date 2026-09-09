@@ -2,8 +2,8 @@
 
 ## Bu belge nasıl kullanılmalı?
 
-Bu sözlüğü [README'deki çalışma rotasının](README.md#4560-dakikalık-önerilen-çalışma-rotası)
-**35–45. dakikalarında** kısa active recall kartları gibi kullan:
+Bu sözlüğü [README'deki oturum rotasının](README.md#çalışanlar-için-2530-dakikalık-çalışma-rotası)
+dil çalışması bölümünde kısa active recall kartları gibi kullan:
 
 1. **Recall:** Terimin Türkçe ve bağlam satırlarını kapat; anlamını ve sözcük
    türünü söyle.
@@ -166,6 +166,15 @@ Bu sözlüğü [README'deki çalışma rotasının](README.md#4560-dakikalık-ö
 
 ## J–O
 
+### lenient · adjective
+
+- **Türkçe:** daha az kısıtlayıcı, esnek
+- **Teknik bağlam:** Erişim kurallarının ne kadar geniş izin verdiğini karşılaştırır.
+- **Example:** Protected access is more lenient than package access.
+- **Çeviri:** Protected erişim, paket erişiminden daha az kısıtlayıcıdır.
+- **Word family / karşılaştırma:** leniency (n.); karşıt: restrictive, strict
+- **Kaynak bağlam:** [İlgili ana not](bilingual_notes.md#applying-access-modifiers).
+
 ### modifier · noun
 - **Türkçe:** modifier, belirleyici
 - **Bağlam:** Declaration'ın access veya davranışını değiştiren `public`, `static`, `final` gibi keyword.
@@ -189,7 +198,7 @@ Bu sözlüğü [README'deki çalışma rotasının](README.md#4560-dakikalık-ö
 - **Word family:** omission (n.); **synonym:** leave out
 
 ### overload · verb / noun
-- **Türkçe:** overload etmek; overloaded sürüm
+- **Türkçe:** aşırı yüklemek; aynı adlı metodun farklı parametreli sürümü
 - **Bağlam:** Aynı class'ta aynı method name'i farklı parameter list'lerle bildirmek.
 - **Example:** You cannot overload a method by changing only its return type.
 - **Çeviri:** Yalnızca return type'ı değiştirerek bir method'u overload edemezsiniz.
@@ -200,7 +209,7 @@ Bu sözlüğü [README'deki çalışma rotasının](README.md#4560-dakikalık-ö
 ## P–S
 
 ### parameter · noun
-- **Türkçe:** parameter
+- **Türkçe:** parametre; metot bildirimindeki girdi değişkeni
 - **Bağlam:** Method declaration içinde argument value'sunu alan local variable.
 - **Example:** A varargs parameter must appear last.
 - **Çeviri:** Varargs parameter son sırada bulunmalıdır.
@@ -300,6 +309,18 @@ Bu sözlüğü [README'deki çalışma rotasının](README.md#4560-dakikalık-ö
 - **Example:** A static wildcard import can import all static members.
 - **Çeviri:** Static wildcard import bütün `static` member'ları import edebilir.
 - **Related:** import, asterisk
+
+## Önce anlam farkını geri çağır
+
+Her oturumda en fazla beş kart seç. Türkçe anlamı kapatıp örneği sesli çevir;
+sonra İngilizce terimi kapatıp Türkçeden geri çağır. **0:** hatırlamadım,
+**1:** ipucuyla, **2:** örnek kurarak hatırladım biçiminde işaretle. 0/1 alan
+kartları ertesi gün, 2 alanları 3/7/14 gün rotasında yeniden dene. Bu puanlar
+kişisel takip içindir; hazır bir sınav puanı değildir.
+
+`parameter` bildirimdeki değişken; `argument` çağrıda verilen değerdir. `reassign` oku başka nesneye yöneltir; `mutation` okun gösterdiği nesnenin içeriğini değiştirir.
+
+**Kontrol:** Bu ayrımlardan birini İngilizce iki cümleyle açıkla; yalnız Türkçe karşılığı söylemekle yetinme.
 
 ## Mini quiz
 

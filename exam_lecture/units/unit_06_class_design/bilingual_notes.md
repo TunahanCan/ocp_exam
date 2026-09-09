@@ -34,6 +34,7 @@ prose soru seçenekleri teknik Türkçeye çevrilir.
 - [Exam Essentials](#exam-essentials)
 - [Review Questions](#review-questions)
 - [Kapsam doğrulaması](#kapsam-doğrulaması)
+- [Kaynak cevaplarıyla kontrol](#appendix--kaynak-cevaplarıyla-kontrol)
 
 ## Kaynak metin ve çeviri
 
@@ -2886,7 +2887,11 @@ this.favoriteFoods = new ArrayList<String>(favoriteFoods);
 
 > **English:** This chapter took the basic class structures we’ve presented throughout the book and expanded them by introducing the notion of inheritance. Java classes follow a single-inheritance pattern in which every class has exactly one direct parent class, with all classes eventually inheriting from java.lang.Object.
 >
-> **Türkçe:** Bu chapter, temel class yapılarını inheritance kavramıyla genişletti. Java class'ları single inheritance modeline uyar: Her class'ın tam bir direct parent class'ı vardır ve bütün class'lar sonunda `java.lang.Object`ten inheritance alır.
+> **Türkçe:** Bu bölüm, kitap boyunca ele alınan temel sınıf yapılarını inheritance (kalıtım) kavramıyla genişletti.
+> Java sınıfları tekli kalıtım modelini izler: `Object` dışındaki her sınıfın tam bir doğrudan üst sınıfı
+> vardır ve üst sınıf zinciri sonunda `java.lang.Object`e ulaşır.
+
+> **Editör notu · Java 17:** Kaynağın “her sınıf” genellemesinin istisnası `Object`tir; `Object`in üst sınıfı yoktur.
 
 > **English:** Inheriting a class gives you access to all of the public and protected members of the class. It also gives you access to package members of the class if the classes are in the same package. All instance methods, constructors, and instance initializers have access to two special reference variables: this and super. Both this and super provide access to
 >
@@ -2922,7 +2927,13 @@ this.favoriteFoods = new ArrayList<String>(favoriteFoods);
 
 > **English:** We then moved on to abstract classes, which are just like regular classes except that they cannot be instantiated and may contain abstract methods. An abstract class can extend a non-abstract class and vice versa. Abstract classes can be used to define a framework that other developers write subclasses against. An abstract method is one that does not include a body when it is declared. An abstract method can only be placed inside an abstract class or interface. Next, an abstract method can be overridden with another abstract declaration or a concrete implementation, provided the rules for overriding methods are followed. The first concrete class must implement all of the inherited abstract methods, whether they are inherited from an abstract class or an interface.
 >
-> **Türkçe:** Abstract class regular class'a benzer; ancak instantiate edilemez ve abstract method içerebilir. Abstract ile non-abstract class birbirini extend edebilir. Abstract class, geliştiricilerin subclass yazacağı bir framework tanımlar. Abstract method body içermez ve yalnızca abstract class veya interface içinde bulunur. Overriding kuralları korunarak başka bir abstract declaration ya da concrete implementation ile override edilebilir. İlk concrete class, abstract class veya interface'ten gelen bütün inherited abstract method'ları implement etmelidir.
+> **Türkçe:** Ardından abstract sınıfları ele aldık. Bunlar normal sınıflara benzer; ancak doğrudan örneklenemez ve
+> abstract metot içerebilir. Abstract bir sınıf somut bir sınıfı genişletebilir; somut bir sınıf da
+> abstract bir sınıfı genişletebilir. Abstract sınıflar, geliştiricilerin alt sınıflarla tamamlayacağı bir
+> yapı sunar. Abstract metot gövdesiz bildirilir; abstract sınıflarda veya interface'lerde bulunabilir.
+> Override kurallarına uyulduğu sürece başka bir abstract bildirimle ya da somut uygulamayla override
+> edilebilir. İlk somut sınıf, üst sınıflardan veya interface'lerden gelen ve henüz uygulanmamış bütün
+> abstract metotları uygulamalıdır.
 
 > **English:** Finally, this chapter showed you how to create immutable objects in Java. Although there are a number of different techniques to do so, we included the most common one you should know for the exam. Immutable objects are extremely useful in practice, especially in multi-threaded applications, since they do not change.
 >
@@ -2934,7 +2945,10 @@ this.favoriteFoods = new ArrayList<String>(favoriteFoods);
 
 > **English:** Be able to write code that extends other classes. A Java class that extends another class inherits all of its public and protected methods and variables. If the class is in the same package, it also inherits all package members of the class. Classes that are marked final cannot be extended. Finally, all classes in Java extend java.lang.Object either directly or from a superclass.
 >
-> **Türkçe:** Başka class'ları extend eden kod yazabilin. Bir Java class'ı extend ettiği class'ın bütün `public` ve `protected` method/variable'larını; aynı package içindeyse package member'larını inherit eder. `final` class extend edilemez. Java'daki bütün class'lar doğrudan ya da superclass zinciri üzerinden `java.lang.Object`i extend eder.
+> **Türkçe:** Başka sınıfları genişleten kod yazabilin. Bir Java sınıfı, genişlettiği sınıfın `public` ve `protected`
+> metot ve alanlarını miras alır; aynı package içindeyse package erişimli üyelerini de miras alır. `final`
+> sınıf genişletilemez. `Object` dışındaki bütün sınıflar doğrudan veya üst sınıf zinciri üzerinden
+> `java.lang.Object`i genişletir.
 
 <!-- source-page: 0328 -->
 
@@ -2946,7 +2960,14 @@ this.favoriteFoods = new ArrayList<String>(favoriteFoods);
 
 > **English:** Evaluate code involving constructors. The first line of every constructor is a call to another constructor within the class using this() or a call to a constructor of the parent class using the super() call. The compiler will insert a call to super() if no constructor call is declared. If the parent class doesn’t contain a no-argument constructor, an explicit call to the parent constructor must be provided. Be able to recognize when the default constructor is provided. Remember that the order of initialization is to initialize all classes in the class hierarchy, starting with the superclass. Then the instances are initialized, again starting with the superclass. All final variables must be assigned a value exactly once by the time the constructor is finished.
 >
-> **Türkçe:** Constructor içeren kodu değerlendirebilin. Her constructor'ın first statement'ı `this()` ile same-class constructor veya `super()` ile parent constructor çağrısıdır. Explicit constructor call yoksa compiler `super()` ekler. Parent class'ta no-argument constructor yoksa mevcut parent constructor'a explicit call gerekir. Default constructor'ın ne zaman eklendiğini bilin. Önce class hierarchy superclass'tan başlayarak, sonra instance'lar yine superclass'tan başlayarak initialize edilir. Constructor bitene kadar bütün `final` variable'lar exactly once atanmalıdır.
+> **Türkçe:** Constructor içeren kodu değerlendirin. Java 17'de bir constructor, `this()` ile aynı sınıftaki başka bir
+> constructor'ı ya da `super()` ile doğrudan üst sınıfın constructor'ını çağırarak başlar. Açık bir çağrı
+> yoksa derleyici `super()` ekler. Üst sınıfta erişilebilir parametresiz constructor yoksa zincirin uygun
+> parametreli üst sınıf constructor'ına ulaşması gerekir. Default constructor'ın ne zaman eklendiğini
+> bilin. Önce sınıflar, sonra nesnenin alanları üst sınıftan başlayarak başlatılır. Constructor normal
+> biçimde tamamlandığında bütün `final` instance alanları tam bir kez atanmış olmalıdır.
+
+> **Editör notu · Java 17:** Kaynağın son cümlesindeki “all final variables” burada `final` instance alanlarını anlatır; static alanların ve yerel değişkenlerin atama kuralları ayrı değerlendirilir. `Object` constructor'ı üst constructor çağrısı kuralının kök istisnasıdır.
 
 > **English:** Understand the rules for method overriding. Java allows methods to be overridden, or replaced, by a subclass if certain rules are followed: a method must have the same signature, be at least as accessible as the parent method, must not declare any new or broader exceptions, and must use covariant return types. Methods marked final may not be overridden or hidden.
 >
@@ -2970,11 +2991,18 @@ this.favoriteFoods = new ArrayList<String>(favoriteFoods);
 
 > **English:** Abstract methods follow all the method override rules and may be defined only within abstract classes. The first concrete subclass of an abstract class must implement all the inherited methods. Abstract classes and methods may not be marked as final.
 >
-> **Türkçe:** Abstract method'lar bütün overriding kurallarına uyar ve yalnızca abstract class içinde tanımlanabilir. Abstract class'ın ilk concrete subclass'ı inherited bütün abstract method'ları implement etmelidir. Abstract class/method `final` olamaz.
+> **Türkçe:** Abstract metotlar overriding kurallarına uyar. Abstract bir sınıfın ilk somut alt sınıfı, miras aldığı
+> ve henüz uygulanmamış bütün abstract metotları uygulamalıdır. Abstract sınıf ve metotlar `final` olamaz.
+
+> **Editör notu · Java 17:** Kaynakta bu paragraftaki “only within abstract classes” ifadesi fazla dardır: interface'lerde de abstract metot bulunur. Abstract metot bildiren enum'lar ise her enum sabitinde uygulama sağlamalıdır; bu durum sonraki ünitede ele alınır.
 
 > **English:** Create immutable objects. An immutable object is one that cannot be modified after it is declared. An immutable class is commonly implemented with a private constructor, no setter methods, and no ability to modify mutable objects contained within the class.
 >
-> **Türkçe:** Immutable object oluşturun. Immutable object declaration/creation sonrasında değiştirilemez. Yaygın immutable class tasarımında constructor'lar `private` olabilir, setter bulunmaz ve class içindeki mutable object'ler dışarıdan değiştirilemez.
+> **Türkçe:** Immutable (değişmez) nesneler oluşturun. Böyle bir nesnenin durumu oluşturulduktan sonra değiştirilemez.
+> Yaygın tasarımda setter metotları bulunmaz ve içeride tutulan değiştirilebilir nesnelerin dışarıdan
+> değiştirilebilmesi engellenir. Constructor'lar gerektiğinde `private` tutulabilir.
+
+> **Editör notu · Java 17:** Private constructor değişmezlik için zorunlu değildir. Önemli olan nesnenin durumunu bütün erişim yollarında korumaktır; [kopyalama ve mutable alan sınırları](technical_memory_notes.md) bunu açıklar.
 
 <!-- source-page: 0330 -->
 
@@ -4230,3 +4258,166 @@ public Bird bird() { return null; }
 > **Kapsam özeti:** `0275`–`0344` aralığındaki **70/70 kaynak sayfa**
 > doğrulandı; eksik sayfa yoktur. Kaynak dışı OCP pekiştirmesi ayrı
 > [technical memory notes](technical_memory_notes.md) belgesinde korunur.
+
+
+## Appendix · Kaynak cevaplarıyla kontrol
+
+Kaynak: [çalışma PDF’si](../../OCP_Java_SE17_Chapter1den_Itibaren.pdf), Appendix “Answers to the Review Questions”, Chapter 6, fiziksel PDF sayfaları **927–932**. Cevap harfleri kitaptaki anahtardan alınmıştır. Aşağıdaki Türkçe gerekçeler kaynak açıklamalarından yararlanılarak hazırlanmış **özgün çözüm özetleridir; birebir çeviri değildir**. Bunlar kitabın çalışma sorularıdır, gerçek OCP sınavının resmî soruları veya cevapları değildir.
+
+Önce [Review Questions](#review-questions) bölümünü çöz. Yanlışında cevabı ezberlemek yerine derleme, çalışma zamanı veya dilsel çıkarım aşamasını belirle.
+
+### Official Answer 1
+
+**Kitabın cevabı: E.** `this(2)` aynı nesnenin diğer constructor’ını çağırır ve Java 17’de ilk ifade olmalıdır. `new BirdSeed(2)` ise farklı bir nesne oluşturur; mevcut nesnenin alanı 0 kalır.
+
+[Soru 1’e dön](#question-1--soru-1).
+
+### Official Answer 2
+
+**Kitabın cevabı: A, B, F.** `final`, `private` ve `static` belirtilen çiftler hâlinde kullanılabilir. `abstract` method’u bu modifier’larla birleştirmek, alt sınıfın gerçekleştirmesi gereken method’u gerçekleştirmesini engeller.
+
+[Soru 2’e dön](#question-2--soru-2).
+
+### Official Answer 3
+
+**Kitabın cevabı: B, C.** Override edilen instance method ile hide edilen static method aynı imzayı taşır; overload’da parametre listesi farklıdır. Reference dönüş türü covariant olabildiğinden aynı return type zorunlu değildir; primitive ve `void` dönüşlerde tür aynı kalır.
+
+[Soru 3’e dön](#question-3--soru-3).
+
+### Official Answer 4
+
+**Kitabın cevabı: F.** `Platypus()` içinde örtük `super()` geçersizdir; `Mammal` yalnız `Mammal(int)` bildirir. Üst sınıftaki `private sneeze()` kalıtımla alınmadığından alt sınıfın farklı dönüş türü sorun oluşturmaz.
+
+[Soru 4’e dön](#question-4--soru-4).
+
+### Official Answer 5
+
+**Kitabın cevabı: E.** `s` referansının türü `Speedster` olduğundan okunan field `Speedster.numSpots` olur. `super.numSpots = numSpots` bu alanı 50 yapar; `this.numSpots` diğer alanı değiştirir.
+
+[Soru 5’e dön](#question-5--soru-5).
+
+### Official Answer 6
+
+**Kitabın cevabı: D, E.** Kitabın immutable sınıf ölçütünü `Elk` ve `Deer` karşılar. `Moose` derlenmez: blank final alanına değer atanmaz; `Caribou` ve `Reindeer` dışarıdan türetilmeye açıktır. `final` referansın tek başına değişmez nesne garantisi olmadığını unutma; burada `Deer` alanı sıradan `Object`tir.
+
+[Soru 6’e dön](#question-6--soru-6).
+
+### Official Answer 7
+
+**Kitabın cevabı: A.** Önce overload seçilir: `int` ve `short` çağrıları `int` imzasına, `5L` ise `long` imzasına gider. İlk iki çağrı override edilen `Spider` sürümünü, son çağrı `Arthropod` sürümünü çalıştırır.
+
+[Soru 7’e dön](#question-7--soru-7).
+
+### Official Answer 8
+
+**Kitabın cevabı: D.** Başarıyla derlenir; çıktı `Wow-Oh-Pelican` olur. Abstract üst sınıfın constructor’ı da çalışır; `Bird.fly()` private olduğundan `Pelican.fly()` ondan bağımsızdır.
+
+[Soru 8’e dön](#question-8--soru-8).
+
+### Official Answer 9
+
+**Kitabın cevabı: B, E.** Override yeni unchecked exception bildirebilir; checked exception kapsamını genişletemez. Parametreleri covariant yapmak overload doğurur; dönüş türü `void` ise override’da da `void` kalır.
+
+[Soru 9’e dön](#question-9--soru-9).
+
+### Official Answer 10
+
+**Kitabın cevabı: A, C.** A ve C’deki `this(...)` çağrıları erişilebilir, uygun constructor’lara yönlenir; `short` argüman `int`e genişleyebilir. Kendi kendine yönlenen `this(2L)` derleme hatasıdır; var olmayan no-arg üst constructor da çağrılamaz.
+
+[Soru 10’e dön](#question-10--soru-10).
+
+### Official Answer 11
+
+**Kitabın cevabı: C.** Field ve initializer’lar `tac` üretir; String argümanlı constructor önce private constructor ile `b`, sonra `f` ekler. Son referansın gösterdiği nesnedeki değer `tacbf` olur; String overload’u CharSequence’den daha özeldir.
+
+[Soru 11’e dön](#question-11--soru-11).
+
+### Official Answer 12
+
+**Kitabın cevabı: C.** Hatalar iki satırda toplanır: `Beaver` için geçerli üst constructor çağrısı yoktur; `chew()` ise static/instance uyumsuzluğu ve genişletilmiş dönüş türü içerir. Program derlenmez; hata sayısı ile hatalı satır sayısını karıştırma.
+
+[Soru 12’e dön](#question-12--soru-12).
+
+### Official Answer 13
+
+**Kitabın cevabı: A, G.** Derlenen sınıfta hiç constructor bildirimi yoksa derleyici default constructor ekler. G’deki dönüş türü taşıyan `bird()` bir method’dur; B ve C ise hatalı büyük/küçük harf nedeniyle derlenmez.
+
+[Soru 13’e dön](#question-13--soru-13).
+
+### Official Answer 14
+
+**Kitabın cevabı: B, E, F.** Bir sınıf çok sayıda interface gerçekleştirebilir ve gerçekleştirdiği interface’in alt türüdür. Java birden çok doğrudan üst sınıfa izin vermez; primitive türler `Object`ten türemez.
+
+[Soru 14’e dön](#question-14--soru-14).
+
+### Official Answer 15
+
+**Kitabın cevabı: C.** Gövdesiz `Nocturnal.isBlind()` bildirimi `abstract` içermelidir. Üst sınıfın `abstract` olması method’a otomatik olarak bu modifier’ı kazandırmaz; mevcut kod derlenmez.
+
+[Soru 15’e dön](#question-15--soru-15).
+
+### Official Answer 16
+
+**Kitabın cevabı: D.** Önce static adımlar `uq` üretir ve bu değer iki kez yazılır. Yeni `Arachnid` için `cr`, yeni `Scorpion` için önce `cr`, sonra `m` eklenir; çıktı `uq uq uqcrcrm` olur.
+
+[Soru 16’e dön](#question-16--soru-16).
+
+### Official Answer 17
+
+**Kitabın cevabı: C, F.** `this.field` instance bağlamında kullanılabilir; aynı sınıfın static `main()` method’u bir nesne üzerinden private constructor/method erişimine sahiptir. `this()` yalnız constructor başında kullanılır ve kullanıcı constructor’ı varsa ayrıca compiler üretimi default constructor bulunmaz.
+
+[Soru 17’e dön](#question-17--soru-17).
+
+### Official Answer 18
+
+**Kitabın cevabı: D, F.** `drink()` geçerli static hiding, parametresi değişen `dance()` ise overload örneğidir. Private üst method kalıtımla alınmaz; aynı imzalı method’da `void` yerine `int` dönüşü override olamaz ve derlenmez.
+
+[Soru 18’e dön](#question-18--soru-18).
+
+### Official Answer 19
+
+**Kitabın cevabı: F.** `Lizard(int)` otomatik olarak `Reptile()` çağırmaya çalışır; ancak yalnız `Reptile(int)` vardır. Derlenmediği için initializer ve method çıktıları hesaplanıp cevap olarak seçilmez.
+
+[Soru 19’e dön](#question-19--soru-19).
+
+### Official Answer 20
+
+**Kitabın cevabı: E.** Constructor’lar geçerlidir; `fly()` dönüş türleri Bird → Parrot → Macaw boyunca daralır. Nesne `Macaw` olduğu için onun `fly()` sürümü seçilir ve yazılan feathers değeri 3 olur.
+
+[Soru 20’e dön](#question-20--soru-20).
+
+### Official Answer 21
+
+**Kitabın cevabı: B, G.** Kaynağın tasarımında dışarıdan değiştirilebilir alt sınıf oluşturulması önlenmeli, içteki mutable veriye değişiklik olanağı sızdırılmamalıdır. Her constructor’ın private olması zorunlu değildir; `final` sınıf da bu tasarım için kullanılabilir.
+
+[Soru 21’e dön](#question-21--soru-21).
+
+### Official Answer 22
+
+**Kitabın cevabı: D.** İki farklı static `name` alanı vardır; doğrudan field seçimi referans türüne bağlıdır. Her iki `setName()` çağrısı Child sürümüne gider; Child.name `Olivia`, Person.name `Sophia` olur.
+
+[Soru 22’e dön](#question-22--soru-22).
+
+### Official Answer 23
+
+**Kitabın cevabı: B.** Önce constructor yönlendirmelerini alt sınıftan yukarı izle, sonra gövdeleri yukarıdan aşağı yürüt. Canine → Fox zinciri → Fennec sırası logger’da `qpzj` üretir; int literal overload seçimini etkiler.
+
+[Soru 23’e dön](#question-23--soru-23).
+
+### Official Answer 24
+
+**Kitabın cevabı: C.** Üst ve alt sınıf static adımları `18`; üst sınıf instance/constructor adımları `24`; alt sınıf adımları `93` üretir. Birleştirilmiş çıktı `182493` olur.
+
+[Soru 24’e dön](#question-24--soru-24).
+
+### Official Answer 25
+
+**Kitabın cevabı: B, C.** Concrete sınıf abstract değildir ve kalıtımla gelen abstract yükümlülükleri geçerli biçimde yerine getirmelidir; `final` olabilir. Immutable olmak veya üst method bildirimini tüm ayrıntılarıyla aynen kopyalamak zorunlu değildir.
+
+[Soru 25’e dön](#question-25--soru-25).
+
+### Official Answer 26
+
+**Kitabın cevabı: D.** Referans türü `Whale` yalnız `dive()` method’unu görünür kılar. `Orca` nesnesi tutulması, `dive(int...)` overload’unu bu referansta erişilebilir yapmaz; satır 8 derlenmez.
+
+[Soru 26’e dön](#question-26--soru-26).

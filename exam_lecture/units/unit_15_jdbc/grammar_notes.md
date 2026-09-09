@@ -4,6 +4,12 @@ Bu dosya, [ana çift dilli nottaki](bilingual_notes.md) relational database ve
 JDBC anlatımından seçilen gerçek İngilizce yapılarını teknik okuma ve YDS
 bakış açısıyla açıklar.
 
+
+Örnekler kaynak bağlamını öğretmek için seçilmiş veya sadeleştirilmiştir;
+“kaynak alıntısı” diye belirtilmeyen cümleler birebir kitap alıntısı değildir.
+Her oturumda bir yapıyı çalış: **ana yüklem → özne → bağlaç → yan cümle →
+doğal Türkçe** sırasını izle. Yapıyı ertesi gün örneğe bakmadan yeniden kur.
+
 ## 1. `stand for`
 
 ### Yapı
@@ -33,7 +39,7 @@ Bir bütünün hangi parçalardan oluştuğunu belirtir.
 
 > **English:** “Tables consist of rows and columns.”
 >
-> **Türkçe:** “Tablolar row ve column'lardan oluşur.”
+> **Türkçe:** “Tablolar, satır ve sütunlardan oluşur.”
 
 `consist of` passive kullanılmaz: `is consisted of` standart kullanım değildir.
 Yakın yapı: `be composed of`.
@@ -51,7 +57,7 @@ Bir kavramı belirli bir adla anmayı gösterir.
 
 > **English:** “The operations are referred to as CRUD.”
 >
-> **Türkçe:** “Operation'lar CRUD olarak adlandırılır.”
+> **Türkçe:** “İşlemler CRUD olarak adlandırılır.”
 
 Passive yapıda `to` ve `as` birlikte korunur. `refer` tek başına “başvurmak”,
 bu kalıpta “olarak adlandırmak” anlamındadır.
@@ -68,8 +74,7 @@ unlike + noun/pronoun, complete clause
 
 > **English:** “Unlike Java, SQL keywords are case insensitive.”
 >
-> **Türkçe:** “Java'dan farklı olarak SQL keyword'leri büyük/küçük harfe
-> duyarlı değildir.”
+> **Türkçe:** “Java’dan farklı olarak SQL anahtar kelimeleri büyük/küçük harfe duyarlı değildir.”
 
 `unlike` preposition'dır; ardından doğrudan finite clause gelmez. Clause için
 `although` veya `whereas` gerekir.
@@ -87,8 +92,7 @@ Bu kullanım zaman değil “...olsa da / buna karşın” anlamı taşır.
 > **English:** “While the exam is database agnostic, the examples use a
 > particular database.”
 >
-> **Türkçe:** “Sınav belirli bir database'den bağımsız olsa da örnekler belirli
-> bir database kullanır.”
+> **Türkçe:** “Sınav belirli bir veritabanından bağımsız olsa da örnekler belirli bir veritabanı kullanır.”
 
 YDS'de context'e göre temporal `while` (“...iken”) ile concessive `while`
 ayrılmalıdır.
@@ -106,8 +110,7 @@ main noun + along with + additional noun
 > **English:** “The driver contains the key implementations along with other
 > interfaces.”
 >
-> **Türkçe:** “Driver, diğer interface'lerin yanı sıra temel
-> implementation'ları içerir.”
+> **Türkçe:** “Sürücü, diğer arayüzlerin yanı sıra temel gerçekleştirimleri içerir.”
 
 Subject–verb agreement çoğunlukla `along with` öncesindeki main subject'e göre
 yapılır: `The driver, along with its classes, is ...`
@@ -125,8 +128,7 @@ whether + alternative A + or + alternative B
 > **English:** “The boolean indicates whether the first result is a result
 > set or an update count.”
 >
-> **Türkçe:** “Boolean, ilk sonucun result set mi yoksa update count mı
-> olduğunu gösterir.”
+> **Türkçe:** “Boolean değer, ilk sonucun bir sonuç kümesi mi yoksa güncelleme sayısı mı olduğunu gösterir.”
 
 Türkçeye çoğunlukla “...olup olmadığı” veya “...mi ...mi” ile çevrilir.
 
@@ -143,7 +145,7 @@ B yerine A'nın seçildiğini belirtir.
 
 > **English:** “Use an `if` statement rather than a `while` loop for one row.”
 >
-> **Türkçe:** “Tek row için `while` loop yerine `if` statement kullanın.”
+> **Türkçe:** “Tek satır için `while` döngüsü yerine `if` deyimi kullanın.”
 
 İki taraf paralel grammar formunda olmalıdır. `rather than`ı otomatik olarak
 “...den daha çok” diye çevirmek teknik cümlede anlamı bozabilir.
@@ -160,7 +162,7 @@ Bir yöntem yerine başka yöntemin kullanıldığını gösterir.
 
 > **English:** “Use bind variables instead of concatenating user input.”
 >
-> **Türkçe:** “User input'u birleştirmek yerine bind variable kullanın.”
+> **Türkçe:** “Kullanıcı girdisini birleştirmek yerine bağlama değişkenleri kullanın.”
 
 `of` preposition olduğu için ardından `concatenate` değil `concatenating`
 gelir.
@@ -177,7 +179,7 @@ Bir bileşene eylem olanağı verdiğini bildirir.
 
 > **English:** “A `PreparedStatement` allows you to set parameters.”
 >
-> **Türkçe:** “`PreparedStatement`, parameter set etmenize olanak verir.”
+> **Türkçe:** “`PreparedStatement`, parametrelere değer atamanıza olanak verir.”
 
 Passive:
 
@@ -199,7 +201,7 @@ Sonucun hangi yöntemle elde edildiğini açıklar.
 
 > **English:** “You create a statement by calling `prepareStatement()`.”
 >
-> **Türkçe:** “`prepareStatement()` çağırarak bir statement oluşturursunuz.”
+> **Türkçe:** “`prepareStatement()` çağırarak bir deyim oluşturursunuz.”
 
 `by` sonrasında base verb değil gerund kullanılır.
 
@@ -216,10 +218,17 @@ Technical operation sırasını bildirir.
 
 > **English:** “Set every bind variable before executing the query.”
 >
-> **Türkçe:** “Query'yi çalıştırmadan önce her bind variable'ı set edin.”
+> **Türkçe:** “Sorguyu çalıştırmadan önce her bağlama değişkenine değer atayın.”
 
 Gerund clause'un gizli subject'i main clause subject'iyle mantıksal olarak
 uyumlu olmalıdır.
+
+
+**Gizli özneyi bul:** “Set every bind variable before executing the query.” bir emir cümlesidir; gizli özne `[you]`, ana yüklem `[set]`, nesne `[every bind variable]` olur. `before executing` → `before you execute`; aynı kişi iki işi de yapar.
+
+**Sıra tuzağı:** `before` yerine `after` koymak yalnız dilbilgisini değil JDBC işlem sırasını değiştirir. Önceden atanmış parametre değerleri korunabilir; her yeniden çalıştırmada bütün setter'ları yinelemek zorunlu değildir.
+
+**Kaynak bağlamı:** [Working with Parameters](bilingual_notes.md#working-with-parameters).
 
 ## 13. `when + passive clause`
 
@@ -235,8 +244,7 @@ Bir state veya event gerçekleştiğinde ortaya çıkan sonucu anlatır.
 > **English:** “When autocommit is enabled, each statement is committed
 > automatically.”
 >
-> **Türkçe:** “Autocommit etkinleştirildiğinde her statement otomatik olarak
-> commit edilir.”
+> **Türkçe:** “Otomatik kalıcılaştırma etkinleştirildiğinde her deyim otomatik olarak kalıcılaştırılır.”
 
 `when enabled` reduced clause'tur; omitted subject main clause ile doğru
 eşleşmelidir.
@@ -251,10 +259,9 @@ once + subject + verb, main clause
 
 Bir action tamamlanır tamamlanmaz sonraki sonucu bildirir.
 
-> **English:** “Once the cursor moves past the final row, `next()` returns
-> false.”
+> **English:** “Once `next()` returns false, the cursor is no longer on a valid row.”
 >
-> **Türkçe:** “Cursor son row'u geçtikten sonra `next()` false döndürür.”
+> **Türkçe:** “`next()` false döndürdükten sonra imleç artık geçerli bir satırın üzerinde değildir.”
 
 Context'e göre “...ınca”, “...dıktan sonra” veya “artık” ile çevrilebilir.
 
@@ -270,7 +277,7 @@ Gerçek olasılık veya genel API kuralını anlatır.
 
 > **English:** “If the query returns no rows, `next()` returns false.”
 >
-> **Türkçe:** “Query hiç row döndürmezse `next()` false döndürür.”
+> **Türkçe:** “Sorgu hiç satır döndürmezse `next()` false döndürür.”
 
 Future anlamında bile condition clause içinde çoğunlukla `will return` yerine
 present simple kullanılır.
@@ -305,7 +312,7 @@ Amaç veya hedef sonucu belirtir.
 > **English:** “Register the output parameter so that JDBC can retrieve its
 > value.”
 >
-> **Türkçe:** “JDBC value'yu alabilsin diye output parameter'ı register edin.”
+> **Türkçe:** “JDBC, değerini alabilsin diye çıktı parametresini kaydedin.”
 
 `so + adjective + that` derece-sonuç yapısıyla karıştırma.
 
@@ -320,7 +327,7 @@ since + point in time
 
 > **English:** “Use `executeQuery()` since the procedure returns rows.”
 >
-> **Türkçe:** “Procedure row döndürdüğü için `executeQuery()` kullanın.”
+> **Türkçe:** “Saklı yordam satır döndürdüğü için `executeQuery()` kullanın.”
 
 Bu örnekte `since` neden bildirir. Present perfect ile “...den beri” anlamında
 da kullanılabilir; doğru anlam context'ten çıkarılır.
@@ -338,7 +345,7 @@ Context'e göre zaman (“...iken”), neden (“...dığı için”) veya biçi
 
 > **English:** “As the cursor advances, each iteration represents one row.”
 >
-> **Türkçe:** “Cursor ilerledikçe her iteration bir row'u temsil eder.”
+> **Türkçe:** “İmleç ilerledikçe her yineleme bir satırı temsil eder.”
 
 YDS sorularında `as` için tek bir Türkçe karşılığı ezberlemek yerine iki clause
 arasındaki semantic ilişkiyi belirle.
@@ -356,7 +363,7 @@ as long as + condition clause
 > **English:** “The index is valid as long as it refers to an existing
 > column.”
 >
-> **Türkçe:** “Index var olan bir column'a işaret ettiği sürece geçerlidir.”
+> **Türkçe:** “İndeks, var olan bir sütunu gösterdiği sürece geçerlidir.”
 
 Süre anlamındaki `as long as` ile koşul anlamını context ayırır.
 
@@ -372,10 +379,17 @@ Bir eylemin belirli ana kadar gerçekleşmediğini vurgular.
 
 > **English:** “The error does not appear until the statement is executed.”
 >
-> **Türkçe:** “Hata statement çalıştırılana kadar ortaya çıkmaz.”
+> **Türkçe:** “Hata, deyim çalıştırılana kadar ortaya çıkmaz.”
 
 Türkçede olumlu görünen “ancak ... olduğunda” çevirisi de aynı anlamı
 verebilir.
+
+
+**Cümleyi parçala:** `[The error]` özne, `[does not appear]` olumsuz yüklem; `[until the statement is executed]` zaman sınırıdır. İkinci yüklem `[is executed]` edilgendir: deyim çalıştırılır.
+
+**Doğal alternatif:** “Hata ancak deyim çalıştırıldığında ortaya çıkar.” Türkçe cümle olumlu görünür; `not … until` anlamı korunur. Bu, belirli örnekteki hatayı anlatır; bütün JDBC hatalarının aynı aşamada oluştuğu genellemesini yapma.
+
+**Kaynak bağlamı:** [Executing a PreparedStatement](bilingual_notes.md#executing-a-preparedstatement).
 
 ## 22. `there is/are`
 
@@ -391,7 +405,7 @@ Bir şeyin varlığını tanıtır.
 > **English:** “There are overloaded methods for selecting a result-set
 > type.”
 >
-> **Türkçe:** “Result-set type seçmek için overloaded method'lar vardır.”
+> **Türkçe:** “Sonuç kümesi türünü seçmek için aşırı yüklenmiş metotlar vardır.”
 
 Buradaki `there` yer zarfı değildir; existential subject yapısının parçasıdır.
 
@@ -408,10 +422,9 @@ noun + that/which + verb ...
 > **English:** “A bind variable is a placeholder that receives its value at
 > runtime.”
 >
-> **Türkçe:** “Bind variable, value'sunu runtime'da alan bir placeholder'dır.”
+> **Türkçe:** “Bağlama değişkeni, değerini çalışma zamanında alan bir yer tutucudur.”
 
-Defining clause'ta `that`; non-defining ve comma ile ayrılan clause'ta `which`
-daha yaygındır.
+Defining clause içinde `that` veya `which` kullanılabilir. Virgülle ayrılan non-defining clause için `that` kullanılmaz; bu örneklerde `which` gerekir.
 
 ## 24. `the order in which`
 
@@ -426,7 +439,7 @@ Operation sırasını tanımlayan formal relative clause'tur.
 > **English:** “Resources close in the reverse order from that in which they
 > were opened.”
 >
-> **Türkçe:** “Resource'lar açıldıkları sıranın tersinde kapanır.”
+> **Türkçe:** “Kaynaklar, açıldıkları sıranın tersinde kapanır.”
 
 Daha sade eşdeğer: `the order that they were opened in`. YDS metinlerinde
 preposition + relative pronoun biçimi sık görülür.
@@ -443,7 +456,7 @@ Sonucu değiştirmeyen olasılığı ifade eder.
 
 > **English:** “The cursor is invalid no matter which getter is called.”
 >
-> **Türkçe:** “Hangi getter çağrılırsa çağrılsın cursor geçersizdir.”
+> **Türkçe:** “Hangi okuyucu metot çağrılırsa çağrılsın imleç geçersizdir.”
 
 Yakın yapı: `regardless of which ...`
 
@@ -459,7 +472,7 @@ Possibility, obligation veya ability'yi passive biçimde anlatır.
 
 > **English:** “The parameter can be referenced by name or by index.”
 >
-> **Türkçe:** “Parameter name veya index ile belirtilebilir.”
+> **Türkçe:** “Parametre, adıyla veya indeksiyle belirtilebilir.”
 
 Modal'dan sonra `be` yalın halde, ardından past participle gelir:
 `can be referenced`; `can is referenced` yanlıştır.
@@ -476,7 +489,7 @@ Beklenti, kural veya amaçlanan davranışı belirtir.
 
 > **English:** “You are supposed to use braces for JDBC escape syntax.”
 >
-> **Türkçe:** “JDBC escape syntax için braces kullanmanız beklenir.”
+> **Türkçe:** “JDBC kaçış sözdizimi için süslü parantez kullanmanız beklenir.”
 
 Mutlak teknik zorunlulukta `must`; sınav beklentisi veya convention için
 `be supposed to` görülebilir.
@@ -493,7 +506,7 @@ subject + may/might/can + base verb
 
 > **English:** “The exact exception message may vary by driver.”
 >
-> **Türkçe:** “Exact exception message driver'a göre değişebilir.”
+> **Türkçe:** “İstisna mesajının tam metni sürücüye göre değişebilir.”
 
 Modal'dan sonra `to` gelmez, verb `-s` almaz.
 

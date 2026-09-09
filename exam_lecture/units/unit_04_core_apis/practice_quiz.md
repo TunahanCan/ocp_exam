@@ -1,6 +1,6 @@
 # Unit 04 · Core APIs — Practice Quiz
 
-Bu belge altı adet **OCP tarzı özgün çalışma sorusu** içerir. Sorular gerçek
+Bu belge sekiz adet **OCP tarzı özgün çalışma sorusu** içerir. Sorular gerçek
 sınavdan alınmamıştır. API sorularında receiver'ın değişip değişmediğini,
 return type'ı ve index sınırlarını ayrı ayrı kontrol et.
 
@@ -103,6 +103,57 @@ Cümleyi doğal Türkçeye çevir ve `only when` yapısının koyduğu koşulu b
 
 <!-- page-break -->
 
+### Soru 7
+
+**Odak:** Binary search sonucu ve ilk farklı indeks
+
+Aşağıdaki program için hangisi doğrudur? **Bir seçenek seç.**
+
+```java
+import java.util.Arrays;
+
+public class ArrayResults {
+    public static void main(String[] args) {
+        int[] first = {2, 4, 7};
+        int[] second = {2, 6, 7};
+        System.out.println(Arrays.binarySearch(first, 5) + ":"
+                + Arrays.mismatch(first, second));
+    }
+}
+```
+
+A. `-2:1`<br>
+B. `-3:1`<br>
+C. `-3:2`<br>
+D. Aranan değer bulunmadığı için exception oluşur.
+
+<!-- page-break -->
+
+### Soru 8
+
+**Odak:** Doğru metot, desteklenmeyen zaman birimi
+
+Aşağıdaki program için hangisi doğrudur? **Bir seçenek seç.**
+
+```java
+import java.time.Duration;
+import java.time.LocalDate;
+
+public class DateAmount {
+    public static void main(String[] args) {
+        var date = LocalDate.of(2024, 3, 1);
+        System.out.println(date.plus(Duration.ofHours(24)));
+    }
+}
+```
+
+A. `2024-03-02`<br>
+B. `2024-03-01`<br>
+C. Kod derlenmez.<br>
+D. Kod derlenir; `UnsupportedTemporalTypeException` oluşur.
+
+<!-- page-break -->
+
 ## Cevaplar ve açıklamalar
 
 ### 1. B — `[ JAVA ]`
@@ -153,3 +204,18 @@ kuralını kullanmalıdır. Burada kullanılan overload'a göre bu kural natural
 order ya da supplied `Comparator` olabilir. Array sıralı değilse method çağrısı
 yine derlenebilir; ancak sonucun anlamlı veya öngörülebilir olduğu
 varsayılamaz.
+
+### 7. B
+
+5 için ekleme indeksi 2, binarySearch sonucu -2-1 = -3 olur. İlk farklı eleman indeksi 1’dir; A negatif sonuç formülünü, C sıfırdan başlayan indekslemeyi kaçırır. Bulunamama exception değildir.
+
+### 8. D
+
+`plus(TemporalAmount)` çağrısı tür bakımından geçerlidir, ancak Duration saniye tabanlıdır ve LocalDate saniye birimini desteklemez. A bunu `Period.ofDays(1)` sanır; B, runtime hatasını yalnız atanmayan dönüş değeriyle açıklamaya çalışır; C derleme ile çalışma zamanı kontrolünü karıştırır.
+
+## Sonraki çalışma adımı
+
+Yanlış yaptığın sorunun kuralını [teknik notta](technical_memory_notes.md) bul;
+cevabı kapatıp aynı kodda tek bir değeri değiştirerek sonucu yeniden tahmin et.
+Dil sorusunda hem doğal çeviriyi hem bağlacın kurduğu ilişkiyi açıklayabildiysen
+başarılı say. [README oturum rotası](README.md) kaynak sorularına dönüşü gösterir.

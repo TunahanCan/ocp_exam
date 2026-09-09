@@ -2116,6 +2116,9 @@ zoo.dino.jar -> jdk.unsupported
 > gelmiştir. Gelecekteki Java sürümlerinde kaldırılabileceğinden ona doğrudan reference
 > vermemelisiniz.
 ### Using the --jdk-internals Flag
+
+> **Dil çalışması:** Bu başlıktaki kelimeler için [ünite sözlüğüne](vocabulary.md) bak.
+
 > **English:** The jdeps command has an option to provide details about these unsupported APIs. The
 > output looks something like this:
 >
@@ -3048,6 +3051,7 @@ requires zoo.butterfly;
 > **Türkçe:** Java Platform Module System, kodu paketlerden daha üst bir düzeyde düzenler. Her
 > modül bir veya daha fazla paket ile bir `module-info.java` dosyası içerir. En yaygın
 > modül olan `java.base`, bütün modüllere otomatik olarak bağımlılık şeklinde eklenir.
+
 > **English:** The process of compiling and running modules uses the --module-path, also known as -p.
 > Running a module uses the --module option, also known as -m. The class to run is
 > specified in the format moduleName/className.
@@ -3055,6 +3059,7 @@ requires zoo.butterfly;
 > **Türkçe:** Modülleri derlerken ve çalıştırırken `--module-path` ya da kısa biçimi `-p`
 > kullanılır. Bir modülü çalıştırmak için `--module` ya da kısa biçimi `-m` kullanılır.
 > Çalıştırılacak sınıf `moduleName/className` biçiminde belirtilir.
+
 > **English:** The module declaration file supports a number of directives. The exports directive
 > specifies that a package should be accessible outside the module. It can optionally
 > restrict that export to a specific module or list of modules. The requires directive is
@@ -3064,34 +3069,39 @@ requires zoo.butterfly;
 > directives are used when sharing and consuming a service. Finally, the opens directive
 > is used to allow access via reflection.
 >
-> **Türkçe:** Module declaration dosyası çeşitli directive’leri destekler. `exports`, bir paketi
-> modül dışından erişilebilir kılar ve isteğe bağlı olarak erişimi belirli modüllerle
-> sınırlandırabilir. `requires`, bir modül başka bir modüldeki koda bağımlı olduğunda
-> kullanılır. Bir bağımlılığın kendisine bağımlı modüllere de aktarılması gerekiyorsa
-> `requires transitive` kullanılır. `provides` ve `uses` bir service’i sunmak ve tüketmek
-> için, `opens` ise reflection yoluyla erişime izin vermek için kullanılır.
+> **Türkçe:** Modül bildirim dosyası çeşitli yönergeleri destekler. `exports`, paketi modül dışından
+> erişime açar; bu erişim belirli modüllerle sınırlandırılabilir. `requires`, başka bir
+> modüldeki koda bağımlılığı bildirir. `requires transitive`, bu modülü okuyan diğer
+> modüllerin belirtilen bağımlılığı da okuyabilmesini sağlar. `provides` ve `uses`, bir
+> servisi sunma ve bulup kullanma rollerini; `opens` ise reflection yoluyla erişimi
+> düzenler.
+
 > **English:** Both the java and jar commands can be used to describe the contents of a module. The
 > java command can additionally list available modules and show module resolution. The
 > jdeps command prints information about packages used in addition to module-level
 > information. The jmod command is used when dealing with files that don’t meet the
 > requirements for a JAR. The jlink command creates a smaller Java runtime image.
 >
-> **Türkçe:** Bir modülün içeriğini açıklamak için hem `java` hem de `jar` kullanılabilir. `java`
-> ayrıca kullanılabilir modülleri listeleyebilir ve module resolution’ı gösterebilir.
-> `jdeps`, modül düzeyindeki bilgilere ek olarak kullanılan paketler hakkında bilgi
-> yazdırır. `jmod`, JAR’ın karşılayamadığı dosya gereksinimleri için; `jlink` ise daha
-> küçük bir Java runtime image oluşturmak için kullanılır.
+> **Türkçe:** Bir modülün içeriğini açıklamak için hem `java` hem `jar` kullanılabilir. `java`,
+> ayrıca kullanılabilir modülleri listeler ve modül çözümlemesini gösterir. `jdeps`,
+> modül düzeyindeki bilgilerin yanı sıra kullanılan paketleri raporlar. `jmod`, JAR
+> biçiminin karşılamadığı dosya gereksinimleri için; `jlink` ise daha küçük bir Java
+> çalışma ortamı imajı oluşturmak için kullanılır.
 
 <!-- source-page: 0712 -->
+
 > **English:** There are three types of modules. Named modules contain a module-info.java file and are
 > on the module path. They can read only from the module path. Automatic modules are also
 > on the module path but have not yet been modularized. They might have an automatic
 > module name set in the manifest. Unnamed modules are on the classpath.
 >
-> **Türkçe:** Üç modül türü vardır. Named module’ler bir `module-info.java` dosyası içerir, module
-> path üzerindedir ve yalnızca module path’ten okuyabilir. Automatic module’ler de module
-> path üzerindedir ancak henüz modülerleştirilmemiştir; manifest içinde
-> `Automatic-Module-Name` tanımlanmış olabilir. Unnamed module’ler classpath üzerindedir.
+> **Türkçe:** Kaynak üç modül türünü karşılaştırır. Burada “named module”, açık modül tanımlayıcısı
+> içeren modül anlamında kullanılır; bu modüller module path üzerindedir ve varsayılan
+> olarak classpath üzerindeki isimsiz modülü okuyamaz. Otomatik modüller de module path
+> üzerindedir; ancak henüz açık modül tanımlayıcısı eklenmemiş JAR dosyalarından
+> oluşur. Adları manifestte `Automatic-Module-Name` ile belirtilmiş olabilir. İsimsiz
+> modüller classpath üzerindeki kodu temsil eder.
+
 > **English:** The two most common migration strategies are top-down and bottom-up migration. Top-down
 > migration starts migrating the module with the most dependencies and places all other
 > modules on the module path. Bottom-up migration starts migrating a module with no
@@ -3099,37 +3109,41 @@ requires zoo.butterfly;
 > require ensuring that you do not have any cyclic dependencies since the Java Platform
 > Module System will not allow cyclic dependencies to compile.
 >
-> **Türkçe:** En yaygın iki strateji top-down ve bottom-up migration’dır. Top-down migration, en
-> fazla bağımlılığı olan üst düzey modülden başlar ve diğer tüm modülleri module path’e
-> yerleştirir. Bottom-up migration ise bağımlılığı olmayan bir modülden başlar ve
-> modülleri module path’e birer birer taşır. Java Platform Module System cyclic
-> dependency’lerin derlenmesine izin vermediğinden iki stratejide de bu bağımlılıkların
-> giderilmesi gerekir.
+> **Türkçe:** En yaygın iki geçiş stratejisi top-down (üstten alta) ve bottom-up (alttan üste)
+> yaklaşımlarıdır. Üstten alta geçiş, üst düzeydeki bağımlı modülden başlar ve diğer
+> JAR dosyalarını module path üzerine yerleştirir. Alttan üste geçiş, başka uygulama
+> modüllerine bağımlılığı olmayan modülden başlar; JAR dosyaları sırayla module path
+> üzerine taşınır. Açık isimli modüllerin döngüsel bağımlılıkları derlenemediği için
+> iki yöntemde de bu döngüler giderilmelidir.
 ## Exam Essentials
 > **English:** Create module-info.java files. Place the module-info.java file in the root directory of
 > the module. Know how to code exports, requires, provides, and uses directives.
 > Additionally, be familiar with the opens directive.
 >
-> **Türkçe:** `module-info.java` dosyasını modülün kök dizinine yerleştirmeyi; `exports`,
-> `requires`, `provides`, `uses` ve `opens` directive’lerini doğru yazmayı bilin.
+> **Türkçe:** `module-info.java` dosyası oluşturabilin. Dosyayı modül kaynaklarının kök dizinine
+> yerleştirin; `exports`, `requires`, `provides`, `uses` ve `opens` yönergelerini doğru
+> yazmayı öğrenin.
+
 > **English:** Use command-line operations with modules. The java command can describe a module, list
 > available modules, or show the module resolution. The jar command can describe a module
 > similar to how the java command does. The jdeps command prints details about a module
 > and packages. The jmod command provides various modes for working with JMOD files rather
 > than JAR files. The jlink command creates custom Java images.
 >
-> **Türkçe:** Modüllerle ilgili command-line işlemlerini bilin. `java` bir modülü açıklayabilir,
-> kullanılabilir modülleri listeleyebilir veya module resolution’ı gösterebilir. `jar` da
-> benzer biçimde bir modülü açıklayabilir. `jdeps` modül ve paket ayrıntılarını yazdırır;
-> `jmod` JMOD dosyalarıyla çalışmak için çeşitli modlar sağlar; `jlink` ise özel Java
-> runtime image’ları oluşturur.
+> **Türkçe:** Modüllerle ilgili komut satırı işlemlerini bilin. `java`, bir modülü açıklayabilir,
+> kullanılabilir modülleri listeleyebilir veya modül çözümlemesini gösterebilir. `jar`
+> da bir modülü açıklayabilir. `jdeps`, modül ve paket ayrıntılarını yazdırır; `jmod`,
+> JMOD dosyalarıyla çalışır; `jlink`, özel Java çalışma ortamı imajları oluşturur.
+
 > **English:** Identify the three types of modules. Named modules are JARs that have been modularized.
 > Unnamed modules have not been modularized. Automatic modules are in between. They are on
 > the module path but do not have a module-info.java file.
 >
-> **Türkçe:** Üç modül türünü ayırt edin. Named module’ler modülerleştirilmiş JAR’lardır. Unnamed
-> module’ler modülerleştirilmemiştir. İkisinin arasında yer alan automatic module’ler
-> module path üzerindedir ancak `module-info.java` dosyaları yoktur.
+> **Türkçe:** Üç modül türünü ayırt edin. Kaynağın “named” dediği açık isimli modüller
+> modülerleştirilmiştir. İsimsiz modüller, classpath üzerindeki kodu temsil eder.
+> Geçişte arada yer alan otomatik modüller module path üzerindedir; ancak açık `module-
+> info` tanımlayıcıları yoktur.
+
 > **English:** List built-in JDK modules. The java.base module is available to all modules. There are
 > about 20 other modules provided by the JDK that begin with java.* and about 30 that
 > begin with jdk.*.
@@ -3137,22 +3151,25 @@ requires zoo.butterfly;
 > **Türkçe:** Yerleşik JDK modüllerini bilin. `java.base` bütün modüller tarafından kullanılabilir.
 > JDK ayrıca adı `java.*` ile başlayan yaklaşık 20, `jdk.*` ile başlayan yaklaşık 30 modül
 > sağlar.
+
 > **English:** Explain top-down and bottom-up migration. A top-down migration places all JARs on the
 > module path, making them automatic modules while migrating from top to bottom. A
 > bottom-up migration leaves all JARs on the classpath, making them unnamed modules while
 > migrating from bottom to top.
 >
-> **Türkçe:** Top-down ve bottom-up migration’ı açıklayabilin. Top-down migration bütün JAR’ları
-> module path’e koyup automatic module haline getirerek yukarıdan aşağı ilerler. Bottom-up
-> migration ise JAR’ları classpath üzerinde unnamed module olarak bırakıp aşağıdan yukarı
-> ilerler.
+> **Türkçe:** Top-down ve bottom-up geçişlerini açıklayabilin. Üstten alta geçişte henüz
+> modülerleştirilmemiş JAR dosyaları module path üzerine konularak otomatik modül
+> hâline gelir; dönüşüm üstten alta ilerler. Alttan üste geçişte henüz dönüştürülmemiş
+> JAR dosyaları classpath üzerinde isimsiz modülde kalır; dönüşüm alttan üste ilerler.
+
 > **English:** Differentiate the four main parts of a service. A service provider interface declares
 > the interface that a service must implement. The service locator looks up the service,
 > and a consumer calls the service. Finally, a service provider implements the service.
 >
-> **Türkçe:** Bir service’in dört ana bileşenini ayırt edin. Service provider interface,
-> implementation’ın uyması gereken interface’i tanımlar. Service locator service’i bulur,
-> consumer service’i çağırır, service provider ise service’i uygular.
+> **Türkçe:** Bir servisin dört ana bileşenini ayırt edin. Service provider interface (servis
+> sağlayıcı arayüzü), gerçekleştirimin uyması gereken sözleşmeyi tanımlar. Service
+> locator (servis bulucu), servisi bulur; consumer (tüketici), servisi çağırır; service
+> provider (servis sağlayıcı), servisin gerçekleştirimini sunar.
 
 <!-- source-page: 0713 -->
 ## Review Questions

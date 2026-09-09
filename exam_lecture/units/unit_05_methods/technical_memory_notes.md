@@ -183,8 +183,9 @@ Integer boxed = null;
 
 ## 9. Return kontrolü
 
-- `void` method value döndüremez; non-void method bütün reachable completion
-  path'lerinde compatible value döndürmeli veya exception fırlatmalıdır.
+- `void` metot değer döndüremez. Non-void metot gövdesi sona düşerek normal
+  tamamlanamaz; `return` varsa uygun türde değer ister. `throw` veya kesin
+  sonsuz döngü nedeniyle normal tamamlanmayan bir gövde de derlenebilir.
 - Return assignment conversion uygular; arbitrary narrowing otomatik yapılmaz.
 - Returned reference yine pass-by-value'dur; object kopyalanmaz.
 

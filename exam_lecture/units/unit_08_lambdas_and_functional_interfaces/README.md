@@ -19,19 +19,29 @@ variable capture kararını sistemli biçimde verebilmektir.
 > Bu ünitedeki mini quiz'ler ve `practice_quiz`, OCP tarzı **özgün çalışma
 > sorularıdır**; gerçek sınav sorusu olarak sunulmaz.
 
-## 45–60 dakikalık önerilen çalışma rotası
+## İşten sonra çalışma rotası
 
-1. **0–5 dk:** Konu haritasını incele; target type → SAM → lambda akışını
-   sesli olarak anlat.
-2. **5–25 dk:** Ana çift dilli notta lambda syntax, method reference ve
-   built-in interface bölümlerini örneklerle çalış.
-3. **25–35 dk:** Teknik hafıza notundaki ana matrisleri kapatıp `Supplier`,
-   `Consumer`, `Predicate` ve `Function` imzalarını yaz.
-4. **35–43 dk:** Vocabulary'den 6–8 terimi teknik örnekleriyle tekrar et.
-5. **43–50 dk:** Grammar notes içinden iki yapıyı clause/phrase sınırlarıyla
-   çözümle.
-6. **50–60 dk:** Practice quiz'i IDE kullanmadan çöz; sonra compile-time,
-   runtime ve output sınıflandırmanı cevaplarla karşılaştır.
+Bu rota bütün üniteyi tek akşamda bitirme hedefi değildir. Her satır **25–30 dakikalık bir oturumun odağıdır**; okuma veya soru grubu bitmezse aynı satırı sonraki güne taşı. Bir oturumda 2–4 kaynak soruyu gerekçesiyle çözmek yeterlidir. Aşağıdaki soru numaraları kitabın **Review Questions** bölümüne aittir; `practice_quiz` ayrı özgün sorulardır.
+
+Her oturum: **3 dk** önceki bilgiyi kapalı kitap hatırla → **10 dk** English paragrafı çevirip Türkçeyle karşılaştır → **5 dk** en fazla dört yeni kelime ve bir grammar yapısı → **8 dk** soru çöz → **2 dk** yanlışının nedenini yaz. İlk turda bütün kelimeleri ezberlemeye çalışma; bilmediklerini işaretle.
+
+| Oturum ve kaynak başlığı | Kaynak sorular | Kelime ve grammar odağı | Oturum sonunda üret |
+|---|---|---|---|
+| 1. [Lambda sözdizimi ve hedef tür](bilingual_notes.md#writing-simple-lambdas) | 1, 2, 4, 6, 7, 14, 17 | target type, omit, explicitly; `allow ... to`, `only if` | Her lambda’nın parametre ve dönüş türünü yaz; yoğun grubu gerekirse ikiye böl. |
+| 2. [Functional interface ve SAM](bilingual_notes.md#coding-functional-interfaces) | 3, 21 | single abstract method, insufficient, annotation; `even though`, `just because ...` | Object’ın public imzalarını ve concrete method’ları SAM sayımından ayır. |
+| 3. [Method reference ve hazır arayüzler](bilingual_notes.md#using-method-references) | 5, 8, 9, 18, 19, 20 | receiver, equivalent, primitive specialization; `while`, `without + V-ing` | Method reference’ı lambda’ya aç; Supplier/Function/Consumer türlerini karşılaştır. |
+| 4. [Bileşim ve local değişkenler](bilingual_notes.md#working-with-variables-in-lambdas) | 10, 11, 12, 13, 15, 16 | capture, effectively final, scope; `as long as`, `when + V3` | Yeniden atama ile nesnenin içeriğini değiştirmeyi ayır; practice quiz 1–8. |
+
+Kelime anlamlarını [ünite sözlüğünden](vocabulary.md), yapıları [grammar notundan](grammar_notes.md) kontrol et. Kaynak sorularını çözerken önce isteneni (derleme / çıktı / exception / doğru seçenek sayısı), sonra kuralı yaz; cevap harfini en son seç.
+
+## Aralıklı tekrar ve geçiş ölçütü
+
+- **1. gün:** Türkçeyi kapatarak dün işaretlediğin dört kelimeyi ve bir cümleyi geri çağır; yanlış yaptığın bir soruyu çöz.
+- **3. gün:** Aynı kuralı ölçen başka bir kaynak soruya geç; doğru seçeneğin yanında en güçlü yanlış seçeneğin neden elendiğini söyle.
+- **7. gün:** Özgün practice quiz'i yeniden çöz; çözerken kuralın adını ve sonucunu ayrı yaz. Hedef **en az 7/8** ve bütün derleme/çalışma zamanı ayrımlarını doğru gerekçelendirmek.
+- **14. gün:** Önceki yanlışlarından üç soruyu karışık sırada çöz; sekiz işaretli kelimenin en az altısını ve iki cümlenin özne/fiil/yan cümle yapısını notsuz çıkar.
+
+Yanlış kayıt biçimi: `Soru → ilk kararım → kaçırdığım Java kuralı/İngilizce yapı → düzeltilmiş gerekçe → yeniden çözüm günü`. Yalnızca cevap harfini hatırlamak geçiş ölçütü değildir. Eksik kalan konu için ilgili oturumu tekrarla.
 
 ## Önkoşullar ve konu haritası
 
@@ -63,7 +73,7 @@ kurallarını tek karar akışında toplar.
 - [ ] Primitive specialization adlarını soldan sağa okuyabiliyorum.
 - [ ] `final` ile effectively final farkını ve capture sonucunu
   açıklayabiliyorum.
-- [ ] Practice quiz'de en az **5/6** doğru yapabiliyorum.
+- [ ] Practice quiz'de en az **7/8** doğru yapabiliyorum.
 
 ## Kaynak ve kapsam
 

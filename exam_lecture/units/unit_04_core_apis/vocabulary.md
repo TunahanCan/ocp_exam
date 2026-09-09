@@ -184,6 +184,15 @@ Date-Time API bağlamından seçilmiştir. Maddeler alfabetik sıralıdır.
 - **Çeviri:** Method mevcut satır sonlarını standartlaştırır.
 - **Word family:** normalization (n.)
 
+### one past · phrase
+
+- **Türkçe:** bir sonrası, bir ilerisi
+- **Teknik bağlam:** Son geçerli karakter indeksinden sonraki konum length değeridir.
+- **Example:** The end index can be one past the last character.
+- **Çeviri:** Bitiş indeksi son karakterin bir ilerisindeki konum olabilir.
+- **Word family / karşılaştırma:** past (prep.); beyond
+- **Kaynak bağlam:** [İlgili ana not](bilingual_notes.md#getting-a-substring).
+
 ### operand · noun
 - **Türkçe:** işlenen
 - **Bağlam:** `+` operatörünün sağındaki veya solundaki değer.
@@ -297,6 +306,18 @@ Date-Time API bağlamından seçilmiştir. Maddeler alfabetik sıralıdır.
 - **Example:** The time wraps around after midnight.
 - **Çeviri:** Saat gece yarısından sonra başa döner.
 - **Related:** cycle, rollover
+
+## Önce anlam farkını geri çağır
+
+Her oturumda en fazla beş kart seç. Türkçe anlamı kapatıp örneği sesli çevir;
+sonra İngilizce terimi kapatıp Türkçeden geri çağır. **0:** hatırlamadım,
+**1:** ipucuyla, **2:** örnek kurarak hatırladım biçiminde işaretle. 0/1 alan
+kartları ertesi gün, 2 alanları 3/7/14 gün rotasında yeniden dene. Bu puanlar
+kişisel takip içindir; hazır bir sınav puanı değildir.
+
+`length` eleman sayısı, `index` sıfırdan başlayan konumdur; son geçerli indeks `length - 1`dir. `mutable/immutable`, nesnenin durumunu; `reference equality`, aynı nesneye başvurulmasını anlatır.
+
+**Kontrol:** Bu ayrımlardan birini İngilizce iki cümleyle açıkla; yalnız Türkçe karşılığı söylemekle yetinme.
 
 ## Mini quiz
 

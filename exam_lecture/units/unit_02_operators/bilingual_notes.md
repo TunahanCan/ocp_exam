@@ -18,6 +18,8 @@ dosyalarını kullan.
 
 ## İçindekiler
 
+- [Kaynak cevaplarıyla kontrol](#appendix--kaynak-cevaplarıyla-kontrol) · Soruları çözdükten sonra aç.
+
 1. [Understanding Java Operators](#understanding-java-operators)
 2. [Operator Precedence](#operator-precedence)
 3. [Applying Unary Operators](#applying-unary-operators)
@@ -1446,6 +1448,8 @@ if(duck!=null && duck.getAge()<5) {
 
 ### Checking for Unperformed Side Effects
 
+> **Dil çalışması:** `side effect` için [ünite sözlüğü](vocabulary.md); cümle yapıları için [grammar notu](grammar_notes.md).
+
 > **Türkçe başlık:** Gerçekleştirilmemiş Yan Etkilerin Kontrol Edilmesi
 
 > **English:** Be wary of short-circuit behavior on the exam, as questions are known to alter a variable on the right side of the expression that may never be reached. This is referred to as an unperformed side effect. For example, what is the output of the following code?
@@ -2198,3 +2202,142 @@ kartları, exam trap'ler ve active recall çalışmaları ayrı
 
 > **Kapsam özeti:** `0065`–`0100` aralığındaki **36/36 kaynak sayfa**
 > doğrulandı; eksik sayfa yoktur.
+
+## Appendix · Kaynak cevaplarıyla kontrol
+
+Bu bölüm, kaynak kitabın **Appendix: Answers to the Review Questions** bölümündeki
+Chapter 2 cevaplarından hazırlanmış özgün Türkçe çözüm rehberidir; İngilizce
+açıklamaların birebir çevirisi ve gerçek OCP sınav cevapları değildir. Kaynak:
+[ana PDF](../../OCP_Java_SE17_Chapter1den_Itibaren.pdf), fiziksel PDF sayfaları 913–916.
+`Official Answer` başlıkları kitabın kaynak cevaplarına karşılık gelir.
+
+Önce soruyu kapalı notla çöz; seçtiğin her harfin yanına bir cümle gerekçe yaz.
+Sonra aşağıdan kontrol et. Yanlış seçenek veya yanlış gerekçe, hata günlüğüne
+ayrı kayıt olarak girer. Kaynakta tespit edilen anlatım sorunları **Editör notu**
+olarak ayrılmıştır.
+
+### Official Answer 1 / Kaynak Cevap 1
+
+**Kaynak cevap: A, D, G.** [Soru 1](#question-1--soru-1)
+
+`==`, `!` ve zaten boolean olan değere `(boolean)` cast uygulanabilir. Sayısal değeri boolean'a dönüştürme desteklenmez; aritmetik ve `~` boolean kabul etmez.
+
+### Official Answer 2 / Kaynak Cevap 2
+
+**Kaynak cevap: A, B, D.** [Soru 2](#question-2--soru-2)
+
+`byte + short` sonucu `int`tir; `int`, `long` ve `double` hedefler uygundur. `short`/`byte` hedefleri cast olmadan kabul edilmez; boolean sayısal tür değildir.
+
+### Official Answer 3 / Kaynak Cevap 3
+
+**Kaynak cevap: B, C, D, F.** [Soru 3](#question-3--soru-3)
+
+`2 * ear` ifadesi `long` olur. Uygun daraltma veya hedefi `long` yapma derlemeyi sağlar; daha küçük hedef tür seçmek sorunu çözmez.
+
+### Official Answer 4 / Kaynak Cevap 4
+
+**Kaynak cevap: B.** [Soru 4](#question-4--soru-4)
+
+Atama ifadesi `(wolf = false)` hem `wolf`u değiştirir hem `false` üretir. `true ^ false` sonucu `true` olduğundan çıktı `true, 20, false` olur; `teeth` değişmez.
+
+### Official Answer 5 / Kaynak Cevap 5
+
+**Kaynak cevap: A, C.** [Soru 5](#question-5--soru-5)
+
+İstenen sıra düşük öncelikten yükseğe doğrudur; aynı düzey de kabul edilir. B ve E ters yöndedir; diğer diziler öncelik gruplarını karıştırır.
+
+### Official Answer 6 / Kaynak Cevap 6
+
+**Kaynak cevap: F.** [Soru 6](#question-6--soru-6)
+
+`(int)` yalnız `fruit` operand'ına uygulanır; `+ vegetables` sonucu tekrar `float` olur ve `long` dönüş türüne sığdırılamaz. Tüm toplamı cast etmek farklı bir programdır; verilen kod derlenmez.
+
+### Official Answer 7 / Kaynak Cevap 7
+
+**Kaynak cevap: D.** [Soru 7](#question-7--soru-7)
+
+Sonuç `true-false-false` olur. `&&` sol tarafı false olduğundan `ph++` çalışmaz; son `--ph` değeri 6 yapar ve `7 <= 6` false olur.
+
+### Official Answer 8 / Kaynak Cevap 8
+
+**Kaynak cevap: A.** [Soru 8](#question-8--soru-8)
+
+`pig = pig++` eski değeri tekrar atadığı için `pig` 4 kalır; `goat -= 1.0` örtük cast ile geçerlidir. Çıktı `4 - 1`; compound assignment'ı normal atamayla karıştırma.
+
+### Official Answer 9 / Kaynak Cevap 9
+
+**Kaynak cevap: A, D, E.** [Soru 9](#question-9--soru-9)
+
+Sırayla `4`, `5`, `1` yazdırılır. Ternary yalnız seçilen kolu çalıştırır; `b = b++` adımında artan değer eski sonuçla tekrar değiştirilir.
+
+### Official Answer 10 / Kaynak Cevap 10
+
+**Kaynak cevap: G.** [Soru 10](#question-10--soru-10)
+
+İki operand'ı ayrı ayrı `byte`a cast etmek çarpımın türünü `byte` yapmaz; binary numeric promotion sonucu `int`tir. Bu sonucu `short`a doğrudan atayan satır yüzünden program derlenmez.
+
+### Official Answer 11 / Kaynak Cevap 11
+
+**Kaynak cevap: D.** [Soru 11](#question-11--soru-11)
+
+`*` ile `%` aynı öncelik düzeyindedir ve soldan birleşir; üç sonuç `2, 0, 5` olur. `%`, bölümün kalanını verir.
+
+### Official Answer 12 / Kaynak Cevap 12
+
+**Kaynak cevap: D.** [Soru 12](#question-12--soru-12)
+
+Post-increment eski değeri üretip değişkeni artırır; pre-decrement önce azaltıp yeni değeri üretir. “pre/post” ile “increment/decrement” iki ayrı ayrımdır.
+
+### Official Answer 13 / Kaynak Cevap 13
+
+**Kaynak cevap: F.** [Soru 13](#question-13--soru-13)
+
+Çıktı `true-true-false` olur: `(sunny & raining) ^ sunday` true, ikinci ifade true ve son olumsuzlama false'tur. **Editör notu:** Kitap açıklamasındaki aynı öncelik iddiası yanlıştır; Java 17'de `&`, `^`dan daha yüksek önceliklidir. Cevap harfi değişmez.
+
+### Official Answer 14 / Kaynak Cevap 14
+
+**Kaynak cevap: B, E, G.** [Soru 14](#question-14--soru-14)
+
+Reference'larda `==`/`!=` kullanılabilir, atama yeni değeri üretir ve sayısal işareti `-` değiştirir. Boolean ile sayı karşılaştırılmaz; `|` kısa devre yapmaz.
+
+### Official Answer 15 / Kaynak Cevap 15
+
+**Kaynak cevap: D.** [Soru 15](#question-15--soru-15)
+
+`?:` üç operand alır. `++` unary, kalan seçenekler binary olduğundan uzun bir ifadede kullanılsalar da üç operand'lı operatör sayılmazlar.
+
+### Official Answer 16 / Kaynak Cevap 16
+
+**Kaynak cevap: B.** [Soru 16](#question-16--soru-16)
+
+Yalnız ilk satır derlenmez: toplamdaki `(long)3`, sonucu `long` yapar ama hedef `int`tir. Sonraki satırlardaki uygun cast/dönüşümler ayrı değerlendirilir.
+
+### Official Answer 17 / Kaynak Cevap 17
+
+**Kaynak cevap: C, F.** [Soru 17](#question-17--soru-17)
+
+Son değerler `ticketsTaken = 4`, `ticketsSold = 6` olur. Postfix ilk toplamda eski 1'i kullanır; son `+= (long)1` örtük cast sayesinde derlenir.
+
+### Official Answer 18 / Kaynak Cevap 18
+
+**Kaynak cevap: C.** [Soru 18](#question-18--soru-18)
+
+Gruplamayı değiştiren işaret `()` parantezidir. `[]`, `{}` veya `<>` bu amaçla aritmetik parantez yerine geçmez.
+
+### Official Answer 19 / Kaynak Cevap 19
+
+**Kaynak cevap: B, F.** [Soru 19](#question-19--soru-19)
+
+Önce `start` 8, `end` 12 olur; ardından 128'i `byte`a daraltmak `-128` üretir. Bu tamsayı dönüşümünde exception beklemek yanlıştır.
+
+### Official Answer 20 / Kaynak Cevap 20
+
+**Kaynak cevap: A, D, E.** [Soru 20](#question-20--soru-20)
+
+Kitabın beklediği cevap A, D, E'dir; postfix eski değeri verir ve `!` sayısal değer kabul etmez. **Sınır notu:** A'daki “always” ifadesini parantezle değiştirilmemiş öncelik grubu için oku: `-(1 + 2)` içinde toplama önce tamamlanır; precedence, bütün çalışma sırasını tek başına açıklamaz.
+
+### Official Answer 21 / Kaynak Cevap 21
+
+**Kaynak cevap: E.** [Soru 21](#question-21--soru-21)
+
+`~8` sonucu `-9`, `-8` sonucu `-8`dir; eşit olmadıkları için ternary 10'u seçer. `--superman` 9 üretir ve çıktı `-9,-8,9` olur.

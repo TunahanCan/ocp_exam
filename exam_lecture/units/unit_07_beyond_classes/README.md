@@ -19,17 +19,30 @@ etkilediğini güvenle çözebilmektir.
 > Bu ünitedeki mini quiz'ler ve `practice_quiz`, OCP tarzı **özgün çalışma
 > sorularıdır**; gerçek sınav sorusu olarak sunulmaz.
 
-## 45–60 dakikalık önerilen çalışma rotası
+## İşten sonra çalışma rotası
 
-1. **0–5 dk:** Konu haritasında en çok karıştırdığın iki type ailesini seç.
-2. **5–25 dk:** Ana çift dilli notta seçtiğin başlıkları ve hemen altındaki kod
-   örneklerini English → Türkçe sırasıyla oku.
-3. **25–35 dk:** Teknik hafıza notundan interface member, sealed hierarchy,
-   record constructor ve nested class tablolarını tekrar et.
-4. **35–43 dk:** Vocabulary'den 6–8 terimi kendi örnek cümlenle geri çağır.
-5. **43–50 dk:** Grammar notes içinden iki yapıda clause sınırlarını işaretle.
-6. **50–60 dk:** Practice quiz'i kapalı kaynakla çöz ve her yanlışını ilgili
-   teknik hafıza başlığına bağla.
+Bu rota bütün üniteyi tek akşamda bitirme hedefi değildir. Her satır **25–30 dakikalık bir oturumun odağıdır**; okuma veya soru grubu bitmezse aynı satırı sonraki güne taşı. Bir oturumda 2–4 kaynak soruyu gerekçesiyle çözmek yeterlidir. Aşağıdaki soru numaraları kitabın **Review Questions** bölümüne aittir; `practice_quiz` ayrı özgün sorulardır.
+
+Her oturum: **3 dk** önceki bilgiyi kapalı kitap hatırla → **10 dk** English paragrafı çevirip Türkçeyle karşılaştır → **5 dk** en fazla dört yeni kelime ve bir grammar yapısı → **8 dk** soru çöz → **2 dk** yanlışının nedenini yaz. İlk turda bütün kelimeleri ezberlemeye çalışma; bilmediklerini işaretle.
+
+| Oturum ve kaynak başlığı | Kaynak sorular | Kelime ve grammar odağı | Oturum sonunda üret |
+|---|---|---|---|
+| 1. [Interface üyeleri](bilingual_notes.md#implementing-interfaces) | 5, 6, 7, 10, 17, 23, 24, 28 | implicit, conflict, compatible; `allow ... to`, `since` | Üyeyi field/abstract/default/static/private olarak sınıflandır; yoğun soru grubunu gerekirse böl. |
+| 2. [Enum ve sealed türler](bilingual_notes.md#working-with-enums) | 3, 4, 13, 14, 19, 26, 30 | permitted, restrict, constant-specific class body; `unless`, `while` | Enum sözdizimi ile sealed doğrudan alt tür denetimini ayrı yap. |
+| 3. [Record ve encapsulation](bilingual_notes.md#encapsulating-data-with-records) | 1, 8, 12, 21, 27 | canonical, accessor, shallow immutability; `assuming`, `each of which` | Compact body sonunda hangi parametrenin hangi field’a gittiğini yaz. |
+| 4. [Nested class ve kapsam](bilingual_notes.md#creating-nested-classes) | 11, 15, 16, 18, 22, 25 | enclosing instance, independently, latter; `when + V3`, `provided` | Outer nesne gerekli mi; erişilen üye static mi, instance mı? |
+| 5. [Polymorphism ve karma tekrar](bilingual_notes.md#understanding-polymorphism) | 2, 9, 20, 29 | override, retrieve, revoke; `regardless of whether`, `not ... until` | Reference türü ile nesne türünü ayrı yaz; ardından practice quiz 1–8. |
+
+Kelime anlamlarını [ünite sözlüğünden](vocabulary.md), yapıları [grammar notundan](grammar_notes.md) kontrol et. Kaynak sorularını çözerken önce isteneni (derleme / çıktı / exception / doğru seçenek sayısı), sonra kuralı yaz; cevap harfini en son seç.
+
+## Aralıklı tekrar ve geçiş ölçütü
+
+- **1. gün:** Türkçeyi kapatarak dün işaretlediğin dört kelimeyi ve bir cümleyi geri çağır; yanlış yaptığın bir soruyu çöz.
+- **3. gün:** Aynı kuralı ölçen başka bir kaynak soruya geç; doğru seçeneğin yanında en güçlü yanlış seçeneğin neden elendiğini söyle.
+- **7. gün:** Özgün practice quiz'i yeniden çöz; çözerken kuralın adını ve sonucunu ayrı yaz. Hedef **en az 7/8** ve bütün derleme/çalışma zamanı ayrımlarını doğru gerekçelendirmek.
+- **14. gün:** Önceki yanlışlarından üç soruyu karışık sırada çöz; sekiz işaretli kelimenin en az altısını ve iki cümlenin özne/fiil/yan cümle yapısını notsuz çıkar.
+
+Yanlış kayıt biçimi: `Soru → ilk kararım → kaçırdığım Java kuralı/İngilizce yapı → düzeltilmiş gerekçe → yeniden çözüm günü`. Yalnızca cevap harfini hatırlamak geçiş ölçütü değildir. Eksik kalan konu için ilgili oturumu tekrarla.
 
 ## Önkoşullar ve konu haritası
 
@@ -62,7 +75,11 @@ ayrımını, nested type'ları ve casting kararını tek tekrar akışında topl
   karşılaştırabiliyorum.
 - [ ] Cast'in compile-time uygunluğu ile runtime `ClassCastException` riskini
   ayrı kontrol edebiliyorum.
-- [ ] Practice quiz'de en az **5/6** doğru yapabiliyorum.
+- [ ] Practice quiz'de en az **7/8** doğru yapabiliyorum.
+
+## Kaynak sorularının cevapları
+
+[Kitabın cevapları ve Türkçe çözüm özetleri](bilingual_notes.md#appendix--kaynak-cevaplarıyla-kontrol), her kaynak soru için cevap ve kritik gerekçeyi verir. Bunlar kitabın bölüm sonu cevaplarıdır; gerçek OCP sınavının cevapları değildir. Önce soruyu çöz, sonra kontrol et.
 
 ## Kaynak ve kapsam
 

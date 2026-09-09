@@ -237,6 +237,15 @@ anlamıyla çalış.
 - **Çeviri:** Sol taraf false olduğunda `&&` operator'ı short-circuit yapar.
 - **Related:** conditional operator
 
+### side effect · noun phrase
+
+- **Türkçe:** yan etki
+- **Teknik bağlam:** İfade değeri dışında değişken veya program durumunda oluşan değişiklik.
+- **Example:** Short-circuit evaluation can skip a side effect.
+- **Çeviri:** Kısa devreli değerlendirme bir yan etkinin gerçekleşmesini atlayabilir.
+- **Word family / karşılaştırma:** effect (n.); side-effect-free (adj.)
+- **Kaynak bağlam:** [İlgili ana not](bilingual_notes.md#checking-for-unperformed-side-effects).
+
 ### surrounding · adjective
 
 - **Türkçe:** çevreleyen
@@ -282,6 +291,18 @@ anlamıyla çalış.
 - **Çeviri:** Küçük numeric operand'lar birleştirildiğinde promotion gerçekleşir.
 - **Related:** when, every time
 
+## Önce anlam farkını geri çağır
+
+Her oturumda en fazla beş kart seç. Türkçe anlamı kapatıp örneği sesli çevir;
+sonra İngilizce terimi kapatıp Türkçeden geri çağır. **0:** hatırlamadım,
+**1:** ipucuyla, **2:** örnek kurarak hatırladım biçiminde işaretle. 0/1 alan
+kartları ertesi gün, 2 alanları 3/7/14 gün rotasında yeniden dene. Bu puanlar
+kişisel takip içindir; hazır bir sınav puanı değildir.
+
+`precedence` gruplamayı, `evaluation` çalıştırmayı anlatır. `result` ifadenin ürettiği değer; `side effect` değişken durumundaki ek değişikliktir. `x++` örneğinde ikisini ayrı söyle.
+
+**Kontrol:** Bu ayrımlardan birini İngilizce iki cümleyle açıkla; yalnız Türkçe karşılığı söylemekle yetinme.
+
 ## Mini quiz
 
 1. `precedence` ile `promotion` arasındaki farkı açıkla.
@@ -291,7 +312,7 @@ anlamıyla çalış.
 
 ## Cevap anahtarı
 
-1. Precedence evaluation sırasını; promotion numeric type dönüşümünü belirler.
+1. Precedence işlemlerin nasıl gruplandığını; promotion sayısal tür dönüşümünü belirler. Operand değerlendirme sırası ayrıca izlenir.
 2. Örnek: *Java evaluates each operand to determine the resulting value.*
 3. `decrease`
 4. *Parentheses override the normal evaluation order.*

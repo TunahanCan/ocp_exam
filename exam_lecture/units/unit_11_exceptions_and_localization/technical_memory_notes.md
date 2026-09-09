@@ -353,8 +353,12 @@ Close order: `B`, sonra `A`.
 
 ## 13. Java 9+ existing resource syntax
 
-Java 17'de try header içinde önceden declaration yapılmış final veya
-effectively final variable kullanılabilir:
+Java 17’de `try` başlığında önceden oluşturulmuş uygun türde bir `final` veya
+effectively final değişken kullanılabilir. Bu kullanım yerel değişken ve
+parametreyle sınırlı değildir; `this.resource` gibi bir **`final` alan erişimi**
+de geçerlidir. Alanlar effectively final sayılmaz; alanın kendisi `final`
+bildirilmelidir. [Özgün Soru 7](practice_quiz.md#soru-7), bu ayrımı çalışan
+bir programla ölçer. [JLS 17 §14.20.3](https://docs.oracle.com/javase/specs/jls/se17/html/jls-14.html#jls-14.20.3).
 
 ```java
 var input = new FileInputStream("data.txt");

@@ -28,6 +28,7 @@ Essentials ve Review Questions korunmuştur.
 7. [Summary / Özet](#summary--özet)
 8. [Exam Essentials / Sınav İçin Temel Noktalar](#exam-essentials--sınav-için-temel-noktalar)
 9. [Review Questions / Gözden Geçirme Soruları](#review-questions--gözden-geçirme-soruları)
+10. [Kaynak cevaplarıyla kontrol](#appendix--kaynak-cevaplarıyla-kontrol)
 
 ## Chapter 7 · Beyond Classes · Eksiksiz çift dilli kaynak
 
@@ -4565,11 +4566,12 @@ false
 > in `switch` statements and expressions. When an enum method is marked
 > abstract, each enum value must provide an implementation.
 >
-> **Türkçe:** Sonra compile-time constant property'leri olan enum'lara geçtik.
-> Basit enum'lar bir value listesinden oluşurken karmaşık enum'lar constructor,
-> method ve field içerebilir. Enum'lar `switch` statement ve expression'larında
-> da kullanılabilir. Bir enum method'u abstract olarak işaretlendiğinde her
-> enum value bir implementation sağlamalıdır.
+> **Türkçe:** Ardından önceden tanımlı, adlandırılmış sabit değerleri temsil eden enum'lara geçtik. Basit enum'lar bir
+> değer listesinden oluşur; daha gelişmiş enum'lar constructor, metot ve alan içerebilir. Enum'lar
+> `switch` statement ve expression'larında kullanılabilir. Enum bir abstract metot bildiriyorsa her enum
+> sabiti bu metodu uygulamalıdır.
+
+> **Editör notu · Java 17:** Kaynağın “compile-time constant properties” ifadesi enum sabitlerini anlatır. Bunları JLS'deki primitive/String türündeki “constant variable” tanımıyla aynı sanma.
 
 > **English:** Moving on to new topics in Java, we covered sealed classes and
 > how they allow classes to function like enumerated types in which only
@@ -4606,17 +4608,14 @@ false
 > permit instance variables, since this could break immutability, but they do
 > allow methods, static members, and nested types.
 >
-> **Türkçe:** Record'lar Java'da bulunan bir başka yeni özelliktir. Record'lar,
-> compiler'ın boilerplate code'un büyük bölümünü sizin için eklediği immutable
-> ve encapsulated bir POJO bildirmenin kısa yoludur. Encapsulation'ın, external
-> caller'ların bir object'in internal component'lerine erişmesini engelleme
-> uygulaması olduğunu unutmayın. Record'larda accessor method'ların, long
-> constructor'ın ve yararlı `equals()`, `hashCode()` ve `toString()`
-> implementation'larının otomatik oluşturulması bulunur. Record'lar data
-> validation ve transformation'ı desteklemek için overloaded ve compact
-> constructor'lar içerebilir. Immutability'yi bozabileceğinden instance
-> variable'lara izin vermez; ancak method'lara, static member'lara ve nested
-> type'lara izin verir.
+> **Türkçe:** Record'lar Java'daki bir başka özelliktir. Derleyicinin tekrar eden kodun büyük bölümünü eklediği,
+> encapsulation (kapsülleme) sağlayan kısa veri taşıyıcı sınıf bildirimleridir. Encapsulation, dış kodun
+> nesnenin iç yapısına doğrudan erişimini sınırlar. Record için bileşen erişim metotları, bütün
+> bileşenleri alan canonical constructor ve uygun `equals()`, `hashCode()` ve `toString()` uygulamaları
+> sağlanır. Verileri doğrulamak veya dönüştürmek için overloaded ve compact constructor'lar yazılabilir.
+> Record gövdesinde ek instance alanı bildirilemez; metot, static üye ve nested tür bildirilebilir.
+
+> **Editör notu · Java 17:** Kaynağın “do not permit instance variables” ifadesi **ek instance alanlarını** kasteder; her record bileşeninin zaten bir private final instance alanı vardır. Record yüzeysel olarak değişmezdir: bir bileşenin gösterdiği listenin içeriği değişebilir. [Özgün soru 7](practice_quiz.md#soru-7--record-ve-mutable-component) bu ayrımı ölçer.
 
 > **English:** We then moved on to nested types. For simplicity, we focused on
 > nested classes and covered each of the four types. An inner class requires
@@ -4633,12 +4632,14 @@ false
 > odaklanıp dört türün her birini ele aldık. Inner class'ın kullanılabilmesi
 > için outer class'ın bir instance'ı gerekirken static nested class'ta bu
 > gerekmez. Local class genellikle bir method veya block içinde tanımlanır.
-> Local class'lar yalnız final ve effectively final local variable'lara
+> Local class'lar yalnız final veya effectively final local variable'lara
 > erişebilir. Anonymous class'lar adı olmayan özel bir local class türüdür.
 > Anonymous class'ların tam olarak bir class'ı extend etmesi veya bir
 > interface'i implement etmesi gerekir. Inner, local ve anonymous class'lar,
 > tanımlandıkları class'ın private member'larına erişebilir; son ikisinin bir
 > instance method içinde kullanılması gerekir.
+
+> **Editör notu · Java 17:** Kaynaktaki “final and effectively final” ifadesinin teknik koşulu **final veya effectively final** olmaktır. Ayrıca “instance method içinde” kısıtı her private erişim için geçerli değildir: static bağlamda private static üyelere erişilebilir; instance üyesi için uygun nesne referansı gerekir. Erişim izni ile outer nesne gereksinimini ayrı denetle. [Grammar çözümlemesi](grammar_notes.md#9-provided-that-as-a-condition).
 
 > **English:** We concluded this chapter with a discussion of polymorphism,
 > which is central to the Java language, and showed how objects can be
@@ -4676,14 +4677,13 @@ false
 > membership and can only reference other static members. Finally, private
 > methods can only be referenced within the interface declaration.
 >
-> **Türkçe:** **Bir interface method'unun hangi interface method'larına reference verebileceğini bilin.**
-> Non-static private, default ve abstract
-> interface method'ları bir interface instance'ıyla ilişkilidir. Non-static
-> private ve default interface method'ları interface declaration'ındaki her
-> method'a reference verebilir. Buna karşılık static interface method'ları
-> class membership ile ilişkilidir ve yalnız diğer static member'lara
-> reference verebilir. Son olarak private method'lara yalnız interface
-> declaration'ı içinden reference verilebilir.
+> **Türkçe:** **Bir interface metodunun hangi metotları çağırabildiğini bilin.** Instance private, default ve abstract
+> interface metotları bir nesneyle ilişkilidir. Instance private ve default metotlar, aynı interface
+> içindeki metotları uygun bağlamda çağırabilir. Static interface metotlarında örtük bir `this` yoktur;
+> başka static üyelere doğrudan erişebilirler. Instance metodu çağırmak için uygun nesne referansı
+> gerekir. Private metotlara erişim, bildirildikleri interface'in kapsamıyla sınırlıdır.
+
+> **Editör notu · Java 17:** Kaynağın “can only reference other static members” cümlesi nesne referansı olmadan yapılan erişimi özetler; static bir metot elindeki nesne üzerinden erişilebilir instance metotlarını da çağırabilir.
 
 <!-- source-page: 0403 -->
 
@@ -4736,14 +4736,13 @@ false
 > constructor parameters, not for accessing fields. Recognize that when a
 > record is declared with an instance member, it does not compile.
 >
-> **Türkçe:** **Record'ları anlayın ve compiler'ın hangi member'ları otomatik eklediğini bilin.**
-> Record'lar compiler'ın long constructor, accessor
-> method'lar ve yararlı `equals()`, `hashCode()` ve `toString()`
-> implementation'ları eklediği encapsulated ve immutable type'lardır. Bu
-> element'lerin her biri override edilebilir. Compact constructor'ları
-> tanıyabilin ve bunların field'lara erişmek için değil, yalnız constructor
-> parameter'larını validation ve transformation amacıyla kullanıldığını bilin.
-> Bir record instance member ile bildirildiğinde derlenmediğini fark edin.
+> **Türkçe:** **Record'ları ve derleyicinin eklediği üyeleri bilin.** Derleyici canonical constructor, bileşen erişim
+> metotları ve `equals()`, `hashCode()`, `toString()` uygulamalarını sağlar. Kurallara uyarak bunların
+> açık bildirimlerini yazabilirsiniz. Compact constructor, bileşen parametrelerini doğrulamak ve
+> dönüştürmek için kullanılır; bileşen alanlarına atamayı gövde sonunda derleyici yapar. Record gövdesinde
+> ek instance alanı bildirmek derleme hatasıdır.
+
+> **Editör notu · Java 17:** Kaynakta “instance member” fazla geniş kullanılmıştır: instance **metotları** geçerlidir, yasak ek instance **alanıdır**. Constructor override edilmez; canonical constructor açıkça bildirilir. Compact constructor içinde bileşen alanına doğrudan atama yapılamaz.
 
 > **English:** **Be able to declare and use nested classes.** There are four
 > types of nested types: inner classes, static classes, local classes, and
@@ -6696,3 +6695,190 @@ match true path'inde güvenli hâle gelir.
 4. Final component reference mutable bir target object gösterebilir.
 5. İmkânsız type ilişkisi derlenmez; mümkün görünen fakat object'e uymayan cast
    runtime'da `ClassCastException` fırlatır.
+
+
+## Appendix · Kaynak cevaplarıyla kontrol
+
+Kaynak: [çalışma PDF’si](../../OCP_Java_SE17_Chapter1den_Itibaren.pdf), Appendix “Answers to the Review Questions”, Chapter 7, fiziksel PDF sayfaları **932–936**. Cevap harfleri kitaptaki anahtardan alınmıştır. Aşağıdaki Türkçe gerekçeler kaynak açıklamalarından yararlanılarak hazırlanmış **özgün çözüm özetleridir; birebir çeviri değildir**. Bunlar kitabın çalışma sorularıdır, gerçek OCP sınavının resmî soruları veya cevapları değildir.
+
+Önce [Review Questions](#review-questions--gözden-geçirme-soruları) bölümünü çöz. Yanlışında cevabı ezberlemek yerine derleme, çalışma zamanı veya dilsel çıkarım aşamasını belirle.
+
+### Official Answer 1
+
+**Kitabın cevabı: B, D.** Record örtük `final`dır; `final`ı açıkça yazmak ve accessor’ı uygun imzayla yeniden bildirmek geçerlidir. Yinelenen field adı, `abstract record` ve final component alanını değiştirme girişimi derlenmez.
+
+[Soru 1’e dön](#question-1--soru-1).
+
+### Official Answer 2
+
+**Kitabın cevabı: A, B, D, E.** `TurtleFrog` nesnesi kendi türüne, `Frog` üst türüne ve gerçekleştirdiği `CanHop` interface’ine atanabilir; `var` da türü çıkarır. Kardeş sınıf `BrazilianHornedFrog` ve ilgisiz `Long` uygun değildir.
+
+[Soru 2’e dön](#question-2--soru-2).
+
+### Official Answer 3
+
+**Kitabın cevabı: C.** Enum sabitlerinden sonra başka üye varsa `;` zorunludur. Burada static field bulunduğundan eksik noktalı virgül derleme hatasıdır; düzeltilirse ordinal değerleri 0, 1, 2 olur.
+
+[Soru 3’e dön](#question-3--soru-3).
+
+### Official Answer 4
+
+**Kitabın cevabı: C.** Normal sınıf `Armadillo`, sealed üst sınıfını doğrudan genişletirken `final`, `sealed` veya `non-sealed` bildirmelidir. Mevcut bildirimde bu eksiktir; çıktı aşamasına geçilmez.
+
+[Soru 4’e dön](#question-4--soru-4).
+
+### Official Answer 5
+
+**Kitabın cevabı: E.** `getNumberOfSections(int)` bir overload’dur; parametresiz abstract method’u gerçekleştirmez. Concrete `Beetle` bu yükümlülüğü yerine getirmediği için derlenmez.
+
+[Soru 5’e dön](#question-5--soru-5).
+
+### Official Answer 6
+
+**Kitabın cevabı: D, E.** Satır 4’te abstract method’un gövdesi olamaz. Satır 7’de sınıf bir interface’i `extends` edemez; `implements` gerekir.
+
+[Soru 6’e dön](#question-6--soru-6).
+
+### Official Answer 7
+
+**Kitabın cevabı: E.** Interface method’u örtük `public`tır; uygulayan method package erişimine daraltılamaz. Satır 6’ya `public` eklenirse kod derlenip 15 yazar.
+
+[Soru 7’e dön](#question-7--soru-7).
+
+### Official Answer 8
+
+**Kitabın cevabı: A, B, C.** Sorunun encapsulation ölçütünde instance field private olmalıdır. Okuyucu/değiştirici method’ların mutlaka public olması gerekmediğinden ilk üç seçenek uygundur.
+
+[Soru 8’e dön](#question-8--soru-8).
+
+### Official Answer 9
+
+**Kitabın cevabı: A, E, F.** `Cobra` ve `GardenSnake`, `Snake` alt türleridir; `null` da reference parametreye geçirilebilir. Abstract `Snake` doğrudan oluşturulamaz; üst tür `Object` ve ilgisiz `String` bu çağrıya doğrudan uymaz.
+
+[Soru 9’e dön](#question-9--soru-9).
+
+### Official Answer 10
+
+**Kitabın cevabı: A, B, C, E.** Walk içindeki private static method kalıtımla alınmaz; X’teki method ondan bağımsızdır. Run’ı gerçekleştiren Z ise ArrayList döndüren contract’a uymalı, ArrayList veya onun alt türünü döndürmelidir.
+
+[Soru 10’e dön](#question-10--soru-10).
+
+### Official Answer 11
+
+**Kitabın cevabı: B.** Java 17’de inner class static alan bildirebilir. `butter` en yakın bildirim olan iç sınıfın alanını seçer ve 10 yazdırır; private constructor’a outer sınıf içinden erişim geçerlidir.
+
+[Soru 11’e dön](#question-11--soru-11).
+
+### Official Answer 12
+
+**Kitabın cevabı: A, B, E.** Encapsulation, alanı private tutup erişimi uygun method’larla denetlemeyi destekler. Getter/setter adlandırma geleneği Java sözdizimi zorunluluğu değildir.
+
+[Soru 12’e dön](#question-12--soru-12).
+
+### Official Answer 13
+
+**Kitabın cevabı: F.** Java 17 enum switch case’lerinde `Seasons.SPRING` yerine `SPRING` yazılır; üç nitelikli etiket derlenmez. Bu hatalar düzeltildikten sonra null selector ayrıca çalışma zamanında NullPointerException oluşturur.
+
+[Soru 13’e dön](#question-13--soru-13).
+
+### Official Answer 14
+
+**Kitabın cevabı: A, C, E.** Sealed interface hem doğrudan alt interface’leri hem uygulayan sınıfları sınırlar; sealed/non-sealed abstract alt sınıf da mümkündür. Dolaylı alt türler permits listesine yazılmaz; doğru anahtar kelime `non-sealed`dır.
+
+[Soru 14’e dön](#question-14--soru-14).
+
+### Official Answer 15
+
+**Kitabın cevabı: G.** `new Spirit() {}` isimsiz bir alt sınıf oluşturur. Spirit final olduğundan bu ifade derlenmez; boşluğun içeriği bu hatayı gideremez.
+
+[Soru 15’e dön](#question-15--soru-15).
+
+### Official Answer 16
+
+**Kitabın cevabı: E.** Static nested `OstrichWrangler` örtük bir Ostrich nesnesi taşımaz. `count` instance alanına nesne referansı olmadan erişen satır 5 derlenmez; private erişim ile nesne gereksinimi ayrı konulardır.
+
+[Soru 16’e dön](#question-16--soru-16).
+
+### Official Answer 17
+
+**Kitabın cevabı: E, G.** Gövdesi olan non-static interface method’u `default` veya `private` olmalıdır; satır 5 bu yüzden hatalıdır. Interface method’larında protected erişim de geçersizdir; static field/method bildirimleri tek başına hata değildir.
+
+[Soru 17’e dön](#question-17--soru-17).
+
+### Official Answer 18
+
+**Kitabın cevabı: E.** Static main içinde Diet oluşturmak için çevreleyen Deer nesnesi yoktur. `new Deer().new Diet()` kullanılırsa bu sorun çözülür ve switch sonucu `b` olur.
+
+[Soru 18’e dön](#question-18--soru-18).
+
+### Official Answer 19
+
+**Kitabın cevabı: G.** Enum’daki abstract `isHealthy()` method’unu her sabit gerçekleştirmelidir. Yalnız INSECTS’in gövde vermesi yeterli değildir; program derlenmez.
+
+[Soru 19’e dön](#question-19--soru-19).
+
+### Official Answer 20
+
+**Kitabın cevabı: A, D, F.** Instance override seçimi nesnenin çalışma zamanı türüne; hidden static method seçimi referans türü ve çağrı bağlamına dayanır. C yanlıştır çünkü static method hide edilebilir; D’deki `final` ise instance method’un override edilmesini, static method’un hide edilmesini engeller.
+
+[Soru 20’e dön](#question-20--soru-20).
+
+### Official Answer 21
+
+**Kitabın cevabı: F.** `RabbitFood()` parantez taşıdığı için compact constructor değil, no-arg overload’dur. İlk ifadesi diğer record constructor’ına `this(...)` yönlendirmesi olmalıdır; verilen atama seçenekleri bunu sağlamaz.
+
+[Soru 21’e dön](#question-21--soru-21).
+
+### Official Answer 22
+
+**Kitabın cevabı: C, D, G.** Cub için Lion nesnesiyle `.new Cub()` gerekir. Static nested Den için outer nesne gerekmez; ilgili doğru oluşturma biçimleri D ve G’dedir.
+
+[Soru 22’e dön](#question-22--soru-22).
+
+### Official Answer 23
+
+**Kitabın cevabı: D.** Penguin iki default method çakışmasını kendi implementation’ıyla çözer. Belirli doğrudan interface sürümü `Swim.super.perform()` ile çağrılır; diğer biçimler uygun Java sözdizimi değildir.
+
+[Soru 23’e dön](#question-23--soru-23).
+
+### Official Answer 24
+
+**Kitabın cevabı: B, E.** Static hunt() içinde instance getName(), static sneak() içinde instance roar() örtük nesne olmadan çağrılamaz. Private method’a erişim izni, instance method çağrısı için nesne gereksinimini ortadan kaldırmaz.
+
+[Soru 24’e dön](#question-24--soru-24).
+
+### Official Answer 25
+
+**Kitabın cevabı: B.** `Zebra.this.x` outer nesnedeki 24 değerini seçer; yerel sınıftaki x kullanılmaz. Abstract local sınıfın anonymous concrete alt sınıfı oluşturulabilir; çıktı `x is 24` olur.
+
+[Soru 25’e dön](#question-25--soru-25).
+
+### Official Answer 26
+
+**Kitabın cevabı: C, F.** Enum constructor public olamaz ve sabit listesinin ardından başka üyeler varsa `;` gerekir. Boolean.FALSE argümanının boolean’a unboxing edilmesi bu örnekte geçerlidir.
+
+[Soru 26’e dön](#question-26--soru-26).
+
+### Official Answer 27
+
+**Kitabın cevabı: B, C, D, G.** Component accessor’ları, component sırasına uygun canonical constructor ve equals/hashCode/toString method’ları sağlanır. Component varsa kendiliğinden no-arg constructor gelmez; setter üretilmez ve mutable component nesneleri kendiliğinden derin kopyalanmaz.
+
+[Soru 27’e dön](#question-27--soru-27).
+
+### Official Answer 28
+
+**Kitabın cevabı: A, B, D.** Camel’in gövdesiz method’unda abstract eksik, EatsGrass’ta private abstract birleşimi geçersizdir. Eagle’da hem abstract method concrete sınıfta bildirilmiş hem de dönüş türü eksiktir; diğer bildirimler bu hataları taşımaz.
+
+[Soru 28’e dön](#question-28--soru-28).
+
+### Official Answer 29
+
+**Kitabın cevabı: F.** `this().age` geçersizdir: this() constructor çağrısı, this ise nesne referansıdır. Ayrıca Orangutan, Primate’tan türemediğinden cast derlenmez; üç hatalı satır vardır.
+
+[Soru 29’e dön](#question-29--soru-29).
+
+### Official Answer 30
+
+**Kitabın cevabı: C, E.** EmperorTamarin normal sınıfında gereken sealed/final/non-sealed modifier yoktur. Friendly’nin permits listesine aldığı Silly onu doğrudan extends etmez; aynı dosyada bulunmak yalnız permits çıkarımına yardım eder, extends ilişkisini kurmaz.
+
+[Soru 30’e dön](#question-30--soru-30).

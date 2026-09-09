@@ -358,14 +358,15 @@ noun + verb-ing ...         = noun + that/which + active verb
 Tam biçim:
 
 ```text
-A group of objects that is contained in a single object
+objects that are contained in a single object
 ```
 
 > **English:** “The first says to create an empty `LinkedList` containing all
 > the defaults.”
 >
-> **Türkçe:** “İlki bütün default'ları taşıyan boş bir `LinkedList` oluşturmayı
-> söyler.”
+> **Türkçe:** “İlki varsayılan ayarlarla boş bir `LinkedList` oluşturmayı söyler.”
+
+Buradaki defaults, listenin elemanları değildir; boş listeyle çelişecek biçimde “bütün varsayılan öğeleri içeren” diye yorumlama. İlk örnekte `contained` nesneleri niteleyen edilgen yapı, ikincide `containing` listeyi niteleyen etkin yapıdır. [Kaynak bağlam](bilingual_notes.md#creating-a-list-with-a-constructor).
 
 **YDS ipucu:** Past participle çoğunlukla passive; `-ing` çoğunlukla active
 anlam taşır.
@@ -437,8 +438,8 @@ gelir.
 ### Yapı
 
 ```text
-unless + affirmative clause
-= if + negative clause
+unless + clause
+çoğu koşul bağlamında: if + not + clause
 ```
 
 “...medikçe / ... olmadığı sürece” anlamındadır.
@@ -449,9 +450,11 @@ unless + affirmative clause
 > **Türkçe:** “Başkalarının reuse edeceği library yazmıyorsanız generics,
 > yazdığınız class definition'larında neredeyse hiç görünmez.”
 
-**Sık hata:** `unless` zaten negative anlam taşıdığı için standart kullanımda
-yanına bir de `not` ekleme:
-`unless it compiles` → “derlenmedikçe”.
+**Sık hata:** `unless + not` dilbilgisel olarak yasak değildir; anlamı değiştirir. `unless it compiles` → “derlenmedikçe”; `unless it does not compile` → “derlenmemesi durumu dışında”. Sorunun istediği koşulu ayrı ayrı çöz.
+
+**Çözümleme:** Kaynakta `you` yan özne, `are writing` yüklem; `generics` ana özne, `hardly show up` ana yüklemdir. `hardly`, “zorlukla” değil bu cümlede “neredeyse hiç” demektir.
+
+**Kaynak:** [Working with Generics](bilingual_notes.md#working-with-generics).
 
 ## 20. `unlike + noun`
 
@@ -522,6 +525,10 @@ noun + which/that + subject + verb ...
 >
 > **Türkçe:** “Bu kavramları birleştirerek sınavın yapmayı sevdiği gerçekten
 > kafa karıştırıcı code yazmak mümkündür.”
+
+**Çözümleme:** İlk örnekte `A Deque` ana özne, `is` ana fiil; `that allows access at both ends` tanımlayıcı yan cümledir. Teknik olarak iki uçtan erişim sağlayan tür Deque’dur; yalnız en yakın isim olan Queue’ya bağlayıp bütün Queue’ların çift uçlu olduğu sonucunu çıkarma. İkinci örnekte virgüllü `which`, yalnız code ismine değil önceki eylem/duruma da gönderme yapabilir.
+
+**Kaynak:** [Using the Queue and Deque Interfaces](bilingual_notes.md#using-the-queue-and-deque-interfaces).
 
 **YDS ipucu:** Relative pronoun clause'un subject'iyse atılamaz:
 `a queue that allows ...`. Object ise restrictive clause'da atılabilir:

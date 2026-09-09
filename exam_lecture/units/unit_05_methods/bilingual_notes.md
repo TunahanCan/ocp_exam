@@ -20,6 +20,8 @@ Java kodu çevrilmeden ve yinelenmeden gösterilir.
 
 ## İçindekiler
 
+- [Kaynak cevaplarıyla kontrol](#appendix--kaynak-cevaplarıyla-kontrol) · Soruları çözdükten sonra aç.
+
 - [Designing Methods](#designing-methods)
 - [Declaring Local and Instance Variables](#declaring-local-and-instance-variables)
 - [Working with Varargs](#working-with-varargs)
@@ -621,6 +623,11 @@ public void fly3(int a) { int name = 5; }
 >
 > **Türkçe:** Method'lar `abstract` bildirilmedikçe bir body'ye sahip olmak zorundadır. Abstract method'ları Chapter 6, “Class Design” bölümünde ele alacağız. `fly3()`, method body içinde tek statement bulunan geçerli bir bildirimdir.
 
+> **Editör notu · Kuralın sınırı:** Kaynaktaki bu cümle `native` istisnasını
+> anmaz. Java 17'de sınıf metodu `abstract` **veya** `native` ise gövde yerine
+> `;` kullanır. Diğer sınıf metotları gövde ister.
+> [JLS 17 §8.4.7](https://docs.oracle.com/javase/specs/jls/se17/html/jls-8.html#jls-8.4.7).
+
 > **English:** Congratulations! You’ve made it through the basics of identifying correct and incorrect method declarations. Now you can delve into more detail.
 >
 > **Türkçe:** Tebrikler! Doğru ve yanlış method bildirimlerini tanımlamanın temellerini tamamladınız. Artık daha detaylı inceleyebilirsiniz.
@@ -998,6 +1005,8 @@ walkDog(1, null); // Triggers NullPointerException in walkDog()
 ## Source page 0235
 
 ### Applying Access Modifiers
+
+> **Dil çalışması:** `lenient` için [ünite sözlüğü](vocabulary.md); cümle yapıları için [grammar notu](grammar_notes.md).
 
 **Türkçe başlık:** Access Modifier'ları Uygulama
 
@@ -2835,7 +2844,9 @@ System.out.print(glide("a", "b", "c"));
 
 > **English:** Java uses pass-by-value, which means that calls to methods create a copy of the parameters. Assigning new values to those parameters in the method doesn’t affect the caller’s variables. Calling methods on objects that are method parameters changes the state of those objects and is reflected in the caller. Java supports autoboxing and unboxing of primitives and wrappers automatically within a method and through method calls.
 >
-> **Türkçe:** Java pass-by-value kullanır; method call sırasında argument value'larının kopyaları parameter'lara verilir. Method içinde parameter'a yeni value atamak caller variable'ını etkilemez. Ancak parameter'ın işaret ettiği object üzerinde method çağırmak object state'ini değiştirir ve bu değişiklik caller tarafından görülür. Java ayrıca primitive ve wrapper'lar arasında autoboxing/unboxing yapar.
+> **Türkçe:** Java pass-by-value kullanır; method call sırasında argument value'larının kopyaları parameter'lara verilir. Method içinde parameter'a yeni value atamak caller variable'ını etkilemez. Ancak parameter'ın işaret ettiği object üzerinde değişiklik yapan bir method çağırmak object state'ini değiştirir ve bu değişiklik caller tarafından görülür. Java ayrıca primitive ve wrapper'lar arasında autoboxing/unboxing yapar.
+
+> **Editör notu · Method çağrısı ve değişiklik:** Kaynaktaki genelleme, nesnenin durumunu değiştiren method'lar için geçerlidir. Her method çağrısı nesneyi değiştirmez: `StringBuilder.length()` yalnızca okur; `append()` ise aynı nesnenin içeriğini değiştirir.
 
 > **English:** Overloaded methods are methods with the same name but a different parameter list. Java calls the most specific method it can find. Exact matches are preferred, followed by wider primitives. After that comes autoboxing and finally varargs.
 >
@@ -3665,3 +3676,142 @@ G. public void moo(int... i, int j...)
 
 Kaynak bölümün çevirisine ait olmayan önceki OCP pekiştirme içeriği ayrı ana
 kaynakta korunmuştur: [Unit 05 technical memory notes](technical_memory_notes.md).
+
+## Appendix · Kaynak cevaplarıyla kontrol
+
+Bu bölüm, kaynak kitabın **Appendix: Answers to the Review Questions** bölümündeki
+Chapter 5 cevaplarından hazırlanmış özgün Türkçe çözüm rehberidir; İngilizce
+açıklamaların birebir çevirisi ve gerçek OCP sınav cevapları değildir. Kaynak:
+[ana PDF](../../OCP_Java_SE17_Chapter1den_Itibaren.pdf), fiziksel PDF sayfaları 924–927.
+`Official Answer` başlıkları kitabın kaynak cevaplarına karşılık gelir.
+
+Önce soruyu kapalı notla çöz; seçtiğin her harfin yanına bir cümle gerekçe yaz.
+Sonra aşağıdan kontrol et. Yanlış seçenek veya yanlış gerekçe, hata günlüğüne
+ayrı kayıt olarak girer. Kaynakta tespit edilen anlatım sorunları **Editör notu**
+olarak ayrılmıştır.
+
+### Official Answer 1 / Kaynak Cevap 1
+
+**Kaynak cevap: A, E.** [Soru 1](#question-1--soru-1)
+
+Alanlar `final` olabilir; bir primitive'e ilk atamadan sonra yeniden değer atanamaz. `final` reference, nesne içeriğini dondurmaz; `final var` geçerlidir.
+
+### Official Answer 2 / Kaynak Cevap 2
+
+**Kaynak cevap: B, C.** [Soru 2](#question-2--soru-2)
+
+`final` veya `private` dönüş türünden önce kullanılabilir. Paket erişimi için `default` yazılmaz; `Public` yanlış harf büyüklüğüdür ve ikinci dönüş türü eklenemez.
+
+### Official Answer 3 / Kaynak Cevap 3
+
+**Kaynak cevap: A, D.** [Soru 3](#question-3--soru-3)
+
+`static final` ve `final static` sıraları geçerlidir. Dönüş türünden sonra modifier yerleştirmek veya iki dönüş türü yazmak derleme hatasıdır.
+
+### Official Answer 4 / Kaynak Cevap 4
+
+**Kaynak cevap: A, B, C, E.** [Soru 4](#question-4--soru-4)
+
+`6` int olarak kalabilir, long/double'a widening veya Integer'a boxing olabilir. Tek atama zincirinde `int → long → Long` ve `int → double → Double` uygulanmaz.
+
+### Official Answer 5 / Kaynak Cevap 5
+
+**Kaynak cevap: A, C, D.** [Soru 5](#question-5--soru-5)
+
+`void` metot boş dönebilir veya hiç return içermeyebilir; int metot uygun int değer döndürebilir. `null`, `double` veya değersiz return, int dönüşünü karşılamaz.
+
+### Official Answer 6 / Kaynak Cevap 6
+
+**Kaynak cevap: A, B, F.** [Soru 6](#question-6--soru-6)
+
+Varargs en fazla bir tane ve son parametre olmalıdır; F normal parametrelerle geçerlidir. `...` türün ardından yazılır, parametre adının önünde türden ayrı bir yere taşınmaz.
+
+### Official Answer 7 / Kaynak Cevap 7
+
+**Kaynak cevap: D, F.** [Soru 7](#question-7--soru-7)
+
+Zorunlu ilk boolean parametresinden sonra iki boolean veya iki elemanlı boolean array gerekir. İlk parametre varargs uzunluğuna sayılmaz; boş çağrı derlenmez.
+
+### Official Answer 8 / Kaynak Cevap 8
+
+**Kaynak cevap: D.** [Soru 8](#question-8--soru-8)
+
+Private alan ve public metotlar kapsülleme için yaygın tercihtir. `protected`, paket erişiminden daha kısıtlı değildir; public sınıfın görünürlüğü üyelerin erişiminden ayrı değerlendirilir.
+
+### Official Answer 9 / Kaynak Cevap 9
+
+**Kaynak cevap: B, C, D, F.** [Soru 9](#question-9--soru-9)
+
+Paketler farklıdır ve `School`, `Classroom`un subclass'ı değildir; private, paket erişimi ve protected üyelere ilgili erişimler derlenmez. Yalnız sınıfın public olması üyeleri public yapmaz.
+
+### Official Answer 10 / Kaynak Cevap 10
+
+**Kaynak cevap: B.** [Soru 10](#question-10--soru-10)
+
+Static alan önce 5, ardından static initializer ile 10 olur; iki static çağrı `swing swing ` yazdırır ve son değer 10'dur. Instance üzerinden çağrı static üyeyi instance üyesine dönüştürmez.
+
+### Official Answer 11 / Kaynak Cevap 11
+
+**Kaynak cevap: B, E.** [Soru 11](#question-11--soru-11)
+
+Static `play()` içinden receiversız instance `climb()` çağrısı derlenmez. O satır kaldırıldığında `swing-swing` çıkar; null reference üzerinden static çağrı tek başına NPE üretmez.
+
+### Official Answer 12 / Kaynak Cevap 12
+
+**Kaynak cevap: B.** [Soru 12](#question-12--soru-12)
+
+İki değişken effectively final'dır: `giraffe` ve iç bloktaki `name`. Kaynakta çalışmayacak gibi görünen dalda bile `monkey++` bulunması effectively final kontrolünü etkiler.
+
+### Official Answer 13 / Kaynak Cevap 13
+
+**Kaynak cevap: D.** [Soru 13](#question-13--soru-13)
+
+`length` ortak static alandır; son atama 8'i bırakır. `RopeSwing` nesnesi üretilmediği için instance initializer çalışmaz; yalnız `8` yazdırılır.
+
+### Official Answer 14 / Kaynak Cevap 14
+
+**Kaynak cevap: E.** [Soru 14](#question-14--soru-14)
+
+Dört satır hatalıdır: `bench` uygun yerde başlatılmamış, iki final alan ikinci kez atanmış ve constructor static final atamasını telafi etmeye çalışmıştır. Static final, her nesne yaratıldığında yeniden atanamaz.
+
+### Official Answer 15 / Kaynak Cevap 15
+
+**Kaynak cevap: B.** [Soru 15](#question-15--soru-15)
+
+Doğru sıralama `import static`tir; sınıf değil static üye veya o sınıfın static üyelerini kapsayan wildcard import edilir. Metot parametreleri import bildirimine yazılmaz.
+
+### Official Answer 16 / Kaynak Cevap 16
+
+**Kaynak cevap: E.** [Soru 16](#question-16--soru-16)
+
+`short` int'e genişler; boolean ve double ise kendi wrapper'larına boxing, ardından Object'e widening ile gider. Çıktı `int-Object-Object-`; double'ı float'a otomatik daraltma yoktur.
+
+### Official Answer 17 / Kaynak Cevap 17
+
+**Kaynak cevap: B.** [Soru 17](#question-17--soru-17)
+
+`square()` içindeki `x = -1` yalnız parametre kopyasını değiştirir; dönen sonuç 81 olsa da yazdırılan caller değişkeni 9 kalır. `value` ile `result` değişkenlerini ayır.
+
+### Official Answer 18 / Kaynak Cevap 18
+
+**Kaynak cevap: B, D, E.** [Soru 18](#question-18--soru-18)
+
+`a` parametresini yeni nesneye bağlamak caller referansını değiştirmez; `b.append()` ortak nesneyi değiştirir. Döndürülen reference ise caller'ın `s3` değişkenine ayrıca atanır.
+
+### Official Answer 19 / Kaynak Cevap 19
+
+**Kaynak cevap: B, C, E.** [Soru 19](#question-19--soru-19)
+
+Instance initializer hem instance hem static alanlara ulaşabilir; static initializer doğrudan instance alanına erişemez. `value1` zaten final olarak başlatıldığı için ikinci atama geçersizdir.
+
+### Official Answer 20 / Kaynak Cevap 20
+
+**Kaynak cevap: A, E.** [Soru 20](#question-20--soru-20)
+
+100 için int overload, 100L için boxing ve reference widening ile Object overload seçilir. int overload kaldırılırsa Integer overload, varargs'tan önce gelir; burada seçilenler constructor değil metottur.
+
+### Official Answer 21 / Kaynak Cevap 21
+
+**Kaynak cevap: B, D.** [Soru 21](#question-21--soru-21)
+
+Aynı isim ve farklı parametre türleri overload oluşturur; dönüş türü/erişim değişebilir. Yalnız parametre adını değiştirmek yetmez, farklı metot adı overload değildir; varargs son sırada ve tek olmalıdır.

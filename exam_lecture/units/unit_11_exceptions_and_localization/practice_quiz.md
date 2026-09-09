@@ -1,7 +1,7 @@
 # Unit 11 · Exceptions and Localization — Practice Quiz
 
-Bu belge altı adet **OCP tarzı özgün çalışma sorusu** içerir; sorular gerçek
-sınavdan alınmamıştır. Önerilen süre 15–20 dakikadır. Cevaplara geçmeden önce
+Bu belge sekiz adet **OCP tarzı özgün çalışma sorusu** içerir; sorular gerçek
+sınavdan alınmamıştır. Önerilen süre 25–30 dakikadır; istersen 1–4 ve 5–8 olarak iki oturuma böl. Cevaplara geçmeden önce
 her kodu **derleme durumu → çalışma zamanı → çıktı** sırasıyla değerlendir.
 
 ## Sorular
@@ -140,6 +140,69 @@ ilişkisini belirt:
 > A resource is closed automatically once execution leaves the
 > try-with-resources statement, even if an exception is thrown.
 
+### Soru 7
+
+**Odak:** Önceden oluşturulmuş `final` field ve kaynak türü
+
+Aşağıdaki tam program için **tek doğru** sonuç hangisidir?
+
+```java
+public class FieldResource {
+    static class Resource implements AutoCloseable {
+        public void close() { System.out.print("C"); }
+    }
+    private final Resource resource = new Resource();
+
+    void run() {
+        try (this.resource) { System.out.print("B"); }
+    }
+    public static void main(String[] args) {
+        new FieldResource().run();
+    }
+}
+```
+
+A. Derlenmez; önceden oluşturulmuş kaynak yalnız yerel değişken olabilir.
+
+B. Derlenmez; `AutoCloseable` kullanan her metot `throws Exception` yazmalıdır.
+
+C. Başarıyla derlenir ve `BC` yazdırır.
+
+D. Başarıyla derlenir ve `CB` yazdırır.
+
+### Soru 8
+
+**Odak:** Gövde başarılı, kapanışlar başarısız
+
+Aşağıdaki programın **tek doğru** çıktısını seç.
+
+```java
+public class ClosingFailures {
+    record Resource(String name) implements AutoCloseable {
+        public void close() { throw new IllegalStateException(name); }
+    }
+    public static void main(String[] args) {
+        try (var a = new Resource("A"); var b = new Resource("B")) {
+            System.out.print("T:");
+        } catch (IllegalStateException e) {
+            System.out.print(e.getMessage() + ":"
+                    + e.getSuppressed()[0].getMessage());
+        }
+    }
+}
+```
+
+A. `T:A:B`
+
+B. `T:B:A`
+
+C. `T:B:` yazdırdıktan sonra `ArrayIndexOutOfBoundsException` fırlatır.
+
+D. Derlenmez; record bir kaynağı temsil edemez.
+
+**Dil aktarımı:** Seçimini bir İngilizce cümlede `primary`, `suppressed` ve
+`because` kullanarak gerekçelendir.
+
 <!-- page-break -->
 
 ## Cevaplar ve açıklamalar
@@ -179,8 +242,8 @@ ilişkisini belirt:
 
 ### Soru 4 — A ve D
 
-- **A doğru:** Existing-resource syntax yalnız `final` veya effectively final
-  local variable/parameter ile kullanılabilir.
+- **A doğru:** Önceden oluşturulmuş uygun türde bir `final` veya effectively final
+  değişken kullanılabilir; `final` alan erişimi de geçerlidir (Soru 7).
 - **B yanlış:** Kapanma sırası declaration sırasının tersidir.
 - **C yanlış:** Aynı multi-catch içindeki alternatifler parent/child ilişkili
   olamaz; `Exception`, `IOException`ı zaten kapsar.
@@ -209,3 +272,21 @@ fırlatılsa bile resource otomatik olarak kapatılır.”
 `even if`, exception olasılığının sonucu değiştirmediğini belirten
 concession (ödünleme) yapısıdır. `is closed` ve `is thrown` passive voice
 yapılarıdır.
+
+### Soru 7 — C
+
+- **C doğru:** Kaynak olarak uygun türde bir `final` alan da kullanılabilir. Gövde `B`, kapanış `C` yazdırır: başarıyla derlenir ve `BC` üretir.
+- **A yanlış:** Sözdizimi yalnız yerel değişkenlerle sınırlı değildir; `this.resource` geçerli bir field access'tir.
+- **B yanlış:** Buradaki bildirilen tür `Resource` ve `close()` checked exception bildirmiyor. Türü `AutoCloseable` olsaydı `close()` imzasındaki `Exception` hesaba katılırdı.
+- **D yanlış:** Kaynak, gövde bittikten sonra kapanır.
+
+Kural: [JLS 17 §14.20.3](https://docs.oracle.com/javase/specs/jls/se17/html/jls-14.html#jls-14.20.3).
+
+### Soru 8 — B
+
+- **B doğru:** Gövde `T:` yazar; önce `b` kapanır ve `B` birincil olur. Ardından `a` kapanır; `A`, `B` üzerinde suppressed olarak saklanır. Sonuç `T:B:A` olur.
+- **A yanlış:** Kapanışlar bildirim sırasının tersindedir.
+- **C yanlış:** `A` gerçekten suppressed listesine eklenmiştir; `[0]` geçerlidir.
+- **D yanlış:** Record, `AutoCloseable` arayüzünü uygulayabilir.
+
+Örnek dil yanıtı: “B is primary because it is the first closing failure; A is suppressed.” → “İlk kapanış hatası B olduğundan B birincildir; A ikincil olarak saklanır.”

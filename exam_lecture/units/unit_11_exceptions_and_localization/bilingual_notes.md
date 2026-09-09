@@ -3744,40 +3744,48 @@ props.get("open", "The zoo will be open soon"); // DOES NOT COMPILE
 > exceptions inherit RuntimeException or Error and do not need to be handled or declared.
 > It is considered a poor practice to catch an Error.
 >
-> **Türkçe:** Bu bölüm, değişime iyi yanıt veren yapı uygulamaları etrafında yoğunlaşan çok çeşitli
-> konuları kapsıyordu. İstisnai işlemlerle görüşmeye başladık. İstisnalar iki kategoriye
-> ayrılabilir: kontrol edilmiş ve kontrol edilmemiş. Java'de checked exceptions varis
-> Exception ancak RuntimeException değil ve ele alınmalı veya ilan edilmelidir. Unchecked
-> exceptions miras RuntimeException veya Error ve ele alınması veya ilan edilmesi
-> gerekmez. Bir Error yakalamak için kötü bir uygulama olarak kabul edilir.
+> **Türkçe:** Bu bölüm, değişime iyi yanıt veren uygulamalar geliştirmeyi merkeze alan çeşitli
+> konuları ele aldı. İlk olarak exception handling (istisnaları ele alma) üzerinde
+> durduk. İstisnalar checked ve unchecked olarak ikiye ayrılır. Java'da checked
+> exception'lar `Exception` sınıfından türeyip `RuntimeException` kolunda yer almaz;
+> ele alınmaları veya bildirilmeleri gerekir. Unchecked exception'lar
+> `RuntimeException` ya da `Error` sınıfından türer ve bunlar için ele alma veya
+> bildirme zorunluluğu yoktur. `Error` yakalamak kötü bir uygulama olarak
+> değerlendirilir.
 
 > **English:** You can create your own checked or unchecked exceptions by extending Exception or
 > RuntimeException, respectively. You can also define custom constructors and messages for
 > your exceptions, which will show up in stack traces.
 >
-> **Türkçe:** Sırasıyla Exception veya RuntimeException uzatarak kendi kontrol edilen veya unchecked
-> exceptions oluşturabilirsiniz. İstisnalarınız için özel yapıcılar ve mesajlar da
-> tanımlayabilirsiniz, bu da yığın izlerinde görünecektir.
+> **Türkçe:** Sırasıyla `Exception` veya `RuntimeException` sınıfını genişleterek kendi checked ya da
+> unchecked exception sınıflarınızı oluşturabilirsiniz. İstisnalarınız için özel
+> constructor'lar ve çağrı yığını izlerinde görünecek mesajlar da tanımlayabilirsiniz.
 
 > **English:** Automatic resource management can be enabled by using a try-with-resources statement to
 > ensure that the resources are properly closed. Resources are closed at the conclusion of
 > the try block, in the reverse of the order in which they are declared. A suppressed
 > exception occurs when more than one exception is thrown, often as part of a finally
-> block or try-withresources close() operation.
+> block or try-with-resources close() operation.
 >
-> **Türkçe:** Otomatik kaynak yönetimi, kaynakların düzgün bir şekilde kapatılmasını sağlamak için bir
-> try-with-resources statement kullanılarak etkinleştirilebilir. Kaynaklar, ilan
-> edildikleri sıranın tersine, try block sonunda kapatılır. Bir suppressed exception,
-> genellikle bir finally block veya close() işleminin bir parçası olarak birden fazla
-> istisna atıldığında ortaya çıkar.
+> **Türkçe:** Kaynakların düzgün kapatılmasını sağlamak için try-with-resources deyimiyle otomatik
+> kaynak yönetimi kullanılabilir. Kaynaklar, `try` bloğu sona erdiğinde,
+> bildirildikleri sıranın tersinde kapatılır. Kaynak metin, birden fazla istisna
+> fırlatılan durumlarda suppressed exception oluşabileceğini söyler ve `finally` bloğu
+> ile try-with-resources `close()` işlemini bu bağlamda anar.
+
+> **Java 17 editör notu:** Normal bir `finally` bloğunun yeni istisna fırlatması, önceki
+> istisnayı otomatik olarak `getSuppressed()` listesine eklemez. Try-with-resources
+> kapanış mekanizması bunu yapar. Kaynağın bu özet cümlesini bütün `finally` bloklarına
+> genelleme. `Error` yakalamak da sözdizimsel olarak yasak değildir; metin bunun kötü
+> uygulama olduğu konusunda uyarır.
 
 > **English:** Java includes a number of built-in classes to format numbers and dates. We reviewed how
 > to create custom formatters for each. You should be able to read these custom formats
 > when you encounter them on the exam.
 >
-> **Türkçe:** Java, sayıları ve tarihleri biçimlendirmek için bir dizi yerleşik sınıf içerir. Her biri
-> için özel biçimlendiricilerin nasıl oluşturulacağını gözden geçirdik. Sınavda
-> karşılaştığınızda bu özel formatları okuyabilmelisiniz.
+> **Türkçe:** Java, sayıları ve tarihleri biçimlendirmek için çeşitli yerleşik sınıflar sunar. Her
+> biri için özel biçimlendiricilerin nasıl oluşturulacağını gözden geçirdik. Sınavda
+> karşılaştığınız özel biçimlendirme kalıplarını okuyup yorumlayabilmelisiniz.
 
 > **English:** Localization involves creating programs that adapt to change. You can create a Locale
 > class with a required lowercase language code and optional uppercase country code. For
@@ -3785,11 +3793,11 @@ props.get("open", "The zoo will be open soon"); // DOES NOT COMPILE
 > to know how to format number and date/time values based on locale, including the new
 > CompactNumberFormat class.
 >
-> **Türkçe:** Yerelleştirme, değişime uyum sağlayan programlar oluşturmayı içerir. Gerekli bir küçük
-> harf dil kodu ve optional büyük harf ülke koduna sahip bir Locale sınıfı
-> oluşturabilirsiniz. Örneğin, en ve en_US İngilizce için locales ve U.S dir. Sırasıyla
-> İngilizce. Yeni CompactNumberFormat sınıfı da dahil olmak üzere locale tabanlı sayı ve
-> tarih/saat değerlerini nasıl biçimlendireceğinizi bilmeniz gerekir.
+> **Türkçe:** Yerelleştirme, değişime uyum sağlayan programlar oluşturmayı içerir. Küçük harfli dil
+> kodu ve isteğe bağlı büyük harfli ülke koduyla bir `Locale` nesnesi
+> oluşturabilirsiniz. Örneğin `en` İngilizceyi, `en_US` ise ABD İngilizcesini temsil
+> eder. `CompactNumberFormat` dahil biçimlendiricilerle sayı ve tarih/saat değerlerini
+> dil/bölge ayarına göre nasıl göstereceğinizi bilmelisiniz.
 
 > **English:** A ResourceBundle allows specifying key/value pairs in a properties file. Java goes
 > through candidate resource bundles from the most specific to the most general to find a
@@ -3797,98 +3805,118 @@ props.get("open", "The zoo will be open soon"); // DOES NOT COMPILE
 > locale and then finally the default resource bundle. Once a matching resource bundle is
 > found, Java looks only in the hierarchy of that resource bundle to select values.
 >
-> **Türkçe:** Bir ResourceBundle, bir properties file içindeki anahtar/değer çiftlerinin
-> belirlenmesine izin verir. Java bir eşleşme bulmak için en özelden en genele resource
-> bundles aday geçer. İstenen locale için herhangi bir eşleşme bulunmazsa, Java default
-> locale ve son olarak varsayılan resource bundle'e geçer. Eşleşen bir resource bundle
-> bulunduktan sonra, Java değerleri seçmek için yalnızca o resource bundle hiyerarşisinde
-> görünür.
+> **Türkçe:** `ResourceBundle`, bir properties dosyasında anahtar/değer çiftleri tanımlamayı sağlar.
+> Java, eşleşme bulmak için aday kaynak demetlerini en özelden en genele doğru tarar.
+> İstenen dil/bölge ayarı için eşleşme bulunamazsa varsayılan dil/bölge ayarı, ardından
+> temel kaynak demeti değerlendirilir. Eşleşen kaynak demeti seçildikten sonra Java,
+> değer aramasını yalnız o demetin hiyerarşisinde sürdürür.
 
 > **English:** By applying the principles you learned about in this chapter to your own projects, you
 > can build applications that last longer, with built-in support for whatever unexpected
 > events may arise.
 >
-> **Türkçe:** Bu bölümde öğrendiğiniz ilkeleri kendi projelerinize uygulayarak, beklenmedik olaylar
-> ortaya çıkarsa yerleşik destekle daha uzun ömürlü uygulamalar oluşturabilirsiniz.
+> **Türkçe:** Bu bölümde öğrendiğiniz ilkeleri kendi projelerinize uygulayarak, ortaya çıkabilecek
+> beklenmedik olaylara yönelik desteği baştan içeren, daha uzun ömürlü uygulamalar
+> geliştirebilirsiniz.
 
 <!-- source-page: 0647 -->
 ## Exam Essentials
-> **English:** Understand the various types of exceptions.All exceptions are subclasses of
+
+> **Dil çalışması:** Bu başlıktaki kelimeler için [ünite sözlüğüne](vocabulary.md) bak.
+
+> **English:** Understand the various types of exceptions. All exceptions are subclasses of
 > java.lang.Throwable. Subclasses of java.lang.Error should never be caught. Only
 > subclasses of java.lang.Exception should be handled in application code.
 >
-> **Türkçe:** exceptions.All istisnalarının çeşitli türlerini anlamak java.lang.Throwable alt
-> sınıflarıdır. java.lang.Error alt sınıfları asla yakalanmamalıdır. Sadece
-> java.lang.Exception alt sınıfları uygulama kodunda ele alınmalıdır.
-> **English:** Differentiate between checked and unchecked exceptions.Unchecked exceptions do not need
+> **Türkçe:** Çeşitli istisna türlerini anlayın. Bütün istisna sınıfları `java.lang.Throwable`
+> sınıfının alt sınıflarıdır. Kaynak, `java.lang.Error` alt sınıflarının
+> yakalanmamasını; uygulama kodunda yalnız `java.lang.Exception` alt sınıflarının ele
+> alınmasını önerir.
+
+> **English:** Differentiate between checked and unchecked exceptions. Unchecked exceptions do not need
 > to be caught or handled and are subclasses of java.lang.RuntimeException or
 > java.lang.Error. All other subclasses of java.lang.Exception are checked exceptions and
 > must be handled or declared.
 >
-> **Türkçe:** Kontrol edilen ve kontrol edilmeyen exceptions.Unchecked istisnaları arasında ayrım
-> yapmak, yakalanmak veya ele almak zorunda değildir ve java.lang.RuntimeException veya
-> java.lang.Error alt sınıflarıdır. java.lang.Exception'un diğer tüm alt sınıfları checked
-> exceptions'tür ve ele alınmalı veya ilan edilmelidir.
-> **English:** Understand the flow of a try statement.A try statement must have a catch or a finally
+> **Türkçe:** Checked ve unchecked exception ayrımını yapın. Unchecked exception'ların yakalanması
+> veya ele alınması zorunlu değildir; bunlar `java.lang.RuntimeException` ya da
+> `java.lang.Error` alt sınıflarıdır. `java.lang.Exception` sınıfının bu kollar dışında
+> kalan alt sınıfları checked exception'dır ve ele alınmaları veya bildirilmeleri
+> gerekir.
+
+> **English:** Understand the flow of a try statement. A try statement must have a catch or a finally
 > block. Multiple catch blocks can be chained together, provided no superclass exception
 > type appears in an earlier catch block than its subclass. A multi-catch expression may
 > be used to handle multiple exceptions in the same catch block, provided one exception is
 > not a subclass of another. The finally block runs last regardless of whether an
 > exception is thrown.
 >
-> **Türkçe:** Bir try statement.A try ifadesinin akışını anlayın, bir yakalama veya finally block
-> olmalıdır. Birden fazla catch blocks, alt sınıfından daha önceki bir catch block içinde
-> süper sınıf istisna türü görünmediği sürece birlikte zincirlenebilir. Aynı catch block
-> içinde birden fazla istisnayı işlemek için çok yakalamalı bir ifade kullanılabilir,
-> ancak bir istisna diğerinin alt sınıfı değildir. finally block bir istisna atılıp
-> atılmadığına bakılmaksızın son çalışır.
-> **English:** Be able to follow the order of a try-with-resources statement.A try-with-resources
+> **Türkçe:** Bir `try` deyiminin kontrol akışını anlayın. Geleneksel bir `try` deyiminin en az bir
+> `catch` veya `finally` bloğu olmalıdır. Üst sınıf istisnasını yakalayan blok, alt
+> sınıfını yakalayan bloktan önce gelmediği sürece birden fazla `catch` bloğu
+> sıralanabilir. Aynı multi-catch içinde ele alınan istisna türleri birbirinin alt
+> sınıfı olamaz. Normal JVM kontrol akışında `finally` bloğu, istisna fırlatılıp
+> fırlatılmadığına bakılmaksızın en son çalışır.
+
+> **English:** Be able to follow the order of a try-with-resources statement. A try-with-resources
 > statement is a special type of try block in which one or more resources are declared and
 > automatically closed in the reverse of the order in which they are declared. It can be
 > used with or without a catch or finally block, with the implicit finally block always
 > executed first.
 >
-> **Türkçe:** try-with-resources statement.A try-with-resources statement sırasını takip edebilmek,
-> bir veya daha fazla kaynağın beyan edildiği ve ilan edildikleri sıranın tersine otomatik
-> olarak kapatıldığı özel bir try block türüdür. Bir yakalama veya finally block ile
-> birlikte veya olmadan kullanılabilir, örtülü finally block her zaman önce çalıştırılır.
-> **English:** Be able to write methods that declare exceptions.Understand the difference between the
+> **Türkçe:** Try-with-resources deyimindeki işlem sırasını izleyebilmelisiniz. Bu özel `try`
+> biçiminde bir veya daha fazla kaynak bildirilir ve kaynaklar bildirildikleri sıranın
+> tersinde otomatik olarak kapatılır. `catch` veya `finally` bloğuyla ya da bu bloklar
+> olmadan kullanılabilir. Otomatik kaynak kapanışı, varsa açıkça yazılmış `catch` ve
+> `finally` bloklarından önce gerçekleşir.
+
+> **English:** Be able to write methods that declare exceptions. Understand the difference between the
 > throw and throws keywords and how to declare methods with exceptions. Know how to
 > correctly override a method that declares exceptions.
 >
-> **Türkçe:** exceptions.Understand atma ve atma arasındaki farkı ve istisnalarla yöntemlerin nasıl
-> beyan edileceğini bildiren yöntemler yazabilin. İstisnalar bildiren bir yöntemi doğru
-> bir şekilde geçersiz kılmayı bilin.
-> **English:** Identify valid locale strings.Know that the language code is lowercase and mandatory,
+> **Türkçe:** İstisna bildiren metotlar yazabilmelisiniz. `throw` ve `throws` anahtar kelimeleri
+> arasındaki farkı ve metot imzasında istisnaların nasıl bildirildiğini anlayın.
+> İstisna bildiren bir metodun doğru biçimde nasıl override edileceğini bilin.
+
+> **English:** Identify valid locale strings. Know that the language code is lowercase and mandatory,
 > while the country code is uppercase and optional. Be able to select a locale using a
 > built-in constant, constructor, or builder class.
 >
-> **Türkçe:** Geçerli locale strings.Know dil kodunun küçük ve zorunlu olduğunu, ülke kodunun büyük ve
-> optional olduğunu belirtin. Yerleşik sabit, constructor veya builder sınıfı kullanarak
-> bir locale seçebilme.
-> **English:** Format dates, numbers, and messages.Be able to format dates, numbers, and messages into
+> **Türkçe:** Geçerli dil/bölge ayarı gösterimlerini tanıyın. Dil kodunun küçük harfli, ülke kodunun
+> ise büyük harfli ve isteğe bağlı olduğunu bilin. Yerleşik bir sabit, constructor veya
+> builder kullanarak bir `Locale` seçebilmelisiniz.
+
+> **English:** Format dates, numbers, and messages. Be able to format dates, numbers, and messages into
 > various String formats, and know how locale influences these formats. Know how the
 > various number formatters (currency, percent, compact) differ. Be able to write a custom
 > date or number formatter using symbols, including how to escape literal values.
 >
-> **Türkçe:** Tarihleri, sayıları ve messages.Be iletileri çeşitli String formatlarına
-> biçimlendirebilir ve locale'nin bu formatları nasıl etkilediğini bilir. Çeşitli sayı
-> formatlayıcılarının (para birimi, yüzde, kompakt) nasıl farklılık gösterdiğini bilin.
-> Gerçek değerlerden nasıl kaçılacağı da dahil olmak üzere semboller kullanarak özel bir
-> tarih veya sayı biçimlendirici yazabilme.
-> **English:** Determine which resource bundle Java will use to look up a key.Be able to create
+> **Türkçe:** Tarihleri, sayıları ve mesajları biçimlendirin. Bunları çeşitli `String` biçimlerine
+> dönüştürebilmeli ve dil/bölge ayarının bu biçimleri nasıl etkilediğini bilmelisiniz.
+> Para birimi, yüzde ve kısa sayı gösterimi sunan biçimlendiricilerin farklarını
+> öğrenin. Özel tarih veya sayı kalıpları yazabilmeli; kalıpta aynen gösterilecek
+> metnin nasıl escape edildiğini, yani biçimlendirme simgesi olarak yorumlanmasının
+> nasıl önlendiğini bilmelisiniz.
+
+> **English:** Determine which resource bundle Java will use to look up a key. Be able to create
 > resource bundles for a set of locales using properties files. Know the search order that
 > Java uses to select a resource bundle and how the default locale and default resource
 > bundle are considered. Once a resource bundle is found, recognize the hierarchy used to
 > select values.
 >
-> **Türkçe:** resource bundle properties files kullanarak set locales için key.Be oluşturabilen bir
-> resource bundles aramak için hangi Java kullanacağını belirleyin. Java'nın bir resource
-> bundle seçmek için kullandığı arama sırasını ve default locale ve varsayılan resource
-> bundle'un nasıl kabul edildiğini bilin. Bir resource bundle bulunduktan sonra, değerleri
-> seçmek için kullanılan hiyerarşiyi tanıyın.
+> **Türkçe:** Java'nın bir anahtarı aramak için hangi kaynak demetini kullanacağını belirleyin. Bir
+> dizi dil/bölge ayarı için properties dosyalarıyla kaynak demetleri
+> oluşturabilmelisiniz. Java'nın kaynak demeti seçerken izlediği arama sırasını,
+> varsayılan dil/bölge ayarını ve temel demeti nasıl değerlendirdiğini bilin. Bir demet
+> seçildikten sonra değerlerin hangi hiyerarşide arandığını saptayın.
 
 <!-- source-page: 0648 -->
+
+> **Java 17 editör notu:** `Locale` örneklerindeki dil/ülke kodları bir gösterim
+> kuralıdır; constructor boş dil kodunu kabul edebilir ve verilen kodun gerçek bir
+> dili temsil ettiğini doğrulamaz. `finally`, JVM sonlandırıldığında çalışmayabilir.
+> Ayrıntılar: [teknik hafıza notu](technical_memory_notes.md).
+
 ## Review Questions
 > **English:** The answers to the chapter review questions can be found in the Appendix.
 >

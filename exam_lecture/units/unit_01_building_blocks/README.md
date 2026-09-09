@@ -21,27 +21,56 @@ programa giden yolu ve değişkenlerin yaşam döngüsünü OCP odaklı biçimde
 | [Teknik hafıza notu](technical_memory_notes.md) · [PDF](technical_memory_notes.pdf) | Ana okumadan sonra veya sınav öncesi hızlı tekrarda | Compile → runtime → result karar akışını kurmak |
 | [Unit 01 vocabulary](vocabulary.md) · [PDF](vocabulary.pdf) | Teknik kelimeleri tanımakta zorlandığında | Terimi anlamı, örneği ve word family'siyle hatırlamak |
 | [Unit 01 grammar notes](grammar_notes.md) · [PDF](grammar_notes.pdf) | İngilizce cümlenin anlam ilişkisi belirsiz kaldığında | Teknik metindeki grammar yapısını ve YDS ipucunu çözmek |
-| [Özgün practice quiz](practice_quiz.md) · [PDF](practice_quiz.pdf) | Konuyu çalıştıktan sonra, notlar kapalıyken | Altı soruyla derleme, çıktı, OCP trap ve teknik İngilizce kontrolü yapmak |
+| [Özgün practice quiz](practice_quiz.md) · [PDF](practice_quiz.pdf) | Konuyu çalıştıktan sonra, notlar kapalıyken | Sekiz soruyla derleme, çıktı, OCP trap ve teknik İngilizce kontrolü yapmak |
 | [Kaynak Review Questions](bilingual_notes.md#review-questions) · [Ana PDF](bilingual_notes.pdf) | Ana konuyu bitirdikten sonra kaynak bölüm-sonu sorularını çözerken | Özgün soru metnini, Java kodunu ve seçenekleri eksiksiz takip etmek |
 
 > **İlk ziyaret için:** Ana not ayrıntılı bir kaynak arşividir; tek oturumda
 > bitirmeye çalışma. Önce aşağıdaki konu haritasından bir bölüm seç.
 
-## 45–60 dakikalık önerilen çalışma rotası
+## Çalışanlar için 25–30 dakikalık çalışma rotası
 
-1. **0–5 dk · Hedef koy:** Learning objectives ve konu haritasından bir alt konu
-   seç.
-2. **5–25 dk · Ana okuma:** Seçtiğin bölümde önce English paragrafı oku, Türkçe
-   anlamı tahmin et, sonra çeviriyle karşılaştır. OCP kutularında kodun
-   derlenip derlenmeyeceğini önceden söyle.
-3. **25–35 dk · Teknik sıkıştırma:** Teknik hafıza notundaki ilgili karar kartını
-   kapatıp kuralı kendi cümlenle anlat.
-4. **35–45 dk · Dil tekrarı:** Vocabulary'den beş terim ve grammar notundan bir
-   yapı seç; mini quizleri cevapla.
-5. **45–55 dk · Ölçme:** Practice quiz'i cevap anahtarına bakmadan çöz. Ana
-   nottaki Review Questions'dan zorlandığın bir soruyu da yeniden dene.
-6. **55–60 dk · Hata kaydı:** Yanlışını “compile-time / runtime / output /
-   English” etiketlerinden biriyle not et.
+Her satır bir **konu durağıdır**; ünitenin tamamını tek oturumda bitirme hedefi
+koymaz. Özellikle soru sayısı fazla olan durağı aynı düzenle birkaç güne böl.
+Bir oturumda 2–3 kaynak sorusu ve en fazla 5 yeni kelime yeterlidir. Soru
+numaraları bu ünitenin kitabındaki Review Questions numaralarıdır.
+
+| Durak | Ana notta okunacak bölüm | Kaynak soruları | Kelime ve grammar odağı |
+|---|---|---|---|
+| 1. Araçlar ve giriş noktası | [JDK/JVM, `javac`/`java` ve `main()`](bilingual_notes.md#learning-about-the-environment) | 1, 2, 11, 13 | compile / run / precede; Amaç `to + V1` |
+| 2. Nesne ve başlatma | [Constructor, field ve initializer sırası](bilingual_notes.md#creating-objects) | 3, 17, 20, 21 | declaration / initialize / instance; `before` / `after` |
+| 3. Türler ve literal | [Primitive/reference, wrapper, text block](bilingual_notes.md#understanding-data-types) | 4, 7, 9, 14, 16, 19 | essential / incidental whitespace; `which/that` ile niteleme |
+| 4. Yerel değişkenler | [Definite assignment, `var`, çoklu bildirim](bilingual_notes.md#initializing-variables) | 8, 10, 12, 18, 22, 23 | explicitly / restricted identifier; Modal passive `must be + V3` |
+| 5. Kapsam ve yaşam süresi | [Scope, reachability ve garbage collection](bilingual_notes.md#managing-variable-scope) | 5, 6, 15 | reachable / eligibility / reclaim; `unless` ve koşul |
+
+**Tek oturumun akışı:** 3 dk önceki kuralı notsuz hatırla → 10 dk bir alt
+başlıkta English/Türkçe okuma → 8 dk iki kaynak sorusu → 5 dk kelime ve bir
+cümle çözümleme → 2 dk hata kaydı. Metni yetiştirmek için tahmin yapma; kalan
+alt başlığa sonraki oturumda devam et.
+
+Soruyu çözerken önce **derlenir mi → çalışırsa exception/sonlanma sorunu var mı
+→ çıktı ne** sırasını izle. Ardından [kaynak cevaplarıyla kontrol](bilingual_notes.md#appendix--kaynak-cevaplarıyla-kontrol)
+bölümünü aç. Bu bölüm kitabın cevap harflerini özgün Türkçe gerekçeyle açıklar;
+[practice quiz](practice_quiz.md) ise ayrı özgün sorulardır.
+
+### 1 / 3 / 7 / 14 gün tekrar
+
+- **1 gün sonra · 5 dk:** Dünkü beş kelimenin Türkçesini kapat, iki yanlış
+  sorunun kuralını söyle, bir English cümlede özne ve çekimli fiili işaretle.
+- **3 gün sonra · 8 dk:** İki eski soruyu seçenekleri kapatarak yeniden çöz;
+  aynı grammar kalıbıyla bir Java cümlesi kur.
+- **7 gün sonra · 10 dk:** [Practice quiz](practice_quiz.md) içinden dört
+  soruyu karışık çöz; yanlışının nedenini [teknik notta](technical_memory_notes.md) bul.
+- **14 gün sonra · 10 dk:** Önce yanlış yaptığın iki kaynak sorusu, beş kelime
+  ve bir çeviriyi yeniden dene. Hâlâ açıklayamadığın maddeyi bir sonraki tekrar
+  gününe taşı. Bunlar önerilen çalışma aralıklarıdır; kişisel tempona uyarla.
+
+**İlerleme ölçütü:** Son beş kaynak sorusunun en az dördünü bütün seçenekleriyle
+doğru gerekçelendirebil; seçtiğin beş kelimeden dördünü yeni cümlede kullan;
+bir cümlenin ana yargısını ve koşul/karşıtlık ilişkisini çeviriyi açmadan söyle.
+Yapamıyorsan bütün üniteyi yeniden okumak yerine ilgili alt başlığa dön.
+
+**Kısa hata kaydı:** `Tarih | Soru/kelime | Benim cevabım | Doğru kural ve neden |
+Bir sonraki tekrar`. Yalnız harf kaydetmek, aynı tuzağı yeniden fark etmeyi sağlamaz.
 
 ## Önkoşul ve konu haritası
 

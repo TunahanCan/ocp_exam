@@ -3311,6 +3311,9 @@ String data = reader.readLine(); // IOException
 > InputStream uygulaması, kapalı bir I/O stream üzerinde çalışmaya çalışırsanız bir
 > istisna atar.
 ### Acquiring Input with Console
+
+> **Dil çalışması:** Bu başlıktaki kelimeler için [ünite sözlüğüne](vocabulary.md) bak.
+
 > **English:** The java.io. Console class is specifically designed to handle user interactions. After
 > all, System.in and System.out are just raw streams, whereas Console is a class with
 > numerous methods centered around user input.
@@ -3528,6 +3531,9 @@ Passwords match
 
 <!-- source-page: 0838 -->
 ### Manipulating Input Streams
+
+> **Dil çalışması:** Bu başlıktaki kelimeler için [ünite sözlüğüne](vocabulary.md) bak.
+
 > **English:** All input stream classes include the following methods to manipulate the order in which
 > data is read from an I/O stream:
 >
@@ -4325,28 +4331,31 @@ s.forEach(System.out::println);
 > discussed methods for listing a directory, walking a directory tree, searching a
 > directory tree, and reading the lines of a file.
 >
-> **Türkçe:** Bu bölüm data okuma ve yazma üzerinedir. Önce legacy I/O API'sinde `File`, NIO.2'de
-> ise `Path` oluşturmayı gösterdik. Ardından NIO.2-specific API'lere geçmeden önce I/O ve
-> NIO.2'nin ortak functionality'sini ele aldık. `Path` object'lerini başka `Path`
-> object'leriyle combine etme ve `resolve()` etme davranışını bilmelisiniz. NIO.2,
-> file ve directory'leri işlemek için Stream API method'ları da sunar. Directory
-> listeleme, directory tree walking/searching ve file line'larını okuma method'larını
-> inceledik.
+> **Türkçe:** Bu bölüm, veri okuma ve yazmayı ele alır. Önce I/O API’sindeki `File` ve NIO.2’deki
+> `Path` nesnelerinin oluşturulmasını gösterdik. Ardından NIO.2’ye özgü API’lere
+> geçmeden önce iki yaklaşımın ortak işlevlerini inceledik. `Path` nesnelerini
+> birleştirme ve `resolve()` ile başka bir yola göre çözümleme davranışını
+> bilmelisiniz. NIO.2, dosya ve dizin işlemek için Stream API metotları da sunar. Dizin
+> listeleme, dizin ağacını dolaşma ve arama, dosyanın satırlarını okuma işlemlerini ele
+> aldık.
+
 > **English:** We spent time reviewing various methods available in the Files helper class. As
 > discussed, the name of the function often tells you exactly what it does. We explained
 > that most of these methods are capable of throwing an IOException, and many take
 > optional varargs enum values.
 >
-> **Türkçe:** `Files` helper class'ındaki çeşitli method'ları gözden geçirdik. Method adı çoğu zaman
-> ne yaptığını doğrudan açıklar. Bu method'ların çoğu `IOException` fırlatabilir ve
-> birçoğu isteğe bağlı varargs enum value'ları alır.
+> **Türkçe:** `Files` yardımcı sınıfının çeşitli metotlarını gözden geçirdik. Metot adı çoğunlukla
+> yaptığı işi açıklar. Bu metotların çoğu `IOException` fırlatabilir; birçoğu isteğe
+> bağlı enum değerlerini varargs biçiminde alır.
+
 > **English:** We then introduced I/O streams and explained how they are used to read or write large
 > quantities of data. While there are a lot of I/O streams, they differ on some key
 > points:
 >
-> **Türkçe:** Ardından I/O stream'leri tanıtıp büyük miktarda data okumak veya yazmak için nasıl
-> kullanıldıklarını açıkladık. Çok sayıda I/O stream olsa da temel ayrım noktaları
+> **Türkçe:** Daha sonra I/O akışlarını tanıttık ve büyük miktarda veriyi okumak veya yazmak için
+> nasıl kullanıldıklarını açıkladık. Çok sayıda akış türü olsa da temel ayrımlar
 > şunlardır:
+
 > **English:** Byte vs.character streams Input vs.output streams Low-level vs.high-level streams
 > Often, the name of the I/O stream can tell you a lot about what it does. We visited many
 > of the I/O stream classes that you will need to know for the exam in increasing order of
@@ -4356,31 +4365,32 @@ s.forEach(System.out::println);
 > means to be serializable in Java, and we showed you how to use the object stream classes
 > to persist objects directly to and from disk.
 >
-> **Türkçe:** Byte stream–character stream, input–output ve low-level–high-level ayrımları
-> önemlidir. I/O stream adı çoğu zaman ne yaptığını açıklar. Sınav için gereken class'lar,
-> artan complexity sırasıyla incelendi. Yaygın pattern, low-level resource veya file
-> stream ile başlayıp performance için buffered I/O stream ile wrap etmektir. Object
-> stream ya da print stream gibi high-level stream'ler data'yı işlemek için eklenebilir.
-> Ayrıca Java serialization kavramı ve object stream class'larıyla object'leri disk'e
-> persist etme ve disk'ten geri okuma anlatıldı.
+> **Türkçe:** Bayt/karakter, girdi/çıktı ve alt düzey/üst düzey akış ayrımlarını bilin. Bir akışın
+> adı çoğunlukla yaptığı iş hakkında bilgi verir. Sınavda bilinmesi gereken sınıfları,
+> karmaşıklığı artacak biçimde inceledik. Yaygın kullanımda alt düzey bir kaynak veya
+> dosya akışı, performans için tamponlu akışla sarmalanır. Veriyi işlemek için nesne
+> veya yazdırma akışı gibi üst düzey akışlar da eklenebilir. Java’da serileştirilebilir
+> olmanın anlamını, nesneleri diskte kalıcı olarak saklamayı ve nesne akışlarıyla geri
+> okumayı ele aldık.
+
 > **English:** We explained how to read input data from the user using both the system stream objects
 > and the Console class. The Console class has many useful features, such as built-in
 > support for passwords and formatting.
 >
-> **Türkçe:** Kullanıcı input'unun hem system stream object'leri hem de `Console` class'ı ile nasıl
-> okunacağını açıkladık. `Console`, password okuma ve formatting için built-in support
+> **Türkçe:** Kullanıcı girdisinin hem standart sistem akışları hem `Console` sınıfıyla nasıl
+> okunacağını açıkladık. `Console`, parola okuma ve biçimlendirme için yerleşik destek
 > gibi yararlı özellikler sunar.
+
 > **English:** We also discussed how NIO.2 provides methods for reading and writing file metadata.
 > NIO.2 includes two methods for retrieving all of the file system attributes for a path
 > in a single call without numerous round trips to the operating system. One method
 > requires a read-only attribute type, while the second method requires an updatable view
 > type. It also allows NIO.2 to support operating system–specific file attributes.
 >
-> **Türkçe:** NIO.2'nin file metadata'sını okumak ve yazmak için sunduğu method'ları da ele aldık.
-> NIO.2, operating system'e çok sayıda round trip yapmadan bir path'in bütün file-system
-> attribute'larını tek call'da almak için iki yaklaşım içerir. Biri read-only attribute
-> type, diğeri updatable view type gerektirir. Bu yapı NIO.2'nin
-> operating-system-specific file attribute'larını da desteklemesini sağlar.
+> **Türkçe:** NIO.2’nin dosya üst verilerini okuma ve değiştirme olanaklarını da inceledik. Bir yola
+> ait öznitelikleri ayrı ayrı sorgulamak yerine topluca okumak için iki yaklaşım
+> vardır: salt okunur öznitelik nesnesi almak veya güncellenebilir bir görünüm
+> kullanmak. Bu API’ler, işletim sistemine özgü dosya özniteliklerini de destekler.
 
 <!-- source-page: 0851 -->
 ## Exam Essentials
@@ -4390,10 +4400,11 @@ s.forEach(System.out::println);
 > turn may contain other directories. The root directory is the topmost directory in a
 > file system.
 >
-> **Türkçe:** File ve directory'leri anlayın. File, hard disk gibi kalıcı storage device üzerinde
-> data tutan ve application sona erdikten sonra da varlığını sürdüren bir record'dur.
-> File'lar file system içinde directory'lerde düzenlenir; directory'ler başka
-> directory'ler de içerebilir. Root directory, file system'deki en üst directory'dir.
+> **Türkçe:** Dosya ve dizin kavramlarını anlayın. Dosya, sabit disk gibi kalıcı bir depolama
+> ortamında veri tutar; uygulama sona erdikten sonra da varlığını sürdürebilir.
+> Dosyalar dizinler içinde düzenlenir; dizinler başka dizinler de içerebilir. Kök
+> dizin, dosya sisteminin en üst dizinidir.
+
 > **English:** Be able to use File and Path. An I/O File instance is created by calling the
 > constructor. It contains a number of instance methods for creating and manipulating a
 > file or directory. An NIO.2 Path instance is an immutable object that is commonly
@@ -4401,12 +4412,13 @@ s.forEach(System.out::println);
 > FileSystem, java.net.URI, or java.io.File instances. The Path interface includes many
 > instance methods for reading and manipulating the abstract path value.
 >
-> **Türkçe:** `File` ve `Path` kullanabilin. I/O `File` instance'ı constructor çağrısıyla oluşturulur
-> ve file/directory oluşturup yönetmeye yarayan instance method'lar içerir. NIO.2 `Path`,
-> çoğunlukla `Paths.get()` veya `Path.of()` factory method'larıyla oluşturulan immutable
-> bir object'tir; `FileSystem`, `java.net.URI` veya `java.io.File` instance'larından da
-> elde edilebilir. `Path` interface'i abstract path value'yu okumak ve değiştirilmiş yeni
-> değerler üretmek için birçok instance method içerir.
+> **Türkçe:** `File` ve `Path` kullanabilin. `File` nesnesi constructor çağrısıyla oluşturulur; dosya
+> ve dizin oluşturma veya yönetme metotları sunar. `Path`, çoğunlukla `Paths.get()`
+> veya `Path.of()` üretici metotlarıyla oluşturulan, değiştirilemez bir yol nesnesidir.
+> `FileSystem`, `java.net.URI` veya `java.io.File` üzerinden de elde edilebilir. `Path`
+> metotları, soyut yol değerini inceler veya özgün nesneyi değiştirmeden dönüştürülmüş
+> sonuçlar üretir.
+
 > **English:** Distinguish between types of I/O streams. I/O streams are categorized by byte/character,
 > input/output, and low-level/high-level. Byte streams operate on binary data and have
 > names that end with Stream, while character streams operate on text data and have names
@@ -4417,44 +4429,47 @@ s.forEach(System.out::println);
 > stream operates on a lowlevel or other high-level stream to filter data, convert data,
 > or improve performance.
 >
-> **Türkçe:** I/O stream türlerini ayırt edin. I/O stream'ler byte/character, input/output ve
-> low-level/high-level eksenlerinde sınıflandırılır. Byte stream'ler binary data üzerinde
-> çalışır ve adları `Stream` ile; character stream'ler text data üzerinde çalışır ve
-> adları `Reader` veya `Writer` ile biter. `InputStream` ile `Reader` data alan,
-> `OutputStream` ile `Writer` data gönderen en üst abstract class'lardır. Low-level
-> stream file veya network connection gibi alttaki resource'a doğrudan bağlanır.
-> High-level stream ise data'yı filter/convert etmek ya da performance'ı artırmak için
-> low-level veya başka bir high-level stream üzerinde çalışır.
+> **Türkçe:** I/O akış türlerini ayırt edin. Akışlar bayt/karakter, girdi/çıktı ve alt düzey/üst
+> düzey olarak sınıflandırılır. Bayt akışları ikili veriyi işler ve adları `Stream`
+> ile; karakter akışları metni işler ve adları `Reader` veya `Writer` ile biter.
+> `InputStream` ile `Reader` veri alan; `OutputStream` ile `Writer` veri gönderen temel
+> soyut sınıflardır. Alt düzey akış, dosya veya ağ bağlantısı gibi kaynağa doğrudan
+> bağlanır. Üst düzey akış, veriyi süzmek veya dönüştürmek ya da performansı artırmak
+> için başka bir akış üzerinde çalışır.
+
 > **English:** Understand how to use Java serialization. A class is considered serializable if it
 > implements the java.io.Serializable interface and contains instance members that are
 > either serializable or marked transient. All Java primitives and the String class are
 > serializable. The ObjectInputStream and ObjectOutputStream classes can be used to read
 > and write a Serializable object from and to an I/O stream, respectively.
 >
-> **Türkçe:** Java serialization kullanımını anlayın. Bir class, `java.io.Serializable` interface'ini
-> implement ediyor ve her instance member'ı serializable ya da `transient` ise class
-> serializable kabul edilir. Bütün Java primitive'leri ve `String` serializable'dır.
-> `ObjectInputStream` ve `ObjectOutputStream`, `Serializable` object'i sırasıyla bir
-> I/O stream'den okumak ve stream'e yazmak için kullanılır.
+> **Türkçe:** Java serileştirmesini kullanabilin. Bir sınıf, `java.io.Serializable` arayüzünü
+> uygulayarak serileştirmeye katılır. Serileştirilen nesne grafiğindeki `transient`
+> olmayan başvuru alanlarının gösterdiği nesneler de serileştirilebilir olmalıdır;
+> `null` başvurular sorun oluşturmaz. Primitive alanların değerleri doğrudan saklanır;
+> `String` sınıfı serileştirilebilirdir. `ObjectInputStream` ve `ObjectOutputStream`,
+> sırasıyla nesneleri akıştan okumak ve akışa yazmak için kullanılır.
+
 > **English:** Be able to interact with the user. Be able to interact with the user using the system
 > streams (System.out, System.err, and System.in) as well as the Console class. The
 > Console class includes special methods for formatting data and retrieving complex input
 > such as passwords.
 >
-> **Türkçe:** Kullanıcıyla etkileşim kurabilin. `System.out`, `System.err` ve `System.in` system
-> stream'leriyle ve `Console` class'ıyla kullanıcı etkileşimini bilin. `Console`, data
-> formatting ve password gibi karmaşık input'ları alma amacıyla özel method'lar içerir.
+> **Türkçe:** Kullanıcıyla etkileşim kurabilin. `System.out`, `System.err`, `System.in` ve `Console`
+> ile girdi/çıktı işlemlerini bilin. `Console`, veri biçimlendirme ve parola gibi özel
+> girdileri alma metotları içerir.
+
 > **English:** Manage file attributes. The NIO.2 Files class includes many methods for reading single
 > file attributes, such as its size or whether it is a directory, a symbolic link, hidden,
 > etc. NIO.2 also supports reading all of the attributes in a single call. An attribute
 > type is used to support operating system–specific views. Finally, NIO.2 supports
 > updatable views for modifying selected attributes.
 >
-> **Türkçe:** File attribute'ları yönetebilin. NIO.2 `Files` class'ı size, directory olma,
-> symbolic link olma veya hidden olma gibi individual attribute'ları okumak için birçok
-> method içerir. NIO.2 bütün attribute'ları tek call'da okumayı da destekler. Attribute
-> type'ları operating-system-specific view'lar için kullanılır; updatable view'lar ise
-> seçili attribute'ların değiştirilmesini sağlar.
+> **Türkçe:** Dosya özniteliklerini yönetebilmelisiniz. `Files`, dosya boyutunu ve bir öğenin dizin,
+> sembolik bağlantı veya gizli dosya olup olmadığını okumak için metotlar sunar.
+> Öznitelikler topluca da okunabilir. Öznitelik türleri ve görünümleri, işletim
+> sistemine özgü bilgileri destekler; güncellenebilir görünümler seçili öznitelikleri
+> değiştirmeyi sağlar.
 
 <!-- source-page: 0852 -->
 ## Review Questions

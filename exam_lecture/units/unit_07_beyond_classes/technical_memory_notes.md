@@ -97,12 +97,13 @@ final class Circle extends Shape {}
 non-sealed class Polygon extends Shape {}
 ```
 
-Sealed type yalnız permitted direct subtypes'a izin verir. Her direct subtype şu
-üç modifier'dan birini açıkça seçer:
+Sealed type yalnız izin verilen doğrudan alt türlere izin verir. Doğrudan alt tür olan **normal class** şu üç modifier’dan birini açıkça seçer; alt interface ise `sealed` veya `non-sealed` olabilir:
 
 - `final`: hierarchy burada kapanır,
 - `sealed`: yeni sınırlı bir permits halkası açılır,
 - `non-sealed`: bu daldan sonra normal açık inheritance devam eder.
+
+**Record/enum ayrımı:** Sealed interface’i gerçekleştiren record örtük final’dır; ayrıca final yazması gerekmez. Enum da sabite özgü class body içerip içermemesine göre örtük sealed veya final’dır. Bu yüzden “her alt tür mutlaka modifier’ı açıkça yazar” genellemesi yanlıştır. [Java 17 JLS §8](https://docs.oracle.com/javase/specs/jls/se17/html/jls-8.html#jls-8.1.6) · [Özgün Soru 8](practice_quiz.md#soru-8--sealed-interfacein-record-alt-türü).
 
 `permits` listesi omitted ise direct subtypes aynı compilation unit içinde
 bildirilerek compiler tarafından inferred edilebilir. Named module içinde
@@ -212,7 +213,7 @@ otomatik immutable olmaz. Gerekirse defensive copy uygulanır.
 1. Interface member'ın implicit modifiers'ını açıkça yaz.
 2. Default conflict veya missing abstract implementation var mı?
 3. Enum constant list semicolon ve constructor access doğru mu?
-4. Sealed direct subtype permitted mı ve `final/sealed/non-sealed` seçmiş mi?
+4. Sealed doğrudan alt tür izinli mi; normal class, interface ve record/enum modifier kurallarını ayrı uyguladım mı?
 5. Record constructor canonical mı; değilse `this(...)` ile delegate ediyor mu?
 6. Nested class için outer instance gerekiyor mu?
 7. Member compile-time reference'a mı, runtime object'e mi bağlı?
@@ -221,7 +222,7 @@ otomatik immutable olmaz. Gerekirse defensive copy uygulanır.
 ## Aktif hatırlama · Özgün çalışma soruları
 
 1. Interface static method implementing class tarafından inherited olur mu?
-2. Permitted sealed subclass modifier yazmadan bırakılabilir mi?
+2. Sealed üst sınıfı doğrudan genişleten normal class modifier yazmadan bırakılabilir mi?
 3. Record compact constructor field assignment'ı ne zaman gerçekleşir?
 4. `Animal a = new Cat(); Dog d = (Dog) a;` compile ve runtime sonucu nedir?
 

@@ -114,7 +114,9 @@ Genel eğilim bildirir: “genellikle ... eğiliminde olmak”.
 
 > **English:** “Functional programming tends to have a steep learning curve.”
 >
-> **Türkçe:** “Functional programming'in learning curve'ü genellikle diktir.”
+> **Türkçe:** “Fonksiyonel programlamayı öğrenmek başlangıçta genellikle zor gelir.”
+
+**Çözümleme:** `Functional programming` özne; `tends` çekimli fiil; `to have ...` fiilin tamamlayıcısıdır. `tends to`, kesin bir kural değil eğilim bildirir. `steep learning curve` bağlamda öğrenme zorluğunu anlatır. [Kaynak giriş](bilingual_notes.md#chapter-10--streams) · [Kelime kalıpları](vocabulary.md).
 
 `tend` kesinlik bildirmez; `always` kadar güçlü değildir.
 
@@ -188,8 +190,9 @@ whether + alternative/state A + or + alternative/state B
 >
 > **Türkçe:** “Önce `Optional`ın value içerip içermediğini kontrol ederiz.”
 
-`if` bazı indirect question'larda kullanılabilse de preposition sonrasında ve
-`whether ... or not` kalıbında `whether` daha güvenlidir.
+**Çözümleme:** `we` ana özne, `check` ana fiil; `whether the Optional contains a value` kontrolün nesnesi olan yan cümledir. Yan cümlede `the Optional` özne, `contains` fiildir; soru dizilimi kullanılmaz.
+
+`if` bazı indirect question’larda kullanılabilir: `check if it is empty or not`. Preposition sonrasında ve doğrudan `or not` öncesinde `whether` gerekir: `depends on whether ...`, `whether or not ...`; `if or not ...` yanlıştır. [Kaynak](bilingual_notes.md#dealing-with-an-empty-optional).
 
 ## 11. Purpose: `so that`
 
@@ -203,7 +206,9 @@ Amaç bildirir: “...abilmek için”.
 
 > **English:** “Use `limit()` so that the infinite stream can terminate.”
 >
-> **Türkçe:** “Infinite stream'in sona erebilmesi için `limit()` kullanın.”
+> **Türkçe:** “Sonsuz stream’in sona erebilmesi için `limit()` kullanın.”
+
+**Teknik sınır:** Bu özgün çalışma cümlesi bir amacı anlatır, başarı garantisi vermez. Sonsuz kaynağın ardından hiç öğe geçirmeyen filter varsa sonraki `limit(1)`e ulaşılamaz. [Pipeline sırası](bilingual_notes.md#putting-together-the-pipeline).
 
 `so` tek başına result, `so that` çoğunlukla purpose veya intended result
 bildirir.
@@ -233,7 +238,7 @@ Tercih veya contrast bildirir: “... yerine”.
 ### Yapı
 
 ```text
-result + unless + positive-form clause
+result + unless + clause
 ```
 
 Gerekli olumsuz koşulu kısa verir: “... olmadıkça”.
@@ -244,9 +249,11 @@ Gerekli olumsuz koşulu kısa verir: “... olmadıkça”.
 > **Türkçe:** “Bir operation erken sonlandırmadıkça infinite pipeline bitmez.”
 
 ```text
-unless it does not stop [YANLIŞ]  (double negative)
-unless it stops         [DOĞRU]
+unless it stops          → durmadıkça
+unless it does not stop  → durmaması durumu dışında
 ```
+
+İki biçim de dilbilgisel olabilir, fakat eş anlamlı değildir. `unless` içeren her cümlede otomatik olarak `not` yasaklama. Kaynak soruda durma koşulunu ayrı yaz: short-circuiting operation bulunması gerekli olabilir, **tek başına yeterli değildir**. [Kaynak pipeline](bilingual_notes.md#putting-together-the-pipeline).
 
 ## 14. `by + gerund` ile yöntem
 
@@ -261,8 +268,7 @@ Bir sonucun nasıl elde edildiğini anlatır: “... yaparak”.
 > **English:** “We calculate the average by adding the scores and dividing by
 > the number of scores.”
 >
-> **Türkçe:** “Average değerini score'ları toplayıp score sayısına bölerek
-> hesaplarız.”
+> **Türkçe:** “Ortalamayı, puanları toplayıp puan sayısına bölerek hesaplarız.”
 
 `by` sonrasında base verb değil gerund gelir.
 
@@ -332,11 +338,13 @@ the first/last/only + noun + to + V1
 
 İlgili eylemi yapan ilk/son/tek öğeyi kısa biçimde tanımlar.
 
-> **English:** “`findFirst()` returns the first element to match.”
+> **English (özgün çalışma cümlesi):** “After filtering, `findFirst()` returns an `Optional` describing the first element to reach it.”
 >
-> **Türkçe:** “`findFirst()`, eşleşen ilk element'ı döndürür.”
+> **Türkçe:** “Filtrelemeden sonra `findFirst()`, kendisine ulaşan ilk öğeyi temsil eden bir Optional döndürür.”
 
-Relative clause eşdeğeri: `the first element that matches`.
+`findFirst()` kendi predicate’ini almaz; öncesinde `filter()` kullanılmışsa filtreyi geçen ilk öğeyi alır. Encounter order yoksa herhangi bir öğe dönebilir; hiç öğe yoksa Optional boştur. [Kaynak](bilingual_notes.md#finding-a-value).
+
+Relative clause eşdeğeri: `the first element that reaches it`. Burada `to reach it`, `element` ismini niteler; `it`, `findFirst()` işlemine döner.
 
 ## 19. Cause: `since`
 
@@ -355,7 +363,7 @@ Bu ünite bağlamında çoğunlukla neden bildirir: “...dığı için”.
 Perfect tense ve başlangıç zamanı varsa “...den beri” anlamı da olabilir.
 Mantıksal cause-result ilişkisini kontrol et.
 
-## 20. `as if` / “think of ... as ...”
+## 20. `think of ... as ...`: benzetme
 
 ### Yapı
 
@@ -369,7 +377,7 @@ Bir kavramı analogy ile açıklamayı sağlar: “A'yı B gibi düşünmek”.
 >
 > **Türkçe:** “`Optional`ı empty olabilecek bir kutu gibi düşünün.”
 
-`as`, burada “olarak/gibi” anlamındadır; time veya cause bağlacı değildir.
+`as`, burada “olarak/gibi” anlamındadır; zaman veya neden bağlacı değildir. `as if + cümle` ayrı bir yapıdır: `as if it were a box` → “sanki bir kutuymuş gibi”. Bu örnekte `that might be empty`, box’ı niteleyen yan cümledir; `might` boş olma olasılığını bildirir. [Kaynak Optional](bilingual_notes.md#returning-an-optional).
 
 ## Mini quiz · Özgün YDS/teknik İngilizce çalışması
 

@@ -21,19 +21,30 @@ sınıflandırabilmektir.
 > OCP tarzı **özgün çalışma sorularıdır**; gerçek sınavdan alınmış sorular
 > olarak sunulmaz.
 
-## 45–60 dakikalık önerilen çalışma rotası
+## İşten sonra çalışma rotası
 
-1. **0–5 dk:** Konu haritasını incele; bir pipeline'da source, intermediate ve
-   terminal operation'ı nasıl bulacağını anlat.
-2. **5–25 dk:** Ana çift dilli notta zayıf olduğun iki başlığı, kod sonucunu
-   önceden tahmin ederek çalış.
-3. **25–35 dk:** Teknik hafıza notundaki terminal operation, mapping ve
-   collector tablolarını kapatıp yeniden kur.
-4. **35–43 dk:** Vocabulary'den 6–8 terimi pipeline bağlamında tekrar et.
-5. **43–50 dk:** Grammar notes içinden iki yapıyı doğal Türkçe karşılığıyla
-   çözümle.
-6. **50–60 dk:** Practice quiz'i kapalı kaynakla çöz; her cevabı compile-time,
-   runtime, output veya termination açısından gerekçelendir.
+Bu rota bütün üniteyi tek akşamda bitirme hedefi değildir. Her satır **25–30 dakikalık bir oturumun odağıdır**; okuma veya soru grubu bitmezse aynı satırı sonraki güne taşı. Bir oturumda 2–4 kaynak soruyu gerekçesiyle çözmek yeterlidir. Aşağıdaki soru numaraları kitabın **Review Questions** bölümüne aittir; `practice_quiz` ayrı özgün sorulardır.
+
+Her oturum: **3 dk** önceki bilgiyi kapalı kitap hatırla → **10 dk** English paragrafı çevirip Türkçeyle karşılaştır → **5 dk** en fazla dört yeni kelime ve bir grammar yapısı → **8 dk** soru çöz → **2 dk** yanlışının nedenini yaz. İlk turda bütün kelimeleri ezberlemeye çalışma; bilmediklerini işaretle.
+
+| Oturum ve kaynak başlığı | Kaynak sorular | Kelime ve grammar odağı | Oturum sonunda üret |
+|---|---|---|---|
+| 1. [Optional ve yokluk](bilingual_notes.md#returning-an-optional) | 20 | empty, eager, get the hang of; `whether`, `either ... or ...` | Empty/value × get/orElse/orElseGet tablosunu kur; practice quiz 4 ile pekiştir. |
+| 2. [Pipeline, lazy evaluation ve durma](bilingual_notes.md#using-streams) | 1, 2, 3, 4, 6, 10, 17 | lazy evaluation, finite, short-circuit; `unless`, `since` | Her elemanın geçebileceği adımları izle; terminal var mı, gerçekten durabilir mi? |
+| 3. [Dönüşüm, sıralama ve reduction](bilingual_notes.md#using-common-intermediate-operations) | 7, 11, 12, 13 | flatten, identity, reduction; `rather than`, `by + V-ing` | Her adımdan sonra stream türünü yaz; map ve flatMap katmanlarını çiz. |
+| 4. [Primitive stream’ler](bilingual_notes.md#working-with-primitive-streams) | 5, 8, 9, 14, 19 | average, summarize, terminal; `without + V-ing`, `that/which` | Stream<Integer>–IntStream ve Optional–OptionalInt ayrımını yap. |
+| 5. [Collector, veri kaynağı ve Spliterator](bilingual_notes.md#collecting-results) | 15, 16, 18, 21 | downstream collector, partition, traversal; `so that`, `think of ... as ...` | Collector çıktı türünü hesapla; practice quiz 1–8 ile karma kontrol yap. |
+
+Kelime anlamlarını [ünite sözlüğünden](vocabulary.md), yapıları [grammar notundan](grammar_notes.md) kontrol et. Kaynak sorularını çözerken önce isteneni (derleme / çıktı / exception / doğru seçenek sayısı), sonra kuralı yaz; cevap harfini en son seç.
+
+## Aralıklı tekrar ve geçiş ölçütü
+
+- **1. gün:** Türkçeyi kapatarak dün işaretlediğin dört kelimeyi ve bir cümleyi geri çağır; yanlış yaptığın bir soruyu çöz.
+- **3. gün:** Aynı kuralı ölçen başka bir kaynak soruya geç; doğru seçeneğin yanında en güçlü yanlış seçeneğin neden elendiğini söyle.
+- **7. gün:** Özgün practice quiz'i yeniden çöz; çözerken kuralın adını ve sonucunu ayrı yaz. Hedef **en az 7/8** ve bütün derleme/çalışma zamanı ayrımlarını doğru gerekçelendirmek.
+- **14. gün:** Önceki yanlışlarından üç soruyu karışık sırada çöz; sekiz işaretli kelimenin en az altısını ve iki cümlenin özne/fiil/yan cümle yapısını notsuz çıkar.
+
+Yanlış kayıt biçimi: `Soru → ilk kararım → kaçırdığım Java kuralı/İngilizce yapı → düzeltilmiş gerekçe → yeniden çözüm günü`. Yalnızca cevap harfini hatırlamak geçiş ölçütü değildir. Eksik kalan konu için ilgili oturumu tekrarla.
 
 ## Önkoşullar ve konu haritası
 
@@ -75,7 +86,7 @@ Ana konu başlıkları:
   karşılaştırabiliyorum.
 - [ ] Infinite pipeline için terminal operation'ın gerçekten sona erip
   ermeyeceğini analiz edebiliyorum.
-- [ ] Practice quiz'de en az **5/6** doğru yapabiliyorum.
+- [ ] Practice quiz'de en az **7/8** doğru yapabiliyorum.
 
 ## Java 17 teknik doğruluk notları
 

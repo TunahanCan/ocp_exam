@@ -2646,9 +2646,11 @@ public class Crow {
 > `return` statement can be omitted for a single statement, making the short
 > form as follows:
 >
-> **Türkçe:** Parameter type'ları atlanabilir. Type'ı olmayan yalnızca bir
-> parameter belirtildiğinde parentheses de atlanabilir. Tek statement için
-> braces ve `return` statement atlanarak şu kısa biçim elde edilebilir:
+> **Türkçe:** Parametre türleri atlanabilir. Yalnız bir parametre varsa ve türü açıkça yazılmamışsa parantezler de
+> atlanabilir. Değer döndüren gövde tek bir uygun expression'dan oluşuyorsa süslü parantezler ile `return`
+> kaldırılabilir. Aşağıdaki kısa biçim bir parametre alır:
+
+> **Editör notu · Java 17:** Kaynağın “single statement” ifadesi her statement için geçerli değildir; örneğin `throw` tek başına expression gövdesi olamaz. Ayrıca yukarıdaki iki parametreli lambda ile aşağıdaki bir parametreli lambda aynı imzaya sahip değildir: kısa örnekte `b`, dış kapsamda tanımlı ve yakalanabilir olmalıdır.
 
 ```java
 a -> a.equals(b)
@@ -2659,10 +2661,12 @@ a -> a.equals(b)
 > as long as their names are different from existing local variables. The body
 > of a lambda is allowed to use any instance or class variables.
 >
-> **Türkçe:** Lambda'lar functional interface instance'ı bekleyen bir method'a
-> geçirilebilir. Lambda, adları mevcut local variable'lardan farklı olduğu
-> sürece body'de parameter veya variable tanımlayabilir. Lambda body'sinin
-> herhangi bir instance veya class variable'ı kullanmasına izin verilir.
+> **Türkçe:** Lambda'lar, functional interface nesnesi bekleyen bir metoda verilebilir. Lambda parametreleri `->`
+> işaretinden önce, yerel değişkenleri ise gövde içinde bildirilir; adları aynı kapsamda mevcut yerel
+> değişken adlarıyla çakışmamalıdır. Gövde, kapsam ve erişim kurallarına uygun instance veya static
+> alanları kullanabilir.
+
+> **Editör notu · Java 17:** Kaynağın “parameters ... in the body” sözü parametrelerin yerini yanlış çağrıştırır; parametre listesi gövdenin dışındadır. Instance alana erişim için uygun nesne de gerekir. [Grammar çözümlemesi](grammar_notes.md).
 
 <!-- source-page: 0451 -->
 
@@ -2707,10 +2711,10 @@ a -> a.equals(b)
 > statement. Parentheses are optional when only one parameter is specified and
 > the type is implicit.
 >
-> **Türkçe:** **Basit lambda expression'lar yazın.** Lambda kodunda optional
-> öğelerin bulunup bulunmadığına bakın. Parameter type'ları optional'dır. Body
-> tek statement olduğunda braces ve `return` keyword'ü optional'dır. Yalnızca
-> bir parameter belirtilip type implicit olduğunda parentheses optional'dır.
+> **Türkçe:** **Basit lambda expression'lar yazın.** Hangi öğelerin atlanabildiğini inceleyin. Parametre türleri
+> yazılmayabilir. Değer döndüren tek bir uygun expression için süslü parantez ve `return` kaldırılabilir;
+> `void` hedefte de uygun statement expression gövdesi kullanılabilir. Türü açıkça yazılmayan tek
+> parametrenin çevresindeki parantezler isteğe bağlıdır.
 
 > **English:** **Determine whether a variable can be used in a lambda body.**
 > Local variables and method parameters must be final or effectively final to
@@ -2718,11 +2722,13 @@ a -> a.equals(b)
 > `final` keyword to these variables. Instance and class variables are always
 > allowed.
 >
-> **Türkçe:** **Bir variable'ın lambda body'sinde kullanılıp kullanılamayacağını belirleyin.**
-> Local variable ve method parameter'lara reference verilebilmesi
-> için bunlar `final` veya effectively final olmalıdır. Bu, söz konusu
-> variable'lara `final` keyword'ünü ekleseydiniz kodun derlenmesi gerektiği
-> anlamına gelir. Instance ve class variable'lara her zaman izin verilir.
+> **Türkçe:** **Bir değişkenin lambda gövdesinde kullanılıp kullanılamayacağını belirleyin.** Dış kapsamdaki yerel
+> değişkenler ve metot parametreleri yakalanabilmek için `final` veya effectively final olmalıdır. Bu,
+> ilgili değişkene `final` eklendiğinde kodun derlenebilmesi fikriyle kontrol edilebilir. Instance ve
+> static alanlar için effectively final olma şartı yoktur; kapsam, erişim izni ve instance alanda nesne
+> gereksinimi geçerlidir.
+
+> **Editör notu · Java 17:** Kaynağın “always allowed” ifadesi yalnız final şartını karşılaştırır; diğer Java erişim kurallarını kaldırmaz.
 
 > **English:** **Translate method references to the “long form” lambda.** Be
 > able to convert method references into regular lambda expressions and vice

@@ -69,7 +69,8 @@ label değerleri compile-time constant, selector ile compatible ve unique olmal�
 ```java
 final int one = 1;
 int two = 2;
-switch (value) {
+int selector = 1;
+switch (selector) {
     case one: break;  // geçerli constant variable
     // case two:      // Does not compile
 }
@@ -77,14 +78,21 @@ switch (value) {
 
 ## 4. Switch statement versus expression
 
-| Özellik | Colon statement | Arrow statement/expression |
+| Özellik | Switch statement | Switch expression |
 |---|---|---|
-| Fall-through | Var | Yok |
-| Sonuç üretme | Hayır | Expression ise zorunlu |
-| Çok satırlı sonuç | N/A | Block + `yield` |
+| Yazım | Colon veya arrow | Colon veya arrow |
+| Fall-through | Colon biçiminde mümkün | Colon biçiminde mümkün |
+| Değer üretme | Hayır | Normal tamamlanırsa zorunlu |
+| Bloktan değer verme | `yield` kullanılmaz | `yield` kullanılır |
 | Exhaustive olma | Zorunlu değil | Zorunlu |
 
+Arrow (`->`) her iki yapıda da fall-through yapmaz. **Yazım biçimiyle
+statement/expression ayrımını birbirine eşitleme.**
+[JLS 17: switch statement](https://docs.oracle.com/javase/specs/jls/se17/html/jls-14.html#jls-14.11),
+[JLS 17: switch expression](https://docs.oracle.com/javase/specs/jls/se17/html/jls-15.html#jls-15.28).
+
 ```java
+String season = "SPRING";
 int length = switch (season) {
     case "WINTER", "SUMMER" -> 6;
     case "SPRING" -> {
@@ -107,7 +115,7 @@ zorunlu değildir.
 | Loop | İlk condition'dan önce body çalışabilir mi? | Tipik kullanım |
 |---|---:|---|
 | `while` | Hayır | iteration sayısı bilinmiyor |
-| `do/while` | Evet, tam bir kez | body en az bir kez gerekli |
+| `do/while` | Evet, önce gövdeye girilir | body en az bir kez gerekli |
 | basic `for` | Hayır | init/condition/update birlikte |
 | enhanced `for` | Collection/array elemanları kadar | index gerekmiyor |
 
@@ -187,6 +195,6 @@ Infinite loop her zaman compilation error değildir; exit path gerekip gerekmedi
 ## Cevaplar
 
 1. Sol match `false` iken sağ taraf çalışabilir; pattern variable oluşmamıştır.
-2. Arrow case block'u bir value üretirken.
+2. Switch expression içinde bir bloktan değer verirken; colon biçimi de `yield` kullanabilir.
 3. `do/while`.
 4. Hayır; target bir loop olmalıdır.

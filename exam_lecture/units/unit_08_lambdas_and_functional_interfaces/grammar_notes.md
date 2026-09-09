@@ -28,8 +28,7 @@ parentheses.`
 
 **EN:** Functional programming is a way of writing code more declaratively.
 
-**TR:** Functional programming, kodu daha declarative biçimde yazmanın bir
-yoludur.
+**TR:** Fonksiyonel programlama, adımları tek tek yönetmek yerine istenen sonucu belirterek kod yazmanın bir yoludur (declarative yaklaşım).
 
 Formül:
 
@@ -165,7 +164,11 @@ result only if necessary condition
 ```
 
 `A only if B`, A'nın gerçekleşmesi için B'nin gerekli olduğunu söyler. `if` ile
-yer değiştirildiğinde logic değişebilir.
+yer değiştirildiğinde mantıksal ilişki değişir.
+
+**Çözümleme:** `The parentheses ...` ana özne; `can be omitted` edilgen yüklem; `only if` gerekli koşulu açar. Yan cümlede `there is a single parameter` ve `its type is not explicitly stated` iki ayrı gerekliliktir, `and` ile birlikte sağlanırlar. “optional” ile “her yerde atılabilir” aynı değildir.
+
+**Kaynak:** [Learning Lambda Syntax](bilingual_notes.md#learning-lambda-syntax).
 
 ## 11. `even though` concession
 
@@ -202,6 +205,10 @@ Just because + clause A + does not mean + clause B
 
 Türkçeye çoğu zaman “Yalnızca A olması, B olduğu anlamına gelmez” biçiminde
 çevrilir.
+
+**Çözümleme:** `you` ilk yan cümlenin öznesi, `do not see` yüklemidir. `does not mean` ana ilişkiyi olumsuzlar; `it is not a functional interface` reddedilen çıkarımdır. Üç olumsuzluğu tek bir “değil” diye çevirme: annotation yokluğu, functional interface olmayı dışlamaz.
+
+**Kaynak:** [The @FunctionalInterface Annotation](bilingual_notes.md#the-functionalinterface-annotation).
 
 ## 13. `while` for contrast
 
@@ -245,8 +252,7 @@ Preposition `without` sonrasında gerund gelir:
 without + V-ing
 ```
 
-Gizli subject ana clause'un subject'iyle aynı kabul edilir. Subject farklıysa
-`without + noun/pronoun + V-ing` yapısı kurulabilir.
+`without taking any input` bu örnekte değer üretme/sağlama eylemini niteler: input almayan işlem Supplier’ın yaptığı iştir. Gizli özneyi yalnız ana cümledeki ilk isme mekanik olarak bağlama; anlamı ve bağlı olduğu fiil grubunu izle. Özne açıkça farklı verilecekse `without + noun/pronoun + V-ing` kullanılabilir.
 
 ## 16. `the + comparative, the + comparative`
 
@@ -286,8 +292,11 @@ modified noun olan `lambda expression`dır.
 **EN:** A lambda can define parameters or variables in the body as long as
 their names are different from existing local variables.
 
-**TR:** Lambda, adları mevcut local variable'lardan farklı olduğu sürece
-body'de parameter veya variable tanımlayabilir.
+**TR:** Adları mevcut yerel değişkenlerle çakışmadığı sürece lambda parametreleri ve gövde içindeki değişkenler tanımlanabilir. Parametreler gövdenin içinde değil, `->` öncesindeki parametre listesinde bildirilir.
+
+**Çözümleme:** `A lambda` ana özne, `can define` yüklem; `their names` yan özne, `are` yan fiildir. `their`, parametreler ve değişkenlere gönderme yapar.
+
+**Kaynak:** [Using Local Variables Inside a Lambda Body](bilingual_notes.md#using-local-variables-inside-a-lambda-body).
 
 `as long as`, bu bağlamda süre değil “şu koşulla / -dığı sürece” anlamı taşır:
 
@@ -323,9 +332,19 @@ method reference'lara dönüştürebilin.
 `vice versa`, hemen önceki ilişkinin ters yönünün de geçerli olduğunu söyler.
 İki uzun clause'u tekrar etmeyi önleyen bağlayıcı bir phrase'dir.
 
+## 21. `in that + clause`: hangi bakımdan?
+
+**Formül:** `ana iddia + in that + açıklayan özne + fiil`.
+
+**Kaynak kısa örnek:** “in that they can be overridden in a class implementing the interface”.
+
+**Doğal çeviri:** “Interface’i gerçekleştiren bir sınıfta override edilebilmeleri bakımından”. `they`, default method’lara döner; `can be overridden` edilgen yüklemdir. `implementing the interface`, `a class`ı niteleyen kısaltılmış relative clause’dur: `a class that implements the interface`.
+
+Bu ifade neden/özellik yönünü daraltır; `so that` gibi amaç bildirmez. Cümlenin dışındaki `even though` ise benzerliğe rağmen SAM koşulunun sağlanmadığını söyler. [Kaynak paragraf](bilingual_notes.md#defining-a-functional-interface) · [insufficient](vocabulary.md#insufficient--adjective).
+
 ## Mini quiz · Özgün YDS/teknik İngilizce çalışması
 
-1. `A lambda may capture a local variable ___ it is effectively final.`
+1. `A lambda may capture a local variable ___ it is final or effectively final.`
    Boşluğa gerekli koşulu bildiren hangi yapı gelir?
 2. `The method reference is shorter ___ the equivalent lambda.` cümlesinde
    karşılaştırma için hangi sözcük gerekir?
@@ -339,7 +358,7 @@ method reference'lara dönüştürebilin.
 
 ## Cevaplar ve kısa açıklamalar
 
-1. `only if` — effectively final olmak gerekli koşuldur.
+1. `only if` — final veya effectively final olmak gerekli koşuldur.
 2. `than` — comparative `shorter than`.
 3. `by` — `by examining`, yöntemi bildirir.
 4. `writing` — `of` preposition'ından sonra gerund.

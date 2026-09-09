@@ -14,8 +14,7 @@ alfabetik olarak toplar.
   kullanılabilmesi.
 - **Example:** “An exported public type is accessible only if the client reads
   its module.”
-- **Çeviri:** “Export edilmiş public type, yalnız client onun module'ını
-  okuyorsa erişilebilirdir.”
+- **Çeviri:** “Dışa açılmış `public` bir türe erişebilmek için istemcinin, bu türün modülünü okuyabilmesi gerekir.”
 - **Related:** access, accessibility; antonym: inaccessible
 
 ### automatic module · noun phrase
@@ -24,7 +23,7 @@ alfabetik olarak toplar.
 - **Java bağlamı:** Explicit module descriptor (`module-info`) içermeyen fakat
   module path'e konduğu için isim kazanan legacy JAR.
 - **Example:** “The legacy JAR becomes an automatic module on the module path.”
-- **Çeviri:** “Legacy JAR, module path üzerinde automatic module olur.”
+- **Çeviri:** “Eski yapıdaki JAR, module path üzerine konulduğunda otomatik modüle dönüşür.”
 - **Related:** automatically; contrast: explicit named module, unnamed module
 
 ### benefit · noun / verb
@@ -33,7 +32,7 @@ alfabetik olarak toplar.
 - **Java bağlamı:** Encapsulation, dependency control ve daha küçük runtime
   image gibi JPMS kazanımları.
 - **Example:** “A modular application benefits from explicit dependencies.”
-- **Çeviri:** “Modular application explicit dependency'lerden yararlanır.”
+- **Çeviri:** “Modüler bir uygulama, açıkça belirtilmiş bağımlılıklardan yarar sağlar.”
 - **Related:** beneficial, beneficiary; synonym: advantage
 
 ### classpath · noun
@@ -42,7 +41,7 @@ alfabetik olarak toplar.
 - **Java bağlamı:** Legacy class ve JAR arama yolu; üzerindeki code unnamed
   module içinde değerlendirilir.
 - **Example:** “Code on the classpath belongs to the unnamed module.”
-- **Çeviri:** “Classpath üzerindeki code unnamed module'a aittir.”
+- **Çeviri:** “Classpath üzerindeki kod, isimsiz modüle aittir.”
 - **Related:** class-path option; contrast: module path
 
 ### compile · verb
@@ -50,7 +49,7 @@ alfabetik olarak toplar.
 - **Türkçe:** derlemek
 - **Java bağlamı:** `javac` ile source code'u class file'a dönüştürmek.
 - **Example:** “Compile the modules into separate output directories.”
-- **Çeviri:** “Module'ları ayrı output directory'lere derleyin.”
+- **Çeviri:** “Modülleri ayrı çıktı dizinlerine derleyin.”
 - **Related:** compiler, compilation, compilable
 
 ### consumer · noun
@@ -61,7 +60,7 @@ alfabetik olarak toplar.
   referans verdiği module'ları `requires` eder.
 - **Example:** “The consumer calls the locator without requiring a concrete
   provider.”
-- **Çeviri:** “Consumer concrete provider'ı require etmeden locator'ı çağırır.”
+- **Çeviri:** “Tüketici, somut bir sağlayıcıya bağımlı olmadan servis bulucuyu çağırır.”
 - **Related:** consume, consumption; contrast: provider
 
 ### cyclic dependency · noun phrase
@@ -71,8 +70,7 @@ alfabetik olarak toplar.
   require etmesi.
 - **Example:** “The compiler rejects a cyclic dependency between explicit
   named modules.”
-- **Çeviri:** “Compiler explicit named module'lar arasındaki cyclic
-  dependency'yi reddeder.”
+- **Çeviri:** “Derleyici, açıkça tanımlanmış isimli modüller arasındaki döngüsel bağımlılığı reddeder.”
 - **Related:** cycle, cyclic; synonym: circular dependency
 
 ## D–H
@@ -82,7 +80,7 @@ alfabetik olarak toplar.
 - **Türkçe:** bağımlılık
 - **Java bağlamı:** Bir module'ın başka bir module'ın API'sine ihtiyaç duyması.
 - **Example:** “The descriptor makes every direct dependency visible.”
-- **Çeviri:** “Descriptor her direct dependency'yi görünür kılar.”
+- **Çeviri:** “Modül tanımlayıcısı, her doğrudan bağımlılığı görünür kılar.”
 - **Related:** depend, dependent, independently
 
 ### deploy · verb
@@ -91,7 +89,7 @@ alfabetik olarak toplar.
 - **Java bağlamı:** Compiled module, modular JAR veya runtime image'ı hedef
   ortama sunmak.
 - **Example:** “The team deploys the custom runtime with the application.”
-- **Çeviri:** “Ekip custom runtime'ı application ile birlikte deploy eder.”
+- **Çeviri:** “Ekip, özelleştirilmiş çalışma ortamını uygulamayla birlikte dağıtıma alır.”
 - **Related:** deployment, deployable
 
 ### descriptor · noun
@@ -99,8 +97,7 @@ alfabetik olarak toplar.
 - **Türkçe:** tanımlayıcı
 - **Java bağlamı:** `module-info.java` içindeki module declaration.
 - **Example:** “The descriptor lists required modules and exported packages.”
-- **Çeviri:** “Descriptor required module'ları ve exported package'ları
-  listeler.”
+- **Çeviri:** “Modül tanımlayıcısı, gereken modülleri ve dışa açılan paketleri listeler.”
 - **Related:** describe, description, descriptive
 
 ### directive · noun
@@ -109,7 +106,7 @@ alfabetik olarak toplar.
 - **Java bağlamı:** `requires`, `exports`, `opens`, `uses` ve `provides` gibi
   module declaration öğesi.
 - **Example:** “The directives may appear in any order.”
-- **Çeviri:** “Directive'ler herhangi bir sırada bulunabilir.”
+- **Çeviri:** “Yönergeler herhangi bir sırada yer alabilir.”
 - **Related:** direct, direction; synonym: instruction
 
 ### discover · verb
@@ -118,7 +115,7 @@ alfabetik olarak toplar.
 - **Java bağlamı:** `ServiceLoader` ile provider veya Java tool'larıyla module
   bilgisi bulmak.
 - **Example:** “The service loader discovers providers at runtime.”
-- **Çeviri:** “Service loader provider'ları runtime'da keşfeder.”
+- **Çeviri:** “Servis yükleyici, sağlayıcıları çalışma zamanında bulur.”
 - **Related:** discovery, discoverable
 
 ### encapsulate · verb
@@ -127,8 +124,7 @@ alfabetik olarak toplar.
 - **Java bağlamı:** Internal package'ları export etmeyerek implementation
   detail'larını module içinde tutmak.
 - **Example:** “Modules encapsulate packages that are not part of the API.”
-- **Çeviri:** “Module'lar API'nin parçası olmayan package'ları encapsulate
-  eder.”
+- **Çeviri:** “Modüller, API'nin parçası olmayan paketleri kapsüller.”
 - **Related:** encapsulation, encapsulated; antonym: expose
 
 ### export · verb / noun
@@ -137,7 +133,7 @@ alfabetik olarak toplar.
 - **Java bağlamı:** Public package API'sini başka module'ların normal erişimine
   açmak.
 - **Example:** “The API module exports exactly one package.”
-- **Çeviri:** “API module tam olarak bir package'ı export eder.”
+- **Çeviri:** “API modülü tam olarak bir paketi dışa açar.”
 - **Related:** exported, exporter; contrast: open
 
 ### expose · verb
@@ -146,7 +142,7 @@ alfabetik olarak toplar.
 - **Java bağlamı:** Package'ı `exports` veya reflection için `opens` ile
   erişilebilir hale getirmek.
 - **Example:** “Do not expose implementation packages without a reason.”
-- **Çeviri:** “Implementation package'larını gerekçe olmadan dışarı açmayın.”
+- **Çeviri:** “Gerçekleştirim paketlerini gerekçe olmadan dışarı açmayın.”
 - **Related:** exposure, exposed; antonym: conceal
 
 ## I–M
@@ -158,7 +154,7 @@ alfabetik olarak toplar.
   kalan concrete code.
 - **Example:** “The provider implementation package does not need to be
   exported.”
-- **Çeviri:** “Provider implementation package'ının export edilmesi gerekmez.”
+- **Çeviri:** “Sağlayıcının gerçekleştirim paketinin dışa açılması gerekmez.”
 - **Related:** implement, implementer; contrast: interface
 
 ### internal · adjective
@@ -166,7 +162,7 @@ alfabetik olarak toplar.
 - **Türkçe:** iç, dahili
 - **Java bağlamı:** Public API'nin parçası olmayan package veya JDK API.
 - **Example:** “The analysis reports calls to internal JDK APIs.”
-- **Çeviri:** “Analiz internal JDK API çağrılarını raporlar.”
+- **Çeviri:** “Analiz, JDK'nin dahili API'lerine yapılan çağrıları raporlar.”
 - **Related:** internally, internalize; antonym: external
 
 ### invoke · verb
@@ -174,7 +170,7 @@ alfabetik olarak toplar.
 - **Türkçe:** çağırmak
 - **Java bağlamı:** Main class, Java tool veya method çalıştırmak.
 - **Example:** “Invoke the main class with the module launcher syntax.”
-- **Çeviri:** “Main class'ı module launcher syntax'ı ile çağırın.”
+- **Çeviri:** “Ana sınıfı, modül başlatma sözdizimiyle çalıştırın.”
 - **Related:** invocation, invocable; synonym: call
 
 ### JAR hell · noun phrase
@@ -183,8 +179,7 @@ alfabetik olarak toplar.
 - **Java bağlamı:** Çakışan/missing version ve belirsiz dependency'lerin
   classpath'te yarattığı problem.
 - **Example:** “Explicit module dependencies reduce some forms of JAR hell.”
-- **Çeviri:** “Explicit module dependency'leri JAR hell'in bazı biçimlerini
-  azaltır.”
+- **Çeviri:** “Açık modül bağımlılıkları, bazı JAR çakışması türlerini azaltır.”
 - **Related:** version conflict, dependency conflict
 
 ### launcher · noun
@@ -192,7 +187,7 @@ alfabetik olarak toplar.
 - **Türkçe:** başlatıcı
 - **Java bağlamı:** `java` command'ının application/module başlatan rolü.
 - **Example:** “The launcher expects a slash between the module and class.”
-- **Çeviri:** “Launcher module ile class arasında slash bekler.”
+- **Çeviri:** “Başlatıcı, modül ile sınıf arasına eğik çizgi konulmasını bekler.”
 - **Related:** launch, launching
 
 ### migrate · verb
@@ -200,7 +195,7 @@ alfabetik olarak toplar.
 - **Türkçe:** taşımak, geçiş yapmak
 - **Java bağlamı:** Classpath application'ını aşamalı olarak JPMS'e geçirmek.
 - **Example:** “The team migrates the lowest-level library first.”
-- **Çeviri:** “Ekip önce en alt seviyedeki library'yi migrate eder.”
+- **Çeviri:** “Ekip önce en alt düzeydeki kütüphaneyi yeni yapıya taşır.”
 - **Related:** migration, migratory
 
 ### module path · noun phrase
@@ -208,7 +203,7 @@ alfabetik olarak toplar.
 - **Türkçe:** modül yolu
 - **Java bağlamı:** Named/automatic module'ların bulunacağı path.
 - **Example:** “Place the modular JAR on the module path.”
-- **Çeviri:** “Modular JAR'ı module path üzerine koyun.”
+- **Çeviri:** “Modüler JAR'ı module path üzerine yerleştirin.”
 - **Related:** `--module-path`, `-p`; contrast: classpath
 
 ## N–R
@@ -220,8 +215,7 @@ alfabetik olarak toplar.
   module. OCP'nin üçlü karşılaştırmalarında “named” çoğunlukla descriptor'lı
   **explicit named module** için kullanılır; automatic module ayrı gösterilir.
 - **Example:** “An explicit named module can require another named module.”
-- **Çeviri:** “Explicit named module başka bir named module'ı require
-  edebilir.”
+- **Çeviri:** “Açıkça tanımlanmış isimli bir modül, başka bir isimli modüle bağımlılık bildirebilir.”
 - **Related:** name, naming; contrast: unnamed module
 
 ### observable · adjective
@@ -229,7 +223,7 @@ alfabetik olarak toplar.
 - **Türkçe:** gözlemlenebilir, çözümleyici tarafından görülebilir
 - **Java bağlamı:** Module resolution sırasında finder'ın görebildiği module.
 - **Example:** “Only observable modules can enter the resolved graph.”
-- **Çeviri:** “Yalnız observable module'lar resolved graph'a girebilir.”
+- **Çeviri:** “Çözümlenmiş modül grafiğine yalnız keşfedilebilir modüller girebilir.”
 - **Related:** observe, observation, observer
 
 ### open · verb / adjective
@@ -238,7 +232,7 @@ alfabetik olarak toplar.
 - **Java bağlamı:** Package'ı deep reflection'a açmak veya bütün module'ı
   `open module` olarak declare etmek.
 - **Example:** “Open the model package only to the reflection framework.”
-- **Çeviri:** “Model package'ını yalnız reflection framework'e açın.”
+- **Çeviri:** “Model paketini yalnız reflection çatısına açın.”
 - **Related:** openness, opening; contrast: export
 
 ### package · noun / verb
@@ -246,8 +240,17 @@ alfabetik olarak toplar.
 - **Türkçe:** paket; paketlemek
 - **Java bağlamı:** Related type grubu veya compiled code'u JAR'a dönüştürme.
 - **Example:** “Package the compiled module as a modular JAR.”
-- **Çeviri:** “Compiled module'ı modular JAR olarak package edin.”
+- **Çeviri:** “Derlenmiş modülü modüler bir JAR olarak paketleyin.”
 - **Related:** packaging, packaged
+
+### prior to · preposition phrase
+
+- **Türkçe:** -den önce
+- **Java bağlamı:** JPMS öncesindeki erişim kuralları veya modüler çalıştırmadan önceki bir adım.
+- **Example · özgün:** “Prior to launching the program, inspect its module dependencies.”
+- **Çeviri:** “Programı başlatmadan önce modül bağımlılıklarını inceleyin.”
+- **Related:** synonym: before; antonym: after; to burada edattır: prior to launching.
+- **Kaynak bağlamı:** [using the   jdk internals flag](bilingual_notes.md#using-the---jdk-internals-flag)
 
 ### provider · noun
 
@@ -256,7 +259,7 @@ alfabetik olarak toplar.
   `provides ... with ...` ile bildiren module.
 - **Example:** “The provider module declares its implementation with
   `provides`.”
-- **Çeviri:** “Provider module implementation'ını `provides` ile declare eder.”
+- **Çeviri:** “Sağlayıcı modül, gerçekleştirimini `provides` ile bildirir.”
 - **Related:** provide, provision; contrast: consumer
 
 ### qualified · adjective
@@ -265,7 +268,7 @@ alfabetik olarak toplar.
 - **Java bağlamı:** `exports ... to` veya `opens ... to` ile yalnız belirli
   target module'lara izin verilmesi.
 - **Example:** “A qualified export names its permitted modules.”
-- **Çeviri:** “Qualified export izin verilen module'ları adlandırır.”
+- **Çeviri:** “Hedefleri belirtilmiş bir dışa açma yönergesi, izin verilen modülleri adlandırır.”
 - **Related:** qualify, qualification; contrast: unqualified
 
 ### readability · noun
@@ -274,7 +277,7 @@ alfabetik olarak toplar.
 - **Java bağlamı:** Bir module'ın başka module'daki type'lara referans
   verebilmesinin graph düzeyindeki koşulu.
 - **Example:** “A transitive requirement passes readability to consumers.”
-- **Çeviri:** “Transitive requirement readability'yi consumer'lara aktarır.”
+- **Çeviri:** “Geçişli bağımlılık, tüketicilerin bağımlı olunan modülü de okuyabilmesini sağlar.”
 - **Related:** readable, read
 
 ### require · verb
@@ -282,7 +285,7 @@ alfabetik olarak toplar.
 - **Türkçe:** gerektirmek
 - **Java bağlamı:** Descriptor'da başka module dependency'si bildirmek.
 - **Example:** “The care module requires the feeding module.”
-- **Çeviri:** “Care module feeding module'ını require eder.”
+- **Çeviri:** “Bakım modülü, besleme modülüne bağımlıdır.”
 - **Related:** requirement, required; synonym: depend on
 
 ### resolve · verb
@@ -291,8 +294,7 @@ alfabetik olarak toplar.
 - **Java bağlamı:** Root module ve dependency'lerinden valid module graph
   oluşturmak.
 - **Example:** “The launcher resolves the module graph before running main.”
-- **Çeviri:** “Launcher main'i çalıştırmadan önce module graph'ını resolve
-  eder.”
+- **Çeviri:** “Başlatıcı, `main` çalışmadan önce modül grafiğini çözümler.”
 - **Related:** resolution, resolved, resolver
 
 ### runtime image · noun phrase
@@ -301,7 +303,7 @@ alfabetik olarak toplar.
 - **Java bağlamı:** `jlink` ile application için gereken module'lardan üretilen
   özel Java runtime.
 - **Example:** “The runtime image contains only the selected module graph.”
-- **Çeviri:** “Runtime image yalnız seçilen module graph'ını içerir.”
+- **Çeviri:** “Çalışma ortamı imajı, yalnız seçilen modül grafiğini içerir.”
 - **Related:** runtime, image; custom runtime
 
 ## S–Z
@@ -312,8 +314,7 @@ alfabetik olarak toplar.
 - **Java bağlamı:** `ServiceLoader` aracılığıyla provider implementation'larını
   bulan locator module/class; consumer bu exported locator API'sini çağırabilir.
 - **Example:** “The service locator avoids a direct dependency on providers.”
-- **Çeviri:** “Service locator provider'lara direct dependency kurulmasını
-  önler.”
+- **Çeviri:** “Servis bulucu, sağlayıcılara doğrudan bağımlılığı önler.”
 - **Related:** locate, location, locator
 
 ### split package · noun phrase
@@ -321,8 +322,8 @@ alfabetik olarak toplar.
 - **Türkçe:** bölünmüş paket
 - **Java bağlamı:** Standart application configuration'ında aynı package'ın
   birden fazla resolved named module'a bölünmesi.
-- **Example:** “A split package prevents a reliable module configuration.”
-- **Çeviri:** “Split package güvenilir module configuration'ını engeller.”
+- **Example:** “A split package may prevent a reliable module configuration.”
+- **Çeviri:** “Birden fazla modüle bölünmüş paket, güvenilir bir modül yapılandırılmasını engelleyebilir.”
 - **Related:** split, package boundary
 
 ### transitive · adjective
@@ -332,8 +333,7 @@ alfabetik olarak toplar.
   consumer'lara aktarılması.
 - **Example:** “The API module declares the dependency as transitive because
   its types appear in exported signatures.”
-- **Çeviri:** “API module, type'ları exported signature'larda yer aldığı için
-  dependency'yi transitive olarak declare eder.”
+- **Çeviri:** “API modülü, bağımlılığın türleri dışa açılan metot imzalarında göründüğü için bu bağımlılığı geçişli olarak bildirir.”
 - **Related:** transitively, transitivity
 
 ### unnamed module · noun phrase
@@ -343,7 +343,7 @@ alfabetik olarak toplar.
   descriptor'ı bulunmayan module.
 - **Example:** “An explicit named module cannot require the unnamed module by
   name.”
-- **Çeviri:** “Explicit named module unnamed module'ı adıyla require edemez.”
+- **Çeviri:** “Açıkça tanımlanmış isimli bir modül, isimsiz modüle adıyla bağımlılık bildiremez.”
 - **Related:** unnamed, name; contrast: automatic module
 
 ### visibility · noun
@@ -352,7 +352,7 @@ alfabetik olarak toplar.
 - **Java bağlamı:** Java access modifier ve module export/readability
   kurallarının birleşik sonucu.
 - **Example:** “Public visibility does not bypass module encapsulation.”
-- **Çeviri:** “Public visibility module encapsulation'ı aşmaz.”
+- **Çeviri:** “`public` erişim düzeyi, modül kapsüllemesini aşmaz.”
 - **Related:** visible, visibly; antonym: invisibility
 
 ### with · preposition / JPMS keyword
@@ -362,9 +362,28 @@ alfabetik olarak toplar.
   service'i implementation'a bağlayan keyword.
 - **Example:** “The declaration connects the service to its implementation with
   the `with` keyword.”
-- **Çeviri:** “Declaration, `with` keyword'ü ile service'i implementation'ına
-  bağlar.”
+- **Çeviri:** “Bildirim, `with` anahtar kelimesiyle servisi gerçekleştirimine bağlar.”
 - **Related:** provide with; service declaration
+
+## Karıştırılan anlamları ayır
+
+**readable / accessible:** `readable`, modüller arasındaki okuma ilişkisini; `accessible`, bu ilişkiye ek olarak dışa açma ve Java erişim kurallarının izin verdiği kullanımı anlatır.
+
+`export` normal API erişimini; `open` özellikle derin reflection erişimini düzenler. `observable` bulunabilen adaydır; `resolved` seçilmiş modül grafiğine dahil olandır.
+
+## Kapalı kitap hatırlama · 5 dakika
+
+Her oturumda en fazla 5 kelime seç. Önce Türkçeyi kapatıp İngilizce cümleyi
+çevir; ardından İngilizceyi kapatıp Türkçe anlamdan sözcüğü ve kendi örneğini
+üret. Yalnız “tanıdık geldi” yanıtını başarı sayma: **0 = çıkaramadım,
+1 = anlamını söyledim, 2 = doğru teknik cümlede kullandım**. 0–1 puanlıları
+ünite [tekrar rotasına](README.md) göre geri getir.
+
+**Özgün aktarım sorusu:** İstemci modülü hedefi okuyabiliyor ama paket dışa açılmıyor. Neden bu yeterli değil? `readable`, `accessible`, `exported` ile açıkla.
+
+Cevabını yazdıktan sonra kontrol et.
+
+**Örnek yanıt:** The module is readable, but its public type is not accessible because the package is not exported to the client.
 
 ## Mini quiz · Vocabulary recall
 

@@ -21,7 +21,7 @@ alfabetiktir.
 - **Java bağlamı:** Primitive stream'lerde `average()` empty olasılığı nedeniyle
   `OptionalDouble` döndürür.
 - **Example:** “The average is absent when the stream is empty.”
-- **Çeviri:** “Stream empty olduğunda average sonucu mevcut değildir.”
+- **Çeviri:** “Stream boş olduğunda ortalama değeri bulunmaz.”
 - **Related:** mean (noun); word family: averaging
 
 ### chain · verb / noun
@@ -65,7 +65,7 @@ alfabetiktir.
 - **Java bağlamı:** `Spliterator.trySplit()` source'u parallel işleme uygun
   parçalara bölebilir.
 - **Example:** “A spliterator supports traversal and decomposition.”
-- **Çeviri:** “Spliterator traversal ve decomposition'ı destekler.”
+- **Çeviri:** “Spliterator, öğeleri dolaşmayı ve kaynağı parçalara ayırmayı destekler.”
 - **Related:** decompose (verb); antonym: composition
 
 ### downstream collector · noun phrase
@@ -82,7 +82,7 @@ alfabetiktir.
 - **Türkçe:** istekli; programlama bağlamında hemen değerlendirilen
 - **Java bağlamı:** `orElse()` argument'ı value gerekmeden de çalışır.
 - **Example:** “The fallback passed to `orElse()` is evaluated eagerly.”
-- **Çeviri:** “`orElse()`e geçirilen fallback eager olarak değerlendirilir.”
+- **Çeviri:** “`orElse()`e verilen yedek değeri hesaplayan ifade, o değere ihtiyaç olup olmadığına bakılmadan değerlendirilir.”
 - **Related:** eagerly (adverb); antonym: lazy
 
 ### empty · adjective
@@ -107,7 +107,7 @@ alfabetiktir.
 - **Türkçe:** düzleştirmek, iç içe yapıyı tek katmana indirmek
 - **Java bağlamı:** `flatMap()` nested stream veya `Optional` katmanını kaldırır.
 - **Example:** “Flatten the nested streams before collecting.”
-- **Çeviri:** “Collect etmeden önce nested stream'leri düzleştirin.”
+- **Çeviri:** “Sonucu toplamadan önce iç içe stream’leri tek katmana indirin.”
 - **Related:** flat, flat mapping
 
 ### generate · verb
@@ -119,13 +119,22 @@ alfabetiktir.
 - **Çeviri:** “Value'ları yalnız pipeline istediğinde üretin.”
 - **Related:** generator, generation
 
+### get the hang of · idiom
+
+- **Türkçe:** mantığını kavramak; nasıl yapıldığını öğrenmek
+- **Bağlam:** Stream pipeline’ını adım adım takip edebilir hâle gelmek.
+- **Example (özgün çalışma cümlesi):** You will get the hang of streams with practice.
+- **Çeviri:** Alıştırma yaptıkça stream’lerin mantığını kavrayacaksınız.
+- **Related:** Near synonym: learn how to use; hang burada asmak anlamında çevrilmez.
+- **Kaynak bağlam:** [get the hang of](bilingual_notes.md#chapter-10--streams).
+
 ### identity · noun
 
 - **Türkçe:** özdeş eleman, başlangıç değeri
 - **Java bağlamı:** Reduction operation'ında sonucu değiştirmeyen başlangıç
   value'su.
 - **Example:** “Zero is the identity for addition.”
-- **Çeviri:** “Sıfır, toplama için identity'dir.”
+- **Çeviri:** “Sıfır, toplama işleminin sonucunu değiştirmeyen özdeş elemandır.”
 - **Related:** identical; phrase: identity value
 
 ### infinite · adjective
@@ -171,7 +180,7 @@ alfabetiktir.
 - **Java bağlamı:** `partitioningBy()` element'ları predicate'e göre `true` ve
   `false` group'larına ayırır.
 - **Example:** “Partition the values by whether they are even.”
-- **Çeviri:** “Value'ları even olup olmamalarına göre ikiye ayırın.”
+- **Çeviri:** “Değerleri çift olup olmamalarına göre iki gruba ayırın.”
 - **Related:** partitioning, division
 
 ### pipeline · noun
@@ -221,6 +230,15 @@ alfabetiktir.
 - **Çeviri:** “Sorting, stateful intermediate operation'dır.”
 - **Related:** state; antonym: stateless
 
+### steep learning curve · noun phrase
+
+- **Türkçe:** başlangıçta öğrenmesi zor süreç
+- **Bağlam:** Kaynakta fonksiyonel programlamaya alışmanın başlangıçta zor gelebilmesi.
+- **Example (özgün çalışma cümlesi):** Streams can have a steep learning curve.
+- **Çeviri:** Stream’leri öğrenmek başlangıçta zor gelebilir.
+- **Related:** Contrast: easy to learn; steep bu bağlamda dik diye çevrilmek zorunda değildir.
+- **Kaynak bağlam:** [steep learning curve](bilingual_notes.md#chapter-10--streams).
+
 ### stream · noun
 
 - **Türkçe:** akış; Java'da stream
@@ -247,7 +265,7 @@ alfabetiktir.
 - **Java bağlamı:** Pipeline execution'ını başlatan ve stream dışı sonuç üreten
   operation.
 - **Example:** “Exactly one terminal operation completes a pipeline.”
-- **Çeviri:** “Tam bir terminal operation pipeline'ı tamamlar.”
+- **Çeviri:** “İşlem hattını tamamlayan tam olarak bir terminal operation vardır.”
 - **Related:** terminate, termination; antonym: intermediate
 
 ### traversal · noun
@@ -264,7 +282,7 @@ alfabetiktir.
 - **Java bağlamı:** Stream'in element aldığı gerçek collection veya data
   source'u.
 - **Example:** “Do not modify the underlying source during traversal.”
-- **Çeviri:** “Traversal sırasında underlying source'u değiştirmeyin.”
+- **Çeviri:** “Öğeleri dolaşırken stream’in dayandığı veri kaynağını değiştirmeyin.”
 - **Related:** basis, backing
 
 ### vacuous truth · noun phrase
@@ -275,6 +293,22 @@ alfabetiktir.
 - **Example:** “The empty result follows the rule of vacuous truth.”
 - **Çeviri:** “Empty sonuç vacuous truth kuralını izler.”
 - **Related:** logic, universal condition
+
+## Karıştırılan anlamlar ve kapalı kitap hatırlama
+
+| Karşılaştırma | Karar verirken kullan |
+|---|---|
+| `eager` / `lazy` | Hemen değerlendirme / gerektiğinde değerlendirme; kişilik özelliği anlamı kullanılmaz. |
+| `finite` / terminating | Sonlu sayıda öğe / gerçekten sona eren hesaplama; lazy pipeline’ın konumu da önemlidir. |
+| `map` / `flatten` | Öğeyi dönüştürmek / iç içe katmanı kaldırmak; map burada harita değildir. |
+
+Aşağıdaki özgün cümleyi Türkçeye çevir; ardından vurgulanan anlam farkını kendi Java örneğine aktar. Cevabı açmadan önce bir tahmin yaz.
+
+> A short-circuiting operation may terminate the pipeline.
+
+**Kendini kontrol et:** Erken sonlandırabilen bir işlem, işlem hattını sona erdirebilir. “may”, her zaman sona erer garantisi değildir.
+
+Dört işaretli terim için 1/3/7/14. günlerde iki yönlü hatırlama yap: English → Türkçe anlam, sonra Türkçe teknik durum → English terim. Anlamını hatırlayıp örnek kuramadığın terimi “öğrendim” diye işaretleme.
 
 ## Mini quiz · Vocabulary recall
 

@@ -18,6 +18,8 @@ dosyalarını kullan.
 
 ## İçindekiler
 
+- [Kaynak cevaplarıyla kontrol](#appendix--kaynak-cevaplarıyla-kontrol) · Soruları çözdükten sonra aç.
+
 1. [Learning about the Environment](#learning-about-the-environment)
 2. [Understanding the Class Structure](#understanding-the-class-structure)
 3. [Writing a main() Method](#writing-a-main-method)
@@ -766,6 +768,8 @@ import java.util.concurrent.atomic.*;
 > **Türkçe:** Bu kadar çok class eklemenin programınızın yürütülmesini yavaşlatacağını düşünebilirsiniz, ancak öyle değil. compiler gerçekte neye ihtiyaç duyulduğunu bulur. Hangi yaklaşımı seçeceğiniz kişisel tercihtir veya başkalarıyla bir ekipte çalışıyorsanız ekip tercihidir. Kullanılan class'ların listelenmesi, özellikle yeni programcılar için kodun okunmasını kolaylaştırır. Joker karakterin kullanılması içe aktarma listesini kısaltabilir. Sınavda her iki yaklaşımı da göreceksiniz.
 
 ### Redundant Imports
+
+> **Dil çalışması:** `redundant` için [ünite sözlüğü](vocabulary.md); cümle yapıları için [grammar notu](grammar_notes.md).
 
 > **Türkçe başlık:** Gereksiz Import'lar
 
@@ -1926,6 +1930,8 @@ System.out.println(apple.doubleValue()); // 200.99
 > **Türkçe:** - `sum(int num1, int num2)`, iki sayının toplamını döndürür
 
 ### Defining Text Blocks
+
+> **Dil çalışması:** `essential whitespace` için [ünite sözlüğü](vocabulary.md); cümle yapıları için [grammar notu](grammar_notes.md).
 
 > **Türkçe başlık:** Metin Bloklarını Tanımlama
 
@@ -3190,7 +3196,7 @@ A reference name                    The heap
 
 > **English:** Be able to identify legal and illegal declarations and initialization. Multiple variables can be declared and initialized in the same statement when they share a type. Local variables require an explicit initialization; others use the default value for that type. Identifiers may contain letters, numbers, currency symbols, or _, although they may not begin with numbers.
 
-> **Türkçe:** Yasal ve yasa dışı bildirimleri ve başlatmaları tanımlayabilme. Bir türü paylaştıklarında birden fazla variable aynı ifadede bildirilebilir ve başlatılabilir. Yerel variable'lar açık bir başlatma gerektirir; diğerleri bu tür için varsayılan değeri kullanır. Tanımlayıcılar harfler, sayılar, para birimi simgeleri veya _ içerebilir, ancak sayılarla başlamayabilirler.
+> **Türkçe:** Geçerli ve geçersiz bildirimleri ve ilk değer atamalarını ayırt edebilmelisiniz. Aynı türü paylaşan birden fazla variable tek bir statement içinde bildirilebilir ve ilk değerlerini alabilir. Local variable'lara kullanılmadan önce açıkça değer atanmalıdır; field'lar ise türlerinin varsayılan değerini alır. Identifier'lar harf, rakam, para birimi simgesi veya `_` içerebilir; ancak rakamla başlayamaz.
 
 > **English:** Also, you cannot define an identifier that is just a single underscore character _ . Numeric literals may contain underscores between two digits, such as 1_000, but not in other places, such as _100_.0_.
 
@@ -4115,3 +4121,154 @@ H. double amount = 1_2_.0_0;
 
 > Ayrıntılı pekiştirme için [Unit 01 practice quiz](practice_quiz.md) belgesini
 > notlara bakmadan çöz.
+
+## Appendix · Kaynak cevaplarıyla kontrol
+
+Bu bölüm, kaynak kitabın **Appendix: Answers to the Review Questions** bölümündeki
+Chapter 1 cevaplarından hazırlanmış özgün Türkçe çözüm rehberidir; İngilizce
+açıklamaların birebir çevirisi ve gerçek OCP sınav cevapları değildir. Kaynak:
+[ana PDF](../../OCP_Java_SE17_Chapter1den_Itibaren.pdf), fiziksel PDF sayfaları 910–913.
+`Official Answer` başlıkları kitabın kaynak cevaplarına karşılık gelir.
+
+Önce soruyu kapalı notla çöz; seçtiğin her harfin yanına bir cümle gerekçe yaz.
+Sonra aşağıdan kontrol et. Yanlış seçenek veya yanlış gerekçe, hata günlüğüne
+ayrı kayıt olarak girer. Kaynakta tespit edilen anlatım sorunları **Editör notu**
+olarak ayrılmıştır.
+
+### Official Answer 1 / Kaynak Cevap 1
+
+**Kaynak cevap: D, E.** [Soru 1](#question-1--soru-1)
+
+Standart giriş imzası `public static void main(String[] args)` biçimindedir; `final` eklenebilir. A'daki `private`, C'deki eksik `static` ve dönüş türü hataları bu yöntemin komut satırından giriş noktası olmasını engeller.
+
+### Official Answer 2 / Kaynak Cevap 2
+
+**Kaynak cevap: C, D, E.** [Soru 2](#question-2--soru-2)
+
+Sıra varsa `package → import → class` olmalıdır; package ve import isteğe bağlıdır. A, B ve F bu sırayı bozar.
+
+### Official Answer 3 / Kaynak Cevap 3
+
+**Kaynak cevap: A, E.** [Soru 3](#question-3--soru-3)
+
+`Bunny` sınıf, `bun` nesneye başvuran değişkendir; `main()` giriş metodudur. Parametre adının `args` yerine `x` olması sorun değildir.
+
+### Official Answer 4 / Kaynak Cevap 4
+
+**Kaynak cevap: B, E, G.** [Soru 4](#question-4--soru-4)
+
+`_helloWorld$`, `Public` ve `_Q2_` geçerli tanımlayıcılardır. Tek `_`, `true`, nokta içeren ad ve rakamla başlayan ad geçersizdir; büyük `P` ile `Public`, `public` anahtar kelimesi değildir.
+
+### Official Answer 5 / Kaynak Cevap 5
+
+**Kaynak cevap: A, D, F.** [Soru 5](#question-5--soru-5)
+
+`13`. satırdan sonra ilk nesneye ve onun alanı üzerinden ikinci nesneye ulaşan yol kalmaz. `polarBear = null` tek başına ikinci nesneyi erişilemez yapmaz; GC'nin çalışması da garanti değildir.
+
+### Official Answer 6 / Kaynak Cevap 6
+
+**Kaynak cevap: F.** [Soru 6](#question-6--soru-6)
+
+İlgili satırda yedi değişken kapsam içindedir: üç instance alanı, metot parametresi ve hâlâ açık bloklardaki yerel değişkenler. Kapanmış initializer ve `for` bloklarının yerel değişkenlerini sayma.
+
+### Official Answer 7 / Kaynak Cevap 7
+
+**Kaynak cevap: C, E.** [Soru 7](#question-7--soru-7)
+
+Üçlü tırnaklar arasındaki `+ numForks +` gibi parçalar Java ifadesi olarak değerlendirilmez, düz metindir. Bu nedenle başlatılmamış `numKnives` okunmaz; kapanış konumu fazladan son boş satır üretmez.
+
+### Official Answer 8 / Kaynak Cevap 8
+
+**Kaynak cevap: B, D, E, H.** [Soru 8](#question-8--soru-8)
+
+`var` bildiriminden tür çıkarılmalıdır; tür belli olduktan sonra reference değişkenine `null` atanabilir. E derlenir fakat sıfıra bölme çalıştırılırsa exception oluşur; soru yalnız derlenmeyi sorar.
+
+### Official Answer 9 / Kaynak Cevap 9
+
+**Kaynak cevap: E.** [Soru 9](#question-9--soru-9)
+
+Kitabın cevap anahtarı E'yi seçer: `String` class alanının varsayılanı `null`dır; yerel değişkenlerin varsayılan değeri yoktur. **Editör notu:** Kitap A'yı `0` yerine `0.0` yazılması gerektiği gerekçesiyle eler; bu ifade sayısal değer bakımından muğlaktır: Java 17'de `float` alanın varsayılanı pozitif `0.0f`tır ve `field == 0` doğrudur. Bu sorudan “float sıfır olamaz” kuralı çıkarma; `char` için varsayılan `null` değil `'\u0000'`dır.
+
+### Official Answer 10 / Kaynak Cevap 10
+
+**Kaynak cevap: A, E, F.** [Soru 10](#question-10--soru-10)
+
+Sayı içindeki alt çizgiler rakam gruplarını ayırabilir ve art arda gelebilir. Literal başında/sonunda veya ondalık noktanın yanında bulunamaz; B, C, D ve G bu sınırları ihlal eder.
+
+### Official Answer 11 / Kaynak Cevap 11
+
+**Kaynak cevap: E.** [Soru 11](#question-11--soru-11)
+
+Dört import da gereksizdir: `java.lang` otomatik görünür, `Tank` ve `Water` aynı pakettedir. Import'u kaldırmak sınıfları silmez.
+
+### Official Answer 12 / Kaynak Cevap 12
+
+**Kaynak cevap: A, C, D.** [Soru 12](#question-12--soru-12)
+
+`2`. satır aynı bildirimde iki farklı tür kullanır; 4. satır Java'nın desteklemediği varsayılan parametre değerini yazar; 7. satır kapsam dışındaki `fins`i okur. Initializer içindeki 3. satırın kendisi geçerlidir.
+
+### Official Answer 13 / Kaynak Cevap 13
+
+**Kaynak cevap: A, B, C.** [Soru 13](#question-13--soru-13)
+
+A tek uygun wildcard, B ve C belirli sınıf import'u ile adı çözer. D'de iki wildcard arasında kullanılan `Water` belirsizdir; E'de aynı basit adlı iki farklı sınıf açıkça import edilir.
+
+### Official Answer 14 / Kaynak Cevap 14
+
+**Kaynak cevap: A, B, D, E.** [Soru 14](#question-14--soru-14)
+
+`5L → short` ve `2.0 → int` doğrudan atamaları daraltma gerektirir; primitive'lerin `length` alanı/metodu yoktur. `String.length()` ise geçerlidir.
+
+### Official Answer 15 / Kaynak Cevap 15
+
+**Kaynak cevap: C, E, F.** [Soru 15](#question-15--soru-15)
+
+GC'nin amacı kullanılmayan nesnelerin belleğini geri kazanmaktır; erişilemeyen nesne uygun hâle gelir ama ne zaman toplanacağı belli değildir. `System.gc()` zorlayıcı garanti değildir; `final` referans da nesneyi sonsuza kadar yaşatmaz.
+
+### Official Answer 16 / Kaynak Cevap 16
+
+**Kaynak cevap: A, D.** [Soru 16](#question-16--soru-16)
+
+Text block içindeki satır sonu `\` işaretiyle bastırılır; toplam iki satır oluşur. `\s` boşluk karakterini korurken biçimsel ortak girinti otomatik temizlenebilir.
+
+### Official Answer 17 / Kaynak Cevap 17
+
+**Kaynak cevap: D, F, G.** [Soru 17](#question-17--soru-17)
+
+Başarıyla çalışır: `boolean` alan `false`, reference alan `null`, `float` alan `0.0` yazdırır. `f` literal yazım ekidir; çıktı sonuna eklenmez.
+
+### Official Answer 18 / Kaynak Cevap 18
+
+**Kaynak cevap: B, C, F.** [Soru 18](#question-18--soru-18)
+
+`var` yerel tür çıkarımıdır; tür derleme zamanında sabitlenir, değer sonradan değişebilir. Alan ve normal metot/constructor parametresinde ya da çoklu değişken bildiriminde kullanılamaz; dinamik tür değildir.
+
+### Official Answer 19 / Kaynak Cevap 19
+
+**Kaynak cevap: A, D.** [Soru 19](#question-19--soru-19)
+
+`parseLong()` primitive `long`, `valueOf()` wrapper `Long` üretir. İkisinin sayısal değeri 100 olduğundan `Long.max()` sonucu `100`dür.
+
+### Official Answer 20 / Kaynak Cevap 20
+
+**Kaynak cevap: C.** [Soru 20](#question-20--soru-20)
+
+`void PoliceBox()` constructor değil, normal metottur ve kendiliğinden çağrılmaz. Son referans ataması `p`yi varsayılan değerli `q` nesnesine bağladığı için iki referans da `null` ve `0` alanlarını gösterir.
+
+### Official Answer 21 / Kaynak Cevap 21
+
+**Kaynak cevap: D.** [Soru 21](#question-21--soru-21)
+
+Çıktı `7-0-2-4-` olur: `main`, ilk initializer, constructor ve son `println` sırasını izle. Constructor içindeki `count = 4`, önceki artışı değiştirir.
+
+### Official Answer 22 / Kaynak Cevap 22
+
+**Kaynak cevap: C, F, G.** [Soru 22](#question-22--soru-22)
+
+Binary/hex literal'lar ve geçerli alt çizgi konumları uygundur. A'da `Amount` ile sonradan okunan `amount` farklı adlardır; diğer yanlışlar literal türü veya alt çizgi konumuyla ilgilidir.
+
+### Official Answer 23 / Kaynak Cevap 23
+
+**Kaynak cevap: A, D.** [Soru 23](#question-23--soru-23)
+
+`50.0` bir `double` literal'ıdır; `float` alana doğrudan atanamaz. `for` içinde bildirilen `depth`i döngü dışında okumak ikinci derleme hatasıdır.

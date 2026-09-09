@@ -1,7 +1,7 @@
 # Unit 15 · JDBC — Practice Quiz
 
-Bu belge altı adet **OCP tarzı özgün çalışma sorusu** içerir; sorular gerçek
-sınavdan alınmamıştır. Önerilen süre 15–20 dakikadır. JDBC sorularında Java
+Bu belge sekiz adet **OCP tarzı özgün çalışma sorusu** içerir; sorular gerçek
+sınavdan alınmamıştır. Önerilen süre 25–30 dakikadır; istersen 1–4 ve 5–8 olarak iki oturuma böl. JDBC sorularında Java
 compiler'ın kontrol ettiği type/checked-exception kurallarıyla driver veya
 database tarafından runtime'da kontrol edilen SQL kurallarını ayır.
 
@@ -122,6 +122,80 @@ belirt:
 
 <!-- page-break -->
 
+### Soru 7
+
+**Odak:** SQL `NULL` ile Java `int` ayrımı
+
+Aşağıdaki program Java 17'nin standart, bellekte çalışan `CachedRowSet`
+uygulamasını kullanır; haricî veritabanı veya sürücü gerekmez. **Tek doğru**
+çıktıyı seç.
+
+```java
+import java.sql.Types;
+import javax.sql.rowset.RowSetMetaDataImpl;
+import javax.sql.rowset.RowSetProvider;
+
+public class NullColumn {
+    public static void main(String[] args) throws Exception {
+        try (var rows = RowSetProvider.newFactory().createCachedRowSet()) {
+            var metadata = new RowSetMetaDataImpl();
+            metadata.setColumnCount(1);
+            metadata.setColumnName(1, "amount");
+            metadata.setColumnType(1, Types.INTEGER);
+            rows.setMetaData(metadata);
+            rows.moveToInsertRow();
+            rows.updateNull(1);
+            rows.insertRow();
+            rows.moveToCurrentRow();
+            rows.beforeFirst();
+            rows.next();
+            int amount = rows.getInt(1);
+            System.out.print(amount + ":" + rows.wasNull());
+        }
+    }
+}
+```
+
+A. `null:true`
+
+B. `0:false`
+
+C. `0:true`
+
+D. `NullPointerException` oluşur.
+
+<!-- page-break -->
+
+### Soru 8
+
+**Odak:** Transaction zaman çizelgesi
+
+Başlangıçta `balance = 100` olan tek kayıt vardır. Bağlantı ve kayıt noktaları
+geçerlidir; tüm çağrılar başarılı olur. Başka bağlantı değişiklik yapmaz.
+Aşağıdaki adımlar sırayla aynı bağlantıda uygulanır:
+
+1. `setAutoCommit(false)`
+2. Bakiyeyi 10 artıran bir `UPDATE`
+3. `Savepoint p = connection.setSavepoint()`
+4. Bakiyeyi 20 artıran bir `UPDATE`
+5. `connection.rollback(p)`
+6. `connection.commit()`
+
+Kalıcılaştırılan bakiye kaçtır? **Tek seçenek** seç.
+
+A. 100
+
+B. 110
+
+C. 130
+
+D. Henüz bir değişiklik kalıcılaşmamıştır.
+
+**Dil aktarımı:** “Rolling back to the savepoint discards only the changes
+made after it.” cümlesinde `made after it` hangi ismi niteler? `it` neye döner?
+
+<!-- page-break -->
+
 ## Cevaplar ve açıklamalar
 
 ### Soru 1 — A
@@ -178,10 +252,30 @@ belirt:
 
 ### Soru 6 — Örnek çeviri
 
-“Execution'dan önce gerekli bütün bind variable'lara değer atanmış olduğu
-sürece bir prepared statement yeniden kullanılabilir.”
+“Çalıştırmadan önce gerekli bütün bağlama değişkenlerine değer atanmış olduğu
+sürece hazırlanmış bir deyim yeniden kullanılabilir.”
 
 `as long as`, burada süre değil **koşul** bildirir ve “-dığı sürece” diye
 çevrilir. `can be reused` modal passive'dir; `have been assigned` ise present
 perfect passive yapısıdır. Önceki parameter value temizlenmediyse setter'ın her
 execution öncesinde yeniden çağrılması gerekmez.
+
+### Soru 7 — C
+
+- **C doğru:** SQL `NULL`, `getInt()` ile okunduğunda primitive dönüş değeri `0` olur. Hemen sonraki `wasNull()`, son okunan SQL değerinin `NULL` olduğunu bildirir: başarıyla derlenir ve `0:true` yazdırır.
+- **A yanlış:** Primitive `int`, Java `null` değerini tutamaz.
+- **B yanlış:** `0`, hem gerçek sıfırdan hem SQL `NULL` değerinden gelebilir; ayrımı `wasNull()` yapar.
+- **D yanlış:** Burada `Integer` unboxing yapılmıyor; `getInt()` API'si primitive değer döndürüyor.
+
+Önce `next()` ile geçerli satıra gelindiğine de dikkat et. `wasNull()`, herhangi bir sütunun değil **son okunan sütunun** durumunu sorar.
+
+### Soru 8 — B
+
+- **B doğru:** Değerler sırasıyla `100 → 110 → [p] → 130 → 110 → commit` olur. `rollback(p)`, `p` sonrasındaki 20 artışını geri alır; önceki 10 artışı kalır.
+- **A yanlış:** `rollback(p)`, transaction'ın tamamına uygulanan parametresiz `rollback()` değildir.
+- **C yanlış:** Kayıt noktasından sonraki artış geri alınmıştır.
+- **D yanlış:** Son adım açık `commit()` çağrısıdır; kalan değişiklik kalıcılaşır.
+
+Çeviri: “Kayıt noktasına geri dönmek, yalnız o noktadan sonra yapılan değişiklikleri geri alır.” `made after it`, `changes` ismini niteleyen kısaltılmış edilgen yan cümledir; `it`, savepoint'e gönderme yapar.
+
+Bu soru JDBC transaction akışını ölçer; canlı bir sürücü davranışı gözlemine dayanmaz. İşlemlerin başarılı olduğu varsayımı soru kökünde verilmiştir.

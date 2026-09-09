@@ -4,6 +4,12 @@ Bu dosya, [ana çift dilli nottaki](bilingual_notes.md) module, service ve
 migration anlatımından seçilen gerçek teknik İngilizce yapılarını YDS okuma
 stratejisiyle açıklar.
 
+
+Örnekler kaynak bağlamını öğretmek için seçilmiş veya sadeleştirilmiştir;
+“kaynak alıntısı” diye belirtilmeyen cümleler birebir kitap alıntısı değildir.
+Her oturumda bir yapıyı çalış: **ana yüklem → özne → bağlaç → yan cümle →
+doğal Türkçe** sırasını izle. Yapıyı ertesi gün örneğe bakmadan yeniden kur.
+
 ## 1. `consist of + noun`
 
 ### Yapı
@@ -17,8 +23,7 @@ Bir bütünün hangi parçalardan oluştuğunu belirtir. Passive kullanılmaz.
 > **English:** “A real project consists of hundreds of classes grouped into
 > packages.”
 >
-> **Türkçe:** “Gerçek bir proje, package'lar halinde gruplanmış yüzlerce
-> class'tan oluşur.”
+> **Türkçe:** “Gerçek bir proje, paketler hâlinde gruplanmış yüzlerce sınıftan oluşur.”
 
 YDS ipucu: `consist of` = `be composed of`. `is consisted of` biçimi standart
 kullanımda yanlıştır.
@@ -36,8 +41,7 @@ Dağınık öğelerin gruplara ayrılmasını anlatır.
 
 > **English:** “The module system groups related packages into modules.”
 >
-> **Türkçe:** “Module system related package'ları module'lar halinde
-> gruplandırır.”
+> **Türkçe:** “Modül sistemi, ilişkili paketleri modüller hâlinde gruplandırır.”
 
 Passive cümlede asıl nesne subject olur: `Packages are grouped into modules.`
 
@@ -55,7 +59,7 @@ gelirse gerund kullanılır.
 > **English:** “In addition to compiling code, the tools can describe
 > modules.”
 >
-> **Türkçe:** “Code derlemeye ek olarak tool'lar module'ları açıklayabilir.”
+> **Türkçe:** “Araçlar, kod derlemeye ek olarak modülleri açıklayabilir.”
 
 YDS ipucu: `in addition to` additive anlamlı bir prepositional phrase'dir;
 contrast bildirmez.
@@ -91,7 +95,7 @@ Bağımlılık veya sonucun bir koşula bağlı olduğunu anlatır.
 
 > **English:** “The care module depends on the feeding module.”
 >
-> **Türkçe:** “Care module feeding module'a bağlıdır.”
+> **Türkçe:** “Bakım modülü, besleme modülüne bağlıdır.”
 
 YDS'de `dependent on` adjective, `dependency/dependence` noun family
 üyeleridir.
@@ -109,7 +113,7 @@ Bir koşulun gerçekleşmesini güvenceye alır.
 
 > **English:** “Make sure that the module name matches the descriptor.”
 >
-> **Türkçe:** “Module adının descriptor ile eşleştiğinden emin olun.”
+> **Türkçe:** “Modül adının tanımlayıcıyla eşleştiğinden emin olun.”
 
 `make sure to compile` aynı subject'in eylemidir; `make sure that it compiles`
 tam clause içerir.
@@ -127,8 +131,7 @@ Kural veya zorunluluk bildirir.
 > **English:** “An explicit named module is required to have a module
 > descriptor.”
 >
-> **Türkçe:** “Explicit named module'ın module descriptor'a sahip olması
-> gerekir.”
+> **Türkçe:** “Açıkça tanımlanmış isimli bir modülün modül tanımlayıcısına sahip olması gerekir.”
 
 YDS ipucu: Passive zorunluluk, `must` veya `have to` anlamına yaklaşır.
 
@@ -146,8 +149,7 @@ allow + noun/gerund
 > **English:** “A qualified export allows selected modules to access the
 > package.”
 >
-> **Türkçe:** “Qualified export seçilen module'ların package'a erişmesine izin
-> verir.”
+> **Türkçe:** “Hedefleri belirtilmiş bir dışa açma yönergesi, seçilen modüllerin pakete erişmesine izin verir.”
 
 `allow selected modules access` double-object yapısı da grammatical'dır;
 `allow selected modules to access the package` teknik bağlamda hedef eylemi
@@ -164,13 +166,18 @@ noun + that/which + subject + verb
 
 Hangi nesneden söz edildiğini sınırlar.
 
-> **English:** “An automatic module is a JAR that lacks an explicit module
-> descriptor.”
+> **English:** “An automatic module is a JAR on the module path that lacks an explicit module descriptor.”
 >
-> **Türkçe:** “Automatic module explicit module descriptor içermeyen bir
-> JAR'dır.”
+> **Türkçe:** “Otomatik modül, module path üzerinde bulunan ve açık modül tanımlayıcısı içermeyen bir JAR’dır.”
 
 Defining clause'ta comma kullanılmaz. Teknik tanımlarda `that` çok yaygındır.
+
+
+**Cümleyi parçala:** `[An automatic module]` özne; `[is]` ana yüklem; `[a JAR …]` tanım; `[that lacks an explicit module descriptor]` JAR'ı niteleyen yan cümle. `that`, yan cümlenin öznesidir; ardından ikinci bir `it` eklenmez.
+
+**Teknik anlam kontrolü:** Tanım, JAR'ın **module path üzerinde** bulunmasını da gerektirir. Descriptor içermeyen bir JAR classpath üzerinde olduğunda isimsiz modüle katılır.
+
+**Kaynak bağlamı:** [Automatic Modules](bilingual_notes.md#automatic-modules).
 
 ## 10. Non-defining relative clause: `which`
 
@@ -185,8 +192,7 @@ Zorunlu olmayan ek bilgi verir.
 > **English:** “The descriptor declares dependencies, which makes the graph
 > explicit.”
 >
-> **Türkçe:** “Descriptor dependency'leri declare eder; bu da graph'ı explicit
-> hale getirir.”
+> **Türkçe:** “Modül tanımlayıcısı bağımlılıkları bildirir; bu da grafiği açık hâle getirir.”
 
 YDS ipucu: Comma'dan sonraki `which`, bazen önceki clause'un tamamına gönderme
 yapar.
@@ -204,7 +210,7 @@ Fiziksel konumun yanında soyut environment veya situation da tanımlar.
 > **English:** “The module path is the location where named modules are
 > discovered.”
 >
-> **Türkçe:** “Module path, named module'ların keşfedildiği konumdur.”
+> **Türkçe:** “Module path, isimli modüllerin keşfedildiği konumdur.”
 
 `where` ≈ `in which`; ancak her `which` yerine `where` kullanılamaz.
 
@@ -222,7 +228,7 @@ Genel ifadeye istisna ekler.
 > **English:** “The command is correct except that the class name uses
 > slashes.”
 >
-> **Türkçe:** “Command doğrudur; ancak class name slash kullanmaktadır.”
+> **Türkçe:** “Komut doğrudur; ancak sınıf adında eğik çizgiler kullanılmaktadır.”
 
 `except that` tam clause, `except for` noun phrase alır.
 
@@ -240,7 +246,7 @@ Amaç bildirir.
 > **English:** “Export the package in order to make its public API
 > accessible.”
 >
-> **Türkçe:** “Public API'yi erişilebilir yapmak için package'ı export edin.”
+> **Türkçe:** “`public` API’yi erişilebilir kılmak için paketi dışa açın.”
 
 YDS'de çoğunlukla `to + V1` ile eş anlamlıdır; `in order that` ise clause alır.
 
@@ -258,7 +264,7 @@ Bir aşama tamamlandıktan sonraki sonucu anlatır.
 > **English:** “Once placed on the module path, the legacy JAR becomes an
 > automatic module.”
 >
-> **Türkçe:** “Legacy JAR module path'e konduğunda automatic module olur.”
+> **Türkçe:** “Eski yapıdaki JAR, module path üzerine konulduğunda otomatik modüle dönüşür.”
 
 Reduced clause'ta gizli subject main clause subject'iyle aynı olmalıdır.
 
@@ -277,7 +283,7 @@ Bir seçeneği diğerine tercih eder veya karşılaştırır.
 > **English:** “The consumer depends on the service interface rather than the
 > implementation.”
 >
-> **Türkçe:** “Consumer implementation yerine service interface'e bağlıdır.”
+> **Türkçe:** “Tüketici, gerçekleştirim yerine servis arayüzüne bağımlıdır.”
 
 YDS ipucu: `rather than` iki tarafta parallel form bekler.
 
@@ -294,7 +300,7 @@ regardless of + noun / wh-clause
 > **English:** “The package remains concealed regardless of the class being
 > public.”
 >
-> **Türkçe:** “Class public olsa da package gizli kalır.”
+> **Türkçe:** “Sınıf `public` olsa da paket gizli kalır.”
 
 `regardless of whether ...` iki olasılığın sonucu değiştirmediğini gösterir.
 
@@ -311,10 +317,16 @@ Koşul anlamında “...dığı sürece” demektir.
 > **English:** “The provider implementation package can remain unexported as
 > long as the module declares a valid `provides` directive.”
 >
-> **Türkçe:** “Module geçerli bir `provides` directive'i declare ettiği sürece
-> provider implementation package'ı export edilmeden kalabilir.”
+> **Türkçe:** “Modül geçerli bir `provides` yönergesi bildirdiği sürece sağlayıcının gerçekleştirim paketi dışa açılmadan kalabilir.”
 
 Süre anlamındaki literal `as long as` ile koşul anlamını context'ten ayır.
+
+
+**Koşulun yönünü çöz:** `A only if B`, “A varsa B gereklidir” demektir. `A if B`, B'yi A için yeterli koşul olarak sunar. Modül sorularında yalnız `public` görerek erişim sonucuna atlama.
+
+**Özgün örnek:** “A public type is accessible only if its package is exported to the reading module.” → “Bir public türe ancak paketi, onu okuyan modüle dışa açılmışsa erişilebilir.” `[A public type]` özne, `[is accessible]` ana yüklem; `[only if …]` gerekli koşuldur. Bu cümle, dışa açmanın tek başına bütün erişim koşullarını sağladığını söylemez.
+
+**Kaynak bağlamı:** [Exporting a Package](bilingual_notes.md#exporting-a-package).
 
 ## 18. `unlike + noun`
 
@@ -329,8 +341,7 @@ unlike + noun/pronoun, clause
 > **English:** “Unlike an explicit named module, an unnamed module has no
 > effective descriptor.”
 >
-> **Türkçe:** “Explicit named module'ın aksine unnamed module'ın effective
-> descriptor'ı yoktur.”
+> **Türkçe:** “Açıkça tanımlanmış isimli modülden farklı olarak isimsiz modülün etkin bir tanımlayıcısı yoktur.”
 
 `unlike` preposition'dır; ardından clause değil noun phrase gelir.
 
@@ -346,7 +357,7 @@ Bir sonucun hangi yöntemle elde edildiğini anlatır.
 
 > **English:** “You can inspect dependencies by running `jdeps`.”
 >
-> **Türkçe:** “`jdeps` çalıştırarak dependency'leri inceleyebilirsiniz.”
+> **Türkçe:** “`jdeps` çalıştırarak bağımlılıkları inceleyebilirsiniz.”
 
 YDS ipucu: `by` burada agent değil method bildirir.
 
@@ -363,8 +374,7 @@ Bir eylemin başka bir eylem gerçekleşmeden yapıldığını bildirir.
 > **English:** “An automatic module exports its packages without declaring
 > them individually.”
 >
-> **Türkçe:** “Automatic module package'larını tek tek declare etmeden export
-> eder.”
+> **Türkçe:** “Otomatik modül, paketlerini tek tek bildirmeden dışa açar.”
 
 Preposition sonrası infinitive değil gerund kullanılır: `without declaring`.
 
@@ -380,7 +390,7 @@ Sıralamadaki kişi/nesnenin yaptığı işi compact relative clause ile verir.
 
 > **English:** “The lowest-level library is the first component to migrate.”
 >
-> **Türkçe:** “En alt seviyedeki library migrate edilecek ilk component'tir.”
+> **Türkçe:** “En alt düzeydeki kütüphane, yeni yapıya taşınacak ilk bileşendir.”
 
 `to migrate` burada amaç değil, noun'u niteleyen infinitive'dir.
 
@@ -397,8 +407,7 @@ not only + X + but also + Y
 > **English:** “Modules provide not only explicit dependencies but also strong
 > encapsulation.”
 >
-> **Türkçe:** “Module'lar yalnız explicit dependency değil, strong
-> encapsulation da sağlar.”
+> **Türkçe:** “Modüller, açık bağımlılıkların yanı sıra güçlü kapsülleme de sağlar.”
 
 Clause başında `Not only` kullanılırsa inversion gerekebilir:
 `Not only does it compile, but it also runs.`
@@ -417,8 +426,7 @@ modal verb'ler yaygındır fakat zorunlu değildir.
 > **English:** “Use a stable module name so that consumers do not break when
 > the JAR filename changes.”
 >
-> **Türkçe:** “JAR filename değiştiğinde consumer'ların bozulmaması için stable
-> module name kullanın.”
+> **Türkçe:** “JAR dosyasının adı değiştiğinde tüketiciler bozulmasın diye sabit bir modül adı kullanın.”
 
 `so that` clause alır; `so ... that` ise derece-sonuç yapısıdır.
 

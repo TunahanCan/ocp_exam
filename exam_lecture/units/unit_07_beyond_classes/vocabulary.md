@@ -2,7 +2,7 @@
 
 ## Bu belge nasıl kullanılmalı?
 
-Bu sözlüğü [README'deki çalışma rotasının](README.md#4560-dakikalık-önerilen-çalışma-rotası)
+Bu sözlüğü [README'deki çalışma rotasının](README.md#işten-sonra-çalışma-rotası)
 vocabulary adımında kullan:
 
 1. English terimden Türkçe anlamı active recall ile üret.
@@ -16,7 +16,7 @@ vocabulary adımında kullan:
 - **Türkçe:** erişim method'u, okuyucu method
 - **Bağlam:** Record component değerini aynı adlı method ile döndürür.
 - **Example:** The compiler generates an accessor for each record component.
-- **Çeviri:** Compiler her record component'i için bir accessor üretir.
+- **Çeviri:** Derleyici, açıkça bildirilmemişse her record bileşeni için bir erişim method’u üretir.
 - **Related:** access (v./n.), accessible (adj.), mutator (n.)
 
 ### analogous · adjective
@@ -24,7 +24,7 @@ vocabulary adımında kullan:
 - **Bağlam:** Bir interface kuralının class'lardaki eşdeğer kuralla aynı mantığı
   izlemesi.
 - **Example:** The rule for sealed interfaces is analogous to the class rule.
-- **Çeviri:** Sealed interface kuralı class kuralına benzer.
+- **Çeviri:** Sealed interface kuralı, sealed sınıf kuralına benzer.
 - **Related:** analogy (n.), similarly (adv.)
 
 ### anonymous class · noun phrase
@@ -38,7 +38,7 @@ vocabulary adımında kullan:
 - **Türkçe:** herhangi bir, keyfî seçilmiş
 - **Bağlam:** Önceden belirli runtime type'ı bilinmeyen bir instance.
 - **Example:** An arbitrary reference may point to several subtype objects.
-- **Çeviri:** Herhangi bir reference, çeşitli subtype object'lerini gösterebilir.
+- **Çeviri:** Bir referans, farklı alt türlerden nesnelere işaret edebilir; aynı anda yalnız bir nesneyi gösterir.
 - **Synonym:** unspecified
 
 ### boilerplate code · noun phrase
@@ -53,7 +53,7 @@ vocabulary adımında kullan:
 - **Türkçe:** standart, bileşenlerle bire bir eşleşen
 - **Bağlam:** Record components'ı aynı order/type ile alan constructor.
 - **Example:** The canonical constructor initializes every record component.
-- **Çeviri:** Canonical constructor her record component'ini initialize eder.
+- **Çeviri:** Canonical constructor, record’un bütün bileşenlerini başlatır.
 - **Related:** compact constructor
 
 ### compatible · adjective
@@ -76,7 +76,7 @@ vocabulary adımında kullan:
 - **Bağlam:** Hidden member'ların parent ve child tarafında değiştirilmesinin
   anlaşılabilirlik sorununu büyütmesi.
 - **Example:** Updating both hidden fields compounds the confusion.
-- **Çeviri:** Her iki hidden field'ı güncellemek kafa karışıklığını artırır.
+- **Çeviri:** Üst ve alt sınıftaki aynı adlı iki alanı da güncellemek kafa karışıklığını artırır.
 - **Word family:** compounded (adj./V3), compounding (n./adj.)
 
 ### conflict · noun / verb
@@ -126,7 +126,7 @@ vocabulary adımında kullan:
 - **Antonym:** encourage
 
 ### enclosing instance · noun phrase
-- **Türkçe:** çevreleyen instance
+- **Türkçe:** çevreleyen nesne
 - **Bağlam:** Non-static inner class object'ine bağlı outer object.
 - **Example:** An inner class requires an enclosing instance.
 - **Çeviri:** Inner class, çevreleyen bir instance gerektirir.
@@ -171,13 +171,22 @@ vocabulary adımında kullan:
 - **Word family:** independent (adj.), independence (n.)
 
 ### instantiate · verb
-- **Türkçe:** instance oluşturmak
+- **Türkçe:** nesne oluşturmak
 - **Bağlam:** Bir concrete class constructor'ını çağırarak object oluşturmak.
 - **Example:** An interface cannot be instantiated directly.
 - **Çeviri:** Interface için doğrudan instance oluşturulamaz.
 - **Word family:** instance (n.), instantiation (n.)
 
-## M–N
+## L–N
+
+### latter · adjective / pronoun
+
+- **Türkçe:** sonuncusu; son sözü edilen
+- **Bağlam:** “the latter two” önce sayılan türlerin son ikisi olan local ve anonymous class’ı gösterir.
+- **Example (özgün çalışma cümlesi):** The latter two types depend on the context.
+- **Çeviri:** Son sözü edilen iki tür bağlama bağlıdır.
+- **Related:** Antonym: former; latter iki öğeden ikincisi, the latter two listenin son iki öğesidir.
+- **Kaynak bağlam:** [latter](bilingual_notes.md#summary--özet).
 
 ### maintain · verb
 - **Türkçe:** bakımını yapmak, sürdürülebilir tutmak
@@ -190,7 +199,7 @@ vocabulary adımında kullan:
 ## O–R
 
 ### override · verb
-- **Türkçe:** ezmek, yeniden gerçekleştirmek
+- **Türkçe:** üst türdeki instance method’u alt türde yeniden gerçekleştirmek
 - **Bağlam:** Inherited instance method'a compatible yeni implementation vermek.
 - **Example:** Penguin must override the conflicting default method.
 - **Çeviri:** Penguin çakışan default method'u override etmelidir.
@@ -301,6 +310,22 @@ vocabulary adımında kullan:
 - **Example:** The underlying object is still a `Lemur`.
 - **Çeviri:** Altta bulunan gerçek object hâlâ bir `Lemur`'dur.
 - **Related:** runtime object, actual implementation
+
+## Karıştırılan anlamlar ve kapalı kitap hatırlama
+
+| Karşılaştırma | Karar verirken kullan |
+|---|---|
+| `former` / `latter` | İki öğenin ilki / ikincisi; “the latter two” listenin son iki öğesidir. |
+| `implicit` / `explicitly` | İlki sıfat, ikincisi zarf: an implicit modifier / explicitly declare a modifier. |
+| `shallow immutability` / deep immutability | Referansın değişmemesi / erişilen nesnelerin durumunun da değişmemesi. |
+
+Aşağıdaki özgün cümleyi Türkçeye çevir; ardından vurgulanan anlam farkını kendi Java örneğine aktar. Cevabı açmadan önce bir tahmin yaz.
+
+> The latter two classes require an instance in this context.
+
+**Kendini kontrol et:** Bu bağlamda son sözü edilen iki sınıf için bir nesne gerekir. Hangi iki sınıf olduğunu önceki cümlede bulmadan çeviriyi tamamlamış sayma.
+
+Dört işaretli terim için 1/3/7/14. günlerde iki yönlü hatırlama yap: English → Türkçe anlam, sonra Türkçe teknik durum → English terim. Anlamını hatırlayıp örnek kuramadığın terimi “öğrendim” diye işaretleme.
 
 ## Mini quiz
 

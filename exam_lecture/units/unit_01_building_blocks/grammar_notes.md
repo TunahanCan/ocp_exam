@@ -29,8 +29,9 @@ subject + verb ... + to + V1
 **EN:** Use a wildcard to match all the JARs.\
 **TR:** Tüm JAR'ları eşleştirmek için wildcard kullan.
 
-> **YDS tip:** Cümle başındaki `to + V1` özne değildir; çoğu teknik metinde ana
-> eylemin amacını verir. “-mek için” çevirisini önce dene.
+> **YDS tip:** Buradaki virgülle ayrılmış `To run the program` amaç bildirir.
+> Ancak cümle başındaki her infinitive amaç değildir: `To learn Java takes time.`
+> cümlesinde `To learn Java` özne, `takes` çekimli fiildir.
 
 ## 2. Amaç/sonuç bağlantısı kuran `so`
 
@@ -85,7 +86,8 @@ where / how / what / when + to + V1
 
 ### Kısa açıklama
 
-`might + V1`, düşük olasılık bildirir. `You might wonder ...` akademik ve teknik
+`might + V1`, kesin olmayan olasılık bildirir; tek başına belirli bir olasılık
+yüzdesi veya her bağlamda `may`den daha düşük olasılık göstermez. `You might wonder ...` akademik ve teknik
 metinlerde okuyucunun olası sorusuna geçiş yapmak için sık kullanılır.
 
 ### Formül
@@ -317,6 +319,19 @@ X rather than Y
 
 > **YDS ipucu:** `rather than` sonrasındaki yapı, karşılaştırılan ilk yapıyla
 > parallel olmalıdır.
+
+## Cümleyi parçalayarak okuma
+
+[İlgili kaynak bölümü](bilingual_notes.md#initializing-variables). Aşağıdaki çalışma cümlesi
+kaynak bağlamına dayanır; gerektiğinde öğretim amacıyla sadeleştirilmiştir.
+
+**English:** Which expressions, when inserted into the blank, allow the code to compile?
+
+**Çözümleme:** `Which expressions` = özne; `allow` = ana fiil; `the code` = nesne; `to compile` = nesnenin yaptığı iş. Araya giren `when inserted into the blank`, `when the expressions are inserted ...` edilgen yan cümlesinin kısaltmasıdır.
+
+**Doğal Türkçe:** Hangi ifadeler boşluğa yerleştirildiğinde kodun derlenmesini sağlar?
+
+**Kapalı kitap kontrolü:** `when inserted`ı kaldır: ana soru hâlâ tamam mı? `allow`dan sonra neden `to` var?
 
 ## Mini quiz
 

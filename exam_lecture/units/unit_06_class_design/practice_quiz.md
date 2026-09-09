@@ -1,7 +1,7 @@
 # Unit 06 · Class Design — Practice Quiz
 
 Bu belge Java 17/OCP odağında hazırlanmış **özgün çalışma soruları** içerir;
-gerçek sınav sorusu değildir. Önerilen süre 15–20 dakikadır. Önce altı sorunun
+gerçek sınav sorusu değildir. Önerilen süre 20–25 dakikadır. Önce sekiz sorunun
 tamamını kaynaklara bakmadan çöz, ardından cevap açıklamalarına geç.
 
 ## Sorular
@@ -128,6 +128,54 @@ D. “Bir subclass constructor'ı başka bir constructor'ı isterse çağırabil
 
 <!-- page-break -->
 
+### Soru 7 · Constructor içinden override çağrısı
+
+Aşağıdaki tam Java 17 programı için doğru sonuç hangisidir? **Bir seçenek seçin.**
+
+```java
+public class ConstructorDispatchQuiz {
+    static class Parent {
+        Parent() { System.out.print(value() + ":"); }
+        int value() { return 1; }
+    }
+    static class Child extends Parent {
+        int count = 4;
+        @Override int value() { return count; }
+    }
+    public static void main(String[] args) {
+        Child c = new Child();
+        System.out.print(c.value());
+    }
+}
+```
+
+A. `1:4`<br>
+B. `0:4`<br>
+C. `4:4`<br>
+D. Kod derlenmez.<br>
+
+### Soru 8 · Örtük constructor ve üst sınıf
+
+Aşağıdaki tam Java 17 programı için doğru sonuç hangisidir? **Bir seçenek seçin.**
+
+```java
+class ParentOnlyArgument {
+    ParentOnlyArgument(int value) {}
+}
+public class MissingSuperQuiz extends ParentOnlyArgument {
+    public static void main(String[] args) {
+        System.out.print("ready");
+    }
+}
+```
+
+A. Başarıyla derlenir ve `ready` yazar.<br>
+B. Yalnız `new MissingSuperQuiz()` çağrılırsa derlenmez.<br>
+C. Kod derlenir; main içinde NullPointerException oluşur.<br>
+D. Kod derlenmez; üretilen constructor geçerli bir `super()` bulamaz.<br>
+
+<!-- page-break -->
+
 ## Cevaplar ve açıklamalar
 
 ### Soru 1 — A
@@ -193,3 +241,11 @@ D. “Bir subclass constructor'ı başka bir constructor'ı isterse çağırabil
   zorunda değildir.
 - **D yanlış:** Her constructor zinciri en sonunda superclass constructor'ına
   ulaşır; çağrı optional değildir.
+
+### Soru 7 — B
+
+Başarıyla derlenir ve `0:4` yazar. Parent constructor’ındaki çağrı da Child override’ına gider; o anda Child field initializer’ı çalışmadığından count varsayılan 0’dır. A dinamik seçimi, C başlatma sırasını kaçırır; D yanlıştır çünkü bu çağrı derleyici tarafından yasaklanmaz. Constructor’dan override edilebilir method çağırmak bu nedenle riskli bir tasarımdır.
+
+### Soru 8 — D
+
+Class hiç constructor bildirmediğinden compiler no-arg default constructor üretmeye çalışır; bunun çağıracağı ParentOnlyArgument() yoktur. A ve B yanlıştır: nesne oluşturulmasa da bildirimin derleme kuralları denetlenir. C yanlıştır: çalışma aşamasına ulaşılamaz. Çözüm örneği: `MissingSuperQuiz() { super(1); }`.

@@ -1,8 +1,10 @@
 # Unit 10 · Streams — Practice Quiz
 
 Bu belge Java 17/OCP odağında hazırlanmış **özgün çalışma soruları** içerir;
-gerçek sınav sorusu değildir. Önerilen süre 15–20 dakikadır. Her pipeline için
+gerçek sınav sorusu değildir. Önerilen süre 20–25 dakikadır. Her pipeline için
 source, intermediate operation ve terminal operation'ı işaretle.
+
+Bu sette **8 özgün soru** vardır; her soruda aksi belirtilmedikçe tek doğru seçenek seçilir.
 
 ## Sorular
 
@@ -131,6 +133,57 @@ Pipeline element-by-element çalışamaz.
 
 <!-- page-break -->
 
+### Soru 7 · İki collector’ın bağımsız girdisi
+
+Aşağıdaki tam Java 17 programı için doğru sonuç hangisidir? **Bir seçenek seçin.**
+
+```java
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class TeeingQuiz {
+    public static void main(String[] args) {
+        String result = Stream.of("ant", "bear", "cat")
+            .collect(Collectors.teeing(
+                Collectors.filtering(s -> s.length() > 3,
+                    Collectors.toList()),
+                Collectors.counting(),
+                (kept, total) -> kept.size() + "/" + total));
+        System.out.print(result);
+    }
+}
+```
+
+A. `1/1`<br>
+B. `1/3`<br>
+C. `3/3`<br>
+D. Kod derlenmez; teeing Java 17’de yoktur.<br>
+
+### Soru 8 · Optional.map ve flatMap null sonucu
+
+Aşağıdaki tam Java 17 programı için doğru sonuç hangisidir? **Bir seçenek seçin.**
+
+```java
+import java.util.Optional;
+
+public class OptionalNullQuiz {
+    public static void main(String[] args) {
+        int value = Optional.of("x")
+            .<Integer>map(s -> null).orElse(7);
+        System.out.print(value + ":");
+        Optional.of("x").flatMap(s -> null);
+        System.out.print("end");
+    }
+}
+```
+
+A. `7:end`<br>
+B. `null:end`<br>
+C. Önce `7:` yazar, sonra NullPointerException oluşur.<br>
+D. Kod derlenmez; lambda null döndüremez.<br>
+
+<!-- page-break -->
+
 ## Cevaplar ve açıklamalar
 
 ### Soru 1 — A
@@ -201,3 +254,11 @@ Pipeline element-by-element çalışamaz.
   pipeline'ları sonlandırabilir.
 - **D yanlış:** Stream pipeline çoğunlukla elementleri stage'ler boyunca
   demand-driven işler.
+
+### Soru 7 — B
+
+Başarıyla derlenir ve `1/3` yazar. İki downstream collector aynı üç öğeyi alır; filtering yalnız ilk collector’ın tuttuğu listeyi daraltır. A filtreden çıkanları ikinci collector’ın da kaybettiğini varsayar; C filtreyi yok sayar. D yanlıştır: teeing Java 17’de mevcuttur. Pipeline’a collect öncesinde filter eklenseydi her iki collector’ın girdisi daralırdı.
+
+### Soru 8 — C
+
+Kod derlenir. map null sonucu Optional.empty() olarak ele alır; orElse bu yüzden 7 verir. flatMap ise mapper’ın Optional döndürmesini bekler; null Optional sonucu NullPointerException oluşturur. A iki API’nin null davranışını eşit sayar; B orElse’i yok sayar; D yanlıştır çünkü null reference dönüşü derleme açısından uygundur.

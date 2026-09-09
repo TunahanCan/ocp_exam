@@ -632,7 +632,7 @@ D. Sonuç undefined
 
 - `List`: duplicate + index; `Set`: unique; `Queue/Deque`: direction; `Map`:
   key/value.
-- Factory collection'lar immutable ve `null` reddeder.
+- `List.of/copyOf`, `Set.of/copyOf`, `Map.of/copyOf` sonuçları unmodifiable’dır ve null öğe/key/value kabul etmez; mutable öğeleri otomatik immutable yapmazlar.
 - `Arrays.asList()` fixed-size; `set()` var, `add/remove` yok.
 - `remove(1)` için declared type'a bak: index overload'u görünür mü?
 - Queue'da `remove/element` exception; `poll/peek` `null`.

@@ -1,7 +1,7 @@
 # Unit 07 · Beyond Classes — Practice Quiz
 
 Bu belge Java 17/OCP odağında hazırlanmış **özgün çalışma soruları** içerir;
-gerçek sınav sorusu değildir. Önerilen süre 15–20 dakikadır. Önce altı soruyu
+gerçek sınav sorusu değildir. Önerilen süre 20–25 dakikadır. Önce sekiz soruyu
 cevap anahtarına bakmadan çöz.
 
 ## Sorular
@@ -118,6 +118,55 @@ bırakır.
 
 <!-- page-break -->
 
+### Soru 7 · Record ve mutable component
+
+Aşağıdaki tam Java 17 programı için doğru sonuç hangisidir? **Bir seçenek seçin.**
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class RecordCopyQuiz {
+    record Bag(List<String> names) {
+        Bag { names = new ArrayList<>(names); }
+    }
+    public static void main(String[] args) {
+        var input = new ArrayList<>(List.of("a"));
+        var bag = new Bag(input);
+        input.add("b");
+        bag.names().add("c");
+        System.out.print(bag.names() + ":" + input);
+    }
+}
+```
+
+A. `[a, b, c]:[a, b, c]`<br>
+B. `[a]:[a, b]`<br>
+C. `[a, c]:[a, b]`<br>
+D. `bag.names().add()` çağrısı UnsupportedOperationException fırlatır.<br>
+
+### Soru 8 · Sealed interface’in record alt türü
+
+Aşağıdaki tam Java 17 programı için doğru sonuç hangisidir? **Bir seçenek seçin.**
+
+```java
+public class SealedRecordQuiz {
+    sealed interface Result permits Success {}
+    record Success(int value) implements Result {}
+    public static void main(String[] args) {
+        Result result = new Success(17);
+        System.out.print(result instanceof Success);
+    }
+}
+```
+
+A. Kod derlenmez; Success açıkça final yazmalıdır.<br>
+B. Kod derlenmez; record interface gerçekleştiremez.<br>
+C. Başarıyla derlenir ve `true` yazar.<br>
+D. Başarıyla derlenir ve `false` yazar.<br>
+
+<!-- page-break -->
+
 ## Cevaplar ve açıklamalar
 
 ### Soru 1 — C
@@ -182,3 +231,11 @@ bırakır.
 - **C yanlış:** `non-sealed` class/interface önce permitted direct subtype
   olmalı, ardından kendi dalını açabilir.
 - **D yanlış:** Hem class hem interface `sealed` olabilir.
+
+### Soru 7 — C
+
+Başarıyla derlenir ve `[a, c]:[a, b]` yazar. Compact constructor parametresi yeni listeye atanır; gövde bitince bu referans final component alanına yerleşir. A yanlıştır: giriş listesinden kopya alınmıştır. B ve D yanlıştır: kopya hâlâ mutable ArrayList’tir; record alanının final olması listenin içeriğini korumaz. Liste değişmezliği için bu String örneğinde List.copyOf kullanılabilirdi.
+
+### Soru 8 — C
+
+Record örtük final olduğu için sealed interface’in permitted doğrudan alt türü olma koşulunu karşılar. A açık ve örtük modifier’ı karıştırır; B yanlıştır çünkü record interface gerçekleştirebilir. D yanlıştır: nesne gerçekten Success türündedir. Normal bir class bildirimi olsaydı final/sealed/non-sealed açıkça seçilmeliydi.

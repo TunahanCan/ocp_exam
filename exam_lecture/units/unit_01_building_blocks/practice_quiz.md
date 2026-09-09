@@ -1,8 +1,14 @@
 # Unit 01 · Building Blocks — Practice Quiz
 
-Bu belge altı adet **OCP tarzı özgün çalışma sorusu** içerir. Sorular gerçek
+Bu belge sekiz adet **OCP tarzı özgün çalışma sorusu** içerir. Sorular gerçek
 sınavdan alınmamıştır. Önce cevaplara bakmadan bütün soruları çöz; kod
 sorularında sırayla **derleme durumu → çalışma zamanı → çıktı** kontrolü yap.
+
+## Çalışma yönergesi
+Yanlış yaptığın sorunun kuralını [teknik notta](technical_memory_notes.md) bul;
+cevabı kapatıp aynı kodda tek bir değeri değiştirerek sonucu yeniden tahmin et.
+Dil sorusunda hem doğal çeviriyi hem bağlacın kurduğu ilişkiyi açıklayabildiysen
+başarılı say. [README oturum rotası](README.md) kaynak sorularına dönüşü gösterir.
 
 ## Sorular
 
@@ -106,6 +112,54 @@ ilişkisini belirt:
 
 <!-- page-break -->
 
+### Soru 7
+
+**Odak:** Definite assignment · kesin atanmışlık
+
+Aşağıdaki program için hangisi doğrudur? **Bir seçenek seç.**
+
+```java
+public class LocalRead {
+    static int field;
+    public static void main(String[] args) {
+        int local;
+        if (args.length > 0) local = 4;
+        System.out.println(field + ":" + local);
+    }
+}
+```
+
+A. `0:0` yazdırır.<br>
+B. `0:4` yazdırır.<br>
+C. Kod derlenmez.<br>
+D. `NullPointerException` oluşur.
+
+<!-- page-break -->
+
+### Soru 8
+
+**Odak:** Final reference ve nesne durumu
+
+Aşağıdaki program için hangisi doğrudur? **Bir seçenek seç.**
+
+```java
+public class FinalReference {
+    public static void main(String[] args) {
+        final StringBuilder first = new StringBuilder("a");
+        var second = first;
+        second.append("b");
+        System.out.println(first);
+    }
+}
+```
+
+A. `a` yazdırır.<br>
+B. `ab` yazdırır.<br>
+C. `final` nesne değiştirildiği için derlenmez.<br>
+D. İkinci referans oluşturulurken exception oluşur.
+
+<!-- page-break -->
+
 ## Cevaplar ve açıklamalar
 
 ### 1. A — `SIC`
@@ -156,3 +210,11 @@ instance variable varsayılan bir değer alır.”
 **karşılaştırıp karşıtlaştırır**. “Oysa” çevirisi mümkün olsa da bu teknik bağlamda “buna
 karşılık” daha doğaldır. `must be initialized` ise zorunluluk bildiren passive
 voice yapısıdır.
+
+### 7. C
+
+`local`, args boşken değer almamış olabilir; derleyici bütün geçerli yollar için atamayı kanıtlayamaz. `field` varsayılan 0 alır, fakat bu kural yerel değişkene taşınmaz; A/B çıktı varsayımı yapar, D runtime bekler.
+
+### 8. B
+
+`final` değişkenin başka nesneye atanmasını engeller; builder içeriğini dondurmaz. İki referans aynı nesneyi gösterdiği için `ab` yazdırılır; A mutation etkisini atlar, C/D referans ve nesneyi karıştırır.

@@ -12,8 +12,7 @@ olarak toplar.
 - **Java bağlamı:** Application'ın farklı locale, input veya failure
   durumlarına uyarlanması.
 - **Example:** “Localization helps the application adapt to different regions.”
-- **Çeviri:** “Localization application'ın farklı region'lara uyum sağlamasına
-  yardımcı olur.”
+- **Çeviri:** “Yerelleştirme, uygulamanın farklı bölgelere uyum sağlamasına yardımcı olur.”
 - **Related:** adaptation, adaptable; synonym: adjust
 
 ### alter · verb
@@ -21,7 +20,7 @@ olarak toplar.
 - **Türkçe:** değiştirmek
 - **Java bağlamı:** Exception'ın normal program flow'unu değiştirmesi.
 - **Example:** “An exception alters the normal program flow.”
-- **Çeviri:** “Exception normal program flow'unu değiştirir.”
+- **Çeviri:** “Bir istisna, programın normal akışını değiştirir.”
 - **Related:** alteration; synonym: change
 
 ### anticipate · verb
@@ -30,8 +29,7 @@ olarak toplar.
 - **Java bağlamı:** Checked exception'ın application tarafından düşünülmesi
   beklenen failure durumunu temsil etmesi.
 - **Example:** “Checked exceptions often represent anticipated problems.”
-- **Çeviri:** “Checked exception'lar çoğunlukla öngörülen problem'ları temsil
-  eder.”
+- **Çeviri:** “Checked exception'lar çoğunlukla öngörülen sorunları temsil eder.”
 - **Related:** anticipation, anticipated; synonym: foresee
 
 ### bundle · noun
@@ -40,15 +38,24 @@ olarak toplar.
 - **Java bağlamı:** `ResourceBundle`, localized key/value kaynaklarını bir
   hierarchy içinde sunar.
 - **Example:** “The bundle contains user-facing messages.”
-- **Çeviri:** “Bundle, user-facing mesajları içerir.”
+- **Çeviri:** “Kaynak demeti, kullanıcıya gösterilen mesajları içerir.”
 - **Related:** resource bundle, bundle name
+
+### candidate · noun / adjective
+
+- **Türkçe:** aday; aday olan
+- **Java bağlamı:** Bundle aramasında sırayla değerlendirilen olası kaynak.
+- **Example · özgün:** “Java checks candidate bundles from specific to general.”
+- **Çeviri:** “Java, aday kaynak demetlerini en özelden en genele doğru kontrol eder.”
+- **Related:** candidacy; candidate for; candidate bir garanti değil, değerlendirme adayıdır.
+- **Kaynak bağlamı:** [exam essentials](bilingual_notes.md#exam-essentials)
 
 ### catch · verb / noun
 
 - **Türkçe:** yakalamak; yakalama block'u
 - **Java bağlamı:** Compatible exception'ı handle eden `catch` clause.
 - **Example:** “Catch the checked exception or declare it.”
-- **Çeviri:** “Checked exception'ı catch edin veya declare edin.”
+- **Çeviri:** “Checked exception'ı yakalayın veya bildirin.”
 - **Related:** catcher; phrase: catch block
 
 ### category · noun
@@ -57,7 +64,7 @@ olarak toplar.
 - **Java bağlamı:** `Locale.Category.DISPLAY` ve `FORMAT`, default locale
   kullanım alanlarını ayırır.
 - **Example:** “The FORMAT category affects default number formatting.”
-- **Çeviri:** “FORMAT category default number formatting'i etkiler.”
+- **Çeviri:** “FORMAT kategorisi, varsayılan sayı biçimlendirmesini etkiler.”
 - **Related:** categorize, categorical
 
 ### checked exception · noun phrase
@@ -66,7 +73,7 @@ olarak toplar.
 - **Java bağlamı:** Compiler'ın handle or declare rule uyguladığı exception
   type'ı.
 - **Example:** “An `IOException` is a checked exception.”
-- **Çeviri:** “`IOException` checked exception'dır.”
+- **Çeviri:** “`IOException`, derleyicinin yakalama veya bildirme zorunluluğu uyguladığı bir istisnadır.”
 - **Related:** check, handle or declare; antonym: unchecked exception
 
 ## D–H
@@ -77,7 +84,7 @@ olarak toplar.
 - **Java bağlamı:** Method signature'da `throws` ile exception olasılığını
   belirtmek.
 - **Example:** “The method declares that it may throw an exception.”
-- **Çeviri:** “Method exception throw edebileceğini declare eder.”
+- **Çeviri:** “Metot, bir istisna fırlatabileceğini bildirir.”
 - **Related:** declaration, declarative
 
 ### default · adjective / noun
@@ -85,7 +92,7 @@ olarak toplar.
 - **Türkçe:** varsayılan
 - **Java bağlamı:** Explicit locale verilmediğinde JVM'in kullandığı locale.
 - **Example:** “The JVM supplies a default locale.”
-- **Çeviri:** “JVM bir default locale sağlar.”
+- **Çeviri:** “JVM varsayılan bir dil/bölge ayarı sağlar.”
 - **Related:** default setting; contrast: explicit
 
 ### effectively final · adjective phrase
@@ -94,7 +101,7 @@ olarak toplar.
 - **Java bağlamı:** `final` yazılmasa da initialization sonrasında reassign
   edilmeyen local variable.
 - **Example:** “An existing resource must be final or effectively final.”
-- **Çeviri:** “Existing resource final veya effectively final olmalıdır.”
+- **Çeviri:** “Önceden oluşturulmuş kaynak değişkeni `final` veya effectively final olmalıdır.”
 - **Related:** reassignment; final variable
 
 ### exception · noun
@@ -102,7 +109,7 @@ olarak toplar.
 - **Türkçe:** istisna, program akışını bozan olay
 - **Java bağlamı:** `Throwable` hierarchy'sindeki failure object'i.
 - **Example:** “The exception carries a message and a stack trace.”
-- **Çeviri:** “Exception bir message ve stack trace taşır.”
+- **Çeviri:** “İstisna, bir mesaj ve çağrı yığını izi taşır.”
 - **Related:** exceptional, except; throw/catch
 
 ### explicit · adjective
@@ -111,7 +118,7 @@ olarak toplar.
 - **Java bağlamı:** Factory method'a doğrudan geçirilen locale, default locale'ı
   geçersiz kılar.
 - **Example:** “An explicit locale determines the currency format.”
-- **Çeviri:** “Explicit locale currency format'ını belirler.”
+- **Çeviri:** “Açıkça verilen dil/bölge ayarı, para biriminin gösterim biçimini belirler.”
 - **Related:** explicitly; antonym: implicit
 
 ### fallback · noun / adjective
@@ -120,7 +127,7 @@ olarak toplar.
 - **Java bağlamı:** Requested resource bundle veya key bulunamadığında parent
   bundle'a dönme.
 - **Example:** “The base bundle provides a fallback value.”
-- **Çeviri:** “Base bundle fallback value sağlar.”
+- **Çeviri:** “Temel kaynak demeti, yedek bir değer sağlar.”
 - **Related:** fall back (verb); backup
 
 ### format · verb / noun
@@ -128,7 +135,7 @@ olarak toplar.
 - **Türkçe:** biçimlendirmek; biçim
 - **Java bağlamı:** Number/date/value'yu locale-aware `String`e dönüştürmek.
 - **Example:** “Format the amount as German currency.”
-- **Çeviri:** “Tutarı German currency olarak format edin.”
+- **Çeviri:** “Tutarı Alman para birimi biçiminde gösterin.”
 - **Related:** formatter, formatting
 
 ### handle · verb
@@ -136,7 +143,7 @@ olarak toplar.
 - **Türkçe:** ele almak, işlemek
 - **Java bağlamı:** Exception'ı compatible `catch` block içinde çözmek.
 - **Example:** “The caller handles the exception.”
-- **Çeviri:** “Caller exception'ı handle eder.”
+- **Çeviri:** “Çağıran kod, istisnayı ele alır.”
 - **Related:** handler, handling; contrast: declare
 
 ### hierarchy · noun
@@ -144,7 +151,7 @@ olarak toplar.
 - **Türkçe:** hiyerarşi
 - **Java bağlamı:** Exception inheritance veya resource bundle parent chain.
 - **Example:** “The search follows the selected bundle hierarchy.”
-- **Çeviri:** “Arama seçilen bundle hierarchy'sini izler.”
+- **Çeviri:** “Arama, seçilen kaynak demeti hiyerarşisini izler.”
 - **Related:** hierarchical
 
 ## I–P
@@ -155,7 +162,7 @@ olarak toplar.
 - **Java bağlamı:** Application'ı farklı dil ve region'lara uyarlanabilir
   tasarlama; sıkça `i18n` diye kısaltılır.
 - **Example:** “Internationalization separates messages from the source code.”
-- **Çeviri:** “Internationalization mesajları source code'dan ayırır.”
+- **Çeviri:** “Uluslararasılaştırma, mesajları kaynak koddan ayırır.”
 - **Related:** internationalize, i18n
 
 ### locale · noun
@@ -164,7 +171,7 @@ olarak toplar.
 - **Java bağlamı:** Language, optional region ve varyant bilgisini taşıyan
   `java.util.Locale`.
 - **Example:** “The locale controls language-sensitive formatting.”
-- **Çeviri:** “Locale, language-sensitive formatting'i kontrol eder.”
+- **Çeviri:** “Dil/bölge ayarı, dile duyarlı biçimlendirmeyi yönetir.”
 - **Related:** local, locality, localization
 
 ### localization · noun
@@ -173,7 +180,7 @@ olarak toplar.
 - **Java bağlamı:** Message, date, number ve currency'yi belirli locale'a göre
   sunma; sıkça `l10n`.
 - **Example:** “Localization changes user-facing output.”
-- **Çeviri:** “Localization user-facing output'u değiştirir.”
+- **Çeviri:** “Yerelleştirme, kullanıcıya gösterilen çıktıyı değiştirir.”
 - **Related:** localize, localized, l10n
 
 ### parse · verb
@@ -182,7 +189,7 @@ olarak toplar.
 - **Java bağlamı:** Localized `String`i `Number` veya temporal value'ya
   dönüştürmek.
 - **Example:** “Parse the localized number before using it.”
-- **Çeviri:** “Localized number'ı kullanmadan önce parse edin.”
+- **Çeviri:** “Yerelleştirilmiş sayı metnini kullanmadan önce çözümleyin.”
 - **Related:** parser, parsing; contrast: format
 
 ### primary exception · noun phrase
@@ -191,7 +198,7 @@ olarak toplar.
 - **Java bağlamı:** TWR'da dışarı taşınan asıl exception; close failure'ları
   suppressed olabilir.
 - **Example:** “The exception from the try body remains primary.”
-- **Çeviri:** “Try body'den gelen exception primary kalır.”
+- **Çeviri:** “`try` gövdesinden gelen istisna birincil olarak kalır.”
 - **Related:** suppressed exception
 
 ### propagate · verb
@@ -200,7 +207,7 @@ olarak toplar.
 - **Java bağlamı:** Handle edilmeyen exception'ın call stack boyunca caller'a
   gitmesi.
 - **Example:** “The checked exception propagates to the caller.”
-- **Çeviri:** “Checked exception caller'a propagate eder.”
+- **Çeviri:** “Checked exception, çağıran koda iletilir.”
 - **Related:** propagation; synonym: pass on
 
 ## R–S
@@ -211,7 +218,7 @@ olarak toplar.
 - **Java bağlamı:** Failure sonrasında programın meaningful biçimde devam
   etmesi.
 - **Example:** “The catch block may recover from the failure.”
-- **Çeviri:** “Catch block failure'dan sonra toparlanabilir.”
+- **Çeviri:** “`catch` bloğu, hata sonrasında programın toparlanmasını sağlayabilir.”
 - **Related:** recovery, recoverable
 
 ### region · noun
@@ -219,7 +226,7 @@ olarak toplar.
 - **Türkçe:** bölge, ülke kodu
 - **Java bağlamı:** Locale'ın optional uppercase country/region parçası.
 - **Example:** “The region code distinguishes `en_US` from `en_GB`.”
-- **Çeviri:** “Region code `en_US` ile `en_GB`yi ayırır.”
+- **Çeviri:** “Bölge kodu, `en_US` ile `en_GB` ayarlarını birbirinden ayırır.”
 - **Related:** regional
 
 ### resource · noun
@@ -228,7 +235,7 @@ olarak toplar.
 - **Java bağlamı:** File/connection gibi kapatılması gereken
   `AutoCloseable` object.
 - **Example:** “The resources close in reverse order.”
-- **Çeviri:** “Resource'lar reverse order'da kapanır.”
+- **Çeviri:** “Kaynaklar ters sırayla kapanır.”
 - **Related:** resource management
 
 ### resource bundle · noun phrase
@@ -236,7 +243,7 @@ olarak toplar.
 - **Türkçe:** yerelleştirme kaynak demeti
 - **Java bağlamı:** Locale'a göre seçilen message/config key/value container'ı.
 - **Example:** “Load the most specific resource bundle.”
-- **Çeviri:** “En specific resource bundle'ı load edin.”
+- **Çeviri:** “Dil ve bölgeye en özel kaynak demetini yükleyin.”
 - **Related:** properties file, base bundle
 
 ### stack trace · noun phrase
@@ -245,7 +252,7 @@ olarak toplar.
 - **Java bağlamı:** Exception'ın oluştuğu call sequence'i ve source
   location'ları gösterir.
 - **Example:** “The stack trace starts at the throw point.”
-- **Çeviri:** “Stack trace throw noktasından başlar.”
+- **Çeviri:** “Çağrı yığını izi, istisnanın fırlatıldığı noktadan başlar.”
 - **Related:** call stack
 
 ### suppress · verb
@@ -254,7 +261,7 @@ olarak toplar.
 - **Java bağlamı:** TWR close exception'ını primary exception üzerinde
   saklamak.
 - **Example:** “Java suppresses the exception thrown during close.”
-- **Çeviri:** “Java close sırasında throw edilen exception'ı suppress eder.”
+- **Çeviri:** “Java, kapanış sırasında fırlatılan istisnayı ikincil olarak saklar.”
 - **Related:** suppression, suppressed exception
 
 ## T–Z
@@ -265,7 +272,7 @@ olarak toplar.
 - **Java bağlamı:** `throw` keyword'üyle exception object'ini program flow'a
   vermek.
 - **Example:** “The method may throw an `IOException`.”
-- **Çeviri:** “Method `IOException` throw edebilir.”
+- **Çeviri:** “Metot bir `IOException` fırlatabilir.”
 - **Related:** throws declaration; throw point
 
 ### traversal · noun
@@ -273,7 +280,7 @@ olarak toplar.
 - **Türkçe:** izlenen yol, dolaşma
 - **Java bağlamı:** Stack trace veya bundle hierarchy boyunca ilerleme.
 - **Example:** “Bundle traversal starts with the most specific candidate.”
-- **Çeviri:** “Bundle traversal en specific candidate ile başlar.”
+- **Çeviri:** “Kaynak demetlerini tarama, en özel adayla başlar.”
 - **Related:** traverse
 
 ### unchecked exception · noun phrase
@@ -282,7 +289,7 @@ olarak toplar.
 - **Java bağlamı:** `RuntimeException` veya `Error` kolunda olup compiler'ın
   handle/declare zorunluluğu getirmediği type.
 - **Example:** “A `NullPointerException` is unchecked.”
-- **Çeviri:** “`NullPointerException` unchecked'tır.”
+- **Çeviri:** “`NullPointerException` için yakalama veya bildirme zorunluluğu yoktur.”
 - **Related:** runtime exception; antonym: checked exception
 
 ### user-facing · adjective
@@ -291,7 +298,7 @@ olarak toplar.
 - **Java bağlamı:** Localization gerektiren message, label, date ve currency
   output'ları.
 - **Example:** “Translate user-facing text, not class names.”
-- **Çeviri:** “Class adlarını değil user-facing text'i çevirin.”
+- **Çeviri:** “Kullanıcıya gösterilen metni çevirin; sınıf adlarını koruyun.”
 - **Related:** interface, display
 
 ### wrap · verb
@@ -299,8 +306,28 @@ olarak toplar.
 - **Türkçe:** sarmalamak
 - **Java bağlamı:** Bir exception'ı başka exception'ın cause'u olarak taşımak.
 - **Example:** “Wrap the original exception without losing its cause.”
-- **Çeviri:** “Original exception'ı cause bilgisini kaybetmeden wrap edin.”
+- **Çeviri:** “Özgün istisnayı neden bilgisini kaybetmeden başka bir istisnayla sarmalayın.”
 - **Related:** wrapper, cause chain
+
+## Karıştırılan anlamları ayır
+
+**declare / throw / handle:** `declare` olasılığı imzada bildirir; `throw` gerçekten fırlatır; `handle` yakalayıp ele alır. `throws` yazmak istisna fırlatmaz.
+
+`parse` metinden değere; `format` değerden metne gider. `suppress`, bilgiyi silmek değildir; `getSuppressed()` ile saklanan istisnaya erişilebilir.
+
+## Kapalı kitap hatırlama · 5 dakika
+
+Her oturumda en fazla 5 kelime seç. Önce Türkçeyi kapatıp İngilizce cümleyi
+çevir; ardından İngilizceyi kapatıp Türkçe anlamdan sözcüğü ve kendi örneğini
+üret. Yalnız “tanıdık geldi” yanıtını başarı sayma: **0 = çıkaramadım,
+1 = anlamını söyledim, 2 = doğru teknik cümlede kullandım**. 0–1 puanlıları
+ünite [tekrar rotasına](README.md) göre geri getir.
+
+**Özgün aktarım sorusu:** Bir metot checked exception bildirdiğinde onu her çağrıda fırlatmak zorunda mıdır? İngilizce yanıtında `declare`, `throw`, `not required to` kullan.
+
+Cevabını yazdıktan sonra kontrol et.
+
+**Örnek yanıt:** No. A method is not required to throw every exception it declares.
 
 ## Mini quiz · Vocabulary recall
 

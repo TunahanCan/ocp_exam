@@ -14,6 +14,8 @@ Bu belge, yüklenen OCP Java SE 17 kaynağındaki bölüm metnini kaynak sıras�
 
 ## İçindekiler
 
+- [Kaynak cevaplarıyla kontrol](#appendix--kaynak-cevaplarıyla-kontrol) · Soruları çözdükten sonra aç.
+
 1. [Creating Decision-Making Statements](#creating-decision-making-statements)
 2. [Applying switch Statements](#applying-switch-statements)
 3. [Writing while Loops](#writing-while-loops)
@@ -1030,6 +1032,12 @@ case 10, 11, 12 -> System.out.print("Fall");
 >
 > **Türkçe:** Çoğu zaman, bir `switch` expression'ı bir değer döndürür, ancak printSeason() method'u dönüş türünün `void` olduğu bir ifadeyi gösterir.
 
+> **Editör notu · Java 17 terminolojisi:** Kaynağın bu adlandırması yanıltıcıdır.
+> Buradaki `printSeason()` gövdesinde arrow kullanan bir **switch statement**
+> vardır. Switch expression değer üretir; `void` switch expression yoktur.
+> Arrow yazımı tek başına yapıyı expression yapmaz; statement için `default`
+> zorunlu değildir. [Karşılaştırma ve JLS kaynağı](technical_memory_notes.md#4-switch-statement-versus-expression).
+
 > **English:** Since the type is void, it can’t be assigned to a variable. On the exam, you are more likely to see a switch expression that returns a value, but you should be aware that it is possible.
 >
 > **Türkçe:** `void` türü olduğundan bir değişkene atanamaz. Sınavda değer döndüren bir `switch` expression'ı görme olasılığınız daha yüksektir ancak bunun mümkün olduğunu bilmelisiniz.
@@ -1325,6 +1333,8 @@ full++;
 <!-- retained-source-lines: 33; removed-running-header-lines: 1; sha256: a0c79feb5e60687d -->
 
 ### The do/while Statement
+
+> **Dil çalışması:** `at least` için [ünite sözlüğü](vocabulary.md); cümle yapıları için [grammar notu](grammar_notes.md).
 
 > **Türkçe başlık:** `do/while` Statement'ı
 
@@ -2281,7 +2291,7 @@ case 2:
 
 > **English:** This chapter is especially important because at least one component of this chapter will likely appear in every exam question with sample code. Many of the questions on the exam focus on proper syntactic use of the structures, as they will be a large source of questions that end in “Does not compile.” You should be able to answer all of the review questions correctly or fully understand those that you answered incorrectly before moving on to later chapters.
 >
-> **Türkçe:** Bu bölüm özellikle önemlidir çünkü bu bölümün en az bir bileşeni muhtemelen her sınav sorusunda örnek kodla birlikte görünecektir. Sınavdaki soruların çoğu, "Derlenmiyor" ile biten soruların büyük bir kaynağı olacağından, yapıların sözdizimsel olarak doğru kullanımına odaklanıyor. Sonraki bölümlere geçmeden önce tüm inceleme sorularını doğru yanıtlayabilmeli veya yanlış yanıtladığınız soruları tam olarak anlayabilmelisiniz.
+> **Türkçe:** Bu bölüm özellikle önemlidir; örnek kod içeren sınav sorularının hemen hepsinde bu bölümden en az bir yapıyla karşılaşmanız olasıdır. Birçok soru, bu yapıların syntax (sözdizimi) kurallarına uygun kullanılıp kullanılmadığını ölçer; çünkü bu kurallardaki hatalar sıkça `Does not compile` (derlenmez) sonucuna yol açar. Sonraki bölümlere geçmeden önce bütün bölüm sonu sorularını doğru yanıtlayabilmeli veya yanlışlarınızın nedenini tam olarak anlayabilmelisiniz.
 
 ### Exam Essentials
 
@@ -4014,3 +4024,190 @@ kabul edilir.
 
 > **Kapsam özeti:** `0101`–`0154` aralığındaki **54/54 kaynak sayfa**
 > doğrulandı; eksik veya yinelenen sayfa yoktur.
+
+## Appendix · Kaynak cevaplarıyla kontrol
+
+Bu bölüm, kaynak kitabın **Appendix: Answers to the Review Questions** bölümündeki
+Chapter 3 cevaplarından hazırlanmış özgün Türkçe çözüm rehberidir; İngilizce
+açıklamaların birebir çevirisi ve gerçek OCP sınav cevapları değildir. Kaynak:
+[ana PDF](../../OCP_Java_SE17_Chapter1den_Itibaren.pdf), fiziksel PDF sayfaları 916–921.
+`Official Answer` başlıkları kitabın kaynak cevaplarına karşılık gelir.
+
+Önce soruyu kapalı notla çöz; seçtiğin her harfin yanına bir cümle gerekçe yaz.
+Sonra aşağıdan kontrol et. Yanlış seçenek veya yanlış gerekçe, hata günlüğüne
+ayrı kayıt olarak girer. Kaynakta tespit edilen anlatım sorunları **Editör notu**
+olarak ayrılmıştır.
+
+### Official Answer 1 / Kaynak Cevap 1
+
+**Kaynak cevap: A, B, C, E, F, G.** [Soru 1](#question-1--soru-1)
+
+Java 17 standart switch; uygun integral türleri/wrapper'ları, `String` ve enum kabul eder. `var` başlı başına tür değildir: çıkarılan tür uygunsa kullanılabilir; `long` ve `double` uygun değildir.
+
+### Official Answer 2 / Kaynak Cevap 2
+
+**Kaynak cevap: B.** [Soru 2](#question-2--soru-2)
+
+`humidity` 8 olur; dış `if` true, iç `if` false olduğundan `Just Right` yazdırılır. Her `else` en yakın eşleşmemiş `if`e bağlanır; girinti kuralı değiştirmez.
+
+### Official Answer 3 / Kaynak Cevap 3
+
+**Kaynak cevap: A, D, F, H.** [Soru 3](#question-3--soru-3)
+
+Enhanced `for`, array ve `Iterable` kabul eder; `List`/`Set` buna uygundur. `Map`in kendisi ve karakter dizisi olmasına rağmen `String`, `Iterable` değildir.
+
+### Official Answer 4 / Kaynak Cevap 4
+
+**Kaynak cevap: F.** [Soru 4](#question-4--soru-4)
+
+`int` selector için bütün değerler kapsanmadığından switch expression derlenmez. Çağrıdaki 6'nın bir case ile eşleşmesi derleyicinin exhaustiveness şartını kaldırmaz.
+
+### Official Answer 5 / Kaynak Cevap 5
+
+**Kaynak cevap: E.** [Soru 5](#question-5--soru-5)
+
+Koşulsuz `continue` ardından aynı bloktaki `print` erişilemezdir; tam bir satır derlenmez. İlk döngünün çıktısını hesaplamak, bütün programın derleme hatasını ortadan kaldırmaz.
+
+### Official Answer 6 / Kaynak Cevap 6
+
+**Kaynak cevap: C, D, E.** [Soru 6](#question-6--soru-6)
+
+`for` sıfır kez, `do/while` girildiğinde en az bir kez çalışabilir; `String` switch expression `default` ister. Bütün collection yapıları doğrudan `Iterable` değildir ve bir `if`e iki `else` bağlanmaz.
+
+### Official Answer 7 / Kaynak Cevap 7
+
+**Kaynak cevap: B, D.** [Soru 7](#question-7--soru-7)
+
+Geçerli indeksler 0 ile `length - 1` arasındadır; ileri/ters doğru dolaşım B ve D'dedir. A sınır dışına çıkar, C/E derlenmez, F ilk elemanı atlar.
+
+### Official Answer 8 / Kaynak Cevap 8
+
+**Kaynak cevap: G.** [Soru 8](#question-8--soru-8)
+
+`36`. satırda `||` eşleşme olmadan sağ tarafı çalıştırabilir; pattern değişkeni kapsamda değildir. 38. satırdaki `default` bir `if/else` parçası olamaz; iki hata vardır.
+
+### Official Answer 9 / Kaynak Cevap 9
+
+**Kaynak cevap: B, C, E.** [Soru 9](#question-9--soru-9)
+
+Bu seçenekler gerekli noktalarda iç döngüyü bitirerek ya da dış döngünün sonraki turuna geçerek `count`u 2 yapar. D/F daha fazla artırır; A bütün işi erken bitirir.
+
+### Official Answer 10 / Kaynak Cevap 10
+
+**Kaynak cevap: E.** [Soru 10](#question-10--soru-10)
+
+Dört satır sorunludur: döngü hedefi olmayan `continue`, sabit olmayan `final` parametre, `final` olmayan case değişkeni ve `int` selector ile enum case. “Effectively final” olmak compile-time constant olmaya yetmez.
+
+### Official Answer 11 / Kaynak Cevap 11
+
+**Kaynak cevap: A.** [Soru 11](#question-11--soru-11)
+
+Çıktı `3`tür; bütün enum sabitleri ayrı case'lerle kapsanmıştır. Bu durumda `default` kaldırılabilir, fakat her enum switch expression için koşulsuz olarak isteğe bağlı değildir.
+
+### Official Answer 12 / Kaynak Cevap 12
+
+**Kaynak cevap: C.** [Soru 12](#question-12--soru-12)
+
+İlk turda `notes = 11`, ikinci turda `notes = 23`; sonrasında `sing == squawk == 6` koşulu bitirir. Yazdırılan değişken `notes`tur; kitap açıklamasındaki son “sing” sözcüğü yazım hatasıdır.
+
+### Official Answer 13 / Kaynak Cevap 13
+
+**Kaynak cevap: G.** [Soru 13](#question-13--soru-13)
+
+`do/while` koşulunun zorunlu parantezleri eksiktir. Bu yüzden kod derlenmez; parantez eklenmiş sürümün 11 çıktısını özgün kodun cevabı sayma.
+
+### Official Answer 14 / Kaynak Cevap 14
+
+**Kaynak cevap: B, D, F.** [Soru 14](#question-14--soru-14)
+
+Eleman türleri sırayla `int`, `Character`, `Integer` olarak çıkarılır. `var` wrapper elemanını kendiliğinden primitive'e dönüştürmez.
+
+### Official Answer 15 / Kaynak Cevap 15
+
+**Kaynak cevap: F.** [Soru 15](#question-15--soru-15)
+
+`case 'B': 'C':` geçersizdir; her colon label `case` ister veya virgüllü case listesi kullanılmalıdır. Sözdizimi düzeltilmeden çıktı oluşmaz.
+
+### Official Answer 16 / Kaynak Cevap 16
+
+**Kaynak cevap: A, B, D.** [Soru 16](#question-16--soru-16)
+
+Ters dolaşım `length - 1`den 0'a kadar gitmelidir. C/F ilk erişimde sınır dışına çıkar; E her turda aynı değeri atadığı için döngüyü bitirmez.
+
+### Official Answer 17 / Kaynak Cevap 17
+
+**Kaynak cevap: B, E.** [Soru 17](#question-17--soru-17)
+
+Son değerler sırasıyla `10`, `3`, `3`tür; farklı çıktılar 10 ve 3 olduğundan iki seçenek seçilir. `do/while` başlangıç koşulu false olsa da gövdeye girer.
+
+### Official Answer 18 / Kaynak Cevap 18
+
+**Kaynak cevap: C, E.** [Soru 18](#question-18--soru-18)
+
+Pattern matching `instanceof` ile yapılır; kapsamı akış belirler. Erken çıkışla eşleşmeyen yol kapatılırsa pattern değişkeni `if`ten sonra da kullanılabilir; `else` kendi başına koşul taşımaz.
+
+### Official Answer 19 / Kaynak Cevap 19
+
+**Kaynak cevap: E.** [Soru 19](#question-19--soru-19)
+
+`snake`, `do` gövdesinin yerel değişkenidir; dışarıdaki koşulda kapsam dışıdır. Çıkış koşulunu hesaplamadan önce derleme hatasını işaretle.
+
+### Official Answer 20 / Kaynak Cevap 20
+
+**Kaynak cevap: A, E.** [Soru 20](#question-20--soru-20)
+
+A içteki sonsuz döngüye girmeyi önler; E etiketli `continue` ile ondan dış döngüye döner. B/D sonsuz akışa girer; C görünmeyen label'a başvurduğu için derlenmez.
+
+### Official Answer 21 / Kaynak Cevap 21
+
+**Kaynak cevap: E.** [Soru 21](#question-21--soru-21)
+
+Dört satırın değiştirilmesi gerekir: uygun olmayan `Long`, eksik `yield`/noktalı virgül, bloktan sonra fazla noktalı virgül ve yinelenen iki case'ten biri. İki duplicate case görülmesi ikisini de değiştirmeyi gerektirmez.
+
+### Official Answer 22 / Kaynak Cevap 22
+
+**Kaynak cevap: E.** [Soru 22](#question-22--soru-22)
+
+`final int` sabiti case olabilir; eşleşmeden sonra fall-through ile döngüye geçilir. Çıktı `5 2 1` olur; `--` pre-decrement'tır, kitap açıklamasındaki “pre-increment” ifadesi yanlıştır.
+
+### Official Answer 23 / Kaynak Cevap 23
+
+**Kaynak cevap: F.** [Soru 23](#question-23--soru-23)
+
+`19`. satırdaki `else`in bağlanacağı bir `if` yoktur; kod derlenmez. `else`i silerek elde edilen `Success` çıktısı başka bir sürüme aittir.
+
+### Official Answer 24 / Kaynak Cevap 24
+
+**Kaynak cevap: G.** [Soru 24](#question-24--soru-24)
+
+Enhanced `for` başlığında `in` değil `:` kullanılır. Sağa hangi tür konursa konsun yanlış ayraç derleme hatasını sürdürür.
+
+### Official Answer 25 / Kaynak Cevap 25
+
+**Kaynak cevap: D.** [Soru 25](#question-25--soru-25)
+
+`violin` ile `VIOLIN` eşleşmez; akış `default`tan başlar ve sonraki colon case'lere düşer. Üç artışla `p = 2`; `viola` değişkeni case'te kullanılmadığı için hata yaratmaz.
+
+### Official Answer 26 / Kaynak Cevap 26
+
+**Kaynak cevap: F.** [Soru 26](#question-26--soru-26)
+
+Kod derlenir, fakat iç döngüde `r` değişmediği için çıkış koşulu hiç değişmez. Bu, derleme hatası değil sonlanmayan çalışma akışıdır; son çıktı noktasına ulaşılmaz.
+
+### Official Answer 27 / Kaynak Cevap 27
+
+**Kaynak cevap: F.** [Soru 27](#question-27--soru-27)
+
+İkinci case'te `name` Frog değilse blok değersiz tamamlanır; switch expression bu yüzden derlenmez. Çağrıda ilk case'in seçilmesi diğer case'in hatasını gizlemez.
+
+### Official Answer 28 / Kaynak Cevap 28
+
+**Kaynak cevap: F.** [Soru 28](#question-28--soru-28)
+
+İlk negated pattern false olduğunda girilen `else` kolunda ilk `guppy` zaten kapsam içindedir; aynı adlı ikinci bildirim çakışır. **Editör notu:** Kitaptaki “not a String” yönü terstir; bu yolda nesne `String`dir. Kod derlenmez, bu nedenle çıktı seçenekleri geçersizdir.
+
+### Official Answer 29 / Kaynak Cevap 29
+
+**Kaynak cevap: C.** [Soru 29](#question-29--soru-29)
+
+`++y` nedeniyle ilk çıktı -1, son çıktı 6'dır; koşul gövdeden sonra sınanır. 5 yazdırıldıktan sonra `5 <= 5` true olduğundan bir tur daha çalışır.

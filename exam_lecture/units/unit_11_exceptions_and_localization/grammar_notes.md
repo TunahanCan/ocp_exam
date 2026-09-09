@@ -4,6 +4,12 @@ Bu dosya, [ana çift dilli nottaki](bilingual_notes.md) exception ve
 localization metninden seçilen İngilizce yapıları teknik okuma/YDS açısından
 açıklar.
 
+
+Örnekler kaynak bağlamını öğretmek için seçilmiş veya sadeleştirilmiştir;
+“kaynak alıntısı” diye belirtilmeyen cümleler birebir kitap alıntısı değildir.
+Her oturumda bir yapıyı çalış: **ana yüklem → özne → bağlaç → yan cümle →
+doğal Türkçe** sırasını izle. Yapıyı ertesi gün örneğe bakmadan yeniden kur.
+
 ## 1. `adapt to + noun`
 
 ### Yapı
@@ -18,8 +24,7 @@ adapt something to + noun
 > **English:** “This chapter is about creating applications that adapt to
 > change.”
 >
-> **Türkçe:** “Bu chapter, değişime uyum sağlayan application'lar oluşturmak
-> hakkındadır.”
+> **Türkçe:** “Bu bölüm, değişime uyum sağlayan uygulamalar oluşturmayı ele alır.”
 
 ```text
 adapt to change                [DOĞRU]
@@ -40,7 +45,7 @@ What would happen if + past simple?
 
 > **English:** “What happens if a user enters invalid data on a web page?”
 >
-> **Türkçe:** “Bir kullanıcı web sayfasına invalid data girerse ne olur?”
+> **Türkçe:** “Bir kullanıcı web sayfasına geçersiz veri girerse ne olur?”
 
 YDS'de `if` clause ile result clause arasındaki tense uyumuna dikkat et.
 
@@ -57,7 +62,7 @@ Bir süreç devam ederken araya giren olayı anlatır.
 > **English:** “What if our connection to a database goes down in the middle
 > of a sale?”
 >
-> **Türkçe:** “Database connection bir satışın ortasında kesilirse ne olur?”
+> **Türkçe:** “Veritabanı bağlantımız bir satışın ortasında kesilirse ne olur?”
 
 `of` preposition'ından sonra verb gelirse gerund kullanılır:
 `in the middle of processing a request`.
@@ -75,8 +80,7 @@ Bir durumun gerçekleşmesini güvence altına almak anlamındadır.
 > **English:** “One way to make sure your applications respond to change is
 > to build in support early on.”
 >
-> **Türkçe:** “Application'ların değişime karşılık vermesini sağlamanın bir
-> yolu desteği baştan tasarlamaktır.”
+> **Türkçe:** “Uygulamalarınızın değişime yanıt vermesini sağlamanın bir yolu, gereken desteği baştan kurmaktır.”
 
 `make sure to + V1` aynı subject'in yapacağı eylem için de kullanılabilir:
 `Make sure to close the resource.`
@@ -95,9 +99,7 @@ Yanlış yorumu reddedip doğru anlamı verir.
 > support specific languages right away. It just means your application can be
 > more easily adapted in the future.”
 >
-> **Türkçe:** “Localization desteği, belirli dilleri hemen desteklemeniz
-> gerektiği anlamına gelmez. Yalnız application'ın gelecekte daha kolay
-> uyarlanabileceği anlamına gelir.”
+> **Türkçe:** “Yerelleştirmeyi desteklemek, belirli dilleri hemen desteklemeniz gerektiği anlamına gelmez. Yalnızca uygulamanızın gelecekte daha kolay uyarlanabileceği anlamına gelir.”
 
 `just` burada “yalnızca” anlamıyla scope'u daraltır.
 
@@ -113,13 +115,13 @@ Belirli bir dönemin sonuna kadar ulaşılacak durumu anlatır.
 
 > **English:** “By the end of this chapter, we hope we’ve provided structure.”
 >
-> **Türkçe:** “Bu chapter'ın sonuna kadar bir yapı sunmuş olmayı umuyoruz.”
+> **Türkçe:** “Bu bölümün sonunda konuyu düzenli bir yapıya kavuşturmuş olmayı umuyoruz.”
 
 `by`, deadline; `until`, o ana kadar süren durum bildirir:
 
 ```text
-finish by Friday   → en geç Friday
-work until Friday  → Friday'e kadar çalış
+finish by Friday   → en geç cuma gününe kadar bitir
+work until Friday  → cuma gününe kadar çalış
 ```
 
 ## 7. `just about any`
@@ -134,7 +136,7 @@ just about + any/every + noun
 
 > **English:** “A program can fail for just about any reason.”
 >
-> **Türkçe:** “Program neredeyse her nedenle fail olabilir.”
+> **Türkçe:** “Bir program neredeyse her nedenle başarısız olabilir.”
 
 `just about` burada “tam hakkında” değil, `almost/nearly` anlamındadır.
 
@@ -150,7 +152,7 @@ Okuyucunun önceki örnekten çıkarabileceği sonucu işaretler.
 
 > **English:** “As you can see, some of these are coding mistakes.”
 >
-> **Türkçe:** “Görülebileceği gibi bunların bazıları coding mistake'tir.”
+> **Türkçe:** “Görebileceğiniz gibi bunların bazıları kodlama hatalarıdır.”
 
 Buradaki `as` “...dığı gibi” anlamındadır; cause anlamındaki `as` ile
 karıştırma.
@@ -185,7 +187,7 @@ Bir sorunu ele almak, yönetmek anlamındadır.
 >
 > **Türkçe:** “Programın yapabileceği şey durumu ele almaktır.”
 
-`deal` sonrasında doğrudan object değil `with` gerekir:
+“Bir sorunla ilgilenmek” anlamında `deal with` gerekir; `deal` başka anlamlarda nesne alabilir (örneğin kart dağıtmak):
 `deal the exception` [YANLIŞ], `deal with the exception` [DOĞRU].
 
 ## 11. `either ... or ...`
@@ -201,8 +203,7 @@ either + verb phrase A + or + verb phrase B
 > **English:** “You can either deal with the exception or make it the calling
 > code’s problem.”
 >
-> **Türkçe:** “Exception'ı ya handle edebilir ya da caller code'un problemi
-> haline getirebilirsiniz.”
+> **Türkçe:** “İstisnayı ya ele alabilir ya da sorumluluğunu çağıran koda bırakabilirsiniz.”
 
 İki tarafta verb biçimini eşleştir: `either deal ... or make ...`.
 
@@ -218,9 +219,16 @@ Zorunluluğu passive biçimde verir.
 
 > **English:** “A checked exception must be declared or handled.”
 >
-> **Türkçe:** “Checked exception declare veya handle edilmelidir.”
+> **Türkçe:** “Bir checked exception bildirilmeli veya ele alınmalıdır.”
 
 Agent önemli değilse passive teknik metinde sık kullanılır.
+
+
+**Cümleyi parçala:** `[A checked exception]` özne; `[must be declared or handled]` yüklem. `must` zorunluluk, `be + declared/handled` edilgen çatıdır. İstisna işi yapan değil, işlemden etkilenen öğedir. Etken dönüşüm: “The caller must handle the checked exception or declare it.”
+
+**Kendin üret:** `must be handled` ile `need not be handled` anlamlarını karşılaştır. İlki “ele alınmalı”, ikincisi “ele alınması zorunlu değil” demektir; yasak için `must not` gerekir.
+
+**Kaynak bağlamı:** [Understanding Exception Types](bilingual_notes.md#understanding-exception-types).
 
 ## 13. `be required to + verb`
 
@@ -235,7 +243,7 @@ Kural veya zorunluluk bildirir.
 > **English:** “A method is not required to throw an exception that it
 > declares.”
 >
-> **Türkçe:** “Method declare ettiği exception'ı throw etmek zorunda değildir.”
+> **Türkçe:** “Bir metot, bildirdiği istisnayı fırlatmak zorunda değildir.”
 
 `must` ile yakın anlamlıdır; `not required to` “yapması yasaktır” değil,
 “yapmak zorunda değildir” demektir.
@@ -252,7 +260,7 @@ Bir eylemi yapabilme kapasitesini bildirir.
 
 > **English:** “The try block is not capable of throwing an `IOException`.”
 >
-> **Türkçe:** “Try block `IOException` throw edebilecek durumda değildir.”
+> **Türkçe:** “`try` bloğunun bir `IOException` fırlatması mümkün değildir.”
 
 `of` sonrasında infinitive değil gerund gelir:
 `capable of throwing` [DOĞRU].
@@ -270,8 +278,7 @@ Neden bildirir: “... nedeniyle”.
 > **English:** “The subclass catch is unreachable due to the earlier
 > superclass catch.”
 >
-> **Türkçe:** “Subclass catch, önceki superclass catch nedeniyle
-> unreachable'dır.”
+> **Türkçe:** “Alt sınıfı yakalayan `catch` bloğuna, önceki üst sınıf `catch` bloğu nedeniyle ulaşılamaz.”
 
 `because` full clause, `due to` noun phrase alır:
 
@@ -294,8 +301,7 @@ Bir koşulun sonucu değiştirmediğini anlatır: “... bakılmaksızın”.
 > **English:** “The first line produces a runtime exception regardless of what
 > is inserted into the blank.”
 >
-> **Türkçe:** “Boşluğa ne yazılırsa yazılsın ilk satır runtime exception
-> üretir.”
+> **Türkçe:** “Boşluğa ne yazılırsa yazılsın ilk satır çalışma zamanı istisnası üretir.”
 
 `regardless` sonrasında çoğunlukla `of` gerekir.
 
@@ -311,7 +317,7 @@ Sequence'in hangi sıraya göre olduğunu açıklar.
 
 > **English:** “Catch blocks are checked in the order in which they appear.”
 >
-> **Türkçe:** “Catch block'lar göründükleri sırayla kontrol edilir.”
+> **Türkçe:** “`catch` blokları, yazıldıkları sırayla kontrol edilir.”
 
 Kısa eşdeğer: `in the order they appear`; relative phrase düşürülebilir.
 
@@ -326,12 +332,18 @@ once + subject + be + V3
 
 Reduced passive time/condition clause'dur.
 
-> **English:** “Once selected, only resources in that hierarchy are allowed.”
+> **English:** “Once the hierarchy is selected, only its resources are searched.”
 >
-> **Türkçe:** “Bir kez seçildikten sonra yalnız o hierarchy'deki resource'lara
-> izin verilir.”
+> **Türkçe:** “Hiyerarşi seçildikten sonra yalnız o hiyerarşinin kaynakları aranır.”
 
-Tam biçim: `Once the hierarchy is selected, ...`.
+Aynı özneyle güvenli kısaltma: `Once selected, the hierarchy remains fixed.` → “Seçildikten sonra hiyerarşi sabit kalır.”
+
+
+**Özne denetimi:** Kısaltılmış yan cümlenin gizli öznesi ana cümledeki özneyle eşleşmelidir. “Once selected, only resources …” biçiminde seçilen şey yanlışlıkla `resources` olur. Kaynak demeti hiyerarşisinin seçildiğini anlatırken özneyi açık yaz: “Once the hierarchy is selected, only its resources are searched.”
+
+**Parçalar:** `[Once the hierarchy is selected]` zaman yan cümlesi; `[only its resources]` ana özne; `[are searched]` edilgen yüklem. `once` burada “bir defa” sayısı değil “seçildikten sonra” zaman ilişkisi kurar.
+
+**Kaynak bağlamı:** [Selecting Resource Bundle Values](bilingual_notes.md#selecting-resource-bundle-values).
 
 ## 19. `instead of + gerund`
 
@@ -345,7 +357,7 @@ Bir seçenek yerine başka seçeneği kullanmayı anlatır.
 
 > **English:** “The method returns `-1` instead of throwing an exception.”
 >
-> **Türkçe:** “Method exception throw etmek yerine `-1` döndürür.”
+> **Türkçe:** “Metot, bir istisna fırlatmak yerine `-1` döndürür.”
 
 `instead of throw` değil, `instead of throwing` kullanılır.
 
@@ -361,9 +373,9 @@ Bir eylemin gerçekleşmediğini belirtir.
 
 > **English:** “The code compiles without handling the unchecked exception.”
 >
-> **Türkçe:** “Kod unchecked exception'ı handle etmeden derlenir.”
+> **Türkçe:** “Kod, unchecked exception ele alınmadan derlenir.”
 
-`without` preposition olduğu için sonrasında gerund gelir.
+`without` bir edattır; ardından fiil getirilecekse gerund kullanılır. İsim veya zamir de gelebilir: `without a handler`.
 
 ## 21. `starting with` ve `followed by`
 
@@ -379,7 +391,7 @@ Sequence açıklamalarında başlangıç ve sonraki adımı gösterir.
 > **English:** “Java looks for the most specific bundle first, followed by its
 > parent.”
 >
-> **Türkçe:** “Java önce en specific bundle'ı, ardından parent'ını arar.”
+> **Türkçe:** “Java önce en özel kaynak demetini, ardından onun üst kaynak demetini arar.”
 
 `followed by` reduced passive yapıdır: `which is followed by`.
 
@@ -397,8 +409,7 @@ matematikte `iff`.
 > **English:** “The variable is effectively final if and only if it is not
 > reassigned after initialization.”
 >
-> **Türkçe:** “Variable yalnız ve ancak initialization sonrasında reassign
-> edilmiyorsa effectively finaldır.”
+> **Türkçe:** “Değişken, ancak ve ancak ilk değer atamasından sonra yeniden atanmadığında effectively final kabul edilir.”
 
 Sıradan `if` yalnız bir yönlü yeter koşul verebilir; `if and only if` iki yönü
 de kapsar.
@@ -416,8 +427,7 @@ the + comparative + clause, the + comparative + clause
 > **English:** “The more specific the locale, the earlier its bundle is
 > considered.”
 >
-> **Türkçe:** “Locale ne kadar specific ise bundle'ı o kadar erken
-> değerlendirilir.”
+> **Türkçe:** “Dil/bölge ayarı ne kadar özelse ilgili kaynak demeti o kadar erken değerlendirilir.”
 
 Türkçede “ne kadar ... o kadar ...” biçimi doğaldır.
 
@@ -434,8 +444,7 @@ Koşul gerçekleşse bile sonucun değişmediğini bildirir.
 > **English:** “The method compiles even if it never throws the declared
 > exception.”
 >
-> **Türkçe:** “Method declare edilen exception'ı hiç throw etmese bile
-> derlenir.”
+> **Türkçe:** “Metot, bildirdiği istisnayı hiç fırlatmasa bile derlenir.”
 
 `even though` gerçek bir duruma, `even if` olası/varsayımsal duruma daha
 yatkındır.
@@ -468,7 +477,7 @@ yatkındır.
 7. `throwing` — `instead of + gerund`.
 8. `more` — correlative comparative.
 9. `of`.
-10. “Throw etmek zorunda değildir.” Prohibition anlamı vermez.
+10. “Fırlatmak zorunda değildir.” Yasaklama anlamı vermez.
 
 ## Hızlı YDS özeti
 

@@ -78,9 +78,7 @@ System.out.print(value.orElseGet(() -> backup())); // main
 İlk satırda `backup()` eager değerlendirilir ve `B` yazdırır. İkinci supplier
 çalışmaz.
 
-> **OCP trap:** `orElseThrow(() -> throw new Exception())` derlenmez. Lambda
-> exception'ı **throw etmemeli**, exception object'ini
-> **return etmelidir:** `orElseThrow(() -> new Exception())`.
+> **OCP trap:** `orElseThrow(() -> throw new Exception())` derlenmez; `throw` bir statement’tır ve bu biçimde expression body olamaz. Yaygın doğru biçim `orElseThrow(() -> new Exception())` olur; checked exception çağıran tarafta ele alınmalıdır. Sürekli exception fırlatan `{ throw new IllegalStateException(); }` gibi bir block lambda ise sözdizimi açısından geçerlidir. Sorunu “lambda içinde throw yasaktır” diye ezberleme.
 
 ## 4. `Optional` zinciri
 
@@ -269,8 +267,7 @@ Stream<T> sorted()
 Stream<T> sorted(Comparator<? super T> comparator)
 ```
 
-`sorted(Comparator::reverseOrder)` method reference değildir; çünkü
-`reverseOrder()` bir comparator **üreten** static method'dur. Doğru kullanım:
+`Comparator::reverseOrder` bir method reference ifadesidir; ancak iki öğe alıp int döndüren Comparator signature’ına uymaz. `reverseOrder()` parametresiz olarak bir Comparator **üretir**. Bu yüzden `sorted(Comparator::reverseOrder)` derlenmez. Doğru kullanım:
 
 ```java
 stream.sorted(Comparator.reverseOrder());
@@ -292,8 +289,9 @@ animals.stream()
 
 ### `peek()` tuzağı
 
-`peek()` debugging için faydalıdır; terminal operation yoksa çalışmaz. Side
-effect'e dayalı iş mantığı için güvenilir bir tasarım değildir.
+`peek()` hata ayıklamada kullanılabilir; terminal operation yoksa çalışmaz. **Terminal operation bulunması da peek’in mutlaka çalışacağı garantisi değildir.** Sonuç doğrudan hesaplanabiliyorsa bir JDK uygulaması öğeleri dolaşmayı atlayabilir; örneğin boyutu bilinen List stream’inde yalnız peek ardından count kullanılması buna uygundur. Java 17 API’si bu optimizasyona izin verir. [Stream.count API notu](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/Stream.html#count())
+
+Bu nedenle uygulama mantığını peek’in yan etkisine bağlama; öğelerin gerçekten işlendiğini görmek istediğin çalışma sorularında pipeline’daki filter/short-circuit adımlarını da denetle.
 
 ## 10. Primitive streams
 
@@ -436,6 +434,21 @@ Map<Integer, Set<String>> groupedToSet =
                         String::length,
                         Collectors.toSet()));
 ```
+
+### `teeing()`: aynı girdiden iki ayrı sonuç
+
+`Collectors.teeing(first, second, merger)` her öğeyi iki downstream collector’a verir, sonra iki sonucu merger ile birleştirir. İlk downstream içindeki `filtering()` yalnız o kolu etkiler; pipeline’ın collect öncesindeki `filter()` işlemi ise her iki kolun girdisini daraltır.
+
+| Filtrenin yeri | İlk kol | İkinci kol |
+|---|---|---|
+| `stream.filter(...).collect(teeing(...))` | Filtrelenmiş öğeler | Filtrelenmiş öğeler |
+| İlk collector’da `Collectors.filtering(...)` | Filtreyi geçenler | Bütün öğeler |
+
+[Kaynak Teeing Collectors](bilingual_notes.md#teeing-collectors) · [Tür ve çıktı çözümlemesi: Soru 7](practice_quiz.md#soru-7--iki-collectorın-bağımsız-girdisi). Sonuç türünü merger’ın dönüş türü belirler.
+
+### Optional zincirinde null sonucu
+
+`map()` içindeki function null döndürürse sonuç empty Optional’dır. `flatMap()` function’ı ise Optional döndürmelidir; null döndürürse NullPointerException oluşur. [Soru 8](practice_quiz.md#soru-8--optionalmap-ve-flatmap-null-sonucu) bu ayrımı ölçer.
 
 ## 13. Stream ile underlying data ilişkisi
 

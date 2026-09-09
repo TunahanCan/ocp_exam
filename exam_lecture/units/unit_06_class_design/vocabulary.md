@@ -2,7 +2,7 @@
 
 ## Bu belge nasıl kullanılmalı?
 
-Bu sözlüğü [README'deki çalışma rotasının](README.md#4560-dakikalık-önerilen-çalışma-rotası)
+Bu sözlüğü [README'deki çalışma rotasının](README.md#işten-sonra-çalışma-rotası)
 vocabulary adımında kullan:
 
 1. Terimin Türkçe karşılığını kapatıp English başlıktan hatırlamaya çalış.
@@ -22,7 +22,7 @@ vocabulary adımında kullan:
 - **Antonym:** concrete; **word family:** abstraction (n.)
 
 ### ancestor · noun
-- **Türkçe:** ata, üst soy type
+- **Türkçe:** ata, üst tür
 - **Bağlam:** Inheritance zincirinde bir class'ın üstünde bulunan superclass.
 - **Example:** Object is an ancestor of every class.
 - **Çeviri:** Object her class'ın atasıdır.
@@ -33,7 +33,7 @@ vocabulary adımında kullan:
 - **Bağlam:** Access level veya checked exception hierarchy'sinde daha geniş
   kapsamı anlatır.
 - **Example:** An overriding method cannot declare a broader checked exception.
-- **Çeviri:** Overriding method daha broad bir checked exception bildiremez.
+- **Çeviri:** Üst sınıftaki method’u override eden method, daha geniş kapsamlı bir checked exception bildiremez.
 - **Antonym:** narrower; **word family:** broaden (v.)
 
 ### checked exception · noun phrase
@@ -49,7 +49,7 @@ vocabulary adımında kullan:
 - **Bağlam:** `abstract` olmayan ve inherited bütün abstract method'ları
   implement eden class.
 - **Example:** The first concrete subclass must implement every inherited abstract method.
-- **Çeviri:** İlk concrete subclass inherited bütün abstract method'ları implement etmelidir.
+- **Çeviri:** İlk somut alt sınıf, kalıtımla aldığı bütün abstract method yükümlülüklerini yerine getirmelidir.
 - **Antonym:** abstract
 
 ### constructor chaining · noun phrase
@@ -79,14 +79,14 @@ vocabulary adımında kullan:
 - **Türkçe:** koruyucu kopya
 - **Bağlam:** Mutable internal data'nın caller tarafından değişmesini önlemek.
 - **Example:** Return a defensive copy of the mutable list.
-- **Çeviri:** Mutable list'in koruyucu kopyasını döndür.
+- **Çeviri:** Değiştirilebilir listenin koruyucu bir kopyasını döndür.
 - **Related:** immutability, encapsulation
 
 ### descendant · noun
-- **Türkçe:** alt soy type
+- **Türkçe:** alt tür
 - **Bağlam:** Inheritance ağacında başka bir class'tan türeyen subclass.
 - **Example:** Rhinoceros is a descendant of Mammal.
-- **Çeviri:** Rhinoceros, Mammal'ın alt soy type'ıdır.
+- **Çeviri:** Rhinoceros, Mammal'ın alt tür'ıdır.
 - **Antonym:** ancestor
 
 ### directly · adverb
@@ -103,6 +103,15 @@ vocabulary adımında kullan:
 - **Çeviri:** Constructor'ları belirlenmiş sırayla çalıştır.
 - **Word family:** establish (v.)
 
+### explicit · adjective
+
+- **Türkçe:** açık, açıkça yazılmış
+- **Bağlam:** `super(1)` gibi programcı tarafından yazılan constructor çağrısı.
+- **Example (özgün çalışma cümlesi):** An explicit constructor call must come first.
+- **Çeviri:** Açıkça yazılan constructor çağrısı ilk ifade olmalıdır.
+- **Related:** Antonym: implicit; word family: explicitly.
+- **Kaynak bağlam:** [explicit](bilingual_notes.md#understanding-compiler-enhancements).
+
 ### fulfill · verb
 - **Türkçe:** karşılamak, yerine getirmek
 - **Bağlam:** Concrete class'ın abstract contract'ı implement etmesi.
@@ -114,22 +123,21 @@ vocabulary adımında kullan:
 - **Türkçe:** gizlemek
 - **Bağlam:** Subclass static member'ın parent'taki aynı adlı static member'ı saklaması.
 - **Example:** Static methods are hidden, not overridden.
-- **Çeviri:** Static method'lar override edilmez, hide edilir.
+- **Çeviri:** Static method’lar override edilmez; aynı imzalı alt sınıf method’u üst sınıftakini gizler (hiding).
 - **Word family:** hiding (n.)
 
 ### immutable · adjective
 - **Türkçe:** değiştirilemez
-- **Bağlam:** Creation sonrasında observable state'i değişmeyen object/class
-  tasarımı.
+- **Bağlam:** Oluşturulduktan sonra dışarıdan gözlenebilen durumu değişmeyen nesne tasarımı.
 - **Example:** A defensive copy protects an immutable object from aliasing.
-- **Çeviri:** Defensive copy, immutable object'i aliasing'e karşı korur.
+- **Çeviri:** Koruyucu kopya, değişmez nesneyi aynı mutable veriye başka referanslardan erişilmesi riskine karşı korur.
 - **Antonym:** mutable; **word family:** immutability (n.)
 
 ### implicit · adjective
 - **Türkçe:** örtük, açıkça yazılmadan eklenen
 - **Bağlam:** Compiler'ın constructor başına `super()` eklemesi.
 - **Example:** A constructor may contain an implicit call to `super()`.
-- **Çeviri:** Constructor implicit bir `super()` çağrısı içerebilir.
+- **Çeviri:** Constructor, açıkça yazılmamış bir `super()` çağrısı içerebilir.
 - **Antonym:** explicit
 
 ### inherited · adjective
@@ -152,7 +160,7 @@ vocabulary adımında kullan:
 - **Bağlam:** Bir object'in geçerli olduğu sürece her zaman doğru kalması gereken
   durum kuralı.
 - **Example:** The list must contain an element to preserve the invariant.
-- **Çeviri:** Invariant'ı korumak için list en az bir element içermelidir.
+- **Çeviri:** Değişmez koşulu korumak için liste en az bir öğe içermelidir.
 - **Related:** validation, state
 
 ## M–S
@@ -189,8 +197,8 @@ vocabulary adımında kullan:
 ### progressively · adverb
 - **Türkçe:** giderek, aşamalı biçimde
 - **Bağlam:** Override return type/access'ın inheritance boyunca değişmesi.
-- **Example:** Return types become progressively narrower.
-- **Çeviri:** Return type'lar giderek daralır.
+- **Example:** Return types may become progressively narrower.
+- **Çeviri:** Dönüş türleri giderek daha özel alt türlere daralabilir; aynı kalmaları da geçerlidir.
 - **Word family:** progressive (adj.)
 
 ### redeclare · verb
@@ -201,8 +209,17 @@ vocabulary adımında kullan:
 - **Çeviri:** Subclass private parent method'u yeniden bildirebilir.
 - **Word family:** redeclaration (n.)
 
+### restrictive · adjective
+
+- **Türkçe:** kısıtlayıcı
+- **Bağlam:** Alt sınıfın erişim düzeyini daraltması.
+- **Example (özgün çalışma cümlesi):** Private access is more restrictive than protected access.
+- **Çeviri:** Private erişim, protected erişimden daha kısıtlayıcıdır.
+- **Related:** Word family: restrict, restriction; contrast: permissive.
+- **Kaynak bağlam:** [restrictive](bilingual_notes.md#overriding-a-method).
+
 ### single inheritance · noun phrase
-- **Türkçe:** tekli inheritance
+- **Türkçe:** tekli kalıtım
 - **Bağlam:** Her Java class'ının yalnızca bir direct superclass'a sahip olması.
 - **Example:** Java class design follows single inheritance.
 - **Çeviri:** Java class tasarımı single inheritance modelini izler.
@@ -232,6 +249,22 @@ vocabulary adımında kullan:
 - **Example:** A wrapper method can expose the list size safely.
 - **Çeviri:** Wrapper method list boyutunu güvenli biçimde gösterebilir.
 - **Related:** delegate method, encapsulation
+
+## Karıştırılan anlamlar ve kapalı kitap hatırlama
+
+| Karşılaştırma | Karar verirken kullan |
+|---|---|
+| `implicit` / `explicit` | Örtük / açıkça yazılmış; ikisi de gerçek constructor çağrısıdır. |
+| `broader` / `narrower` | Daha geniş / daha dar; access genişleyebilirken checked exception kapsamı genişleyemez. |
+| `immutable` / `invariant` | İlki nesnenin değişmezliğini, ikincisi korunması gereken koşulu anlatır. |
+
+Aşağıdaki özgün cümleyi Türkçeye çevir; ardından vurgulanan anlam farkını kendi Java örneğine aktar. Cevabı açmadan önce bir tahmin yaz.
+
+> The access becomes more restrictive.
+
+**Kendini kontrol et:** Erişim daha kısıtlayıcı hâle gelir. `more restrictive`, daha erişilebilir demek değildir.
+
+Dört işaretli terim için 1/3/7/14. günlerde iki yönlü hatırlama yap: English → Türkçe anlam, sonra Türkçe teknik durum → English terim. Anlamını hatırlayıp örnek kuramadığın terimi “öğrendim” diye işaretleme.
 
 ## Mini quiz
 

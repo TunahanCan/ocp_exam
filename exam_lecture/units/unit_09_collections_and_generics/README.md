@@ -20,19 +20,30 @@ kurallarını doğru sırayla uygulamaktır.
 > `practice_quiz`, OCP tarzı **özgün çalışma sorularıdır**; gerçek sınavdan
 > alınmış sorular olarak sunulmaz.
 
-## 45–60 dakikalık önerilen çalışma rotası
+## İşten sonra çalışma rotası
 
-1. **0–5 dk:** Konu haritasını incele; collection seçimi ve PECS kararını
-   ezberden anlat.
-2. **5–25 dk:** Ana çift dilli notta zayıf olduğun iki başlığın English →
-   Türkçe çiftlerini ve kodlarını çalış.
-3. **25–35 dk:** Teknik hafıza notundaki implementation, `Map.merge()`,
-   sorting ve wildcard tablolarını kapatıp yeniden kur.
-4. **35–43 dk:** Vocabulary'den 6–8 terimi kısa teknik örneklerle tekrar et.
-5. **43–50 dk:** Grammar notes içinden iki yapının clause/phrase sınırlarını
-   işaretle.
-6. **50–60 dk:** Practice quiz'i kaynaklara bakmadan çöz; yanlışlarını
-   collection, ordering veya generic başlığına göre sınıflandır.
+Bu rota bütün üniteyi tek akşamda bitirme hedefi değildir. Her satır **25–30 dakikalık bir oturumun odağıdır**; okuma veya soru grubu bitmezse aynı satırı sonraki güne taşı. Bir oturumda 2–4 kaynak soruyu gerekçesiyle çözmek yeterlidir. Aşağıdaki soru numaraları kitabın **Review Questions** bölümüne aittir; `practice_quiz` ayrı özgün sorulardır.
+
+Her oturum: **3 dk** önceki bilgiyi kapalı kitap hatırla → **10 dk** English paragrafı çevirip Türkçeyle karşılaştır → **5 dk** en fazla dört yeni kelime ve bir grammar yapısı → **8 dk** soru çöz → **2 dk** yanlışının nedenini yaz. İlk turda bütün kelimeleri ezberlemeye çalışma; bilmediklerini işaretle.
+
+| Oturum ve kaynak başlığı | Kaynak sorular | Kelime ve grammar odağı | Oturum sonunda üret |
+|---|---|---|---|
+| 1. [Collection, List ve Set](bilingual_notes.md#using-common-collection-apis) | 1, 2, 4, 10, 17 | backed by, fixed-size, duplicate; `unlike`, `whether` | Mutable/fixed-size/unmodifiable tablosunu kapalı kitap kur. |
+| 2. [Queue, Deque ve Map](bilingual_notes.md#using-the-queue-and-deque-interfaces) | 3, 15, 16, 19 | absent, entry, retrieve; `unless`, `rather than` | Deque uçlarını çiz; Map için yok/null/değer üç durumunu ayır. |
+| 3. [Sıralama ve arama](bilingual_notes.md#sorting-data) | 6, 8, 12, 13 | consistent, natural order, insertion point; `as long as`, `while` | Önce comparator’ı uygula; binary search aynı sıralamayı mı bekliyor? |
+| 4. [Generic bildirim ve erasure](bilingual_notes.md#working-with-generics) | 5, 7, 9, 18 | raw type, type erasure, parameterized type; `so that`, `when + V-ing` | Class ve method type parameter’larını ayır; Soru 7’deki kaynak anahtarı düzeltmesini oku. |
+| 5. [Wildcard ve güvenli işlem](bilingual_notes.md#bounding-generic-types) | 11, 14, 20 | upper bound, lower bound, invariant; `which/that`, `only` anlam sınırı | `? extends`/`? super` için okuma ve ekleme türlerini yaz; practice quiz 1–8. |
+
+Kelime anlamlarını [ünite sözlüğünden](vocabulary.md), yapıları [grammar notundan](grammar_notes.md) kontrol et. Kaynak sorularını çözerken önce isteneni (derleme / çıktı / exception / doğru seçenek sayısı), sonra kuralı yaz; cevap harfini en son seç.
+
+## Aralıklı tekrar ve geçiş ölçütü
+
+- **1. gün:** Türkçeyi kapatarak dün işaretlediğin dört kelimeyi ve bir cümleyi geri çağır; yanlış yaptığın bir soruyu çöz.
+- **3. gün:** Aynı kuralı ölçen başka bir kaynak soruya geç; doğru seçeneğin yanında en güçlü yanlış seçeneğin neden elendiğini söyle.
+- **7. gün:** Özgün practice quiz'i yeniden çöz; çözerken kuralın adını ve sonucunu ayrı yaz. Hedef **en az 7/8** ve bütün derleme/çalışma zamanı ayrımlarını doğru gerekçelendirmek.
+- **14. gün:** Önceki yanlışlarından üç soruyu karışık sırada çöz; sekiz işaretli kelimenin en az altısını ve iki cümlenin özne/fiil/yan cümle yapısını notsuz çıkar.
+
+Yanlış kayıt biçimi: `Soru → ilk kararım → kaçırdığım Java kuralı/İngilizce yapı → düzeltilmiş gerekçe → yeniden çözüm günü`. Yalnızca cevap harfini hatırlamak geçiş ölçütü değildir. Eksik kalan konu için ilgili oturumu tekrarla.
 
 ## Önkoşullar ve konu haritası
 
@@ -75,7 +86,7 @@ Ana konu başlıkları:
   belirleyebiliyorum.
 - [ ] Compile-time generic hatası ile raw type kaynaklı runtime riskini
   ayırabiliyorum.
-- [ ] Practice quiz'de en az **5/6** doğru yapabiliyorum.
+- [ ] Practice quiz'de en az **7/8** doğru yapabiliyorum.
 
 ## Java 17 teknik doğruluk notları
 

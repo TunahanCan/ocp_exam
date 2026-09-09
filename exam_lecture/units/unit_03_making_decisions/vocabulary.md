@@ -23,6 +23,15 @@ matching bağlamlarından seçilmiştir.
 - **Çeviri:** Case'ler her enum constant'ı kapsar.
 - **Synonym:** cover, include
 
+### at least · adverbial phrase
+
+- **Türkçe:** en az
+- **Teknik bağlam:** do/while gövdesinin çalışma sayısına alt sınır koyar.
+- **Example:** A do/while loop enters its body at least once.
+- **Çeviri:** Bir do/while döngüsü gövdesine en az bir kez girer.
+- **Word family / karşılaştırma:** karşıt: at most (en fazla); exactly (tam olarak)
+- **Kaynak bağlam:** [İlgili ana not](bilingual_notes.md#the-dowhile-statement).
+
 ### branching · noun / adjective
 
 - **Türkçe:** dallanma, akışı dallara ayırma
@@ -53,7 +62,9 @@ matching bağlamlarından seçilmiştir.
 ### exhaustive · adjective
 
 - **Türkçe:** bütün olasılıkları kapsayan
-- **Teknik bağlam:** Switch expression'ın her selector/path için result üretmesi.
+- **Teknik bağlam:** Switch expression'ın selector için gereken bütün olasılıkları
+  kapsaması. Bir yol değer üretmek yerine exception fırlatabilir; kapsam ile
+  her bloğun değer üretme kontrolü bağlantılı ama ayrı kurallardır.
 - **Example:** A switch expression must be exhaustive.
 - **Çeviri:** Switch expression bütün olasılıkları kapsamalıdır.
 - **Word family:** exhaustively (adv.); **synonym:** comprehensive
@@ -184,9 +195,22 @@ matching bağlamlarından seçilmiştir.
 
 - **Türkçe:** değer üretmek
 - **Teknik bağlam:** Switch-expression block'undan result value döndürmek.
-- **Example:** Every reachable case block must yield a value.
-- **Çeviri:** Her reachable case block bir value üretmelidir.
+- **Example:** This case block uses `yield` to produce the switch value.
+- **Çeviri:** Bu case bloğu switch değerini üretmek için `yield` kullanır.
+- **Sınır:** Exception fırlatan kolun `yield` ile değer üretmesi gerekmez.
 - **Related:** return, result
+
+## Önce anlam farkını geri çağır
+
+Her oturumda en fazla beş kart seç. Türkçe anlamı kapatıp örneği sesli çevir;
+sonra İngilizce terimi kapatıp Türkçeden geri çağır. **0:** hatırlamadım,
+**1:** ipucuyla, **2:** örnek kurarak hatırladım biçiminde işaretle. 0/1 alan
+kartları ertesi gün, 2 alanları 3/7/14 gün rotasında yeniden dene. Bu puanlar
+kişisel takip içindir; hazır bir sınav puanı değildir.
+
+`at least once` = 1 veya daha fazla; `once` = bir kez. `skip` turun kalanını atlamak, `terminate` döngüyü bitirmektir; `continue` ile `break`i bu ayrımla hatırla.
+
+**Kontrol:** Bu ayrımlardan birini İngilizce iki cümleyle açıkla; yalnız Türkçe karşılığı söylemekle yetinme.
 
 ## Mini quiz
 

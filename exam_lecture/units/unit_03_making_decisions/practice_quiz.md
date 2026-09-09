@@ -1,8 +1,14 @@
 # Unit 03 · Making Decisions — Practice Quiz
 
-Bu belge altı adet **OCP tarzı özgün çalışma sorusu** içerir. Sorular gerçek
+Bu belge sekiz adet **OCP tarzı özgün çalışma sorusu** içerir. Sorular gerçek
 sınavdan alınmamıştır. Akış sorularında önce compile-time scope'u, sonra hangi
 branch'in çalışacağını, en son output'u belirle.
+
+## Çalışma yönergesi
+Yanlış yaptığın sorunun kuralını [teknik notta](technical_memory_notes.md) bul;
+cevabı kapatıp aynı kodda tek bir değeri değiştirerek sonucu yeniden tahmin et.
+Dil sorusunda hem doğal çeviriyi hem bağlacın kurduğu ilişkiyi açıklayabildiysen
+başarılı say. [README oturum rotası](README.md) kaynak sorularına dönüşü gösterir.
 
 ## Sorular
 
@@ -103,6 +109,56 @@ Cümleyi doğal Türkçeye çevir ve `whereas` ile karşılaştırılan iki kura
 
 <!-- page-break -->
 
+### Soru 7
+
+**Odak:** Arrow statement ve exhaustive zorunluluğu
+
+Aşağıdaki program için hangisi doğrudur? **Bir seçenek seç.**
+
+```java
+public class ArrowStatement {
+    public static void main(String[] args) {
+        int number = 2;
+        switch (number) {
+            case 1 -> System.out.print("A");
+        }
+        System.out.print("Z");
+    }
+}
+```
+
+A. `AZ`<br>
+B. `Z`<br>
+C. Default olmadığı için derlenmez.<br>
+D. Eşleşen case olmadığı için exception oluşur.
+
+<!-- page-break -->
+
+### Soru 8
+
+**Odak:** Do/while içinde erken çıkış
+
+Aşağıdaki program için hangisi doğrudur? **Bir seçenek seç.**
+
+```java
+public class EarlyBreak {
+    public static void main(String[] args) {
+        int checks = 0;
+        do {
+            break;
+        } while (++checks < 3);
+        System.out.println(checks);
+    }
+}
+```
+
+A. `0`<br>
+B. `1`<br>
+C. `3`<br>
+D. Kod derlenmez.
+
+<!-- page-break -->
+
 ## Cevaplar ve açıklamalar
 
 ### 1. B — `B`
@@ -152,3 +208,11 @@ gerekmez.”
 `whereas`, expression için zorunlu olan exhaustiveness ile statement için
 bulunmayan bu zorunluluğu karşılaştırır. `does not have to`, “yapmamalıdır”
 değil, “yapmak zorunda değildir” anlamına gelir.
+
+### 7. B
+
+Bu bir switch statement olduğundan bütün int değerlerini kapsaması gerekmez. Hiç case eşleşmez ve sonraki `print` Z yazar; A yanlış case seçer, C expression kuralını uygular, D olmayan bir exception varsayar.
+
+### 8. A
+
+Gövdeye girilir ve break döngüyü bitirir; koşula ulaşılmadığı için ++checks çalışmaz. B/C koşulun mutlaka çalıştığını varsayar; do/while koşulu için bu örnek geçerlidir, D yanlıştır.

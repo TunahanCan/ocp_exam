@@ -1,7 +1,7 @@
 # Unit 12 · Modules — Practice Quiz
 
-Bu belge altı adet **OCP tarzı özgün çalışma sorusu** içerir; sorular gerçek
-sınavdan alınmamıştır. Önerilen süre 15–20 dakikadır. Command ve descriptor
+Bu belge sekiz adet **OCP tarzı özgün çalışma sorusu** içerir; sorular gerçek
+sınavdan alınmamıştır. Önerilen süre 25–30 dakikadır; istersen 1–4 ve 5–8 olarak iki oturuma böl. Command ve descriptor
 sorularında önce classpath/module path ayrımını, sonra readability ve access
 kurallarını değerlendir.
 
@@ -91,8 +91,9 @@ E. Unnamed module doğrudan `jlink` image'ına eklenebilir.
 
 **Odak:** Service directives
 
-Bir service consumer module ile provider module için doğru directive çifti
-hangisidir?
+Servisi **doğrudan `ServiceLoader.load(Service.class)` ile arayan** açık isimli
+bir consumer modülü ile provider modülü için doğru directive çifti hangisidir?
+Servis API türlerine gerekli `requires`/`exports` erişiminin sağlandığını varsay.
 
 A. Consumer: `provides Service with Consumer`; provider: `uses Service`
 
@@ -112,6 +113,69 @@ yönünü açıkla:
 
 > A public type is accessible to another named module only if its package is
 > exported to that module and the reading module has the required readability.
+
+### Soru 7
+
+**Odak:** `requires transitive` ve erişim zinciri
+
+Üç açık isimli modülün ilgili dosyaları aşağıdadır. Başka yönerge veya komut
+satırı erişim istisnası yoktur; kaynaklar module path kullanılarak derlenir.
+`app` derlemesini başarılı kılan **tek değişiklik** hangisidir?
+
+```java
+// api/module-info.java
+module api { exports api; }
+// api/api/Item.java
+package api;
+public class Item {}
+
+// middle/module-info.java
+module middle { requires api; }
+
+// app/module-info.java
+module app { requires middle; }
+// app/app/Main.java
+package app;
+public class Main { api.Item item; }
+```
+
+A. `api` tanımlayıcısında `exports api` yerine `opens api` yazmak.
+
+B. `middle` tanımlayıcısında `requires transitive api` yazmak.
+
+C. `app.Main.item` alanını `public` yapmak.
+
+D. Hiçbir değişiklik yapmamak; bütün bağımlılıklar kendiliğinden geçişlidir.
+
+### Soru 8
+
+**Odak:** Ana sınıfı modüler başlatma
+
+Aşağıdaki dosyalar `mods/greeting` dizinine başarıyla derlenmiştir; terminalin
+geçerli dizini `mods` dizininin bulunduğu üst dizindir.
+
+```java
+// module-info.java
+module greeting {}
+// greet/Main.java
+package greet;
+public class Main {
+    public static void main(String[] args) { System.out.print("Hello"); }
+}
+```
+
+Hangi komut programı **başarıyla başlatıp `Hello` yazdırır**? Tek seçenek seç.
+
+A. `java --module-path mods -m greeting/greet.Main`
+
+B. `java --module-path mods -m greeting.greet.Main`
+
+C. `java --module-path mods -m greeting/greet/Main`
+
+D. Hiçbiri; `exports greet;` yoksa başlatıcı `main()` metodunu çağıramaz.
+
+**Dil aktarımı:** “The package need not be exported for this launch.” cümlesini
+çevir. `need not` ifadesi izin mi, yasak mı, zorunluluk yokluğu mu bildirir?
 
 <!-- page-break -->
 
@@ -181,3 +245,19 @@ erişilebilirdir.”
 uygun export hem readability bulunmalıdır. Bu yapı “if” ile ters yönde
 okunmamalıdır. `is exported` passive voice, `reading` ise module'ü niteleyen
 present participle'dır.
+
+### Soru 7 — B
+
+- **B doğru:** `middle`, `api` bağımlılığını geçişli bildirince `middle` modülünü okuyan `app`, `api` modülünü de okur. `api` paketi zaten dışa açılmıştır; kaynaklar derlenir.
+- **A yanlış:** `opens` normal kaynak kodu erişimini sağlamaz; `app` için okunabilirlik sorunu da sürer.
+- **C yanlış:** Alanın erişim düzeyi, kullanılan türün modülünü okunabilir yapmaz.
+- **D yanlış:** Normal `requires` bağımlılığı geçişli yayılmaz. İlk sürüm `package api is not visible` nedeniyle derlenmez.
+
+### Soru 8 — A
+
+- **A doğru:** Başlatma sözdizimi `modül/paket.AnaSınıf` biçimindedir; çıktı `Hello` olur.
+- **B yanlış:** Eğik çizgi olmadığında bütün ifade modül adı gibi yorumlanır; belirtilen modül bulunamaz.
+- **C yanlış:** Modül/sınıf ayırıcısından sonraki tam sınıf adı, paketler arasında nokta kullanır.
+- **D yanlış:** Modül başlatıcısının uygun `main()` metodunu çalıştırması için paketin dışa açılması gerekmez.
+
+Çeviri: “Bu başlatma için paketin dışa açılması gerekmez.” `need not`, zorunluluk yokluğudur; yasak bildirmez.

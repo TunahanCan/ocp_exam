@@ -15,15 +15,16 @@ java.lang.Object
         └── diğer Exception türleri     checked
 ```
 
-- Checked exception (kontrollü istisna), application code tarafından handle
+- Checked exception, application code tarafından handle
   veya declare edilmelidir.
 - `RuntimeException` ve subclass'ları unchecked'tır.
 - `Error` ve subclass'ları unchecked'tır.
 - `Throwable`ı doğrudan extend eden, `Error` veya `RuntimeException` olmayan
   custom type checked kabul edilir.
 
-> **Memory tip:** “Checked = `Exception` kolunda, fakat `RuntimeException`
-> kolunda değil.”
+> **Memory tip:** “Checked = `Throwable` hiyerarşisi − `RuntimeException` ve
+> `Error` kolları.” Yalnız `Exception` kolunu ezberlemek, doğrudan `Throwable`
+> alt sınıflarını kaçırır.
 
 ## 2. Handle or declare rule
 
@@ -435,6 +436,10 @@ try (var door = new JammedDoor()) {
 Primary exception ilk throw edilen `body` exception'ıdır. İki resource reverse
 order'da kapanıp ikisi de fail ederse suppressed array de close sırasını izler.
 
+Try body başarılıysa ilk başarısız `close()` primary exception üretir; sonraki
+kapanış hataları ona suppressed olarak eklenir. [Çalışma sorusu 8](practice_quiz.md#soru-8)
+bu durumu örnekler.
+
 Traditional `finally` block'ta atılan yeni exception eski exception'ı
 suppressed list'e otomatik eklemez; eski exception kaybolabilir.
 
@@ -678,26 +683,30 @@ Key bulunamazsa `MissingResourceException` runtime'da oluşur.
 
 ## 24. Resource bundle selection
 
-Basitleştirilmiş arama:
+Basitleştirilmiş **bundle seçimi** (yalnız dil/ülke kullanan örnekler):
 
 ```text
-requested locale:
+önce requested locale:
 base_language_COUNTRY
 base_language
-base
 
-uygun requested chain bulunamazsa:
+uygun requested-locale bundle bulunamazsa default locale:
 default-language_COUNTRY
 default-language
-base
+
+ikisi de eşleşmezse:
+base (root bundle)
 ```
 
 Örneğin requested `fr_FR`, default `en_US`:
 
 ```text
-Zoo_fr_FR → Zoo_fr → Zoo
-gerekirse Zoo_en_US → Zoo_en → Zoo
+Zoo_fr_FR → Zoo_fr → Zoo_en_US → Zoo_en → Zoo
 ```
+
+Bu, seçimin öncelik sırasıdır; dosyaların fiziksel yüklenme sırası değildir.
+Root bundle arama sırasında daha önce yüklenebilse de uygun default-locale
+bundle varken yalnız root bulundu diye seçim root'ta sonlanmaz.
 
 Bir bundle hierarchy seçildikten sonra eksik key için o hierarchy'nin
 parent'larına gidilir; key ararken başka locale hierarchy'sine atlanmaz.
@@ -816,7 +825,8 @@ göre ayarlanabilir.
    exception oluşur.
 6. `%40` / `40%`; exact symbol placement locale'a bağlıdır.
 7. `MM` month, `mm` minute.
-8. `base_fr_CA`, sonra `base_fr`, sonra base bundle.
+8. Önce `base_fr_CA`, sonra `base_fr`. İkisi de yoksa varsayılan locale
+   adayları; onlar da yoksa root/base bundle seçilir.
 9. Hayır. Explicit locale formatter için belirleyicidir.
 10. `null`; non-String value generic `get()` ile alınabilir.
 11. Hayır; daha geniş checked exception declare edemez.
@@ -825,7 +835,7 @@ göre ayarlanabilir.
 ## Son tekrar kartı
 
 ```text
-checked = Exception - RuntimeException
+checked = Throwable - RuntimeException kolu - Error kolu
 throw object
 throws declaration
 
@@ -837,7 +847,7 @@ AutoCloseable
 reverse close
 existing resource → final/effectively final
 body exception → primary
-close exception → suppressed
+close exception → primary varsa suppressed, yoksa primary
 
 format:
 0 required digit
@@ -846,7 +856,7 @@ M month
 m minute
 
 bundle:
-requested specific → requested language → base
-then default chain if no requested hierarchy
+requested specific → requested language
+eşleşmezse default chain → root/base
 selected hierarchy içinde key fallback
 ```

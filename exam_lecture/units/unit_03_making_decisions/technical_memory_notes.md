@@ -64,7 +64,10 @@ Java 17'de klasik switch selector şu type'larla çalışır:
 - enum types.
 
 `boolean`, `long`, `float` ve `double` klasik switch selector olamaz. `case`
-label değerleri compile-time constant, selector ile compatible ve unique olmalıdır.
+label'ları uygun constant expression veya enum constant olmalı; selector ile
+compatible ve birbirinden farklı olmalıdır. `String`/wrapper/enum selector
+`null` ise standart Java 17'de runtime'da `NullPointerException` oluşur.
+Bu not preview özelliklerini kullanmaz.
 
 ```java
 final int one = 1;
@@ -103,8 +106,8 @@ int length = switch (season) {
 };
 ```
 
-Switch expression'ın her reachable path'i bir value üretmeli veya exception
-fırlatmalıdır. Enum'un tüm constants'ı kapsanıyorsa explicit `default` her zaman
+Switch expression'dan normal çıkılan her path bir value üretmelidir; bir
+path exception fırlatarak da sonlanabilir. Enum'un tüm constants'ı kapsanıyorsa explicit `default` her zaman
 zorunlu değildir.
 
 **Hafıza cümlesi:** Colon akabilir; arrow tek kola girer. Expression sonuçsuz
@@ -117,7 +120,7 @@ zorunlu değildir.
 | `while` | Hayır | iteration sayısı bilinmiyor |
 | `do/while` | Evet, önce gövdeye girilir | body en az bir kez gerekli |
 | basic `for` | Hayır | init/condition/update birlikte |
-| enhanced `for` | Collection/array elemanları kadar | index gerekmiyor |
+| enhanced `for` | Boolean condition yazılmaz; array/Iterable elemanları gezilir | index gerekmiyor |
 
 Basic `for` akışı:
 

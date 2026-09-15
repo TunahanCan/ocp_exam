@@ -342,6 +342,16 @@ açısından değerli kelime/kalıpları bağlam içinde toplar. Maddeler alfabe
 - **Çeviri:** “Ham tür kullanmak, bir hatanın ancak çalışma zamanında ortaya çıkmasına yol açabilir.”
 - **Related:** unchecked warning, parameterized type
 
+### reifiable · adjective
+
+- **Türkçe:** tür bilgisi çalışma zamanında tam olarak kullanılabilen
+- **Java bağlamı:** `List<?>` reifiable'dır; `List<String>` non-reifiable'dır.
+  Java 17'de bazı parameterized `instanceof` kontrolleri, soldaki ifadenin
+  türü sayesinde unchecked conversion gerektirmiyorsa yine de geçerlidir.
+- **Example (özgün çalışma cümlesi):** `List<?>` is a reifiable type.
+- **Çeviri:** `List<?>`, tür bilgisi runtime'da kullanılabilen bir türdür.
+- **Related:** non-reifiable, type erasure, runtime type information
+
 ### retrieve · verb
 
 - **Türkçe:** getirmek, erişip almak

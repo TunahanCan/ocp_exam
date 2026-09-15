@@ -123,10 +123,10 @@ Bir state'in başka bir operation tamamlandıktan sonraki durumunu sorar.
 `is executed`, `be + V3` biçiminde passive voice'tur; kod eylemi yapan değil,
 çalıştırılan öğedir.
 
-## 8. `as long as` ile yeter koşul
+## 8. `as long as` ile koşul
 
-`as long as`, bir sonucun gerçekleşmesi için yeterli koşulu “-dığı sürece”
-anlamıyla verir.
+`as long as`, bu bağlamda “-dığı sürece / şartıyla” anlamıyla koşul bildirir.
+Koşulun teknik sınırını yalnız bağlaçtan değil, cümlenin tamamından çıkar.
 
 ```text
 main clause + as long as + condition clause
@@ -172,8 +172,10 @@ ekler.
 main clause + unless + affirmative clause
 ```
 
-**EN:** Numbers are positive unless accompanied by a negative unary operator.
-**TR:** Negatif unary operator eşlik etmedikçe sayılar pozitiftir.
+**EN:** The right operand of `||` is skipped unless the left operand evaluates to false.
+**TR:** Sol operand `false` üretmedikçe `||` operator'ının sağ operand'ı atlanır.
+
+Bu örnek, sol operand'ın normal tamamlandığı short-circuit akışını anlatır.
 
 > **Common mistake:** `unless` zaten negatif condition taşır; ardından gereksiz
 > bir `not` kullanma.

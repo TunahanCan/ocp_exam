@@ -29,7 +29,7 @@ Her oturum: **3 dk** önceki bilgiyi kapalı kitap hatırla → **10 dk** Englis
 |---|---|---|---|
 | 1. [Lambda sözdizimi ve hedef tür](bilingual_notes.md#writing-simple-lambdas) | 1, 2, 4, 6, 7, 14, 17 | target type, omit, explicitly; `allow ... to`, `only if` | Her lambda’nın parametre ve dönüş türünü yaz; yoğun grubu gerekirse ikiye böl. |
 | 2. [Functional interface ve SAM](bilingual_notes.md#coding-functional-interfaces) | 3, 21 | single abstract method, insufficient, annotation; `even though`, `just because ...` | Object’ın public imzalarını ve concrete method’ları SAM sayımından ayır. |
-| 3. [Method reference ve hazır arayüzler](bilingual_notes.md#using-method-references) | 5, 8, 9, 18, 19, 20 | receiver, equivalent, primitive specialization; `while`, `without + V-ing` | Method reference’ı lambda’ya aç; Supplier/Function/Consumer türlerini karşılaştır. |
+| 3. [Method reference ve hazır functional interface'ler](bilingual_notes.md#using-method-references) | 5, 8, 9, 18, 19, 20 | receiver, equivalent, primitive specialization; `while`, `without + V-ing` | Method reference’ı lambda’ya aç; Supplier/Function/Consumer türlerini karşılaştır. |
 | 4. [Bileşim ve local değişkenler](bilingual_notes.md#working-with-variables-in-lambdas) | 10, 11, 12, 13, 15, 16 | capture, effectively final, scope; `as long as`, `when + V3` | Yeniden atama ile nesnenin içeriğini değiştirmeyi ayır; practice quiz 1–8. |
 
 Kelime anlamlarını [ünite sözlüğünden](vocabulary.md), yapıları [grammar notundan](grammar_notes.md) kontrol et. Kaynak sorularını çözerken önce isteneni (derleme / çıktı / exception / doğru seçenek sayısı), sonra kuralı yaz; cevap harfini en son seç.

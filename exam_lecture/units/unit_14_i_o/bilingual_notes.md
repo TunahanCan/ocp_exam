@@ -179,22 +179,25 @@ System.out.print(System.getProperty("file.separator"));
 > düzenlendiğini gösterir.
 > **English:** **FIGURE 14.1 — Directory and file hierarchy**
 >
-> ```text
-> c:\
-> ├── app\
-> │   ├── animals\
-> │   │   ├── Bear.java
-> │   │   └── Bear.class
-> │   ├── employees\
-> │   └── java.exe
-> ├── zoo\
-> └── info.txt
-> ```
->
 > **Türkçe:** **ŞEKİL 14.1 — Dizin ve dosya hiyerarşisi.** Root `c:\`;
 > `app` ve `zoo` directory'leriyle `info.txt` file'ını içerir. `app` altında
 > `animals`, `employees` ve `java.exe`; `animals` altında ise `Bear.java` ile
 > `Bear.class` bulunur.
+
+<!-- keep-with-next -->
+
+```text
+c:\
+├── app\
+│   ├── animals\
+│   │   ├── Bear.java
+│   │   └── Bear.class
+│   ├── employees\
+│   └── java.exe
+├── zoo\
+└── info.txt
+```
+
 
 <!-- source-page: 0788 -->
 > **English:** This diagram shows the root directory, c:, as containing two directories, app and zoo,
@@ -256,17 +259,15 @@ animals\Bear.java
 > TABLE 14.1'deki iki path symbol'ı bilmeniz gerekir.
 > **English:** **TABLE 14.1 — File-system symbols**
 >
-> | Symbol | Description |
-> |---|---|
-> | `.` | A reference to the current directory |
-> | `..` | A reference to the parent of the current directory |
->
 > **Türkçe:** **TABLO 14.1 — File-system sembolleri**
->
-> | Sembol | Açıklama |
-> |---|---|
-> | `.` | Current directory'ye referans |
-> | `..` | Current directory'nin parent'ına referans |
+
+<!-- keep-with-next -->
+
+| Symbol<br>Sembol | Description<br>Açıklama |
+| --- | --- |
+| `.` | A reference to the current directory<br>Current directory'ye referans |
+| `..` | A reference to the parent of the current directory<br>Current directory'nin parent'ına referans |
+
 > **English:** Looking at FIGURE 14.2, suppose the current directory is
 > `/fish/shark/hammerhead`. In this case, `../swim.txt` is a valid relative path
 > equivalent to `/fish/shark/swim.txt`. Likewise, `./play.png` refers to `play.png`
@@ -291,18 +292,21 @@ animals\Bear.java
 <!-- source-page: 0789 -->
 > **English:** **FIGURE 14.2 — Relative paths using path symbols**
 >
-> ```text
-> fish\
-> ├── shark\                         ../..
-> │   ├── swim.txt                   ../swim.txt
-> │   └── hammerhead\                .  (current directory)
-> │       └── play.png               ./play.png
-> └── clownfish\                     ../../clownfish
-> ```
->
 > **Türkçe:** **ŞEKİL 14.2 — Path sembolleri kullanan relative path'ler.**
 > Başlangıç noktası `hammerhead` directory'sidir. `.` burayı, `..` parent
 > `shark` directory'sini, `../..` ise `fish` directory'sini gösterir.
+
+<!-- keep-with-next -->
+
+```text
+fish\
+├── shark\                         ../..
+│   ├── swim.txt                   ../swim.txt
+│   └── hammerhead\                .  (current directory)
+│       └── play.png               ./play.png
+└── clownfish\                     ../../clownfish
+```
+
 > **English:** A symbolic link is a special file within a file system that serves as a reference or
 > pointer to another file or directory. Suppose we have a symbolic link from
 > /zoo/user/favorite to /fish/shark. The shark folder and its elements can be accessed
@@ -442,8 +446,8 @@ File backToFile = nowPath.toFile();
 >
 > **Türkçe:** NIO.2, fabrika sınıfları ile nesnelerin yaratılmasını kapsamlı bir şekilde kullanır.
 > FileSystems sınıfı, abstract FileSystem sınıfının örneklerini oluşturur. İkincisi,
-> doğrudan file system ile çalışma yöntemlerini içerir. Hem Paths.get() hem de Path.of()
-> bu FileSystem yönteminin kısayollarıdır. Path örneğinin long yolunu nasıl elde edeceğini
+> doğrudan file system ile çalışma metotlarını içerir. Hem Paths.get() hem de Path.of()
+> bu FileSystem metodunun kısayollarıdır. Path örneğinin long yolunu nasıl elde edeceğini
 > görmek için önceki örneklerimizi bir kez daha yeniden yazalım:
 ```java
 Path zooPath1 = FileSystems.getDefault()
@@ -462,23 +466,26 @@ Path zooPath2 = FileSystems.getDefault()
 > **Türkçe:** I/O modeli daha küçüktür ve yalnızca `File` class'ını anlamanız gerekir. Buna karşılık,
 > NIO.2 daha fazla özelliğe sahiptir ve fabrika desenini kapsamlı bir şekilde kullanır. Bu
 > yaklaşımla rahat olmalısınız. NIO.2 ile etkileşimlerinizin çoğu iki tür gerektirecektir:
-> bir abstract sınıfı veya arayüzü ve bir fabrika veya yardımcı sınıfı. FIGURE 14.3, bu
-> bölümde şimdiye kadar kullandığımız sınıflar ve arayüz arasındaki ilişkileri gösterir.
+> bir abstract sınıfı veya interface’i ve bir fabrika veya yardımcı sınıfı. FIGURE 14.3, bu
+> bölümde şimdiye kadar kullandığımız sınıflar ve interface arasındaki ilişkileri gösterir.
 > **English:** FIGURE 14.3 — I/O and NIO.2 class and interface
 > relationships
->
-> ```text
-> FileSystems --creates--> FileSystem --creates--> Path
-> Paths ------------------------------creates--> Path
-> java.io.File <--converts--> Path
-> java.net.URI <--converts--> Path
-> Files ----------------------------------uses--> Path
-> ```
 >
 > **Türkçe:** **ŞEKİL 14.3 — I/O ile NIO.2 class ve interface ilişkileri.**
 > `FileSystems`, `FileSystem`; `FileSystem` ve `Paths`, `Path` oluşturur.
 > `Path`, `File` ve `URI` ile dönüştürülebilir; `Files` operation'ları `Path`
 > kullanır.
+
+<!-- keep-with-next -->
+
+```text
+FileSystems --creates--> FileSystem --creates--> Path
+Paths ------------------------------creates--> Path
+java.io.File <--converts--> Path
+java.net.URI <--converts--> Path
+Files ----------------------------------uses--> Path
+```
+
 
 <!-- source-page: 0792 -->
 > **English:** Review FIGURE 14.3 carefully. In particular, keep an eye on whether the class name is
@@ -489,9 +496,9 @@ Path zooPath2 = FileSystems.getDefault()
 >
 > **Türkçe:** FIGURE 14.3'ü dikkatlice gözden geçirin. Özellikle, sınıf adının tekil veya çoğul olup
 > olmadığına dikkat edin. Çoğul isimlere sahip sınıflar, tekil isimlere sahip
-> class/interface örneklerini oluşturma veya çalıştırma yöntemlerini içerir. Unutmayın,
-> bir kolaylık (ve karışıklık kaynağı) olarak, static fabrika of() yöntemini kullanarak
-> Path arayüzünden de bir Path oluşturulabilir.
+> class/interface örneklerini oluşturma veya çalıştırma metotlarını içerir. Unutmayın,
+> bir kolaylık (ve karışıklık kaynağı) olarak, static fabrika of() metodunu kullanarak
+> Path interface’inden de bir Path oluşturulabilir.
 > **English:** The java.io.File is the I/O class, while Files is an NIO.2 helper class.
 >
 > **Türkçe:** `java.io.File` bir I/O class'ı, `Files` ise bir NIO.2 yardımcı class'ıdır.
@@ -511,24 +518,27 @@ Path zooPath2 = FileSystems.getDefault()
 > unutmayın. Bölümün geri kalanına geçmeden önce bu ayrımı iyi bildiğinizden emin olun.
 > **English:** **TABLE 14.2 — Options for creating `File` and `Path`**
 >
-> | Creates | Declared in | Method or constructor |
-> |---|---|---|
-> | `File` | `File` | `public File(String pathname)` |
-> | `File` | `File` | `public File(File parent, String child)` |
-> | `File` | `File` | `public File(String parent, String child)` |
-> | `File` | `Path` | `public default File toFile()` |
-> | `Path` | `File` | `public Path toPath()` |
-> | `Path` | `Path` | `public static Path of(String first, String... more)` |
-> | `Path` | `Path` | `public static Path of(URI uri)` |
-> | `Path` | `Paths` | `public static Path get(String first, String... more)` |
-> | `Path` | `Paths` | `public static Path get(URI uri)` |
-> | `Path` | `FileSystem` | `public Path getPath(String first, String... more)` |
-> | `FileSystem` | `FileSystems` | `public static FileSystem getDefault()` |
->
 > **Türkçe:** **TABLO 14.2 — `File` ve `Path` oluşturma seçenekleri.**
 > İlk sütun oluşturulan type'ı, ikinci sütun API'nin declare edildiği type'ı
 > gösterir. `File` constructor ile; `Path` ise factory method, conversion
 > method veya `FileSystem.getPath()` ile elde edilir.
+
+<!-- keep-with-next -->
+
+| Creates | Declared in | Method or constructor |
+|---|---|---|
+| `File` | `File` | `public File(String pathname)` |
+| `File` | `File` | `public File(File parent, String child)` |
+| `File` | `File` | `public File(String parent, String child)` |
+| `File` | `Path` | `public default File toFile()` |
+| `Path` | `File` | `public Path toPath()` |
+| `Path` | `Path` | `public static Path of(String first, String... more)` |
+| `Path` | `Path` | `public static Path of(URI uri)` |
+| `Path` | `Paths` | `public static Path get(String first, String... more)` |
+| `Path` | `Paths` | `public static Path get(URI uri)` |
+| `Path` | `FileSystem` | `public Path getPath(String first, String... more)` |
+| `FileSystem` | `FileSystems` | `public static FileSystem getDefault()` |
+
 
 <!-- source-page: 0793 -->
 ## Operating on File and Path
@@ -545,68 +555,54 @@ Path zooPath2 = FileSystems.getDefault()
 > parameters for now. We explain those later in the chapter.
 >
 > **Türkçe:** Birçok işlem hem I/O hem de NIO.2 kütüphaneleri kullanılarak yapılabilir. TABLE 14.3 ve
-> TABLE 14.4'te birçok ortak API sunuyoruz. Bu tablolar öğrenmek için birçok yöntem gibi
+> TABLE 14.4'te birçok ortak API sunuyoruz. Bu tablolar öğrenmek için birçok metot gibi
 > görünse de, birçoğu kendini açıklayıcıdır. Vararg parametrelerini şimdilik göz ardı
 > edebilirsiniz. Bunları daha sonra bölümde açıklayacağız.
 > **English:** **TABLE 14.3 — Common `File` and `Path` operations**
 >
-> | Description | I/O `File` instance method | NIO.2 `Path` instance method |
-> |---|---|---|
-> | Gets name of file/directory | `getName()` | `getFileName()` |
-> | Retrieves parent directory, or `null` if none | `getParent()` | `getParent()` |
-> | Checks whether file/directory is an absolute path | `isAbsolute()` | `isAbsolute()` |
->
 > **Türkçe:** **TABLO 14.3 — Ortak `File` ve `Path` operation'ları**
->
-> | Açıklama | I/O `File` instance method | NIO.2 `Path` instance method |
-> |---|---|---|
-> | File/directory adını alır | `getName()` | `getFileName()` |
-> | Parent'ı; yoksa `null` değerini alır | `getParent()` | `getParent()` |
-> | Absolute path olup olmadığını test eder | `isAbsolute()` | `isAbsolute()` |
+
+<!-- keep-with-next -->
+
+| Description<br>Açıklama | I/O `File` instance method | NIO.2 `Path` instance method |
+| --- | --- | --- |
+| Gets name of file/directory<br>File/directory adını alır | `getName()` | `getFileName()` |
+| Retrieves parent directory, or `null` if none<br>Parent'ı; yoksa `null` değerini alır | `getParent()` | `getParent()` |
+| Checks whether file/directory is an absolute path<br>Absolute path olup olmadığını test eder | `isAbsolute()` | `isAbsolute()` |
+
 > **English:** **TABLE 14.4 — Common `File` and `Files` operations**
 >
-> | Description | I/O `File` instance method | NIO.2 `Files` static method |
-> |---|---|---|
-> | Deletes file/directory | `delete()` | `deleteIfExists(Path p) throws IOException` |
-> | Checks whether file/directory exists | `exists()` | `exists(Path p, LinkOption... o)` |
-> | Retrieves absolute path | `getAbsolutePath()` | `toAbsolutePath()` |
-> | Checks whether resource is a directory | `isDirectory()` | `isDirectory(Path p, LinkOption... o)` |
-> | Checks whether resource is a file | `isFile()` | `isRegularFile(Path p, LinkOption... o)` |
->
 > **Türkçe:** **TABLO 14.4 — Ortak `File` ve `Files` operation'ları**
->
-> | Açıklama | I/O `File` instance method | NIO.2 `Files` static method |
-> |---|---|---|
-> | File/directory siler | `delete()` | `deleteIfExists(Path p) throws IOException` |
-> | File/directory var mı test eder | `exists()` | `exists(Path p, LinkOption... o)` |
-> | Absolute path'i alır | `getAbsolutePath()` | `toAbsolutePath()` |
-> | Resource directory mi test eder | `isDirectory()` | `isDirectory(Path p, LinkOption... o)` |
-> | Resource regular file mı test eder | `isFile()` | `isRegularFile(Path p, LinkOption... o)` |
+
+<!-- keep-with-next -->
+
+| Description<br>Açıklama | I/O `File` instance method | NIO.2 `Files` static method |
+| --- | --- | --- |
+| Deletes file/directory<br>File/directory siler | `delete()` | `deleteIfExists(Path p) throws IOException` |
+| Checks whether file/directory exists<br>File/directory var mı test eder | `exists()` | `exists(Path p, LinkOption... o)` |
+| Retrieves absolute path<br>Absolute path'i alır | `getAbsolutePath()` | `toAbsolutePath()` |
+| Checks whether resource is a directory<br>Resource directory mi test eder | `isDirectory()` | `isDirectory(Path p, LinkOption... o)` |
+| Checks whether resource is a file<br>Resource regular file mı test eder | `isFile()` | `isRegularFile(Path p, LinkOption... o)` |
+
 
 <!-- source-page: 0794 -->
 > **English:** TABLE 14.4 — Common `File` and `Files` operations
 > (continued)
 >
-> | Description | I/O `File` instance method | NIO.2 `Files` static method |
-> |---|---|---|
-> | Returns last-modified time | `lastModified()` | `getLastModifiedTime(Path p, LinkOption... o) throws IOException` |
-> | Retrieves number of bytes in file | `length()` | `size(Path p) throws IOException` |
-> | Lists directory contents | `listFiles()` | `list(Path p) throws IOException` |
-> | Creates directory | `mkdir()` | `createDirectory(Path p, FileAttribute... a) throws IOException` |
-> | Creates directory and missing parents | `mkdirs()` | `createDirectories(Path p, FileAttribute... a) throws IOException` |
-> | Renames/moves denoted file or directory | `renameTo(File dest)` | `move(Path src, Path dest, CopyOption... o) throws IOException` |
->
 > **Türkçe:** TABLO 14.4 — Ortak `File` ve `Files` operation'ları
 > (devam)
->
-> | Açıklama | I/O `File` instance method | NIO.2 `Files` static method |
-> |---|---|---|
-> | Last-modified time'ı döndürür | `lastModified()` | `getLastModifiedTime(Path p, LinkOption... o) throws IOException` |
-> | File byte sayısını alır | `length()` | `size(Path p) throws IOException` |
-> | Directory içeriğini listeler | `listFiles()` | `list(Path p) throws IOException` |
-> | Directory oluşturur | `mkdir()` | `createDirectory(Path p, FileAttribute... a) throws IOException` |
-> | Directory ve eksik parent'ları oluşturur | `mkdirs()` | `createDirectories(Path p, FileAttribute... a) throws IOException` |
-> | File/directory'yi yeniden adlandırır veya taşır | `renameTo(File dest)` | `move(Path src, Path dest, CopyOption... o) throws IOException` |
+
+<!-- keep-with-next -->
+
+| Description<br>Açıklama | I/O `File` instance method | NIO.2 `Files` static method |
+| --- | --- | --- |
+| Returns last-modified time<br>Last-modified time'ı döndürür | `lastModified()` | `getLastModifiedTime(Path p, LinkOption... o) throws IOException` |
+| Retrieves number of bytes in file<br>File byte sayısını alır | `length()` | `size(Path p) throws IOException` |
+| Lists directory contents<br>Directory içeriğini listeler | `listFiles()` | `list(Path p) throws IOException` |
+| Creates directory<br>Directory oluşturur | `mkdir()` | `createDirectory(Path p, FileAttribute... a) throws IOException` |
+| Creates directory and missing parents<br>Directory ve eksik parent'ları oluşturur | `mkdirs()` | `createDirectories(Path p, FileAttribute... a) throws IOException` |
+| Renames/moves denoted file or directory<br>File/directory'yi yeniden adlandırır veya taşır | `renameTo(File dest)` | `move(Path src, Path dest, CopyOption... o) throws IOException` |
+
 > **English:** Now let’s try to use some of these APIs. The following is a sample program using only
 > legacy I/O APIs. Given a file path, it outputs information about the file or directory,
 > such as whether it exists, what files are contained within it, and so forth:
@@ -751,7 +747,7 @@ System.out.println(" " + p.getName()));
 > kaynakları açanlar. Örneğin, 10. Bölümde birlikte çalıştığınız streams 'nin hiçbirini
 > kapatmanıza gerek yoktu, "Streams." Son olarak, sınav her zaman NIO.2 kaynaklarını
 > düzgün bir şekilde kapatmaz. Sınava uymak için, bazen inceleme ve uygulama sorularında
-> NIO.2 kaynaklarını kapatmayı atlıyoruz. Bu NIO.2 yöntemleriyle her zaman
+> NIO.2 kaynaklarını kapatmayı atlıyoruz. Bu NIO.2 metotlarıyla her zaman
 > try-with-resources statements kullanın.
 
 <!-- source-page: 0797 -->
@@ -759,15 +755,15 @@ System.out.println(" " + p.getName()));
 > more important. There is also more to know about them, and they are more likely to come
 > up on the exam.
 >
-> **Türkçe:** Bu bölümün geri kalanı için, sadece NIO.2 yöntemlerini tartışıyoruz, çünkü bunlar daha
+> **Türkçe:** Bu bölümün geri kalanı için, sadece NIO.2 metotlarını tartışıyoruz, çünkü bunlar daha
 > önemli. Ayrıca onlar hakkında daha fazla bilgi var ve sınava girme olasılıkları daha
 > yüksektir.
 ### Handling Methods That Declare IOException
 > **English:** Many of the methods presented in this chapter declare IOException. Common causes of a
 > method throwing this exception include the following:
 >
-> **Türkçe:** Bu bölümde sunulan yöntemlerin çoğu IOException olarak beyan eder. Bu istisnayı atan bir
-> yöntemin yaygın nedenleri şunlardır:
+> **Türkçe:** Bu bölümde sunulan metotların çoğu IOException olarak beyan eder. Bu exception’ı atan bir
+> metodun yaygın nedenleri şunlardır:
 > **English:** Loss of communication to the underlying file system.
 >
 > **Türkçe:** Alttaki file system ile iletişim kaybı.
@@ -788,7 +784,7 @@ System.out.println(" " + p.getName()));
 > operates on to exist.
 >
 > **Türkçe:** `Files` class'ındakiler gibi file ve directory'lere erişen ya da bunları değiştiren
-> method'lar çoğunlukla `IOException` declare eder; ancak bu kuralın istisnaları vardır.
+> method'lar çoğunlukla `IOException` declare eder; ancak bu kuralın exception’ları vardır.
 > Örneğin `Files.exists()` `IOException` declare etmez. File bulunmadığında exception
 > fırlatsaydı hiçbir zaman `false` döndüremezdi. Genel kural olarak, bir NIO.2 method'u
 > `IOException` declare ediyorsa üzerinde çalıştığı path'lerin genellikle var olması
@@ -797,48 +793,47 @@ System.out.println(" " + p.getName()));
 > **English:** Many of the NIO.2 methods in this chapter include a varargs that takes an optional list
 > of values. TABLE 14.5 presents the arguments you should be familiar with for the exam.
 >
-> **Türkçe:** Bu bölümdeki NIO.2 yöntemlerinin birçoğu, isteğe bağlı bir değerler listesi alan bir
+> **Türkçe:** Bu bölümdeki NIO.2 metotlarının birçoğu, isteğe bağlı bir değerler listesi alan bir
 > vararg içerir. TABLE 14.5 sınav için aşina olmanız gereken argümanları sunar.
 > **English:** **TABLE 14.5 — Common NIO.2 method arguments**
 >
-> | Enum type | Interface inherited | Enum value | Details |
-> |---|---|---|---|
-> | `LinkOption` | `CopyOption`, `OpenOption` | `NOFOLLOW_LINKS` | Do not follow symbolic links |
-> | `StandardCopyOption` | `CopyOption` | `ATOMIC_MOVE` | Move file as an atomic file-system operation |
-> | `StandardCopyOption` | `CopyOption` | `COPY_ATTRIBUTES` | Copy existing attributes to new file |
-> | `StandardCopyOption` | `CopyOption` | `REPLACE_EXISTING` | Overwrite file if it already exists |
->
 > **Türkçe:** **TABLO 14.5 — Yaygın NIO.2 method argument'ları**
->
-> | Enum type | Miras alınan interface | Enum değeri | Ayrıntı |
-> |---|---|---|---|
-> | `LinkOption` | `CopyOption`, `OpenOption` | `NOFOLLOW_LINKS` | Symbolic link'leri izleme |
-> | `StandardCopyOption` | `CopyOption` | `ATOMIC_MOVE` | File'ı atomic file-system operation olarak taşı |
-> | `StandardCopyOption` | `CopyOption` | `COPY_ATTRIBUTES` | Mevcut attribute'ları yeni file'a kopyala |
-> | `StandardCopyOption` | `CopyOption` | `REPLACE_EXISTING` | File zaten varsa üzerine yaz |
+
+<!-- keep-with-next -->
+
+| Enum type | Interface inherited<br>Miras alınan interface | Enum value<br>Enum değeri | Details<br>Ayrıntı |
+| --- | --- | --- | --- |
+| `LinkOption` | `CopyOption`, `OpenOption` | `NOFOLLOW_LINKS` | Do not follow symbolic links<br>Symbolic link'leri izleme |
+| `StandardCopyOption` | `CopyOption` | `ATOMIC_MOVE` | Move file as an atomic file-system operation<br>File'ı atomic file-system operation olarak taşı |
+| `StandardCopyOption` | `CopyOption` | `COPY_ATTRIBUTES` | Copy existing attributes to new file<br>Mevcut attribute'ları yeni file'a kopyala |
+| `StandardCopyOption` | `CopyOption` | `REPLACE_EXISTING` | Overwrite file if it already exists<br>File zaten varsa üzerine yaz |
+
 
 <!-- source-page: 0798 -->
 > **English:** **TABLE 14.5 — Common NIO.2 method arguments (continued)**
 >
-> | Enum type | Interface inherited | Enum value | Details |
-> |---|---|---|---|
-> | `StandardOpenOption` | `OpenOption` | `APPEND` | If open for write, append to the end |
-> | `StandardOpenOption` | `OpenOption` | `CREATE` | Create a new file if it does not exist |
-> | `StandardOpenOption` | `OpenOption` | `CREATE_NEW` | Create only if absent; fail otherwise |
-> | `StandardOpenOption` | `OpenOption` | `READ` | Open for read access |
-> | `StandardOpenOption` | `OpenOption` | `TRUNCATE_EXISTING` | If open for write, erase the file and write from the beginning |
-> | `StandardOpenOption` | `OpenOption` | `WRITE` | Open for write access |
-> | `FileVisitOption` | N/A | `FOLLOW_LINKS` | Follow symbolic links |
->
 > **Türkçe:** **TABLO 14.5 — Yaygın NIO.2 method argument'ları (devam).**
 > `StandardOpenOption` open/read/write davranışını; `FileVisitOption` directory
 > traversal'ın symbolic link davranışını belirler.
+
+<!-- keep-with-next -->
+
+| Enum type | Interface inherited | Enum value | Details |
+|---|---|---|---|
+| `StandardOpenOption` | `OpenOption` | `APPEND` | If open for write, append to the end |
+| `StandardOpenOption` | `OpenOption` | `CREATE` | Create a new file if it does not exist |
+| `StandardOpenOption` | `OpenOption` | `CREATE_NEW` | Create only if absent; fail otherwise |
+| `StandardOpenOption` | `OpenOption` | `READ` | Open for read access |
+| `StandardOpenOption` | `OpenOption` | `TRUNCATE_EXISTING` | If open for write, erase the file and write from the beginning |
+| `StandardOpenOption` | `OpenOption` | `WRITE` | Open for write access |
+| `FileVisitOption` | N/A | `FOLLOW_LINKS` | Follow symbolic links |
+
 > **English:** With the exceptions of Files.copy() and Files.move(), we won’t discuss these varargs
 > parameters each time we present a method. Their behavior should be straightforward,
 > though. For example, can you figure out what the following call to Files.exists() with
 > the LinkOption does in the following code snippet?
 >
-> **Türkçe:** Files.copy() ve Files.move() istisnaları dışında, bir yöntem sunduğumuzda bu vararg
+> **Türkçe:** Files.copy() ve Files.move() exception’ları dışında, bir metot sunduğumuzda bu vararg
 > parametrelerini tartışmayacağız. Davranışları yine de açık olmalıdır. Örneğin, aşağıdaki
 > kod snippet'inde LinkOption ile aşağıdaki Files.exists() çağrısının ne yaptığını
 > bulabilir misiniz?
@@ -852,16 +847,16 @@ boolean exists = Files.exists(path, LinkOption.NOFOLLOW_LINKS);
 > overridden, and the method will check whether the symbolic link itself exists.
 >
 > **Türkçe:** Files.exists() basitçe bir dosyanın var olup olmadığını kontrol eder. Ancak parametre
-> symbolic link ise, yöntem bunun yerine symbolic link hedefinin var olup olmadığını
+> symbolic link ise, metot bunun yerine symbolic link hedefinin var olup olmadığını
 > kontrol eder. LinkOption.NOFOLLOW_LINKS sağlamak, varsayılan davranışın geçersiz olacağı
-> anlamına gelir ve yöntem symbolic link'un kendisinin var olup olmadığını kontrol eder.
+> anlamına gelir ve metot symbolic link'un kendisinin var olup olmadığını kontrol eder.
 > **English:** Note that some of the enums in TABLE 14.5 inherit an interface. That means some methods
 > accept a variety of enum types. For example, the Files.move() method takes a CopyOption
 > vararg so it can take enums of different types, and more options can be added over time.
 >
-> **Türkçe:** TABLE 14.5'teki enumların bazılarının bir arayüze sahip olduğunu unutmayın. Bu, bazı
-> yöntemlerin çeşitli enum türlerini kabul ettiği anlamına gelir. Örneğin, Files.move()
-> yöntemi bir CopyOption vararg alır, böylece farklı türlerde enumlar alabilir ve zaman
+> **Türkçe:** TABLE 14.5'teki enumların bazılarının bir interface’e sahip olduğunu unutmayın. Bu, bazı
+> metotların çeşitli enum türlerini kabul ettiği anlamına gelir. Örneğin, Files.move()
+> metodu bir CopyOption vararg alır, böylece farklı türlerde enumlar alabilir ve zaman
 > içinde daha fazla seçenek eklenebilir.
 ```java
 void copy(Path source, Path target) throws IOException {
@@ -937,7 +932,7 @@ Element 2 is: harry.happy
 > names. As we said, these methods do not consider the root part of the path.
 >
 > **Türkçe:** Bu bir absolute path olmasına rağmen, kök eleman isim listesine dahil değildir. Dediğim
-> gibi, bu yöntemler yolun kök kısmını dikkate almaz.
+> gibi, bu metotlar yolun kök kısmını dikkate almaz.
 ```java
 var p = Path.of("/");
 System.out.print(p.getNameCount()); // 0
@@ -961,9 +956,9 @@ System.out.print(p.getName(0)); // IllegalArgumentException
 > APIs.” The following code snippet shows how subpath() works. We also print the elements
 > of the Path using getName() so that you can see how the indices are used.
 >
-> **Türkçe:** Path arayüzü, bir yolun bölümlerini seçmek için subpath() yöntemini içerir. İki
+> **Türkçe:** Path interface’i, bir yolun bölümlerini seçmek için subpath() metodunu içerir. İki
 > parametre gerektirir: kapsayıcı bir beginIndex ve özel bir endIndex. Bu, String
-> substring() yönteminin nasıl çalıştığı gibi tanıdık gelmelidir, Bölüm 4'te gördüğünüz
+> substring() metodunun nasıl çalıştığı gibi tanıdık gelmelidir, Bölüm 4'te gördüğünüz
 > gibi, "Core API'leri." Aşağıdaki kod snippet'i subpath()'un nasıl çalıştığını gösterir.
 > Endekslerin nasıl kullanıldığını görebilmeniz için Path ögelerini getName() kullanarak
 > da yazdırıyoruz.
@@ -995,7 +990,7 @@ subpath(1,3): omnivore/raccoon.image
 > provided.
 >
 > **Türkçe:** getNameCount() ve getName() gibi, subpath() sıfır indekslidir ve kök içermez. Ayrıca
-> getName() gibi, subpath() de geçersiz endeksler sağlanmışsa bir istisna atar.
+> getName() gibi, subpath() de geçersiz endeksler sağlanmışsa bir exception atar.
 ```java
 var q = p.subpath(0, 4); // IllegalArgumentException
 var x = p.subpath(1, 1); // IllegalArgumentException
@@ -1004,8 +999,8 @@ var x = p.subpath(1, 1); // IllegalArgumentException
 > is 3. The second example throws an exception since the start and end indexes are the
 > same, leading to an empty path value.
 >
-> **Türkçe:** İlk örnek çalışma zamanında bir istisna atar, çünkü izin verilen maksimum indeks değeri
-> 3'tür. İkinci örnek, başlangıç ve bitiş indeksleri aynı olduğundan bir istisna atar ve
+> **Türkçe:** İlk örnek çalışma zamanında bir exception atar, çünkü izin verilen maksimum indeks değeri
+> 3'tür. İkinci örnek, başlangıç ve bitiş indeksleri aynı olduğundan bir exception atar ve
 > bu da boş bir yol değerine yol açar.
 
 <!-- source-page: 0801 -->
@@ -1025,7 +1020,7 @@ var x = p.subpath(1, 1); // IllegalArgumentException
 > ise sonuç `null` olur.
 > **English:** Consider the following method, which prints various Path elements:
 >
-> **Türkçe:** Çeşitli Path öğelerini yazdıran aşağıdaki yöntemi düşünün:
+> **Türkçe:** Çeşitli Path öğelerini yazdıran aşağıdaki metodu düşünün:
 ```java
 public void printPathInformation(Path path) {
 System.out.println("Filename is: " + path.getFileName());
@@ -1039,8 +1034,8 @@ System.out.println();
 > **English:** The while loop in the printPathInformation() method continues until getParent() returns
 > null. We apply this method to the following three paths:
 >
-> **Türkçe:** printPathInformation() yöntemindeki while döngüsü getParent() null döndürene kadar devam
-> eder. Bu yöntemi aşağıdaki üç yola uygularız:
+> **Türkçe:** printPathInformation() metodundaki while döngüsü getParent() null döndürene kadar devam
+> eder. Bu metodu aşağıdaki üç yola uygularız:
 ```java
 printPathInformation(Path.of("zoo"));
 printPathInformation(Path.of("/zoo/armadillo/shells.txt"));
@@ -1125,8 +1120,8 @@ System.out.println(path3.resolve("/tiger/cage"));
 > resolve() method. If an absolute path is provided as input to the method, that is the
 > value returned. Simply put, you cannot combine two absolute paths using resolve().
 >
-> **Türkçe:** Sınav için mutlak ve relative paths ile resolve() yöntemini karıştırmanın farkında
-> olmalısınız. Yönteme girdi olarak bir absolute path sağlanıyorsa, bu döndürülen
+> **Türkçe:** Sınav için mutlak ve relative paths ile resolve() metodunu karıştırmanın farkında
+> olmalısınız. Metoda girdi olarak bir absolute path sağlanıyorsa, bu döndürülen
 > değerdir. Basitçe söylemek gerekirse, resolve() kullanarak iki absolute paths
 > birleştiremezsiniz.
 > **English:** On the exam, when you see resolve(), think concatenation.
@@ -1243,7 +1238,7 @@ System.out.println(p3.normalize()); //../../fish.txt
 > **English:** The normalize() method also allows us to compare equivalent paths. Consider the
 > following example:
 >
-> **Türkçe:** normalize() yöntemi de eşdeğer yolları karşılaştırmamızı sağlar. Aşağıdaki örneği ele
+> **Türkçe:** normalize() metodu de eşdeğer yolları karşılaştırmamızı sağlar. Aşağıdaki örneği ele
 > alalım:
 ```java
 var p1 = Paths.get("/pony/../weather.txt");
@@ -1300,7 +1295,7 @@ System.out.println(Paths.get(".././food.txt").toRealPath());
 >
 > **Türkçe:** Bu örnekte, mutlak ve relative paths her ikisi de aynı mutlak dosyaya çözülür, çünkü
 > symbolic link file system içindeki gerçek bir dosyaya işaret eder. Mevcut çalışma
-> dizinine Path nesnesi olarak erişmek için toRealPath() yöntemini de kullanabiliriz.
+> dizinine Path nesnesi olarak erişmek için toRealPath() metodunu de kullanabiliriz.
 ```java
 System.out.println(Paths.get(".").toRealPath());
 ```
@@ -1310,39 +1305,28 @@ System.out.println(Paths.get(".").toRealPath());
 > **English:** We’ve covered a lot of instance methods on Path in this section. TABLE 14.6 lists them
 > for review.
 >
-> **Türkçe:** Bu bölümde Path üzerinde birçok örnek yöntemi ele aldık. TABLE 14.6 gözden geçirmek için
+> **Türkçe:** Bu bölümde Path üzerinde birçok örnek metodu ele aldık. TABLE 14.6 gözden geçirmek için
 > onları listeler.
 > **English:** **TABLE 14.6 — `Path` APIs**
 >
-> | Description | Method |
-> |---|---|
-> | File path as string | `public String toString()` |
-> | Single segment | `public Path getName(int index)` |
-> | Number of segments | `public int getNameCount()` |
-> | Segments in range | `public Path subpath(int beginIndex, int endIndex)` |
-> | Final segment | `public Path getFileName()` |
-> | Immediate parent | `public Path getParent()` |
-> | Top-level segment | `public Path getRoot()` |
-> | Concatenate paths | `public Path resolve(String p)`, `public Path resolve(Path p)` |
-> | Construct path to the provided path | `public Path relativize(Path p)` |
-> | Remove redundant path parts | `public Path normalize()` |
-> | Follow symbolic links and find real path | `public Path toRealPath()` |
->
 > **Türkçe:** **TABLO 14.6 — `Path` API'leri**
->
-> | Açıklama | Method |
-> |---|---|
-> | Path'i string olarak verir | `toString()` |
-> | Tek segment'i alır | `getName(int index)` |
-> | Segment sayısını alır | `getNameCount()` |
-> | Belirli aralıktaki segment'leri alır | `subpath(int beginIndex, int endIndex)` |
-> | Son segment'i alır | `getFileName()` |
-> | Immediate parent'ı alır | `getParent()` |
-> | Root'u alır | `getRoot()` |
-> | Path'leri birleştirir | `resolve(String/Path)` |
-> | Verilen path'e relative path kurar | `relativize(Path)` |
-> | Redundant parçaları kaldırır | `normalize()` |
-> | Symbolic link'leri izleyerek real path'i bulur | `toRealPath()` |
+
+<!-- keep-with-next -->
+
+| Description<br>Açıklama | Method |
+| --- | --- |
+| File path as string<br>Path'i string olarak verir | `public String toString()`<br>`toString()` |
+| Single segment<br>Tek segment'i alır | `public Path getName(int index)`<br>`getName(int index)` |
+| Number of segments<br>Segment sayısını alır | `public int getNameCount()`<br>`getNameCount()` |
+| Segments in range<br>Belirli aralıktaki segment'leri alır | `public Path subpath(int beginIndex, int endIndex)`<br>`subpath(int beginIndex, int endIndex)` |
+| Final segment<br>Son segment'i alır | `public Path getFileName()`<br>`getFileName()` |
+| Immediate parent<br>Immediate parent'ı alır | `public Path getParent()`<br>`getParent()` |
+| Top-level segment<br>Root'u alır | `public Path getRoot()`<br>`getRoot()` |
+| Concatenate paths<br>Path'leri birleştirir | `public Path resolve(String p)`, `public Path resolve(Path p)`<br>`resolve(String/Path)` |
+| Construct path to the provided path<br>Verilen path'e relative path kurar | `public Path relativize(Path p)`<br>`relativize(Path)` |
+| Remove redundant path parts<br>Redundant parçaları kaldırır | `public Path normalize()`<br>`normalize()` |
+| Follow symbolic links and find real path<br>Symbolic link'leri izleyerek real path'i bulur | `public Path toRealPath()`<br>`toRealPath()` |
+
 ### Creating, Moving, and Deleting Files and Directories
 > **English:** Since creating, moving, and deleting have some nuance, we flesh them out in this
 > section.
@@ -1352,7 +1336,7 @@ System.out.println(Paths.get(".").toRealPath());
 #### Making Directories
 > **English:** To create a directory, we use these Files methods:
 >
-> **Türkçe:** Bir dizin oluşturmak için şu Files yöntemlerini kullanırız:
+> **Türkçe:** Bir dizin oluşturmak için şu Files metotlarını kullanırız:
 ```java
 public static Path createDirectory(Path dir,
 FileAttribute<?>... attrs) throws IOException
@@ -1680,7 +1664,7 @@ Files.deleteIfExists(Paths.get("/pigeon"));
 > of equals(), the method will just return true without checking whether the file exists.
 >
 > **Türkçe:** `isSameFile()` çoğu kullanımda path'ler yoksa exception fırlatır; fakat bir
-> istisnası vardır. İki `Path` object'i `equals()` bakımından eşitse method, file'ın var
+> exception’ı vardır. İki `Path` object'i `equals()` bakımından eşitse method, file'ın var
 > olup olmadığını denetlemeden `true` döndürür.
 > **English:** Assume that the file system exists, as shown in FIGURE 14.4, with a symbolic link from
 > /animals/snake to /animals/cobra.
@@ -1689,21 +1673,24 @@ Files.deleteIfExists(Paths.get("/pigeon"));
 > `/animals/cobra`ya symbolic link olduğunu varsayın.
 > **English:** **FIGURE 14.4 — Comparing file uniqueness**
 >
-> ```text
-> animals\
-> ├── cobra\ <──────────────────┐
-> ├── monkey\                   │
-> │   ├── tail.gif              │
-> │   └── ears.png              │
-> ├── wolf\                     │
-> │   └── ears.png              │
-> └── snake\ ──symbolic link────┘
-> ```
->
 > **Türkçe:** **ŞEKİL 14.4 — File uniqueness karşılaştırması.**
 > `/animals/snake`, `/animals/cobra` directory'sine symbolic link'tir.
 > `monkey/ears.png` ile `wolf/ears.png` aynı filename'i taşısa da farklı
 > file'lardır.
+
+<!-- keep-with-next -->
+
+```text
+animals\
+├── cobra\ <──────────────────┐
+├── monkey\                   │
+│   ├── tail.gif              │
+│   └── ears.png              │
+├── wolf\                     │
+│   └── ears.png              │
+└── snake\ ──symbolic link────┘
+```
+
 > **English:** Given the structure defined in FIGURE 14.4, what does the following output?
 >
 > **Türkçe:** FIGURE 14.4'teki yapıya göre aşağıdaki kod ne yazdırır?
@@ -1791,17 +1778,20 @@ Path.of("/animals/monkey.txt")));
 > tek seferde bir blok halinde okuyoruz.
 > **English:** **FIGURE 14.5 — Visual representation of an I/O stream**
 >
-> ```text
-> Toward stream head                                  Toward stream tail
-> <────────────────────────────────────────────────────────────────────>
-> ...01001010 01100001 01110110 01100001 [00100000] 00111101 01000010...
->                                        ▲
->                               next block / byte
-> ```
->
 > **Türkçe:** **ŞEKİL 14.5 — I/O stream'in görsel temsili.** Pointer current
 > position'ı gösterir; data stream head'den tail'e doğru block'lar hâlinde
 > okunur.
+
+<!-- keep-with-next -->
+
+```text
+Toward stream head                                  Toward stream tail
+<────────────────────────────────────────────────────────────────────>
+...01001010 01100001 01110110 01100001 [00100000] 00111101 01000010...
+                                       ▲
+                              next block / byte
+```
+
 
 <!-- source-page: 0812 -->
 > **English:** Each type of I/O stream segments data into a wave or block in a particular way. For
@@ -1950,7 +1940,7 @@ Path.of("/animals/monkey.txt")));
 > the following examples:
 >
 > **Türkçe:** Java'da Karakter Kodlaması Java'da karakter kodlaması, aşağıdaki örneklerde olduğu gibi,
-> bir isim değerini statik Charset.forName() yöntemine geçirerek Charset sınıfı
+> bir isim değerini statik Charset.forName() metoduna geçirerek Charset sınıfı
 > kullanılarak belirtilebilir:
 ```java
 Charset usAsciiCharset = Charset.forName("US-ASCII");
@@ -1982,7 +1972,7 @@ Charset utf16Charset = Charset.forName("UTF-16");
 > corresponding InputStream class. It also does not have Output in its name. We discuss
 > these classes later in this chapter.
 >
-> **Türkçe:** Bu kuralın istisnaları vardır. Sınav için, PrintWriter ile birlikte PrintReader
+> **Türkçe:** Bu kuralın exception’ları vardır. Sınav için, PrintWriter ile birlikte PrintReader
 > sınıfının olmadığını bilmelisiniz. Aynı şekilde, PrintStream karşılık gelen InputStream
 > sınıfı olmayan bir OutputStream'dır. Ayrıca kendi adına Output yoktur. Bu dersleri daha
 > sonra bu bölümde tartışacağız.
@@ -2025,13 +2015,11 @@ System.out.println(br.readLine());
 > I/O stream methods. The high-level I/O stream may add new methods, such as readLine(),
 > as well as performance enhancements for reading and filtering the low-level data.
 >
-> **Türkçe:** Bu örnekte, FileReader düşük seviyeli I/O stream iken, BufferedReader giriş olarak
-> `FileReader` alan high-level bir I/O stream'dir. High-level I/O stream üzerindeki birçok
-> işlem, read() veya close() gibi altta yatan düşük seviye I/O stream işlemleri olarak
-> geçer. Diğer işlemler, düşük seviyeli I/O stream yöntemlerine yeni işlevler geçersiz
-> kılar veya ekler. Üst düzey I/O stream, düşük seviyeli verileri okumak ve filtrelemek
-> için readLine() gibi yeni yöntemlerin yanı sıra performans geliştirmeleri de
-> ekleyebilir.
+> **Türkçe:** Bu örnekte FileReader low-level I/O stream, onu sarmalayan BufferedReader ise high-level
+> I/O stream’dir. BufferedReader üzerindeki read() veya close() gibi birçok işlem alttaki
+> stream’e aktarılır. Diğer işlemler, low-level stream metotlarını override eder veya
+> onlara işlev ekler. High-level stream ayrıca readLine() gibi yeni metotlar ve
+> okuma/filtreleme için performans iyileştirmeleri sağlayabilir.
 > **English:** High-level I/O streams can also take other high-level I/O streams as input. For example,
 > although the following code might seem a little odd at first, the style of wrapping an
 > I/O stream is quite common in practice:
@@ -2122,15 +2110,18 @@ new BufferedInputStream(new InputStream()); // DOES NOT COMPILE
 > **Türkçe:** TABLE 14.7, tüm I/O streams miras aldığı abstract taban sınıflarını listeler.
 > **English:** **TABLE 14.7 — The `java.io` abstract stream base classes**
 >
-> | Class name | Description |
-> |---|---|
-> | `InputStream` | Abstract class for all input byte streams |
-> | `OutputStream` | Abstract class for all output byte streams |
-> | `Reader` | Abstract class for all input character streams |
-> | `Writer` | Abstract class for all output character streams |
->
 > **Türkçe:** **TABLO 14.7 — `java.io` abstract stream base class'ları.**
 > `InputStream`/`OutputStream` byte; `Reader`/`Writer` character data işler.
+
+<!-- keep-with-next -->
+
+| Class name | Description |
+|---|---|
+| `InputStream` | Abstract class for all input byte streams |
+| `OutputStream` | Abstract class for all output byte streams |
+| `Reader` | Abstract class for all input character streams |
+| `Writer` | Abstract class for all output character streams |
+
 > **English:** TABLE 14.8 lists the concrete I/O streams that you should be
 > familiar with for the exam. Most information about direction, byte/character
 > access and level can be decoded from the class name.
@@ -2139,40 +2130,38 @@ new BufferedInputStream(new InputStream()); // DOES NOT COMPILE
 > byte/character erişim ve seviye ile ilgili çoğu bilgi sınıf adından çözülebilir.
 > **English:** **TABLE 14.8 — The `java.io` concrete I/O stream classes**
 >
-> | Class name | Level | Description |
-> |---|---|---|
-> | `FileInputStream` | Low | Reads file data as bytes |
-> | `FileOutputStream` | Low | Writes file data as bytes |
-> | `FileReader` | Low | Reads file data as characters |
-> | `FileWriter` | Low | Writes file data as characters |
-> | `BufferedInputStream` | High | Reads byte data from an existing `InputStream` in a buffered manner |
->
 > **Türkçe:** **TABLO 14.8 — Concrete `java.io` stream class'ları**
->
-> | Class adı | Level | Açıklama |
-> |---|---|---|
-> | `FileInputStream` | Low | File data'yı byte olarak okur |
-> | `FileOutputStream` | Low | File data'yı byte olarak yazar |
-> | `FileReader` | Low | File data'yı character olarak okur |
-> | `FileWriter` | Low | File data'yı character olarak yazar |
-> | `BufferedInputStream` | High | Mevcut `InputStream`den buffered byte okur |
+
+<!-- keep-with-next -->
+
+| Class name<br>Class adı | Level | Description<br>Açıklama |
+| --- | --- | --- |
+| `FileInputStream` | Low | Reads file data as bytes<br>File data'yı byte olarak okur |
+| `FileOutputStream` | Low | Writes file data as bytes<br>File data'yı byte olarak yazar |
+| `FileReader` | Low | Reads file data as characters<br>File data'yı character olarak okur |
+| `FileWriter` | Low | Writes file data as characters<br>File data'yı character olarak yazar |
+| `BufferedInputStream` | High | Reads byte data from an existing `InputStream` in a buffered manner<br>Mevcut `InputStream`den buffered byte okur |
+
 
 <!-- source-page: 0817 -->
 > **English:** **TABLE 14.8 — Concrete I/O stream classes (continued)**
 >
-> | Class name | Level | Description |
-> |---|---|---|
-> | `BufferedOutputStream` | High | Writes byte data to an existing `OutputStream` in a buffered manner |
-> | `BufferedReader` | High | Reads character data from an existing `Reader` in a buffered manner |
-> | `BufferedWriter` | High | Writes character data to an existing `Writer` in a buffered manner |
-> | `ObjectInputStream` | High | Deserializes primitive data and object graphs from an existing `InputStream` |
-> | `ObjectOutputStream` | High | Serializes primitive data and object graphs to an existing `OutputStream` |
-> | `PrintStream` | High | Writes formatted Java object representations to a binary stream |
-> | `PrintWriter` | High | Writes formatted Java object representations to a character stream |
->
 > **Türkçe:** **TABLO 14.8 — Concrete I/O stream class'ları (devam).**
 > Buffered class'lar efficiency; object stream'ler serialization;
 > `PrintStream`/`PrintWriter` formatted output sağlar.
+
+<!-- keep-with-next -->
+
+| Class name | Level | Description |
+|---|---|---|
+| `BufferedOutputStream` | High | Writes byte data to an existing `OutputStream` in a buffered manner |
+| `BufferedReader` | High | Reads character data from an existing `Reader` in a buffered manner |
+| `BufferedWriter` | High | Writes character data to an existing `Writer` in a buffered manner |
+| `ObjectInputStream` | High | Deserializes primitive data and object graphs from an existing `InputStream` |
+| `ObjectOutputStream` | High | Serializes primitive data and object graphs to an existing `OutputStream` |
+| `PrintStream` | High | Writes formatted Java object representations to a binary stream |
+| `PrintWriter` | High | Writes formatted Java object representations to a character stream |
+
 > **English:** Keep TABLE 14.7 and TABLE 14.8 handy as you learn more about I/O
 > streams in this chapter. We discuss them in more detail, including examples
 > of each.
@@ -2193,17 +2182,17 @@ new BufferedInputStream(new InputStream()); // DOES NOT COMPILE
 > both define a write() method to write a byte to the stream:
 >
 > **Türkçe:** I/O streams tamamen reading/writing verileriyle ilgilidir, bu nedenle en önemli
-> yöntemlerin read() ve write() olması sürpriz olmamalıdır. Hem InputStream hem de Reader
-> bir I/O stream verisinden byte verilerini okumak için bir read() yöntemi beyan eder.
+> metotların read() ve write() olması sürpriz olmamalıdır. Hem InputStream hem de Reader
+> bir I/O stream verisinden byte verilerini okumak için bir read() metodu beyan eder.
 > Aynı şekilde, OutputStream ve Writer her ikisi de stream'ye byte yazmak için bir write()
-> yöntemi tanımlar:
+> metodu tanımlar:
 
 <!-- source-page: 0818 -->
 > **English:** The following copyStream() methods show an example of reading all of the values of an
 > InputStream and Reader and writing them to an OutputStream and Writer, respectively. In
 > both examples, -1 is used to indicate the end of the stream.
 >
-> **Türkçe:** Aşağıdaki copyStream() yöntemleri, bir InputStream ve Reader değerlerinin tümünü
+> **Türkçe:** Aşağıdaki copyStream() metotları, bir InputStream ve Reader değerlerinin tümünü
 > okumanın ve bunları sırasıyla bir OutputStream ve Writer yazmanın bir örneğini gösterir.
 > Her iki örnekte de, stream sonunu belirtmek için -1 kullanılır.
 ```java
@@ -2227,7 +2216,7 @@ out.write(b);
 > stream. The output stream classes use int as well, to be consistent with the input
 > stream classes.
 >
-> **Türkçe:** Bir dakika. bytes okuduğumuzu ve yazdığımızı söyledik, bu yüzden yöntemler neden byte
+> **Türkçe:** Bir dakika. bytes okuduğumuzu ve yazdığımızı söyledik, bu yüzden metotlar neden byte
 > yerine int kullanıyor? byte veri türünün 256 karakterlik bir aralığı olduğunu unutmayın.
 > Bir I/O stream sonunu belirtmek için fazladan bir değere ihtiyaçları vardı. Java
 > yazarları daha büyük bir veri türü olan int kullanmaya karar verdiler, böylece -1 gibi
@@ -2240,7 +2229,7 @@ out.write(b);
 > data and put them into the array starting with position 3. Let’s look at an example:
 >
 > **Türkçe:** Bir seferde bir byte okumak ve yazmak, bunu yapmanın özellikle etkili bir yolu değildir.
-> Neyse ki, bir seferde birden fazla bytes okumak ve yazmak için aşırı yüklenmiş yöntemler
+> Neyse ki, bir seferde birden fazla bytes okumak ve yazmak için overload edilmiş metotlar
 > vardır. Ofset ve uzunluk değerleri dizinin kendisine uygulanır. Örneğin, 3'lük bir ofset
 > ve 5'lik bir uzunluk, stream'in 5 bytes/characters'a kadar veri okuması ve bunları 3
 > konumundan başlayarak diziye koyması gerektiğini gösterir. Bir örneğe bakalım:
@@ -2288,18 +2277,18 @@ out.flush();
 > it is in this example.
 >
 > **Türkçe:** Ayrıca, uygulama beklenmedik bir şekilde sona ererse kaybedilen veri miktarını azaltmak
-> için 16. satırda bir flush() yöntemi ekledik. Veriler bir output stream'e yazıldığında,
+> için 16. satırda bir flush() metodu ekledik. Veriler bir output stream'e yazıldığında,
 > altta yatan işletim sistemi, verilerin file system'ye hemen ulaşacağını garanti etmez.
-> flush() yöntemi, birikmiş tüm verilerin derhal diske yazılmasını ister. Yine de
+> flush() metodu, birikmiş tüm verilerin derhal diske yazılmasını ister. Yine de
 > maliyetsiz değil. Her kullanıldığında, özellikle büyük dosyalar için uygulamada gözle
 > görülür bir gecikmeye neden olabilir. Yazdığınız veriler son derece kritik olmadığı
-> sürece, flush() yöntemi yalnızca aralıklı olarak kullanılmalıdır. Örneğin, bu örnekte
+> sürece, flush() metodu yalnızca aralıklı olarak kullanılmalıdır. Örneğin, bu örnekte
 > olduğu gibi, her yazıdan sonra mutlaka çağrılmamalıdır.
 > **English:** Equivalent methods exist on Reader and Writer, but they use char rather than byte,
 > making the equivalent copyStream() method very similar.
 >
-> **Türkçe:** Eşdeğer yöntemler Reader ve Writer üzerinde mevcuttur, ancak byte yerine char
-> kullanırlar ve eşdeğer copyStream() yöntemini çok benzer hale getirirler.
+> **Türkçe:** Eşdeğer metotlar Reader ve Writer üzerinde mevcuttur, ancak byte yerine char
+> kullanırlar ve eşdeğer copyStream() metodunu çok benzer hale getirirler.
 > **English:** The previous example makes reading and writing a file look like a lot to think about.
 > That’s because it only uses low-level I/O streams. Let’s try again using high-level
 > streams.
@@ -2365,9 +2354,9 @@ writer.newLine();
 > interactions.
 >
 > **Türkçe:** BufferedOutputStream ve BufferedWriter'den biraz daha iyi bir PrintStream ve PrintWriter
-> kullanarak yapabiliriz. Bu sınıflar dört temel yöntem içerir. print() ve println()
-> yöntemleri verileri sırasıyla yeni bir satırla ve olmadan yazdırır. Ayrıca, kullanıcı
-> etkileşimleri bölümünde tanımladığımız format() ve printf() yöntemleri de vardır.
+> kullanarak yapabiliriz. Bu sınıflar dört temel metot içerir. print() ve println()
+> metotları verileri sırasıyla yeni bir satırla ve olmadan yazdırır. Ayrıca, kullanıcı
+> etkileşimleri bölümünde tanımladığımız format() ve printf() metotları de vardır.
 ```java
 void copyTextFile(File src, File dest) throws IOException {
 try (var reader = new BufferedReader(new FileReader(src));
@@ -2382,9 +2371,9 @@ writer.println(line);
 > everything from primitives and String values to objects. Under the covers, these methods
 > often just perform String.valueOf().
 >
-> **Türkçe:** Bir String kullanırken, ilkellerden ve String değerlerinden nesnelere kadar her şeyi
-> alan çok sayıda aşırı yüklenmiş println() sürümü vardır. Kapakların altında, bu
-> yöntemler genellikle sadece String.valueOf() gerçekleştirir.
+> **Türkçe:** Örnekte String kullandık; ancak println() metodunun primitive değerlerden String ve
+> diğer nesnelere kadar farklı türleri kabul eden birçok overload’u vardır. Bu metotların
+> iç işleyişinde çoğunlukla String.valueOf() kullanılır.
 > **English:** The print stream classes have the distinction of being the only I/O stream classes we
 > cover that do not have corresponding input stream classes. And unlike other OutputStream
 > classes, PrintStream does not have Output in its name.
@@ -2403,14 +2392,14 @@ writer.println(line);
 > stream classes do not throw any checked exceptions. If they did, you would be required
 > to catch a checked exception any time you called System.out.print()!
 >
-> **Türkçe:** Diğer I/O streams sınıflarının çoğundan farklı olarak, stream sınıflarındaki yöntemler
+> **Türkçe:** Diğer I/O streams sınıflarının çoğundan farklı olarak, stream sınıflarındaki metotlar
 > herhangi bir checked exceptions atmaz. Eğer yaptılarsa, System.out.print() diye
 > çağırdığınız her zaman bir checked exception yakalamanız gerekir!
 > **English:** The line separator is \n or \r\n, depending on your operating system. The println()
 > method takes care of this for you. If you need to get the character directly, either of
 > the following will return it for you:
 >
-> **Türkçe:** Hat ayırıcı, işletim sisteminize bağlı olarak n veya rn'dir. println() yöntemi bunu
+> **Türkçe:** Hat ayırıcı, işletim sisteminize bağlı olarak n veya rn'dir. println() metodu bunu
 > sizin için halleder. Karakteri doğrudan almanız gerekiyorsa, aşağıdakilerden biri sizin
 > için iade edecektir:
 ```java
@@ -2467,7 +2456,7 @@ s.forEach(System.out::println);
 >
 > **Türkçe:** Şimdi dosyanın içeriği okunur ve tembelce işlenir, bu da dosyanın yalnızca küçük bir
 > kısmının herhangi bir zamanda bellekte depolandığı anlamına gelir. İşleri bir adım daha
-> ileri götürerek, daha güçlü bir örnek için diğer stream yöntemlerinden yararlanabiliriz.
+> ileri götürerek, daha güçlü bir örnek için diğer stream metotlarından yararlanabiliriz.
 ```java
 try (var s = Files.lines(path)) {
 s.filter(f -> f.startsWith("WARN:"))
@@ -2535,14 +2524,14 @@ Files.readAllLines(Paths.get("birds.txt"))
 > **English:** The readAllLines() method returns a List, not a Stream, so the filter() method is not
 > available.
 >
-> **Türkçe:** readAllLines() yöntemi Stream değil, List döndürür, bu nedenle filter() yöntemi
+> **Türkçe:** readAllLines() metodu Stream değil, List döndürür, bu nedenle filter() metodu
 > kullanılamaz.
 ### Combining with `newBufferedReader()` and `newBufferedWriter()`
 > **English:** Sometimes you need to mix I/O streams and NIO.2. Conveniently, Files includes two
 > convenience methods for getting I/O streams.
 >
 > **Türkçe:** Bazen I/O streams ve NIO.2'yi karıştırmanız gerekir. Uygun bir şekilde, Files I/O
-> streams elde etmek için iki kolaylık yöntemi içerir.
+> streams elde etmek için iki kolaylık metodu içerir.
 ```java
 private void copyPath(Path input, Path output) throws IOException {
 try (var reader = Files.newBufferedReader(input);
@@ -2569,29 +2558,32 @@ writer.newLine();
 > writing. We also include close() and flush() since they are used when performing these
 > actions. TABLE 14.10 does the same for common public NIO.2 read and write methods.
 >
-> **Türkçe:** TABLE 14.9, okuma ve yazma için bilmeniz gereken public ortak I/O stream yöntemlerini
+> **Türkçe:** TABLE 14.9, okuma ve yazma için bilmeniz gereken public ortak I/O stream metotlarını
 > gözden geçirir. Bu eylemleri gerçekleştirirken kullanıldıkları için close() ve flush()'ü
-> de dahil ediyoruz. TABLE 14.10 ortak public NIO.2 okuma ve yazma yöntemleri için de aynı
+> de dahil ediyoruz. TABLE 14.10 ortak public NIO.2 okuma ve yazma metotları için de aynı
 > şeyi yapar.
 > **English:** **TABLE 14.9 — Common I/O read and write methods**
->
-> | Class | Method | Description |
-> |---|---|---|
-> | All input streams | `public int read()` | Reads one value; returns `-1` if no bytes are available |
-> | `InputStream` | `public int read(byte[] b)` | Reads into a buffer; returns byte count |
-> | `Reader` | `public int read(char[] c)` | Reads into a buffer; returns character count |
-> | `InputStream` | `public int read(byte[] b, int offset, int length)` | Reads up to `length` bytes starting at `offset` |
-> | `Reader` | `public int read(char[] c, int offset, int length)` | Reads up to `length` characters starting at `offset` |
-> | All output streams | `public void write(int b)` | Writes one value |
-> | `OutputStream` | `public void write(byte[] b)` | Writes a byte array |
-> | `Writer` | `public void write(char[] c)` | Writes a character array |
-> | `OutputStream` | `public void write(byte[] b, int offset, int length)` | Writes `length` bytes starting at `offset` |
-> | `Writer` | `public void write(char[] c, int offset, int length)` | Writes `length` characters starting at `offset` |
-> | `BufferedInputStream` | `public byte[] readAllBytes()` | Reads data in bytes |
 >
 > **Türkçe:** **TABLO 14.9 — Yaygın I/O read/write method'ları.**
 > Input method'ları EOF için `-1`, buffer overload'larında actual count
 > döndürür. Output method'larında `offset` başlangıç index'idir.
+
+<!-- keep-with-next -->
+
+| Class | Method | Description |
+|---|---|---|
+| All input streams | `public int read()` | Reads one value; returns `-1` if no bytes are available |
+| `InputStream` | `public int read(byte[] b)` | Reads into a buffer; returns byte count |
+| `Reader` | `public int read(char[] c)` | Reads into a buffer; returns character count |
+| `InputStream` | `public int read(byte[] b, int offset, int length)` | Reads up to `length` bytes starting at `offset` |
+| `Reader` | `public int read(char[] c, int offset, int length)` | Reads up to `length` characters starting at `offset` |
+| All output streams | `public void write(int b)` | Writes one value |
+| `OutputStream` | `public void write(byte[] b)` | Writes a byte array |
+| `Writer` | `public void write(char[] c)` | Writes a character array |
+| `OutputStream` | `public void write(byte[] b, int offset, int length)` | Writes `length` bytes starting at `offset` |
+| `Writer` | `public void write(char[] c, int offset, int length)` | Writes `length` characters starting at `offset` |
+| `BufferedInputStream` | `public byte[] readAllBytes()` | Reads data in bytes |
+
 
 > [!IMPORTANT]
 > **Java 17 editör notu:** Kaynak tablonun “returns `-1` if no bytes are
@@ -2603,33 +2595,39 @@ writer.newLine();
 <!-- source-page: 0824 -->
 > **English:** **TABLE 14.9 — Common I/O read and write methods (continued)**
 >
-> | Class | Method | Description |
-> |---|---|---|
-> | `BufferedReader` | `public String readLine()` | Reads a line |
-> | `BufferedWriter` | `public void write(String line)` | Writes a line |
-> | `BufferedWriter` | `public void newLine()` | Writes a new line |
-> | All output streams | `public void flush()` | Flushes buffered data through the stream |
-> | All streams | `public void close()` | Closes stream and releases resources |
->
 > **Türkçe:** **TABLO 14.9 — Yaygın I/O read/write method'ları (devam).**
 > `readLine()` line break'i result'a katmaz; `newLine()` platform line
 > separator'ını yazar. `flush()` pending output'u aktarır; `close()` resource'u
 > serbest bırakır.
+
+<!-- keep-with-next -->
+
+| Class | Method | Description |
+|---|---|---|
+| `BufferedReader` | `public String readLine()` | Reads a line |
+| `BufferedWriter` | `public void write(String line)` | Writes a line |
+| `BufferedWriter` | `public void newLine()` | Writes a new line |
+| All output streams | `public void flush()` | Flushes buffered data through the stream |
+| All streams | `public void close()` | Closes stream and releases resources |
+
 > **English:** **TABLE 14.10 — Common `Files` NIO.2 read and write methods**
->
-> | Method | Description |
-> |---|---|
-> | `public static byte[] readAllBytes()` | Reads all data as bytes |
-> | `public static String readString()` | Reads all data into a `String` |
-> | `public static List<String> readAllLines()` | Reads all data into a `List` |
-> | `public static Stream<String> lines()` | Lazily reads data |
-> | `public static void write(Path path, byte[] bytes)` | Writes a byte array |
-> | `public static void writeString(Path path, String string)` | Writes a `String` |
-> | `public static void write(Path path, List<String> list)` | Writes a list of lines |
 >
 > **Türkçe:** **TABLO 14.10 — Yaygın `Files` NIO.2 read/write method'ları.**
 > `readAll*` method'ları eager; `lines()` lazy'dir. Write method'ları written
 > `Path` value'sunu döndürür.
+
+<!-- keep-with-next -->
+
+| Method | Description |
+|---|---|
+| `public static byte[] readAllBytes()` | Reads all data as bytes |
+| `public static String readString()` | Reads all data into a `String` |
+| `public static List<String> readAllLines()` | Reads all data into a `List` |
+| `public static Stream<String> lines()` | Lazily reads data |
+| `public static void write(Path path, byte[] bytes)` | Writes a byte array |
+| `public static void writeString(Path path, String string)` | Writes a `String` |
+| `public static void write(Path path, List<String> list)` | Writes a list of lines |
+
 
 > [!IMPORTANT]
 > **Java 17 editör notu:** Tablo kaynak gösterimini korur; bunlar tam formal
@@ -2677,17 +2675,20 @@ writer.newLine();
 > file'dan deserialization'ını görsel olarak gösterir.
 > **English:** **FIGURE 14.6 — Serialization process**
 >
-> ```text
-> Java Virtual Machine                         File system
-> ┌──────────────────────┐   Serialization    ┌─────────────┐
-> │ Giraffe object       │ ------------------> │ giraffe.txt │
-> │ var g = new Giraffe();│ <------------------ │             │
-> └──────────────────────┘  Deserialization   └─────────────┘
-> ```
->
 > **Türkçe:** **ŞEKİL 14.6 — Serialization süreci.** JVM'deki `Giraffe`
 > object'i serialization ile `giraffe.txt` file'ına yazılır; deserialization
 > ters yönde byte representation'dan object oluşturur.
+
+<!-- keep-with-next -->
+
+```text
+Java Virtual Machine                         File system
+┌──────────────────────┐   Serialization    ┌─────────────┐
+│ Giraffe object       │ ------------------> │ giraffe.txt │
+│ var g = new Giraffe();│ <------------------ │             │
+└──────────────────────┘  Deserialization   └─────────────┘
+```
+
 > **English:** In this section, we show you how Java provides built-in mechanisms for serializing and
 > deserializing I/O streams of objects directly to and from disk, respectively.
 >
@@ -2853,8 +2854,8 @@ public class Fur {}
 <!-- source-page: 0828 -->
 > **English:** Either of the following changes fixes the problem and allows Cat to be serialized:
 >
-> **Türkçe:** Aşağıdaki değişikliklerden herhangi biri sorunu giderir ve Cat'in seri hale
-> getirilmesine izin verir:
+> **Türkçe:** Aşağıdaki değişikliklerden herhangi biri sorunu giderir ve Cat nesnesinin serialize
+> edilmesini sağlar:
 ```java
 public class Tail implements Serializable {
 private transient Fur fur = new Fur();
@@ -2877,9 +2878,9 @@ record Record(String name) {}
 > same rules as other types of classes with respect to whether it can be serialized.
 > Therefore, this one can be:
 >
-> **Türkçe:** Serializable uygulamadığı için serileştirilebilir değildir. Bir kayıt, serileştirilip
-> serileştirilemeyeceği konusunda diğer sınıf türleri ile aynı kuralları izler. Bu
-> nedenle, bu olabilir:
+> **Türkçe:** Serializable interface’ini implement etmediği için serializable değildir. Bir record’un
+> serialize edilip edilemeyeceği konusunda diğer sınıf türleriyle aynı koşul geçerlidir.
+> Dolayısıyla aşağıdaki record serialize edilebilir:
 ```java
 record Record(String name) implements Serializable {}
 ```
@@ -3216,7 +3217,7 @@ System.err.println("File not found!");
 > **Türkçe:** Birçok günlükleme API'si mevcut olsa da, bir dizi benzer özelliği paylaşma
 > eğilimindedirler. Önce her sınıfta bir static günlük nesnesi oluşturursunuz. Ardından
 > bir mesajı uygun bir kayıt seviyesiyle kaydedersiniz: debug(), info(), warn() veya
-> error(). debug() ve info() yöntemleri, geliştiricilerin hata olmayan ancak yararlı
+> error(). debug() ve info() metotları, geliştiricilerin hata olmayan ancak yararlı
 > olabilecek şeyleri kaydetmelerine izin verdikleri için yararlıdır.
 ### Reading Input as an I/O Stream
 > **English:** The System.in returns an InputStream and is used to retrieve text input from the user.
@@ -3224,7 +3225,7 @@ System.err.println("File not found!");
 > readLine() method.
 >
 > **Türkçe:** System.in bir InputStream döndürür ve kullanıcıdan metin girişi almak için kullanılır.
-> Genellikle readLine() yöntemini kullanmak için bir InputStreamReader aracılığıyla bir
+> Genellikle readLine() metodunu kullanmak için bir InputStreamReader aracılığıyla bir
 > BufferedReader ile sarılır.
 ```java
 var reader = new BufferedReader(new InputStreamReader(System.in));
@@ -3277,7 +3278,7 @@ System.out.println("Hello");
 > **English:** Nothing. It prints nothing. The methods of PrintStream do not throw any checked
 > exceptions and rely on the checkError() to report errors, so they fail silently.
 >
-> **Türkçe:** Hiçbir şey. Hiçbir şey basmıyor. PrintStream yöntemleri herhangi bir checked exceptions
+> **Türkçe:** Hiçbir şey. Hiçbir şey basmıyor. PrintStream metotları herhangi bir checked exceptions
 > atmaz ve hataları bildirmek için checkError() 'a güvenmez, bu nedenle sessizce başarısız
 > olurlar.
 > **English:** What about this example?
@@ -3292,9 +3293,9 @@ System.err.println("Hello");
 > reporting errors is closed! Closing System.err is a particularly bad idea, since the
 > stack traces from all exceptions will be hidden.
 >
-> **Türkçe:** Bu da bir şey yazmıyor. System.out gibi, System.err bir PrintStream dir. Bir istisna
+> **Türkçe:** Bu da bir şey yazmıyor. System.out gibi, System.err bir PrintStream dir. Bir exception
 > atsa bile, hataları bildirmek için I/O stream kapalı olduğundan bunu görmekte
-> zorlanırdık! System.err'u kapatmak özellikle kötü bir fikirdir, çünkü tüm istisnalardan
+> zorlanırdık! System.err'u kapatmak özellikle kötü bir fikirdir, çünkü tüm exception’lardan
 > yığın izleri gizlenecektir.
 > **English:** Finally, what do you think this code snippet does?
 >
@@ -3307,9 +3308,9 @@ String data = reader.readLine(); // IOException
 > **English:** It prints an exception at runtime. Unlike the PrintStream class, most InputStream
 > implementations will throw an exception if you try to operate on a closed I/O stream.
 >
-> **Türkçe:** Çalışma zamanında bir istisna yazdırır. PrintStream sınıfından farklı olarak, çoğu
+> **Türkçe:** Çalışma zamanında bir exception yazdırır. PrintStream sınıfından farklı olarak, çoğu
 > InputStream uygulaması, kapalı bir I/O stream üzerinde çalışmaya çalışırsanız bir
-> istisna atar.
+> exception atar.
 ### Acquiring Input with Console
 
 > **Dil çalışması:** Bu başlıktaki kelimeler için [ünite sözlüğüne](vocabulary.md) bak.
@@ -3320,15 +3321,15 @@ String data = reader.readLine(); // IOException
 >
 > **Türkçe:** java.io. Console sınıfı, kullanıcı etkileşimlerini ele almak için özel olarak
 > tasarlanmıştır. Sonuçta, System.in ve System.out sadece ham streams iken, Console
-> kullanıcı girişi etrafında merkezlenmiş çok sayıda yönteme sahip bir sınıftır.
+> kullanıcı girişi etrafında merkezlenmiş çok sayıda metoda sahip bir sınıftır.
 > **English:** The Console class is a singleton because it is accessible only from a factory method and
 > only one instance of it is created by the JVM. For example, if you come across code on
 > the exam such as the following, it does not compile, since the constructors are all
 > private:
 >
-> **Türkçe:** Console sınıfı bir singletondur, çünkü yalnızca bir factory method adresinden
-> erişilebilir ve bunun sadece bir örneği JVM tarafından oluşturulur. Örneğin, aşağıdaki
-> gibi sınavda kodla karşılaşırsanız, derleyicilerin hepsi private olduğundan, derlemez:
+> **Türkçe:** Console, erişimin factory method üzerinden sağlandığı ve JVM tarafından tek instance
+> oluşturulduğu bir singleton’dır. Constructor’ları private olduğu için aşağıdaki gibi
+> doğrudan nesne oluşturmaya çalışan kod derlenmez:
 ```java
 Console c = new Console(); // DOES NOT COMPILE
 ```
@@ -3385,10 +3386,10 @@ public PrintWriter writer()
 > each print stream class includes a format() method, which includes an overloaded version
 > that takes a Locale to combine both of these:
 >
-> **Türkçe:** Bölüm 4'te, String'deki format () yöntemini öğrendiniz; ve Bölüm 11'de, yerelleri
+> **Türkçe:** Bölüm 4'te, String'deki format () metodunu öğrendiniz; ve Bölüm 11'de, yerelleri
 > kullanarak biçimlendirme ile çalıştınız. Uygun bir şekilde, her baskı stream sınıfı, her
-> ikisini de birleştirmek için bir Locale alan aşırı yüklenmiş bir sürüm içeren bir
-> format() yöntemi içerir:
+> ikisini de birleştirmek için bir Locale alan overload edilmiş bir sürüm içeren bir
+> format() metodu içerir:
 ```java
 // PrintStream
 public PrintStream format(String format, Object... args)
@@ -3402,12 +3403,12 @@ public PrintWriter format(Locale loc, String format, Object... args)
 > need to know about these methods is that they are interchangeable with format().
 >
 > **Türkçe:** Kolaylık için (C geliştiricilerinin kendilerini evde daha fazla hissetmelerini
-> sağlamanın yanı sıra), Java yöntemleri, format() yöntemleriyle aynı işlevi gören
-> printf() yöntemlerini içerir. Bu yöntemler hakkında bilmeniz gereken tek şey format()
+> sağlamanın yanı sıra), Java metotları, format() metotlarıyla aynı işlevi gören
+> printf() metotlarını içerir. Bu metotlar hakkında bilmeniz gereken tek şey format()
 > ile değiştirilebilir olmasıdır.
 > **English:** Let’s take a look at using multiple methods to print information for the user:
 >
-> **Türkçe:** Kullanıcı için bilgi yazdırmak için birden fazla yöntem kullanarak bir göz atalım:
+> **Türkçe:** Kullanıcı için bilgi yazdırmak için birden fazla metot kullanarak bir göz atalım:
 ```java
 Console console = System.console();
 if (console == null) {
@@ -3436,10 +3437,10 @@ The zoo spans 128.9 acres.
 > system locale. Of course, you could always use a specific Locale by retrieving the
 > Writer object and passing your own Locale instance, such as in the following example:
 >
-> **Türkçe:** Console ile Locale print stream sınıflarının aksine Console, Locale örneğini alan aşırı
-> yüklenmiş bir format() yöntemi içermez. Bunun yerine, Console sistem lokaline dayanır.
-> Tabii ki, Writer nesnesini geri alarak ve aşağıdaki örnekte olduğu gibi kendi Locale
-> örneğini geçirerek her zaman belirli bir Locale kullanabilirsiniz:
+> **Türkçe:** Console ile Locale print stream sınıflarının aksine Console, Locale örneğini alan
+> overload edilmiş bir format() metodu içermez. Bunun yerine, Console sistem lokaline
+> dayanır. Tabii ki, Writer nesnesini geri alarak ve aşağıdaki örnekte olduğu gibi kendi
+> Locale örneğini geçirerek her zaman belirli bir Locale kullanabilirsiniz:
 ```java
 Console console = System.console();
 console.writer().format(new Locale("fr", "CA"), "Hello World");
@@ -3447,7 +3448,7 @@ console.writer().format(new Locale("fr", "CA"), "Hello World");
 #### Reading Console Data
 > **English:** The Console class includes four methods for retrieving regular text data from the user.
 >
-> **Türkçe:** Console sınıfı, kullanıcıdan düzenli metin verilerini almak için dört yöntem içerir.
+> **Türkçe:** Console sınıfı, kullanıcıdan düzenli metin verilerini almak için dört metot içerir.
 ```java
 public String readLine()
 public String readLine(String fmt, Object... args)
@@ -3459,12 +3460,12 @@ public char[] readPassword(String fmt, Object... args)
 > formatted message prompt prior to requesting input.
 >
 > **Türkçe:** Bir BufferedReader ile System.in kullanmak gibi, kullanıcı Enter tuşuna basana kadar
-> Console readLine() yöntemi girdiyi okur. readLine() 'nin aşırı yüklenmiş sürümü, girdi
+> Console readLine() metodu girdiyi okur. readLine() 'nin overload edilmiş sürümü, girdi
 > istemeden önce biçimlendirilmiş bir ileti istemi görüntüler.
 > **English:** The readPassword() methods are similar to the readLine() method, with two important
 > differences:
 >
-> **Türkçe:** readPassword() yöntemleri iki önemli farkla readLine() yöntemine benzer:
+> **Türkçe:** readPassword() metotları iki önemli farkla readLine() metoduna benzer:
 > **English:** The text the user types is not echoed back and displayed on the screen as they are
 > typing.
 >
@@ -3491,7 +3492,7 @@ public char[] readPassword(String fmt, Object... args)
 > based on this information using many of various methods we learned in this section:
 >
 > **Türkçe:** Sunduğumuz son kod örneği, kullanıcıya bir dizi soru sorar ve bu bölümde öğrendiğimiz
-> çeşitli yöntemleri kullanarak bu bilgilere dayanarak sonuçları yazdırır:
+> çeşitli metotları kullanarak bu bilgilere dayanarak sonuçları yazdırır:
 ```java
 Console console = System.console();
 if (console == null) {
@@ -3538,7 +3539,7 @@ Passwords match
 > data is read from an I/O stream:
 >
 > **Türkçe:** Tüm input stream sınıfları, verilerin bir I/O stream 'den okunduğu sırayı manipüle etmek
-> için aşağıdaki yöntemleri içerir:
+> için aşağıdaki metotları içerir:
 ```java
 // InputStream and Reader
 public boolean markSupported()
@@ -3558,9 +3559,9 @@ public long skip(long n) throws IOException
 > markSupported() on the I/O stream before calling these methods, or an exception will be
 > thrown at runtime.
 >
-> **Türkçe:** Tüm input stream sınıfları mark() ve reset()'yi desteklemez. Bu yöntemleri çağırmadan
+> **Türkçe:** Tüm input stream sınıfları mark() ve reset()'yi desteklemez. Bu metotları çağırmadan
 > önce I/O stream üzerinde markSupported()'ü aradığınızdan emin olun, aksi takdirde
-> çalışma zamanında bir istisna atılacaktır.
+> çalışma zamanında bir exception atılacaktır.
 
 > [!IMPORTANT]
 > **Java 17 editör notu:** Unsupported durumda base `InputStream.mark()` no-op
@@ -3599,10 +3600,10 @@ System.out.print((char) is.read()); // N
 > 100 bytes. If our program calls reset() after reading more than 100 bytes from calling
 > mark(100), it may throw an exception, depending on the I/O stream class.
 >
-> **Türkçe:** mark() yöntemine aktardığımız 100 değeri ne olacak? Bu değere readLimit denir. En fazla
+> **Türkçe:** mark() metoduna aktardığımız 100 değeri ne olacak? Bu değere readLimit denir. En fazla
 > 100 bytes sonra reset() çağırmayı beklediğimiz I/O stream komutunu verir. Programımız,
 > mark(100) aramasından 100 bytes ‘dan fazla okuduktan sonra reset() çağırırsa, I/O stream
-> sınıfına bağlı olarak bir istisna atabilir.
+> sınıfına bağlı olarak bir exception atabilir.
 
 <!-- source-page: 0839 -->
 > **English:** In actuality, mark() and reset() are not putting the data back into the I/O stream but
@@ -3650,16 +3651,19 @@ System.out.print((char)is.read()); // S
 > kullanmamış olsanız da, sınav için bunları bilmeniz gerekir.
 > **English:** **TABLE 14.11 — Common I/O stream methods**
 >
-> | Method | Description |
-> |---|---|
-> | `public boolean markSupported()` | Returns `true` if the stream class supports `mark()` |
-> | `public void mark(int readLimit)` | Marks the current stream position |
-> | `public void reset()` | Attempts to reset to the marked position |
-> | `public long skip(long n)` | Reads and discards the specified number of values |
->
 > **Türkçe:** **TABLO 14.11 — Yaygın I/O stream method'ları.**
 > `markSupported()` capability'yi bildirir; `mark()` konumu kaydeder;
 > `reset()` bu konuma dönmeyi dener; `skip()` actual skipped count'u döndürür.
+
+<!-- keep-with-next -->
+
+| Method | Description |
+|---|---|
+| `public boolean markSupported()` | Returns `true` if the stream class supports `mark()` |
+| `public void mark(int readLimit)` | Marks the current stream position |
+| `public void reset()` | Attempts to reset to the marked position |
+| `public long skip(long n)` | Reads and discards the specified number of values |
+
 
 > [!IMPORTANT]
 > **Java 17 editör notu:** Kaynak tabloda `mark(int readLimit)` satırının
@@ -3726,7 +3730,7 @@ System.out.print(Files.isRegularFile(Paths.get("/canine/types.txt")));
 > file system'lerde önemlidir.
 > **English:** Here we present an example of each method:
 >
-> **Türkçe:** Burada her yöntemin bir örneğini sunuyoruz:
+> **Türkçe:** Burada her metodun bir örneğini sunuyoruz:
 ```java
 System.out.print(Files.isHidden(Paths.get("/walrus.txt")));
 System.out.print(Files.isReadable(Paths.get("/seal/baby.png")));
@@ -3797,19 +3801,16 @@ System.out.print(Files.isExecutable(Paths.get("whale.png")));
 > bilgileri yönetmek içindir.
 > **English:** **TABLE 14.12 — The attributes and view types**
 >
-> | Attributes interface | View interface | Description |
-> |---|---|---|
-> | `BasicFileAttributes` | `BasicFileAttributeView` | Basic attributes supported by all file systems |
-> | `DosFileAttributes` | `DosFileAttributeView` | Basic attributes plus DOS/Windows attributes |
-> | `PosixFileAttributes` | `PosixFileAttributeView` | Basic attributes plus POSIX attributes used by Unix, Linux, macOS, etc. |
->
 > **Türkçe:** **TABLO 14.12 — Attribute ve view type'ları**
->
-> | Attributes interface | View interface | Açıklama |
-> |---|---|---|
-> | `BasicFileAttributes` | `BasicFileAttributeView` | Bütün file system'lerdeki basic attribute'lar |
-> | `DosFileAttributes` | `DosFileAttributeView` | Basic + DOS/Windows attribute'ları |
-> | `PosixFileAttributes` | `PosixFileAttributeView` | Basic + POSIX/Unix/Linux/macOS attribute'ları |
+
+<!-- keep-with-next -->
+
+| Attributes interface | View interface | Description<br>Açıklama |
+| --- | --- | --- |
+| `BasicFileAttributes` | `BasicFileAttributeView` | Basic attributes supported by all file systems<br>Bütün file system'lerdeki basic attribute'lar |
+| `DosFileAttributes` | `DosFileAttributeView` | Basic attributes plus DOS/Windows attributes<br>Basic + DOS/Windows attribute'ları |
+| `PosixFileAttributes` | `PosixFileAttributeView` | Basic attributes plus POSIX attributes used by Unix, Linux, macOS, etc.<br>Basic + POSIX/Unix/Linux/macOS attribute'ları |
+
 
 <!-- source-page: 0842 -->
 #### Retrieving Attributes
@@ -3888,7 +3889,7 @@ FileTime lastAccessTime, FileTime createTime)
 > **English:** This method allows us to pass null for any date/time value that we do not want to
 > modify. In our sample code, only the last modified date/time is changed.
 >
-> **Türkçe:** Bu yöntem, değiştirmek istemediğimiz herhangi bir date/time değeri için null değerini
+> **Türkçe:** Bu metot, değiştirmek istemediğimiz herhangi bir date/time değeri için null değerini
 > geçmemizi sağlar. Örnek kodumuzda, yalnızca son değiştirilmiş date/time değiştirilir.
 > **English:** Not all file attributes can be modified with a view. For example, you cannot set a
 > property that changes a file into a directory. Likewise, you cannot change the size of
@@ -3950,14 +3951,14 @@ FileTime lastAccessTime, FileTime createTime)
 > knowledge for older Java certification exams.
 >
 > **Türkçe:** NIO.2 Javadocs'a göz atarken DirectoryStream ve FileVisitor sınıflarını bir dizinden
-> geçmek için kullanan yöntemlerle karşılaşabilirsiniz. Bu yöntemler Stream API'in
+> geçmek için kullanan metotlarla karşılaşabilirsiniz. Bu metotlar Stream API'in
 > varlığından önce gelir ve hatta daha eski Java sertifikasyon sınavları için gerekli
 > bilgidir.
 > **English:** The best advice we can give you is to not use them. The newer Stream API–based methods
 > are superior and accomplish the same thing, often with much less code.
 >
 > **Türkçe:** Size verebileceğimiz en iyi tavsiye, onları kullanmamanızdır. Daha yeni Stream
-> APItabanlı yöntemler daha üstündür ve genellikle çok daha az kodla aynı şeyi
+> APItabanlı metotlar daha üstündür ve genellikle çok daha az kodla aynı şeyi
 > gerçekleştirir.
 #### Selecting a Search Strategy
 > **English:** Two common strategies are associated with walking a directory tree: a depth-first search
@@ -3988,14 +3989,14 @@ FileTime lastAccessTime, FileTime createTime)
 > searching with a depth limit, which can be optionally changed.
 >
 > **Türkçe:** Sınav için, Java'nın kullandığı her arama stratejisinin ayrıntılarını anlamak zorunda
-> değilsiniz; sadece NIO.2 Stream API yöntemlerinin isteğe bağlı olarak değiştirilebilen
+> değilsiniz; sadece NIO.2 Stream API metotlarının isteğe bağlı olarak değiştirilebilen
 > bir derinlik sınırı olan derinlik-öncelikli arama kullandığını bilmeniz gerekir.
 #### Walking a Directory
 > **English:** That’s enough background information; let’s get to more Stream API methods. The Files
 > class includes two methods for walking the directory tree using a depth-first search.
 >
-> **Türkçe:** Bu yeterli arka plan bilgisi; daha fazla Stream API yöntemine geçelim. Files sınıfı,
-> derinlik-ilk arama kullanarak dizin ağacını yürümek için iki yöntem içerir.
+> **Türkçe:** Bu yeterli arka plan bilgisi; daha fazla Stream API metoduna geçelim. Files sınıfı,
+> derinlik-ilk arama kullanarak dizin ağacını yürümek için iki metot içerir.
 ```java
 public static Stream<Path> walk(Path start,
 FileVisitOption... options) throws IOException
@@ -4022,7 +4023,7 @@ FileVisitOption... options) throws IOException
 > the total size of all the files in the directory:
 >
 > **Türkçe:** Bir dizin ağacının içeriğini yazdırmak yerine, yine daha ilginç bir şey yapabiliriz.
-> Aşağıdaki getPathSize() yöntemi bir dizin ağacında yürür ve dizindeki tüm dosyaların
+> Aşağıdaki getPathSize() metodu bir dizin ağacında yürür ve dizindeki tüm dosyaların
 > toplam boyutunu döndürür:
 ```java
 private long getSize(Path p) {
@@ -4063,7 +4064,7 @@ Total Size: 15.30 megabytes
 > **English:** Let’s say our directory tree is quite deep, so we apply a depth limit by changing one
 > line of code in our getPathSize() method.
 >
-> **Türkçe:** Dizin ağacımızın oldukça derin olduğunu varsayalım, bu yüzden getPathSize() yöntemimizde
+> **Türkçe:** Dizin ağacımızın oldukça derin olduğunu varsayalım, bu yüzden getPathSize() metodumuzda
 > bir kod satırı değiştirerek bir derinlik sınırı uygularız.
 ```java
 try (var s = Files.walk(source, 5)) {
@@ -4074,8 +4075,8 @@ try (var s = Files.walk(source, 5)) {
 > method is applied to a directory tree.
 >
 > **Türkçe:** Bu yeni sürüm, dosyaları yalnızca başlangıç düğümünden 5 adım içinde kontrol eder. 0'ın
-> derinlik değeri, mevcut yolun kendisini gösterir. Yöntem yalnızca dosyalardaki değerleri
-> hesapladığından, bu yöntem bir dizin ağacına uygulandığında sıfır olmayan bir sonuç elde
+> derinlik değeri, mevcut yolun kendisini gösterir. Metot yalnızca dosyalardaki değerleri
+> hesapladığından, bu metot bir dizin ağacına uygulandığında sıfır olmayan bir sonuç elde
 > etmek için en az 1 derinlik sınırı belirlemeniz gerekir.
 #### Avoiding Circular Paths
 > **English:** Many of our earlier NIO.2 methods traverse symbolic links by default, with a
@@ -4114,17 +4115,20 @@ FileVisitOption.FOLLOW_LINKS)) {
 > `/birds`e symbolic link olduğunu varsayalım.
 > **English:** **FIGURE 14.7 — File system with cycle**
 >
-> ```text
-> birds\
-> └── robin\                        <-- start
->     ├── pictures\
->     │   ├── nest.png
->     │   └── wings.gif
->     └── allBirds\ --symbolic link--> /birds
-> ```
->
 > **Türkçe:** **ŞEKİL 14.7 — Cycle içeren file system.**
 > `/birds/robin/allBirds`, ancestor `/birds` directory'sine symbolic link'tir.
+
+<!-- keep-with-next -->
+
+```text
+birds\
+└── robin\                        <-- start
+    ├── pictures\
+    │   ├── nest.png
+    │   └── wings.gif
+    └── allBirds\ --symbolic link--> /birds
+```
+
 > **English:** What happens if we try to traverse this tree and follow all symbolic links, starting
 > with /birds/robin? TABLE 14.13 shows the paths visited after walking a depth of 3. For
 > simplicity, we walk the tree in a breadth-first ordering, although a cycle occurs
@@ -4136,17 +4140,20 @@ FileVisitOption.FOLLOW_LINKS)) {
 > **English:** TABLE 14.13 — Walking a directory with a cycle using
 > breadth-first search
 >
-> | Depth | Path reached |
-> |---:|---|
-> | 0 | `/birds/robin` |
-> | 1 | `/birds/robin/pictures` |
-> | 1 | `/birds/robin/allBirds` → `/birds` |
-> | 2 | `/birds/robin/pictures/nest.png` |
-> | 2 | `/birds/robin/pictures/wings.gif` |
->
 > **Türkçe:** TABLO 14.13 — Cycle içeren directory'nin kaynakta
 > breadth-first varsayımıyla yürünmesi. Root depth 0'dır; symbolic link'in
 > çözüldüğü target okla gösterilir.
+
+<!-- keep-with-next -->
+
+| Depth | Path reached |
+|---:|---|
+| 0 | `/birds/robin` |
+| 1 | `/birds/robin/pictures` |
+| 1 | `/birds/robin/allBirds` → `/birds` |
+| 2 | `/birds/robin/pictures/nest.png` |
+| 2 | `/birds/robin/pictures/wings.gif` |
+
 
 > [!IMPORTANT]
 > **Java 17 editör notu:** Kaynak tablo cycle'ı açıklamak için açıkça
@@ -4157,14 +4164,17 @@ FileVisitOption.FOLLOW_LINKS)) {
 <!-- source-page: 0847 -->
 > **English:** TABLE 14.13 — Continued
 >
-> | Depth | Path reached |
-> |---:|---|
-> | 2 | `/birds/robin/allBirds/robin` → `/birds/robin` |
-> | 3 | `/birds/robin/allBirds/robin/pictures` → `/birds/robin/pictures` |
-> | 3 | `/birds/robin/allBirds/robin/pictures/allBirds` → `/birds/robin/allBirds` → `/birds` |
->
 > **Türkçe:** TABLO 14.13 — Devam. Depth 2'de daha önce ziyaret edilen
 > `/birds/robin`e yeniden ulaşılır; cycle burada ortaya çıkar.
+
+<!-- keep-with-next -->
+
+| Depth | Path reached |
+|---:|---|
+| 2 | `/birds/robin/allBirds/robin` → `/birds/robin` |
+| 3 | `/birds/robin/allBirds/robin/pictures` → `/birds/robin/pictures` |
+| 3 | `/birds/robin/allBirds/robin/pictures/allBirds` → `/birds/robin/allBirds` → `/birds` |
+
 > **English:** - After walking a distance of 1 from the start, we hit the symbolic link
 > /birds/robin/allBirds and go back to the top of the directory tree /birds. That’s okay
 > because we haven’t visited /birds yet, so there’s no cycle yet!
@@ -4254,23 +4264,26 @@ s.forEach(System.out::println);
 > gerekir.
 > **English:** **TABLE 14.14 — Key APIs**
 >
-> | Class | Purpose |
-> |---|---|
-> | `File` | I/O representation of a location in a file system |
-> | `Files` | Helper methods for working with `Path` |
-> | `Path` | NIO.2 representation of a location in a file system |
-> | `Paths` | Factory methods for obtaining `Path` |
-> | `URI` | Uniform resource identifier for files, URLs, etc. |
-> | `FileSystem` | NIO.2 representation of a file system |
-> | `FileSystems` | Factory methods for obtaining `FileSystem` |
-> | `InputStream` | Superclass for reading byte-based files |
-> | `OutputStream` | Superclass for writing byte-based files |
-> | `Reader` | Superclass for reading character-based files |
-> | `Writer` | Superclass for writing character-based files |
->
 > **Türkçe:** **TABLO 14.14 — Temel API'ler.** `File` legacy I/O,
 > `Path`/`Files` NIO.2 location ve operation modelini; dört abstract stream
 > class'ı da byte/character ile input/output eksenlerini temsil eder.
+
+<!-- keep-with-next -->
+
+| Class | Purpose |
+|---|---|
+| `File` | I/O representation of a location in a file system |
+| `Files` | Helper methods for working with `Path` |
+| `Path` | NIO.2 representation of a location in a file system |
+| `Paths` | Factory methods for obtaining `Path` |
+| `URI` | Uniform resource identifier for files, URLs, etc. |
+| `FileSystem` | NIO.2 representation of a file system |
+| `FileSystems` | Factory methods for obtaining `FileSystem` |
+| `InputStream` | Superclass for reading byte-based files |
+| `OutputStream` | Superclass for writing byte-based files |
+| `Reader` | Superclass for reading character-based files |
+| `Writer` | Superclass for writing character-based files |
+
 
 <!-- source-page: 0849 -->
 > **English:** Additionally, FIGURE 14.8 shows all of the I/O stream classes that you should be
@@ -4283,36 +4296,39 @@ s.forEach(System.out::println);
 > filtreleyen veya dönüştüren üst düzey süper sınıflardır. Nadiren doğrudan kullanılırlar.
 > **English:** **FIGURE 14.8 — Diagram of I/O stream classes**
 >
-> ```text
-> InputStream(abstract)
-> ├── FileInputStream                         [low-level]
-> ├── FilterInputStream                       [high-level superclass]
-> │   └── BufferedInputStream                 [high-level]
-> └── ObjectInputStream                       [high-level]
->
-> Reader(abstract)
-> ├── BufferedReader                          [high-level]
-> └── InputStreamReader                       [low-level bridge]
->     └── FileReader                          [low-level]
->
-> OutputStream(abstract)
-> ├── FileOutputStream                        [low-level]
-> ├── FilterOutputStream                      [high-level superclass]
-> │   ├── BufferedOutputStream                [high-level]
-> │   └── PrintStream                         [high-level]
-> └── ObjectOutputStream                      [high-level]
->
-> Writer(abstract)
-> ├── BufferedWriter                          [high-level]
-> ├── OutputStreamWriter                      [low-level bridge]
-> │   └── FileWriter                          [low-level]
-> └── PrintWriter                             [high-level]
-> ```
->
 > **Türkçe:** **ŞEKİL 14.8 — I/O stream class'ları.** Dört abstract base
 > class'ın altında low-level source/sink stream'leri ile başka stream'leri
 > wrap eden high-level stream'ler gösterilir. `InputStreamReader` ve
 > `OutputStreamWriter` byte–character bridge'leridir.
+
+<!-- keep-with-next -->
+
+```text
+InputStream(abstract)
+├── FileInputStream                         [low-level]
+├── FilterInputStream                       [high-level superclass]
+│   └── BufferedInputStream                 [high-level]
+└── ObjectInputStream                       [high-level]
+
+Reader(abstract)
+├── BufferedReader                          [high-level]
+└── InputStreamReader                       [low-level bridge]
+    └── FileReader                          [low-level]
+
+OutputStream(abstract)
+├── FileOutputStream                        [low-level]
+├── FilterOutputStream                      [high-level superclass]
+│   ├── BufferedOutputStream                [high-level]
+│   └── PrintStream                         [high-level]
+└── ObjectOutputStream                      [high-level]
+
+Writer(abstract)
+├── BufferedWriter                          [high-level]
+├── OutputStreamWriter                      [low-level bridge]
+│   └── FileWriter                          [low-level]
+└── PrintWriter                             [high-level]
+```
+
 
 <!-- source-page: 0850 -->
 > **English:** The InputStreamReader and OutputStreamWriter are incredibly convenient and are also
@@ -4443,12 +4459,12 @@ s.forEach(System.out::println);
 > serializable. The ObjectInputStream and ObjectOutputStream classes can be used to read
 > and write a Serializable object from and to an I/O stream, respectively.
 >
-> **Türkçe:** Java serileştirmesini kullanabilin. Bir sınıf, `java.io.Serializable` arayüzünü
-> uygulayarak serileştirmeye katılır. Serileştirilen nesne grafiğindeki `transient`
-> olmayan başvuru alanlarının gösterdiği nesneler de serileştirilebilir olmalıdır;
-> `null` başvurular sorun oluşturmaz. Primitive alanların değerleri doğrudan saklanır;
-> `String` sınıfı serileştirilebilirdir. `ObjectInputStream` ve `ObjectOutputStream`,
-> sırasıyla nesneleri akıştan okumak ve akışa yazmak için kullanılır.
+> **Türkçe:** Java serialization kullanımını bilin. Bir sınıf, java.io.Serializable interface’ini
+> implement ederek serialization’a katılır. Serialize edilen nesne grafiğinde, transient
+> olmayan instance referanslarının gösterdiği nesneler de serializable olmalıdır; null
+> referanslar sorun oluşturmaz. Primitive alan değerleri doğrudan saklanır ve String
+> serializable’dır. ObjectInputStream nesneleri stream’den okumak, ObjectOutputStream ise
+> stream’e yazmak için kullanılır.
 
 > **English:** Be able to interact with the user. Be able to interact with the user using the system
 > streams (System.out, System.err, and System.in) as well as the Console class. The
@@ -4695,7 +4711,7 @@ public class Eagle extends Bird implements Serializable {
 > **Türkçe:** F. Kod derlenmiyor.
 > **English:** G. The code compiles but throws an exception at runtime.
 >
-> **Türkçe:** G. Kod derlenir ancak çalışma zamanında bir istisna atar.
+> **Türkçe:** G. Kod derlenir ancak çalışma zamanında bir exception atar.
 
 ### Question 7 / Soru 7
 
@@ -4728,7 +4744,7 @@ if(Files.isDirectory(path) && Files.isSymbolicLink(path))
 > **Türkçe:** E. Kod derlenmiyor.
 > **English:** F. The code will compile but will always throw an exception at runtime.
 >
-> **Türkçe:** F. Kod derlenecek ancak çalışma zamanında her zaman bir istisna atacaktır.
+> **Türkçe:** F. Kod derlenecek ancak çalışma zamanında her zaman bir exception atacaktır.
 
 <!-- source-page: 0855 -->
 
@@ -4766,7 +4782,7 @@ void printData(Path path) throws IOException {
 > **Türkçe:** C. Kod, `r3` satırı nedeniyle derlenmez.
 > **English:** D. It throws an exception at runtime.
 >
-> **Türkçe:** D. Çalışma zamanında bir istisna atar.
+> **Türkçe:** D. Çalışma zamanında bir exception atar.
 > **English:** E. It does not print anything at runtime.
 >
 > **Türkçe:** E. Çalışma zamanında hiçbir şey yazdırmaz.
@@ -4815,7 +4831,7 @@ public void copyFile(File file1, File file2) throws Exception {
 > kontrol edilirse tam olarak 50 character içerir.
 > **English:** G. This method contains a resource leak.
 >
-> **Türkçe:** G. Bu yöntem bir kaynak sızıntısı içerir.
+> **Türkçe:** G. Bu metot bir kaynak sızıntısı içerir.
 
 <!-- source-page: 0856 -->
 
@@ -5041,18 +5057,18 @@ private void echo() throws IOException {
 ```
 > **English:** A. When run, the method creates a new file with one line of text in it.
 >
-> **Türkçe:** A. Çalıştırıldığında, yöntem içinde bir satır metin bulunan yeni bir dosya oluşturur.
+> **Türkçe:** A. Çalıştırıldığında, metot içinde bir satır metin bulunan yeni bir dosya oluşturur.
 > **English:** B. When run, the method creates a new file with two lines of text in it.
 >
-> **Türkçe:** B. Çalıştırıldığında, yöntem içinde iki satırlık metin bulunan yeni bir dosya oluşturur.
+> **Türkçe:** B. Çalıştırıldığında, metot içinde iki satırlık metin bulunan yeni bir dosya oluşturur.
 > **English:** C. When run, the method creates a new file with the same number of lines as the original
 > file.
 >
-> **Türkçe:** C. Çalıştırıldığında, yöntem orijinal dosyayla aynı sayıda satır içeren yeni bir dosya
+> **Türkçe:** C. Çalıştırıldığında, metot orijinal dosyayla aynı sayıda satır içeren yeni bir dosya
 > oluşturur.
 > **English:** D. The method compiles but will produce an exception at runtime.
 >
-> **Türkçe:** D. Yöntem derlenir, ancak çalışma zamanında bir istisna üretecektir.
+> **Türkçe:** D. Metot derlenir, ancak çalışma zamanında bir exception üretecektir.
 > **English:** E. The method does not compile.
 >
 > **Türkçe:** E. Method derlenmez.
@@ -5067,10 +5083,10 @@ private void echo() throws IOException {
 > **Türkçe:** 17. Hangileri doğru ifadelerdir? (Tüm geçerli olanları seçin.)
 > **English:** A. NIO.2 includes a method to delete an entire directory tree.
 >
-> **Türkçe:** A. NIO.2 tüm dizin ağacını silmek için bir yöntem içerir.
+> **Türkçe:** A. NIO.2 tüm dizin ağacını silmek için bir metot içerir.
 > **English:** B. NIO.2 includes a method to traverse a directory tree.
 >
-> **Türkçe:** B. NIO.2 bir dizin ağacını geçmek için bir yöntem içerir.
+> **Türkçe:** B. NIO.2 bir dizin ağacını geçmek için bir metot içerir.
 > **English:** C. NIO.2 includes methods that are aware of symbolic links.
 >
 > **Türkçe:** C. NIO.2, symbolic link'lerin farkında olan method'lar içerir.
@@ -5299,7 +5315,7 @@ try (var m =
 > **Türkçe:** F. Kod derlenmiyor.
 > **English:** G. The code compiles but throws an exception at runtime.
 >
-> **Türkçe:** G. Kod derlenir ancak çalışma zamanında bir istisna atar.
+> **Türkçe:** G. Kod derlenir ancak çalışma zamanında bir exception atar.
 
 ### Question 23 / Soru 23
 
@@ -5326,7 +5342,7 @@ Files.walk(x.toRealPath().getParent()) // u1
 > **Türkçe:** C. FileSystemLoopException çalışma zamanında atılır.
 > **English:** D. Another exception is thrown at runtime.
 >
-> **Türkçe:** D. Başka bir istisna da çalışma zamanında atılır.
+> **Türkçe:** D. Başka bir exception da çalışma zamanında atılır.
 > **English:** E. The code will not compile because of line u1.
 >
 > **Türkçe:** E. Kod, `u1` satırı nedeniyle derlenmez.
@@ -5370,7 +5386,7 @@ void copyIntoFlipDirectory(Path source) throws IOException {
 > **Türkçe:** D. `Files.copy(source, dolphinDir.resolve(n))`
 > **English:** E. The method does not compile, regardless of what is placed in the blank.
 >
-> **Türkçe:** E. Yöntem, boşluğa ne yerleştirildiğinden bağımsız olarak derlemez.
+> **Türkçe:** E. Metot, boşluğa ne yerleştirildiğinden bağımsız olarak derlemez.
 > **English:** F. The method compiles but throws an exception at runtime, regardless of what is placed
 > in the blank.
 >

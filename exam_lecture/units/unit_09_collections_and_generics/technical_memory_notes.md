@@ -475,7 +475,8 @@ void process(List<Integer> x) {} // DOES NOT COMPILE: same erasure
 - `new T()` çağrılamaz.
 - `new T[10]` oluşturulamaz.
 - `new List<String>[10]` oluşturulamaz.
-- `obj instanceof List<String>` yazılamaz.
+- `obj` değişkeninin compile-time türü `Object` ise `obj instanceof List<String>`
+  yazılamaz; `String` type argument'ı çalışma zamanında doğrulanamaz.
 - Class type parameter'ı static context'te doğrudan kullanılamaz.
 - Generic class doğrudan veya dolaylı olarak `Throwable` subclass'ı olamaz.
 
@@ -486,6 +487,22 @@ if (obj instanceof List<?>) {
     System.out.println("Bir List");
 }
 ```
+
+### Java 17 sınırı: her parameterized instanceof yasak değildir
+
+Java 16'dan itibaren, unchecked conversion gerektirmeyen bazı parameterized type
+kontrolleri geçerlidir. Örneğin type argument zaten `String` olarak biliniyorsa:
+
+```java
+java.util.List<String> names = new java.util.ArrayList<>();
+System.out.println(names instanceof java.util.ArrayList<String>); // true
+```
+
+Başarıyla derlenir ve `true` yazdırır. Burada kontrol edilen, nesnenin `ArrayList`
+olmasıdır; öğelerin her birinin `String` olup olmadığı kontrol edilmez.
+`Object value = names;` ardından `value instanceof java.util.List<String>` ise
+**Does not compile**. Kararı yalnız sağdaki türe bakarak verme; soldaki ifadenin
+compile-time türünü de incele. [Java 17 JLS §15.20.2](https://docs.oracle.com/javase/specs/jls/se17/html/jls-15.html#jls-15.20.2).
 
 ### Raw type
 
@@ -505,7 +522,7 @@ bedeli runtime'da çıkabilir.
 | `List<> x` | Does not compile | Diamond solda kullanılamaz |
 | `new ArrayList<?>();` | Does not compile | Wildcard ile instance oluşturulamaz |
 | `List<Number> x = new ArrayList<Integer>()` | Does not compile | Generic invariance |
-| `extends` wildcard üzerinden add | Does not compile | Gerçek subtype bilinmez |
+| `extends` wildcard üzerinden non-null öğe ekleme | Does not compile | Gerçek subtype bilinmez; `null` tür açısından istisnadır |
 | `List.of(...).add(...)` | Runtime exception | Immutable factory result |
 | `Arrays.asList(...).add(...)` | Runtime exception | Fixed-size view |
 | `Set.of("x", "x")` | Runtime exception | Duplicate factory input |

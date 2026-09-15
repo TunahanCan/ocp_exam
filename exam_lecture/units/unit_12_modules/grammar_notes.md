@@ -95,7 +95,7 @@ Bağımlılık veya sonucun bir koşula bağlı olduğunu anlatır.
 
 > **English:** “The care module depends on the feeding module.”
 >
-> **Türkçe:** “Bakım modülü, besleme modülüne bağlıdır.”
+> **Türkçe:** “care modülü, feeding modülüne bağımlıdır.”
 
 YDS'de `dependent on` adjective, `dependency/dependence` noun family
 üyeleridir.
@@ -283,7 +283,7 @@ Bir seçeneği diğerine tercih eder veya karşılaştırır.
 > **English:** “The consumer depends on the service interface rather than the
 > implementation.”
 >
-> **Türkçe:** “Tüketici, gerçekleştirim yerine servis arayüzüne bağımlıdır.”
+> **Türkçe:** “Consumer, implementation yerine service interface’ine bağımlıdır.”
 
 YDS ipucu: `rather than` iki tarafta parallel form bekler.
 

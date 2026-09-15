@@ -115,8 +115,9 @@ fikrini hatırlamak yararlıdır.
 
 ## Java 17 teknik doğruluk notları
 
-- Checked exception: `Exception` kolunda olup `RuntimeException` kolunda
-  olmayan exception'dır; handle veya declare edilmelidir.
+- Checked exception: `Throwable` hiyerarşisinde `RuntimeException` ve `Error`
+  kollarının dışında kalan türdür; handle veya declare edilmelidir. Çoğu örnek
+  `Exception` sınıfından türer, ancak doğrudan `Throwable` alt sınıfı da checked olabilir.
 - Override method daha geniş checked exception declare edemez; daha dar type
   veya hiç checked exception kullanabilir.
 - Multi-catch alternatifleri parent/child ilişkili olamaz ve catch variable
@@ -124,8 +125,14 @@ fikrini hatırlamak yararlıdır.
 - TWR resource'ları declaration'ın ters sırasıyla kapanır.
 - Try body exception'ı varken `close()` exception'ı suppressed olur; primary
   exception değişmez.
+- Try body başarılı olsa bile ilk başarısız `close()` primary exception üretir;
+  sonraki kapanış hataları ona suppressed olarak eklenir.
 - Existing resource syntax için variable final veya effectively final olmalıdır.
-- `M` month, `m` minute; `0` required digit, `#` optional digit anlamındadır.
+- `M` month, `m` minute, `s` second, `S` fraction-of-second anlamındadır.
+  Kaynak Tablo 11.6'daki büyük `S` hatası ana notta editör notuyla düzeltilmiştir.
+  `0` required digit, `#` optional digit anlamındadır.
+- `NumberFormat` bir abstract class'tır; kaynak metindeki “interface” ifadesi
+  doğru değildir. `Number`, `Boolean` ve `Character` wrapper türlerinin üst sınıfı değildir.
 - Formatter'ın istediği field temporal object'ta yoksa kod derlenebilir fakat
   runtime `DateTimeException` oluşur.
 - Explicit locale verilen formatter default locale category'lerinden bağımsızdır.

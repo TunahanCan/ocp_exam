@@ -147,7 +147,9 @@ public record Range(int min, int max) {
 }
 ```
 
-- Canonical constructor bütün components'ı exact declaration order/type ile alır.
+- Explicit canonical constructor'ın parameter adları, türleri ve sırası record
+  component'leriyle eşleşmelidir. Access düzeyi record'dan daha dar olamaz;
+  `public record` için canonical constructor da `public` olmalıdır.
 - Compact constructor parentheses yazmaz; implicit field assignments body'den
   sonra yapılır.
 - Compact body'de parameter yeniden atanabilir; `this.component` field'ına

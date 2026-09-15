@@ -20,7 +20,7 @@ olarak toplar.
 - **Türkçe:** değiştirmek
 - **Java bağlamı:** Exception'ın normal program flow'unu değiştirmesi.
 - **Example:** “An exception alters the normal program flow.”
-- **Çeviri:** “Bir istisna, programın normal akışını değiştirir.”
+- **Çeviri:** “Bir exception, programın normal akışını değiştirir.”
 - **Related:** alteration; synonym: change
 
 ### anticipate · verb
@@ -50,6 +50,14 @@ olarak toplar.
 - **Related:** candidacy; candidate for; candidate bir garanti değil, değerlendirme adayıdır.
 - **Kaynak bağlamı:** [exam essentials](bilingual_notes.md#exam-essentials)
 
+### cast · noun / verb
+
+- **Türkçe:** tür dönüşümü; bir türe dönüştürmek
+- **Java bağlamı:** Referansın başka bir tür olarak kullanılmasını istemek; nesnenin gerçek türünü değiştirmez. Türkçe teknik anlatımda `cast etmek` korunur.
+- **Example · özgün:** “The cast compiles but fails at runtime.”
+- **Çeviri:** “Cast işlemi derlenir, ancak çalışma zamanında başarısız olur.”
+- **Related:** casting, type cast; `ClassCastException`
+
 ### catch · verb / noun
 
 - **Türkçe:** yakalamak; yakalama block'u
@@ -69,7 +77,7 @@ olarak toplar.
 
 ### checked exception · noun phrase
 
-- **Türkçe:** kontrollü istisna
+- **Türkçe:** derleyicinin ele alma veya bildirme zorunluluğu uyguladığı exception
 - **Java bağlamı:** Compiler'ın handle or declare rule uyguladığı exception
   type'ı.
 - **Example:** “An `IOException` is a checked exception.”
@@ -84,7 +92,7 @@ olarak toplar.
 - **Java bağlamı:** Method signature'da `throws` ile exception olasılığını
   belirtmek.
 - **Example:** “The method declares that it may throw an exception.”
-- **Çeviri:** “Metot, bir istisna fırlatabileceğini bildirir.”
+- **Çeviri:** “Metot, bir exception fırlatabileceğini bildirir.”
 - **Related:** declaration, declarative
 
 ### default · adjective / noun
@@ -109,7 +117,7 @@ olarak toplar.
 - **Türkçe:** istisna, program akışını bozan olay
 - **Java bağlamı:** `Throwable` hierarchy'sindeki failure object'i.
 - **Example:** “The exception carries a message and a stack trace.”
-- **Çeviri:** “İstisna, bir mesaj ve çağrı yığını izi taşır.”
+- **Çeviri:** “Exception, bir mesaj ve çağrı yığını izi taşır.”
 - **Related:** exceptional, except; throw/catch
 
 ### explicit · adjective
@@ -143,8 +151,16 @@ olarak toplar.
 - **Türkçe:** ele almak, işlemek
 - **Java bağlamı:** Exception'ı compatible `catch` block içinde çözmek.
 - **Example:** “The caller handles the exception.”
-- **Çeviri:** “Çağıran kod, istisnayı ele alır.”
+- **Çeviri:** “Çağıran kod, exception’ı ele alır.”
 - **Related:** handler, handling; contrast: declare
+
+### happy path · noun phrase
+
+- **Türkçe:** her şeyin beklendiği gibi ilerlediği senaryo
+- **Java bağlamı:** Exception oluşmadan tamamlanan olağan işlem akışı; “mutlu yol” diye kelimesi kelimesine çevrilmez.
+- **Example · özgün:** “The happy path completes without an exception.”
+- **Çeviri:** “Happy path, exception oluşmadan tamamlanır.”
+- **Related:** success scenario; contrast: failure scenario
 
 ### hierarchy · noun
 
@@ -192,13 +208,21 @@ olarak toplar.
 - **Çeviri:** “Yerelleştirilmiş sayı metnini kullanmadan önce çözümleyin.”
 - **Related:** parser, parsing; contrast: format
 
+### permissible · adjective
+
+- **Türkçe:** izin verilen, yapılması mümkün olan
+- **Java bağlamı:** `It is permissible to handle or declare an unchecked exception` ifadesi, bu işlemin yasak olmadığını belirtir.
+- **Example · özgün:** “It is permissible to declare an unchecked exception.”
+- **Çeviri:** “Unchecked exception’ı bildirmek mümkündür.”
+- **Related:** permit, permission; synonym: allowed; antonym: forbidden
+
 ### primary exception · noun phrase
 
 - **Türkçe:** birincil exception
 - **Java bağlamı:** TWR'da dışarı taşınan asıl exception; close failure'ları
   suppressed olabilir.
 - **Example:** “The exception from the try body remains primary.”
-- **Çeviri:** “`try` gövdesinden gelen istisna birincil olarak kalır.”
+- **Çeviri:** “`try` gövdesinden gelen exception birincil olarak kalır.”
 - **Related:** suppressed exception
 
 ### propagate · verb
@@ -261,7 +285,7 @@ olarak toplar.
 - **Java bağlamı:** TWR close exception'ını primary exception üzerinde
   saklamak.
 - **Example:** “Java suppresses the exception thrown during close.”
-- **Çeviri:** “Java, kapanış sırasında fırlatılan istisnayı ikincil olarak saklar.”
+- **Çeviri:** “Java, kapanış sırasında fırlatılan exception’ı ikincil olarak saklar.”
 - **Related:** suppression, suppressed exception
 
 ## T–Z
@@ -285,7 +309,7 @@ olarak toplar.
 
 ### unchecked exception · noun phrase
 
-- **Türkçe:** kontrolsüz istisna
+- **Türkçe:** ele alma veya bildirme zorunluluğu olmayan exception
 - **Java bağlamı:** `RuntimeException` veya `Error` kolunda olup compiler'ın
   handle/declare zorunluluğu getirmediği type.
 - **Example:** “A `NullPointerException` is unchecked.”
@@ -306,14 +330,14 @@ olarak toplar.
 - **Türkçe:** sarmalamak
 - **Java bağlamı:** Bir exception'ı başka exception'ın cause'u olarak taşımak.
 - **Example:** “Wrap the original exception without losing its cause.”
-- **Çeviri:** “Özgün istisnayı neden bilgisini kaybetmeden başka bir istisnayla sarmalayın.”
+- **Çeviri:** “Özgün exception’ı neden bilgisini kaybetmeden başka bir exception’la sarmalayın.”
 - **Related:** wrapper, cause chain
 
 ## Karıştırılan anlamları ayır
 
-**declare / throw / handle:** `declare` olasılığı imzada bildirir; `throw` gerçekten fırlatır; `handle` yakalayıp ele alır. `throws` yazmak istisna fırlatmaz.
+**declare / throw / handle:** `declare` olasılığı imzada bildirir; `throw` gerçekten fırlatır; `handle` yakalayıp ele alır. `throws` yazmak exception fırlatmaz.
 
-`parse` metinden değere; `format` değerden metne gider. `suppress`, bilgiyi silmek değildir; `getSuppressed()` ile saklanan istisnaya erişilebilir.
+`parse` metinden değere; `format` değerden metne gider. `suppress`, bilgiyi silmek değildir; `getSuppressed()` ile saklanan exception’a erişilebilir.
 
 ## Kapalı kitap hatırlama · 5 dakika
 

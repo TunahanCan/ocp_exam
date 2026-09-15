@@ -222,13 +222,13 @@ person + who + verb ...
 
 ### Kaynak bağlamlı örnek
 
-**EN:** A constructor is a special declaration that creates a new object.\
-**TR:** Constructor, yeni bir nesne oluşturan özel bir bildirimdir.
+**EN:** A constructor is a special declaration that initializes a new object.\
+**TR:** Constructor, yeni bir nesneyi initialize eden özel bir bildirimdir.
 
 **EN:** The directory contains JAR files that are required at runtime.\
 **TR:** Dizin, çalışma zamanında gerekli olan JAR dosyalarını içerir.
 
-> **YDS tip:** `that creates ...` bölümü doğrudan önceki `declaration` adını
+> **YDS tip:** `that initializes ...` bölümü doğrudan önceki `declaration` adını
 > niteler. Çeviriye ana cümleden başlayıp relative clause'u ada bağlamak yapıyı
 > çözmeyi kolaylaştırır.
 
@@ -270,9 +270,9 @@ main clause + before/after/once + subject + verb
 
 ### Kaynak bağlamlı örnek
 
-**EN:** The constructor runs after all fields and initializer blocks have run.\
-**TR:** Constructor, tüm field ve initializer block'ları çalıştıktan sonra
-çalışır.
+**EN:** The rest of the constructor body runs after its class's instance field initializers and instance initializer blocks.\
+**TR:** Constructor gövdesinin geri kalanı, kendi class'ının instance field
+initializer'ları ve instance initializer block'ları çalıştıktan sonra yürütülür.
 
 **EN:** Once initialization is complete, execution returns to `main()`.\
 **TR:** Initialization tamamlandığında yürütme `main()` method'una döner.

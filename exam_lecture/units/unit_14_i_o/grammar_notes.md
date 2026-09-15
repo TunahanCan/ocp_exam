@@ -23,8 +23,7 @@ Bir action'ın amacını veya ortaya çıkardığı sonucu açıklar.
 > **English:** “Applications save data so that information is not lost when
 > the program terminates.”
 >
-> **Türkçe:** “Application'lar, program sona erdiğinde information
-> kaybolmasın diye data'yı kaydeder.”
+> **Türkçe:** “Uygulamalar, program sona erdiğinde bilgi kaybolmasın diye verileri kaydeder.”
 
 YDS ipucu: `so that + can/could/may/might` çoğunlukla amaç; bağlama göre
 sonuç da bildirebilir. `so + adjective + that` ile karıştırma.
@@ -42,7 +41,7 @@ Her tekrarlandığında aynı action/result'ın gerçekleştiğini bildirir.
 > **English:** “The program writes its state every time the application is
 > closed.”
 >
-> **Türkçe:** “Program, application her kapatıldığında state'ini yazar.”
+> **Türkçe:** “Program, uygulama her kapatıldığında durumunu kaydeder.”
 
 `every time` burada conjunction gibi clause başlatır; ardından ayrıca `when`
 getirilmez.
@@ -244,7 +243,7 @@ Bir sonucun hangi yöntemle elde edildiğini açıklar.
 
 > **English:** “The code improves performance by buffering the output.”
 >
-> **Türkçe:** “Kod, output'u buffer'layarak performance'ı iyileştirir.”
+> **Türkçe:** “Kod, çıktıyı buffer’da biriktirerek performansı artırır.”
 
 YDS sorusunda `by` çoğunlukla “-erek/-arak, yoluyla”; `because of` ise neden
 bildirir.
@@ -343,7 +342,7 @@ bildirir.
 > **English:** “Once the stream is closed, further writes may throw an
 > exception.”
 >
-> **Türkçe:** “Akış kapatıldıktan sonra yapılacak yazma işlemleri bir istisna fırlatabilir.”
+> **Türkçe:** “Stream kapatıldıktan sonraki yazma işlemleri exception fırlatabilir.”
 
 `once` burada “bir kez” sayısı değil temporal conjunction'dır.
 
@@ -399,7 +398,7 @@ X, as opposed to Y
 
 > **English:** “A character stream processes text, as opposed to raw bytes.”
 >
-> **Türkçe:** “Karakter akışı, ham baytların aksine metin işler.”
+> **Türkçe:** “Character stream, ham byte verisi yerine metin işler.”
 
 Yakın anlam: `in contrast to`, `rather than`. `opposed` sonrasında `to`
 preposition'dır.
@@ -434,11 +433,12 @@ noun + V3           ← noun that is/was V3
 > **English:** “A process monitoring the file system does not see an
 > incomplete atomic move.”
 >
-> **Türkçe:** “File system'i izleyen process incomplete atomic move görmez.”
+> **Türkçe:** “Dosya sistemini izleyen bir process, atomic move işlemini kısmen tamamlanmış hâliyle
+> görmez.”
 
 > **English:** “The path returned by the method is absolute.”
 >
-> **Türkçe:** “Method tarafından döndürülen path absolute'tur.”
+> **Türkçe:** “Metodun döndürdüğü path mutlak bir yoldur.”
 
 `monitoring` active; `returned` passive anlam taşır.
 
@@ -461,7 +461,7 @@ Ana iddiaya ek bilgi verir; comma ile ayrılır.
 
 > **English:** “Files.lines() returns a stream, which must be closed.”
 >
-> **Türkçe:** “`Files.lines()`, kapatılması gereken bir akış döndürür.”
+> **Türkçe:** “Files.lines(), kapatılması gereken bir stream döndürür.”
 
 `which` bütün önceki clause'a da gönderme yapabilir. Defining clause'da comma
 yoktur ve hangi öğeden söz edildiğini sınırlar.
@@ -479,7 +479,7 @@ Technical metinde koşula bağlı possibility veya consequence bildirir.
 > **English:** “If the provider does not support atomic moves, the call may
 > throw an exception.”
 >
-> **Türkçe:** “Sağlayıcı atomik taşıma işlemlerini desteklemiyorsa çağrı bir istisna fırlatabilir.”
+> **Türkçe:** “Sağlayıcı atomik taşıma işlemlerini desteklemiyorsa çağrı bir exception fırlatabilir.”
 
 `may`, garantiyi değil olasılığı gösterir. OCP sorularında `may`, `must` ve
 `will` ayrımı sonucu tamamen değiştirebilir.

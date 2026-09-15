@@ -87,6 +87,10 @@ Bu belge, yüklenen OCP Java SE 17 kaynağındaki bölüm metnini kaynak sıras�
 >
 > **Türkçe:** Bölüm 1, “Building Blocks”tan hatırlayabileceğiniz gibi Java statement, noktalı virgülle (`;`) sonlanan eksiksiz bir yürütme birimidir. Bu bölümde çeşitli Java control-flow statement’larını tanıtıyoruz. Control-flow statement’ları decision-making, looping ve branching kullanarak yürütme akışını böler; böylece uygulama belirli kod bölümlerini seçerek çalıştırabilir.
 
+> **Editör notu · Statement tanımı:** Kaynağın noktalı virgül genellemesi bütün
+> statement'lar için geçerli değildir. Expression statement `;` ile biter;
+> `if`, `while` veya bir block gibi yapılar aynı biçimde sonlanmak zorunda değildir.
+
 > **English:** These statements can be applied to single expressions as well as a block of Java code.
 >
 > **Türkçe:** Bu statement’lar tek bir expression’a veya bir Java kod block’una uygulanabilir.
@@ -296,7 +300,7 @@ System.out.println("Good Evening");
 
 ### Verifying That the if Statement Evaluates to a Boolean Expression
 
-> **Türkçe başlık:** `if` Statement’ının Boolean Expression Ürettiğini Doğrulama
+> **Türkçe başlık:** `if` Koşulunun Boolean Expression Olduğunu Doğrulama
 
 > **English:** Another common way the exam may try to lead you astray is by providing code where the boolean expression inside the if statement is not actually a boolean expression. For example, take a look at the following lines of code:
 >
@@ -315,7 +319,7 @@ if(hourOfDay) { // DOES NOT COMPILE
 
 ### Shortening Code with Pattern Matching
 
-> **Türkçe başlık:** pattern matching ile Kodu Kısaltma
+> **Türkçe başlık:** Pattern Matching ile Kodu Kısaltma
 
 > **English:** Java 16 officially introduced pattern matching with if statements and the instanceof operator.
 >
@@ -753,7 +757,7 @@ break;
 
 > **English:** For simplicity, we just print a message if the value is invalid. If you know about exceptions or have already read Chapter 11, “Exceptions and Localization,” it might make more sense to throw an exception in the default branch if no match is found.
 >
-> **Türkçe:** Basitlik açısından, değer geçersizse bir mesaj yazdırırız. İstisnalar hakkında bilginiz varsa veya Bölüm 11, "İstisnalar ve Yerelleştirme"yi zaten okuduysanız, eşleşme bulunmazsa default dalına bir istisna atmak daha mantıklı olabilir.
+> **Türkçe:** Örneği basit tutmak için geçersiz değerde bir mesaj yazdırıyoruz. Exception konusunu biliyorsanız veya Chapter 11, “Exceptions and Localization” bölümünü okuduysanız eşleşme bulunmadığında `default` dalında bir exception fırlatmanın daha uygun olabileceğini görebilirsiniz.
 
 ### Exiting with break Statements
 
@@ -1095,7 +1099,7 @@ case 50 -> null; // DOES NOT COMPILE
 
 > **English:** Applying a case Block A switch expression supports both an expression and a block in the case and default branches. Like a regular block, a case block is one that is surrounded by braces ({}). It also includes a yield statement if the switch expression returns a value. For example, the following uses a mix of case expressions and blocks:
 >
-> **Türkçe:** Bir case Bloğu uygulama `switch` expression'ı, case ve default dallarındaki hem bir ifadeyi hem de bir bloğu destekler. Normal bir blok gibi, case bloğu da parantezlerle ({}) çevrelenen bir bloktur. Ayrıca, `switch` expression'ı bir değer döndürüyorsa, bir yield ifadesini de içerir. Örneğin, aşağıdakiler `case` ifadeleri ve bloklarının bir karışımını kullanır:
+> **Türkçe:** Bir case block uygulama: `switch` expression'ın `case` ve `default` dallarında expression veya block kullanılabilir. Case block, süslü parantezlerle (`{}`) çevrilir ve sonuç üretmek için `yield` kullanır. Aşağıdaki örnek `case` expression'larını ve block'larını birlikte kullanır:
 
 <!-- source-page: 0119 -->
 <!-- retained-source-lines: 36; removed-running-header-lines: 1; sha256: 419dc81674d995a6 -->
@@ -1157,14 +1161,13 @@ case 1 -> "Goldfish" // DOES NOT COMPILE (missing semicolon)
 
 ```java
 case 2 -> {yield "Trout";}; // DOES NOT COMPILE (extra semicolon)
+// ...
+} // DOES NOT COMPILE (missing semicolon)
 ```
 
-> **English:** `}` // DOES NOT COMPILE (missing semicolon) A bit confusing,
-> right? It’s just one of those things you have to train yourself to spot on
-> the exam.
+> **English:** A bit confusing, right? It’s just one of those things you have to train yourself to spot on the exam.
 >
-> **Türkçe:** `}` // DOES NOT COMPILE (semicolon eksik) Biraz kafa karıştırıcı,
-> değil mi? Bu, sınavda görmeye alışmanız gereken ayrıntılardan biridir.
+> **Türkçe:** Biraz kafa karıştırıcı, değil mi? Bu, sınavda fark etmeye alışmanız gereken ayrıntılardan biridir.
 
 ### Covering All Possible Values
 
@@ -1654,7 +1657,7 @@ System.out.print(x + " ");
 
 > **English:** Note that this variation will now compile because the initialization block simply assigns a value to x and does not declare it.
 >
-> **Türkçe:** Başlatma bloğunun x'e basitçe bir değer ataması ve bunu bildirmemesi nedeniyle bu varyasyonun şimdi derleneceğini unutmayın.
+> **Türkçe:** Bu sürüm derlenir; initialization bölümü `x` variable'ını yeniden declare etmek yerine mevcut `x`e değer atar.
 
 ### Using Incompatible Data Types in the Initialization Block
 
@@ -1879,9 +1882,13 @@ System.out.print(hungryHippopotamus+", ");
 >
 > **Türkçe:** Outer loop'un ikinci iteration'ında `hungryHippopotamus` zaten `5`ten büyük olmasa bile inner `do/while` bir kez çalışır. `do/while` statement body'yi her zaman en az bir kez çalıştırır. Böylece değer önce `1`e, ardından outer loop'taki decrement operator ile `0`a düşer. Değer `0` olduğunda outer loop sona erer ve kod şu output'u üretir:
 
-> **English:** 3, 0, The examples in the rest of this section include many nested loops. You will also encounter nested loops on the exam, so the more practice you have with them, the more prepared you will be.
+```text
+3, 0,
+```
+
+> **English:** The examples in the rest of this section include many nested loops. You will also encounter nested loops on the exam, so the more practice you have with them, the more prepared you will be.
 >
-> **Türkçe:** `3, 0,` Bu bölümün geri kalanındaki örnekler çok sayıda nested loop içerir. Sınavda da nested loop'larla karşılaşacağınız için ne kadar çok pratik yaparsanız o kadar hazırlıklı olursunuz.
+> **Türkçe:** Bu bölümün geri kalanındaki örnekler çok sayıda nested loop içerir. Sınavda da nested loop'larla karşılaşacağınız için ne kadar çok pratik yaparsanız o kadar hazırlıklı olursunuz.
 
 ### Adding Optional Labels
 
@@ -1893,17 +1900,11 @@ System.out.print(hungryHippopotamus+", ");
 
 ```java
 int[][] myComplexArray = {{5,2,1,3},{3,9,8,9},{5,7,12,7}};
-```
-
-> **English:** OUTER_LOOP: for(int[] mySimpleArray : myComplexArray) {
->
-> **Türkçe:** OUTER_LOOP: for(int[] mySimpleArray : myComplexArray) {
-
-```java
-INNER_LOOP: for(int i=0; i<mySimpleArray.length; i++) {
-System.out.print(mySimpleArray[i]+"\t");
-}
-System.out.println();
+OUTER_LOOP: for(int[] mySimpleArray : myComplexArray) {
+    INNER_LOOP: for(int i=0; i<mySimpleArray.length; i++) {
+        System.out.print(mySimpleArray[i]+"\t");
+    }
+    System.out.println();
 }
 ```
 
@@ -1921,19 +1922,10 @@ System.out.println();
 
 ```java
 int frog = 15;
-```
-
-> **English:** BAD_IDEA: if(frog>10)
->
-> **Türkçe:** BAD_IDEA: if(frog>10)
-
-### EVEN_WORSE_IDEA: {
-
-> **Türkçe başlık:** EVEN_WORSE_IDEA: {
-
-```java
-frog++;
-}
+BAD_IDEA: if(frog>10)
+    EVEN_WORSE_IDEA: {
+        frog++;
+    }
 ```
 
 <!-- source-page: 0133 -->
@@ -1951,14 +1943,15 @@ frog++;
 
 > **Türkçe başlık:** ŞEKİL 3.9 Bir `break` statement'ının yapısı
 
-> **English:** Optional reference to head of loop Colon (required if optionalLabel is present) optionalLabel: while(booleanExpression) {
+> **English:** Optional reference to head of loop · Colon (required if optionalLabel is present)
 >
-> **Türkçe:** Loop başına isteğe bağlı reference · `optionalLabel` varsa iki nokta zorunludur · `optionalLabel: while(booleanExpression) {`
+> **Türkçe:** Loop başına isteğe bağlı label · `optionalLabel` varsa iki nokta zorunludur
 
 ```java
-// Body
-// Somewhere in the loop
-break optionalLabel;
+optionalLabel: while(booleanExpression) {
+    // Body
+    // Somewhere in the loop
+    break optionalLabel;
 }
 ```
 
@@ -2060,14 +2053,15 @@ positionY = j;
 
 > **Türkçe başlık:** ŞEKİL 3.10 Bir `continue` statement'ının yapısı
 
-> **English:** Optional reference to head of loop Colon (required if optionalLabel is present) optionalLabel: while(booleanExpression) {
+> **English:** Optional reference to head of loop · Colon (required if optionalLabel is present)
 >
-> **Türkçe:** Loop başına isteğe bağlı reference · `optionalLabel` varsa iki nokta zorunludur · `optionalLabel: while(booleanExpression) {`
+> **Türkçe:** Loop başına isteğe bağlı label · `optionalLabel` varsa iki nokta zorunludur
 
 ```java
-// Body
-// Somewhere in the loop
-continue optionalLabel;
+optionalLabel: while(booleanExpression) {
+    // Body
+    // Somewhere in the loop
+    continue optionalLabel;
 }
 ```
 
@@ -2078,6 +2072,10 @@ continue optionalLabel;
 > **English:** While the break statement transfers control to the enclosing statement, the continue statement transfers control to the boolean expression that determines if the loop should continue.
 >
 > **Türkçe:** `break` statement'ı kontrolü enclosing statement'ın dışına aktarırken `continue` statement'ı, loop'un devam edip etmeyeceğini belirleyen boolean expression'a aktarır.
+
+> **OCP teknik notu:** Bu açıklama şekildeki `while` için geçerlidir. Basic
+> `for` loop'unda `continue`, önce update bölümüne, ardından condition'a gider.
+> `do/while` içinde condition'a geçilir.
 
 > **English:** In other words, it ends the current iteration of the loop. Also, like the break statement, the continue statement is applied to the nearest inner loop under execution, using optional label statements to override this behavior.
 >

@@ -223,7 +223,7 @@ değerlendirilmesidir.
 
 ### 8. B
 
-Varargs bildirimi ilk aşamada int[] parametreli metot olarak da değerlendirilir. Null her iki reference türe uyarken int[], Object türünden daha özeldir; A seçilir. Gövde array nesnesini okumadığı için D yoktur; C, unrelated reference overload durumundaki ambiguity ile karıştırır.
+Varargs bildirimi ilk aşamada int[] parametreli metot olarak da değerlendirilir. `null` her iki reference type'a da uyarken `int[]`, `Object`ten daha özeldir; varargs bildirimi seçilir ve `A` yazdırılır (doğru seçenek B). Gövde array nesnesini okumadığı için D yoktur; C, unrelated reference overload durumundaki ambiguity ile karıştırır.
 
 ## Sonraki çalışma adımı
 

@@ -3875,6 +3875,8 @@ class ShippableCrate implements Shippable {
 > `List<Integer>` ile `List<String>` Java'ya aynı göründüğünden buna izin
 > verilmez.
 
+> **Editör notu · Java 17:** Bu yasak, `Object` gibi bir referanstan `List<String>` türünü unchecked conversion gerektirecek biçimde test etmeye yöneliktir. Java 16+ bazı parameterized type kontrollerine izin verir: `List<String>` türündeki `names` için `names instanceof ArrayList<String>` derlenir. Öğelerin `String` olup olmadığı runtime'da tek tek test edilmez. [Derlenen/derlenmeyen karşılaştırma](technical_memory_notes.md#java-17-sınırı-her-parameterized-instanceof-yasak-değildir) · [reifiable sözlük maddesi](vocabulary.md#reifiable--adjective).
+
 > **English:** Use a primitive type as a generic type parameter: This isn’t a
 > big deal because you can use the wrapper class instead. If you want a type of
 > `int`, just use `Integer`.

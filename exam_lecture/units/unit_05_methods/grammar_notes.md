@@ -42,8 +42,8 @@ Teknik olasılıkta `if + present passive`, sonuç clause'uyla kullanılır.
 
 ## 4. `provided that`
 
-**EN:** A variable is effectively final, provided that it is not reassigned.
-**TR:** Yeniden atanmadığı sürece variable effectively final'dır.
+**EN:** An initialized local variable is effectively final, provided that it is never reassigned, incremented, or decremented.
+**TR:** Initialize edilmiş bir local variable, yeniden atanmadığı ve increment/decrement işlemine uğramadığı sürece effectively final'dır.
 
 Koşul formülü: `main clause + provided (that) + clause`.
 
@@ -150,8 +150,8 @@ clause içinde genellikle present tense kullanılır.
 
 ## 17. `unless + passive clause`
 
-**EN:** A class method needs a body unless it is declared `abstract` or `native`.
-**TR:** Bir sınıf metodu, `abstract` veya `native` bildirilmedikçe gövdeye sahip olmalıdır.
+**EN:** A method declared in a class needs a body unless it is declared `abstract` or `native`.
+**TR:** Bir class içinde bildirilen method, `abstract` veya `native` bildirilmedikçe gövdeye sahip olmalıdır.
 
 Kaynak örneğinin eksik genellemesi burada `native` istisnasıyla tamamlandı.
 `abstract` ve `native` metot bildirimleri gövde yerine `;` ile biter.
@@ -197,8 +197,8 @@ kaynak bağlamına dayanır; gerektiğinde öğretim amacıyla sadeleştirilmiş
 | Cevap |
 |---|
 | 1. *The static method is called as if it were an instance method.* |
-| 2. *A local variable is effectively final, provided that it is not reassigned.* |
+| 2. *An initialized local variable is effectively final, provided that it is never reassigned, incremented, or decremented.* |
 | 3. *The static call succeeds even though the reference is null.* |
 | 4. *A method can have at most one varargs parameter.* |
-| 5. *A class method needs a body unless it is declared abstract or native.* |
+| 5. *A method declared in a class needs a body unless it is declared abstract or native.* |
 | 6. *The parameters are separated by a semicolon rather than a comma.* |

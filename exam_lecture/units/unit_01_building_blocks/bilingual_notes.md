@@ -63,7 +63,7 @@ dosyalarını kullan.
 
 > **English:** [x] Use primitives and wrapper classes including Math API, parentheses, type promotion, and casting to evaluate arithmetic and boolean expressions
 
-> **Türkçe:** [x] Aritmetik ve boolean ifadeleri değerlendirmek için Math API, parantezler, type promotion ve casting dahil temel öğeleri ve wrapper class'ları kullanın
+> **Türkçe:** [x] Aritmetik ve boolean ifadeleri değerlendirmek için Math API, parantezler, type promotion ve casting dahil primitive type'ları ve wrapper class'ları kullanın
 
 ### [x] Utilizing Java Object-Oriented Approach
 
@@ -91,11 +91,11 @@ dosyalarını kullan.
 
 ### Learning about the Environment
 
-> **Türkçe başlık:** Çevreyi Öğrenmek
+> **Türkçe başlık:** Java Geliştirme Ortamını Tanıma
 
 > **English:** The Java environment consists of understanding a number of technologies. In the following sections, we go over the key terms and acronyms you need to know and then discuss what software you need to study for the exam.
 
-> **Türkçe:** Java ortamı bir dizi teknolojinin anlaşılmasından oluşur. Aşağıdaki bölümlerde bilmeniz gereken temel terimleri ve kısaltmaları gözden geçireceğiz ve ardından sınav için hangi yazılımları incelemeniz gerektiğini tartışacağız.
+> **Türkçe:** Java geliştirme ortamını anlamak için birkaç teknolojiyi tanımak gerekir. Aşağıdaki bölümlerde temel terimleri ve kısaltmaları gözden geçirecek, ardından sınava çalışmak için hangi yazılımlara ihtiyaç duyduğunuzu ele alacağız.
 
 ### Major Components of Java
 
@@ -107,19 +107,19 @@ dosyalarını kullan.
 
 > **English:** - javac: Converts .java source files into .class bytecode
 
-> **Türkçe:** - `javac`: `.java` source file'larını `.class` bytecode'a dönüştürür.
+> **Türkçe:** - `javac`: `.java` kaynak dosyalarını `.class` bytecode dosyalarına dönüştürür.
 
 > **English:** - java: Executes the program
 
-> **Türkçe:** - `java`: Programı execute eder.
+> **Türkçe:** - `java`: Programı çalıştırır.
 
 > **English:** - jar: Packages files together
 
-> **Türkçe:** - `jar`: File'ları birlikte package'lar.
+> **Türkçe:** - `jar`: Dosyaları tek bir arşivde paketler.
 
 > **English:** - javadoc: Generates documentation
 
-> **Türkçe:** - `javadoc`: Documentation üretir.
+> **Türkçe:** - `javadoc`: Dokümantasyon üretir.
 
 > **English:** The javac program generates instructions in a special format called bytecode that the java command can run. Then java launches the Java Virtual Machine (JVM) before
 
@@ -192,7 +192,7 @@ java -version
 
 ### Understanding the Class Structure
 
-> **Türkçe başlık:** class Yapısını Anlamak
+> **Türkçe başlık:** Class Yapısını Anlamak
 
 > **English:** In Java programs, classes are the basic building blocks. When defining a class, you describe all the parts and characteristics of one of those building blocks. In later chapters, you see other building blocks such as interfaces, records, and enums.
 
@@ -1241,7 +1241,7 @@ jar -cvf myNewFile.jar -C dir .
 
 ### Ordering Elements in a Class
 
-> **Türkçe başlık:** Bir Class İçindeki Element'leri Sıralama
+> **Türkçe başlık:** Bir Class İçindeki Öğelerin Sırası
 
 > **English:** Now that you’ve seen the most common parts of a class, let’s take a look at the correct order to type them into a file. Comments can go anywhere in the code. Beyond that, you need to memorize the rules in Table 1.5.
 
@@ -1809,7 +1809,7 @@ greeting = new String("How are you?");
 
 ### Distinguishing between Primitives and Reference Types
 
-> **Türkçe başlık:** İlkelleri ve Referans Türlerini Ayırmak
+> **Türkçe başlık:** Primitive ve Reference Type Ayrımı
 
 > **English:** There are a few important differences you should know between primitives and reference types. First, notice that all the primitive types have lowercase type names. All classes that come with Java begin with uppercase. Although not required, it is a standard practice, and you should follow this convention for classes you create as well.
 
@@ -1954,7 +1954,7 @@ String eyeTest = "\"Java Study Guide\"\n by Scott & Jeanne";
 
 > **English:** While this does work, it is hard to read. Luckily, Java has text blocks, also known as multiline strings. See Figure 1.3 for the text block equivalent.
 
-> **Türkçe:** Bu işe yarasa da okunması zordur. Neyse ki Java'da çok satırlı dizeler olarak da bilinen metin blokları vardır. Metin bloğu eşdeğeri için Şekil 1.3'e bakınız.
+> **Türkçe:** Bu kod çalışır, ancak okunması zordur. Java, çok satırlı String yazmayı kolaylaştıran text block yapısını sunar. Aynı metnin text block ile yazılışı Şekil 1.3'te gösterilir.
 
 > **English figure caption:** FIGURE 1.3 Text block
 
@@ -2109,7 +2109,7 @@ String zooName = "The Best Zoo";
 
 ### Identifying Identifiers
 
-> **Türkçe başlık:** Tanımlayıcıları Tanımlama
+> **Türkçe başlık:** Identifier Tanımlama
 
 > **English:** It probably comes as no surprise to you that Java has precise rules about identifier names.
 
@@ -2511,7 +2511,7 @@ findAnswer(value); // DOES NOT COMPILE
 
 ### Inferring the Type with var
 
-> **Türkçe başlık:** Var ile Tür Çıkarımı
+> **Türkçe başlık:** `var` ile Type Inference
 
 > **English:** You have the option of using the keyword var instead of the type when declaring local variables under certain conditions. To use this feature, you just type var instead of the primitive or reference type. Here’s an example:
 
@@ -2799,7 +2799,7 @@ int bitesOfCheese = 1;
 
 ### Tracing Scope
 
-> **Türkçe başlık:** İzleme Kapsamı
+> **Türkçe başlık:** Scope Takibi
 
 > **English:** The exam will attempt to trick you with various questions on scope. You’ll probably see a question that appears to be about something complex and fails to compile because one of the variables is out of scope.
 
@@ -2933,7 +2933,7 @@ int bitesOfCheese = 1;
 
 > **English:** Remember, your code isn’t the only process running in your Java program. Java code exists inside of a JVM, which includes numerous processes independent from your application code. One of the most important of those is a built-in garbage collector.
 
-> **Türkçe:** Java programınızda çalışan tek işlemin kodunuz olmadığını unutmayın. Java kodu, uygulama kodunuzdan bağımsız çok sayıda işlemi içeren JVM'nin içinde bulunur. Bunlardan en önemlilerinden biri yerleşik çöp toplayıcıdır.
+> **Türkçe:** Java programınızda çalışan tek işlemin kodunuz olmadığını unutmayın. Java kodu, uygulama kodunuzdan bağımsız çok sayıda işlemi içeren JVM'nin içinde bulunur. Bunlardan en önemlilerinden biri yerleşik garbage collector'dır.
 
 > **English:** All Java objects are stored in your program memory’s heap. The heap, which is also referred to as the free store, represents a large pool of unused memory allocated to your Java application. If your program keeps instantiating objects and leaving them on the heap, eventually it will run out of memory and crash. Oh, no! Luckily, garbage collection solves this problem. In the following sections, we look at garbage collection.
 
@@ -2941,7 +2941,7 @@ int bitesOfCheese = 1;
 
 ### Understanding Garbage Collection
 
-> **Türkçe başlık:** Çöp Toplama İşlemini Anlamak
+> **Türkçe başlık:** Garbage Collection'ı Anlamak
 
 > **English:** Garbage collection refers to the process of automatically freeing memory on the heap by deleting objects that are no longer reachable in your program. There are many different algorithms for garbage collection, but you don’t need to know any of them for the exam.
 
@@ -2949,7 +2949,7 @@ int bitesOfCheese = 1;
 
 > **English:** As a developer, the most interesting part of garbage collection is determining when the memory belonging to an object can be reclaimed. In Java and other languages, eligible for garbage collection refers to an object’s state of no longer being accessible in a program and therefore able to be garbage collected.
 
-> **Türkçe:** Bir geliştirici olarak garbage collection işleminin en ilginç kısmı, bir object'e ait belleğin ne zaman geri alınabileceğinin belirlenmesidir. Java ve diğer dillerde, çöp toplamaya uygun olma durumu, bir object'in artık bir programda erişilebilir olmaması ve dolayısıyla çöp toplanabilme durumu anlamına gelir.
+> **Türkçe:** Bir geliştirici için garbage collection'ın en önemli yönü, bir object'in belleğinin ne zaman geri kazanılabileceğini belirlemektir. Eligible for garbage collection, object'e programdan artık erişilemediğini ve bu nedenle belleğinin geri kazanılmaya uygun olduğunu anlatır.
 
 > **English:** Does this mean an object that’s eligible for garbage collection will be immediately garbage collected? Definitely not. When the object actually is discarded is not under your control, but for the exam, you will need to know at any given moment which objects are eligible for garbage collection.
 
@@ -2981,15 +2981,15 @@ System.gc();
 
 > **English:** Just like the post office, Java is free to ignore you. This method is not guaranteed to do anything.
 
-> **Türkçe:** Tıpkı postane gibi, Java da sizi görmezden gelmekte özgürdür. Bu method'un hiçbir şey yapacağı garanti edilmez.
+> **Türkçe:** Postane benzetmesinde olduğu gibi Java da bu isteği yerine getirmeyebilir. Bu method'un garbage collection gerçekleştireceği garanti edilmez.
 
 ### Tracing Eligibility
 
-> **Türkçe başlık:** Uygunluğun İzlenmesi
+> **Türkçe başlık:** Garbage Collection Uygunluğunu İzleme
 
 > **English:** How does the JVM know when an object is eligible for garbage collection? The JVM waits patiently and monitors each object until it determines that the code no longer needs that memory. An object will remain on the heap until it is no longer reachable. An object is no longer reachable when one of two situations occurs:
 
-> **Türkçe:** JVM bir object'in çöp toplamaya uygun olduğunu nasıl biliyor? JVM sabırla bekler ve kodun artık o belleğe ihtiyaç duymadığını belirleyene kadar her object'i izler. Bir object artık erişilemeyene kadar yığında kalacaktır. İki durumdan biri meydana geldiğinde bir object'e artık ulaşılamaz:
+> **Türkçe:** JVM bir object'in garbage collection'a uygun olduğunu nasıl belirler? Kodun artık o belleğe erişemediğini saptayana kadar object'i izler. Object, reachable olduğu sürece heap'te kalır. Kaynak, object'in unreachable olmasını iki basit durumla açıklar:
 
 > **English:** - The object no longer has any references pointing to it.
 
@@ -3036,7 +3036,7 @@ A reference name                    The heap
 
 > **English:** Look at this code and see whether you can figure out when each object first becomes eligible for garbage collection:
 
-> **Türkçe:** Bu koda bakın ve her object'in ilk kez ne zaman çöp toplamaya uygun hale geldiğini anlayıp çözemeyeceğinizi görün:
+> **Türkçe:** Kodu inceleyip her object'in ilk kez hangi satırda garbage collection'a uygun hâle geldiğini belirleyin:
 
 ```java
 1: public class Scope {
@@ -3076,7 +3076,7 @@ A reference name                    The heap
 
 > **English:** Now, we were trying to find out when the objects were first eligible for garbage collection.
 
-> **Türkçe:** Şimdi object'lerin çöp toplamaya ilk kez ne zaman uygun olduğunu bulmaya çalışıyorduk.
+> **Türkçe:** Amacımız, object'lerin ilk kez ne zaman garbage collection'a uygun hâle geldiğini bulmaktı.
 
 > **English:** On line 6, we got rid of the only arrow pointing to "a", making that object eligible for garbage collection. "b" has arrows pointing to it until it goes out of scope. This means "b" doesn’t go out of scope until the end of the method on line 9.
 
@@ -3100,7 +3100,7 @@ A reference name                    The heap
 
 > **English:** Not all questions will include package declarations and imports. Don’t worry about missing package statements or imports unless you are asked about them. The following are common cases where you don’t need to check the imports:
 
-> **Türkçe:** Tüm sorular package bildirimlerini ve içe aktarmaları içermeyecektir. Size sorulmadıkça eksik package bildirimleri veya içe aktarmalar konusunda endişelenmeyin. Aşağıdakiler, içe aktarmaları kontrol etmenize gerek olmayan yaygın durumlardır:
+> **Türkçe:** Her soruda package ve import bildirimleri gösterilmez. Soru özellikle bu bildirimleri ölçmüyorsa eksik olduklarını varsayarak kodu derlenmez saymayın. Import kontrolünün genellikle gerekmediği durumlar şunlardır:
 
 > **English:** - Code that begins with a class name
 

@@ -43,8 +43,8 @@ English → Türkçe paragraf çiftleriyle bir araya getirir. Kod ve terminal
 > **English:** Handle exceptions using try/catch/finally, try-with-resources, and multi-catch blocks,
 > including custom exceptions.
 >
-> **Türkçe:** Özel istisnalar da dahil olmak üzere try/catch/finally, try-with-resources ve
-> multi-catch blocks kullanarak istisnaları ele alın.
+> **Türkçe:** Custom exception’lar dâhil olmak üzere exception’ları try/catch/finally,
+> try-with-resources ve multi-catch bloklarıyla ele alın.
 > **English:** Implement localization using locales, resource bundles, parse and format messages,
 > dates, times, and numbers including currency and percentage values.
 >
@@ -57,10 +57,10 @@ English → Türkçe paragraf çiftleriyle bir araya getirir. Kod ve terminal
 > middle of a sale? Finally, how do we build applications that can support multiple
 > languages or geographic regions?
 >
-> **Türkçe:** Bu bölüm değişime uyum sağlayan uygulamalar yaratmakla ilgilidir. Bir kullanıcı bir web
-> sayfasına geçersiz veri girerse ne olur? Ya bir veri tabanıyla olan bağlantımız bir
-> satışın ortasında düşerse? Son olarak, birden fazla dili veya coğrafi bölgeyi
-> destekleyebilecek uygulamaları nasıl inşa edeceğiz?
+> **Türkçe:** Bu bölüm, değişime uyum sağlayabilen uygulamalar geliştirmeyi ele alır. Kullanıcı bir
+> web sayfasına geçersiz veri girerse ne olur? Satış işlemi sırasında veritabanı
+> bağlantımız kesilirse ne yaparız? Birden fazla dili veya coğrafi bölgeyi destekleyen
+> uygulamaları nasıl geliştiririz?
 > **English:** In this chapter, we discuss these problems and solutions to them using exceptions,
 > formatting, and localization. One way to make sure your applications respond to change
 > is to build in support early on. For example, supporting localization doesn’t mean you
@@ -68,29 +68,29 @@ English → Türkçe paragraf çiftleriyle bir araya getirir. Kod ve terminal
 > can be more easily adapted in the future. By the end of this chapter, we hope we’ve
 > provided structure for designing applications that better adapt to change.
 >
-> **Türkçe:** Bu bölümde, bu sorunları ve çözümleri istisnalar, biçimlendirme ve yerelleştirme
-> kullanarak tartışıyoruz. Uygulamalarınızın değişime yanıt vermesini sağlamanın bir yolu,
-> erken destek oluşturmaktır. Örneğin, yerelleştirmeyi desteklemek, aslında hemen belirli
-> dilleri desteklemeniz gerektiği anlamına gelmez. Bu sadece uygulamanızın gelecekte daha
-> kolay uyarlanabileceği anlamına gelir. Bu bölümün sonunda, değişime daha iyi uyum
-> sağlayan uygulamalar tasarlamak için yapı sağladığımızı umuyoruz.
+> **Türkçe:** Bu bölümde bu sorunları ve çözümlerini exception handling, formatting ve localization
+> üzerinden inceliyoruz. Uygulamanızın değişime uyum sağlamasını kolaylaştırmak için
+> gerekli desteği tasarımın başında ekleyebilirsiniz. Örneğin localization desteği,
+> belirli dilleri hemen desteklemenizi gerektirmez; uygulamanızın ileride daha kolay
+> uyarlanabilmesini sağlar. Bölüm sonunda değişime daha iyi uyum sağlayan uygulamalar
+> tasarlamak için bir temel edinmiş olmanızı amaçlıyoruz.
 ## Understanding Exceptions
 > **English:** A program can fail for just about any reason. Here are just a few possibilities: • The
 > code tries to connect to a website, but the Internet connection is down. • You made a
 > coding mistake and tried to access an invalid index in an array. • One method calls
 > another with a value that the method doesn’t support.
 >
-> **Türkçe:** Bir program hemen hemen her nedenle başarısız olabilir. İşte sadece birkaç olasılık: Kod
-> bir web sitesine bağlanmaya çalışır, ancak İnternet bağlantısı kapalıdır. Kodlama hatası
-> yaptınız ve bir dizideki geçersiz bir indekse erişmeye çalıştınız. Bir yöntem, yöntemin
-> desteklemediği bir değerle diğerini çağırır.
+> **Türkçe:** Bir program pek çok nedenle başarısız olabilir. Örneğin kod bir web sitesine bağlanmaya
+> çalışırken internet bağlantısı kesilmiş olabilir; bir kodlama hatası nedeniyle dizide
+> geçersiz bir index’e erişebilirsiniz; bir metot, başka bir metoda desteklemediği bir
+> değer gönderebilir.
 > **English:** As you can see, some of these are coding mistakes. Others are completely beyond your
 > control. Your program can’t help it if the Internet connection goes down. What it can do
 > is deal with the situation.
 >
-> **Türkçe:** Gördüğünüz gibi bunlardan bazıları kodlama hatalarıdır. Diğerleri tamamen kontrolünüz
-> dışındadır. Programınız İnternet bağlantısı kesilirse yardımcı olamaz. Yapabileceği şey
-> durumla başa çıkmaktır.
+> **Türkçe:** Gördüğünüz gibi bunların bir kısmı kodlama hatasıdır; diğerleri tamamen kontrolünüz
+> dışındadır. Programınız internet bağlantısının kesilmesini önleyemez, ancak bu durumu
+> ele alabilir.
 ### The Role of Exceptions
 > **English:** An exception is Java’s way of saying, “I give up. I don’t know what to do right now. You
 > deal with it.” When you write a method, you can either deal with the exception or make
@@ -98,44 +98,44 @@ English → Türkçe paragraf çiftleriyle bir araya getirir. Kod ve terminal
 >
 > **Türkçe:** Bir exception, Java'nın “Pes ediyorum. Şu anda ne yapacağımı bilmiyorum; bununla sen
 > ilgilen.” deme biçimidir. Bir method yazdığınızda exception'ı kendiniz ele alabilir veya
-> sorumluluğu calling code'a bırakabilirsiniz.
+> sorumluluğu çağıran koda bırakabilirsiniz.
 > **English:** As an example, think of Java as a child who visits the zoo. The happy path is when
 > nothing goes wrong. The child continues to look at the animals until the program ends
 > nicely. Nothing went wrong, and there were no exceptions to deal with.
 >
-> **Türkçe:** Örnek olarak, hayvanat bahçesini ziyaret eden bir çocuk olarak Java düşünün. Mutlu yol,
-> hiçbir şeyin yanlış gitmediği zamandır. Çocuk, program güzelce bitene kadar hayvanlara
-> bakmaya devam eder. Hiçbir şey ters gitmedi ve başa çıkılması gereken bir istisna yoktu.
+> **Türkçe:** Java’yı hayvanat bahçesine gelen bir çocuk gibi düşünün. Happy path, her şeyin
+> beklendiği gibi ilerlediği senaryodur. Çocuk, program sorunsuz biçimde tamamlanana kadar
+> hayvanları izlemeyi sürdürür. Bir sorun yaşanmadığı için ele alınacak exception da
+> yoktur.
 > **English:** This child’s younger sister doesn’t experience the happy path. In all the excitement,
 > she trips and falls. Luckily, it isn’t a bad fall. The little girl gets up and proceeds
 > to look at more animals. She has handled the issue all by herself. Unfortunately, she
 > falls again later in the day and starts crying. This time, she has declared that she
 > needs help by crying. The story
 >
-> **Türkçe:** Bu çocuğun küçük kız kardeşi mutlu yolu yaşamaz. Tüm bu heyecan içinde, o atlar ve
-> düşer. Neyse ki kötü bir düşüş değil. Küçük kız ayağa kalkar ve daha fazla hayvana
-> bakmaya başlar. Konuyu tek başına ele aldı. Ne yazık ki, günün ilerleyen saatlerinde
-> tekrar düşer ve ağlamaya başlar. Bu sefer ağlayarak yardıma ihtiyacı olduğunu açıkladı.
-> Hikaye
+> **Türkçe:** Bu çocuğun küçük kız kardeşi ise happy path’i izlemez. Heyecandan ayağı takılır ve
+> düşer. Neyse ki ciddi bir düşüş değildir; ayağa kalkıp hayvanları izlemeyi sürdürür.
+> Sorunu kendi başına çözmüştür. Ancak günün ilerleyen saatlerinde yeniden düşer ve
+> ağlamaya başlar. Bu kez ağlayarak yardıma ihtiyacı olduğunu bildirir. Hikâye
 
 <!-- source-page: 0593 -->
 > **English:** ends well. Her daddy rubs her knee and gives her a hug. Then they go back to seeing more
 > animals and enjoy the rest of the day.
 >
-> **Türkçe:** iyi biter. Babası dizini ovuşturur ve ona sarılır. Daha sonra daha fazla hayvan görmeye
-> ve günün geri kalanında eğlenmeye geri dönerler.
+> **Türkçe:** iyi biter. Babası dizini ovuşturup ona sarılır. Ardından birlikte hayvanları izlemeye
+> devam eder ve günün kalanının tadını çıkarırlar.
 > **English:** These are the two approaches Java uses when dealing with exceptions. A method can handle
 > the exception case itself or make it the caller’s responsibility.
 >
-> **Türkçe:** Bunlar, Java istisnalarla uğraşırken kullandığı iki yaklaşımdır. Bir yöntem istisna
-> davasının kendisi ile başa çıkabilir veya onu arayanın sorumluluğu haline getirebilir.
+> **Türkçe:** Java’nın exception’ları ele alırken kullandığı iki yaklaşım bunlardır. Bir metot,
+> exception durumunu kendisi ele alabilir veya sorumluluğu çağıran koda bırakabilir.
 > **English:** Return Codes vs. Exceptions Exceptions are used when “something goes wrong.” However,
 > the word wrong is subjective. The following code returns –1 instead of throwing an
 > exception if no match is found:
 >
-> **Türkçe:** İade Kodları vs. İstisnalar İstisnalar "bir şey yanlış gittiğinde" kullanılır. Ancak,
-> yanlış kelime özneldir. Aşağıdaki kod, eşleşme bulunmazsa bir istisna atmak yerine -1
-> döndürür:
+> **Türkçe:** Return code ve exception karşılaştırması: Exception, bir şey ters gittiğinde kullanılır;
+> ancak “ters gitmek” bağlama göre değişir. Aşağıdaki kod, eşleşme bulunamadığında
+> exception fırlatmak yerine -1 döndürür:
 ```java
 public int indexOf(String[] names, String name) {
 for (int i = 0; i < names.length; i++) {
@@ -148,32 +148,32 @@ return - 1;
 > After all, Java provided an exception framework, so you should use it!
 >
 > **Türkçe:** Arama gibi belirli görevler için yaygın olsa da, geri dönüş kodlarından genellikle
-> kaçınılmalıdır. Sonuçta, Java bir istisna çerçevesi sağladı, bu yüzden kullanmalısınız!
+> kaçınılmalıdır. Sonuçta, Java bir exception çerçevesi sağladı, bu yüzden kullanmalısınız!
 ### Understanding Exception Types
 > **English:** An exception is an event that alters program flow. Java has a Throwable class for all
 > objects that represent these events. Not all of them have the word exception in their
 > class name, which can be confusing. Figure 11.1 shows the key subclasses of Throwable.
 >
-> **Türkçe:** Bir istisna, program akışını değiştiren bir olaydır. Java, bu olayları temsil eden tüm
-> nesneler için bir Throwable sınıfına sahiptir. Hepsinin sınıf isimlerinde istisna
-> kelimesi yoktur, bu da kafa karıştırıcı olabilir. Şekil 11.1, Throwable anahtar alt
-> sınıflarını gösterir.
+> **Türkçe:** Exception, programın kontrol akışını değiştiren bir olaydır. Java’daki Throwable sınıfı,
+> bu olayları temsil eden nesnelerin ortak üst sınıfıdır. İlgili sınıf adlarının hepsinde
+> Exception sözcüğü bulunmaz; bu ayrım kafa karıştırabilir. Şekil 11.1, Throwable
+> sınıfının başlıca alt sınıflarını gösterir.
 > **English:** FIGURE 11.1 Categories of exception java.lang.Throwable
 >
-> **Türkçe:** FIGURE 11.1 İstisna kategorileri java.lang.Throwable
+> **Türkçe:** FIGURE 11.1 Exception kategorileri java.lang.Throwable
 ```java
 java.lang.Exception
 java.lang.Error
 ```
 > **English:** Checked
 >
-> **Türkçe:** Kontrol edildi
+> **Türkçe:** Checked (derleyicinin handle-or-declare kuralını denetlediği tür)
 ```java
 java.lang.RuntimeException
 ```
 > **English:** Unchecked
 >
-> **Türkçe:** Kontrolsüz
+> **Türkçe:** Unchecked (handle-or-declare zorunluluğu olmayan tür)
 
 <!-- source-page: 0594 -->
 #### Checked Exceptions
@@ -182,39 +182,38 @@ java.lang.RuntimeException
 > RuntimeException. Checked exceptions tend to be more anticipated— for example, trying to
 > read a file that doesn’t exist.
 >
-> **Türkçe:** checked exception, atıldığı uygulama kodu tarafından ilan edilmesi veya ele alınması
-> gereken bir istisnadır. Java içinde checked exceptions hepsi Exception varisli ama
-> RuntimeException değil. Checked exceptions daha fazla öngörülme eğilimindedir – örneğin,
-> var olmayan bir dosyayı okumaya çalışmak.
+> **Türkçe:** Checked exception, fırlatılabileceği uygulama kodunda ele alınması veya bildirilmesi
+> gereken exception’dır. Burada incelenen checked exception’lar Exception sınıfından
+> türer, ancak RuntimeException kolunda yer almaz. Var olmayan bir dosyayı okumaya
+> çalışmak gibi, önceden öngörülebilen durumlarda ortaya çıkabilirler.
 > **English:** Checked exceptions also include any class that inherits Throwable but not Error or
 > RuntimeException, such as a class that directly extends Throwable. For the exam, you
-> just need to know about checked excep-tions that extend Exception.
+> just need to know about checked exceptions that extend Exception.
 >
-> **Türkçe:** Checked exceptions ayrıca Throwable varisli olan ancak Error veya RuntimeException
-> olmayan herhangi bir sınıfı da içerir, örneğin Throwable doğrudan genişleyen bir sınıf
-> gibi. Sınav için, sadece Exception uzatan kontrol edilmiş excep-tions hakkında bilgi
-> sahibi olmanız gerekir.
+> **Türkçe:** Checked exception’lar, Throwable sınıfından türeyen ancak Error veya RuntimeException
+> kolunda yer almayan türleri de kapsar. Doğrudan Throwable sınıfını extend eden bir sınıf
+> buna örnektir. Kitap, sınav çalışmasında esas olarak Exception sınıfından türeyen
+> checked exception’lara odaklanır.
 > **English:** Checked exceptions? What are we checking? Java has a rule called the handle or declare
 > rule. The handle or declare rule means that all checked exceptions that could be thrown
 > within a method are either wrapped in compatible try and catch blocks or declared in the
 > method signature.
 >
-> **Türkçe:** Checked exceptions? Neyi kontrol ediyoruz? Java handle or declare rule adında bir kurala
-> sahiptir. handle or declare rule, bir yöntem içinde atılabilecek tüm checked exceptions
-> uyumlu try ve catch blocks ile sarılır veya method signature ile ilan edilir.
+> **Türkçe:** Checked exception derken ne kontrol edilir? Java’daki handle-or-declare kuralı, bir
+> metotta fırlatılabilecek checked exception’ların uygun try/catch bloklarıyla ele
+> alınmasını veya metot imzasında throws ile bildirilmesini gerektirir.
 > **English:** Because checked exceptions tend to be anticipated, Java enforces the rule that the
 > programmer must do something to show that the exception was thought about. Maybe it was
 > handled in the method. Or maybe the method declares that it can’t handle the exception
 > and someone else should.
 >
-> **Türkçe:** checked exceptions öngörülme eğiliminde olduğundan, Java, programcının istisnanın
-> düşünüldüğünü göstermek için bir şeyler yapması gerektiği kuralını uygular. Belki de
-> yöntemde ele alınmıştır. Ya da belki de yöntem, istisnayı kaldıramayacağını ve bir
-> başkasının yapması gerektiğini beyan eder.
+> **Türkçe:** Checked exception’lar öngörülebilir durumları temsil ettiğinden Java, programcının bu
+> olasılığı hesaba kattığını göstermesini ister. Metot exception’ı kendisi ele alabilir
+> veya throws ile bildirerek bu sorumluluğu çağıran koda bırakabilir.
 > **English:** Let’s take a look at an example. The following fall() method declares that it might
 > throw an IOException, which is a checked exception:
 >
-> **Türkçe:** Bir örneğe bakalım. Aşağıdaki fall() yöntemi, checked exception olan bir IOException
+> **Türkçe:** Bir örneğe bakalım. Aşağıdaki fall() metodu, checked exception olan bir IOException
 > atabileceğini beyan eder:
 ```java
 void fall(int distance) throws IOException {
@@ -228,13 +227,13 @@ throw new IOException();
 > might throw an Exception. It also might not.
 >
 > **Türkçe:** Burada iki farklı anahtar kelime kullandığınıza dikkat edin. Atma anahtarı Java'ye bir
-> Exception atmak istediğinizi belirtirken, atma anahtarı basitçe yöntemin Exception
+> Exception atmak istediğinizi belirtirken, atma anahtarı basitçe metodun Exception
 > atabileceğini belirtir. Aynı zamanda olmayabilir.
 > **English:** Now that you know how to declare an exception, how do you handle it? The following
 > alternate version of the fall() method handles the exception:
 >
-> **Türkçe:** Artık bir istisnayı nasıl ilan edeceğinizi bildiğinize göre, bunu nasıl hallediyorsunuz?
-> fall() yönteminin aşağıdaki alternatif sürümü istisnayı ele alır:
+> **Türkçe:** Exception’ı bildirmeyi gördük; peki nasıl ele alırız? fall() metodunun aşağıdaki sürümü,
+> exception’ı kendi içinde yakalar:
 ```java
 void fall(int distance) {
 try {
@@ -252,41 +251,41 @@ e.printStackTrace();
 > subclass of Exception, the catch block is allowed to catch it. We cover try and catch
 > blocks in more detail later in this chapter.
 >
-> **Türkçe:** Yakalama ifadesinin IOException değil Exception kullandığına dikkat edin. IOException
-> Exception alt sınıfı olduğundan, catch block alt sınıfının onu yakalamasına izin
-> verilir. Bu bölümde daha sonra catch blocks'i daha ayrıntılı olarak ele alıyoruz.
+> **Türkçe:** catch parametresinin türü IOException yerine Exception’dır. IOException, Exception
+> sınıfının alt sınıfı olduğundan bu catch bloğu IOException nesnesini de yakalayabilir.
+> try/catch bloklarını bölümün ilerleyen kısmında ayrıntılı inceleyeceğiz.
 #### Unchecked Exceptions
 > **English:** An unchecked exception is any exception that does not need to be declared or handled by
 > the application code where it is thrown. Unchecked exceptions are often referred to as
 > runtime exceptions, although in Java, unchecked exceptions include any class that
 > inherits RuntimeException or Error.
 >
-> **Türkçe:** unchecked exception, atıldığı uygulama kodu tarafından ilan edilmesi veya ele alınması
-> gerekmeyen herhangi bir istisnadır. Unchecked exceptions genellikle runtime exceptions
-> olarak adlandırılır, ancak Java, unchecked exceptions RuntimeException veya Error miras
-> alan herhangi bir sınıfı içerir.
+> **Türkçe:** Unchecked exception için, fırlatılabileceği uygulama kodunda ele alma veya throws ile
+> bildirme zorunluluğu yoktur. Unchecked exception’lar çoğu zaman runtime exception diye
+> anılır; ancak Java’da RuntimeException ve alt sınıflarına ek olarak Error ve alt
+> sınıfları da unchecked grubundadır.
 > **English:** It is permissible to handle or declare an unchecked exception. That said, it is better
 > to document the unchecked exceptions callers should know about in a Javadoc comment
 > rather than declaring an unchecked exception.
 >
-> **Türkçe:** unchecked exception ile başa çıkmak veya beyan etmek yasaktır. Bununla birlikte,
-> unchecked exceptions arayanların bir unchecked exception ilan etmek yerine bir Javadoc
-> yorumunda bilmesi gerekenleri belgelemek daha iyidir.
+> **Türkçe:** Unchecked exception’ı yakalamak veya throws ile bildirmek mümkündür. Bununla birlikte,
+> çağıran kodun bilmesi gereken unchecked exception’ları throws bildirimine eklemek yerine
+> Javadoc yorumunda belgelemek daha uygundur.
 > **English:** A runtime exception is defined as the RuntimeException class and its subclasses. Runtime
 > exceptions tend to be unexpected but not necessarily fatal. For example, accessing an
 > invalid array index is unexpected. Even though they do inherit the Exception class, they
 > are not checked exceptions.
 >
-> **Türkçe:** Bir runtime istisnası RuntimeException sınıfı ve alt sınıfları olarak tanımlanır.
-> Runtime exceptions beklenmedik olma eğilimindedir, ancak mutlaka ölümcül değildir.
-> Örneğin, geçersiz bir dizi dizinine erişmek beklenmediktir. Exception sınıfını miras
-> alsalar da checked exceptions sınıfı değildirler.
+> **Türkçe:** Runtime exception grubu, RuntimeException sınıfı ve alt sınıflarından oluşur. Bunlar
+> genellikle beklenmedik durumları temsil eder, fakat programın toparlanamayacağı anlamına
+> gelmez. Örneğin geçersiz bir dizi index’ine erişmek beklenmedik bir durumdur.
+> RuntimeException türleri Exception’dan türese de checked değildir.
 > **English:** An unchecked exception can occur on nearly any line of code, as it is not required to be
 > handled or declared. For example, a NullPointerException can be thrown in the body of
 > the following method if the input reference is null:
 >
 > **Türkçe:** Bir unchecked exception neredeyse her kod satırında oluşabilir, çünkü işlenmesi veya
-> ilan edilmesi gerekmez. Örneğin, girdi referansı null ise aşağıdaki yöntemin gövdesine
+> ilan edilmesi gerekmez. Örneğin, girdi referansı null ise aşağıdaki metodun gövdesine
 > bir NullPointerException atılabilir:
 ```java
 void fall(String input) {
@@ -300,18 +299,21 @@ System.out.println(input.toLowerCase());
 >
 > **Türkçe:** Java 'deki nesnelerle o kadar sık çalışıyoruz ki, bir NullPointerException hemen hemen
 > her yerde olabilir. Her yerde unchecked exceptions ilan etmek zorunda olsaydınız, her
-> bir yöntemde bu dağınıklık olurdu! Bir unchecked exception beyan ederseniz kod
+> bir metotta bu dağınıklık olurdu! Bir unchecked exception beyan ederseniz kod
 > derlenecektir. Ancak, gereksizdir.
+
+> **Dil notu:** [permissible ve happy path](vocabulary.md) teknik bağlamdaki anlamlarıyla okunmalıdır. İzin, zorunluluk ve yasak ayrımı için [grammar notlarına](grammar_notes.md#13-be-required-to--verb) bakın.
+
 #### Error and Throwable
 > **English:** Error means something went so horribly wrong that your program should not attempt to
 > recover from it. For example, the disk drive “disappeared” or the program ran out of
 > memory. These are abnormal conditions that you aren’t likely to encounter and cannot
 > recover from.
 >
-> **Türkçe:** Error, bir şeyin o kadar korkunç bir şekilde yanlış gittiği anlamına gelir ki,
-> programınız ondan kurtulmaya çalışmamalıdır. Örneğin, disk sürücüsü "ortadan kayboldu"
-> veya program bellekten çıktı. Bunlar, karşılaşma ihtimaliniz olmayan ve
-> iyileşemeyeceğiniz anormal durumlardır.
+> **Türkçe:** Error, programın normal biçimde toparlanmaya çalışmasının uygun olmadığı ciddi bir sorun
+> yaşandığını belirtir. Disk sürücüsünün kaybolması veya kullanılabilir belleğin tükenmesi
+> buna örnek verilir. Kaynak, bunları olağan dışı ve uygulamanın genellikle
+> toparlanamadığı durumlar olarak ele alır.
 > **English:** For the exam, the only thing you need to know about Throwable is that it’s the parent
 > class of all exceptions, including the Error class. While you can handle Throwable and
 > Error exceptions, it is not recommended you do so in your application code. When we
@@ -320,8 +322,8 @@ System.out.println(input.toLowerCase());
 > of it.
 >
 > **Türkçe:** Sınav için, Throwable hakkında bilmeniz gereken tek şey, Error sınıfı da dahil olmak
-> üzere tüm istisnaların ana sınıfı olmasıdır. Throwable ve Error istisnalarını ele
-> alabilirken, uygulama kodunuzda bunu yapmanız önerilmez. Bu bölümdeki istisnalara
+> üzere tüm exception’ların ana sınıfı olmasıdır. Throwable ve Error exception’larını ele
+> alabilirken, uygulama kodunuzda bunu yapmanız önerilmez. Bu bölümdeki exception’lara
 > değindiğimizde, genellikle Throwable miras alan herhangi bir sınıfı kastediyoruz, ancak
 > hemen hemen her zaman Exception sınıfı veya alt sınıflarıyla çalışıyoruz.
 #### Reviewing Exception Types
@@ -329,34 +331,39 @@ System.out.println(input.toLowerCase());
 > Throwable is either an Exception or an Error. You should not catch Throwable directly in
 > your code.
 >
-> **Türkçe:** Tablo 11.1'deki her şeyi yakından incelediğinizden emin olun. Sınav için, bir Throwable
-> Exception veya Error olduğunu unutmayın. Throwable kodunuzu doğrudan yakalamamalısınız.
+> **Türkçe:** Tablo 11.1’deki ayrımları dikkatle inceleyin. Kitap bu aşamada Throwable hiyerarşisini
+> Exception ve Error kolları üzerinden özetler. Uygulama kodunda doğrudan Throwable
+> yakalamanız önerilmez.
+
+> **OCP / Java 17 notu:** `Throwable` yalnız `Exception` ve `Error` kollarından oluşmak zorunda değildir: doğrudan `Throwable` sınıfını extend eden bir tür de tanımlanabilir ve checked olur. Tablodaki “yakalanmalı mı?” ayrımı uygulama tavsiyesidir; `catch (Error e)` ve `catch (Throwable t)` sözdizimsel olarak geçerlidir.
 
 <!-- source-page: 0596 -->
-> **English:** TABLE 11.1 Types of exceptions and errors Okay for Is program required to Type How to
-> recognize program to catch? handle or declare?
+> **English:** TABLE 11.1 Types of exceptions and errors
 >
-> **Türkçe:** TABLE 11.1 İstisnaların ve hataların türleri Tamam, Programın nasıl yakalanacağını nasıl
-> tanıyacağımızı yazmak için gerekli mi? Tut veya ilan et?
-> **English:** Unchecked Subclass of RuntimeException Yes No exception Checked Yes Yes Subclass of
-> Exception but not exception subclass of RuntimeException Error Subclass of Error No No
->
-> **Türkçe:** Kontrol edilmemiş RuntimeException Alt sınıfı Evet istisna yok Kontrol Edildi Evet Evet
-> Exception alt sınıfı ama istisna değil RuntimeException Error Alt sınıfı Error Hayır
+> **Türkçe:** Tablo 11.1 · Exception ve Error türleri
+
+<!-- keep-with-next -->
+
+| Type / Tür | How to recognize / Tanıma | Catch / Yakalama önerisi | Handle or declare? |
+| --- | --- | --- | --- |
+| Unchecked exception | `RuntimeException` ve alt sınıfları | Yes / Evet | No / Hayır |
+| Checked exception | `Exception`, fakat `RuntimeException` kolu dışında | Yes / Evet | Yes / Evet |
+| Error | `Error` ve alt sınıfları | No / Hayır | No / Hayır |
+
 ### Throwing an Exception
 > **English:** Any Java code can throw an exception; this includes code you write. Some exceptions are
 > provided with Java. You might encounter an exception that was made up for the exam. This
 > is fine. The question will make it obvious that this is an exception by having the class
 > name end with Exception. For example, MyMadeUpException is clearly an exception.
 >
-> **Türkçe:** Herhangi bir Java kodu bir istisna atabilir; Bu, yazdığınız kodu içerir. Bazı istisnalar
-> Java ile sağlanır. Sınav için uydurulmuş bir istisna ile karşılaşabilirsiniz. Bu iyi.
-> Soru, Exception ile sınıf adının sona ermesiyle bunun bir istisna olduğunu açıkça
-> gösterecektir. Örneğin, MyMadeUpException açıkça bir istisnadır.
+> **Türkçe:** Herhangi bir Java kodu bir exception atabilir; Bu, yazdığınız kodu içerir. Bazı exception’lar
+> Java ile sağlanır. Sınav için uydurulmuş bir exception ile karşılaşabilirsiniz. Bu iyi.
+> Soru, Exception ile sınıf adının sona ermesiyle bunun bir exception olduğunu açıkça
+> gösterecektir. Örneğin, MyMadeUpException açıkça bir exception’dır.
 > **English:** On the exam, you will see two types of code that result in an exception. The first is
 > code that’s wrong. Here’s an example:
 >
-> **Türkçe:** Sınavda, bir istisna ile sonuçlanan iki tür kod göreceksiniz. Birincisi yanlış olan
+> **Türkçe:** Sınavda, bir exception ile sonuçlanan iki tür kod göreceksiniz. Birincisi yanlış olan
 > koddur. İşte bir örnek:
 ```java
 String[] animals = new String[0];
@@ -367,21 +374,21 @@ System.out.println(animals[0]); // ArrayIndexOutOfBoundsException
 > something else.
 >
 > **Türkçe:** Bu kod bir ArrayIndexOutOfBoundsException atar, çünkü dizinin hiçbir elemanı yoktur. Bu,
-> istisnalarla ilgili soruların başka bir şeyle ilgili gibi görünen sorularda
+> exception’larla ilgili soruların başka bir şeyle ilgili gibi görünen sorularda
 > gizlenebileceği anlamına gelir.
 > **English:** On the exam, some questions have a choice about not compiling and about throwing an
 > exception. Pay special attention to code that calls a method on a null reference or that
 > references an invalid array or List index. If you spot this, you know the correct answer
 > is that the code throws an exception at runtime.
 >
-> **Türkçe:** Sınavda, bazı soruların derlememe ve bir istisna atma konusunda bir seçeneği vardır.
-> null referansı üzerinde bir yöntemi çağıran veya geçersiz bir dizi veya List dizinini
+> **Türkçe:** Sınavda, bazı soruların derlememe ve bir exception atma konusunda bir seçeneği vardır.
+> null referansı üzerinde bir metodu çağıran veya geçersiz bir dizi veya List dizinini
 > referans alan koda özel dikkat gösterin. Bunu fark ederseniz, doğru cevabın kodun
-> çalışma zamanında bir istisna attığını bilirsiniz.
+> çalışma zamanında bir exception attığını bilirsiniz.
 > **English:** The second way for code to result in an exception is to explicitly request Java to throw
 > one. Java lets you write statements like these:
 >
-> **Türkçe:** Kodun bir istisna ile sonuçlanmasının ikinci yolu, açıkça bir tane atmak için Java
+> **Türkçe:** Kodun bir exception ile sonuçlanmasının ikinci yolu, açıkça bir tane atmak için Java
 > istemektir. Java bu gibi ifadeler yazmanızı sağlar:
 ```java
 throw new Exception();
@@ -395,27 +402,27 @@ throw new RuntimeException("Ow! I fell.");
 > exception. This is the same as the young girl crying for her daddy. Someone else needs
 > to figure out what to do about the exception.
 >
-> **Türkçe:** Atma tuşu, Java kodunun başka bir bölümünün istisnayla başa çıkmasını istediğinizi
-> söyler. Bu, babası için ağlayan genç kızın aynısı. İstisna konusunda başka birinin ne
+> **Türkçe:** Atma tuşu, Java kodunun başka bir bölümünün exception’la başa çıkmasını istediğinizi
+> söyler. Bu, babası için ağlayan genç kızın aynısı. Exception konusunda başka birinin ne
 > yapması gerektiğini anlaması gerekiyor.
 > **English:** throw vs. throws Anytime you see throw or throws on the exam, make sure the correct one
 > is being used. The throw keyword is used as a statement inside a code block to throw a
 > new exception or rethrow an existing exception, while the throws keyword is used only at
 > the end of a method declaration to indicate what exceptions it supports.
 >
-> **Türkçe:** Sınava attığınızı veya attığınızı gördüğünüz her an, doğru olanın kullanıldığından emin
-> olun. Atma anahtarı, yeni bir istisna atmak veya mevcut bir istisnayı yeniden atmak için
-> bir kod bloğunun içindeki bir ifade olarak kullanılırken, atma anahtarı yalnızca hangi
-> istisnaları desteklediğini belirtmek için bir yöntem beyanının sonunda kullanılır.
+> **Türkçe:** throw ve throws ayrımı: Sınavda bu iki keyword’den hangisinin kullanıldığını kontrol
+> edin. throw, bir kod bloğunda exception fırlatan veya mevcut exception’ı yeniden
+> fırlatan statement’tır. throws ise metot bildiriminde, metodun hangi exception türlerini
+> dışarı iletebileceğini belirtir.
 > **English:** When creating an exception, you can usually pass a String parameter with a message, or
 > you can pass no parameters and use the defaults. We say usually because this is a
 > convention. Someone has declared a constructor that takes a String. Someone could also
 > create an exception class that does not have a constructor that takes a message.
 >
-> **Türkçe:** Bir istisna oluştururken, genellikle bir mesajla bir String parametresini geçebilir veya
+> **Türkçe:** Bir exception oluştururken, genellikle bir mesajla bir String parametresini geçebilir veya
 > hiçbir parametreyi geçemez ve varsayılanları kullanabilirsiniz. Genellikle diyoruz çünkü
 > bu bir kongre. Birisi String alan bir constructor ilan etti. Birisi ayrıca bir mesaj
-> alan bir yapıcıya sahip olmayan bir istisna sınıfı da oluşturabilir.
+> alan bir yapıcıya sahip olmayan bir exception sınıfı da oluşturabilir.
 > **English:** Additionally, you should know that an Exception is an Object. This means you can store
 > it in an object reference, and this is legal:
 >
@@ -429,8 +436,8 @@ throw e;
 > exception can come from anywhere, even passed into a method. As long as it is a valid
 > exception, it can be thrown.
 >
-> **Türkçe:** Kod, bir satırda bir istisnayı anında yapar ve ardından bir sonraki satıra atar. İstisna
-> her yerden gelebilir, hatta bir yönteme bile geçebilir. long geçerli bir istisna olduğu
+> **Türkçe:** Kod, bir satırda bir exception’ı anında yapar ve ardından bir sonraki satıra atar. Exception
+> her yerden gelebilir, hatta bir metoda bile geçebilir. long geçerli bir exception olduğu
 > için atılabilir.
 > **English:** The exam might also try to trick you. Do you see why this code doesn’t compile?
 >
@@ -441,8 +448,8 @@ throw RuntimeException(); // DOES NOT COMPILE
 > **English:** If your answer is that there is a missing keyword, you’re absolutely right. The
 > exception is never instantiated with the new keyword.
 >
-> **Türkçe:** Cevabınız eksik bir anahtar kelime varsa, kesinlikle haklısın. İstisna hiçbir zaman yeni
-> anahtar kelime ile anlık hale getirilmez.
+> **Türkçe:** Eksik bir keyword olduğunu düşündüyseniz doğru: exception nesnesini oluşturmak için
+> gerekli new keyword’ü yazılmamıştır.
 > **English:** Let’s take a look at another place the exam might try to trick you. Can you see why the
 > following does not compile?
 >
@@ -457,7 +464,7 @@ throw new ArrayIndexOutOfBoundsException(); // DOES NOT COMPILE
 > **English:** Since line 4 throws an exception, line 5 can never be reached during runtime. The
 > compiler recognizes this and reports an unreachable code error.
 >
-> **Türkçe:** Hat 4 bir istisna attığından, hat 5'e çalışma süresi boyunca asla ulaşılamaz. Derleyici
+> **Türkçe:** Hat 4 bir exception attığından, hat 5'e çalışma süresi boyunca asla ulaşılamaz. Derleyici
 > bunu tanır ve erişilemez bir kod hatası bildirir.
 
 <!-- source-page: 0598 -->
@@ -465,7 +472,7 @@ throw new ArrayIndexOutOfBoundsException(); // DOES NOT COMPILE
 > **English:** When you’re calling a method that throws an exception, the rules are the same as within
 > a method. Do you see why the following doesn’t compile?
 >
-> **Türkçe:** Bir istisna atan bir yöntem ararken, kurallar bir yöntem içinde aynıdır. Aşağıdakilerin
+> **Türkçe:** Bir exception atan bir metot ararken, kurallar bir metot içinde aynıdır. Aşağıdakilerin
 > neden derlenmediğini görüyor musunuz?
 ```java
 class NoMoreCarrotsException extends Exception {}
@@ -481,7 +488,7 @@ private static void eatCarrot() throws NoMoreCarrotsException {}
 > either of these:
 >
 > **Türkçe:** Sorun şu ki NoMoreCarrotsException bir checked exception. Checked exceptions ele
-> alınmalı veya ilan edilmelidir. main() yöntemini şunlardan birine değiştirirseniz kod
+> alınmalı veya ilan edilmelidir. main() metodunu şunlardan birine değiştirirseniz kod
 > derlenir:
 ```java
 public static void main(String[] args) throws NoMoreCarrotsException {
@@ -499,15 +506,15 @@ System.out.print("sad rabbit");
 > it could. This is enough for the compiler to require the caller to handle or declare the
 > exception.
 >
-> **Türkçe:** eatCarrot() bir istisna atmadığını fark etmiş olabilirsiniz; sadece atabileceğini ilan
-> etti. Bu, derleyicinin arayanın istisnayı ele almasını veya ilan etmesini gerektirmesi
+> **Türkçe:** eatCarrot() bir exception atmadığını fark etmiş olabilirsiniz; sadece atabileceğini ilan
+> etti. Bu, derleyicinin arayanın exception’ı ele almasını veya ilan etmesini gerektirmesi
 > için yeterlidir.
 > **English:** The compiler is still on the lookout for unreachable code. Declaring an unused exception
 > isn’t considered unreachable code. It gives the method the option to change the
 > implementation to throw that exception in the future. Do you see the issue here?
 >
-> **Türkçe:** Derleyici hala erişilemeyen kodu arıyor. Kullanılmayan bir istisnayı ilan etmek
-> erişilemez bir kod olarak kabul edilmez. Yönteme gelecekte bu istisnayı atmak için
+> **Türkçe:** Derleyici hala erişilemeyen kodu arıyor. Kullanılmayan bir exception’ı ilan etmek
+> erişilemez bir kod olarak kabul edilmez. Metoda gelecekte bu exception’ı atmak için
 > uygulamayı değiştirme seçeneği sunar. Buradaki sorunu görüyor musunuz?
 ```java
 public void bad() {
@@ -533,16 +540,16 @@ private void eatCarrot() {}
 > signature.
 >
 > **Türkçe:** Sınavda bir catch block içinde ilan edilen bir checked exception gördüğünüzde, ilgili
-> try block içindeki kodun istisnayı veya istisnanın bir alt sınıfını atabileceğinden emin
+> try block içindeki kodun exception’ı veya exception’ın bir alt sınıfını atabileceğinden emin
 > olun. Değilse, kod erişilemez ve derlemez. Bu kuralın unchecked exceptions ya da method
-> signature olarak ilan edilen istisnalara uzanmadığını unutmayın.
+> signature olarak ilan edilen exception’lara uzanmadığını unutmayın.
 ### Overriding Methods with Exceptions
 > **English:** When we introduced overriding methods in Chapter 6, “Class Design,” we included a rule
 > related to exceptions. An overridden method may not declare any new or broader checked
 > exceptions than the method it inherits. For example, this code isn’t allowed:
 >
-> **Türkçe:** Bölüm 6, "Sınıf Tasarımı"nda overriding yöntemlerini tanıttığımızda, istisnalarla ilgili
-> bir kural ekledik. Abartılmış bir yöntem, miras aldığı yöntemden daha yeni veya daha
+> **Türkçe:** Bölüm 6, "Sınıf Tasarımı"nda overriding metotlarını tanıttığımızda, exception’larla ilgili
+> bir kural ekledik. Abartılmış bir metot, miras aldığı metottan daha yeni veya daha
 > geniş bir checked exceptions beyan edemez. Örneğin, bu koda izin verilmez:
 ```java
 class CanNotHopException extends Exception {}
@@ -560,15 +567,15 @@ public void hop() throws CanNotHopException {} // DOES NOT COMPILE
 > in its place, the code wouldn’t know to handle or declare CanNotHopException.
 >
 > **Türkçe:** Java, hop()'nin herhangi bir checked exceptions atmasına izin verilmediğini, çünkü süper
-> sınıf Hopper'daki hop() yönteminin hiçbir beyanda bulunmadığını biliyor. Metodun alt
+> sınıf Hopper'daki hop() metodunun hiçbir beyanda bulunmadığını biliyor. Metodun alt
 > sınıflarının sürümleri checked exceptions ekleyebilirse ne olacağını hayal edin
-> Hopper'ın hop() yöntemini çağıran ve herhangi bir istisnayı ele almayan kod
+> Hopper'ın hop() metodunu çağıran ve herhangi bir exception’ı ele almayan kod
 > yazabilirsiniz. Daha sonra, eğer Bunny yerine kullanılırsa, kod CanNotHopException ile
 > başa çıkmayı veya ilan etmeyi bilmeyecekti.
 > **English:** An overridden method in a subclass is allowed to declare fewer exceptions than the
 > superclass or interface. This is legal because callers are already handling them.
 >
-> **Türkçe:** Bir alt sınıftaki geçersiz bir yöntemin, süper sınıf veya arayüzden daha az istisna
+> **Türkçe:** Bir alt sınıftaki geçersiz bir metodun, süper sınıf veya interface’ten daha az exception
 > beyan etmesine izin verilir. Bu yasaldır, çünkü arayanlar zaten onları ele almaktadır.
 ```java
 class Hopper {
@@ -584,10 +591,11 @@ public void hop() {} // This is fine
 > exception type. The idea is the same. The superclass or interface has already taken care
 > of a broader type.
 >
-> **Türkçe:** Ebeveyn yöntemi tarafından atılan istisnalardan birini beyan etmeyen aşınmış bir yöntem,
-> aslında hiç atmadığı bir istisna attığını beyan eden yönteme benzer. Bu tamamen yasal.
-> Benzer şekilde, bir sınıfın bir istisna türünün alt sınıfını ilan etmesine izin verilir.
-> Fikir aynı. Süper sınıf veya arayüz zaten daha geniş bir tiple ilgilendi.
+> **Türkçe:** Override edilen metot, üst sınıftaki metodun bildirdiği exception’ların hepsini
+> bildirmek zorunda değildir. Bu, bir metodun fiilen fırlatmadığı bir exception’ı throws
+> ile bildirebilmesi gibi geçerlidir. Benzer şekilde override, bildirilen exception
+> türünün bir alt türünü kullanabilir; üst sınıf veya interface zaten daha geniş türü
+> kapsayan bir sözleşme sunmuştur.
 
 <!-- source-page: 0600 -->
 ### Printing an Exception
@@ -595,7 +603,7 @@ public void hop() {} // This is fine
 > the message, or print where the stack trace comes from. This example shows all three
 > approaches:
 >
-> **Türkçe:** Bir istisnayı yazdırmanın üç yolu vardır. Java yazdırabilir, sadece mesajı yazdırabilir
+> **Türkçe:** Bir exception’ı yazdırmanın üç yolu vardır. Java yazdırabilir, sadece mesajı yazdırabilir
 > veya yığın izinin nereden geldiğini yazdırabilirsiniz. Bu örnek üç yaklaşımı da
 > göstermektedir:
 ```java
@@ -631,9 +639,9 @@ at Handling.main(Handling.java:7)
 > usually the most helpful because it shows the hierarchy of method calls that were made
 > to reach the line that threw the exception.
 >
-> **Türkçe:** İlk satır, Java'nın varsayılan olarak ne yazdırdığını gösterir: istisna türü ve mesajı.
+> **Türkçe:** İlk satır, Java'nın varsayılan olarak ne yazdırdığını gösterir: exception türü ve mesajı.
 > İkinci satır sadece mesajı gösterir. Gerisi yığın izi gösteriyor. Yığın izi genellikle
-> en yararlı olanıdır, çünkü istisnayı atan çizgiye ulaşmak için yapılan yöntem
+> en yararlı olanıdır, çünkü exception’ı atan çizgiye ulaşmak için yapılan metot
 > çağrılarının hiyerarşisini gösterir.
 ## Recognizing Exception Classes
 > **English:** You need to recognize three groups of exception classes for the exam: RuntimeException,
@@ -642,10 +650,10 @@ at Handling.main(Handling.java:7)
 > Java Virtual Machine (JVM) or by a programmer. For some exceptions, you also need to
 > know which are inherited from one another.
 >
-> **Türkçe:** Sınav için üç grup istisna sınıfı tanımanız gerekir: RuntimeException, Exception ve
-> Error. Her türün ortak örneklerine bakıyoruz. Sınav için, hangi tür bir istisna olduğunu
+> **Türkçe:** Sınav için üç grup exception sınıfı tanımanız gerekir: RuntimeException, Exception ve
+> Error. Her türün ortak örneklerine bakıyoruz. Sınav için, hangi tür bir exception olduğunu
 > ve Java Sanal Makine (JVM) tarafından mı yoksa bir programcı tarafından mı atıldığını
-> tanımanız gerekir. Bazı istisnalar için hangisinin birbirinden miras kaldığını da
+> tanımanız gerekir. Bazı exception’lar için hangisinin birbirinden miras kaldığını da
 > bilmeniz gerekir.
 
 <!-- source-page: 0601 -->
@@ -657,36 +665,21 @@ at Handling.main(Handling.java:7)
 > **Türkçe:** RuntimeException ve alt sınıfları, ele alınması veya ilan edilmesi gerekmeyen unchecked
 > exceptions 'dir. Programcı veya JVM tarafından atılabilirler. Ortak unchecked exception
 > sınıfları Tablo 11.2'de listelenmiştir.
-> **English:** TABLE 11.2 Unchecked exceptions Unchecked exception Description ArithmeticException
-> Thrown when code attempts to divide by zero.
+> **English:** TABLE 11.2 Unchecked exceptions
 >
-> **Türkçe:** TABLE 11.2 Unchecked exceptions Unchecked exception Açıklama ArithmeticException Kod
-> sıfıra bölmeye çalıştığında atıldı.
-> **English:** ArrayIndexOutOfBoundsException Thrown when code uses illegal index to access array.
->
-> **Türkçe:** ArrayIndexOutOfBoundsException Kod dizine erişmek için yasadışı indeks kullandığında
-> atılır.
-> **English:** ClassCastException Thrown when attempt is made to cast object to class of which it is
-> not an instance.
->
-> **Türkçe:** ClassCastException Bir nesneyi bir örnek olmadığı sınıfa atmaya teşebbüs edildiğinde
-> atılır.
-> **English:** NullPointerException Thrown when there is a null reference where an object is required.
->
-> **Türkçe:** NullPointerException Bir nesnenin gerekli olduğu bir null referansı olduğunda atılır.
-> **English:** IllegalArgument Exception Thrown by programmer to indicate that method has been passed
-> illegal or inappropriate argument.
->
-> **Türkçe:** Yasadışı Argüman Exception Bu yöntemin yasa dışı veya uygunsuz bir argümandan geçtiğini
-> belirtmek için programcı tarafından atılmıştır.
-> **English:** NumberFormatException Subclass of IllegalArgumentException.
->
-> **Türkçe:** NumberFormatException IllegalArgumentException alt sınıfı.
-> **English:** Thrown when attempt is made to convert String to numeric type but String doesn’t have
-> appro-priate format.
->
-> **Türkçe:** String numerik tipe dönüştürme girişiminde bulunulduğunda atılır, ancak String
-> appro-priate formatına sahip değildir.
+> **Türkçe:** Tablo 11.2 · Unchecked exception’lar
+
+<!-- keep-with-next -->
+
+| Exception | English description | Türkçe açıklama |
+| --- | --- | --- |
+| `ArithmeticException` | Division by zero | Tamsayıyı sıfıra bölme |
+| `ArrayIndexOutOfBoundsException` | Illegal array index | Dizide geçersiz index kullanma |
+| `ClassCastException` | Cast to an incompatible class | Nesneyi uyumsuz türe cast etme |
+| `NullPointerException` | Object required, but reference is null | Nesne gereken yerde null referans kullanma |
+| `IllegalArgumentException` | Illegal or inappropriate argument | Metoda geçersiz/uygunsuz argüman verme |
+| `NumberFormatException` | String has an invalid numeric format | String’in sayısal biçiminin geçersiz olması; `IllegalArgumentException` alt sınıfıdır |
+
 #### ArithmeticException
 > **English:** Trying to divide an int by zero gives an undefined result. When this occurs, the JVM
 > will throw an ArithmeticException:
@@ -699,30 +692,31 @@ int answer = 11 / 0;
 > **English:** Running this code results in the following output:
 >
 > **Türkçe:** Bu kodun çalıştırılması aşağıdaki çıktıyla sonuçlanır:
-> **English:** Exception in thread "main" java.lang.ArithmeticException: / by zero Java doesn’t spell
-> out the word divide. That’s okay, though, because we know that / is the division
-> operator and that Java is trying to tell you division by zero occurred.
+```text
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+```
+
+> **English:** Java doesn’t spell out the word divide. That’s okay, though, because we know that / is
+> the division operator and that Java is trying to tell you division by zero occurred.
 >
-> **Türkçe:** Exception iş parçacığında "ana" java.lang.ArithmeticException: / sıfır Java kelime
-> bölünmesini hecelemez. Yine de sorun değil, çünkü biliyoruz ki / bölme operatörü ve Java
-> size bölünmenin sıfır meydana geldiğini söylemeye çalışıyor.
+> **Türkçe:** Java mesajda divide sözcüğünü yazmaz. Ancak / işaretinin bölme operatörü olduğunu
+> bildiğimiz için mesajın sıfıra bölme hatasını belirttiğini anlayabiliriz.
 > **English:** The thread "main" is telling you the code was called directly or indirectly from a
 > program with a main method. On the exam, this is all the output you will see. Next comes
 > the name of the exception, followed by extra information (if any) that goes with the
 > exception.
 >
-> **Türkçe:** "Ana" iplik, kodun doğrudan veya dolaylı olarak ana yönteme sahip bir programdan
-> çağrıldığını söylüyor. Sınavda, göreceğiniz tüm çıktılar bunlardır. Daha sonra
-> istisnanın adı gelir, ardından istisna ile birlikte gelen ekstra bilgiler (varsa) gelir.
+> **Türkçe:** Çıktıdaki thread "main" ifadesi, kodun main thread’inde çalıştığını belirtir. Kitabın bu
+> örneklerinde yalnız kısa hata çıktısı gösterilir. Ardından exception’ın sınıf adı ve
+> varsa ek açıklama gelir.
 
 <!-- source-page: 0602 -->
 #### ArrayIndexOutOfBoundsException
 > **English:** You know by now that array indexes start with 0 and go up to 1 less than the length of
 > the array— which means this code will throw an ArrayIndexOutOfBoundsException:
 >
-> **Türkçe:** Şimdiye kadar dizi indekslerinin 0 ile başladığını ve dizinin uzunluğundan 1'e kadar
-> daha az çıktığını biliyorsunuz - bu kod bir ArrayIndexOutOfBoundsException atacağı
-> anlamına gelir:
+> **Türkçe:** Dizi index’leri 0’dan başlar ve dizinin uzunluğunun bir eksiğine kadar gider. Bu nedenle
+> aşağıdaki kod ArrayIndexOutOfBoundsException fırlatır:
 ```java
 int[] countsOfMoose = new int[3];
 System.out.println(countsOfMoose[- 1]);
@@ -732,17 +726,16 @@ System.out.println(countsOfMoose[- 1]);
 >
 > **Türkçe:** Bu bir sorundur çünkü negatif dizi indeksi diye bir şey yoktur. Bu kodu çalıştırmak
 > aşağıdaki çıktıyı verir:
-> **English:** Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index - 1 out of
-> bounds for length 3
->
-> **Türkçe:** Exception iş parçacığında "ana" java.lang.ArrayIndexOutOfBoundsException: Index - 1
-> uzunluğu için sınırlar dışında 3
+```text
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException:
+Index -1 out of bounds for length 3
+```
 #### ClassCastException
 > **English:** Java tries to protect you from impossible casts. This code doesn’t compile because
 > Integer is not a subclass of String:
 >
-> **Türkçe:** Java sizi imkansız kadrolardan korumaya çalışır. Bu kod derlemez çünkü Integer String
-> alt sınıfı değildir:
+> **Türkçe:** Java, geçersiz olduğu derleme sırasında bilinen cast işlemlerini reddeder. Integer ve
+> String türleri arasındaki bu cast mümkün olmadığından aşağıdaki kod derlenmez:
 ```java
 String type = "moose";
 Integer number = (Integer) type; // DOES NOT COMPILE
@@ -750,8 +743,9 @@ Integer number = (Integer) type; // DOES NOT COMPILE
 > **English:** More complicated code thwarts Java’s attempts to protect you. When the cast fails at
 > runtime, Java will throw a ClassCastException:
 >
-> **Türkçe:** Daha karmaşık kod Java'in sizi koruma girişimlerini engeller. Kadro çalışma zamanında
-> başarısız olduğunda, Java bir ClassCastException atar:
+> **Türkçe:** Daha karmaşık kodlarda compiler, cast işleminin geçerli olup olmadığını derleme
+> sırasında kesin olarak belirleyemeyebilir. Cast çalışma zamanında başarısız olursa Java,
+> ClassCastException fırlatır:
 ```java
 String type = "moose";
 Object obj = type;
@@ -759,47 +753,34 @@ Integer number = (Integer) obj; // ClassCastException
 ```
 > **English:** The compiler sees a cast from Object to Integer. This could be okay. The compiler
 > doesn’t realize there’s a String in that Object. When the code runs, it yields the
-> following output: Exception in thread "main" java.lang.ClassCastException:
-> java.base/java.lang.String cannot be cast to java.lang.base/java.lang.Integer Java tells
-> you both types that were involved in the problem, making it apparent what’s wrong.
+> following output:
 >
-> **Türkçe:** Derleyici, Object'ten Integer'a bir döküm görür. Bu iyi olabilir. Derleyici, o nesnede
-> bir String olduğunun farkında değildir. Kod çalıştığında, aşağıdaki çıktıyı verir:
-> Exception iplik "ana" java.lang.ClassCastException içinde: java.base/java.lang.String
-> java.lang.base/java.lang.Integer Java Java java.lang.base java.lang.base java.lang.base
-> java.lang.base java.lang.base java.lang.base java.base java.base java.base java.base
-> java.base java.base java.base java.base java.base java.lang.String java.base
-> java.lang.String java.lang.String java.lang.String java.lang.String java.lang.String
-> java.lang.String java.lang.String java.lang.String java.lang.String java.lang.String
-> java.lang.base java.lang.base java.lang.String java.lang.base java.lang.base
-> java.lang.base java.lang.base java.lang.base java.lang.base java.lang.base
-> java.lang.Integer java.lang.base java.lang.base java.lang.base java.lang.base
-> java.lang.base java.lang.base java.lang.base java.lang.base java.lang.base
-> java.lang.base java.lang.base java.lang.base java.lang.base java.lang.base
-> java.lang.base java.lang.base java.lang.base java.lang.base java.lang.base
-> java.lang.base java.lang.base java.lang.base java.lang.base java.lang.Integer
-> java.lang.base java.lang.base java.lang.base java.lang.base java.lang.base
-> java.lang.base java.lang.base java.lang.base java.lang.base java.lang.base
-> java.lang.base java.lang.base java.lang.base java.lang.base java.lang.base
-> java.lang.base java.lang.base java.lang.base java.lang.base java.lang.base
-> java.lang.base java.lang.base java.lang.base java.lang.base java.lang.base
-> java.lang.base java.lang.base java.lang.base java.lang.base x
+> **Türkçe:** Compiler, Object türündeki referansın Integer’a cast edildiğini görür. Bu cast,
+> referansın gösterdiği nesne Integer ise geçerli olabileceğinden kod derlenir. Ancak
+> burada nesne String olduğu için çalışma zamanında şu hata oluşur:
+
+```text
+Exception in thread "main" java.lang.ClassCastException:
+class java.lang.String cannot be cast to class java.lang.Integer
+```
+
+> **English:** Java tells you both types that were involved in the problem, making it apparent what’s
+> wrong.
+>
+> **Türkçe:** Java, sorunla ilgili iki türü de bildirerek hatayı açıkça gösterir.
+
+> **Editör notu · Java 17:** Kaynaktaki `java.lang.base/java.lang.Integer` yazımı hatalıdır. Burada Java 17 ile doğrulanan mesajın temel kısmı gösterilir; JVM ayrıca module/class loader bilgisi ekleyebilir.
 #### NullPointerException
 > **English:** Instance variables and methods must be called on a non-null reference. If the reference
 > is null, the JVM will throw a NullPointerException.
 >
-> **Türkçe:** Instance değişkenleri ve yöntemleri non-null referansında çağrılmalıdır. Eğer referans
-> null ise, JVM bir NullPointerException atar.
+> **Türkçe:** Instance alanlarına erişmek ve instance metotlarını çağırmak için null olmayan bir
+> referans gerekir. Referans null ise JVM, NullPointerException fırlatır.
 ```java
 public class Frog {
 public void hop(String name, Integer jump) {
 System.out.print(name.toLowerCase() + " " + jump.intValue());
 }
-```
-> **English:** 5:
->
-> **Türkçe:** 5:
-```java
 public static void main(String[] args) {
 new Frog().hop(null, 1);
 } }
@@ -809,10 +790,8 @@ new Frog().hop(null, 1);
 > **English:** Running this code results in the following output:
 >
 > **Türkçe:** Bu kodun çalıştırılması aşağıdaki çıktıyla sonuçlanır:
-> **English:** Exception in thread "main" java.lang.NullPointerException: Cannot invoke
->
-> **Türkçe:** Exception iş parçacığında "ana" java.lang.NullPointerException: çağrılamıyor
-```java
+```text
+Exception in thread "main" java.lang.NullPointerException: Cannot invoke
 "String.toLowerCase()" because "<parameter1>" is null
 ```
 > **English:** If you’re new to Java 17, you should have noticed something special about the output.
@@ -831,24 +810,22 @@ new Frog().hop("Kermit", null);
 > **English:** Then the output at runtime changes as follows:
 >
 > **Türkçe:** Ardından çalışma zamanındaki çıktı aşağıdaki gibi değişir:
-> **English:** Exception in thread "main" java.lang.NullPointerException: Cannot invoke
->
-> **Türkçe:** Exception iş parçacığında "ana" java.lang.NullPointerException: çağrılamıyor
-```java
+```text
+Exception in thread "main" java.lang.NullPointerException: Cannot invoke
 "java.lang.Integer.intValue()" because "<parameter2>" is null
 ```
 > **English:** By default, a NullPointerException on a local variable or method parameter is printed
 > with a number indicating the order in which it appears in the method, such as <local2>
 > or <parameter4>. If you’re like us and want the actual variable name to be shown,
-> compile the code with the ----  g:vars flag, which adds debug info. In the previous
+> compile the code with the -g:vars flag, which adds debug info. In the previous
 > examples, <parameter1> and <parameter2> are then replaced with name and jump,
 > respectively.
 >
-> **Türkçe:** Varsayılan olarak, yerel bir değişken veya yöntem parametresinde bir
-> NullPointerException, local2> veya parametre4> gibi yöntemde göründüğü sırayı belirten
-> bir sayı ile basılır. Bizim gibiyseniz ve gerçek değişken adının gösterilmesini
-> istiyorsanız, kodu hata ayıklama bilgisi ekleyen ---- g: vars bayrağı ile derleyin.
-> Önceki örneklerde, parameter1> ve parameter2> sırasıyla isim ve atlama ile değiştirilir.
+> **Türkçe:** Varsayılan derlemede, local variable veya metot parametresinden kaynaklanan
+> NullPointerException mesajında <local2> veya <parameter4> gibi konumu belirten ifadeler
+> görülebilir. Gerçek değişken adını görmek için debug bilgisi ekleyen -g:vars seçeneğiyle
+> derleyin. Önceki örneklerde <parameter1> ve <parameter2> yerini sırasıyla name ve jump
+> adlarına bırakır.
 > **English:** Since this is a new feature in Java, it’s possible you’ll see it in a question on the
 > exam.
 >
@@ -860,16 +837,18 @@ new Frog().hop("Kermit", null);
 > **Türkçe:** Java 14'te yararlı NullPointerExceptions eklendiğinde, özellik varsayılan olarak devre
 > dışı bırakıldı ve JVM'ye bir komut satırı argümanı ShowCodeDetailsInExceptionMessages
 > aracılığıyla etkinleştirilmek zorunda kaldı:
-> **English:** java - XX:+ShowCodeDetailsInExceptionMessages Frog In Java 15 and above, the default
-> behavior was changed so that it is enabled by default, although it can still be disabled
-> via the command-line argument.
+```bash
+java -XX:+ShowCodeDetailsInExceptionMessages Frog
+```
+
+> **English:** In Java 15 and above, the default behavior was changed so that it is enabled by default,
+> although it can still be disabled via the command-line argument.
 >
-> **Türkçe:** java - XX:+ShowCodeDetailsInExceptionMessages Frog In Java 15 ve üstü, varsayılan
-> davranış varsayılan olarak etkinleştirilecek şekilde değiştirildi, ancak yine de komut
-> satırı argümanı aracılığıyla devre dışı bırakılabilir.
-> **English:** java - XX:- ShowCodeDetailsInExceptionMessages Frog
->
-> **Türkçe:** java - XX:- ShowCodeDetailsInExceptionMesajlar Kurbağa
+> **Türkçe:** Java 15 ve sonrasında bu özellik varsayılan olarak etkindir; yine de komut satırı
+> seçeneğiyle devre dışı bırakılabilir.
+```bash
+java -XX:-ShowCodeDetailsInExceptionMessages Frog
+```
 #### IllegalArgumentException
 > **English:** IllegalArgumentException is a way for your program to protect itself. You want to tell
 > the caller that something is wrong— preferably in an obvious way that the caller can’t
@@ -877,7 +856,7 @@ new Frog().hop("Kermit", null);
 >
 > **Türkçe:** IllegalArgumentException programınızın kendisini korumanın bir yoludur. Arayana bir
 > şeylerin yanlış olduğunu söylemek istersiniz - tercihen arayanın görmezden gelemeyeceği
-> açık bir şekilde, böylece programcı sorunu çözecektir. Kodun bir istisna ile sona
+> açık bir şekilde, böylece programcı sorunu çözecektir. Kodun bir exception ile sona
 > erdiğini görmek
 
 <!-- source-page: 0604 -->
@@ -888,11 +867,7 @@ new Frog().hop("Kermit", null);
 > çağrıldığında bu örneği düşünün:
 ```java
 public void setNumberEggs(int numberEggs) {
-```
-> **English:** if (numberEggs < 0)
->
-> **Türkçe:** if (numberEggs 0)
-```java
+if (numberEggs < 0)
 throw new IllegalArgumentException("# eggs must not be negative");
 this.numberEggs = numberEggs;
 }
@@ -900,12 +875,10 @@ this.numberEggs = numberEggs;
 > **English:** The program throws an exception when it’s not happy with the parameter values. The
 > output looks like this:
 >
-> **Türkçe:** Program, parametre değerlerinden memnun olmadığında bir istisna atar. Çıkış şu şekilde
+> **Türkçe:** Program, parametre değerlerinden memnun olmadığında bir exception atar. Çıkış şu şekilde
 > görünüyor:
-> **English:** Exception in thread "main"
->
-> **Türkçe:** Exception iş parçacığında "ana"
-```java
+```text
+Exception in thread "main"
 java.lang.IllegalArgumentException: # eggs must not be negative
 ```
 > **English:** Clearly, this is a problem that must be fixed if the programmer wants the program to do
@@ -920,7 +893,7 @@ java.lang.IllegalArgumentException: # eggs must not be negative
 > class. In fact, NumberFormatException is a subclass of IllegalArgumentException. Here’s
 > an example of trying to convert something non-numeric into an int:
 >
-> **Türkçe:** Java sayılara strings dönüştürmek için yöntemler sağlar. Bunlar geçersiz bir değer
+> **Türkçe:** Java sayılara strings dönüştürmek için metotlar sağlar. Bunlar geçersiz bir değer
 > geçtiğinde, bir NumberFormatException atarlar. Bu fikir IllegalArgumentException ile
 > benzerdir. Bu yaygın bir sorun olduğundan, Java ona ayrı bir sınıf verir. Aslında,
 > NumberFormatException IllegalArgumentException alt sınıfıdır. İşte numerik olmayan bir
@@ -931,10 +904,8 @@ Integer.parseInt("abc");
 > **English:** The output looks like this:
 >
 > **Türkçe:** Çıkış şu şekilde görünüyor:
-> **English:** Exception in thread "main"
->
-> **Türkçe:** Exception iş parçacığında "ana"
-```java
+```text
+Exception in thread "main"
 java.lang.NumberFormatException: For input string: "abc"
 ```
 > **English:** For the exam, you need to know that NumberFormatException is a subclass of
@@ -955,33 +926,26 @@ java.lang.NumberFormatException: For input string: "abc"
 > NotSerializableException are subclasses of IOException. You see these three classes in
 > Chapter 14, “I/O,” and SQLException in Chapter 15, “JDBC.”
 >
-> **Türkçe:** Sınav için, bunların hepsinin ele alınması veya ilan edilmesi gereken checked exceptions
-> olduğunu bilmeniz gerekir. Ayrıca FileNotFoundException ve NotSerializableException alt
-> sınıflarının IOException olduğunu bilmeniz gerekir. Bu üç sınıfı Bölüm 14, "I/O" ve
-> Bölüm 15, "JDBC" de SQLException de görebilirsiniz.
+> **Türkçe:** Bu türlerin tamamının checked exception olduğunu ve ele alınmaları veya bildirilmeleri
+> gerektiğini bilmelisiniz. FileNotFoundException ve NotSerializableException, IOException
+> sınıfının alt sınıflarıdır. Bu üç tür Bölüm 14 “I/O” içinde, SQLException ise Bölüm 15
+> “JDBC” içinde ele alınır.
 
 <!-- source-page: 0605 -->
-> **English:** TABLE 11.3 Checked exceptions Checked exception Description FileNotFoundException
-> Subclass of IOException. Thrown programmatically when code tries to reference file that
-> does not exist.
+> **English:** TABLE 11.3 Checked exceptions
 >
-> **Türkçe:** TABLE 11.3 Checked exceptions Checked exception Açıklama FileNotFoundException
-> IOException alt sınıfı. Kod mevcut olmayan dosyaya referans vermeye çalıştığında
-> programatik olarak atılır.
-> **English:** IOException Thrown programmatically when problem reading or writing file.
->
-> **Türkçe:** IOException Sorun okuma veya dosya yazma sırasında programatik olarak atılır.
-> **English:** NotSerializableException Subclass of IOException. Thrown programmati-cally when
-> attempting to serialize or deserialize non-serializable class.
->
-> **Türkçe:** NotSerializableException IOException alt sınıfı. Serialize olmayan sınıfı serileştirmeye
-> veya deserialize etmeye çalışırken programmati-cally atılmalıdır.
-> **English:** ParseException Indicates problem parsing input.
->
-> **Türkçe:** ParseException Problem ayrıştırma girdisini belirtir.
-> **English:** SQLException Thrown when error related to accessing database.
->
-> **Türkçe:** SQLException Veritabanına erişim ile ilgili hata atıldığında.
+> **Türkçe:** Tablo 11.3 · Checked exception’lar
+
+<!-- keep-with-next -->
+
+| Exception | English description | Türkçe açıklama |
+| --- | --- | --- |
+| `FileNotFoundException` | File does not exist; extends IOException | Dosya bulunamaz; `IOException` alt sınıfıdır |
+| `IOException` | Problem reading or writing a file | Dosya okuma/yazma sorunu |
+| `NotSerializableException` | Non-serializable object; extends IOException | Serializable olmayan nesne; `IOException` alt sınıfıdır |
+| `ParseException` | Problem parsing input | Girdiyi parse etme sorunu |
+| `SQLException` | Problem accessing a database | Veritabanına erişim sorunu |
+
 ### Error Classes
 > **English:** Errors are unchecked exceptions that extend the Error class. They are thrown by the JVM
 > and should not be handled or declared. Errors are rare, but you might see the ones
@@ -990,30 +954,29 @@ java.lang.NumberFormatException: For input string: "abc"
 > **Türkçe:** Error sınıfını genişleten unchecked exceptions hatalarıdır. JVM tarafından atılırlar ve
 > ele alınmamalı veya ilan edilmemelidirler. Hatalar nadirdir, ancak Tablo 11.4'te
 > listelenenleri görebilirsiniz.
-> **English:** TABLE 11.4 Errors Error Description ExceptionInInitializerError Thrown when static
-> initializer throws exception and doesn’t handle it StackOverflowError Thrown when method
-> calls itself too many times (called infinite recursion because method typically calls
-> itself without end)
+> **English:** TABLE 11.4 Errors
 >
-> **Türkçe:** TABLE 11.4 Hatalar Error Açıklama ExceptionInInitializerError Statik başlatıcı istisna
-> attığında ve StackOverflowError yöntemi kendisini çok fazla çağırdığında fırlatılır
-> (sonsuz tekrarlama olarak adlandırılır, çünkü yöntem tipik olarak kendisini sonsuz
-> olarak çağırır)
-> **English:** NoClassDefFoundError Thrown when class that code uses is available at com-pile time but
-> not runtime For the exam, you just need to know that these errors are unchecked and the
-> code is often unable to recover from them.
+> **Türkçe:** Tablo 11.4 · Error türleri
+
+<!-- keep-with-next -->
+
+| Error | English description | Türkçe açıklama |
+| --- | --- | --- |
+| `ExceptionInInitializerError` | Unhandled exception from a static initializer | Static initializer sırasında yakalanmayan exception |
+| `StackOverflowError` | Excessive method calls, often infinite recursion | Çoğunlukla sonsuz recursion nedeniyle çağrı yığınının tükenmesi |
+| `NoClassDefFoundError` | Class available at compile time but unavailable at runtime | Derleme sırasında bulunan sınıfın çalışma zamanında yüklenememesi |
+
+> **English:** For the exam, you just need to know that these errors are unchecked and the code is often unable to recover from them.
 >
-> **Türkçe:** NoClassDefFoundError Kodun kullandığı sınıf eş zamanlı olarak kullanılabilir ancak
-> çalışma zamanı değilken fırlatılır Sınav için, bu hataların kontrol edilmediğini ve
-> kodun genellikle onlardan kurtarılamayacağını bilmeniz yeterlidir.
+> **Türkçe:** Bu Error türlerinin unchecked olduğunu ve uygulamanın çoğunlukla bunlardan toparlanamayacağını bilmeniz gerekir.
 ## Handling Exceptions
 > **English:** What do you do when you encounter an exception? How do you handle or recover from the
 > exception? In this section, we show the various statements in Java that support handling
 > exceptions.
 >
-> **Türkçe:** Bir istisnayla karşılaştığınızda ne yaparsınız? İstisnadan nasıl kurtulur veya
-> kurtulursunuz? Bu bölümde, kullanım istisnalarını destekleyen Java 'daki çeşitli
-> ifadeleri gösteriyoruz.
+> **Türkçe:** Exception ile karşılaştığınızda ne yaparsınız? Onu nasıl ele alır veya sonrasında nasıl
+> toparlanırsınız? Bu bölümde Java’nın exception handling için sunduğu statement’ları
+> inceleyeceğiz.
 
 <!-- source-page: 0606 -->
 ### Using try and catch Statements
@@ -1021,15 +984,15 @@ java.lang.NumberFormatException: For input string: "abc"
 > statement to separate the logic that might throw an exception from the logic to handle
 > that exception. Figure 11.2 shows the syntax of a try statement.
 >
-> **Türkçe:** Artık istisnaların ne olduğunu bildiğinize göre, bunları nasıl ele alacağınızı
-> araştıralım. Java, bu istisnayı işlemek için mantıktan bir istisna atabilecek mantığı
+> **Türkçe:** Artık exception’ların ne olduğunu bildiğinize göre, bunları nasıl ele alacağınızı
+> araştıralım. Java, bu exception’ı işlemek için mantıktan bir exception atabilecek mantığı
 > ayırmak için bir deneme ifadesi kullanır. Şekil 11.2, bir deneme ifadesinin sözdizimini
 > gösterir.
 > **English:** FIGURE 11.2 The syntax of a try statement The try keyword try { The identifier of the
 > Curly braces are exception object // Protected code required.
 >
 > **Türkçe:** FIGURE 11.2 Bir deneme ifadesinin sözdizimi Anahtar kelime deneyin Kıvırcık diş
-> tellerinin tanımlayıcısı istisna nesnesidir // Korumalı kod gereklidir.
+> tellerinin tanımlayıcısı exception nesnesidir // Korumalı kod gereklidir.
 > **English:** } catch (exception_type identifier) { The type of exception being caught// Exception
 > handler } The catch keyword The code in the try block is run normally. If any of the
 > statements throws an exception that can be caught by the exception type listed in the
@@ -1037,11 +1000,11 @@ java.lang.NumberFormatException: For input string: "abc"
 > none of the statements in the try block throws an exception that can be caught, the
 > catch clause is not run.
 >
-> **Türkçe:** yakalama (istisna_tipi tanımlayıcı) Yakalanan istisna türü/ Exception işleyici Yakalama
+> **Türkçe:** yakalama (istisna_tipi tanımlayıcı) Yakalanan exception türü/ Exception işleyici Yakalama
 > anahtar kelimesi try block içindeki kod normal olarak çalıştırılır. İfadelerden herhangi
-> biri, catch block bölümünde listelenen istisna türüne göre yakalanabilecek bir istisna
+> biri, catch block bölümünde listelenen exception türüne göre yakalanabilecek bir exception
 > atarsa, try block çalışmayı durdurur ve yürütme yakalama ifadesine gider. try block
-> içindeki ifadelerin hiçbiri yakalanabilecek bir istisna atmazsa, yakalama maddesi
+> içindeki ifadelerin hiçbiri yakalanabilecek bir exception atmazsa, yakalama maddesi
 > çalıştırılmaz.
 > **English:** You probably noticed the words block and clause used interchangeably. The exam does this
 > as well, so get used to it. Both are correct. Block is correct because there are braces
@@ -1075,7 +1038,7 @@ void fall() { throw new RuntimeException(); }
 > jumps straight to the catch block, skipping line 6. The girl gets up on line 8. Now the
 > try statement is over, and execution proceeds normally with line 10.
 >
-> **Türkçe:** İlk olarak, 5. satır fall() yöntemini çağırır. 12. hat bir istisna yaratıyor. Bu, Java
+> **Türkçe:** İlk olarak, 5. satır fall() metodunu çağırır. 12. hat bir exception yaratıyor. Bu, Java
 > doğrudan catch block'e atlayarak 6. satırı atladığı anlamına gelir. Kız 8. hatta
 > kalkıyor. Şimdi deneme ifadesi sona erdi ve yürütme normal olarak 10. satırla devam
 > ediyor.
@@ -1099,9 +1062,10 @@ System.out.println("get up");
 > blocks, while if statements and loops are special and allow you to omit the curly
 > braces.
 >
-> **Türkçe:** Sorun şu ki, diş telleri eksik. Deneme ifadeleri, kod bloklarının içinde sadece bir
-> ifade olsa bile, ifadeler ve döngüler özelse ve kıvırcık diş tellerini atlamanıza izin
-> verirse, kıvırcık diş tellerinin gerekli olduğu yöntemler gibidir.
+> **Türkçe:** Sorun, süslü parantezlerin ({}) eksik olmasıdır. Metot gövdelerinde olduğu gibi try
+> bloklarında da tek statement bulunsa bile süslü parantez gerekir. Bazı if ve döngü
+> gövdelerinde tek statement için parantezler atlanabilir; bu istisna try için geçerli
+> değildir.
 > **English:** What about this one?
 >
 > **Türkçe:** Peki ya bu?
@@ -1117,7 +1081,7 @@ fall();
 > syntax is quite different from this example.
 >
 > **Türkçe:** Bu kod derlemez, çünkü try block ondan sonra hiçbir şeye sahip değildir. Unutmayın, bir
-> deneme ifadesinin amacı, bir istisna atılırsa bir şeyin gerçekleşmesidir. Başka bir
+> deneme ifadesinin amacı, bir exception atılırsa bir şeyin gerçekleşmesidir. Başka bir
 > madde olmadan, deneme ifadesi yalnızdır. Kısa sürede gördüğünüz gibi, sözdizimi bu
 > örnekten oldukça farklı olmasına rağmen, örtülü bir finally block içeren özel bir deneme
 > ifadesi türü vardır.
@@ -1127,11 +1091,9 @@ fall();
 > exception is a checked or an unchecked exception. Second, you need to determine whether
 > any of the exceptions are subclasses of the others.
 >
-> **Türkçe:** Sınav için, size istisna dersleri verilebilir ve onların function nasıl olduğunu
-> anlamanız gerekir. İşte bunlarla nasıl başa çıkılacağı. İlk olarak, istisnanın bir
-> kontrol veya unchecked exception olup olmadığını fark edebilmelisiniz. İkincisi,
-> istisnalardan herhangi birinin diğerlerinin alt sınıfı olup olmadığını belirlemeniz
-> gerekir.
+> **Türkçe:** Sınavda exception sınıfları verilip davranışlarını yorumlamanız istenebilir. Önce türün
+> checked mi unchecked mi olduğunu, ardından verilen exception türleri arasında alt sınıf
+> ilişkisi bulunup bulunmadığını belirleyin.
 ```java
 class AnimalsOutForAWalk extends RuntimeException {}
 class ExhibitClosed extends RuntimeException {}
@@ -1142,8 +1104,8 @@ class ExhibitClosedForLunch extends ExhibitClosed {}
 > exceptions with two catch blocks and handle them by printing out the appropriate
 > message:
 >
-> **Türkçe:** Bu örnekte, üç özel istisna vardır. Hepsi unchecked exceptions çünkü doğrudan veya
-> dolaylı olarak RuntimeException uzatıyorlar. Şimdi her iki tür istisnayı iki catch
+> **Türkçe:** Bu örnekte, üç özel exception vardır. Hepsi unchecked exceptions çünkü doğrudan veya
+> dolaylı olarak RuntimeException uzatıyorlar. Şimdi her iki tür exception’ı iki catch
 > blocks ile zincirliyoruz ve uygun mesajı yazdırarak ele alıyoruz:
 ```java
 public void visitPorcupine() {
@@ -1165,7 +1127,7 @@ System.out.print("not today");
 > block runs. If the exhibit is closed, only the second catch block runs. It is not
 > possible for both catch blocks to be executed when chained together like this.
 >
-> **Türkçe:** Bu kod çalıştırıldığında üç olasılık vardır. seeAnimal() bir istisna atmazsa, hiçbir şey
+> **Türkçe:** Bu kod çalıştırıldığında üç olasılık vardır. seeAnimal() bir exception atmazsa, hiçbir şey
 > yazdırılmaz. Hayvan yürüyüşe çıkmışsa, sadece ilk catch block çalışır. Sergi kapalıysa,
 > yalnızca ikinci catch block çalışır. Her iki catch blocks'ün de bu şekilde
 > zincirlendiğinde çalıştırılması mümkün değildir.
@@ -1178,17 +1140,17 @@ System.out.print("not today");
 > **Türkçe:** catch blocks düzeni için bir kural vardır. Java göründükleri sıraya bakarlar. catch
 > blocks 'den birinin çalıştırılması imkansızsa, erişilemez kodla ilgili bir derleyici
 > hatası oluşur. Örneğin, bu, bir alt sınıf catch block önce bir süper sınıf catch block
-> göründüğünde olur. Unutmayın, herhangi bir alt sınıf istisnasına dikkat etmeniz
+> göründüğünde olur. Unutmayın, herhangi bir alt sınıf exception’ına dikkat etmeniz
 > konusunda sizi uyarmıştık.
 > **English:** In the porcupine example, the order of the catch blocks could be reversed because the
 > exceptions don’t inherit from each other. And yes, we have seen a porcupine be taken for
 > a walk on a leash.
 >
-> **Türkçe:** Kirpi örneğinde, istisnalar birbirinden miras almadığı için catch blocks sırası tersine
+> **Türkçe:** Kirpi örneğinde, exception’lar birbirinden miras almadığı için catch blocks sırası tersine
 > çevrilebilir. Ve evet, bir kirpinin tasma üzerinde yürüyüşe çıkarıldığını gördük.
 > **English:** The following example shows exception types that do inherit from each other:
 >
-> **Türkçe:** Aşağıdaki örnek, birbirinden miras kalan istisna türlerini göstermektedir:
+> **Türkçe:** Aşağıdaki örnek, birbirinden miras kalan exception türlerini göstermektedir:
 ```java
 public void visitMonkeys() {
 try {
@@ -1206,8 +1168,8 @@ System.out.print("not today");
 > catches it. This time, the order of the catch blocks does matter. The reverse does not
 > work.
 >
-> **Türkçe:** Daha spesifik ExhibitClosedForLunch istisnası atılırsa, ilk catch block çalışır.
-> Değilse, Java süper sınıf ExhibitClosed istisnasının atılıp atılmadığını kontrol eder ve
+> **Türkçe:** Daha spesifik ExhibitClosedForLunch exception’ı atılırsa, ilk catch block çalışır.
+> Değilse, Java süper sınıf ExhibitClosed exception’ının atılıp atılmadığını kontrol eder ve
 > yakalar. Bu kez, catch blocks'in sırası önemlidir. Tam tersi işe yaramıyor.
 ```java
 public void visitMonkeys() {
@@ -1224,7 +1186,7 @@ System.out.print("try back later");
 > ExhibitClosed runs— which means there is no way for the second catch block to ever run.
 > Java correctly tells you there is an unreachable catch block.
 >
-> **Türkçe:** Daha spesifik ExhibitClosedForLunch istisnası atılırsa, ExhibitClosed çalışır için catch
+> **Türkçe:** Daha spesifik ExhibitClosedForLunch exception’ı atılırsa, ExhibitClosed çalışır için catch
 > block yani ikinci catch block'in hiç çalışması mümkün değildir. Java doğru bir şekilde
 > ulaşılamaz catch block olduğunu söyler.
 
@@ -1260,10 +1222,10 @@ try {
 > object outside the block for which it was defined:
 >
 > **Türkçe:** Birden fazla catch blocks gözden geçirmek için, en fazla bir catch block
-> çalıştırılacağını ve istisnayı kaldırabilecek ilk catch block olacağını unutmayın.
-> Ayrıca, yakalama ifadesiyle tanımlanan bir istisnanın yalnızca bu catch block için
+> çalıştırılacağını ve exception’ı kaldırabilecek ilk catch block olacağını unutmayın.
+> Ayrıca, yakalama ifadesiyle tanımlanan bir exception’ın yalnızca bu catch block için
 > kapsam dahilinde olduğunu unutmayın. Örneğin, aşağıdakiler, tanımlandığı bloğun
-> dışındaki istisna nesnesini kullanmaya çalıştığı için bir derleyici hatasına neden olur:
+> dışındaki exception nesnesini kullanmaya çalıştığı için bir derleyici hatasına neden olur:
 ```java
 public void visitManatees() {
 try {
@@ -1278,8 +1240,8 @@ System.out.println(e1); // DOES NOT COMPILE
 > **English:** Often, we want the result of an exception that is thrown to be the same, regardless of
 > which particular exception is thrown. For example, take a look at this method:
 >
-> **Türkçe:** Genellikle, hangi istisnanın atıldığına bakılmaksızın, atılan bir istisnanın sonucunun
-> aynı olmasını isteriz. Örneğin, bu yönteme bir göz atın:
+> **Türkçe:** Genellikle, hangi exception’ın atıldığına bakılmaksızın, atılan bir exception’ın sonucunun
+> aynı olmasını isteriz. Örneğin, bu metoda bir göz atın:
 ```java
 public static void main(String args[]) {
 try {
@@ -1300,7 +1262,7 @@ System.out.println("Missing or invalid input");
 >
 > **Türkçe:** İki farklı catch blocks için aynı println() ifadesine sahip olduğumuza dikkat edin. Bunu
 > bir multi-catch block kullanarak daha zarif bir şekilde halledebiliriz. Bir multi-catch
-> block, birden fazla istisna türünün aynı catch block tarafından yakalanmasına izin
+> block, birden fazla exception türünün aynı catch block tarafından yakalanmasına izin
 > verir. Önceki örneği bir multi-catch block kullanarak yeniden yazalım:
 ```java
 public static void main(String[] args) {
@@ -1317,7 +1279,7 @@ System.out.println("Missing or invalid input");
 > exceptions differently.
 >
 > **Türkçe:** Bu çok daha iyi. Kopyalanmış bir kod yoktur, ortak mantık hepsi tek bir yerdedir ve
-> mantık tam olarak onu bulmayı beklediğiniz yerdir. İsterseniz, diğer istisna türlerini
+> mantık tam olarak onu bulmayı beklediğiniz yerdir. İsterseniz, diğer exception türlerini
 > farklı bir şekilde ele almak istiyorsanız, Exception için ikinci bir catch block sahibi
 > olabilirsiniz.
 > **English:** Figure 11.3 shows the syntax of multi-catch. It’s like a regular catch clause, except
@@ -1326,12 +1288,10 @@ System.out.println("Missing or invalid input");
 > exception types. Notice how there is only one variable name in the catch clause. Java is
 > saying that the variable named e can be of type Exception1 or Exception2.
 >
-> **Türkçe:** Şekil 11.3, çoklu yakalama sözdizimi gösterir. Normal bir yakalama maddesi gibidir, iki
-> veya daha fazla istisna türü belirtilmedikçe, bir boru ile ayrılır. Boru () aynı zamanda
-> "veya" operatörü olarak da kullanılır, bu da istisna tiplerinden birini / veya birini
-> kullanabileceğinizi hatırlamanızı kolaylaştırır. Yakalama maddesinde sadece bir değişken
-> adı olduğuna dikkat edin. Java, e adlı değişkenin Exception1 veya Exception2 tipi
-> olabileceğini söylüyor.
+> **Türkçe:** Şekil 11.3, multi-catch sözdizimini gösterir. Normal catch bloğundan farklı olarak iki
+> veya daha fazla exception türü pipe (|) karakteriyle ayrılır. Bu işaretin “veya” anlamı,
+> türlerden herhangi birinin yakalanabileceğini hatırlatır. Parametre adı yalnız bir kez
+> yazılır: e, Exception1 veya Exception2 türündeki exception’ı temsil eder.
 > **English:** FIGURE 11.3 The syntax of a multi-catch block
 >
 > **Türkçe:** FIGURE 11.3 Bir multi-catch block sözdizimi
@@ -1346,7 +1306,7 @@ try {
 ```
 > **English:** these exceptions.
 >
-> **Türkçe:** Bu istisnalar.
+> **Türkçe:** Bu exception’lar.
 ```java
 } catch (Exception1 | Exception2 e) {
 ```
@@ -1358,7 +1318,7 @@ try {
 ```
 > **English:** all exception types
 >
-> **Türkçe:** tüm istisna türleri
+> **Türkçe:** tüm exception türleri
 ```java
 } Required | between
 ```
@@ -1366,7 +1326,7 @@ try {
 > exceptions can be listed in any order within the catch clause. However, the variable
 > name must appear only once and at the end. Do you see why these are valid or invalid?
 >
-> **Türkçe:** istisna türleri Sınav sizi geçersiz sözdizimi ile kandırmaya çalışabilir. İstisnaların
+> **Türkçe:** exception türleri Sınav sizi geçersiz sözdizimi ile kandırmaya çalışabilir. Exception’ların
 > yakalama maddesindeki herhangi bir sırada listelenebileceğini unutmayın. Bununla
 > birlikte, değişken adı sadece bir kez ve sonunda görünmelidir. Bunların neden geçerli
 > veya geçersiz olduğunu görüyor musunuz?
@@ -1385,12 +1345,12 @@ catch(Exception1 | Exception2 | Exception3 e)
 >
 > **Türkçe:** İlk satır yanlıştır, çünkü değişken adı üç kez görünür. Sadece aynı değişken isim olması
 > onu iyi yapmaz. İkinci satır yanlıştır, çünkü değişken adı tekrar üç kez görünür. Farklı
-> değişken isimleri kullanmak onu daha iyi yapmaz. Üçüncü satır derlenir. Üç istisnayı
+> değişken isimleri kullanmak onu daha iyi yapmaz. Üçüncü satır derlenir. Üç exception’ı
 > belirtmek için doğru söz dizimini gösterir.
 > **English:** Java intends multi-catch to be used for exceptions that aren’t related, and it prevents
 > you from specifying redundant types in a multi-catch. Do you see what is wrong here?
 >
-> **Türkçe:** Java, ilgili olmayan istisnalar için çoklu yakalamanın kullanılmasını amaçlar ve çok
+> **Türkçe:** Java, ilgili olmayan exception’lar için çoklu yakalamanın kullanılmasını amaçlar ve çok
 > yakalamada gereksiz türleri belirtmenizi önler. Burada neyin yanlış olduğunu görüyor
 > musun?
 ```java
@@ -1401,7 +1361,7 @@ throw new IOException();
 > **English:** Specifying related exceptions in the multi-catch is redundant, and the compiler gives a
 > message such as this:
 >
-> **Türkçe:** Çoklu yakalamada ilgili istisnaları belirtmek gereksizdir ve derleyici şu gibi bir mesaj
+> **Türkçe:** Çoklu yakalamada ilgili exception’ları belirtmek gereksizdir ve derleyici şu gibi bir mesaj
 > verir:
 > **English:** The exception FileNotFoundException is already caught by the alternative IOException
 > Since FileNotFoundException is a subclass of IOException, this code will not compile. A
@@ -1411,11 +1371,11 @@ throw new IOException();
 > multicatch blocks and chaining catch blocks is that order does not matter for a
 > multi-catch block within a single catch expression.
 >
-> **Türkçe:** FileNotFoundException istisnası zaten alternatif IOException tarafından yakalanır
+> **Türkçe:** FileNotFoundException exception’ı zaten alternatif IOException tarafından yakalanır
 > FileNotFoundException IOException alt sınıfı olduğundan, bu kod derlemez. Bir
 > multi-catch block, bir önceki bölümde gördüğünüz catch blocks zincirlemeye benzer
 > kuralları takip eder. Örneğin, her ikisi de erişilemeyen kodla karşılaştıklarında veya
-> yakalanması gereken yinelenen istisnalarla karşılaştıklarında derleyici hatalarını
+> yakalanması gereken yinelenen exception’larla karşılaştıklarında derleyici hatalarını
 > tetikler. Çok yakalama blokları ile zincirleme catch blocks arasındaki tek fark, düzenin
 > tek bir yakalama ifadesi içinde bir multi-catch block için önemli olmamasıdır.
 > **English:** Getting back to the example, the correct code is just to drop the extraneous subclass
@@ -1433,15 +1393,15 @@ throw new IOException();
 > whether an exception is thrown. Figure 11.4 shows the syntax of a try statement with
 > this extra functionality.
 >
-> **Türkçe:** Deneme ifadesi ayrıca, bir istisnanın atılıp atılmadığına bakılmaksızın, sonunda bir son
+> **Türkçe:** Deneme ifadesi ayrıca, bir exception’ın atılıp atılmadığına bakılmaksızın, sonunda bir son
 > madde ile kod çalıştırmanıza izin verir. Şekil 11.4, bu ekstra işlevsellik ile bir
 > deneme ifadesi sözdizimi gösterir.
 > **English:** There are two paths through code with both a catch and a finally. If an exception is
 > thrown, the finally block is run after the catch block. If no exception is thrown, the
 > finally block is run after the try block completes.
 >
-> **Türkçe:** Kodlama yoluyla hem yakalama hem de sonunda iki yol vardır. Bir istisna atılırsa, catch
-> block'den sonra finally block çalıştırılır. Herhangi bir istisna atılmazsa, try block
+> **Türkçe:** Kodlama yoluyla hem yakalama hem de sonunda iki yol vardır. Bir exception atılırsa, catch
+> block'den sonra finally block çalıştırılır. Herhangi bir exception atılmazsa, try block
 > tamamlandıktan sonra finally block çalıştırılır.
 > **English:** Let’s go back to our young girl example, this time with finally:
 >
@@ -1472,7 +1432,7 @@ goHome();
 > The finally block always executes, whether or not an // finally block exception occurs.
 >
 > **Türkçe:** // Korunan kod yakalama (istisna_tipi tanımlayıcı) // Exception işleyici nihayet finally
-> block her zaman çalışır, bir // finally block istisnası meydana gelip gelmediği.
+> block her zaman çalışır, bir // finally block exception’ı meydana gelip gelmediği.
 > **English:** } The finally keyword The girl falls on line 15. If she gets up by herself, the code
 > goes on to the finally block and runs line 19. Then the try statement is over, and the
 > code proceeds on line 21. If the girl doesn’t get up by herself, she throws an
@@ -1483,7 +1443,7 @@ goHome();
 >
 > **Türkçe:** Son olarak anahtar kelime Kız 15. hatta düşüyor. Tek başına kalkarsa, kod finally block
 > 'a gider ve 19. satırı çalıştırır. Sonra deneme ifadesi sona erdi ve kod 21. satırda
-> devam etti. Kız tek başına kalkmazsa, bir istisna atar. catch block çalışır ve 17. hatta
+> devam etti. Kız tek başına kalkmazsa, bir exception atar. catch block çalışır ve 17. hatta
 > sarılır. Bu sarılmayla, 19 numaralı hatta daha fazla hayvan görmeye hazırdır. Sonra
 > deneme ifadesi sona erdi ve kod 21. satırda devam etti. Her iki durumda da sonu aynıdır.
 > finally block çalıştırılır ve deneme ifadesinden sonra yürütme devam eder.
@@ -1500,20 +1460,13 @@ System.out.println("all better");
 } catch (Exception e) {
 System.out.println("get up");
 }
-```
-> **English:** 32:
->
-> **Türkçe:** 32:
-```java
 try { // DOES NOT COMPILE
 fall();
 }
 ```
 
 <!-- source-page: 0613 -->
-> **English:** 36:
->
-> **Türkçe:** 36:
+
 ```java
 try {
 fall();
@@ -1552,7 +1505,7 @@ System.out.print(sb.toString());
 > straight to the finally block. Then the code after the try statement is run. We know
 > that this is a silly example, but you can expect to see examples like this on the exam.
 >
-> **Türkçe:** Cevabı tfa. try block çalıştırılır. Herhangi bir istisna atılmadığından, Java doğrudan
+> **Türkçe:** Cevabı tfa. try block çalıştırılır. Herhangi bir exception atılmadığından, Java doğrudan
 > finally block adresine gider. Ardından, deneme ifadesinden sonraki kod çalıştırılır.
 > Bunun aptalca bir örnek olduğunu biliyoruz, ancak sınavda bunun gibi örnekler görmeyi
 > bekleyebilirsiniz.
@@ -1564,8 +1517,8 @@ System.out.print(sb.toString());
 >
 > **Türkçe:** finally blocks için bilmeniz gereken bir ek kural vardır. finally block ile bir deneme
 > ifadesi girilirse, kodun başarılı bir şekilde tamamlanıp tamamlanmadığına bakılmaksızın
-> finally block her zaman çalıştırılır. Aşağıdaki goHome() yöntemine bir göz atın. Bir
-> istisnanın 14. hatta atılabileceğini veya atılamayacağını varsayarsak, bu yöntemin
+> finally block her zaman çalıştırılır. Aşağıdaki goHome() metoduna bir göz atın. Bir
+> exception’ın 14. hatta atılabileceğini veya atılamayacağını varsayarsak, bu metodun
 > yazdırabileceği olası değerler nelerdir? Ayrıca, her durumda geri dönüş değeri ne olur?
 ```java
 int goHome() {
@@ -1592,18 +1545,18 @@ return - 3;
 > executed, printing 2, followed by 3 from the finally block. While the first value
 > printed may differ, the method always prints 3 last since it’s in the finally block.
 >
-> **Türkçe:** 14'üncü hatta bir istisna atılmazsa, 15'inci satır çalıştırılır, 1'i yazdırır. Yöntem
-> geri dönmeden önce, finally block çalıştırılır, baskı 3. Bir istisna atılırsa, 15 ve 16
+> **Türkçe:** 14'üncü hatta bir exception atılmazsa, 15'inci satır çalıştırılır, 1'i yazdırır. Metot
+> geri dönmeden önce, finally block çalıştırılır, baskı 3. Bir exception atılırsa, 15 ve 16
 > satırları atlanır ve 17 satırları çalıştırılır, 2 yazdırılır ve ardından finally
-> block'den 3 çıkarılır. Basılan ilk değer farklılık gösterse de, yöntem finally block
+> block'den 3 çıkarılır. Basılan ilk değer farklılık gösterse de, metot finally block
 > olduğu için her zaman son 3 yazdırır.
-> **English:** What is the return value of the goHome() method? In this case, it’s always ----  3.
+> **English:** What is the return value of the goHome() method? In this case, it’s always -3.
 > Because the finally block is executed shortly before the method completes, it interrupts
 > the return statement from inside both the try and catch blocks.
 >
-> **Türkçe:** goHome() yönteminin dönüş değeri nedir? Bu durumda, her zaman ---- 3. finally block
-> yöntemin tamamlanmasından kısa bir süre önce çalıştırıldığı için, hem denemenin içinden
-> hem de catch blocks içinden geri bildirimin kesilmesini sağlar.
+> **Türkçe:** goHome() metodunun dönüş değeri nedir? Bu örnekte her zaman -3’tür. Metot tamamlanmadan
+> hemen önce finally çalıştığı için buradaki return, try veya catch içindeki önceki return
+> sonucunun yerini alır.
 > **English:** For the exam, you need to remember that a finally block will always be executed. That
 > said, it may not complete successfully. Take a look at the following code snippet. What
 > would happen if info was null on line 32?
@@ -1622,16 +1575,18 @@ return "zoo";
 > and throw a NullPointerException. Lines 33 and 34 would not be executed. In this
 > example, you see that while a finally block will always be executed, it may not finish.
 >
-> **Türkçe:** Eğer bilgi null olsaydı, finally block çalıştırılırdı, ancak 32. hatta durur ve
-> NullPointerException atardı. 33 ve 34 numaralı hatlar idam edilmeyecekti. Bu örnekte,
-> bir finally block her zaman çalıştırılacak olsa da, bitmeyebilir.
+> **Türkçe:** info null ise finally bloğu çalışmaya başlar, ancak 32. satırda NullPointerException
+> fırlatılır. 33 ve 34. satırlar çalıştırılmaz. Bir finally bloğuna girilmesi, bloğun
+> sonuna kadar başarıyla çalışacağı anlamına gelmez.
 > **English:** System.exit()
 >
 > **Türkçe:** System.exit()
 > **English:** There is one exception to “the finally block will always be executed” rule: Java defines
 > a
 >
-> **Türkçe:** "finally block her zaman çalıştırılacak" kuralının bir istisnası vardır: Java bir
+> **Türkçe:** “Finally bloğu her zaman çalışır” kuralının bir istisnası vardır: Java,
+
+> **OCP / Java 17 notu:** Bu cümlede exception günlük dilde “istisna” anlamındadır. `System.exit()` dışında JVM’in durdurulması veya kontrolün try gövdesinden hiç çıkmaması gibi durumlarda da finally çalışmayabilir; normal kontrol akışıyla JVM sonlandırılmasını ayırın.
 ```java
 method that you call as System.exit(). It takes an integer parameter that represents the
 ```
@@ -1691,7 +1646,7 @@ lect $200.” When System.exit() is called in the try or catch block, the finall
 ### Introducing Try-with-Resources
 > **English:** Let’s take a look at a method that opens a file, reads the data, and closes it:
 >
-> **Türkçe:** Bir dosyayı açan, verileri okuyan ve kapatan bir yönteme bir göz atalım:
+> **Türkçe:** Bir dosyayı açan, verileri okuyan ve kapatan bir metoda bir göz atalım:
 ```java
 public void readFile(String file) {
 FileInputStream is = null;
@@ -1704,11 +1659,6 @@ e.printStackTrace();
 if(is!= null) {
 try {
 is.close();
-```
-> **English:** 15:
->
-> **Türkçe:** 15:
-```java
 } catch (IOException e2) {
 e2.printStackTrace();
 }
@@ -1726,13 +1676,13 @@ e2.printStackTrace();
 > You also don’t want an exception caused by closing one resource to prevent the closing
 > of another resource.
 >
-> **Türkçe:** Vay canına, bu bir long yöntemi! Neden iki deneme ve catch blocks var? 7 ve 14
+> **Türkçe:** Vay canına, bu bir long metodu! Neden iki deneme ve catch blocks var? 7 ve 14
 > satırlarının her ikisi de kontrol edilen IOException çağrılarını içerir ve bunların
-> yönteme yakalanması veya yönteme göre yeniden atanması gerekir. Bu yöntemdeki kod
+> metoda yakalanması veya metoda göre yeniden atanması gerekir. Bu metottaki kod
 > satırlarının yarısı sadece bir kaynağı kapatıyor. Ve ne kadar çok kaynağa sahip
 > olursanız, bunun gibi kodlar o kadar uzun olur. Örneğin, belirli bir sırayla kapatılması
 > gereken birden fazla kaynağa sahip olabilirsiniz. Başka bir kaynağın kapanmasını önlemek
-> için bir kaynağın kapatılmasının neden olduğu bir istisna da istemezsiniz.
+> için bir kaynağın kapatılmasının neden olduğu bir exception da istemezsiniz.
 > **English:** To solve this, Java includes the try-with-resources statement to automatically close all
 > resources opened in a try clause. This feature is also known as automatic resource
 > management, because Java automatically takes care of the closing.
@@ -1759,7 +1709,7 @@ e.printStackTrace();
 >
 > **Türkçe:** İşlevsel olarak, benzerler, ancak yeni versiyonumuzun yarısı kadar çizgisi var. Daha da
 > önemlisi, bir try-with-resources statement kullanarak, bir bağlantı kapsam dışına çıkar
-> çıkmaz, Java'in aynı yöntem içinde kapatmaya çalışacağını garanti ediyoruz.
+> çıkmaz, Java'in aynı metot içinde kapatmaya çalışacağını garanti ediyoruz.
 > **English:** Behind the scenes, the compiler replaces a try-with-resources block with a try and
 > finally block. We refer to this “hidden” finally block as an implicit finally block
 > since it is created and used by the compiler automatically. You can still create a
@@ -1830,7 +1780,7 @@ var out = new FileOutputStream("output.txt");) {
 >
 > **Türkçe:** Şekil 11.5'teki catch block'ye ne oldu? Görünüşe göre bir yakalama bloğu Optional.
 > Kaynakla deneme ifadesiyle. Örneğin, önceki readFile() örneğini yeniden yazabiliriz,
-> böylece yöntem istisnayı daha da kısaltacak şekilde ilan eder:
+> böylece metot exception’ı daha da kısaltacak şekilde ilan eder:
 ```java
 public void readFile(String file) throws IOException {
 try (FileInputStream is = new FileInputStream("myfile.txt")) {
@@ -1853,15 +1803,15 @@ try (FileInputStream is = new FileInputStream("myfile.txt")) {
 > try-with-resources statement. For example, the following does not compile as String does
 > not implement the AutoCloseable interface:
 >
-> **Türkçe:** Sadece AutoCloseable arayüzünü uygulayan sınıflar try-with-resources statement içinde
-> kullanılabilir. Örneğin, String AutoCloseable arayüzünü uygulamadığı için aşağıdakiler
+> **Türkçe:** Sadece AutoCloseable interface’ini uygulayan sınıflar try-with-resources statement içinde
+> kullanılabilir. Örneğin, String AutoCloseable interface’ini uygulamadığı için aşağıdakiler
 > derlenmez:
 ```java
 try (String reptile = "lizard") {}
 ```
 > **English:** Inheriting AutoCloseable requires implementing a compatible close() method.
 >
-> **Türkçe:** AutoCloseable'in kalıtılması, uyumlu bir close() yönteminin uygulanmasını gerektirir.
+> **Türkçe:** AutoCloseable'in kalıtılması, uyumlu bir close() metodunun uygulanmasını gerektirir.
 ```java
 interface AutoCloseable {
 public void close() throws Exception;
@@ -1871,14 +1821,14 @@ public void close() throws Exception;
 > close() can choose to throw Exception or a subclass or not throw any exceptions at all.
 >
 > **Türkçe:** Metod overriding çalışmalarınızdan, bu, close() uygulamasının uygulanmış sürümünün
-> Exception veya bir alt sınıfı atmayı seçebileceği veya herhangi bir istisna atmayacağı
+> Exception veya bir alt sınıfı atmayı seçebileceği veya herhangi bir exception atmayacağı
 > anlamına gelir.
 
 <!-- source-page: 0618 -->
 > **English:** Throughout the rest of this section, we use the following custom resource class that
 > simply prints a message when the close() method is called:
 >
-> **Türkçe:** Bu bölümün geri kalanı boyunca, close() yöntemi çağrıldığında bir mesajı basitçe
+> **Türkçe:** Bu bölümün geri kalanı boyunca, close() metodu çağrıldığında bir mesajı basitçe
 > yazdıran aşağıdaki özel kaynak sınıfını kullanıyoruz:
 ```java
 public class MyFileClass implements AutoCloseable {
@@ -1890,13 +1840,13 @@ System.out.println("Closing: " + num);
 ```
 > **English:** In Chapter 14, you encounter resources that implement Closeable rather than
 > AutoCloseable. Since Closeable extends AutoCloseable, they are both supported in
-> try-with-resources state-ments. The only difference between the two is that Closeable’s
+> try-with-resources statements. The only difference between the two is that Closeable’s
 > close() method declares IOException, while AutoCloseable’s
 >
-> **Türkçe:** Bölüm 14'te, AutoCloseable yerine Yakınlaştırılabilir'i uygulayan kaynaklarla
-> karşılaşırsınız. Closeable AutoCloseable uzandığından, her ikisi de try-with-resources
-> state-ments içinde desteklenir. İkisi arasındaki tek fark Closeable'ın close()
-> yönteminin IOException, AutoCloseable'in ise
+> **Türkçe:** Bölüm 14’te AutoCloseable yerine Closeable interface’ini implement eden kaynaklarla
+> karşılaşacaksınız. Closeable, AutoCloseable interface’ini extend ettiği için her iki tür
+> de try-with-resources içinde kullanılabilir. Burada vurgulanan imza farkı şudur:
+> Closeable.close(), IOException bildirirken AutoCloseable.close()
 ```java
 close() method declares Exception.
 ```
@@ -1919,9 +1869,10 @@ MyFileClass cd = new MyFileClass(2)) {
 > also uses a comma (,) instead of a semicolon (;). Each resource must include the data
 > type and be separated by a semicolon (;).
 >
-> **Türkçe:** İlk örnek veri türünü eksik olduğu için derlemez ve virgül (,) yerine virgül (;)
-> kullanır. İkinci örnek derlenmez çünkü virgül (,) yerine virgül (;) kullanır. Her kaynak
-> veri türünü içermeli ve bir virgül (;) ile ayrılmalıdır.
+> **Türkçe:** İlk örnek, ikinci kaynak için veri türü yazılmadığı ve noktalı virgül (;) yerine virgül
+> (,) kullanıldığı için derlenmez. İkinci örnekte de noktalı virgül yerine virgül
+> kullanılmıştır. Buradaki kaynak bildirimlerinin her biri tür içermeli ve birbirinden
+> noktalı virgülle ayrılmalıdır.
 > **English:** You can declare a resource using var as the data type in a try-with-resources statement,
 > since resources are local variables.
 >
@@ -1945,10 +1896,10 @@ try (var f = new BufferedInputStream(new FileInputStream("it.txt"))) {
 > that you code yourself. The implicit close has run already, and the resource is no
 > longer available. Do you see why lines 6 and 8 don’t compile in this example?
 >
-> **Türkçe:** Deneme maddesinde oluşturulan kaynaklar yalnızca try block kapsamındadır. Bu, örtülünün
-> sonunda kendinizi kodladığınız herhangi bir yakalama / finally blocks öncesinde
-> çalıştığını hatırlamanın başka bir yoludur. Örtülü yakın zaten çalıştı ve kaynak artık
-> mevcut değil. 6 ve 8 satırlarının neden bu örnekte derlenmediğini görüyor musunuz?
+> **Türkçe:** try parantezinde bildirilen kaynakların scope’u yalnız try gövdesidir. Kaynaklar, açıkça
+> yazdığınız catch/finally bloklarından önce otomatik kapatılır ve bu bloklarda bildirim
+> adlarıyla erişilemez. Örnekte 6 ve 8. satırların neden derlenmediğini bu kuralla
+> açıklayabilirsiniz.
 ```java
 try (Scanner s = new Scanner(System.in)) {
 s.nextLine();
@@ -1969,7 +1920,7 @@ s.nextInt(); // DOES NOT COMPILE
 > hatlar buna erişemiyor. Bu güzel bir özellik. Yanlışlıkla kapatılmış bir nesneyi
 > kullanamazsınız. Geleneksel bir deneme ifadesinde, değişkenin deneme ifadesinden önce
 > ilan edilmesi gerekir, böylece hem deneme hem de finally blocks buna erişebilir, bu da
-> değişkeni yöntemin geri kalanı için kapsam içinde yapmanın hoş olmayan yan etkisine
+> değişkeni metodun geri kalanı için kapsam içinde yapmanın hoş olmayan yan etkisine
 > sahiptir, sadece sizi yanlışlıkla çağırmaya davet eder.
 #### Following Order of Operations
 > **English:** When working with try-with-resources statements, it is important to know that resources
@@ -1977,7 +1928,7 @@ s.nextInt(); // DOES NOT COMPILE
 > MyFileClass, can you figure out what this method prints?
 >
 > **Türkçe:** try-with-resources statements ile çalışırken, kaynakların oluşturuldukları sıranın
-> tersine kapatıldığını bilmek önemlidir. Özel MyFileClass'ımızı kullanarak, bu yöntemin
+> tersine kapatıldığını bilmek önemlidir. Özel MyFileClass'ımızı kullanarak, bu metodun
 > ne baskı yaptığını bulabilir misiniz?
 ```java
 public static void main(String... xyz) {
@@ -2004,7 +1955,7 @@ System.out.println("Finally Block");
 > order. Remember, the resources are closed in the reverse of the order in which they are
 > declared, and the implicit finally is executed before the programmer-defined finally.
 >
-> **Türkçe:** Sınav için, yöntemin ifadeleri neden bu sırayla yazdırdığını anladığınızdan emin olun.
+> **Türkçe:** Sınav için, metodun ifadeleri neden bu sırayla yazdırdığını anladığınızdan emin olun.
 > Unutmayın, kaynaklar ilan edildikleri sıranın tersine kapatılır ve örtük sonunda
 > programcı tanımlı olandan önce yürütülür.
 ### Applying Effectively Final
@@ -2022,11 +1973,6 @@ public static void main(String... xyz) {
 final var bookReader = new MyFileClass(4);
 MyFileClass movieReader = new MyFileClass(5);
 try (bookReader;
-```
-> **English:** 15:
->
-> **Türkçe:** 15:
-```java
 var tvReader = new MyFileClass(6);
 movieReader) {
 System.out.println("Try Block");
@@ -2042,12 +1988,11 @@ System.out.println("Finally Block");
 > for effectively final is that if we insert the final keyword when the variable is
 > declared, the code still compiles.
 >
-> **Türkçe:** Bu tek çizgiyi teker teker ele alalım. 12. satır son değişkeni bookReader, 13. satır ise
-> effectively final değişkeni movieReader olarak ilan eder. Bu kaynakların her ikisi de
-> bir try-with-resources statement içinde kullanılabilir. movieReader effectively final
-> olduğunu biliyoruz çünkü sadece bir kez bir değer atanmış yerel bir değişkendir.
-> Unutmayın, effectively final testi, değişken ilan edildiğinde son anahtar kelimeyi
-> eklersek, kod hala derlenir.
+> **Türkçe:** Satırları sırayla inceleyelim. 12. satır final bookReader değişkenini, 13. satır
+> effectively final movieReader değişkenini bildirir. Her ikisi de try-with-resources
+> kaynağı olabilir. movieReader yalnız bir kez değer atanan bir local variable olduğundan
+> effectively final’dır. Kontrol etmek için bildirime final eklemeyi düşünün: Kod yine
+> derleniyorsa effectively final koşulu sağlanır.
 > **English:** Lines 14 and 16 use the new syntax to declare resources in a try-with-resources
 > statement, using just the variable name and separating the resources with a semicolon
 > (;). Line 15 uses the normal syntax for declaring a new resource within the try clause.
@@ -2080,11 +2025,10 @@ writer = null;
 ```
 > **English:** The writer variable is reassigned on line 35, resulting in the compiler not considering
 > it effectively final. Since it is not an effectively final variable, it cannot be used
-> in a try-withresources statement on line 32.
+> in a try-with-resources statement on line 32.
 >
-> **Türkçe:** Yazar değişkeni 35. satırda yeniden atanır, bu da derleyicinin effectively final dikkate
-> almamasına neden olur. effectively final değişkeni olmadığından, 32. satırdaki bir
-> try-wiresources ifadesinde kullanılamaz.
+> **Türkçe:** writer değişkenine 35. satırda yeniden değer atandığından compiler onu effectively final
+> kabul etmez. Bu nedenle 32. satırdaki try-with-resources içinde kullanılamaz.
 > **English:** The other place the exam might try to trick you is accessing a resource after it has
 > been closed. Consider the following:
 >
@@ -2102,15 +2046,15 @@ writer.append("This write will fail!"); // IOException
 > While it is possible to write to the resource before the try-with-resources statement,
 > it is not afterward.
 >
-> **Türkçe:** Bu kod, Stream kapalı mesajıyla 46. hatta bir istisna oluşturur ancak atar.
+> **Türkçe:** Bu kod, Stream kapalı mesajıyla 46. hatta bir exception oluşturur ancak atar.
 > try-with-resources statement'dan önce kaynağa yazmak mümkün olsa da, daha sonra değil.
 ### Understanding Suppressed Exceptions
 > **English:** We conclude our discussion of exceptions with probably the most confusing topic:
 > suppressed exceptions. What happens if the close() method throws an exception? Let’s try
 > an illustrative example:
 >
-> **Türkçe:** İstisnalar konusundaki tartışmamızı muhtemelen en kafa karıştırıcı konu ile
-> sonlandırıyoruz: suppressed exceptions. close() yöntemi bir istisna atarsa ne olur? Bir
+> **Türkçe:** Exception’lar konusundaki tartışmamızı muhtemelen en kafa karıştırıcı konu ile
+> sonlandırıyoruz: suppressed exceptions. close() metodu bir exception atarsa ne olur? Bir
 > örnek verelim:
 ```java
 public class TurkeyCage implements AutoCloseable {
@@ -2132,7 +2076,7 @@ System.out.println("Put turkeys in");
 > **Türkçe:** Eğer TurkeyCage kapanmazsa, hindilerin hepsi kaçabilir. Açıkçası, böyle bir durumu
 > halletmemiz gerekiyor. catch blocks kodlu herhangi bir programcı çalıştırılmadan önce
 > kaynakların kapalı olduğunu zaten biliyoruz. Bu, istersek close() tarafından atılan
-> istisnayı yakalayabileceğimiz anlamına gelir. Alternatif olarak, arayanın bununla başa
+> exception’ı yakalayabileceğimiz anlamına gelir. Alternatif olarak, arayanın bununla başa
 > çıkmasına izin verebiliriz.
 
 <!-- source-page: 0622 -->
@@ -2160,23 +2104,18 @@ System.out.println("Caught: " + e.getMessage());
 > suppressed exceptions. The idea is that Java treats the first exception as the primary
 > one and tacks on any that come up while automatically closing.
 >
-> **Türkçe:** close() yöntemi try-with-resources tarafından otomatik olarak çağrılır. catch block
-> tarafından yakalanan ve aşağıdakileri yazdıran bir istisna atar: Yakalanma: Kafes kapısı
-> kapanmaz Bu yeterince makul görünüyor. try block ayrıca bir istisna atarsa ne olur?
-> Birden fazla istisna atıldığında, ilk hariç hepsi suppressed exceptions olarak
-> adlandırılır. Fikir, Java ilk istisnayı birincil istisna olarak ele alır ve otomatik
+> **Türkçe:** close() metodu try-with-resources tarafından otomatik olarak çağrılır. catch block
+> tarafından yakalanan ve aşağıdakileri yazdıran bir exception atar: Yakalanma: Kafes kapısı
+> kapanmaz Bu yeterince makul görünüyor. try block ayrıca bir exception atarsa ne olur?
+> Birden fazla exception atıldığında, ilk hariç hepsi suppressed exceptions olarak
+> adlandırılır. Fikir, Java ilk exception’ı birincil exception olarak ele alır ve otomatik
 > olarak kapanırken ortaya çıkan herhangi bir şeyde tacks.
 > **English:** What do you think the following implementation of our main() method outputs?
 >
-> **Türkçe:** main() yöntem çıktılarımızın aşağıdaki uygulaması hakkında ne düşünüyorsunuz?
+> **Türkçe:** Aşağıdaki main() implementation’ının ne yazdıracağını düşünüyorsunuz?
 ```java
 public static void main(String[] args) {
 try (JammedTurkeyCage t = new JammedTurkeyCage()) {
-```
-> **English:** 7:
->
-> **Türkçe:** 7:
-```java
 throw new IllegalStateException("Turkeys ran off");
 } catch (IllegalStateException e) {
 System.out.println("Caught: " + e.getMessage());
@@ -2193,28 +2132,24 @@ System.out.println("Suppressed: "+t.getMessage());
 > following:
 >
 > **Türkçe:** 7. satır primary exception atar. Bu noktada, deneme maddesi sona erer ve Java otomatik
-> olarak close() yöntemini çağırır. JammedTurkeyCage'in Line 3'ü, suppressed exception
+> olarak close() metodunu çağırır. JammedTurkeyCage'in Line 3'ü, suppressed exception
 > olarak eklenen bir IllegalStateException atar. Daha sonra 8. satır primary exception'i
 > yakalar. Satır 9, primary exception için mesajı yazdırır. 10 ve 11 satırları herhangi
 > bir suppressed exceptions ile yinelenir ve yazdırır. Program aşağıdakileri yazdırır:
-> **English:** Caught: Turkeys ran off Suppressed: Cage door does not close
->
-> **Türkçe:** Yakalandı: Türkler Bastı: Kafes kapısı kapanmadı
+```text
+Caught: Turkeys ran off
+Suppressed: Cage door does not close
+```
 
 <!-- source-page: 0623 -->
 > **English:** Keep in mind that the catch block looks for matches on the primary exception. What do
 > you think this code prints?
 >
-> **Türkçe:** catch block uygulamasının primary exception üzerindeki maçları aradığını unutmayın.
-> Sence bu kod parmak izi ne?
+> **Türkçe:** catch bloğunun eşleşmeyi primary exception üzerinden yaptığını unutmayın. Aşağıdaki
+> kodun ne yazdıracağını düşünün.
 ```java
 public static void main(String[] args) {
 try (JammedTurkeyCage t = new JammedTurkeyCage()) {
-```
-> **English:** 7:
->
-> **Türkçe:** 7:
-```java
 throw new RuntimeException("Turkeys ran off");
 } catch (IllegalStateException e) {
 System.out.println("caught: " + e.getMessage());
@@ -2227,24 +2162,16 @@ System.out.println("caught: " + e.getMessage());
 > match the catch clause, the exception is thrown to the caller. Eventually, the main()
 > method would output something like the following:
 >
-> **Türkçe:** 7. satır yine primary exception atar. Java close() yöntemini çağırır ve suppressed
+> **Türkçe:** 7. satır yine primary exception atar. Java close() metodunu çağırır ve suppressed
 > exception ekler. 8. satır IllegalStateException'i yakalayacaktı. Ancak, bunlardan birine
 > sahip değiliz. primary exception bir RuntimeException dir. Bu, yakalama maddesiyle
-> uyuşmadığından, istisna arayan kişiye atılır. Sonunda, main() yöntemi aşağıdaki gibi bir
+> uyuşmadığından, exception arayan kişiye atılır. Sonunda, main() metodu aşağıdaki gibi bir
 > şey çıkaracaktı:
-> **English:** Exception in thread "main" java.lang.RuntimeException: Turkeys ran off
->
-> **Türkçe:** Exception iş parçacığında "ana" java.lang.RuntimeException: Türkiyeler kaçtı
-```java
+```text
+Exception in thread "main" java.lang.RuntimeException: Turkeys ran off
 at JammedTurkeyCage.main(JammedTurkeyCage.java:7)
-```
-> **English:** Suppressed: java.lang.IllegalStateException:
->
-> **Türkçe:** Bastırılmış: java.lang.IllegalStateException:
-> **English:** Cage door does not close
->
-> **Türkçe:** Kafes kapısı kapanmaz
-```java
+Suppressed: java.lang.IllegalStateException:
+Cage door does not close
 at JammedTurkeyCage.close(JammedTurkeyCage.java:3)
 at JammedTurkeyCage.main(JammedTurkeyCage.java:8)
 ```
@@ -2258,30 +2185,22 @@ at JammedTurkeyCage.main(JammedTurkeyCage.java:8)
 > resources are closed in the reverse of the order in which they are declared, the primary
 > exception will be on the last declared resource that throws an exception.
 >
-> **Türkçe:** İkiden fazla kaynak bir istisna atarsa, atılan ilk primary exception olur ve geri kalanı
+> **Türkçe:** İkiden fazla kaynak bir exception atarsa, atılan ilk primary exception olur ve geri kalanı
 > suppressed exceptions olarak gruplandırılır. Ve kaynaklar, ilan edildikleri sıranın
-> tersine kapatıldığından, primary exception bir istisna atan son ilan edilen kaynakta
+> tersine kapatıldığından, primary exception bir exception atan son ilan edilen kaynakta
 > olacaktır.
 > **English:** Keep in mind that suppressed exceptions apply only to exceptions thrown in the try
 > clause. The following example does not throw a suppressed exception:
 >
-> **Türkçe:** suppressed exceptions uygulamasının yalnızca deneme maddesinde belirtilen istisnalar
+> **Türkçe:** suppressed exceptions uygulamasının yalnızca deneme maddesinde belirtilen exception’lar
 > için geçerli olduğunu unutmayın. Aşağıdaki örnek bir suppressed exception atmıyor:
+
+> **OCP / Java 17 notu:** Kaynağın “yalnız try gövdesinden gelen exception” ifadesi fazla dardır. Try gövdesi başarılı olsa bile birden fazla `close()` başarısızsa ilk kapanış exception’ı primary, sonraki kapanış exception’ları suppressed olur. Buradaki örnekte ise sonradan `finally` içinde fırlatılan exception öncekinin yerini alır; Java onu otomatik olarak suppressed yapmaz.
 ```java
 public static void main(String[] args) {
 try (JammedTurkeyCage t = new JammedTurkeyCage()) {
-```
-> **English:** 7:
->
-> **Türkçe:** 7:
-```java
 throw new IllegalStateException("Turkeys ran off");
 } finally {
-```
-> **English:** 9:
->
-> **Türkçe:** 9:
-```java
 throw new RuntimeException("and we couldn't find them");
 }
 }
@@ -2290,7 +2209,7 @@ throw new RuntimeException("and we couldn't find them");
 > exception to it. Now we have a problem. The finally block runs after all this. Since
 > line 9
 >
-> **Türkçe:** 7. hat bir istisna yaratıyor. Ardından Java kaynağı kapatmaya çalışır ve buna suppressed
+> **Türkçe:** 7. hat bir exception yaratıyor. Ardından Java kaynağı kapatmaya çalışır ve buna suppressed
 > exception ekler. Şimdi bir sorunumuz var. finally block tüm bunlardan sonra çalışır. 9.
 > satırdan beri
 
@@ -2298,15 +2217,11 @@ throw new RuntimeException("and we couldn't find them");
 > **English:** also throws an exception, the previous exception from line 7 is lost, with the code
 > printing the following:
 >
-> **Türkçe:** Ayrıca bir istisna atar, satır 7'den önceki istisna kaybolur, kod aşağıdakileri
+> **Türkçe:** Ayrıca bir exception atar, satır 7'den önceki exception kaybolur, kod aşağıdakileri
 > yazdırır:
-> **English:** Exception in thread "main" java.lang.RuntimeException:
->
-> **Türkçe:** Exception iş parçacığında "ana" java.lang.RuntimeException:
-> **English:** and we couldn't find them
->
-> **Türkçe:** ve onları bulamadık
-```java
+```text
+Exception in thread "main" java.lang.RuntimeException:
+and we couldn't find them
 at JammedTurkeyCage.main(JammedTurkeyCage.java:9)
 ```
 > **English:** This has always been and continues to be bad programming practice. We don’t want to lose
@@ -2315,7 +2230,7 @@ at JammedTurkeyCage.main(JammedTurkeyCage.java:9)
 > added.
 >
 > **Türkçe:** Bu her zaman kötü bir programlama uygulaması olmuştur ve olmaya devam etmektedir.
-> İstisnaları kaybetmek istemiyoruz! Sınav için kapsam dışında olmasına rağmen, bunun
+> Exception’ları kaybetmek istemiyoruz! Sınav için kapsam dışında olmasına rağmen, bunun
 > nedeni geriye dönük uyumlulukla ilgilidir. Bu davranış otomatik kaynak yönetimi
 > eklenmeden önce de vardı.
 ## Formatting Values
@@ -2336,10 +2251,12 @@ at JammedTurkeyCage.main(JammedTurkeyCage.java:9)
 > method. That’s useful for simple stuff, but sometimes you need finer-grained control.
 > With that, we introduce the NumberFormat interface, which has two commonly used methods:
 >
-> **Türkçe:** Bölüm 4'te, String.format() yöntemini kullanarak bir sayının çıktısını nasıl kontrol
+> **Türkçe:** Bölüm 4'te, String.format() metodunu kullanarak bir sayının çıktısını nasıl kontrol
 > edeceğinizi gördünüz. Bu basit şeyler için yararlıdır, ancak bazen daha ince taneli
-> kontrole ihtiyacınız vardır. Bununla, yaygın olarak kullanılan iki yönteme sahip olan
-> NumberFormat arayüzünü tanıtıyoruz:
+> kontrole ihtiyacınız vardır. Bununla, yaygın olarak kullanılan iki metoda sahip olan
+> NumberFormat interface’ini tanıtıyoruz:
+
+> **OCP / Java 17 notu:** Kaynakta `NumberFormat` için “interface” yazılmıştır; Java 17 API’sinde `NumberFormat` bir **abstract class**’tır. `DecimalFormat` ve `CompactNumberFormat` onun alt sınıflarıdır.
 ```java
 public final String format(double number)
 public final String format(long number)
@@ -2347,7 +2264,7 @@ public final String format(long number)
 > **English:** Since NumberFormat is an interface, we need the concrete DecimalFormat class to use it.
 > It includes a constructor that takes a pattern String:
 >
-> **Türkçe:** NumberFormat bir arayüz olduğundan, kullanmak için somut DecimalFormat sınıfına
+> **Türkçe:** NumberFormat bir interface olduğundan, kullanmak için somut DecimalFormat sınıfına
 > ihtiyacımız var. String deseni alan bir constructor içerir:
 ```java
 public DecimalFormat(String pattern)
@@ -2357,17 +2274,16 @@ public DecimalFormat(String pattern)
 >
 > **Türkçe:** Desenler oldukça karmaşık hale gelebilir. Ama neyse ki, sınav için sadece Tablo 11.5'te
 > gösterilen iki biçimlendirme karakteri hakkında bilgi sahibi olmanız gerekir.
-> **English:** TABLE 11.5 DecimalFormat symbols Symbol Meaning Examples # Omit position if no digit
-> exists for it.
+> **English:** TABLE 11.5 DecimalFormat symbols
 >
-> **Türkçe:** TABLE 11.5 DecimalFormat sembolleri Sembol Anlamı Örnekleri # Eğer onun için bir rakam
-> yoksa, konumu atlayın.
-> **English:** $2.2 0 Put 0 in position if no digit exists for it.
->
-> **Türkçe:** $2.2 0 Eğer bunun için bir rakam yoksa 0'ı pozisyona koyun.
-> **English:** $002.20
->
-> **Türkçe:** $002.20
+> **Türkçe:** Tablo 11.5 · DecimalFormat sembolleri
+
+<!-- keep-with-next -->
+
+| Symbol | English meaning | Türkçe anlam | Example |
+| --- | --- | --- | --- |
+| `#` | Omit unused digit position | Gereksiz basamak konumunu gösterme | $2.2 |
+| `0` | Fill missing digit position with zero | Eksik basamak yerine sıfır koy | $002.20 |
 
 <!-- source-page: 0625 -->
 > **English:** These examples should help illuminate how these symbols work:
@@ -2377,18 +2293,8 @@ public DecimalFormat(String pattern)
 double d = 1234.567;
 NumberFormat f1 = new DecimalFormat("###,###,###.0");
 System.out.println(f1.format(d)); // 1,234.6
-```
-> **English:** 15:
->
-> **Türkçe:** 15:
-```java
 NumberFormat f2 = new DecimalFormat("000,000,000.00000");
 System.out.println(f2.format(d)); // 000,001,234.56700
-```
-> **English:** 18:
->
-> **Türkçe:** 18:
-```java
 NumberFormat f3 = new DecimalFormat("Your Balance $#,###,###.##");
 System.out.println(f3.format(d)); // Your Balance $1,234.57
 ```
@@ -2399,11 +2305,11 @@ System.out.println(f3.format(d)); // Your Balance $1,234.57
 > than available. Notice that the commas are automatically removed if they are used
 > between # symbols.
 >
-> **Türkçe:** Satır 14, sayıdaki basamakları gösterir, ondalıktan sonra en yakın 10'a yuvarlanır.
-> Soldaki ekstra pozisyonlar atlanır çünkü # kullandık. Line 17, çıktıyı istenen uzunlukta
-> yapmak için önden ve takip eden sıfırlar ekler. Satır 20, yuvarlama ile birlikte
-> formatlamayan bir karakterin önekini gösterir, çünkü daha az basamak basılır. #
-> sembolleri arasında kullanılıyorsa virgüllerin otomatik olarak kaldırıldığını fark edin.
+> **Türkçe:** 14. satır sayıyı virgülden sonra tek basamağa, yani en yakın onda bire yuvarlar. #
+> kullanılan gereksiz baştaki konumlar gösterilmez. 17. satır, istenen biçimi tamamlamak
+> için başa ve sona sıfırlar ekler. 20. satır metin önekiyle birlikte iki ondalık basamağa
+> yuvarlamayı gösterir. # konumlarında sayı yoksa bu konumlara ait gereksiz gruplama
+> virgülleri de yazılmaz.
 > **English:** As you see in the localization section, there’s a second concrete class that inherits
 > NumberFormat that you’ll need to know for the exam.
 >
@@ -2412,7 +2318,7 @@ System.out.println(f3.format(d)); // Your Balance $1,234.57
 ### Formatting Dates and Times
 > **English:** The date and time classes support many methods to get data out of them.
 >
-> **Türkçe:** Tarih ve zaman sınıfları, onlardan veri elde etmek için birçok yöntemi desteklemektedir.
+> **Türkçe:** Tarih ve zaman sınıfları, onlardan veri elde etmek için birçok metodu desteklemektedir.
 ```java
 LocalDate date = LocalDate.of(2022, Month.OCTOBER, 20);
 System.out.println(date.getDayOfWeek()); // THURSDAY
@@ -2434,18 +2340,20 @@ System.out.println(dt.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
 > **English:** The code snippet prints the following:
 >
 > **Türkçe:** Kod snippet'i aşağıdakileri yazdırır:
-> **English:** 2022-10-20 11:12:34 2022-10-20T11:12:34
->
-> **Türkçe:** 2022-10-20 11:12:34 2022-10-20T11:12:34
+```text
+2022-10-20
+11:12:34
+2022-10-20T11:12:34
+```
 
 <!-- source-page: 0626 -->
 > **English:** The DateTimeFormatter will throw an exception if it encounters an incompatible type. For
 > example, each of the following will produce an exception at runtime since it attempts to
 > format a date with a time value, and vice versa:
 >
-> **Türkçe:** DateTimeFormatter uyumsuz bir türle karşılaşırsa bir istisna atar. Örneğin,
+> **Türkçe:** DateTimeFormatter uyumsuz bir türle karşılaşırsa bir exception atar. Örneğin,
 > aşağıdakilerin her biri, bir tarihi bir zaman değeri ile biçimlendirmeye çalıştığı için
-> çalışma zamanında bir istisna üretecektir ve tam tersi:
+> çalışma zamanında bir exception üretecektir ve tam tersi:
 ```java
 date.format(DateTimeFormatter.ISO_LOCAL_TIME); // RuntimeException
 time.format(DateTimeFormatter.ISO_LOCAL_DATE); // RuntimeException
@@ -2492,23 +2400,33 @@ System.out.println(dt.format(f)); // October 20, 2022 at 11:12
 > at a date/time String and have a good idea of what the output will be. Table 11.6
 > includes the symbols you should be familiar with for the exam.
 >
-> **Türkçe:** Sınav için, bir tarih / saat String bakabileceğiniz çeşitli sembollere yeterince aşina
-> olmalısınız ve çıktının ne olacağı hakkında iyi bir fikir sahibi olmalısınız. Tablo
-> 11.6, sınav için aşina olmanız gereken sembolleri içerir.
-> **English:** TABLE 11.6 Common date/time symbols Symbol Meaning Examples y Year 22, 2022 M Month 1,
-> 01, Jan, January d Day 5, 05
+> **Türkçe:** Bir tarih/saat pattern’ine baktığınızda hangi çıktıyı üreteceğini yorumlayabilecek kadar
+> sembollere hâkim olmalısınız. Tablo 11.6, çalışmanız gereken sembolleri bir arada
+> gösterir.
+> **English:** TABLE 11.6 Common date/time symbols
 >
-> **Türkçe:** TABLE 11.6 Ortak tarih/saat sembolleri Sembol Anlamı Örnekler y Yıl 22, 2022 M Ay 1, 01,
-> Jan, Ocak d Gün 5, 05
+> **Türkçe:** Tablo 11.6 · Yaygın tarih/saat sembolleri
 
-<!-- source-page: 0627 -->
-> **English:** Symbol Meaning Examples h Hour 9, 09 m Minute 45 S Second 52 a a.m./p.m. AM, PM z Time
-> zone name Eastern Standard Time, EST Z Time zone offset----  0400 Let’s try some
-> examples. What do you think the following prints?
+<!-- keep-with-next -->
+
+| Symbol | English / Türkçe | Examples |
+| --- | --- | --- |
+| `y` | Year / Yıl | 22, 2022 |
+| `M` | Month / Ay | 1, 01, Jan, January |
+| `d` | Day / Gün | 5, 05 |
+| `h` | Hour / Saat (1–12) | 9, 09 |
+| `m` | Minute / Dakika | 45 |
+| `s` | Second / Saniye | 52 |
+| `a` | a.m./p.m. / Günün yarısı | AM, PM |
+| `z` | Time zone name / Saat dilimi adı | Eastern Standard Time, EST |
+| `Z` | Time zone offset / UTC offset | -0400 |
+
+> **Editör notu · Java 17:** Kaynak tablosundaki büyük `S`, saniye için doğru değildir. `DateTimeFormatter` içinde küçük `s` saniyeyi, büyük `S` saniyenin kesir kısmını gösterir. Tablo teknik olarak düzeltilmiştir.
+
+> **English:** Let’s try some examples. What do you think the following prints?
 >
-> **Türkçe:** Sembol Anlamı Örnekler h Saat 9, 09 m Dakika 45 S Saniye 52 a a.m./p.m. AM, PM z Zaman
-> dilimi adı Eastern Standard Time, EST Z Zaman dilimi ofset --- 0400 Bazı örnekler
-> deneyelim. Aşağıdaki parmak izleri hakkında ne düşünüyorsunuz?
+> **Türkçe:** Birkaç örnek deneyelim. Aşağıdaki kodun ne yazdıracağını düşünün.
+<!-- source-page: 0627 -->
 ```java
 var dt = LocalDateTime.of(2022, Month.OCTOBER, 20, 6, 15, 30);
 var formatter1 = DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm:ss");
@@ -2529,7 +2447,7 @@ System.out.println(dt.format(formatter3)); // DateTimeException
 > does not have a time zone specified. If ZonedDateTime were used instead, the code would
 > complete successfully and print something like 06:15 EDT, depending on the time zone.
 >
-> **Türkçe:** Üçüncü örnek çalışma zamanında bir istisna atar, çünkü altta yatan LocalDateTime'da
+> **Türkçe:** Üçüncü örnek çalışma zamanında bir exception atar, çünkü altta yatan LocalDateTime'da
 > belirtilen bir zaman dilimi yoktur. Bunun yerine ZonedDateTime kullanılırsa, kod
 > başarılı bir şekilde tamamlanacak ve saat dilimine bağlı olarak 06:15 EDT gibi bir şey
 > yazdıracaktı.
@@ -2549,18 +2467,25 @@ System.out.println(dt.format(formatter3)); // DateTimeException
 > çalışmak runtime exception ile sonuçlanacaktır.
 
 <!-- source-page: 0628 -->
-> **English:** TABLE 11.7 Supported date/time symbols Symbol LocalDate LocalTime LocalDateTime
-> ZonedDateTime y √ √ √ M √ √ √ d √ √ √ h √ √ √ m √ √ √ s √ √ √ a √ √ √ z √ Z √
+> **English:** TABLE 11.7 Supported date/time symbols
 >
-> **Türkçe:** TABLE 11.7 Desteklenen tarih/saat sembolleri Sembol LocalDate YerelSaat YerelTarihSaati
-> BölgeliSaat y M d h m s a z Z
+> **Türkçe:** Tablo 11.7 · Tarih/saat türlerinin desteklediği semboller
+
+<!-- keep-with-next -->
+
+| Symbol | LocalDate | LocalTime | LocalDateTime | ZonedDateTime |
+| --- | --- | --- | --- | --- |
+| `y`, `M`, `d` | ✓ | — | ✓ | ✓ |
+| `h`, `m`, `s`, `a` | — | ✓ | ✓ | ✓ |
+| `z`, `Z` | — | — | — | ✓ |
+
 #### Selecting a format() Method
 > **English:** The date/time classes contain a format() method that will take a formatter, while the
 > formatter classes contain a format() method that will take a date/time value. The result
 > is that either of the following is acceptable:
 >
-> **Türkçe:** Tarih/saat sınıfları bir formatlayıcı alacak bir format() yöntemi içerirken,
-> formatlayıcı sınıfları bir tarih/saat değeri alacak bir format() yöntemi içerir. Sonuç,
+> **Türkçe:** Tarih/saat sınıfları bir formatlayıcı alacak bir format() metodu içerirken,
+> formatlayıcı sınıfları bir tarih/saat değeri alacak bir format() metodu içerir. Sonuç,
 > aşağıdakilerden birinin kabul edilebilir olmasıdır:
 ```java
 var dateTime = LocalDateTime.of(2022, Month.OCTOBER, 20, 6, 15, 30);
@@ -2583,7 +2508,7 @@ System.out.println(formatter.format(dateTime)); // 10/20/2022 06:15:30
 > biçiminin bir parçası olarak yazarsanız, biçimlendirici her karakteri bir tarih/saat
 > sembolü olarak yorumlayacaktır. En iyi durumda, girdiğiniz ekstra sembollere dayalı
 > garip veriler görüntüler. En kötü durumda, karakterler geçersiz semboller içerdiğinden
-> bir istisna atacaktır. İstenen de değil!
+> bir exception atacaktır. İstenen de değil!
 > **English:** One way to address this would be to break the formatter into multiple smaller formatters
 > and then concatenate the results.
 >
@@ -2638,14 +2563,14 @@ System.out.println(dt.format(g3)); // NEW! 2022, yay!
 > runtime if the text cannot be interpreted as a date/time symbol.
 >
 > **Türkçe:** Metin değerlerinden tek tırnakla kaçmazsanız, metin tarih/saat sembolü olarak
-> yorumlanamazsa, çalışma zamanında bir istisna atılır.
+> yorumlanamazsa, çalışma zamanında bir exception atılır.
 ```java
 DateTimeFormatter.ofPattern("The time is hh:mm"); // Exception thrown
 ```
 > **English:** This line throws an exception since T is an unknown symbol. The exam might also present
 > you with an incomplete escape sequence.
 >
-> **Türkçe:** Bu çizgi, T bilinmeyen bir sembol olduğu için bir istisna atar. Sınav ayrıca size
+> **Türkçe:** Bu çizgi, T bilinmeyen bir sembol olduğu için bir exception atar. Sınav ayrıca size
 > tamamlanmamış bir kaçış sekansı da sunabilir.
 ```java
 DateTimeFormatter.ofPattern("'Time is: hh:mm: "); // Exception thrown
@@ -2731,9 +2656,9 @@ System.out.println(locale);
 > is optional. Figure 11.6 shows the two formats for Locale objects that you are expected
 > to remember.
 >
-> **Türkçe:** Formata dikkat edin. Önce küçük harfli dil kodu gelir. Dil her zaman gereklidir. Daha
-> sonra büyük ülke kodunun ardından bir alt çizgi gelir. Ülke optional'dır. Şekil 11.6,
-> hatırlamanız beklenen Locale nesneleri için iki biçimi gösterir.
+> **Türkçe:** Biçime dikkat edin: Önce küçük harfli dil kodu gelir. Bu örneklerde dil kodu gereklidir.
+> İsteğe bağlı ülke kodu kullanılacaksa dil kodundan sonra bir alt çizgi, ardından büyük
+> harfli ülke kodu yazılır. Şekil 11.6, çalışmanız gereken iki Locale biçimini gösterir.
 > **English:** FIGURE 11.6 Locale formats Locale Locale (language) (language, country)
 >
 > **Türkçe:** FIGURE 11.6 Locale formatları Locale Locale (dil) (dil, ülke)
@@ -2847,17 +2772,15 @@ System.out.println(Locale.getDefault()); // fr
 > change any settings on your computer. It does not even change future executions of the
 > same program.
 >
-> **Türkçe:** Deneyin ve endişelenmeyin Locale yalnızca bir Java programı için değişir.
-> Bilgisayarınızdaki herhangi bir ayarı değiştirmez. Aynı programın gelecekteki
-> infazlarını bile değiştirmiyor.
-```java
-The exam may use setDefault() because it can’t make assumptions
-```
-> **English:** about where you are located. In practice, we rarely write code to change a user’s
-> default locale.
+> **Türkçe:** Deneyebilirsiniz; Locale değişikliği yalnız Java programının o çalıştırması için
+> geçerlidir. Bilgisayarınızdaki ayarları veya aynı programın sonraki çalıştırmalarını
+> değiştirmez.
+> **English:** The exam may use setDefault() because it can’t make assumptions about where you are
+> located. In practice, we rarely write code to change a user’s default locale.
 >
-> **Türkçe:** Bulunduğunuz yer hakkında. Uygulamada, bir kullanıcının default locale değerini
-> değiştirmek için nadiren kod yazıyoruz.
+> **Türkçe:** Sınav sorusu, hangi locale’i kullandığınızı varsayamayacağı için setDefault() çağrısıyla
+> bağlamı açıkça belirleyebilir. Uygulama geliştirirken kullanıcının varsayılan locale’ini
+> değiştiren kodu ise nadiren yazarız.
 ### Localizing Numbers
 > **English:** It might surprise you that formatting or parsing currency and number values can change
 > depending on your locale. For example, in the United States, the dollar sign is
@@ -2865,11 +2788,9 @@ The exam may use setDefault() because it can’t make assumptions
 > such as $2.15. In Germany, though, the euro symbol is appended to the value along with a
 > comma for values less than one euro, such as 2,15 €.
 >
-> **Türkçe:** locale 'nize bağlı olarak para birimi ve sayı değerlerini biçimlendirmek veya
-> ayrıştırmak sizi şaşırtabilir. Örneğin, Amerika Birleşik Devletleri'nde, dolar işareti
-> değerden önce, bir dolardan daha az değerler için ondalık bir nokta ile birlikte,
-> örneğin 2.15 $ gibi hazırlanır. Bununla birlikte, Almanya'da, euro sembolü, 2,15 gibi
-> bir avrodan daha az değerler için bir virgül ile birlikte değere eklenir.
+> **Türkçe:** Para birimi ve sayıların formatlanması veya parse edilmesi locale’e bağlıdır. Örneğin
+> ABD’de dolar işareti sayıdan önce gelir, ondalık kısım noktayla ayrılır: $2.15.
+> Almanya’da euro işareti sayıdan sonra gelir ve ondalık ayırıcı virgüldür: 2,15 €.
 > **English:** Luckily, the java.text package includes classes to save the day. The following sections
 > cover how to format numbers, currency, and dates based on the locale.
 >
@@ -2889,57 +2810,36 @@ The exam may use setDefault() because it can’t make assumptions
 > **English:** The format classes are not thread-safe. Do not store them in instance variables or
 > static variables. You learn more about thread safety in Chapter 13, “Concurrency.”
 >
-> **Türkçe:** Format sınıfları thread-safe değildir. Bunları örnek değişkenlerde veya statik
-> değişkenlerde saklamayın. Bölüm 13'te iş parçacığı güvenliği hakkında daha fazla bilgi
-> edinirsiniz, "Concurrency".
+> **Türkçe:** Burada ele alınan java.text formatter sınıfları thread-safe değildir. Aynı formatter
+> instance’ını thread’ler arasında kontrolsüz paylaşmayın. Bölüm 13 “Concurrency”, thread
+> safety konusunu ayrıntılandırır.
 
 <!-- source-page: 0633 -->
-> **English:** TABLE 11.8 Factory methods to get a NumberFormat Description Using default Locale and a
-> specified Locale
+> **English:** TABLE 11.8 Factory methods to get a NumberFormat
 >
-> **Türkçe:** TABLE 11.8 Factory methods için NumberFormat Açıklama default Locale ve belirtilen
-> Locale kullanarak
-```java
-General-purpose formatter NumberFormat.getInstance()
-```
-> **English:** NumberFormat.getInstance(Locale locale)
->
-> **Türkçe:** NumberFormat.getInstance(Locale locale)
-> **English:** Same as getInstance NumberFormat.getNumberInstance()
->
-> **Türkçe:** getInstance NumberFormat.getNumberInstance() ile aynı
-> **English:** NumberFormat.getNumberInstance(Locale locale)
->
-> **Türkçe:** NumberFormat.getNumberInstance(Locale locale)
-> **English:** For formatting monetary NumberFormat.getCurrencyInstance() amounts
-> NumberFormat.getCurrencyInstance(Locale locale)
->
-> **Türkçe:** Parasal NumberFormat.getCurrencyInstance() miktarlarını biçimlendirmek için
-> NumberFormat.getCurrencyInstance(Locale locale)
-> **English:** For formatting NumberFormat.getPercentInstance() percentages
-> NumberFormat.getPercentInstance(Locale locale)
->
-> **Türkçe:** NumberFormat.getPercentInstance() yüzdelerini biçimlendirmek için
-> NumberFormat.getPercentInstance(Locale locale)
-> **English:** Rounds decimal values NumberFormat.getIntegerInstance() before displaying
-> NumberFormat.getIntegerInstance(Locale locale)
->
-> **Türkçe:** NumberFormat.getIntegerInstance(Locale locale) görüntülenmeden önce
-> NumberFormat.getIntegerInstance() ondalık değerlerini döndürür
-> **English:** Returns compact number NumberFormat.getCompactNumberInstance() formatter
-> NumberFormat.getCompactNumberInstance( Locale locale, NumberFormat.Style formatStyle)
->
-> **Türkçe:** Kompakt sayı NumberFormat.getCompactNumberInstance() formatlayıcı
-> NumberFormat.getCompactNumberInstance( Locale locale, NumberFormat.Style formatStyle)
-> döndürür
+> **Türkçe:** Tablo 11.8 · NumberFormat factory metotları
+
+<!-- keep-with-next -->
+
+| Purpose / Amaç | Default locale | Explicit locale |
+| --- | --- | --- |
+| General-purpose / Genel amaçlı | `getInstance()` | `getInstance(locale)` |
+| Number / Sayı | `getNumberInstance()` | `getNumberInstance(locale)` |
+| Currency / Para birimi | `getCurrencyInstance()` | `getCurrencyInstance(locale)` |
+| Percent / Yüzde | `getPercentInstance()` | `getPercentInstance(locale)` |
+| Rounded integer / Yuvarlanmış tamsayı | `getIntegerInstance()` | `getIntegerInstance(locale)` |
+| Compact / Kısa sayı biçimi | `getCompactNumberInstance()` | `getCompactNumberInstance(locale, style)` |
+
+Bütün metotlar `NumberFormat` sınıfının static metotlarıdır. `locale` parametresinin türü `Locale`, son satırdaki `style` parametresinin türü `NumberFormat.Style` olur. `getNumberInstance()` genel amaçlı `getInstance()` ile aynı seçimi sağlar.
+
 #### Formatting Numbers
 > **English:** When we format data, we convert it from a structured object or primitive value into a
 > String. The NumberFormat.format() method formats the given number based on the locale
 > associated with the NumberFormat object.
 >
-> **Türkçe:** Verileri biçimlendirdiğimizde, yapılandırılmış bir nesneden veya ilkel değerden bir
-> String değerine dönüştürürüz. NumberFormat.format() yöntemi, verilen sayıyı NumberFormat
-> nesnesi ile ilişkili locale temel alınarak biçimlendirir.
+> **Türkçe:** Veriyi formatlarken yapılandırılmış bir nesneyi veya primitive değeri String’e
+> dönüştürürüz. NumberFormat.format(), sayıyı formatter nesnesinin locale’ine göre
+> biçimlendirir.
 > **English:** Let’s go back to our zoo for a minute. For marketing literature, we want to share the
 > average monthly number of visitors to the San Diego Zoo. The following shows printing
 > out the same number in three different locales:
@@ -3012,9 +2912,8 @@ System.out.println(gr.format(successRate)); // 80 %
 > value. The NumberFormat.parse() method accomplishes this and takes the locale into
 > consideration.
 >
-> **Türkçe:** Verileri ayrıştırdığımızda, bir String 'den yapılandırılmış bir nesneye veya ilkel
-> değere dönüştürürüz. NumberFormat.parse() yöntemi bunu gerçekleştirir ve locale değerini
-> dikkate alır.
+> **Türkçe:** Veriyi parse ederken String’i yapılandırılmış bir nesneye veya primitive değere
+> dönüştürürüz. NumberFormat.parse(), bu işlemi locale’i de dikkate alarak yapar.
 > **English:** For example, if the locale is the English/United States (en_US) and the number contains
 > commas, the commas are treated as formatting symbols. If the locale relates to a country
 > or language that uses commas as a decimal separator, the comma is treated as a decimal
@@ -3024,14 +2923,11 @@ System.out.println(gr.format(successRate)); // 80 %
 > içeriyorsa, virgüller biçimlendirme sembolleri olarak ele alınır. locale, virgülleri
 > ondalık ayırıcı olarak kullanan bir ülke veya dille ilgiliyse, virgül ondalık nokta
 > olarak ele alınır.
-```java
-The parse() method, found in various types, declares a checked
-```
-> **English:** exception ParseException that must be handled or declared in the method in which it is
-> called.
+> **English:** The parse() method, found in various types, declares a checked exception ParseException
+> that must be handled or declared in the method in which it is called.
 >
-> **Türkçe:** exception ParseException olarak adlandırıldığı yöntemde ele alınması veya ilan edilmesi
-> gerekir.
+> **Türkçe:** Burada kullanılan parse() metodu, checked ParseException bildirir. Onu çağıran metot bu
+> exception’ı ele almalı veya throws ile bildirmelidir.
 
 <!-- source-page: 0635 -->
 > **English:** Let’s look at an example. The following code parses a discounted ticket price with
@@ -3039,7 +2935,7 @@ The parse() method, found in various types, declares a checked
 > handle or declare it in your own code.
 >
 > **Türkçe:** Bir örneğe bakalım. Aşağıdaki kod, farklı locales ile indirimli bilet fiyatını
-> ayrıştırır. parse() yöntemi, işaretli bir ParseException atar, bu nedenle kendi
+> ayrıştırır. parse() metodu, işaretli bir ParseException atar, bu nedenle kendi
 > kodunuzda ele aldığınızdan veya beyan ettiğinden emin olun.
 ```java
 String s = "40.45";
@@ -3053,14 +2949,13 @@ System.out.println(fr.parse(s)); // 40
 > a formatting character, and it stops looking at the rest of the number. The lesson is to
 > make sure that you parse using the right locale!
 >
-> **Türkçe:** Amerika Birleşik Devletleri'nde, bir nokta (.) bir sayının parçasıdır ve sayı tahmin
-> edebileceğiniz gibi ayrıştırılır. Fransa, sayıları ayırmak için ondalık bir nokta
-> kullanmaz. Java biçimlendirme karakteri olarak ayrıştırır ve sayının geri kalanına
-> bakmayı bırakır. Ders, sağ locale kullanarak ayrıştırdığınızdan emin olmaktır!
+> **Türkçe:** ABD locale’inde nokta ondalık ayırıcıdır ve sayı beklediğiniz gibi parse edilir. Fransa
+> locale’inde ondalık ayırıcı virgül olduğundan bu örnekte parse işlemi noktaya geldiğinde
+> durur ve kalan kısmı okumaz. Bu nedenle doğru locale ile parse etmek önemlidir.
 > **English:** The parse() method is also used for parsing currency. For example, we can read in the
 > zoo’s monthly income from ticket sales:
 >
-> **Türkçe:** parse() yöntemi de para birimini ayrıştırmak için kullanılır. Örneğin, hayvanat
+> **Türkçe:** parse() metodu de para birimini ayrıştırmak için kullanılır. Örneğin, hayvanat
 > bahçesinin aylık gelirini bilet satışlarından okuyabiliriz:
 ```java
 String income = "$92,807.99";
@@ -3074,11 +2969,12 @@ System.out.println(value); // 92807.99
 > the return value can be cast to its appropriate data type. The Number is cast to a
 > Double and then automatically unboxed into a double.
 >
-> **Türkçe:** string "$92,807.99" para birimi bir dolar işareti ve bir virgül içerir. Ayrıştırma
-> yöntemi karakterleri ortadan kaldırır ve değeri bir sayıya dönüştürür. Parsenin dönüş
-> değeri bir Sayı nesnesidir. Sayı, tüm java.lang ambalaj sınıflarının ana sınıfıdır, bu
-> nedenle dönüş değeri uygun veri türüne atılabilir. Numara bir Double 'ye gönderilir ve
-> daha sonra otomatik olarak bir double 'e kutudan çıkar.
+> **Türkçe:** "$92,807.99" para birimi metni, dolar işareti ve virgül içerir. parse(), biçimlendirme
+> karakterlerini yorumlayarak sayısal değeri elde eder ve Number döndürür. Kaynak, bu
+> dönüşüm ilişkisini wrapper sınıfları üzerinden açıklar. Örnekte Number nesnesi Double’a
+> cast edilir, ardından unboxing ile primitive double elde edilir.
+
+> **OCP / Java 17 notu:** `Number`, tüm wrapper sınıflarının değil sayısal wrapper sınıflarının üst sınıfıdır. `Boolean` ve `Character`, `Number` sınıfından türemez. `parse()` her durumda `Double` döndürmez; sonucun türüne körü körüne cast yapmak yerine uygun olduğunda `number.doubleValue()` kullanılır.
 #### Formatting with CompactNumberFormat
 > **English:** The second class that inherits NumberFormat that you need to know for the exam is
 > CompactNumberFormat. It is new to the Java 17 exam, so you’re likely to see a question
@@ -3090,10 +2986,9 @@ System.out.println(value); // 92807.99
 > where print space may be limited. It is opinionated in the sense that it picks a format
 > for you, and locale-specific in that output can change depending on your location.
 >
-> **Türkçe:** CompactNumberFormat, DecimalFormat ile benzerdir, ancak baskı alanının sınırlı
-> olabileceği yerlerde kullanılmak üzere tasarlanmıştır. Sizin için bir format seçmesi
-> anlamında fikirlendirilmiş ve bu çıktıdaki locale-specific konumunuza bağlı olarak
-> değişebilir.
+> **Türkçe:** CompactNumberFormat, DecimalFormat’a benzer; ancak sayı gösterimi için ayrılabilecek
+> alanın sınırlı olduğu yerler için tasarlanmıştır. Biçimi sizin yerinize seçer ve
+> locale’e bağlıdır; dolayısıyla çıktı locale’e göre değişebilir.
 > **English:** Consider the following sample code that applies a CompactNumberFormat five times to two
 > locales, using a static import for Style (an enum with value SHORT or LONG):
 >
@@ -3165,35 +3060,34 @@ formatters.map(s -> s.format(314_900_000)).forEach(System.out::println);
 > an instance of a DateTimeFormatter using the default locale.
 >
 > **Türkçe:** Sayılar gibi, tarih biçimleri de locale ile değişebilir. Tablo 11.9, default locale
-> kullanarak bir DateTimeFormatter örneğini almak için kullanılan yöntemleri gösterir.
-> **English:** TABLE 11.9 Factory methods to get a DateTimeFormatter Description Using default Locale
-> For formatting dates DateTimeFormatter.ofLocalizedDate(FormatStyle dateStyle)
+> kullanarak bir DateTimeFormatter örneğini almak için kullanılan metotları gösterir.
+> **English:** TABLE 11.9 Factory methods to get a DateTimeFormatter
 >
-> **Türkçe:** TABLE 11.9 Factory methods için DateTimeFormatter Açıklama default Locale kullanarak
-> biçimlendirme tarihleri DateTimeFormatter.ofLocalizedDate(FormatStyle dateStyle)
-> **English:** For formatting times DateTimeFormatter.ofLocalizedTime(FormatStyle timeStyle)
->
-> **Türkçe:** Biçimlendirme süreleri için DateTimeFormatter.ofLocalizedTime(FormatStyle timeStyle)
-> **English:** For formatting dates and DateTimeFormatter.ofLocalizedDateTime times (FormatStyle
-> dateStyle, FormatStyle timeStyle)
->
-> **Türkçe:** Biçimlendirme tarihleri ve DateTimeFormatter.ofLocalizedDateTime süreleri için
-> (FormatStyle dateStyle, FormatStyle timeStyle)
-> **English:** DateTimeFormatter.ofLocalizedDateTime (FormatStyle dateTimeStyle)
->
-> **Türkçe:** DateTimeFormatter.ofLocalizedDateTime (FormatStyle dateTimeStyle)
+> **Türkçe:** Tablo 11.9 · DateTimeFormatter factory metotları
+
+<!-- keep-with-next -->
+
+| Purpose / Amaç | Method |
+| --- | --- |
+| Dates / Tarih | `ofLocalizedDate(FormatStyle dateStyle)` |
+| Times / Saat | `ofLocalizedTime(FormatStyle timeStyle)` |
+| Date and time / Tarih ve saat | `ofLocalizedDateTime(FormatStyle dateStyle, FormatStyle timeStyle)` |
+| Same style / Ortak stil | `ofLocalizedDateTime(FormatStyle dateTimeStyle)` |
+
+Bu static metotlar `DateTimeFormatter` üzerinden çağrılır ve varsayılan locale’i kullanır.
+
 > **English:** Each method in the table takes a FormatStyle parameter (or two) with possible values
 > SHORT, MEDIUM, LONG, and FULL. For the exam, you are not required to know the format of
 > each of these styles.
 >
-> **Türkçe:** Tablodaki her yöntem, SHORT, MEDIUM, LONG ve FULL olası değerleriyle bir FormatStyle
+> **Türkçe:** Tablodaki her metot, SHORT, MEDIUM, LONG ve FULL olası değerleriyle bir FormatStyle
 > parametresi (veya iki) alır. Sınav için bu tarzların her birinin formatını bilmeniz
 > gerekmez.
 > **English:** What if you need a formatter for a specific locale? Easy enough— just append
 > withLocale(locale) to the method call.
 >
 > **Türkçe:** Belirli bir locale için formatlayıcıya ihtiyacınız varsa ne olur? Yeterince kolay sadece
-> yöntem çağrısına withLocale(locale) ekleyin.
+> metot çağrısına withLocale(locale) ekleyin.
 > **English:** Let’s put it all together. Take a look at the following code snippet, which relies on a
 > static import for the java.time.format.FormatStyle.SHORT value: public static void
 > print(DateTimeFormatter dtf,
@@ -3250,14 +3144,20 @@ print(DateTimeFormatter.ofLocalizedDateTime(SHORT,SHORT),dt,italy);
 > **Türkçe:** Locale.Category enum, verileri görüntülemek ve biçimlendirmek için farklı locales
 > destekleyen Locale içindeki yuvalanmış bir elemandır. Sınav için Tablo 11.10'daki iki
 > enum değerine aşina olmalısınız.
-> **English:** TABLE 11.10 Locale.Category values Value Description DISPLAY Category used for
-> displaying data about locale FORMAT Category used for formatting dates, numbers, or
-> currencies When you call Locale.setDefault() with a locale, the DISPLAY and FORMAT are
-> set together. Let’s take a look at an example:
+> **English:** TABLE 11.10 Locale.Category values
 >
-> **Türkçe:** TABLE 11.10 Locale.Category değerleri Değer Açıklaması DISPLAY locale FORMAT ile ilgili
-> verileri görüntülemek için kullanılan kategori Locale.setDefault() ile locale'yi
-> aradığınızda, DISPLAY ve FORMAT birlikte set'dur. Bir örneğe bakalım:
+> **Türkçe:** Tablo 11.10 · Locale.Category değerleri
+
+<!-- keep-with-next -->
+
+| Value | English description | Türkçe açıklama |
+| --- | --- | --- |
+| `DISPLAY` | Displaying locale information | Dil/ülke adları gibi locale bilgisinin gösterilmesi |
+| `FORMAT` | Formatting dates, numbers, and currencies | Tarih, sayı ve para birimi biçimlendirme |
+
+> **English:** When you call Locale.setDefault() with a locale, the DISPLAY and FORMAT are set together. Let’s take a look at an example:
+>
+> **Türkçe:** Locale.setDefault(locale) çağrısı DISPLAY ve FORMAT kategorilerini birlikte ayarlar. Bir örnek inceleyelim:
 ```java
 public static void printCurrency(Locale locale, double money) {
 System.out.println(
@@ -3270,26 +3170,14 @@ var money = 1.23;
 ```
 
 <!-- source-page: 0639 -->
-> **English:** 18:
->
-> **Türkçe:** 18:
+
 ```java
 // Print with default locale
 Locale.setDefault(new Locale("en", "US"));
 printCurrency(spain, money); // $1.23, Spanish
-```
-> **English:** 22:
->
-> **Türkçe:** 22:
-```java
 // Print with selected locale display
 Locale.setDefault(Category.DISPLAY, spain);
 printCurrency(spain, money); // $1.23, español
-```
-> **English:** 26:
->
-> **Türkçe:** 26:
-```java
 // Print with selected locale format
 Locale.setDefault(Category.FORMAT, spain);
 printCurrency(spain, money); // 1,23 €, español
@@ -3417,7 +3305,7 @@ printWelcomeMessage(france); // Bonjour, Le zoo est ouvert
 > bundle and print the results.
 >
 > **Türkçe:** 16 ve 17 satırları test etmek istediğimiz iki locales oluşturur, ancak 10-14
-> satırlarındaki yöntem gerçek işi yapar. Doğru resource bundle elde etmek için
+> satırlarındaki metot gerçek işi yapar. Doğru resource bundle elde etmek için
 > ResourceBundle üzerindeki factory method satırı çağrılır. 12 ve 13 numaralı satırlar
 > resource bundle'den sağ string'u alır ve sonuçları yazdırır.
 > **English:** Since a resource bundle contains key/value pairs, you can even loop through them to list
@@ -3426,7 +3314,7 @@ printWelcomeMessage(france); // Bonjour, Le zoo est ouvert
 >
 > **Türkçe:** Bir resource bundle anahtar/değer çiftleri içerdiğinden, bunların içinden list
 > çiftlerinin tümüne bile döngü yapabilirsiniz. ResourceBundle sınıfı, tüm anahtarlardan
-> bir set elde etmek için bir keySet() yöntemi sağlar.
+> bir set elde etmek için bir keySet() metodu sağlar.
 ```java
 var us = new Locale("en", "US");
 ResourceBundle rb = ResourceBundle.getBundle("Zoo", us);
@@ -3470,7 +3358,7 @@ rb.keySet().stream()
 > **English:** There are two methods for obtaining a resource bundle that you should be familiar with
 > for the exam.
 >
-> **Türkçe:** Sınav için aşina olmanız gereken bir resource bundle elde etmek için iki yöntem vardır.
+> **Türkçe:** Sınav için aşina olmanız gereken bir resource bundle elde etmek için iki metot vardır.
 
 <!-- source-page: 0642 -->
 ```java
@@ -3489,23 +3377,27 @@ ResourceBundle.getBundle("name", locale);
 > asked for resource bundle Zoo with the locale new Locale("fr", "FR") when the default
 > locale is U.S. English.
 >
-> **Türkçe:** Java, belirli bir anahtar için mevcut en iyi resource bundle seçme mantığını ele alır.
-> En özel değeri bulmaya çalışır. Tablo 11.11, default locale U.S olduğunda locale yeni
-> Locale("fr", "FR") ile resource bundle Hayvanat Bahçesi istendiğinde Java'nın neler
-> yaşadığını gösterir. İngilizce.
+> **Türkçe:** Java, kullanılabilecek en uygun resource bundle’ı seçer ve en özel eşleşmeyi arar. Tablo
+> 11.11; varsayılan locale ABD İngilizcesiyken, Zoo bundle’ının new Locale("fr", "FR")
+> için istenmesi durumundaki seçim sırasını gösterir.
 > **English:** TABLE 11.11 Picking a resource bundle for French/France with default locale English/US
-> Step Looks for file Reason 1 Zoo_fr_FR.properties Requested locale 2 Zoo_fr.properties
-> Language we requested with no country 3 Zoo_en_US.properties Default locale 4
-> Zoo_en.properties Default locale’s language with no country 5 Zoo.properties No locale
-> at all— default bundle 6 If still not found, throw No locale or default bundle available
-> MissingResource Exception As another way of remembering the order of Table 11.11, learn
-> these steps:
 >
-> **Türkçe:** TABLE 11.11 Varsayılan locale ile Fransızca / Fransa için bir kaynak paketi seçmek
-> İngilizce / ABD Adım Dosyaya bakar Nedeni 1 Zoo_fr_FR.properties Requested locale 2
-> Zoo_fr.properties Hiçbir ülke ile talep ettiğimiz dil 3 Zoo_en_US.properties Öntanımlı
-> locale 4 Zoo_en.properties Öntanımlı olarak bu locale'nin dilini öğrenin 5
-> Zoo.properties No locale no locale atreaded
+> **Türkçe:** Tablo 11.11 · İstenen locale fr_FR, varsayılan locale en_US iken bundle seçimi
+
+<!-- keep-with-next -->
+
+| Step | Candidate / Aday | Reason / Neden |
+| --- | --- | --- |
+| 1 | `Zoo_fr_FR.properties` | Requested locale / İstenen dil ve ülke |
+| 2 | `Zoo_fr.properties` | Requested language / İstenen dil |
+| 3 | `Zoo_en_US.properties` | Default locale / Varsayılan dil ve ülke |
+| 4 | `Zoo_en.properties` | Default language / Varsayılan dil |
+| 5 | `Zoo.properties` | Base bundle / Temel bundle |
+| 6 | `MissingResourceException` | No match / Uygun bundle bulunamaz |
+
+> **English:** As another way of remembering the order of Table 11.11, learn these steps:
+>
+> **Türkçe:** Tablo 11.11’deki mantıksal seçim sırasını hatırlamak için şu adımları kullanabilirsiniz:
 > **English:** 1.Look for the resource bundle for the requested locale, followed by the one for the
 > default locale.
 >
@@ -3541,10 +3433,10 @@ ResourceBundle rb = ResourceBundle.getBundle("Zoo", new Locale("en"));
 > does not contain a country, we move on to the default locale, hi. Again, there’s no
 > country, so we end with the default bundle.
 >
-> **Türkçe:** Cevap üç. Burada listelenmiştir: 1. Zoo_en.properties 2. Zoo_hi.properties 3.
-> Zoo.properties İstenen locale en'dir, bu yüzden bununla başlarız. En locale bir ülke
-> içermediğinden, default locale, merhaba'ya geçiyoruz. Yine, ülke yok, bu yüzden
-> varsayılan bohça ile bitiyoruz.
+> **Türkçe:** Cevap üçtür: Zoo_en.properties, Zoo_hi.properties ve Zoo.properties. İstenen locale en
+> olduğu için arama onunla başlar. Ülke kodu bulunmadığından sonraki aday, varsayılan
+> locale hi olur. Onda da ülke kodu yoktur; son aday temel bundle’dır. Buradaki hi bir dil
+> kodudur, “merhaba” diye çevrilmez.
 ### Selecting Resource Bundle Values
 > **English:** Got all that? Good— because there is a twist. The steps that we’ve discussed so far are
 > for finding the matching resource bundle to use as a base. Java isn’t required to get
@@ -3558,26 +3450,28 @@ ResourceBundle rb = ResourceBundle.getBundle("Zoo", new Locale("en"));
 > herhangi bir ebeveynden alabilir. Hiyerarşideki bir ebeveyn resource bundle sadece üst
 > seviyeye gelene kadar ismin bileşenlerini kaldırır. Tablo 11.12 bunun nasıl yapılacağını
 > gösterir.
-> **English:** TABLE 11.12 Selecting resource bundle properties Matching resource bundle Properties
-> files keys can come from Zoo_fr_FR Zoo_fr_FR.properties Zoo_fr.properties Zoo.properties
-> Once a resource bundle has been selected, only properties along a single hierarchy will
-> be used. Contrast this behavior with Table 11.11, in which the default en_US resource
-> bundle is used if no other resource bundles are available.
+> **English:** TABLE 11.12 Selecting resource bundle properties
 >
-> **Türkçe:** TABLE 11.12 resource bundle properties Eşleştirme resource bundle Properties files
-> tuşları Zoo_fr_FR Zoo_fr_FR.properties Zoo_fr.properties Zoo.properties Bir kez resource
-> bundle seçildikten sonra, tek bir hiyerarşi boyunca sadece properties kullanılacaktır.
-> Bu davranışı, başka bir resource bundles yoksa varsayılan en_US resource bundle
-> kullanıldığı Tablo 11.11 ile karşılaştırın.
+> **Türkçe:** Tablo 11.12 · Resource bundle key’lerinin aranması
+
+<!-- keep-with-next -->
+
+| Selected bundle | Key lookup hierarchy / Key arama hiyerarşisi |
+| --- | --- |
+| `Zoo_fr_FR` | `Zoo_fr_FR.properties` → `Zoo_fr.properties` → `Zoo.properties` |
+
+> **English:** Once a resource bundle has been selected, only properties along a single hierarchy will be used. Contrast this behavior with Table 11.11, in which the default en_US resource bundle is used if no other resource bundles are available.
+>
+> **Türkçe:** Bundle seçildikten sonra key’ler yalnız o hiyerarşide aranır. Bu işlem, uygun requested-locale bundle bulunamadığında varsayılan en_US locale’ine geçilen bundle seçimi aşamasından farklıdır.
 > **English:** What does this mean, exactly? Assume the requested locale is fr_FR and the default is
 > en_US. The JVM will provide data from en_US only if there is no matching fr_FR or fr
 > resource bundle. If it finds a fr_FR or fr resource bundle, then only those bundles,
 > along with the default bundle, will be used.
 >
-> **Türkçe:** Bu tam olarak ne anlama geliyor? İstenen locale fr_FR olduğunu ve varsayılanın en_US
-> olduğunu varsayalım. JVM, yalnızca eşleşen fr_FR veya fr resource bundle yoksa en_US'tan
-> veri sağlayacaktır. Bir fr_FR veya fr resource bundle bulursa, varsayılan demetle
-> birlikte yalnızca bu demetler kullanılacaktır.
+> **Türkçe:** Bunun anlamını bir örnekle görelim: İstenen locale fr_FR, varsayılan locale en_US olsun.
+> Eşleşen fr_FR veya fr bundle bulunamazsa JVM, en_US için aramaya geçer. fr_FR veya fr
+> bulunursa yalnız bu seçilmiş hiyerarşi ve temel bundle kullanılır; eksik key için en_US
+> hiyerarşisine geçilmez.
 > **English:** Let’s put all of this together and print some information about our zoos. We have a
 > number of properties files this time.
 >
@@ -3636,17 +3530,16 @@ System.out.print(rb.getString("visitors"));
 > en resource bundles, the program preferred using Zoo.properties (the default resource
 > bundle) rather than Zoo_en_US.properties (the default locale).
 >
-> **Türkçe:** Bu örnekte sadece üç properties files kullanıldı: Zoo_en_CA.properties,
-> Zoo_en.properties ve Zoo.properties. Mülk en_CA'da veya en resource bundles'te
-> bulunmadığında bile, program Zoo_en_US.properties (default locale) yerine Zoo.properties
-> (varsayılan resource bundle) kullanmayı tercih etti.
+> **Türkçe:** Bu örnekte yalnız Zoo_en_CA.properties, Zoo_en.properties ve Zoo.properties kullanılır.
+> Key, en_CA veya en bundle’ında bulunmasa bile arama Zoo_en_US.properties dosyasına
+> (varsayılan locale) geçmez; temel bundle olan Zoo.properties içinde sürer.
 
 <!-- source-page: 0645 -->
 > **English:** What if a property is not found in any resource bundle? Then an exception is thrown. For
 > example, attempting to call rb.getString("close") in the previous program results in a
 > MissingResourceException at runtime.
 >
-> **Türkçe:** Bir mülk herhangi bir resource bundle içinde bulunmazsa ne olur? Sonra bir istisna
+> **Türkçe:** Bir mülk herhangi bir resource bundle içinde bulunmazsa ne olur? Sonra bir exception
 > atılır. Örneğin, önceki programdaki rb.getString("close") çağırmaya çalışmak, çalışma
 > zamanında MissingResourceException ile sonuçlanır.
 ### Formatting Messages
@@ -3728,7 +3621,7 @@ System.out.println(props.getProperty("camel", "Bob")); // Bob
 > default value. For example, the following call is invalid since get() takes only a
 > single parameter:
 >
-> **Türkçe:** Properties sınıfı ayrıca bir get() yöntemi içerir, ancak yalnızca getProperty()
+> **Türkçe:** Properties sınıfı ayrıca bir get() metodu içerir, ancak yalnızca getProperty()
 > varsayılan bir değere izin verir. Örneğin, get() yalnızca tek bir parametre aldığından
 > aşağıdaki çağrı geçersizdir:
 ```java
@@ -3745,8 +3638,8 @@ props.get("open", "The zoo will be open soon"); // DOES NOT COMPILE
 > It is considered a poor practice to catch an Error.
 >
 > **Türkçe:** Bu bölüm, değişime iyi yanıt veren uygulamalar geliştirmeyi merkeze alan çeşitli
-> konuları ele aldı. İlk olarak exception handling (istisnaları ele alma) üzerinde
-> durduk. İstisnalar checked ve unchecked olarak ikiye ayrılır. Java'da checked
+> konuları ele aldı. İlk olarak exception handling (exception’ları ele alma) üzerinde
+> durduk. Exception’lar checked ve unchecked olarak ikiye ayrılır. Java'da checked
 > exception'lar `Exception` sınıfından türeyip `RuntimeException` kolunda yer almaz;
 > ele alınmaları veya bildirilmeleri gerekir. Unchecked exception'lar
 > `RuntimeException` ya da `Error` sınıfından türer ve bunlar için ele alma veya
@@ -3758,7 +3651,7 @@ props.get("open", "The zoo will be open soon"); // DOES NOT COMPILE
 > your exceptions, which will show up in stack traces.
 >
 > **Türkçe:** Sırasıyla `Exception` veya `RuntimeException` sınıfını genişleterek kendi checked ya da
-> unchecked exception sınıflarınızı oluşturabilirsiniz. İstisnalarınız için özel
+> unchecked exception sınıflarınızı oluşturabilirsiniz. Exception’larınız için özel
 > constructor'lar ve çağrı yığını izlerinde görünecek mesajlar da tanımlayabilirsiniz.
 
 > **English:** Automatic resource management can be enabled by using a try-with-resources statement to
@@ -3769,7 +3662,7 @@ props.get("open", "The zoo will be open soon"); // DOES NOT COMPILE
 >
 > **Türkçe:** Kaynakların düzgün kapatılmasını sağlamak için try-with-resources deyimiyle otomatik
 > kaynak yönetimi kullanılabilir. Kaynaklar, `try` bloğu sona erdiğinde,
-> bildirildikleri sıranın tersinde kapatılır. Kaynak metin, birden fazla istisna
+> bildirildikleri sıranın tersinde kapatılır. Kaynak metin, birden fazla exception
 > fırlatılan durumlarda suppressed exception oluşabileceğini söyler ve `finally` bloğu
 > ile try-with-resources `close()` işlemini bu bağlamda anar.
 
@@ -3828,7 +3721,7 @@ props.get("open", "The zoo will be open soon"); // DOES NOT COMPILE
 > java.lang.Throwable. Subclasses of java.lang.Error should never be caught. Only
 > subclasses of java.lang.Exception should be handled in application code.
 >
-> **Türkçe:** Çeşitli istisna türlerini anlayın. Bütün istisna sınıfları `java.lang.Throwable`
+> **Türkçe:** Çeşitli exception türlerini anlayın. Bütün exception sınıfları `java.lang.Throwable`
 > sınıfının alt sınıflarıdır. Kaynak, `java.lang.Error` alt sınıflarının
 > yakalanmamasını; uygulama kodunda yalnız `java.lang.Exception` alt sınıflarının ele
 > alınmasını önerir.
@@ -3852,10 +3745,10 @@ props.get("open", "The zoo will be open soon"); // DOES NOT COMPILE
 > exception is thrown.
 >
 > **Türkçe:** Bir `try` deyiminin kontrol akışını anlayın. Geleneksel bir `try` deyiminin en az bir
-> `catch` veya `finally` bloğu olmalıdır. Üst sınıf istisnasını yakalayan blok, alt
+> `catch` veya `finally` bloğu olmalıdır. Üst sınıf exception’ını yakalayan blok, alt
 > sınıfını yakalayan bloktan önce gelmediği sürece birden fazla `catch` bloğu
-> sıralanabilir. Aynı multi-catch içinde ele alınan istisna türleri birbirinin alt
-> sınıfı olamaz. Normal JVM kontrol akışında `finally` bloğu, istisna fırlatılıp
+> sıralanabilir. Aynı multi-catch içinde ele alınan exception türleri birbirinin alt
+> sınıfı olamaz. Normal JVM kontrol akışında `finally` bloğu, exception fırlatılıp
 > fırlatılmadığına bakılmaksızın en son çalışır.
 
 > **English:** Be able to follow the order of a try-with-resources statement. A try-with-resources
@@ -3874,9 +3767,9 @@ props.get("open", "The zoo will be open soon"); // DOES NOT COMPILE
 > throw and throws keywords and how to declare methods with exceptions. Know how to
 > correctly override a method that declares exceptions.
 >
-> **Türkçe:** İstisna bildiren metotlar yazabilmelisiniz. `throw` ve `throws` anahtar kelimeleri
-> arasındaki farkı ve metot imzasında istisnaların nasıl bildirildiğini anlayın.
-> İstisna bildiren bir metodun doğru biçimde nasıl override edileceğini bilin.
+> **Türkçe:** Exception bildiren metotlar yazabilmelisiniz. `throw` ve `throws` anahtar kelimeleri
+> arasındaki farkı ve metot imzasında exception’ların nasıl bildirildiğini anlayın.
+> Exception bildiren bir metodun doğru biçimde nasıl override edileceğini bilin.
 
 > **English:** Identify valid locale strings. Know that the language code is lowercase and mandatory,
 > while the country code is uppercase and optional. Be able to select a locale using a
@@ -4575,6 +4468,7 @@ age=4
 Dolphins_fr.properties
 name=Dolly
 ```
+
 ```java
 5: var fr = new Locale("fr");
 6: Locale.setDefault(new Locale("en", "US"));
@@ -4906,13 +4800,13 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > **English:** 1.A, C, D, E. A method that declares an exception isn’t required to throw one, making
 > option A correct. Unchecked exceptions can be thrown in any method, making options C and
 > E correct. Option D matches the exception type declared, so it’s also correct. Option B
-> is incor-rect because a broader exception is not allowed.
+> is incorrect because a broader exception is not allowed.
 >
-> **Türkçe:** 1.A, C, D, E. Bir istisnayı beyan eden bir yöntem, bir tanesini atmak için gerekli
-> değildir, A seçeneğini doğru hale getirir. Unchecked exceptions herhangi bir yöntemde
-> atılabilir, C ve E seçeneklerini doğru hale getirir. D seçeneği, belirtilen istisna
-> türüyle eşleşir, bu nedenle de doğrudur. B seçeneği incor-rect'tir, çünkü daha geniş bir
-> istisnaya izin verilmez.
+> **Türkçe:** 1.A, C, D, E. Bir exception’ı beyan eden bir metot, bir tanesini atmak için gerekli
+> değildir, A seçeneğini doğru hale getirir. Unchecked exceptions herhangi bir metotta
+> atılabilir, C ve E seçeneklerini doğru hale getirir. D seçeneği, belirtilen exception
+> türüyle eşleşir, bu nedenle de doğrudur. B seçeneği incorrect'tir, çünkü daha geniş bir
+> exception’a izin verilmez.
 ### Official Answer 2
 > **English:** 2.F. The code does not compile because the throw and throws keywords are incorrectly
 > used on lines 6, 7, and 9. If the keywords were fixed, the rest of the code would
@@ -4924,11 +4818,11 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > YesProblem ile bir yığın izi derleyip yazdırırdı. Bu nedenle F seçeneği doğrudur.
 ### Official Answer 3
 > **English:** 3.A, D, E. Localization refers to user-facing elements. Dates, currency, and numbers are
-> com-monly used in different formats for different countries, making options A, D, and E
+> commonly used in different formats for different countries, making options A, D, and E
 > correct.
 >
 > **Türkçe:** 3.A, D, E. Yerelleştirme, kullanıcıya bakan unsurları ifade eder. Tarihler, para birimi
-> ve sayılar, farklı ülkeler için farklı formatlarda com-monly olarak kullanılır ve A, D
+> ve sayılar, farklı ülkeler için farklı formatlarda commonly olarak kullanılır ve A, D
 > ve E seçeneklerini doğru hale getirir.
 > **English:** Class and variable names, along with lambda expressions, are internal to the
 > application, so there is no need to translate them for users.
@@ -4967,27 +4861,25 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > correct.
 >
 > **Türkçe:** 6.E. Bir LocalDate zaman öğesine sahip değildir. Bu nedenle, bir date/time formatter
-> uygun değildir. Kod derlenir, ancak çalışma zamanında bir istisna atar ve E seçeneğini
+> uygun değildir. Kod derlenir, ancak çalışma zamanında bir exception atar ve E seçeneğini
 > doğru hale getirir.
 > **English:** If ISO_LOCAL_DATE were used, the code would print 2022 APRIL 30.
 >
 > **Türkçe:** ISO_LOCAL_DATE kullanılırsa, kod 2022 APRIL 30 yazdırır.
 ### Official Answer 7
 > **English:** 7.E. The first compiler error is on line 12 because each resource in a
-> try-with-resources state-ment must have its own data type and be separated by a
+> try-with-resources statement must have its own data type and be separated by a
 > semicolon (;). Line 15 does not compile because the variable s is already declared in
-> the method. Line 17 also does not com-pile. The FileNotFoundException, which inherits
+> the method. Line 17 also does not compile. The FileNotFoundException, which inherits
 > from IOException and Exception, is a checked exception, so it must be handled in a
 > try/catch block or declared by the method. Because these three lines of code do not
 > compile, option E is the correct answer.
 >
-> **Türkçe:** 7.E. İlk derleyici hatası satır 12'dedir, çünkü bir try-with-resources devlet-mentindeki
-> her kaynak kendi veri türüne sahip olmalı ve bir virgül (;) ile ayrılmalıdır. 15. satır
-> derlenmez çünkü s değişkeni yöntemde zaten beyan edilmiştir. 17 numaralı hat da uyumlu
-> değil. IOException ve Exception'den miras kalan FileNotFoundException bir checked
-> exception'dir, bu nedenle bir denemede/catch block ele alınmalıdır veya yöntem
-> tarafından ilan edilmelidir. Bu üç kod satırı derlenmediğinden, E seçeneği doğru
-> cevaptır.
+> **Türkçe:** 7. E. İlk derleme hatası 12. satırdadır: try-with-resources içindeki her kaynak
+> bildirimi kendi veri türünü içermeli ve diğerinden noktalı virgülle (;) ayrılmalıdır. s
+> değişkeni metotta zaten bildirildiği için 15. satır da derlenmez. 17. satırdaki
+> FileNotFoundException checked’tir; try/catch ile ele alınmalı veya metot tarafından
+> bildirilmelidir. Bu üç satır derlenmediği için doğru cevap E’dir.
 ### Official Answer 8
 > **English:** 8.C. Java will first look for the most specific matches it can find, starting with
 > Dolphins_en_US.properties. Since that is not an answer choice, it drops the country and
@@ -5014,17 +4906,17 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > nedenle, D seçeneği doğru cevaptır.
 ### Official Answer 10
 > **English:** 10.B. An IllegalArgumentException is used when an unexpected parameter is passed into a
-> method, making option B correct. Option A is incorrect because returning null or ----  1
+> method, making option B correct. Option A is incorrect because returning null or -1
 > is a common return value for searching for data. Option D is incorrect because a for
-> loop is typ-ically used for this scenario. Option E is incorrect because you should find
+> loop is typically used for this scenario. Option E is incorrect because you should find
 > out how to code the method and not leave it for the unsuspecting programmer who calls
 > your method. Option C is incorrect because you should run!
 >
-> **Türkçe:** 10.B. Beklenmedik bir parametre bir yönteme aktarıldığında, B seçeneğini doğru hale
+> **Türkçe:** 10.B. Beklenmedik bir parametre bir metoda aktarıldığında, B seçeneğini doğru hale
 > getiren bir IllegalArgumentException kullanılır. A seçeneği yanlıştır, çünkü geri dönen
 > null veya ---- 1, veri aramak için ortak bir getiri değeridir. D seçeneği yanlıştır,
 > çünkü bir for loop bu senaryo için tip olarak kullanılır. E seçeneği yanlıştır, çünkü
-> yöntemi nasıl kodlayacağınızı öğrenmeli ve yönteminizi çağıran şüpheli programcıya
+> metodu nasıl kodlayacağınızı öğrenmeli ve yönteminizi çağıran şüpheli programcıya
 > bırakmamalısınız. C seçeneği yanlıştır, çünkü koşmanız gerekir!
 ### Official Answer 11
 > **English:** 11.B, E, F. An exception that must be handled or declared is a checked exception. A
@@ -5032,15 +4924,15 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > counts, so options B and E are both correct. Option F is also correct, as a class that
 > inherits Throwable but not RuntimeException or Error is also checked.
 >
-> **Türkçe:** 11.B, E, F. Halledilmesi veya ilan edilmesi gereken bir istisna checked exception'dur.
-> Bir checked exception varis Exception ama RuntimeException değil. Tüm hiyerarşi sayılır,
-> bu yüzden B ve E seçeneklerinin ikisi de doğrudur. F seçeneği de doğrudur, Throwable
-> varisli olan ancak RuntimeException veya Error olmayan bir sınıf olarak da kontrol
-> edilir.
+> **Türkçe:** 11. B, E, F. Handle-or-declare zorunluluğu olan tür checked exception’dır. Exception
+> sınıfından türeyip RuntimeException kolunda olmayan türler bu gruptadır; tüm kalıtım
+> zinciri dikkate alındığından B ve E doğrudur. Throwable’dan türeyen, ancak
+> RuntimeException veya Error kolunda olmayan bir sınıf da checked olduğu için F de
+> doğrudur.
 ### Official Answer 12
 > **English:** 12.B, C. The code does not compile as is because the exception declared by the close()
 >
-> **Türkçe:** 12.B, C. Kod, close() tarafından ilan edilen istisna nedeniyle olduğu gibi derlemez.
+> **Türkçe:** 12.B, C. Kod, close() tarafından ilan edilen exception nedeniyle olduğu gibi derlemez.
 > **English:** method must be handled or declared. Option A is incorrect because removing the exception
 > from the declaration causes a compilation error on line 4, as FileNotFoundException is a
 > checked exception that must be handled or declared. Option B is correct because the
@@ -5048,15 +4940,15 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > because the exception becomes handled. Option D is incorrect because the exception
 > remains unhandled.
 >
-> **Türkçe:** yöntem ele alınmalı veya ilan edilmelidir. A seçeneği yanlıştır, çünkü istisnayı
+> **Türkçe:** metot ele alınmalı veya ilan edilmelidir. A seçeneği yanlıştır, çünkü exception’ı
 > deklarasyondan kaldırmak, FileNotFoundException ele alınması veya ilan edilmesi gereken
 > bir checked exception olduğu için, 4. satırda bir derleme hatasına neden olur. B
-> seçeneği doğrudur, çünkü main() yöntemindeki işlenmemiş istisna ilan edilir. C seçeneği
-> de doğrudur, çünkü istisna ele alınır. D seçeneği yanlıştır, çünkü istisna
+> seçeneği doğrudur, çünkü main() metodundaki işlenmemiş exception ilan edilir. C seçeneği
+> de doğrudur, çünkü exception ele alınır. D seçeneği yanlıştır, çünkü exception
 > kaldırılmamıştır.
 ### Official Answer 13
 > **English:** 13.A, B. A try-with-resources statement does not require a catch or finally block. A
-> tra-ditional try statement requires at least one of the two. Neither statement can be
+> traditional try statement requires at least one of the two. Neither statement can be
 > written without a body encased in braces, {}. For these reasons, options A and B are
 > correct.
 >
@@ -5078,17 +4970,17 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > NullPointerException exception can be thrown at a time.
 >
 > **Türkçe:** C seçeneğinin doğru olması için çağrılır. E ve F seçenekleri bir seferde sadece bir
-> NullPointerException istisnası atılabileceği için yanlıştır.
+> NullPointerException exception’ı atılabileceği için yanlıştır.
 ### Official Answer 15
 > **English:** 15.C, D. The code compiles with the appropriate input, so option G is incorrect. A
-> locale con-sists of a required lowercase language code and optional uppercase country
+> locale consists of a required lowercase language code and optional uppercase country
 > code. In the Locale() constructor, the language code is provided first. For these
 > reasons, options C and D are correct. Option E is incorrect because a Locale is created
 > using a constructor or Locale.Builder class. Option F is really close but is missing
 > build() at the end.
 >
 > **Türkçe:** 15.C, D. Kod uygun girdi ile derlenir, bu nedenle G seçeneği yanlıştır. Gerekli bir
-> küçük harf dil kodunun ve optional büyük harf ülke kodunun bir locale con-sist'i.
+> küçük harf dil kodunun ve optional büyük harf ülke kodunun bir locale consist'i.
 > Locale() constructor'da dil kodu ilk olarak sağlanır. Bu nedenlerden dolayı, C ve D
 > seçenekleri doğrudur. E seçeneği yanlıştır, çünkü bir Locale constructor veya
 > Locale.Builder sınıfı kullanılarak oluşturulur. Option F gerçekten yakın ama sonunda
@@ -5105,13 +4997,11 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > "hh' o''clock'" were used, then the correct answers would be ZonedDateTime,
 > LocalDateTime, and LocalTime.
 >
-> **Türkçe:** 16.F. Kod derlenir, ancak ilk satır boşluğa ne eklendiğinden bağımsız olarak bir runtime
-> exception üretir ve F seçeneğini doğru hale getirir. Özel bir formatlayıcı oluştururken,
-> herhangi bir nonsembol kodu, tek tırnak çiftleri (') kullanılarak düzgün bir şekilde
-> kaçınılmalıdır. Bu durumda başarısız olur çünkü o bir sembol değildir. O'nun bir sembol
-> olmadığını bilmeseniz bile, kod benzersiz bir tek alıntı içerir. Eğer "h' o'clock'"un
-> düzgün bir şekilde kaçmış değeri kullanılmışsa, o zaman doğru cevaplar ZonedDateTime,
-> LocalDateTime ve LocalTime olacaktır.
+> **Türkçe:** 16. F. Kod derlenir; ancak boşluğa ne yazılırsa yazılsın ilk satır çalışma zamanında
+> exception üretir. Bu nedenle F doğrudur. Formatter pattern’inde sembol olmayan metin tek
+> tırnakla sınırlandırılmalı, metindeki gerçek tek tırnak iki kez yazılmalıdır. Burada o
+> geçerli bir sembol değildir; ayrıca eşleşmeyen tek tırnak vardır. Doğru pattern olan
+> "hh' o''clock'" kullanılsaydı ZonedDateTime, LocalDateTime ve LocalTime uygun olurdu.
 > **English:** Option B would not be correct because LocalDate values do not have an hour part.
 >
 > **Türkçe:** B seçeneği doğru olmaz çünkü LocalDate değerlerinin bir saatlik kısmı yoktur.
@@ -5146,14 +5036,14 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > **Türkçe:** 18.C. Her iki kaynak da try-with-resources statement olarak ilan edildikten ve
 > oluşturulduktan sonra, T vücudun bir parçası olarak basılır. Daha sonra
 > try-with-resources, ilan edildikleri sıranın tersine kaynakları tamamlar ve kapatır. W
-> basıldıktan sonra bir istisna atılır. Ancak, kalan kaynağın hala kapatılması gerekir, bu
-> nedenle D yazdırılır. Tüm kaynaklar kapatıldıktan sonra, istisna catch block içinde
+> basıldıktan sonra bir exception atılır. Ancak, kalan kaynağın hala kapatılması gerekir, bu
+> nedenle D yazdırılır. Tüm kaynaklar kapatıldıktan sonra, exception catch block içinde
 > atılır ve yutulur, bu da E'nin basılmasına neden olur. Son olarak, finally block
 > çalıştırılır, F yazdırılır. Bu nedenle, cevap TWDEF ve C seçeneği doğrudur.
 ### Official Answer 19
 > **English:** 19.D. Java will use Dolphins_fr.properties as the matching resource bundle on line 7
 > because it is an exact match on the language of the requested locale. Line 8 finds a
-> match-ing key in this file. Line 9 does not find a match in that file; therefore, it has
+> matching key in this file. Line 9 does not find a match in that file; therefore, it has
 > to look higher up in the hierarchy. Once a bundle is chosen, only resources in that
 > hierarchy are allowed. It cannot use the default locale anymore, but it can use the
 > default resource bundle specified by Dolphins.properties. For these reasons, option D is
@@ -5170,9 +5060,9 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > invoked, and E is printed on line 14. Line 16 throws a NullPointerException, so stop()
 > immediately ends, and line 17 doesn’t execute. The exception isn’t caught in go(),
 >
-> **Türkçe:** 20.G. main() yöntemi go()'yi çağırır ve A, 3. satırda basılır. stop() yöntemi çağrılır
+> **Türkçe:** 20.G. main() metodu go()'yi çağırır ve A, 3. satırda basılır. stop() metodu çağrılır
 > ve E, 14. satırda basılır. Satır 16 bir NullPointerException atar, bu nedenle stop()
-> hemen sona erer ve satır 17 çalışmaz. İstisna go() içinde yakalanmaz,
+> hemen sona erer ve satır 17 çalışmaz. Exception go() içinde yakalanmaz,
 
 <!-- appendix-source-page: 0948 -->
 > **English:** so the go() method ends as well, but not before its finally block executes and C is
@@ -5180,8 +5070,8 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > and no further output occurs. For these reasons, AEC is printed followed by a stack
 > trace for a NullPointerException, making option G correct.
 >
-> **Türkçe:** Böylece go() yöntemi de sona erer, ancak finally block çalıştırılmadan önce ve C 9.
-> satırda basılmaz. main() istisnayı yakalamadığı için, yığın izi görüntülenir ve başka
+> **Türkçe:** Böylece go() metodu de sona erer, ancak finally block çalıştırılmadan önce ve C 9.
+> satırda basılmaz. main() exception’ı yakalamadığı için, yığın izi görüntülenir ve başka
 > bir çıktı oluşmaz. Bu nedenlerden dolayı, AEC bir NullPointerException için bir yığın
 > izi ile basılır ve G seçeneğini doğru hale getirir.
 ### Official Answer 21
@@ -5198,10 +5088,10 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > ilgili bir alt sınıfı yakalayamaz. A ve B seçenekleri bu sorunu çözmez, bu yüzden
 > yanlıştır. Deneme gövdesi SneezeException attığından, bir catch block içine
 > yakalanabilir ve C seçeneğini doğru hale getirir. Option D, catch block'nin derlenmesine
-> izin verir, ancak 6. satırda bir derleyici hatasına neden olur. Özel istisnaların her
+> izin verir, ancak 6. satırda bir derleyici hatasına neden olur. Özel exception’ların her
 > ikisi de kontrol edilir ve main() yönteminde ele alınmalı veya ilan edilmelidir.
-> SneezeException bir SniffleException değildir, bu nedenle istisna ele alınmaz. Aynı
-> şekilde, E seçeneği 6. satırda işlenmemiş bir istisna derleyici hatasına yol açar.
+> SneezeException bir SniffleException değildir, bu nedenle exception ele alınmaz. Aynı
+> şekilde, E seçeneği 6. satırda işlenmemiş bir exception derleyici hatasına yol açar.
 ### Official Answer 22
 > **English:** 22.B. For this question, the date used is April 5, 2022 at 12:30:20pm. The code
 > compiles, and either form of the formatter is correct: dateTime.format(formatter) or
@@ -5214,9 +5104,9 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > **Türkçe:** 22.B. Bu soru için kullanılan tarih 5 Nisan 2022, saat 12:30:20. Kod derlenir ve
 > biçimlendiricinin her iki biçimi de doğrudur: dateTime.format(formatter) veya
 > formatter.format(dateTime). Özel format m dakikayı döndürür, yani 30 önce çıktıdır. Bir
-> sonraki satır, z'nin zaman dilimiyle ilgili olarak bir istisna atar ve tarih / saatin
-> bir bölge bileşeni yoktur. Bu istisna daha sonra try/catch block tarafından yutulur.
-> Basılan tek değer bu olduğundan, B seçeneği doğrudur. Kod bir istisna atmasaydı, son
+> sonraki satır, z'nin zaman dilimiyle ilgili olarak bir exception atar ve tarih / saatin
+> bir bölge bileşeni yoktur. Bu exception daha sonra try/catch block tarafından yutulur.
+> Basılan tek değer bu olduğundan, B seçeneği doğrudur. Kod bir exception atmasaydı, son
 > satır 2022'yi basacaktı.
 ### Official Answer 23
 > **English:** 23.A, E. Resources must inherit AutoCloseable to be used in a try-with-resources block.
@@ -5236,12 +5126,11 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > block being the primary exception since it is thrown first. Then two suppressed
 > exceptions would be added to it when trying to close the AutoCloseable resources.
 >
-> **Türkçe:** 24.G. Kod derlemez çünkü kaynak walk1 son veya effectively final değildir ve
-> try-with-resources statement bildiriminde kullanılamaz. Bu nedenle, G seçeneği doğrudur.
-> set walk1 ila null arasındaki çizgi kaldırılmışsa, kod try block içindeki istisna ilk
-> atıldığından beri primary exception olmak üzere çalışma zamanında kar fırtınası 2'yi
-> derler ve yazdırır. Ardından, AutoCloseable kaynaklarını kapatmaya çalışırken ona iki
-> suppressed exceptions eklenir.
+> **Türkçe:** 24. G. walk1, final veya effectively final olmadığı için try-with-resources içinde
+> kullanılamaz; kod derlenmez ve G doğrudur. walk1’e null atayan satır kaldırılırsa kod
+> derlenir ve çalışma zamanında blizzard 2 yazdırır. Önce try gövdesindeki exception
+> fırlatıldığı için bu primary exception olur; iki AutoCloseable kaynak kapatılırken
+> oluşan exception’lar ona suppressed olarak eklenir.
 ### Official Answer 25
 > **English:** 25.A. The code compiles and prints the value for Germany, 2,40 €, making option A the
 > correct answer. Note that the default locale category is ignored since an explicit
@@ -5264,7 +5153,7 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > erişilemez kod ve Optional A'yı yanlış yapar. B ve F seçenekleri doğrudur, çünkü her
 > ikisi de IllegalArgumentException 'den genişlemeyen veya miras almayan unchecked
 > exceptions'tir. Unutmayın, pratikte Error yakalamak iyi bir fikir değildir, ancak mümkün
-> olduğu için sınavda ortaya çıkabilir. C seçeneği yanlıştır, çünkü c değişkeni yöntem
+> olduğu için sınavda ortaya çıkabilir. C seçeneği yanlıştır, çünkü c değişkeni metot
 > deklarasyonunda zaten beyan edilmiştir. D seçeneği yanlıştır, çünkü
 > IllegalArgumentException RuntimeException'den miras alır ve ilk bildirimi gereksiz
 > kılar.

@@ -252,8 +252,8 @@ made after it.” cümlesinde `made after it` hangi ismi niteler? `it` neye dön
 
 ### Soru 6 — Örnek çeviri
 
-“Çalıştırmadan önce gerekli bütün bağlama değişkenlerine değer atanmış olduğu
-sürece hazırlanmış bir deyim yeniden kullanılabilir.”
+“Çalıştırmadan önce gerekli bütün bind variable’lara değer atanmış olduğu
+sürece bir prepared statement yeniden kullanılabilir.”
 
 `as long as`, burada süre değil **koşul** bildirir ve “-dığı sürece” diye
 çevrilir. `can be reused` modal passive'dir; `have been assigned` ise present

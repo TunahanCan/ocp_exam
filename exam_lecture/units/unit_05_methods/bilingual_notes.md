@@ -134,7 +134,7 @@ public final void nap(int minutes) throws InterruptedException {
 
 > **English:** This is called a method declaration, which specifies all the information needed to call the method. There are a lot of parts, and we cover each one in more detail. Two of the parts—the method name and parameter list— are called the method signature. The method signature provides instructions for how callers can reference this method. The method signature does not include the return type and access modifiers, which control where the method can be referenced.
 >
-> **Türkçe:** Buna method declaration (method bildirimi) denir; method'u çağırmak için gereken bütün bilgileri belirtir. Birçok parçadan oluşur ve her birini ayrıntılı inceleyeceğiz. Bu parçalardan ikisi—method name ve parameter list—method signature'ı (method imzasını) oluşturur. Method signature, çağıran kodun bu method'a nasıl başvuracağını gösterir. Method'un nereden çağrılabileceğini etkileyen return type ve access modifier, method signature'a dahil değildir.
+> **Türkçe:** Buna method declaration (method bildirimi) denir; method'u çağırmak için gereken bütün bilgileri belirtir. Birçok parçadan oluşur ve her birini ayrıntılı inceleyeceğiz. Bu parçalardan ikisi—method name ve parameter list—method signature'ı (method imzasını) oluşturur. Method signature, çağıran kodun bu method'a nasıl başvuracağını gösterir. Return type ile method'un nereden çağrılabileceğini belirleyen access modifier, method signature'a dahil değildir.
 
 > **English:** Table 5.1 is a brief reference to the elements of a method declaration. Don’t worry if it seems like a lot of information— by the time you finish this chapter, it will all fit together.
 >
@@ -1640,8 +1640,6 @@ Koala.main(new String[0]); // call static method
 >
 > **Türkçe:** Sonraki bölümlerde diğer `static` kavramları gösteren örnekleri inceleyeceğiz.
 
-<!-- page-break -->
-
 ### Accessing a static Variable or Method
 
 **Türkçe başlık:** `static` Variable veya Method'a Erişim
@@ -2799,8 +2797,6 @@ System.out.print(glide("a", "b", "c"));
 > **English:** It prints out 142. The first call matches the signature taking a single String because that is the most specific match. The second call matches the signature taking two String parameters since that is an exact match. It isn’t until the third call that the varargs version is used since there are no better matches.
 >
 > **Türkçe:** Code `142` yazdırır. İlk call, en specific match olan tek `String` parameter'lı signature'ı seçer. İkinci call iki `String` parameter'lı signature ile exact match olur. Daha iyi bir match bulunmadığı için varargs sürümü ancak üçüncü call'da kullanılır.
-
-<!-- page-break -->
 
 ### Summary
 

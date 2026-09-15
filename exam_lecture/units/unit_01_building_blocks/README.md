@@ -74,8 +74,9 @@ Bir sonraki tekrar`. Yalnız harf kaydetmek, aynı tuzağı yeniden fark etmeyi 
 
 ## Önkoşul ve konu haritası
 
-- **Önkoşul:** Java bilgisi gerektirmez; terminalde command çalıştırma ve
-  dosya/dizin kavramlarına aşinalık yararlıdır.
+- **Önkoşul:** Basit bir Java programını okuyabilmek yararlıdır; kaynak kitap
+  daha önce Java ile tanışıldığını varsayar. Terminalde komut çalıştırma ve
+  dosya/dizin kavramlarında eksik varsa ilk durakta kısa bir hazırlık yap.
 - **Konu akışı:** JDK/JVM ve araçlar → source/class yapısı → `package`,
   `import`, classpath → object ve initialization → primitive/reference,
   literals ve `var` → scope, lifetime ve garbage collection

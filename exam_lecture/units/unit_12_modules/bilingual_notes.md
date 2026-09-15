@@ -1200,7 +1200,7 @@ opens zoo.animal.talks.schedule; // DOES NOT COMPILE
 > module.
 >
 > **Türkçe:** Dört ayrı modüle sahip olmanız gerekmez. Bunu kavramları örneklemek için
-> yapıyoruz. Örneğin service provider interface (hizmet sağlayıcı arayüzü) ile service
+> yapıyoruz. Örneğin service provider interface (hizmet sağlayıcı interface’i) ile service
 > locator (hizmet bulucu) aynı modülde olabilir.
 ### Declaring the Service Provider Interface
 > **English:** First, the zoo.tours.api module defines a Java object called Souvenir. It is considered
@@ -1578,7 +1578,7 @@ Single tour: zoo.tours.agency.TourImpl@1936f0f5
 >
 > **Türkçe:** TABLO 12.4 — Service'leri gözden geçirme\
 > **Sütunlar:** Artifact (öğe); service'in parçası mı?; gerekli directive'ler.\
-> **Service provider interface (hizmet sağlayıcı arayüzü):** Evet; `exports`.\
+> **Service provider interface (hizmet sağlayıcı interface’i):** Evet; `exports`.\
 > **Service provider (hizmet sağlayıcı):** Hayır; `requires`, `provides`.\
 > **Service locator (hizmet bulucu):** Evet; `exports`, `requires`, `uses`.\
 > **Consumer (tüketici):** Hayır; `requires`.
@@ -3167,7 +3167,7 @@ requires zoo.butterfly;
 > and a consumer calls the service. Finally, a service provider implements the service.
 >
 > **Türkçe:** Bir servisin dört ana bileşenini ayırt edin. Service provider interface (servis
-> sağlayıcı arayüzü), gerçekleştirimin uyması gereken sözleşmeyi tanımlar. Service
+> sağlayıcı interface’i), gerçekleştirimin uyması gereken sözleşmeyi tanımlar. Service
 > locator (servis bulucu), servisi bulur; consumer (tüketici), servisi çağırır; service
 > provider (servis sağlayıcı), servisin gerçekleştirimini sunar.
 

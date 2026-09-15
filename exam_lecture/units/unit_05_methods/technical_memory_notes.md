@@ -29,8 +29,10 @@ public static final int count(String name, int... values)
 Declaration iskeleti: access modifier → optional specifiers → return type →
 method name → parameter list → optional `throws` list → body veya semicolon.
 
-**Method signature yalnız method name + parameter type/order bilgisidir.** Return
-type, access modifier, parameter names ve `throws` list signature'a dahil değildir.
+**Bu bölümdeki non-generic method'larda signature, method name ve parameter
+type/order bilgisinden oluşur.** Return type, access modifier, parameter names
+ve `throws` list signature'a dahil değildir. Generic method'larda type
+parameter'ları ve bunların uyarlanması da signature karşılaştırmasına katılır.
 
 Bu yüzden yalnız return type'ı değiştirerek overload yapılamaz.
 
@@ -40,8 +42,10 @@ Bu yüzden yalnız return type'ı değiştirerek overload yapılamaz.
 - Local variable `final` olabilir; `final var x = 3;` geçerlidir.
 - Instance/static fields access modifier, `final`, `volatile`, `transient` gibi
   uygun modifier'lar alabilir.
-- Blank `final` field constructor'da; blank `static final` field static
-  initializer'da exactly once atanabilir.
+- Blank instance `final` field, instance initializer veya constructor
+  içinde atanabilir; normal tamamlanan her constructor yolu alanı tam bir kez
+  initialize etmiş olmalıdır. Blank `static final` field, static initializer'da
+  tam bir kez atanır.
 
 `effectively final`, explicit `final` yazılmasa da initialization sonrasında
 reassign edilmeyen local/parameter demektir. Lambda/local class capture için
@@ -120,8 +124,9 @@ Explicit `null` varargs array olarak geçirilebilir; body `values.length`
 
 ## 6. Pass-by-value: kopyalanan şey variable value'sudur
 
-Primitive için value'nun, reference için object address/reference value'nun
-kopyası gider.
+Primitive için değerin, reference için reference value'nun kopyası aktarılır.
+Reference'ı nesneye giden bir bağlantı gibi düşün; Java kodu bunu ham bellek
+adresi olarak kullanmaz.
 
 ```java
 static void change(StringBuilder b) {
@@ -143,12 +148,17 @@ Overload'lar same name, different parameter list taşır. Compiler call için
 applicable candidates'ı phase'ler hâlinde arar; daha erken phase'de uygun method
 bulursa sonraki phase'e geçmez.
 
-Pratik sınav sırası:
+Compiler üç applicability aşaması kullanır:
 
-1. exact/more specific match,
-2. primitive widening veya reference widening,
-3. boxing/unboxing içeren loose invocation,
-4. varargs.
+1. **Strict invocation:** Sabit argument sayısı ile identity veya widening
+   conversion; boxing/unboxing yoktur.
+2. **Loose invocation:** Sabit argument sayısı ile boxing/unboxing de kullanılabilir.
+3. **Variable arity invocation:** Gerekirse ayrı argument'lar varargs array'inde toplanır.
+
+İlk uygun aşamadaki adaylar arasından most specific method seçilir. Varargs
+bildirimi, çağrıya array verildiğinde ilk iki aşamada da fixed-arity method
+olarak değerlendirilebilir; “varargs method her zaman en sona kalır” genellemesi
+bu yüzden yanlıştır.
 
 ```java
 static void call(long x)    { System.out.print("long"); }
@@ -205,7 +215,7 @@ Integer boxed = null;
 
 ## Cevaplar
 
-1. Hayır; signature name ve parameter type/order'dır.
+1. Hayır; burada non-generic method için name ve parameter type/order esas alınır.
 2. `long`; primitive widening boxing'den önce uygulanır.
 3. Hayır; reference value'nun kopyası reassign edilir.
 4. Önce gelseydi hangi argument'ların varargs'a, hangilerinin sonraki parameter'a

@@ -110,7 +110,7 @@ main noun + along with + additional noun
 > **English:** “The driver contains the key implementations along with other
 > interfaces.”
 >
-> **Türkçe:** “Sürücü, diğer arayüzlerin yanı sıra temel gerçekleştirimleri içerir.”
+> **Türkçe:** “Driver, diğer interface’lerin yanı sıra temel implementation’ları içerir.”
 
 Subject–verb agreement çoğunlukla `along with` öncesindeki main subject'e göre
 yapılır: `The driver, along with its classes, is ...`
@@ -128,7 +128,7 @@ whether + alternative A + or + alternative B
 > **English:** “The boolean indicates whether the first result is a result
 > set or an update count.”
 >
-> **Türkçe:** “Boolean değer, ilk sonucun bir sonuç kümesi mi yoksa güncelleme sayısı mı olduğunu gösterir.”
+> **Türkçe:** “Boolean değer, ilk sonucun bir result set mi yoksa update count mu olduğunu gösterir.”
 
 Türkçeye çoğunlukla “...olup olmadığı” veya “...mi ...mi” ile çevrilir.
 
@@ -162,7 +162,7 @@ Bir yöntem yerine başka yöntemin kullanıldığını gösterir.
 
 > **English:** “Use bind variables instead of concatenating user input.”
 >
-> **Türkçe:** “Kullanıcı girdisini birleştirmek yerine bağlama değişkenleri kullanın.”
+> **Türkçe:** “Kullanıcı girdisini SQL metniyle birleştirmek yerine bind variable kullanın.”
 
 `of` preposition olduğu için ardından `concatenate` değil `concatenating`
 gelir.
@@ -201,7 +201,7 @@ Sonucun hangi yöntemle elde edildiğini açıklar.
 
 > **English:** “You create a statement by calling `prepareStatement()`.”
 >
-> **Türkçe:** “`prepareStatement()` çağırarak bir deyim oluşturursunuz.”
+> **Türkçe:** “prepareStatement() çağırarak bir statement oluşturursunuz.”
 
 `by` sonrasında base verb değil gerund kullanılır.
 
@@ -218,7 +218,7 @@ Technical operation sırasını bildirir.
 
 > **English:** “Set every bind variable before executing the query.”
 >
-> **Türkçe:** “Sorguyu çalıştırmadan önce her bağlama değişkenine değer atayın.”
+> **Türkçe:** “Sorguyu çalıştırmadan önce bütün bind variable’lara değer atayın.”
 
 Gerund clause'un gizli subject'i main clause subject'iyle mantıksal olarak
 uyumlu olmalıdır.
@@ -244,7 +244,7 @@ Bir state veya event gerçekleştiğinde ortaya çıkan sonucu anlatır.
 > **English:** “When autocommit is enabled, each statement is committed
 > automatically.”
 >
-> **Türkçe:** “Otomatik kalıcılaştırma etkinleştirildiğinde her deyim otomatik olarak kalıcılaştırılır.”
+> **Türkçe:** “Autocommit etkinken her statement otomatik olarak commit edilir.”
 
 `when enabled` reduced clause'tur; omitted subject main clause ile doğru
 eşleşmelidir.
@@ -261,7 +261,7 @@ Bir action tamamlanır tamamlanmaz sonraki sonucu bildirir.
 
 > **English:** “Once `next()` returns false, the cursor is no longer on a valid row.”
 >
-> **Türkçe:** “`next()` false döndürdükten sonra imleç artık geçerli bir satırın üzerinde değildir.”
+> **Türkçe:** “next() false döndürdükten sonra cursor artık geçerli bir satırda değildir.”
 
 Context'e göre “...ınca”, “...dıktan sonra” veya “artık” ile çevrilebilir.
 
@@ -327,7 +327,7 @@ since + point in time
 
 > **English:** “Use `executeQuery()` since the procedure returns rows.”
 >
-> **Türkçe:** “Saklı yordam satır döndürdüğü için `executeQuery()` kullanın.”
+> **Türkçe:** “Stored procedure satır döndürdüğü için executeQuery() kullanın.”
 
 Bu örnekte `since` neden bildirir. Present perfect ile “...den beri” anlamında
 da kullanılabilir; doğru anlam context'ten çıkarılır.
@@ -345,7 +345,7 @@ Context'e göre zaman (“...iken”), neden (“...dığı için”) veya biçi
 
 > **English:** “As the cursor advances, each iteration represents one row.”
 >
-> **Türkçe:** “İmleç ilerledikçe her yineleme bir satırı temsil eder.”
+> **Türkçe:** “Cursor ilerledikçe her yineleme bir satırı temsil eder.”
 
 YDS sorularında `as` için tek bir Türkçe karşılığı ezberlemek yerine iki clause
 arasındaki semantic ilişkiyi belirle.
@@ -405,7 +405,7 @@ Bir şeyin varlığını tanıtır.
 > **English:** “There are overloaded methods for selecting a result-set
 > type.”
 >
-> **Türkçe:** “Sonuç kümesi türünü seçmek için aşırı yüklenmiş metotlar vardır.”
+> **Türkçe:** “Result set türünü seçmek için overload edilmiş metotlar vardır.”
 
 Buradaki `there` yer zarfı değildir; existential subject yapısının parçasıdır.
 
@@ -422,7 +422,7 @@ noun + that/which + verb ...
 > **English:** “A bind variable is a placeholder that receives its value at
 > runtime.”
 >
-> **Türkçe:** “Bağlama değişkeni, değerini çalışma zamanında alan bir yer tutucudur.”
+> **Türkçe:** “Bind variable, değerini çalışma zamanında alan bir placeholder’dır.”
 
 Defining clause içinde `that` veya `which` kullanılabilir. Virgülle ayrılan non-defining clause için `that` kullanılmaz; bu örneklerde `which` gerekir.
 
@@ -456,7 +456,7 @@ Sonucu değiştirmeyen olasılığı ifade eder.
 
 > **English:** “The cursor is invalid no matter which getter is called.”
 >
-> **Türkçe:** “Hangi okuyucu metot çağrılırsa çağrılsın imleç geçersizdir.”
+> **Türkçe:** “Hangi getter çağrılırsa çağrılsın cursor geçersizdir.”
 
 Yakın yapı: `regardless of which ...`
 
@@ -506,7 +506,7 @@ subject + may/might/can + base verb
 
 > **English:** “The exact exception message may vary by driver.”
 >
-> **Türkçe:** “İstisna mesajının tam metni sürücüye göre değişebilir.”
+> **Türkçe:** “Exception mesajının tam metni sürücüye göre değişebilir.”
 
 Modal'dan sonra `to` gelmez, verb `-s` almaz.
 

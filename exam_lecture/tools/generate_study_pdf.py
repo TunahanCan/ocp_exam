@@ -41,6 +41,12 @@ INK = colors.HexColor("#23313D")
 MUTED = colors.HexColor("#5D6B78")
 LINE = colors.HexColor("#D8E2E8")
 PAPER = colors.HexColor("#FCFDFE")
+BILINGUAL_LABEL = re.compile(r"^\*\*(English|Türkçe)[^*]*:\*\*")
+
+
+def quote_language(line: str) -> str | None:
+    match = BILINGUAL_LABEL.match(line.removeprefix(">").lstrip())
+    return match.group(1) if match else None
 
 
 def heading_slug(title: str) -> str:
@@ -268,6 +274,17 @@ def build_styles() -> dict[str, ParagraphStyle]:
             spaceAfter=5,
             keepWithNext=True,
         ),
+        "source_page": ParagraphStyle(
+            "StudySourcePage",
+            parent=base["BodyText"],
+            fontName="StudySans",
+            fontSize=8,
+            leading=11,
+            textColor=MUTED,
+            spaceBefore=8,
+            spaceAfter=4,
+            keepWithNext=True,
+        ),
         "callout": ParagraphStyle(
             "StudyCallout",
             parent=base["BodyText"],
@@ -366,6 +383,36 @@ def make_cover(title: str, styles: dict[str, ParagraphStyle]):
 
 
 def make_callout(lines: list[str], styles: dict[str, ParagraphStyle]):
+    # Keep each source/translation pair in one card while giving the two
+    # languages separate backgrounds. Editorial notes retain the amber theme.
+    if lines and quote_language(lines[0]) == "English":
+        boundary = next(
+            (index for index, line in enumerate(lines)
+             if quote_language(line) == "Türkçe"),
+            None,
+        )
+        if boundary is not None:
+            english = lines[:boundary]
+            while english and english[-1] in {"", "\\"}:
+                english.pop()
+            table = Table(
+                [[Paragraph(paragraph_markup(english), styles["callout"])],
+                 [Paragraph(paragraph_markup(lines[boundary:]), styles["callout"])]],
+                colWidths=[165 * mm],
+                splitByRow=0,
+            )
+            table.setStyle(TableStyle([
+                ("BACKGROUND", (0, 0), (0, 0), colors.HexColor("#EDF2FA")),
+                ("BACKGROUND", (0, 1), (0, 1), MINT),
+                ("LINEBEFORE", (0, 0), (0, 0), 3, NAVY),
+                ("LINEBEFORE", (0, 1), (0, 1), 3, TEAL),
+                ("LINEABOVE", (0, 1), (0, 1), 0.4, LINE),
+                ("LEFTPADDING", (0, 0), (-1, -1), 9),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 9),
+                ("TOPPADDING", (0, 0), (-1, -1), 6),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
+            ]))
+            return table
     # GitHub-style admonitions are already visually rendered as callout cards in
     # this PDF theme.  Suppress the raw ``[!IMPORTANT]``/``[!NOTE]`` marker while
     # preserving any heading text that follows it on the same line.
@@ -420,7 +467,18 @@ def make_table(rows: list[list[str]], styles: dict[str, ParagraphStyle]):
     rendered = []
     for row_number, row in enumerate(normalized):
         style = styles["table_head"] if row_number == 0 else styles["table"]
-        rendered.append([Paragraph(inline_markup(cell), style) for cell in row])
+        cells = [inline_markup(cell) for cell in row]
+        if row_number == 0:
+            # Inline code and links share the white text on the teal header.
+            cells = [
+                re.sub(
+                    r'(<(?:font|link)\b[^>]*\bcolor=")[^"]*(")',
+                    r'\1#FFFFFF\2',
+                    cell,
+                )
+                for cell in cells
+            ]
+        rendered.append([Paragraph(cell, style) for cell in cells])
     widths = [165 * mm / count] * count
     table = Table(rendered, colWidths=widths, repeatRows=1, hAlign="LEFT")
     table.setStyle(
@@ -558,17 +616,12 @@ def markdown_to_story(markdown: str, styles: dict[str, ParagraphStyle]):
 
     def flush_paragraph() -> None:
         if paragraph_lines:
-            follows_heading = (
-                story
-                and isinstance(story[-1], Paragraph)
-                and story[-1].style.name in {"StudyH2", "StudyH3", "StudyH4"}
-            )
             is_translated_heading = paragraph_lines[0].startswith(
                 "**Türkçe başlık:**"
             )
             style = (
                 styles["body_keep"]
-                if follows_heading and is_translated_heading
+                if is_translated_heading
                 else styles["body"]
             )
             story.append(Paragraph(paragraph_markup(paragraph_lines), style))
@@ -622,6 +675,18 @@ def markdown_to_story(markdown: str, styles: dict[str, ParagraphStyle]):
             index += 1
             continue
 
+        if line.strip() == "<!-- keep-with-next -->":
+            flush_paragraph()
+            flush_list()
+            # A figure/table caption and its following object belong together.
+            # Include any layout gap in the keep chain.
+            for item in reversed(story):
+                item.keepWithNext = True
+                if not isinstance(item, Spacer):
+                    break
+            index += 1
+            continue
+
         if line.lstrip().startswith("<!--"):
             flush_paragraph()
             flush_list()
@@ -656,7 +721,7 @@ def markdown_to_story(markdown: str, styles: dict[str, ParagraphStyle]):
             flush_paragraph()
             flush_list()
             quote: list[str] = []
-            bilingual_pair = lines[index].startswith("> **English:**")
+            bilingual_pair = quote_language(lines[index]) == "English"
             seen_turkish = False
             while index < len(lines) and lines[index].startswith(">"):
                 quote_line = lines[index][1:].lstrip()
@@ -666,7 +731,7 @@ def markdown_to_story(markdown: str, styles: dict[str, ParagraphStyle]):
                 if (
                     not bilingual_pair
                     and quote
-                    and quote_line.startswith("**English:**")
+                    and quote_language(quote_line) == "English"
                 ):
                     break
                 # Some generated bilingual Markdown keeps consecutive paragraph
@@ -676,16 +741,16 @@ def markdown_to_story(markdown: str, styles: dict[str, ParagraphStyle]):
                 if (
                     bilingual_pair
                     and seen_turkish
-                    and quote_line.startswith("**English:**")
+                    and quote_language(quote_line) == "English"
                 ):
                     break
-                if bilingual_pair and quote_line.startswith("**Türkçe:**"):
+                if bilingual_pair and quote_language(quote_line) == "Türkçe":
                     while quote and not quote[-1].strip():
                         quote.pop()
                     if quote and quote[-1] != "\\":
                         quote.append("\\")
                 quote.append(quote_line)
-                if quote_line.startswith("**Türkçe:**"):
+                if quote_language(quote_line) == "Türkçe":
                     seen_turkish = True
                 index += 1
             # In bilingual notes, keep the immediately following Turkish block
@@ -696,13 +761,13 @@ def markdown_to_story(markdown: str, styles: dict[str, ParagraphStyle]):
                 and not seen_turkish
                 and index + 1 < len(lines)
                 and not lines[index].strip()
-                and lines[index + 1].startswith("> **Türkçe")
+                and quote_language(lines[index + 1]) == "Türkçe"
             ):
                 index += 1
                 quote.append("\\")
                 while index < len(lines) and lines[index].startswith(">"):
                     quote_line = lines[index][1:].lstrip()
-                    if quote_line.startswith("**English:**"):
+                    if quote_language(quote_line) == "English":
                         break
                     quote.append(quote_line)
                     index += 1
@@ -719,7 +784,7 @@ def markdown_to_story(markdown: str, styles: dict[str, ParagraphStyle]):
                 len(quote) == 1
                 and quote[0].startswith("**Türkçe başlık:**")
             )
-            if follows_heading and is_translated_heading:
+            if is_translated_heading:
                 # Treat a translated heading as part of the heading hierarchy,
                 # not as a standalone callout.  The keep chain also carries the
                 # first explanatory block to the same page.
@@ -729,7 +794,17 @@ def markdown_to_story(markdown: str, styles: dict[str, ParagraphStyle]):
             elif has_structured_content:
                 story.extend(structured_quote_to_story(quote, styles))
             else:
-                story.extend([make_callout(quote, styles), Spacer(1, 3 * mm)])
+                card = make_callout(quote, styles)
+                gap = Spacer(1, 3 * mm)
+                next_line = next((item.strip() for item in lines[index:]
+                                  if item.strip()), "")
+                if follows_heading and next_line.startswith("> **Türkçe başlık:**"):
+                    # A short vocabulary/grammar link may sit between the
+                    # source heading and its translated heading. Keep the
+                    # entire heading chain with the first content paragraph.
+                    card.keepWithNext = True
+                    gap.keepWithNext = True
+                story.extend([card, gap])
             continue
 
         heading = re.match(r"^(#{1,4})\s+(.+)$", line)
@@ -746,9 +821,12 @@ def markdown_to_story(markdown: str, styles: dict[str, ParagraphStyle]):
                 story.extend(make_cover(title, styles))
                 seen_title = True
             else:
+                is_source_page = re.fullmatch(
+                    r"(?:Kaynak PDF sayfası|Source page)\s+\d+", title
+                )
                 paragraph = Paragraph(
                     f'<a name="{anchor}"/>' + inline_markup(title),
-                    styles[f"h{min(level, 4)}"],
+                    styles["source_page" if is_source_page else f"h{min(level, 4)}"],
                 )
                 paragraph.study_heading = (level, title, anchor)
                 story.append(paragraph)

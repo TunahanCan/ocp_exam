@@ -25,7 +25,7 @@ English → Türkçe paragraf çiftleriyle bir araya getirir. Kod ve terminal
 3. [Using Common Terminal Operations](#using-common-terminal-operations)
 4. [Using Common Intermediate Operations](#using-common-intermediate-operations)
 5. [Working with Primitive Streams](#working-with-primitive-streams)
-6. [Working with Advanced Stream Pipeline Concepts](#working-with-advanced-stream)
+6. [Working with Advanced Stream Pipeline Concepts](#working-with-advanced-stream-pipeline-concepts)
 7. [Summary](#summary)
 8. [Exam Essentials](#exam-essentials)
 9. [Review Questions](#review-questions)
@@ -42,9 +42,9 @@ English → Türkçe paragraf çiftleriyle bir araya getirir. Kod ve terminal
 > **English:** Use Java object and primitive Streams, including lambda expressions implementing
 > functional interfaces, to supply, filter, map, consume, and sort data.
 >
-> **Türkçe:** Veriyi sağlamak, filtrelemek, eşlemek (`map`), tüketmek ve sıralamak için functional
-> interfaces uygulayan lambda expressions dâhil Java object ve primitive Streams
-> kullanın.
+> **Türkçe:** Veriyi sağlamak, filtrelemek, dönüştürmek (`map`), tüketmek ve sıralamak için
+> functional interface'leri implement eden lambda expression'lar dâhil Java object ve primitive
+> stream'lerini kullanın.
 > **English:** Perform decomposition, concatenation and reduction, and grouping and partitioning on
 > sequential and parallel streams.
 >
@@ -58,18 +58,18 @@ English → Türkçe paragraf çiftleriyle bir araya getirir. Kod ve terminal
 > “Collections and Generics.” In this chapter, we add actual functional programming to
 > that, focusing on the Streams API.
 >
-> **Türkçe:** Şimdiye kadar, lambda ve method reference sözdizimi ile rahat olmalısınız. Her ikisi de
-> functional interfaces uygularken kullanılır. Daha fazla uygulamaya ihtiyacınız varsa,
-> geri dönüp Bölüm 8, "Lambdas ve Functional Interfaces," ve Bölüm 9, "Collections ve
-> Jenerikleri"ni gözden geçirmek isteyebilirsiniz. Bu bölümde, Streams API'a odaklanarak,
-> buna gerçek işlevsel programlama ekliyoruz.
+> **Türkçe:** Artık lambda ve method reference sözdizimine alışmış olmalısınız. Her ikisi de
+> functional interface'leri implement etmek için kullanılır. Biraz daha pratik gerekiyorsa Bölüm 8,
+> “Lambdas and Functional Interfaces” ve Bölüm 9, “Collections and Generics” konularını yeniden
+> gözden geçirebilirsiniz. Bu bölümde Streams API'ye odaklanarak functional programming'i uygulamaya
+> geçireceğiz.
 > **English:** Note that the Streams API in this chapter is used for functional programming. By
 > contrast, there are also java.io streams, which we talk about in Chapter 14, “I/O.”
 > Despite both using the word stream, they are nothing alike.
 >
-> **Türkçe:** Bu bölümdeki Streams API fonksiyonel programlama için kullanıldığına dikkat edin. Buna
-> karşılık, Bölüm 14'te bahsettiğimiz java.io streams da var, "I/O." Her ikisi de stream
-> kelimesini kullanmasına rağmen, bu iki kavram birbirine benzemez.
+> **Türkçe:** Bu bölümdeki Streams API, functional programming için kullanılır. Bölüm 14, “I/O”
+> içinde ele alınan `java.io` stream'leri ise farklı bir konudur. İkisinde de stream sözcüğü geçse
+> de aynı kavramı anlatmazlar.
 > **English:** In this chapter, we introduce Optional. Then we introduce the Stream pipeline and tie it
 > all together. You might want to read this chapter twice before doing the review
 > questions so that you really get it. Functional programming tends to have a steep
@@ -85,31 +85,26 @@ English → Türkçe paragraf çiftleriyle bir araya getirir. Kod ve terminal
 > by adding the scores and dividing by the number of scores, so you have (90+100)/2. This
 > gives 190/2, so you answer with 95. Great!
 >
-> **Türkçe:** Giriş Java dersini aldığınızı ve ilk iki sınavda 90 ve 100 puan aldığınızı varsayalım.
-> Şimdi size ortalamanızın ne olduğunu soruyoruz. Bir ortalama, puanları ekleyerek ve puan
-> sayısına bölünerek hesaplanır, böylece (90+100)/2'ye sahip olursunuz. Bu da 190/2 verir,
-> yani 95 ile cevap verirsiniz. Harika!
+> **Türkçe:** Java'ya giriş dersinde ilk iki sınavdan 90 ve 100 aldığınızı varsayalım. Ortalamanız
+> sorulduğunda puanları toplayıp sınav sayısına bölersiniz: `(90 + 100) / 2 = 190 / 2 = 95`.
 > **English:** Now suppose that you are taking your second class on Java, and it is the first day of
 > class. We ask you what your average is in this class that just started. You haven’t
 > taken any exams yet, so you don’t have anything to average. It wouldn’t be accurate to
 > say that your average is zero. That sounds bad and isn’t true. There simply isn’t any
 > data, so you don’t have an average.
 >
-> **Türkçe:** Şimdi ikinci sınıfınızı Java üzerinde aldığınızı varsayalım ve bu sınıfın ilk günü. Bu
-> sınıfta yeni başlayan ortalamanızın ne olduğunu soruyoruz. Henüz herhangi bir sınava
-> girmediniz, bu yüzden ortalama bir şeyiniz yok. Ortalamanızın sıfır olduğunu söylemek
-> doğru olmaz. Bu kulağa kötü geliyor ve doğru değil. Herhangi bir veri yok, bu yüzden bir
-> ortalamanız yok.
+> **Türkçe:** Şimdi ikinci Java dersinizin ilk gününde olduğunuzu düşünün. Yeni başlayan bu dersteki
+> ortalamanız soruluyor. Henüz sınava girmediğiniz için ortalaması alınabilecek bir puanınız yoktur.
+> Ortalamanıza sıfır demek doğru olmaz; veri olmadığı için henüz bir ortalamanız yoktur.
 > **English:** How do we express this “we don’t know” or “not applicable” answer in Java? We use the
 > Optional type. An Optional is created using a factory. You can either request an empty
 > Optional or pass a value for the Optional to wrap. Think of an Optional as a box that
 > might have something in it or might instead be empty. Figure 10.1 shows both options.
 >
-> **Türkçe:** “Bilmiyoruz” veya “uygulanamaz” yanıtını Java'da nasıl ifade edebiliriz?
-> Optional türünü kullanıyoruz. Bir Optional bir fabrika kullanılarak oluşturulur. Boş bir
-> Optional talep edebilir veya Optional paketi için bir değer geçebilirsiniz. Bir Optional
-> kutusunun içinde bir şey olabileceğini veya bunun yerine boş olabileceğini düşünün.
-> Şekil 10.1 her iki seçeneği de gösterir.
+> **Türkçe:** Java'da “bilmiyoruz” veya “uygulanamaz” sonucunu nasıl ifade ederiz? `Optional`
+> kullanırız. Bir `Optional`, factory method ile oluşturulur: boş bir `Optional` isteyebilir veya
+> içinde tutulacak değeri verebilirsiniz. Onu, içinde bir değer bulunabilen ya da boş olabilen bir
+> kutu gibi düşünün. Şekil 10.1 bu iki durumu gösterir.
 > **English:** FIGURE 10.1 Optional 95
 >
 > **Türkçe:** FIGURE 10.1 Optional 95
@@ -121,7 +116,7 @@ Optional.empty() Optional.of(95)
 ### Creating an Optional
 > **English:** Here’s how to code our average method:
 >
-> **Türkçe:** İşte ortalama yöntemimizi nasıl kodlayacağımız:
+> **Türkçe:** Ortalama hesaplayan method'u şöyle yazabiliriz:
 ```java
 public static Optional<Double> average(int... scores) {
 if (scores.length == 0) return Optional.empty();
@@ -136,11 +131,10 @@ return Optional.of((double) sum / scores.length);
 > line, but that wouldn’t teach you how Optional works! Line 14 creates an Optional to
 > wrap the average.
 >
-> **Türkçe:** Satır 11, bir ortalamayı hesaplayamadığımızda boş bir Optional döndürür. 12 ve 13
-> numaralı satırlar puanları toplar. Bu matematiği yapmanın işlevsel bir programlama yolu
-> var, ancak buna daha sonra bölümde ulaşacağız. Aslında, tüm yöntem tek bir satırda
-> yazılabilir, ancak bu size Optional nasıl çalıştığını öğretmez! Satır 14, ortalamayı
-> sarmak için bir Optional oluşturur.
+> **Türkçe:** Satır 11, ortalama hesaplanamıyorsa boş bir `Optional` döndürür. 12 ve 13. satırlar
+> puanları toplar. Bu hesaplamanın functional programming ile yapılan sürümünü bölümün ilerleyen
+> kısmında göreceğiz. Aslında method tek satırda da yazılabilir; ancak bu örneğin amacı `Optional`
+> kullanımını öğretmektir. Satır 14, ortalamayı içeren bir `Optional` oluşturur.
 > **English:** Calling the method shows what is in our two boxes:
 >
 > **Türkçe:** Method'u çağırmak iki kutumuzun içinde ne olduğunu gösterir:
@@ -152,9 +146,8 @@ System.out.println(average()); // Optional.empty
 > to check whether a value is there and/or get it out of the box. Here’s one way to do
 > that:
 >
-> **Türkçe:** Bir Optional değeri içerdiğini ve diğerinin boş olduğunu görebilirsiniz. Normalde, bir
-> değerin orada olup olmadığını kontrol etmek ve / veya kutudan çıkarmak istiyoruz. İşte
-> bunu yapmanın bir yolu:
+> **Türkçe:** Bir `Optional` değer içerirken diğeri boştur. Genellikle bir değerin bulunup
+> bulunmadığını kontrol etmek ve varsa değeri almak isteriz. Bunun bir yolu şöyledir:
 ```java
 Optional<Double> opt = average(90, 100);
 if (opt.isPresent())
@@ -171,25 +164,25 @@ System.out.println(opt.get()); // NoSuchElementException
 ```
 > **English:** We’d get an exception since there is no value inside the Optional.
 >
-> **Türkçe:** Optional içinde bir değer olmadığı için bir istisna elde ederiz.
-```java
+> **Türkçe:** `Optional` içinde değer bulunmadığından bir exception oluşur.
+```text
 java.util.NoSuchElementException: No value present
 ```
 > **English:** When creating an Optional, it is common to want to use empty() when the value is null.
 > You can do this with an if statement or ternary operator. We use the ternary operator
 > (?:) to simplify the code, which you saw in Chapter 2, “Operators.”
 >
-> **Türkçe:** Optional oluşturulurken, değer null olduğunda empty() kullanmak istemek yaygındır. Bunu
-> if ifadesi veya ternary operatörü ile yapabilirsiniz. Bölüm 2'de gördüğünüz kodu
-> basitleştirmek için üçlü operatörü (?:) kullanıyoruz, "Operatörler".
+> **Türkçe:** `Optional` oluştururken değer `null` ise `empty()` kullanmak yaygındır. Bu karar bir
+> `if` ifadesiyle veya ternary operator ile yazılabilir. Burada kodu kısaltmak için Bölüm 2,
+> “Operators” içinde gördüğünüz `?:` operator'ünü kullanıyoruz.
 ```java
 Optional o = (value == null)? Optional.empty(): Optional.of(value);
 ```
 > **English:** If value is null, o is assigned the empty Optional. Otherwise, we wrap the value. Since
 > this is such a common pattern, Java provides a factory method to do the same thing.
 >
-> **Türkçe:** Eğer değer null ise, o boş Optional olarak atanır. Aksi takdirde, değeri paketleriz. Bu
-> çok yaygın bir kalıp olduğundan, Java aynı şeyi yapmak için bir factory method sağlar.
+> **Türkçe:** `value` değeri `null` ise `o` değişkenine boş bir `Optional` atanır; değilse değer bir
+> `Optional` içine alınır. Bu yaygın kullanım için Java aynı işi yapan bir factory method sağlar.
 ```java
 Optional o = Optional.ofNullable(value);
 ```
@@ -199,42 +192,39 @@ Optional o = Optional.ofNullable(value);
 > most of the instance methods on Optional that you need to know for the exam. There are a
 > few others that involve chaining. We cover those later in the chapter.
 >
-> **Türkçe:** Bu, Optional hakkında bilmeniz gereken statik yöntemleri kapsar. Tablo 10.1, sınav için
-> bilmeniz gereken örnek yöntemlerin çoğunu Optional üzerinde özetler. Zincirlemeyi içeren
-> birkaç tane daha var. Bunları daha sonra bölümde ele alacağız.
-> **English:** TABLE 10.1 Common Optional instance methods When Optional contains value Method When
-> Optional is empty
+> **Türkçe:** Böylece `Optional` için bilmeniz gereken static method'ları gördük. Tablo 10.1, sınav
+> için gereken instance method'ların çoğunu özetler. Method chaining ile ilgili diğerlerini bölümün
+> ilerleyen kısmında ele alacağız.
+#### Table 10.1 · Common Optional instance methods
+
+> **English:** Common Optional instance methods.
 >
-> **Türkçe:** TABLE 10.1 Ortak Optional örnek yöntemleri Optional değer Metodu içerdiğinde Optional
-> boş olduğunda
-```java
-get() Throws exception Returns value
-```
-> **English:** ifPresent(Consumer c) Does nothing Calls Consumer with value isPresent() Returns false
-> Returns true
->
-> **Türkçe:** ifPresent(Consumer c) Hiçbir şey Consumer değerini isPresent() ile aramaz Yanlış
-> döndürür Doğru döndürür
-```java
-orElse(T other) Returns other parameter Returns value
-orElseGet(Supplier s) Returns result of calling Supplier Returns value
-```
-> **English:** orElseThrow() Throws NoSuchElementException Returns value Throws exception created by
-> calling Returns value orElseThrow(Supplier s)
->
-> **Türkçe:** orElseThrow() NoSuchElementException değerini atar orElseThrow(Supplier s) değerini
-> çağırarak oluşturulan istisnayı atar
-> **English:** Supplier You’ve already seen get() and isPresent(). The other methods allow you to write
+> **Türkçe:** Yaygın Optional instance method'ları. Kaynak sayfa 534'teki sütunlar korunmuştur.
+
+<!-- keep-with-next -->
+
+| Method | Empty Optional / Değer yok | Present Optional / Değer var |
+|---|---|---|
+| `get()` | Throws exception / Exception fırlatır | Returns value / Değeri döndürür |
+| `ifPresent(Consumer c)` | Does nothing / İşlem yapmaz | Calls Consumer with value / Consumer'ı değerle çağırır |
+| `isPresent()` | `false` | `true` |
+| `orElse(T other)` | Returns other / other değerini döndürür | Returns value / Değeri döndürür |
+| `orElseGet(Supplier s)` | Calls Supplier / Supplier sonucunu döndürür | Returns value / Değeri döndürür |
+| `orElseThrow()` | Throws NoSuchElementException / NoSuchElementException fırlatır | Returns value / Değeri döndürür |
+| `orElseThrow(Supplier s)` | Throws exception created by Supplier / Supplier'ın oluşturduğu exception'ı fırlatır | Returns value / Değeri döndürür |
+
+> **OCP notu:** `get()` için boş durumdaki exception `NoSuchElementException`dır. `orElse()` argument'ı çağrıdan önce hesaplanır; değer varken de bu hesaplama yapılır. `orElseGet()` supplier'ı yalnız boş durumda çağırır.
+
+> **English:** You’ve already seen get() and isPresent(). The other methods allow you to write
 > code that uses an Optional in one line without having to use the ternary operator. This
 > makes the code easier to read. Instead of using an if statement, which we used when
 > checking the average earlier, we can specify a Consumer to be run when there is a value
 > inside the Optional. When there isn’t, the method simply skips running the Consumer.
 >
-> **Türkçe:** Supplier get() ve isPresent()'i zaten gördünüz. Diğer yöntemler, üçlü operatörü
-> kullanmak zorunda kalmadan bir satırda Optional kullanan kod yazmanıza izin verir. Bu,
-> kodun okunmasını kolaylaştırır. Daha önce ortalamayı kontrol ederken kullandığımız bir
-> if ifadesi kullanmak yerine, Optional içinde bir değer olduğunda çalıştırılacak bir
-> Consumer belirtebiliriz. Olmadığında, yöntem sadece Consumer çalıştıran atlar.
+> **Türkçe:** `get()` ve `isPresent()` method'larını gördünüz. Diğer method'lar, ternary operator
+> kullanmadan `Optional` ile tek satırda işlem yapmayı sağlar ve kodu daha okunaklı kılar.
+> Ortalamayı kontrol ederken kullandığımız `if` yerine, `Optional` içinde değer varsa çalışacak bir
+> `Consumer` verebiliriz. Değer yoksa `Consumer` çağrılmaz.
 ```java
 Optional<Double> opt = average(90, 100);
 opt.ifPresent(System.out::println);
@@ -242,16 +232,15 @@ opt.ifPresent(System.out::println);
 > **English:** Using ifPresent() better expresses our intent. We want something done if a value is
 > present. You can think of it as an if statement with no else.
 >
-> **Türkçe:** ifPresent() kullanmak niyetimizi daha iyi ifade eder. Bir değer varsa bir şeyin
-> yapılmasını istiyoruz. Başkası olmayan bir ifade olarak düşünebilirsiniz.
+> **Türkçe:** `ifPresent()` amacımızı daha açık ifade eder: değer varsa bir işlem yapmak isteriz.
+> Bunu `else` bölümü olmayan bir `if` ifadesi gibi düşünebilirsiniz.
 ### Dealing with an Empty Optional
 > **English:** The remaining methods allow you to specify what to do if a value isn’t present. There
 > are a few choices. The first two allow you to specify a return value either directly or
 > using a Supplier.
 >
-> **Türkçe:** Kalan yöntemler, bir değer yoksa ne yapmanız gerektiğini belirtmenize izin verir. Birkaç
-> Optional var. İlk ikisi, bir dönüş değerini doğrudan veya bir Supplier kullanarak
-> belirtmenize izin verir.
+> **Türkçe:** Kalan method'lar, değer olmadığında ne yapılacağını belirtir. Birkaç seçenek vardır.
+> İlk ikisi, kullanılacak dönüş değerini doğrudan veya bir `Supplier` aracılığıyla vermenizi sağlar.
 ```java
 Optional<Double> opt = average();
 System.out.println(opt.orElse(Double.NaN));
@@ -267,13 +256,13 @@ System.out.println(opt.orElseGet(() -> Math.random()));
 > generate a value at runtime to return instead. I’m glad our professors didn’t give us a
 > random average, though!
 >
-> **Türkçe:** NaN 0.49775932295380165 Satır 31, belirli bir değeri veya değişkeni döndürebileceğinizi
-> gösterir. Bizim durumumuzda, "bir sayı değil" değerini yazdırıyoruz. Satır 32, bunun
-> yerine dönmek için çalışma zamanında bir değer oluşturmak için bir Supplier kullanarak
-> gösterir. Profesörlerimizin bize rastgele bir ortalama vermemesine sevindim!
+> **Türkçe:** `NaN` ve `0.49775932295380165`, örnek çalıştırmanın çıktılarıdır. Satır 31 belirli bir
+> değer veya değişken döndürebileceğinizi gösterir; burada “not a number” değeri yazdırılır. Satır
+> 32 ise boş `Optional` için kullanılacak değeri çalışma zamanında üreten bir `Supplier` kullanır.
+> Neyse ki öğretmenlerimiz ortalamamızı rastgele belirlemiyor!
 > **English:** Alternatively, we can have the code throw an exception if the Optional is empty.
 >
-> **Türkçe:** Alternatif olarak, Optional boşsa, kodun bir istisna atmasını sağlayabiliriz.
+> **Türkçe:** Bir başka seçenek, `Optional` boşsa bir exception fırlatmaktır.
 ```java
 Optional<Double> opt = average();
 System.out.println(opt.orElseThrow());
@@ -281,13 +270,8 @@ System.out.println(opt.orElseThrow());
 > **English:** This prints something like the following:
 >
 > **Türkçe:** Bu, aşağıdaki gibi bir şey yazdırır:
-> **English:** Exception in thread "main" java.util.NoSuchElementException:
->
-> **Türkçe:** Exception iş parçacığında "ana" java.util.NoSuchElementException:
-> **English:** No value present
->
-> **Türkçe:** Mevcut değer yok
-```java
+```text
+Exception in thread "main" java.util.NoSuchElementException: No value present
 at java.base/java.util.Optional.orElseThrow(Optional.java:382)
 ```
 > **English:** Without specifying a Supplier for the exception, Java will throw a
@@ -295,9 +279,10 @@ at java.base/java.util.Optional.orElseThrow(Optional.java:382)
 > the Optional is empty. Remember that the stack trace looks weird because the lambdas are
 > generated rather than named classes.
 >
-> **Türkçe:** İstisna için Supplier belirtmeden, Java bir NoSuchElementException atar. Alternatif
-> olarak, Optional boşsa, kodun özel bir istisna atmasını sağlayabiliriz. Yığın izinin
-> garip göründüğünü unutmayın, çünkü lambdas adlandırılmış sınıflar yerine oluşturulur.
+> **Türkçe:** Exception için `Supplier` verilmezse Java `NoSuchElementException` fırlatır.
+> İsterseniz boş `Optional` için kendi exception türünüzü de sağlayabilirsiniz. Lambda'lar açıkça
+> adlandırılmış sınıflar yerine compiler'ın ürettiği yapılarla çalıştığından stack trace alışılmadık
+> görünebilir.
 ```java
 Optional<Double> opt = average();
 System.out.println(opt.orElseThrow(
@@ -306,10 +291,8 @@ System.out.println(opt.orElseThrow(
 > **English:** This prints something like the following:
 >
 > **Türkçe:** Bu, aşağıdaki gibi bir şey yazdırır:
-> **English:** Exception in thread "main" java.lang.IllegalStateException
->
-> **Türkçe:** Exception iş parçacığında "ana" java.lang.IllegalStateException
-```java
+```text
+Exception in thread "main" java.lang.IllegalStateException
 at optionals.Methods.lambda$orElse$1(Methods.java:31)
 at java.base/java.util.Optional.orElseThrow(Optional.java:408)
 ```
@@ -317,9 +300,9 @@ at java.base/java.util.Optional.orElseThrow(Optional.java:408)
 > we do not write throw new IllegalStateException(). The orElseThrow() method takes care
 > of actually throwing the exception when we run it.
 >
-> **Türkçe:** Satır 32, atılması gereken bir istisna oluşturmak için bir Supplier kullanarak gösterir.
-> Yazmadığımıza dikkat edin, yeni IllegalStateException() atın. orElseThrow() yöntemi,
-> çalıştırdığımızda istisnayı gerçekten atmaya özen gösterir.
+> **Türkçe:** Satır 32, fırlatılacak exception nesnesini oluşturmak için bir `Supplier` kullanır.
+> Burada `throw new IllegalStateException()` yazmadığımıza dikkat edin. Exception'ı gerçekten
+> fırlatan, çağrıldığında `orElseThrow()` method'udur.
 > **English:** The two methods that take a Supplier have different names. Do you see why this code does
 > not compile?
 >
@@ -332,8 +315,9 @@ System.out.println(opt.orElseGet(
 > **English:** The opt variable is an Optional<Double>. This means the Supplier must return a Double.
 > Since this Supplier returns an exception, the type does not match.
 >
-> **Türkçe:** Opt değişkeni bir Optional<Double> dir. Bu, Supplier bir Double döndürmesi gerektiği
-> anlamına gelir. Bu Supplier bir istisna döndürdüğünden, tür eşleşmez.
+> **Türkçe:** `opt`, `Optional<Double>` türündedir. Bu yüzden `orElseGet()` için verilen `Supplier`
+> bir `Double` döndürmelidir. Örnekte exception nesnesi döndürüldüğünden türler uyuşmaz ve kod
+> derlenmez.
 > **English:** The last example with Optional is really easy. What do you think this does?
 >
 > **Türkçe:** Optional ile son örnek gerçekten kolaydır. Sence bu ne işe yarıyor?
@@ -363,22 +347,21 @@ System.out.println(opt.orElseThrow());
 > Buna karşılık, bir Optional döndürmek, API 'da bir değerin olmayabileceğini belirten
 > açık bir ifadedir.
 > **English:** Another advantage of Optional is that you can use a functional programming style with
+> ifPresent() and the other methods rather than needing an if statement. Finally, you see toward the
+> end of the chapter that you can chain Optional calls.
 >
-> **Türkçe:** Optional'ın bir diğer avantajı, fonksiyonel bir programlama stilini kullanabilmenizdir.
-```java
-ifPresent() and the other methods rather than needing an if statement. Finally, you
-```
-> **English:** see toward the end of the chapter that you can chain Optional calls.
->
-> **Türkçe:** Optional çağrılarını zincirleyebileceğiniz bölümün sonuna doğru bakın.
+> **Türkçe:** `Optional`ın bir başka avantajı, `if` yazmak yerine `ifPresent()` ve diğer
+> method'larla functional programming tarzında çalışabilmektir. Bölümün sonunda `Optional`
+> çağrılarını nasıl zincirleyeceğinizi de göreceksiniz.
+
 ## Using Streams
 > **English:** A stream in Java is a sequence of data. A stream pipeline consists of the operations
 > that run on a stream to produce a result. First, we look at the flow of pipelines
 > conceptually. After that, we get into the code.
 >
-> **Türkçe:** Java içindeki bir stream bir veri dizisidir. Bir stream pipeline, bir sonuç üretmek için
-> bir stream üzerinde çalışan işlemlerden oluşur. İlk olarak, kavramsal olarak pipelines
-> akışına bakıyoruz. Ondan sonra koda gireceğiz.
+> **Türkçe:** Java'da stream bir veri dizisidir. Stream pipeline, bu verilerden bir sonuç üretmek
+> için uygulanan işlemlerden oluşur. Önce pipeline'ın kavramsal akışını, ardından kodunu
+> inceleyeceğiz.
 ### Understanding the Pipeline Flow
 > **English:** Think of a stream pipeline as an assembly line in a factory. Suppose that we are running
 > an assembly line to make signs for the animal exhibits at the zoo. We have a number of
@@ -387,71 +370,60 @@ ifPresent() and the other methods rather than needing an if statement. Finally, 
 > sign. It’s the last person’s job to put the completed sign in a box to be carried to the
 > proper exhibit.
 >
-> **Türkçe:** Bir fabrikada bir stream pipeline montaj hattı olarak düşünün. Hayvanat bahçesindeki
-> hayvan sergilerine işaret vermek için bir montaj hattı işlettiğimizi varsayalım. Bir
-> dizi işimiz var. Bir kişinin görevi, işaretleri bir kutudan çıkarmaktır. İşareti boyamak
-> ikinci bir kişinin işidir. İşaretteki hayvanın adını koklamak üçüncü bir kişinin
-> görevidir. Tamamlanan işareti uygun sergiye taşımak için bir kutuya koymak son kişinin
-> işidir.
+> **Türkçe:** Stream pipeline'ı bir fabrikanın montaj hattı gibi düşünün. Hayvanat bahçesindeki
+> hayvan alanları için tabela hazırladığımızı varsayalım. İlk kişi tabelayı kutudan çıkarır, ikinci
+> kişi boyar, üçüncü kişi hayvanın adını şablonla tabelaya yazar. Son kişi tamamlanan tabelayı
+> ilgili alana taşınmak üzere bir kutuya yerleştirir.
 > **English:** Notice that the second person can’t do anything until one sign has been taken out of the
 > box by the first person. Similarly, the third person can’t do anything until one sign
 > has been painted, and the last person can’t do anything until it is stenciled.
 >
-> **Türkçe:** İkinci kişinin ilk kişi tarafından kutudan bir işaret çıkarılıncaya kadar hiçbir şey
-> yapamayacağına dikkat edin. Benzer şekilde, üçüncü kişi bir işaret boyanıncaya kadar
-> hiçbir şey yapamaz ve son kişi de kalıplanana kadar hiçbir şey yapamaz.
+> **Türkçe:** İlk kişi kutudan bir tabela çıkarmadan ikinci kişi işe başlayamaz. Benzer biçimde
+> tabela boyanmadan üçüncü kişi, üzerine yazı yazılmadan da son kişi işlem yapamaz.
 > **English:** The assembly line for making signs is finite. Once we process the contents of our box of
 > signs, we are finished. Finite streams have a limit. Other assembly lines essentially
 > run forever, like one for food production. Of course, they do stop at some point when
 > the factory closes down, but pretend that doesn’t happen. Or think of a sunrise/sunset
 > cycle as infinite, since it doesn’t end for an inordinately large period of time.
 >
-> **Türkçe:** İşaretler yapmak için montaj hattı sonludur. İşaret kutumuzun içeriğini işlediğimizde,
-> işimiz biter. Finite streams bir sınırı vardır. Diğer montaj hatları, temel olarak gıda
-> üretimi için olduğu gibi sonsuza kadar çalışır. Tabii ki, fabrika kapandığında bir
-> noktada dururlar, ancak böyle bir şey olmuyormuş gibi davranırlar. Ya da bir
-> gündoğumu/gündoğumu döngüsünü sonsuz olarak düşünün, çünkü aşırı derecede büyük bir
-> zaman dilimi için sona ermez.
-> **English:** Another important feature of an assembly line is that each person touches each element
-> to do their operation, and then that piece of data is gone. It doesn’t come back. The
-> next person deals with it at that point. This is different than the lists and queues
-> that you saw in the previous chapter. With a list, you can access any element at any
-> time. With a queue, you are
+> **Türkçe:** Tabela hazırlayan montaj hattı sonludur: kutudaki tabelalar işlendiğinde iş biter.
+> Finite stream'ler de sınırlıdır. Gıda üretimindeki gibi başka hatların ise sürekli çalıştığını
+> düşünebiliriz. Gerçekte fabrika kapandığında dururlar; bu benzetmede kapanmadığını varsayın. Çok
+> uzun süre devam eden gün doğumu/gün batımı döngüsünü de sonsuz bir süreç gibi düşünebilirsiniz.
+> **English:** Another important feature of an assembly line is that each person touches each
+> element to do their operation, and then that piece of data is gone. It doesn’t come back. The next
+> person deals with it at that point. This is different than the lists and queues that you saw in
+> the previous chapter. With a list, you can access any element at any time. With a queue, you are
+> limited in which elements you can access, but all of the elements are there. With streams, the
+> data isn’t generated up front— it is created when needed. This is an example of lazy evaluation,
+> which delays execution until necessary.
 >
-> **Türkçe:** Bir montaj hattının bir diğer önemli özelliği, her bir kişinin operasyonlarını yapmak
-> için her bir elemana dokunması ve daha sonra bu veri parçasının ortadan kalkmasıdır.
-> Geri dönmüyor. Bir sonraki kişi bu noktada onunla ilgilenir. Bu, önceki bölümde
-> gördüğünüz lists ve kuyruklardan farklıdır. list ile herhangi bir elemana istediğiniz
-> zaman erişebilirsiniz. Kuyrukla, sen
+> **Türkçe:** Montaj hattında her kişi bir öğeyi işler ve sonraki kişiye aktarır; aynı öğe o aşamaya
+> geri dönmez. Bu, önceki bölümdeki list ve queue yapılarından farklıdır. List içindeki herhangi bir
+> öğeye istediğiniz zaman erişebilirsiniz. Queue'da erişebileceğiniz öğeler sınırlıdır, ama bütün
+> öğeler yapının içinde bulunur. Stream'de veri önceden bütünüyle üretilmez; gerektiğinde üretilir.
+> İşlemi ihtiyaç duyulana kadar erteleyen bu davranışa lazy evaluation denir.
 
 <!-- source-page: 0537 -->
-> **English:** limited in which elements you can access, but all of the elements are there. With
-> streams, the data isn’t generated up front— it is created when needed. This is an
-> example of lazy evaluation, which delays execution until necessary.
->
-> **Türkçe:** Hangi elementlere erişebileceğinizi sınırlayın, ancak tüm elemanlar oradadır. streams
-> ile veriler ön planda oluşturulmaz gerektiğinde oluşturulur. Bu, gerekli olana kadar
-> yürütmeyi geciktiren lazy evaluation örneğidir.
+
 > **English:** Many things can happen in the assembly line stations along the way. In functional
 > programming, these are called stream operations. Just like with the assembly line,
 > operations occur in a pipeline. Someone has to start and end the work, and there can be
 > any number of stations in between. After all, a job with one person isn’t an assembly
 > line! There are three parts to a stream pipeline, as shown in Figure 10.2.
 >
-> **Türkçe:** Yol boyunca montaj hattı istasyonlarında birçok şey olabilir. İşlevsel programlamada
-> bunlara stream işlemler denir. Montaj hattında olduğu gibi, işlemler bir pipeline içinde
-> gerçekleşir. Birinin işi başlatması ve bitirmesi gerekiyor ve aralarında herhangi bir
-> sayıda istasyon olabilir. Sonuçta, bir kişi ile bir iş bir montaj hattı değildir! Şekil
-> 10.2'de gösterildiği gibi, bir stream pipeline için üç bölüm vardır.
+> **Türkçe:** Montaj hattındaki istasyonlarda farklı işlemler yapılabilir. Functional programming'de
+> bunlara stream operation denir. İşlemler bir pipeline üzerinde ilerler: işi başlatan ve bitiren
+> bir aşama, aralarında da gerektiği kadar işlem bulunur. Şekil 10.2, stream pipeline'ın üç
+> parçasını gösterir.
 > **English:** • Source: Where the stream comes from. • Intermediate operations: Transforms the
 > stream into another one. There can be as few or as many intermediate operations as you’d
 > like. Since streams use lazy evaluation, the intermediate operations do not run until
 > the terminal operation runs.
 >
-> **Türkçe:** Kaynak: stream'in nereden geldiği. Intermediate operations: stream'yi başka bir taneye
-> dönüştürür. İstediğiniz kadar az veya intermediate operations olabilir. streams lazy
-> evaluation kullandığından, terminal operation çalışana kadar intermediate operations
-> çalışmaz.
+> **Türkçe:** • Source: Stream'in geldiği kaynaktır. • Intermediate operation: Bir stream'i başka
+> bir stream'e dönüştürür. Pipeline sıfır veya daha çok intermediate operation içerebilir. Lazy
+> evaluation nedeniyle bu işlemler terminal operation başlayana kadar yürütülmez.
 > **English:** • Terminal operation: Produces a result. Since streams can be used only once, the
 > stream is no longer valid after a terminal operation completes.
 >
@@ -462,23 +434,31 @@ ifPresent() and the other methods rather than needing an if statement. Finally, 
 > you care only about what comes in and goes out. What happens in between is an
 > implementation detail.
 >
-> **Türkçe:** FIGURE 10.2 Stream pipeline Intermediate operations Kaynak Terminal operation İşlemlerin
-> bizim için bilinmediğine dikkat edin. Montaj hattını dışarıdan izlerken, sadece içeri
-> giren ve çıkan şeyleri önemsersiniz. Aradaki şey bir uygulama detayıdır.
+> **Türkçe:** ŞEKİL 10.2 · Stream pipeline: Source → Intermediate operations → Terminal operation.
+> İşlemlerin iç ayrıntılarını bilmek zorunda olmadığımıza dikkat edin. Montaj hattına dışarıdan
+> bakarken giren veri ve çıkan sonuç önemlidir; aradaki işleyiş implementation ayrıntısıdır.
 > **English:** You will need to know the differences between intermediate and terminal operations well.
 > Make sure you can fill in Table 10.2.
 >
 > **Türkçe:** Ara ve terminal operations arasındaki farkları iyi bilmeniz gerekir. Tablo 10.2'yi
 > doldurabildiğinizden emin olun.
-> **English:** TABLE 10.2 Intermediate vs. terminal operations Scenario Intermediate operation Terminal
-> operation Required part of useful pipeline? No Yes Can exist multiple times in pipeline?
-> Yes No Return type is stream type? Yes No Executed upon method call? No Yes Stream valid
-> after call? Yes No
+#### Table 10.2 · Intermediate vs. terminal operations
+
+> **English:** Intermediate vs. terminal operations.
 >
-> **Türkçe:** TABLE 10.2 Orta vs. terminal operations Senaryo Intermediate operation Terminal
-> operation Kullanışlı pipeline parçası gerekli mi? Hayır Evet pipeline içinde birden
-> fazla kez var olabilir mi? Evet Hayır Return type stream türü mü? Evet Hayır Metodu
-> Çağrısı Üzerine Yürütüldü? Hayır Evet Stream aramadan sonra geçerli mi? Evet Hayır
+> **Türkçe:** Intermediate operation ile terminal operation karşılaştırması.
+
+<!-- keep-with-next -->
+
+| Scenario / Durum | Intermediate operation | Terminal operation |
+|---|---|---|
+| Required in a useful pipeline? / Sonuç üreten pipeline için zorunlu mu? | No / Hayır | Yes / Evet |
+| Can occur multiple times? / Pipeline'da birden çok bulunabilir mi? | Yes / Evet | No / Hayır |
+| Returns a stream? / Stream döndürür mü? | Yes / Evet | No / Hayır |
+| Executes processing on the call? / Çağrı veri işlemeyi başlatır mı? | No / Hayır | Yes / Evet |
+| Pipeline usable afterward? / Pipeline sonrasında kullanılabilir mi? | Yes / Evet | No / Hayır |
+
+> **Editör notu:** Son satır, intermediate operation'ın döndürdüğü pipeline'ın devam ettirilebildiğini anlatır. İşleme bağlanmış eski stream referansından ayrı bir dal başlatılamaz; stream tek kullanımlıktır. `iterator()` ve `spliterator()` özel terminal operation'lardır: dolaşımın kontrolünü çağırana verirler.
 
 <!-- source-page: 0538 -->
 > **English:** A factory typically has a foreperson who oversees the work. Java serves as the
@@ -490,14 +470,11 @@ ifPresent() and the other methods rather than needing an if statement. Finally, 
 > foreperson waits until they see the terminal operation to kick off the work. They also
 > watch the work and stop the line as soon as work is complete.
 >
-> **Türkçe:** Bir fabrikada tipik olarak işi denetleyen bir öncü bulunur. Java, stream pipelines ile
-> çalışırken ön kişi olarak hizmet eder. Bu, özellikle lazy evaluation ve infinite streams
-> ile uğraşırken gerçekten önemli bir roldür. stream ibaresini öninsana talimat vermek
-> olarak ilan etmeyi düşünün. Öngörülen kişi ne yapılması gerektiğini öğrenirken,
-> istasyonları set yükseltir ve işçilere görevlerinin ne olacağını söyler. Bununla
-> birlikte, işçiler, öngösterici onlara başlamalarını söyleyene kadar başlamazlar.
-> Öngörülen kişi, işi başlatmak için terminal operation 'ı görene kadar bekler. Ayrıca işi
-> izlerler ve iş tamamlanır tamamlanmaz hattı durdururlar.
+> **Türkçe:** Fabrikada işi denetleyen bir ustabaşı bulunur. Stream pipeline'da Java bu rolü
+> üstlenir; özellikle lazy evaluation ve infinite stream için bu önemlidir. Pipeline'ı tanımlamayı
+> ustabaşına talimat vermek gibi düşünün. Ustabaşı gerekli istasyonları kurup çalışanların
+> görevlerini belirler, ancak henüz işe başlamazlar. Terminal operation görüldüğünde çalışma başlar;
+> gereken sonuç elde edilir edilmez ustabaşı hattı durdurur.
 > **English:** Let’s look at a few examples of this. We aren’t using code in these examples because it
 > is really important to understand the stream pipeline concept before starting to write
 > the code. Figure 10.3 shows a stream pipeline with one intermediate operation.
@@ -514,35 +491,31 @@ ifPresent() and the other methods rather than needing an if statement. Finally, 
 > Finally, the foreperson sees the terminal operation to put the signs into a pile. They
 > set up a worker to do this and yell that all three workers should start.
 >
-> **Türkçe:** FIGURE 10.3 Bir stream pipeline Intermediate Take işaretinin çalıştırılmasında adımlar
-> İşaret işlemlerini kutunun dışına koyun Kazık içinde boya işareti 1 2 3 4 5 6 Öndeki
-> kişinin bakış açısından neler olduğuna bir göz atalım. İlk olarak, kaynağın kutudan
-> işaretler aldığını görürler. Ön kişi sets kutuyu açmak için masadaki bir işçiyi yukarı
-> kaldırır ve başlamak için bir sinyal beklemesini söyler. Daha sonra ön kişi işareti
-> boyamak için intermediate operation değerini görür. Boyalı bir işçi kurdular ve başlamak
-> için bir sinyal beklemelerini söylediler. Son olarak, ön kişi işaretleri bir yığına
-> koymak için terminal operation değerini görür. Bunu yapmak için bir işçi kurdular ve üç
-> işçinin de başlaması gerektiğini haykırdılar.
+> **Türkçe:** ŞEKİL 10.3 · Stream pipeline'ın çalışma adımları: tabelayı kutudan çıkar → boya →
+> tamamlanan tabelaları biriktir. Numaralar 1–6, iki tabelanın bu aşamalardan geçiş sırasıdır.
+> Ustabaşı önce source için kutuyu açacak kişiyi, sonra boyama işlemi için ikinci kişiyi
+> görevlendirir; ikisine de başlama işaretini beklemelerini söyler. Son olarak terminal operation
+> için tabelaları biriktirecek kişiyi görevlendirir ve üçünün de işe başlamasını ister.
 > **English:** Suppose that there are two signs in the box. Step 1 is the first worker taking one sign
 > out of the box and handing it to the second worker. Step 2 is the second worker painting
 > it and handing it to the third worker. Step 3 is the third worker putting it in the
 > pile. Steps 4–6 are this same process for the other sign. Then the foreperson sees that
 > there are no signs left and shuts down the entire enterprise.
 >
-> **Türkçe:** Kutuda iki işaret olduğunu varsayalım. Adım 1, kutudan bir işaret alan ve ikinci işçiye
-> veren ilk işçidir. Adım 2, onu resmeden ve üçüncü işçiye veren ikinci işçidir. Adım 3,
-> onu yığının içine koyan üçüncü işçidir. 4-6. adımlar diğer işaret için de aynı işlemdir.
-> O zaman öndeki kişi hiçbir işaretin kalmadığını görür ve tüm işletmeyi kapatır.
+> **Türkçe:** Kutuda iki tabela olsun. Birinci adımda ilk çalışan tabelayı kutudan çıkarıp ikinci
+> çalışana verir. İkinci adımda tabela boyanıp üçüncü çalışana aktarılır. Üçüncü adımda tamamlanan
+> tabelalar arasına konur. 4–6. adımlarda aynı işlemler diğer tabela için yapılır. Tabela
+> kalmadığında ustabaşı hattı durdurur.
 > **English:** The foreperson is smart and can make decisions about how to best do the work based on
 > what is needed. As an example, let’s explore the stream pipeline in Figure 10.4.
 >
-> **Türkçe:** Öngörülen kişi akıllıdır ve işin en iyi şekilde nasıl yapılacağına dair kararlar
-> alabilir. Örnek olarak, Şekil 10.4'teki stream pipeline'u inceleyelim.
+> **Türkçe:** Ustabaşı gereken sonuca göre işin nasıl daha verimli yapılacağına karar verebilir.
+> Şekil 10.4'teki pipeline'ı inceleyelim.
 > **English:** FIGURE 10.4 A stream pipeline with a limit Intermediate Take sign Put sign operations
 > out of box in pile Paint sign Only do 2 signs
 >
-> **Türkçe:** FIGURE 10.4 A stream pipeline ile bir limit Intermediate Take işareti Yığın içinde
-> işaret işlemlerini kutunun dışına koyun Boya işareti Sadece 2 işaret yapın
+> **Türkçe:** ŞEKİL 10.4 · Sınır içeren stream pipeline: tabelayı kutudan çıkar → boya → yalnız iki
+> tabela işle → tamamlanan tabelaları biriktir.
 
 <!-- source-page: 0539 -->
 > **English:** The foreperson still sees a source of taking signs out of the box and assigns a worker
@@ -552,13 +525,11 @@ ifPresent() and the other methods rather than needing an if statement. Finally, 
 > notify the foreperson when the worker has seen two. Finally, they set up a worker for
 > the terminal operation to put the signs in a pile.
 >
-> **Türkçe:** Öngörülen kişi hala işaretlerin kutudan çıkarılmasının bir kaynağını görür ve bunu
-> komutla yapması için bir işçi görevlendirir. Hala boyamak için bir intermediate
-> operation ve beklemek ve daha sonra boyamak için talimatlarla başka bir işçiyi yukarı
-> çıkarmak için set görüyorlar. Sonra sadece iki işarete ihtiyaç duyduğumuz bir ara adım
-> görüyorlar. set bir işçiyi, geçen işaretleri saymak ve işçi iki tane gördüğünde ön
-> kişiyi bilgilendirmek için yukarı çıkarırlar. Sonunda, işaretleri bir yığına koymak için
-> terminal operasyonu için bir işçi kurdular.
+> **Türkçe:** Ustabaşı yine source için kutudan tabela çıkaracak birini, boyama işlemi için de
+> başlama işaretini bekleyecek ikinci birini görevlendirir. Yeni intermediate operation yalnız iki
+> tabela gerektiğini belirtir. Bunun için geçen tabelaları sayan ve ikincisini gördüğünde haber
+> veren bir çalışan eklenir. Son çalışan, terminal operation olarak tamamlanan tabelaları
+> biriktirir.
 > **English:** This time, suppose that there are 10 signs in the box. We start like last time. The
 > first sign makes its way down the pipeline. The second sign also makes its way down the
 > pipeline. When the worker in charge of counting sees the second sign, they tell the
@@ -567,29 +538,26 @@ ifPresent() and the other methods rather than needing an if statement. Finally, 
 > don’t need them, so it would be unnecessary work to paint them. And we all want to avoid
 > unnecessary work!
 >
-> **Türkçe:** Bu sefer kutuda 10 işaret olduğunu varsayalım. Geçen seferki gibi başlıyoruz. İlk işaret
-> pipeline aşağı doğru ilerler. İkinci işaret de pipeline aşağı doğru ilerler. Saymakla
-> görevli işçi ikinci işareti gördüğünde, öndeki kişiye haber verirler. Öngörülen kişi,
-> terminal operation çalışanının görevlerini tamamlamasına izin verir ve ardından "Stop
-> the line" diye bağırır. Kutuda sekiz işaretin daha olması önemli değildir. Onlara
-> ihtiyacımız yok, bu yüzden onları boyamak gereksiz bir iş olurdu. Ve hepimiz gereksiz
-> işlerden kaçınmak istiyoruz!
+> **Türkçe:** Bu kez kutuda 10 tabela olsun. İlk ve ikinci tabela sırayla pipeline'dan geçer.
+> Sayımdan sorumlu çalışan ikinci tabelayı gördüğünde ustabaşına haber verir. Ustabaşı terminal
+> operation'ın bu tabelayı tamamlamasını bekler ve hattı durdurur. Kutuda sekiz tabela kalması
+> önemli değildir; bunlara ihtiyaç olmadığından boyanmaları gereksiz iş olur.
 > **English:** Similarly, the foreperson would have stopped the line after the first sign if the
 > terminal operation was to find the first sign that gets created.
 >
-> **Türkçe:** Benzer şekilde, terminal operation oluşturulan ilk işareti bulmak için olsaydı, ön kişi
-> ilk işaretten sonra çizgiyi durdururdu.
+> **Türkçe:** Terminal operation, oluşturulan ilk tabelayı bulmak olsaydı ustabaşı hattı ilk
+> tabeladan sonra durdururdu.
 > **English:** In the following sections, we cover the three parts of the pipeline. We also discuss
 > special types of streams for primitives and how to print a stream.
 >
-> **Türkçe:** Aşağıdaki bölümlerde, pipeline 'nin üç bölümünü kapsarız. Ayrıca, ilkeller için özel
-> streams türlerini ve bir stream nasıl yazdırılacağını da tartışıyoruz.
+> **Türkçe:** Sonraki bölümlerde pipeline'ın üç parçasını, primitive değerler için özel stream
+> türlerini ve stream verilerinin nasıl yazdırılacağını ele alıyoruz.
 ### Creating Stream Sources
 > **English:** In Java, the streams we have been talking about are represented by the Stream<T>
 > interface, defined in the java.util.stream package.
 >
-> **Türkçe:** Java'da, bahsettiğimiz streams, java.util.stream paketinde tanımlanan Stream<T> arayüzü
-> ile temsil edilir.
+> **Türkçe:** Java'da burada ele alınan stream'ler, `java.util.stream` paketindeki `Stream<T>`
+> interface'i ile temsil edilir.
 #### Creating Finite Streams
 > **English:** For simplicity, we start with finite streams. There are a few ways to create them.
 >
@@ -608,8 +576,8 @@ Stream<Integer> fromArray = Stream.of(1, 2, 3); // count = 3
 > gösterir.
 > **English:** Java also provides a convenient way of converting a Collection to a stream.
 >
-> **Türkçe:** Java ayrıca bir Collection dosyasını stream konumuna dönüştürmenin uygun bir yolunu
-> sunar.
+> **Türkçe:** Java, bir `Collection` nesnesinden stream oluşturmak için de kullanışlı bir yol
+> sağlar.
 ```java
 var list = List.of("a", "b", "c");
 Stream<String> fromList = list.stream();
@@ -621,7 +589,7 @@ Stream<String> fromList = list.stream();
 > gösterir. Bu tür dönüşümler yaygın olduğu için yararlıdır.
 > **English:** Creating a Parallel Stream It is just as easy to create a parallel stream from a list.
 >
-> **Türkçe:** Bir Parallel Stream oluşturmak, bir list 'den bir parallel stream oluşturmak kadar
+> **Türkçe:** Parallel stream oluşturma: Bir list'ten parallel stream oluşturmak da aynı derecede
 > kolaydır.
 ```java
 var list = List.of("a", "b", "c");
@@ -638,14 +606,12 @@ Stream<String> fromListParallel = list.parallelStream();
 > streams, it might be faster to do it sequentially. You learn much more about running
 > tasks concurrently in Chapter 13, “Concurrency.”
 >
-> **Türkçe:** Bu harika bir özelliktir, çünkü bir ipliğin ne olduğunu öğrenmeden önce eşzamanlılığı
-> kullanan kod yazabilirsiniz. parallel streams kullanmak, aynı görevi yapabilen birden
-> fazla işçi tablosu oluşturmak gibidir. Sadece bir tane yerine beş ressamın tabelalarını
-> boyaması çok daha hızlı olurdu. Sadece bazı görevlerin paralel olarak yapılamayacağını
-> unutmayın, örneğin işaretleri stream içinde oluşturuldukları sıraya koymak gibi. Ayrıca,
-> işin koordine edilmesinde bir maliyet olduğunu unutmayın, bu nedenle daha küçük streams
-> için, sıralı olarak yapmak daha hızlı olabilir. Bölüm 13'te eşzamanlı olarak görevleri
-> yürütme hakkında çok daha fazla bilgi edinirsiniz, "Karşılıklılık".
+> **Türkçe:** Bu özellik sayesinde thread'in ne olduğunu ayrıntılı öğrenmeden concurrency kullanan
+> kod yazabilirsiniz. Parallel stream, aynı işi yapan birden çok çalışma masası kurmaya benzer. Bir
+> yerine beş çalışanın tabela boyaması daha hızlı olabilir. Ancak tabelaları stream'deki oluşturulma
+> sırasıyla yerleştirmek gibi bazı işler sıralı yürütülmelidir. Çalışanları koordine etmenin de
+> maliyeti vardır; küçük stream'lerde sequential işlem daha hızlı olabilir. Bölüm 13, “Concurrency”
+> bu konuyu ayrıntılandırır.
 #### Creating Infinite Streams
 > **English:** So far, this isn’t particularly impressive. We could do all this with lists. We can’t
 > create an infinite list, though, which makes streams more powerful.
@@ -671,17 +637,18 @@ Stream<Integer> oddNumbers = Stream.iterate(1, n -> n + 2);
 > the next value. As with the random numbers example, it will keep on producing odd
 > numbers as long as you need them.
 >
-> **Türkçe:** 18. hat size daha fazla kontrol sağlar. iterate() yöntemi ilk parametre olarak bir tohum
-> veya başlangıç değeri alır. Bu, stream 'in bir parçası olacak ilk elemandır. Diğer
-> parametre, bir önceki değerden geçen ve bir sonraki değeri oluşturan bir lambda
-> ifadesidir. Rastgele sayılar örneğinde olduğu gibi, ihtiyacınız olan tek sayıları long
-> olarak üretmeye devam edecektir.
+> **Türkçe:** Satır 18 daha fazla kontrol sağlar. `iterate()` ilk parametre olarak seed (başlangıç
+> değeri) alır; bu stream'in ilk öğesidir. Diğer parametre, önceki değeri alıp sonraki değeri üreten
+> bir lambda expression'dır. Rastgele sayı örneğinde olduğu gibi, ihtiyaç duyduğunuz sürece tek
+> sayılar üretmeye devam eder.
 > **English:** Printing a Stream Reference
 >
 > **Türkçe:** Stream Referans Yazdırma
-```java
-If you try to call System.out.print(stream), you’ll get something like the following:
-```
+
+> **English:** If you try to call System.out.print(stream), you’ll get something like the following:
+>
+> **Türkçe:** `System.out.print(stream)` çağrısında aşağıdakine benzer bir çıktı görürsünüz:
+
 > **English:** java.util.stream.ReferencePipeline$3@4517d9a3 This is different from a Collection, where
 > you see the contents. You don’t need to know this for the exam. We mention it so that
 > you aren’t caught by surprise when writing code for practice.
@@ -692,8 +659,8 @@ If you try to call System.out.print(stream), you’ll get something like the fol
 > **English:** What if you wanted just odd numbers less than 100? There’s an overloaded version of
 > iterate() that helps:
 >
-> **Türkçe:** Ya 100'den daha az tek sayılar isteseydiniz? Yardımcı olan iterate() aşırı yüklenmiş bir
-> sürümü var:
+> **Türkçe:** Yalnız 100'den küçük tek sayıları isteseydiniz ne yapardınız? `iterate()` method'unun
+> buna uygun bir overload'u vardır:
 ```java
 Stream<Integer> oddNumberUnder100 = Stream.iterate(
 1, // seed
@@ -709,10 +676,10 @@ n -> n + 2); // UnaryOperator to get next value
 > similar to a for loop. Similar to a for loop, you have to take care that you aren’t
 > accidentally creating an infinite stream.
 >
-> **Türkçe:** Bu yöntem üç parametre gerektirir. Diğer tüm yöntemlerde olduğu gibi virgüllerle (,)
-> nasıl ayrıldıklarına dikkat edin. Sınav, döngü için bir benzer olduğu için virgül
-> kullanarak sizi kandırmaya çalışabilir. Bir döngü için benzer şekilde, yanlışlıkla bir
-> infinite stream oluşturmadığınıza dikkat etmeniz gerekir.
+> **Türkçe:** Bu method üç parametre alır. Diğer method çağrılarındaki gibi parametreler virgülle
+> (`,`) ayrılır. Yapı `for` döngüsüne benzediği için sınavda noktalı virgül (`;`) kullanarak sizi
+> yanıltabilirler. `for` döngüsünde olduğu gibi burada da yanlışlıkla infinite stream oluşturmamaya
+> dikkat etmelisiniz.
 #### Reviewing Stream Creation Methods
 > **English:** To review, make sure you know all the methods in Table 10.3. These are the ways of
 > creating a source for streams, given a Collection instance coll.
@@ -721,9 +688,11 @@ n -> n + 2); // UnaryOperator to get next value
 > için bir kaynak oluşturmanın yollarıdır, bir Collection örnek coll verilir.
 #### Table 10.3 · Creating a source
 
-**English:** Creating a source.
+> **English:** Creating a source.
+>
+> **Türkçe:** Stream için kaynak oluşturma. Tablo, kaynak fiziksel sayfa 541’deki satır ve sütun ilişkileri korunarak yeniden düzenlendi; `coll`, bir `Collection` nesnesidir.
 
-**Türkçe:** Stream için kaynak oluşturma. Tablo, kaynak fiziksel sayfa 541’deki satır ve sütun ilişkileri korunarak yeniden düzenlendi; `coll`, bir `Collection` nesnesidir.
+<!-- keep-with-next -->
 
 | Method / Metot | Finite or infinite? / Sonlu mu, sonsuz mu? | Notes / Açıklama |
 |---|---|---|
@@ -759,9 +728,11 @@ n -> n + 2); // UnaryOperator to get next value
 > basitten en karmaşıka kadar açıklarız.
 #### Table 10.4 · Terminal stream operations
 
-**English:** Terminal stream operations.
+> **English:** Terminal stream operations.
+>
+> **Türkçe:** Stream’in terminal işlemleri. Aşağıdaki tablo kaynak fiziksel sayfa 542’deki satır ve sütun düzeniyle yeniden kurulmuştur.
 
-**Türkçe:** Stream’in terminal işlemleri. Aşağıdaki tablo kaynak fiziksel sayfa 542’deki satır ve sütun düzeniyle yeniden kurulmuştur.
+<!-- keep-with-next -->
 
 | Method / Metot | Infinite stream behavior / Sonsuz stream davranışı | Return value / Dönüş | Reduction / İndirgeme |
 |---|---|---|---|
@@ -800,24 +771,20 @@ Stream<String> s = Stream.of("monkey", "gorilla", "bonobo");
 System.out.println(s.count()); // 3
 ```
 #### Finding the Minimum and Maximum
-> **English:** The min() and max() methods allow you to pass a custom comparator and find the smallest
-> or largest value in a finite stream according to that sort order. Like the count()
-> method,
+> **English:** The min() and max() methods allow you to pass a custom comparator and find the
+> smallest or largest value in a finite stream according to that sort order. Like the count()
+> method, min() and max() hang on an infinite stream because they cannot be sure that a smaller or
+> larger value isn’t coming later in the stream. Both methods are reductions because they return a
+> single value after looking at the entire stream. The method signatures are as follows:
 >
-> **Türkçe:** min() ve max() yöntemleri, özel bir comparator geçirmenizi ve bu sıralama düzenine göre
-> bir finite stream içindeki en küçük veya en büyük değeri bulmanızı sağlar. count()
-> yöntemi gibi,
+> **Türkçe:** `min()` ve `max()`, özel bir comparator alarak finite stream içindeki en küçük veya en
+> büyük değeri belirtilen sıralama düzenine göre bulur. `count()` gibi bu işlemler de infinite
+> stream üzerinde sona ermez; daha küçük veya daha büyük bir değerin sonradan gelip gelmeyeceğini
+> bilemezler. İkisi de bütün stream'i inceleyip tek bir sonuç döndürdüğü için reduction işlemidir.
+> Method signature'ları şöyledir:
 
 <!-- source-page: 0543 -->
-> **English:** min() and max() hang on an infinite stream because they cannot be sure that a smaller or
-> larger value isn’t coming later in the stream. Both methods are reductions because they
-> return a single value after looking at the entire stream. The method signatures are as
-> follows:
->
-> **Türkçe:** min() ve max() bir infinite stream tutun, çünkü daha küçük veya daha büyük bir değerin
-> stream içinde daha sonra gelmeyeceğinden emin olamazlar. Her iki yöntem de reductions
-> dir, çünkü stream nın tamamına baktıktan sonra tek bir değer döndürürler. method
-> signatures aşağıdaki gibidir:
+
 ```java
 public Optional<T> min(Comparator<? super T> comparator)
 public Optional<T> max(Comparator<? super T> comparator)
@@ -835,10 +802,9 @@ min.ifPresent(System.out::println); // ape
 > and a method reference to print out the minimum only if one is found. As an example of
 > where there isn’t a minimum, let’s look at an empty stream:
 >
-> **Türkçe:** Kodun değerden ziyade bir Optional döndürdüğüne dikkat edin. Bu, yöntemin minimum veya
-> maksimum bulunmadığını belirtmesine izin verir. Optional metodunu ifPresent() ve method
-> reference metodunu kullanarak sadece bir tane bulunursa minimum çıktıyı çıkarıyoruz.
-> Minimumun olmadığı bir yere örnek olarak, boş bir stream kısmına bakalım:
+> **Türkçe:** Method doğrudan değeri değil `Optional` döndürür; böylece minimum veya maksimum
+> bulunamaması ifade edilebilir. `ifPresent()` ve method reference kullanarak minimumu yalnızca
+> varsa yazdırırız. Minimum bulunmayan duruma örnek olarak boş bir stream'e bakalım:
 ```java
 Optional<?> minEmpty = Stream.empty().min((s1, s2) -> 0);
 System.out.println(minEmpty.isPresent()); // false
@@ -848,9 +814,10 @@ System.out.println(minEmpty.isPresent()); // false
 >
 > **Türkçe:** stream boş olduğundan, comparator asla çağrılmaz ve Optional içinde hiçbir değer
 > bulunmaz.
-```java
-What if you need both the min() and max() values of the same stream?
-```
+> **English:** What if you need both the min() and max() values of the same stream?
+>
+> **Türkçe:** Aynı stream'in hem minimum hem maksimum değerine ihtiyacınız varsa ne yaparsınız?
+
 > **English:** For now, you can’t have both, at least not using these methods.
 >
 > **Türkçe:** Şimdilik her ikisine de sahip olamazsınız, en azından bu yöntemleri kullanamazsınız.
@@ -954,19 +921,17 @@ System.out.println(infinite.anyMatch(pred)); // true
 > so the call terminates. If we called allMatch(), it would run until we killed the
 > program.
 >
-> **Türkçe:** Bu, aynı predicate 'i tekrar kullanabileceğimizi gösterir, ancak her seferinde farklı
-> bir stream gerekir. anyMatch() yöntemi doğru olarak döner çünkü üç elementten ikisi
-> eşleşir. allMatch() yöntemi yanlış döner, çünkü biri eşleşmez. noneMatch() yöntemi de en
-> az bir eşleşme olduğu için yanlış döner. infinite stream üzerinde bir eşleşme bulunur,
-> bu nedenle çağrı sona erer. allMatch()'u arasaydık, programı öldürene kadar çalışırdı.
-```java
-Remember that allMatch(), anyMatch(), and noneMatch() return a
-```
-> **English:** boolean. By contrast, the find methods return an Optional because they return an element
-> of the stream.
+> **Türkçe:** Aynı predicate tekrar kullanılabilir; ancak her çağrı için yeni bir stream gerekir.
+> `anyMatch()` en az bir öğe eşleştiğinden `true`, `allMatch()` eşleşmeyen öğe bulunduğundan
+> `false`, `noneMatch()` ise en az bir eşleşme olduğundan `false` döndürür. Infinite stream'de bir
+> eşleşme bulunması `anyMatch()` çağrısını sonlandırır. Bu kaynak üzerinde `allMatch()` çağrılsaydı
+> program durdurulana kadar çalışırdı.
+
+> **English:** Remember that allMatch(), anyMatch(), and noneMatch() return a boolean. By contrast,
+> the find methods return an Optional because they return an element of the stream.
 >
-> **Türkçe:** boolean. Buna karşılık, bulma yöntemleri bir Optional döndürür, çünkü stream öğesini
-> döndürürler.
+> **Türkçe:** `allMatch()`, `anyMatch()` ve `noneMatch()` boolean döndürür. Bulma method'ları ise
+> stream'den bir öğe seçtikleri için sonuçlarını `Optional` içinde döndürür.
 
 <!-- source-page: 0545 -->
 #### Iterating
@@ -1003,11 +968,14 @@ public void forEach(Consumer<? super T> action)
 ```java
 Stream<String> s = Stream.of("Monkey", "Gorilla", "Bonobo");
 s.forEach(System.out::print); // MonkeyGorillaBonobo
-Remember that you can call forEach() directly on a Collection or on a
 ```
-> **English:** Stream. Don’t get confused on the exam when you see both approaches.
+
+> **English:** Remember that you can call forEach() directly on a Collection or on a Stream. Don’t
+> get confused on the exam when you see both approaches.
 >
-> **Türkçe:** Stream. Her iki yaklaşımı da gördüğünüzde sınavda kafanızı karıştırmayın.
+> **Türkçe:** `forEach()` doğrudan bir `Collection` veya `Stream` üzerinde çağrılabilir. Sınavda bu
+> iki kullanımı birbirine karıştırmayın.
+
 > **English:** Notice that you can’t use a traditional for loop on a stream.
 >
 > **Türkçe:** Geleneksel bir döngüyü stream üzerinde kullanamayacağınıza dikkat edin.
@@ -1019,8 +987,9 @@ for (Integer i: s) {} // DOES NOT COMPILE
 > Streams cannot be used as the source in a for-each loop because they don’t implement the
 > Iterable interface.
 >
-> **Türkçe:** forEach() bir döngü gibi görünse de, gerçekten streams için bir terminal operatörüdür.
-> Streams her döngü için kaynak olarak kullanılamaz çünkü Iterable arayüzünü uygulamazlar.
+> **Türkçe:** `forEach()` bir döngüye benzese de stream için terminal operation'dır. Stream,
+> `Iterable` interface'ini implement etmediğinden enhanced `for` döngüsünün kaynağı olarak
+> kullanılamaz.
 #### Reducing
 > **English:** The reduce() method combines a stream into a single object. It is a reduction, which
 > means it processes all elements. The three method signatures are these:
@@ -1030,12 +999,10 @@ for (Integer i: s) {} // DOES NOT COMPILE
 ```java
 public T reduce(T identity, BinaryOperator<T> accumulator)
 public Optional<T> reduce(BinaryOperator<T> accumulator)
+public <U> U reduce(U identity,
+                   BiFunction<U, ? super T, U> accumulator,
+                   BinaryOperator<U> combiner)
 ```
-> **English:** public <U> U reduce(U identity, BiFunction<U,? super T,U> accumulator, BinaryOperator<U>
-> combiner)
->
-> **Türkçe:** genel U> U reduce(U identity, BiFunction<U,? super T,U> accumulator, BinaryOperator<U>
-> combiner)
 > **English:** Let’s take them one at a time. The most common way of doing a reduction is to start with
 > an initial value and keep merging it with the next value. Think about how you would
 > concatenate an array of String objects into a single String without functional
@@ -1095,12 +1062,10 @@ System.out.println(stream.reduce(1, (a, b) -> a*b)); // 90
 > returned. • If the stream has one element, it is returned. • If the stream has
 > multiple elements, the accumulator is applied to combine them.
 >
-> **Türkçe:** Biz set identity ile 1 ve accumulator ile çarpma işlemini yapıyoruz. Birçok durumda,
-> identity gerçekten gerekli değildir, bu nedenle Java bunu atlamamıza izin verir. Bir
-> identity belirtmediğinizde, herhangi bir veri olmadığı için bir Optional döndürülür.
-> Optional içindekiler için üç Optional vardır: stream boşsa, boş Optional döndürülür.
-> stream bir elemana sahipse, geri döndürülür. stream birden fazla elemana sahipse,
-> bunları birleştirmek için accumulator uygulanır.
+> **Türkçe:** Identity için `1`, accumulator için çarpma işlemi kullanıyoruz. Java, identity
+> belirtmeden reduction yapmaya da izin verir. Bu overload, stream boş olabileceği için `Optional`
+> döndürür: • Stream boşsa `Optional.empty()` döner. • Tek öğe varsa o öğe `Optional` içinde döner.
+> • Birden çok öğe varsa accumulator bunları birleştirir ve sonuç `Optional` içinde döner.
 > **English:** The following illustrates each of these scenarios:
 >
 > **Türkçe:** Aşağıdakiler, bu senaryoların her birini göstermektedir:
@@ -1147,22 +1112,20 @@ System.out.println(length); // 5
 > combiner, which combines any intermediate totals. In this case, a and b are both Integer
 > values.
 >
-> **Türkçe:** İlk parametre (0), başlatıcının değeridir. Eğer boş bir stream olsaydı, bu cevap olurdu.
-> İkinci parametre accumulator dir. Daha önce gördüğünüz accumulators 'den farklı olarak,
-> bu karma veri türlerini işler. Bu örnekte, ilk argüman, i, bir Integer iken, ikinci
-> argüman, s, bir String'dır. Geçerli String uzunluğunu çalışan toplamımıza ekler. Üçüncü
-> parametre, herhangi bir ara toplamı birleştiren combiner olarak adlandırılır. Bu
-> durumda, a ve b değerlerinin her ikisi de Integer değerleridir.
+> **Türkçe:** İlk parametre `0`, başlangıç değeri olan identity'dir; stream boşsa sonuç bu olur.
+> İkinci parametre accumulator'dır ve burada farklı türleri birleştirir: `i` bir `Integer`, `s` bir
+> `String` değeridir. Geçerli String'in uzunluğu biriken toplama eklenir. Üçüncü parametre olan
+> combiner, ara toplamları birleştirir; `a` ve `b` değerlerinin ikisi de `Integer` türündedir.
 > **English:** The three-argument reduce() operation is useful when working with parallel streams
 > because it allows the stream to be decomposed and reassembled by separate threads. For
 > example, if we needed to count the length of four 100-character strings, the first two
 > values and the last two values could be computed independently. The intermediate result
 > (200 + 200) would then be combined into the final value.
 >
-> **Türkçe:** Üç argument reduce() işlemi parallel streams ile çalışırken kullanışlıdır, çünkü stream
-> ayrı ipliklerle ayrıştırılıp yeniden birleştirilmesini sağlar. Örneğin, dört 100
-> karakter strings uzunluğunu saymamız gerekirse, ilk iki değer ve son iki değer bağımsız
-> olarak hesaplanabilir. Ara sonuç (200 + 200) daha sonra nihai değere birleştirilecekti.
+> **Türkçe:** Üç parametreli `reduce()`, işi farklı thread'lere bölüp ara sonuçları birleştirmeyi
+> sağladığından parallel stream için kullanışlıdır. Örneğin 100'er karakterlik dört String'in toplam
+> uzunluğu hesaplanırken ilk iki ve son iki String bağımsız işlenebilir. Ardından `200 + 200` ara
+> sonuçları nihai sonuca dönüştürülür.
 #### Collecting
 > **English:** The collect() method is a special type of reduction called a mutable reduction. It is
 > more efficient than a regular reduction because we use the same mutable object while
@@ -1170,25 +1133,22 @@ System.out.println(length); // 5
 > really useful method, because it lets us get data out of streams and into another form.
 > The method signatures are as follows:
 >
-> **Türkçe:** collect() yöntemi, reduction olarak adlandırılan özel bir reduction türüdür. Normal bir
-> reduction den daha verimlidir, çünkü biriken aynı değişken nesneyi kullanırız. Yaygın
-> olarak değiştirilebilen nesneler arasında StringBuilder ve ArrayList bulunur. Bu
-> gerçekten kullanışlı bir yöntemdir, çünkü streams ve başka bir formda veri elde etmemizi
-> sağlar. method signatures aşağıdaki gibidir:
-> **English:** public <R> R collect(Supplier<R> supplier, BiConsumer<R,? super T> accumulator,
-> BiConsumer<R, R> combiner)
->
-> **Türkçe:** halka açık R> R collect(Supplier<R> supplier, BiConsumer<R,? super T> accumulator,
-> BiConsumer<R, R> combiner)
+> **Türkçe:** `collect()`, mutable reduction denilen özel bir reduction biçimidir. Sonuçlar
+> biriktirilirken aynı mutable nesne kullanılır; `StringBuilder` ve `ArrayList` yaygın örneklerdir.
+> Bu yaklaşım, her adımda yeni sonuç nesnesi üretmeye göre daha verimli olabilir. `collect()` stream
+> verilerini başka bir biçime dönüştürür. Method signature'ları şöyledir:
 ```java
+public <R> R collect(Supplier<R> supplier,
+                    BiConsumer<R, ? super T> accumulator,
+                    BiConsumer<R, R> combiner)
 public <R,A> R collect(Collector<? super T, A,R> collector)
 ```
 > **English:** Let’s start with the first signature, which is used when we want to code specifically
 > how collecting should work. Our wolf example from reduce can be converted to use
 > collect():
 >
-> **Türkçe:** Toplamanın nasıl çalışması gerektiğini özellikle kodlamak istediğimizde kullanılan ilk
-> imza ile başlayalım. İndirgeyici kurt örneğimiz collect() kullanımına dönüştürülebilir:
+> **Türkçe:** Toplama işleminin nasıl yapılacağını doğrudan belirlediğimiz ilk signature ile
+> başlayalım. `reduce()` kullanarak “wolf” oluşturan örneği `collect()` ile yeniden yazabiliriz:
 ```java
 Stream<String> stream = Stream.of("w", "o", "l", "f");
 ```
@@ -1226,6 +1186,8 @@ System.out.println(word); // wolf
 > collections oluşur ve daha sonra birleştirilir. Bu, StringBuilder ile yalnızca harflerin
 > sırasını umursamazsak çalışırdı. Bu durumda, accumulator ve combiner benzer bir mantığa
 > sahiptir.
+> **Editör notu · Java 17:** Kaynağın “harflerin sırasını önemsemiyorsak” sınırlaması bu örnek için doğru değildir. Ordered stream üzerinde `StringBuilder::new`, `StringBuilder::append`, `StringBuilder::append` ile yapılan `collect()` encounter order'ı korur; parallel çalıştırmada da `wolf` elde edilir. Her parça kendi StringBuilder'ını kullanır, ardından sonuçlar uygun sırada birleştirilir. [Stream.collect API](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/Stream.html#collect(java.util.function.Supplier,java.util.function.BiConsumer,java.util.function.BiConsumer)).
+
 > **English:** Now let’s look at an example where the logic is different in the accumulator and
 > combiner:
 >
@@ -1254,19 +1216,14 @@ System.out.println(set); // [f, l, o, w]
 > named Collectors. This approach also makes the code easier to read because it is more
 > expressive. For example, we could rewrite the previous example as follows:
 >
-> **Türkçe:** long imzası ile başladık çünkü kendi collector imzanızı bu şekilde uyguluyorsunuz. Sınav
-> için bunun nasıl yapılacağını bilmek ve collectors nasıl çalıştığını anlamak önemlidir.
-> Pratikte, birçok yaygın collectors tekrar tekrar ortaya çıkar. Geliştiricilerin aynı
-> olanları yeniden uygulamaya devam etmesini sağlamak yerine, Java, Collectors adlı ortak
-> collectors ile bir sınıf sağlar. Bu yaklaşım aynı zamanda kodun okunmasını kolaylaştırır
-> çünkü daha etkileyicidir. Örneğin, önceki örneği aşağıdaki gibi yeniden yazabiliriz:
+> **Türkçe:** Önce uzun signature'ı gördük; kendi toplama işleminizi supplier, accumulator ve
+> combiner ile böyle tanımlarsınız. Bunun nasıl çalıştığını bilmek sınav açısından önemlidir.
+> Pratikte aynı collector'lara sık ihtiyaç duyulduğu için Java bunları `Collectors` sınıfında hazır
+> sunar. Bu yaklaşım niyeti daha açık gösterir ve kodu okunaklı kılar. Önceki örneği şöyle
+> yazabiliriz:
 ```java
 Stream<String> stream = Stream.of("w", "o", "l", "f");
-```
-> **English:** TreeSet<String> set =
->
-> **Türkçe:** TreeSet<String> set =
-```java
+TreeSet<String> set =
 stream.collect(Collectors.toCollection(TreeSet::new));
 System.out.println(set); // [f, l, o, w]
 ```
@@ -1274,7 +1231,7 @@ System.out.println(set); // [f, l, o, w]
 <!-- source-page: 0549 -->
 > **English:** If we didn’t need the set to be sorted, we could make the code even shorter:
 >
-> **Türkçe:** Eğer sıralamak için set 'a ihtiyacımız olmasaydı, kodu daha da kısaltabilirdik:
+> **Türkçe:** Sonucun sıralı bir set olması gerekmiyorsa kodu daha da kısaltabiliriz:
 ```java
 Stream<String> stream = Stream.of("w", "o", "l", "f");
 Set<String> set = stream.collect(Collectors.toSet());
@@ -1288,9 +1245,9 @@ System.out.println(set); // [f, w, l, o]
 > alacağınızı garanti etmez. Bir HashSet olması muhtemeldir, ancak bunu beklememeli veya
 > güvenmemelisiniz.
 > **English:** The exam expects you to know about common predefined collectors in addition to being
-> able to write your own by passing a supplier, accumu-lator, and combiner.
+> able to write your own by passing a supplier, accumulator, and combiner.
 >
-> **Türkçe:** Sınav, bir supplier, accumu-lator ve combiner'yi geçerek kendinizinkini yazabilmenin
+> **Türkçe:** Sınav, bir supplier, accumulator ve combiner'yi geçerek kendinizinkini yazabilmenin
 > yanı sıra, yaygın önceden tanımlanmış collectors hakkında bilgi sahibi olmanızı bekler.
 > **English:** Later in this chapter, we show many Collectors that are used for grouping data. It’s a
 > big topic, so it’s best to master how streams work before adding too many Collectors
@@ -1393,12 +1350,12 @@ public <R> Stream<R> map(Function<? super T,? extends R> mapper)
 >
 > **Türkçe:** Bu gördüğünüz diğerlerinden daha karmaşık görünüyor. lambda ifadesini, o function e
 > geçen ve geri dönenin türünü bulmak için kullanır. return type döndürülen stream dir.
-```java
-The map() method on streams is for transforming data. Don’t confuse it
-```
-> **English:** with the Map interface, which maps keys to values.
+> **English:** The map() method on streams is for transforming data. Don’t confuse it with the Map
+> interface, which maps keys to values.
 >
-> **Türkçe:** maps değerlerinin anahtarı olan Map arayüzü ile.
+> **Türkçe:** Stream üzerindeki `map()` veriyi dönüştürür. Bunu key'leri value'lara eşleyen `Map`
+> interface'i ile karıştırmayın.
+
 > **English:** As an example, this code converts a list of String objects to a list of Integer objects
 > representing their lengths:
 >
@@ -1412,8 +1369,8 @@ s.map(String::length)
 > **English:** Remember that String::length is shorthand for the lambda x -> x.length(), which clearly
 > shows it is a function that turns a String into an Integer.
 >
-> **Türkçe:** String::length, lambda x> x.length() için kısaltmadır, bu da bir String'u Integer'ye
-> dönüştüren bir function olduğunu açıkça gösterir.
+> **Türkçe:** `String::length`, `x -> x.length()` lambda'sının kısa biçimidir; String uzunluğunu
+> hesaplar. Bu örnekte `int` sonuç boxing ile `Integer` olur.
 
 <!-- source-page: 0551 -->
 #### Using flatMap
@@ -1428,14 +1385,14 @@ s.map(String::length)
 > kaldırmak veya lists 'nın bir stream 'ini birleştirmek istediğinizde yararlıdır. Size
 > diğer yöntemlerle tutarlılık için method signature gösteriyoruz, böylece hiçbir şey
 > sakladığımızı düşünmüyorsunuz. Bunu okuyabilmeniz beklenmiyor:
-> **English:** public <R> Stream<R> flatMap( Function<? super T,? extends Stream<? extends R>> mapper)
->
-> **Türkçe:** genel R> Stream<R> flatMap( Function<? super T,? extends Stream<? extends R>> mapper)
+```java
+public <R> Stream<R> flatMap( Function<? super T,? extends Stream<? extends R>> mapper)
+```
 > **English:** This gibberish basically says that it returns a Stream of the type that the function
 > contains at a lower level. Don’t worry about the signature. It’s a headache.
 >
-> **Türkçe:** Bu gevezelik temel olarak, function'nin daha düşük bir seviyede içerdiği türden bir
-> Stream döndürdüğünü söyler. İmzayı merak etmeyin. Bu bir baş ağrısı.
+> **Türkçe:** Bu karmaşık signature, function'ın döndürdüğü iç stream'in öğe türünde bir `Stream`
+> elde edeceğimizi söyler. Şimdilik ayrıntılı signature yerine örneğin nasıl çalıştığına odaklanın.
 > **English:** What you should understand is the example. This gets all of the animals into the same
 > level and removes the empty list.
 >
@@ -1460,12 +1417,11 @@ animals.flatMap(m -> m.stream())
 > **English:** Concatenating Streams
 >
 > **Türkçe:** Streams birleştiriliyor
-```java
-While flatMap() is good for the general case, there is a more convenient way to concate-
-```
-> **English:** nate two streams:
+> **English:** While flatMap() is good for the general case, there is a more convenient way to concatenate two streams:
 >
-> **Türkçe:** nate iki streams:
+> **Türkçe:** `flatMap()` genel durumda kullanışlıdır; ancak iki stream'i birleştirmenin daha kolay bir yolu vardır:
+
+
 ```java
 var one = Stream.of("Bonobo");
 var two = Stream.of("Mama Gorilla", "Baby Gorilla");
@@ -1473,11 +1429,10 @@ Stream.concat(one, two)
 .forEach(System.out::println);
 ```
 > **English:** This produces the same three lines as the previous example. The two streams are
+> concatenated, and the terminal operation, forEach(), is called.
 >
-> **Türkçe:** Bu, önceki örnekle aynı üç çizgiyi üretir. İki streams vardır
-```java
-concatenated, and the terminal operation, forEach(), is called.
-```
+> **Türkçe:** Bu kod önceki örnekle aynı üç satırı yazdırır. İki stream birleştirilir ve terminal
+> operation olan `forEach()` çağrılır.
 
 <!-- source-page: 0552 -->
 #### Sorting
@@ -1485,9 +1440,8 @@ concatenated, and the terminal operation, forEach(), is called.
 > Java uses natural ordering unless we specify a comparator. The method signatures are
 > these:
 >
-> **Türkçe:** sorted() yöntemi, sıralanan elemanlarla bir stream döndürür. Dizileri sıralamak gibi,
-> Java bir comparator belirtmediğimiz sürece doğal sipariş kullanır. method signatures
-> şöyledir:
+> **Türkçe:** `sorted()`, öğeleri sıralanmış bir stream döndürür. Dizilerde olduğu gibi, comparator
+> belirtilmezse natural ordering kullanılır. Method signature'ları şöyledir:
 ```java
 public Stream<T> sorted()
 public Stream<T> sorted(Comparator<? super T> comparator)
@@ -1503,8 +1457,8 @@ s.sorted()
 > **English:** We can optionally use a Comparator implementation via a method or a lambda. In this
 > example, we are using a method:
 >
-> **Türkçe:** Optional olarak bir Comparator uygulamasını bir yöntem veya lambda aracılığıyla
-> kullanabiliriz. Bu örnekte, bir yöntem kullanıyoruz:
+> **Türkçe:** İsterseniz bir method veya lambda aracılığıyla `Comparator` implementation'ı
+> verebilirsiniz. Bu örnekte bir method kullanıyoruz:
 ```java
 Stream<String> s = Stream.of("brown bear- ", "grizzly- ");
 s.sorted(Comparator.reverseOrder())
@@ -1527,12 +1481,12 @@ s.sorted(Comparator::reverseOrder); // DOES NOT COMPILE
 > which is really a Supplier<Comparator>. This is not compatible with sorted(). We bring
 > this up to remind you that you really do need to know method references well.
 >
-> **Türkçe:** İkinci sorted() method signature tekrar bakın. İki parametre alan ve bir int döndüren
-> fonksiyonel bir arayüz olan bir Karşılaştırıcı alır. Ancak, Comparator::reverseOrder
-> bunu yapmaz. reverseOrder() hiçbir argüman almadığı ve bir değer döndürdüğü için, method
-> reference () -> Comparator.reverseOrder() ile eşdeğerdir, ki bu gerçekten bir
-> Supplier<Comparator>'dir. Bu sorted() ile uyumlu değildir. Bunu, method references 'yi
-> gerçekten iyi bilmeniz gerektiğini hatırlatmak için gündeme getiriyoruz.
+> **Türkçe:** İkinci `sorted()` signature'ına tekrar bakın: iki parametre alıp `int` döndüren bir
+> SAM'e sahip `Comparator` bekler. `Comparator::reverseOrder` buna uymaz. `reverseOrder()`
+> parametresizdir ve bir comparator üretir; uygun bir Supplier hedefinde `() ->
+> Comparator.reverseOrder()` lambda'sına karşılık gelir. Bu nedenle
+> `sorted(Comparator::reverseOrder)` derlenmez. Bu örnek method reference kurallarını iyi bilmeniz
+> gerektiğini hatırlatır.
 #### Taking a Peek
 > **English:** The peek() method is our final intermediate operation. It is useful for debugging
 > because it allows us to perform a stream operation without changing the stream. The
@@ -1556,10 +1510,9 @@ public Stream<T> peek(Consumer<? super T> action)
 > We are puzzled why the count is 1 instead of 2. We can add a peek() method to find out
 > why.
 >
-> **Türkçe:** peek() için en yaygın kullanım, stream içeriğini geçtiği gibi çıkarmaktır. Bir yazım
-> hatası yaptığımızı ve b yerine g harfi ile başlayan ayıları saydığımızı varsayalım.
-> Kontun neden 2 yerine 1 olduğu konusunda şaşkınız. Nedenini öğrenmek için peek()
-> metodunu ekleyebiliriz.
+> **Türkçe:** `peek()` çoğunlukla pipeline'dan geçen öğeleri hata ayıklamak için yazdırmada
+> kullanılır. Diyelim ki yanlışlıkla `b` yerine `g` ile başlayan ayıları saydık ve sayının neden 2
+> değil 1 olduğunu anlayamadık. Sebebi görmek için pipeline'a `peek()` ekleyebiliriz.
 ```java
 var stream = Stream.of("black bear", "brown bear", "grizzly");
 long count = stream.filter(s -> s.startsWith("g"))
@@ -1580,49 +1533,55 @@ System.out.println(count); // 1
 > **English:** Danger: Changing State with peek()
 >
 > **Türkçe:** Tehlike: peek() ile Durumu Değiştirme
+> **English:** Remember that peek() is intended to perform an operation without changing the result.
+> Here’s a straightforward stream pipeline that doesn’t use peek():
+>
+> **Türkçe:** `peek()` sonucunu değiştirmeden veriyi gözlemlemek için tasarlanmıştır. Önce `peek()`
+> kullanmayan basit bir pipeline'a bakalım:
+
 ```java
-Remember that peek() is intended to perform an operation without changing the result.
-Here’s a straightforward stream pipeline that doesn’t use peek():
 var numbers = new ArrayList<>();
 var letters = new ArrayList<>();
 numbers.add(1);
 letters.add('a');
 Stream<List<?>> stream = Stream.of(numbers, letters);
 stream.map(List::size).forEach(System.out::print); // 11
-Now we add a peek() call and note that Java doesn’t prevent us from writing bad
 ```
-> **English:** peek code:
+
+> **English:** Now we add a peek() call and note that Java doesn’t prevent us from writing bad peek
+> code:
 >
-> **Türkçe:** koda göz atın:
+> **Türkçe:** Şimdi `peek()` ekleyelim. Java, kötü bir `peek()` kullanımı yazmamızı derleme
+> aşamasında engellemez:
+
 ```java
 Stream<List<?>> bad = Stream.of(numbers, letters);
 bad.peek(x -> x.remove(0))
-.map(List::size)
-.forEach(System.out::print); // 00
-This example is bad because peek() is modifying the data structure that is used in the
+   .map(List::size)
+   .forEach(System.out::print); // 00
 ```
-> **English:** stream, which causes the result of the stream pipeline to be different than if the peek
-> wasn’t present.
+
+> **English:** This example is bad because peek() is modifying the data structure that is used in
+> the stream, which causes the result of the stream pipeline to be different than if the peek wasn’t
+> present.
 >
-> **Türkçe:** stream, stream pipeline sonucunun, peek'in bulunmamasından farklı olmasına neden olur.
+> **Türkçe:** Bu örnekte `peek()`, stream'deki listelerin içeriğini değiştirir. Böylece pipeline'ın
+> sonucu, `peek()` olmasaydı elde edilecek sonuçtan farklı olur; gözlemleme işlemi iş mantığını
+> değiştirmiştir.
+
 ### Putting Together the Pipeline
 > **English:** Streams allow you to use chaining and express what you want to accomplish rather than
 > how to do so. Let’s say that we wanted to get the first two names of our friends
 > alphabetically that are four characters long. Without streams, we’d have to write
 > something like the following:
 >
-> **Türkçe:** Streams zincirleme kullanmanıza ve bunu nasıl yapacağınızdan ziyade başarmak
-> istediğinizi ifade etmenize izin verir. Diyelim ki arkadaşlarımızın ilk iki ismini
-> alfabetik olarak dört karakter long almak istedik. streams olmadan, aşağıdaki gibi bir
-> şey yazmamız gerekir:
+> **Türkçe:** Stream, işlemin nasıl yapılacağından çok hangi sonucun istendiğini ifade eder. Diyelim
+> ki dört karakter uzunluğundaki arkadaş adlarını alfabetik sıralayıp ilk ikisini almak istiyoruz.
+> Stream kullanmadan şöyle yazabiliriz:
 ```java
 var list = List.of("Toby", "Anna", "Leroy", "Alex");
 List<String> filtered = new ArrayList<>();
-```
-> **English:** for (String name: list)
->
-> **Türkçe:** için (String ad: list)
-```java
+for (String name: list)
 if (name.length() == 4) filtered.add(name);
 ```
 
@@ -1660,9 +1619,9 @@ list.stream()
 > length 4. Then we want them sorted. Then we want the first two. Then we want to print
 > them out. It maps better to the problem that we are trying to solve, and it is simpler.
 >
-> **Türkçe:** Aradaki fark, olup biteni ifade etmemizdir. String uzunluktaki nesnelere önem veriyoruz.
-> O zaman biz onları halletmek istiyoruz. O zaman ilk ikisini istiyoruz. Sonra da
-> çıktılarını almak istiyoruz. Çözmeye çalıştığımız soruna maps daha iyi ve daha basit.
+> **Türkçe:** Burada istediğimiz sonucu doğrudan ifade ediyoruz: önce uzunluğu 4 olan String'leri
+> seç, sonra sırala, ilk ikisini al ve yazdır. Kod, çözdüğümüz problemi daha açık ve daha sade
+> yansıtır.
 > **English:** Once you start using streams in your code, you may find yourself using them in many
 > places. Having shorter, briefer, and clearer code is definitely a good thing!
 >
@@ -1690,12 +1649,10 @@ filter() sorted() limit()
 > and sort them all at once. After sorting, they should start passing them to the limit()
 > worker one at a time. The data flow looks like this:
 >
-> **Türkçe:** Assembly line foreper'ın stream pipeline'ü en iyi şekilde nasıl uygulayacağını çözdüğünü
-> unutmayın. Başlamadan önce beklemesi gereken talimatlarla tüm tabloları set
-> yükseltirler. limit() işçisine iki eleman geçtiğinde onları bilgilendirmesini söylerler.
-> sorted() işçiye, içeri girerken tüm öğeleri toplamaları ve hepsini bir kerede
-> sıralamaları gerektiğini söylerler. Sıralamadan sonra, bunları birer birer limit()
-> işçiye aktarmaya başlamalıdırlar. Veri akışı şöyle görünüyor:
+> **Türkçe:** Montaj hattındaki ustabaşının pipeline'ı nasıl yürüteceğini belirlediğini hatırlayın.
+> İstasyonları kurar ve başlama işaretini beklemelerini söyler. `limit()` istasyonu ikinci öğeyi
+> gördüğünde haber vermelidir. `sorted()` ise bütün öğeleri biriktirip topluca sıraladıktan sonra
+> bunları birer birer `limit()` aşamasına aktarmalıdır. Veri şu sırayla ilerler:
 
 <!-- source-page: 0555 -->
 > **English:** 1.The stream() method sends Toby to filter(). The filter() method sees that the length
@@ -1713,27 +1670,16 @@ filter() sorted() limit()
 > it has seen one element and sends Alex to forEach(), printing Alex. 7.The sorted()
 > method sends Anna to limit(). The limit() method remembers that it has seen two elements
 > and sends Anna to forEach(), printing Anna. 8.The limit() method has now seen all of the
-> elements that are needed and tells the foreper-son. The foreperson stops the line, and
+> elements that are needed and tells the foreperson. The foreperson stops the line, and
 > no more processing occurs in the pipeline.
 >
-> **Türkçe:** 1.The stream() yöntemi Toby'yi filter() adresine gönderir. filter() yöntemi uzunluğun
-> iyi olduğunu görür ve Toby'yi sorted()'e gönderir. sorted() yöntemi, tüm verilere
-> ihtiyaç duyduğu için henüz sıralama yapamaz, bu nedenle Toby'yi tutar. 2. stream()
-> yöntemi Anna'yı filter()'ya gönderir. filter() yöntemi uzunluğun iyi olduğunu görür ve
-> Anna'yı sorted()'e gönderir. sorted() yöntemi, tüm verilere ihtiyaç duyduğu için henüz
-> sıralama yapamaz, bu nedenle Anna'yı tutar. 3.The stream() yöntemi Leroy'u filter()
-> adresine gönderir. filter() yöntemi, uzunluğun bir eşleşme olmadığını görür ve Leroy'u
-> montaj hattı işlemesinden çıkarır. 4. stream() yöntemi Alex'i filter()'e gönderir.
-> filter() yöntemi uzunluğun iyi olduğunu görür ve Alex'i sorted() adresine gönderir.
-> sorted() yöntemi henüz sıralama yapamaz çünkü tüm verilere ihtiyaç duyar, bu yüzden
-> Alex'i tutar. sorted() gerekli tüm verilere sahip olduğu ortaya çıktı, ancak henüz
-> bilmiyor. 5.Ön kişi sorted()'un sıralama zamanının geldiğini bilmesini sağlar ve
-> sıralama gerçekleşir. 6. sorted() yöntemi Alex'i limit()'e gönderir. limit() yöntemi bir
-> element gördüğünü hatırlar ve Alex'i forEach()'e gönderir, Alex'i yazdırır. 7. sorted()
-> yöntemi Anna'yı limit()'e gönderir. limit() yöntemi iki element gördüğünü hatırlar ve
-> Anna'yı forEach()'ye gönderir, Anna'yı yazdırır. 8. limit() yöntemi artık ihtiyaç
-> duyulan tüm elementleri gördü ve foreper-son'u anlattı. Foreper çizgiyi durdurur ve
-> pipeline 'da daha fazla işlem gerçekleşmez.
+> **Türkçe:** 1. `stream()`, Toby'yi `filter()` aşamasına gönderir. Uzunluğu uygun olduğundan Toby
+> `sorted()` aşamasında bekletilir. 2. Anna da aynı kontrollerden geçip sıralama için bekler. 3.
+> Leroy'un uzunluğu uygun değildir; `filter()` onu eler. 4. Alex kontrolü geçer ve `sorted()`
+> tarafından tutulur. Bütün veri gelmiştir ama sıralama aşaması henüz kaynağın bittiğini bilmez. 5.
+> Ustabaşı kaynağın tamamlandığını bildirir ve sıralama yapılır. 6. Alex, `limit()` tarafından ilk
+> öğe olarak sayılır ve `forEach()` ile yazdırılır. 7. Anna ikinci öğe olarak sayılıp yazdırılır. 8.
+> `limit()` gerekli iki öğeye ulaşıldığını bildirir; hat durur ve başka öğe işlenmez.
 > **English:** Make sense? Let’s try a few more examples to make sure that you understand this well.
 > What do you think the following does?
 >
@@ -1751,9 +1697,9 @@ Stream.generate(() -> "Elsa")
 > present. That never happens because there is an infinite stream. What about this
 > example?
 >
-> **Türkçe:** Programı öldürene kadar asılı kalır, ya da hafıza bittikten sonra bir istisna atar.
-> Önder, sorted()'a her şeyin sıralanmasını beklemesi talimatını verdi. Bu asla olmaz
-> çünkü bir infinite stream var. Peki ya bu örnek?
+> **Türkçe:** Program durdurulana kadar işlem sona ermez veya bellek tükendiğinde hata oluşur.
+> Ustabaşı, `sorted()` aşamasına sıralanacak bütün veriyi beklemesini söylemiştir. Kaynak sonsuz
+> olduğundan bu bekleyiş bitmez. Peki şu örnekte ne olur?
 ```java
 Stream.generate(() -> "Elsa")
 .filter(n -> n.length() == 4)
@@ -1783,9 +1729,8 @@ Stream.generate(() -> "Olaf Lazisson")
 > through, so limit() never sees two elements. This means we have to keep waiting and hope
 > that they show up.
 >
-> **Türkçe:** Bu da programı öldürene kadar asılı kalacak. Filtre hiçbir şeyin geçmesine izin vermez,
-> bu nedenle limit() asla iki eleman görmez. Bu, beklemeye devam etmemiz ve ortaya
-> çıkmalarını ummamız gerektiği anlamına gelir.
+> **Türkçe:** Bu örnek de program durdurulana kadar sona ermez. `filter()` hiçbir öğeyi geçirmediği
+> için `limit()` iki öğeye ulaşamaz; pipeline sürekli yeni öğe bekler.
 > **English:** You can even chain two pipelines together. See if you can identify the two sources and
 > two terminal operations in this code.
 >
@@ -1804,15 +1749,14 @@ System.out.println(count); // 1
 > line 33 is the source, and line 34 is the terminal operation. Now that’s a complicated
 > way of outputting the number 1!
 >
-> **Türkçe:** 3032 satırları bir pipeline ve 33 ve 34 satırları bir diğeridir. İlk pipeline için,
-> satır 30 kaynaktır ve satır 32 terminal operation'dir. İkinci pipeline için, 33. satır
-> kaynaktır ve 34. satır terminal operation'dir. Şimdi bu 1 sayısını çıkarmak için
-> karmaşık bir yol!
+> **Türkçe:** 30–32. satırlar bir pipeline, 33 ve 34. satırlar ikinci pipeline'dır. İlkinde source
+> 30. satırda, terminal operation 32. satırdadır. İkincisinde source 33. satırda, terminal operation
+> 34. satırdadır. Bu, 1 sayısını yazdırmanın oldukça dolambaçlı bir yoludur!
 > **English:** On the exam, you might see long or complex pipelines as answer choices. If this happens,
 > focus on the differences between the answers.
 >
-> **Türkçe:** Sınavda, long veya karmaşık pipelines yanıt seçenekleri olarak görebilirsiniz. Bu
-> gerçekleşirse, cevaplar arasındaki farklılıklara odaklanın.
+> **Türkçe:** Sınavda uzun veya karmaşık pipeline'lar cevap seçeneği olarak verilebilir. Böyle bir
+> durumda seçeneklerin arasındaki farklara odaklanın.
 > **English:** Those will be your clues to the correct answer. This approach will also save you time by
 > not having to study the whole pipeline on each option.
 >
@@ -1823,10 +1767,9 @@ System.out.println(count); // 1
 > to have a variable in between so it isn’t as long and complicated. Our prior example can
 > be written as follows:
 >
-> **Türkçe:** Zincirli pipelines gördüğünüzde, kaynağın ve terminal operations'un nerede olduğunu not
-> edin. Bu, neler olup bittiğini takip etmenize yardımcı olacaktır. Hatta kafanızdaki kodu
-> long ve karmaşık olmayan bir değişkene sahip olmak için yeniden yazabilirsiniz. Önceki
-> örneğimiz aşağıdaki gibi yazılabilir:
+> **Türkçe:** Birbirine bağlanan pipeline'larda source ve terminal operation sınırlarını
+> işaretleyin. Bu, hangi aşamada ne olduğunu izlemenizi kolaylaştırır. Kodun daha kısa ve anlaşılır
+> olması için ara sonuca bir değişken adı verebilirsiniz. Önceki örnek şöyle de yazılabilir:
 ```java
 List<String> helper = Stream.of("goldfish", "finch")
 .filter(s -> s.length()> 5)
@@ -1848,17 +1791,17 @@ System.out.println(count);
 > using wrapper classes. We did this with the Collections API in Chapter 9, so it should
 > feel natural.
 >
-> **Türkçe:** Şimdiye kadar, yarattığımız tüm streams, Stream<String>, Stream<Integer> ve benzeri
-> genel bir türe sahip Stream arayüzünü kullandı. Sayısal değerler için, ambalaj
-> sınıflarını kullanıyoruz. Bunu 9. bölümde Collections API ile yaptık, bu yüzden doğal
-> hissetmelidir.
+> **Türkçe:** Şimdiye kadar oluşturduğumuz stream'ler `Stream<String>` ve `Stream<Integer>` gibi
+> generic türlerle `Stream` interface'ini kullandı. Sayısal değerler wrapper class'larla temsil
+> edildi. Bölüm 9'daki Collections API örneklerinde de bu yaklaşımı kullandığımız için size tanıdık
+> gelmelidir.
 > **English:** Java actually includes other stream classes besides Stream that you can use to work with
 > select primitives: int, double, and long. Let’s take a look at why this is needed.
 > Suppose that we want to calculate the sum of numbers in a finite stream:
 >
-> **Türkçe:** Java, seçili ilkellerle çalışmak için kullanabileceğiniz Stream dışında diğer stream
-> sınıflarını da içerir: int, double ve long. Bunun neden gerekli olduğuna bir göz atalım.
-> Bir finite stream içindeki sayıların toplamını hesaplamak istediğimizi varsayalım:
+> **Türkçe:** Java, `Stream` yanında `int`, `double` ve `long` primitive değerleriyle çalışmak için
+> özel stream türleri sunar. Bunların neden gerektiğine bakalım. Sonlu bir stream'deki sayıların
+> toplamını hesaplamak istediğimizi varsayalım:
 ```java
 Stream<Integer> stream = Stream.of(1, 2, 3);
 System.out.println(stream.reduce(0, (s, n) -> s + n)); // 6
@@ -1912,9 +1855,9 @@ System.out.println(avg.getAsDouble()); // 2.0
 > types int, short, byte, and char • LongStream: Used for the primitive type long •
 > DoubleStream: Used for the primitive types double and float
 >
-> **Türkçe:** İlkel akışların üç türü şunlardır: IntStream: İlkel tipler için kullanılan int, kısa,
-> bayt ve char LongStream: İlkel tip için kullanılan uzun DoubleStream: İlkel tipler için
-> kullanılan çift ve float
+> **Türkçe:** Üç primitive stream türü vardır: • `IntStream`: `int`, `short`, `byte` ve `char`
+> değerleri için kullanılır. • `LongStream`: `long` değerleri için kullanılır. • `DoubleStream`:
+> `double` ve `float` değerleri için kullanılır.
 
 <!-- source-page: 0558 -->
 > **English:** Why doesn’t each primitive type have its own primitive stream? These three are the most
@@ -1924,62 +1867,55 @@ System.out.println(avg.getAsDouble()); // 2.0
 > API tasarımcıları da onlarla birlikte gitti.
 > **English:** When you see the word stream on the exam, pay attention to the case.
 >
-> **Türkçe:** Sınavda stream kelimesini gördüğünüzde, davaya dikkat edin.
+> **Türkçe:** Sınavda stream sözcüğünün büyük/küçük harfle yazımına dikkat edin.
 > **English:** With a capital S or in code, Stream is the name of a class that contains an Object type.
 > With a lowercase s, a stream is a concept that might be a Stream, DoubleStream,
 > IntStream, or LongStream.
 >
-> **Türkçe:** Bir büyük S veya kod ile, Stream bir Object türü içeren bir sınıfın adıdır. Bir küçük
-> harf s ile, bir stream bir Stream, DoubleStream, IntStream veya LongStream olabilecek
-> bir kavramdır.
+> **Türkçe:** Büyük `S` ile `Stream`, kodda reference type öğeleri taşıyan belirli türün adıdır.
+> Küçük `s` ile stream ise `Stream`, `DoubleStream`, `IntStream` veya `LongStream` olabilecek genel
+> kavramı anlatır.
 > **English:** Table 10.5 shows some of the methods that are unique to primitive streams. Notice that
 > we don’t include methods in the table like empty() that you already know from the Stream
 > interface.
 >
 > **Türkçe:** Tablo 10.5, primitive streams ye özgü yöntemlerden bazılarını gösterir. Stream
-> arayüzünden zaten bildiğiniz empty() gibi yöntemleri tabloya dahil etmediğimize dikkat
+> interface'inden zaten bildiğiniz empty() gibi yöntemleri tabloya dahil etmediğimize dikkat
 > edin.
-> **English:** TABLE 10.5 Common primitive stream methods Method Primitive stream Description
-> Arithmetic mean of elements OptionalDouble average() IntStream LongStream DoubleStream
-> Stream<T> boxed() IntStream Stream<T> where T is wrapper class associated with
-> LongStream primitive value DoubleStream OptionalInt max() IntStream Maximum element of
-> stream OptionalLong max() LongStream OptionalDouble max() DoubleStream OptionalInt min()
-> IntStream Minimum element of stream OptionalLong min() LongStream OptionalDouble min()
-> DoubleStream IntStream range(int a, int b) IntStream Returns primitive stream from a
-> (inclusive) to b (exclusive) LongStream range(long a, LongStream long b)
+#### Table 10.5 · Common primitive stream methods
+
+> **English:** Common primitive stream methods.
 >
-> **Türkçe:** TABLE 10.5 Ortak primitive Streams yöntemleri Method Primitive stream Açıklama
-> OptionalDouble average() IntStream LongStream DoubleStream StreamT> T'nin LongStream
-> ilkel değer DoubleStream OptionalInt max() IntStream Maksimum akış elemanı OptionalLong
-> max() DoubleStream OptionalInt min() OptionalOptionalOptionalLong natürelD
-> **English:** IntStream rangeClosed(int a, IntStream Returns primitive stream from int b)
->
-> **Türkçe:** IntStream rangeClosed(int a, IntStream Returns primitive stream from int b)
-> **English:** a (inclusive) to b (inclusive)
->
-> **Türkçe:** a (dahil) to b (dahil)
-> **English:** LongStream rangeClosed(long a, LongStream long b)
->
-> **Türkçe:** LongStream rangeClosed(long a, LongStream long b)
+> **Türkçe:** Primitive stream'lere özgü yaygın method'lar. Tablo, kaynak sayfa 558–559'daki satırlarla yeniden kurulmuştur.
+
+<!-- keep-with-next -->
+
+| Method | Primitive stream | Description / Açıklama |
+|---|---|---|
+| `OptionalDouble average()` | IntStream, LongStream, DoubleStream | Arithmetic mean / Aritmetik ortalama |
+| `Stream<T> boxed()` | IntStream, LongStream, DoubleStream | T is the corresponding wrapper / T, ilgili wrapper türüdür |
+| `OptionalInt max()` | IntStream | Maximum / En büyük değer |
+| `OptionalLong max()` | LongStream | Maximum / En büyük değer |
+| `OptionalDouble max()` | DoubleStream | Maximum / En büyük değer |
+| `OptionalInt min()` | IntStream | Minimum / En küçük değer |
+| `OptionalLong min()` | LongStream | Minimum / En küçük değer |
+| `OptionalDouble min()` | DoubleStream | Minimum / En küçük değer |
+| `IntStream range(int a, int b)` | IntStream | a inclusive, b exclusive / a dahil, b hariç |
+| `LongStream range(long a, long b)` | LongStream | a inclusive, b exclusive / a dahil, b hariç |
+| `IntStream rangeClosed(int a, int b)` | IntStream | Both inclusive / İki sınır da dahil |
+| `LongStream rangeClosed(long a, long b)` | LongStream | Both inclusive / İki sınır da dahil |
 
 <!-- source-page: 0559 -->
-> **English:** Method Primitive stream Description
->
-> **Türkçe:** Yöntem Primitive stream Açıklama
-```java
-int sum() IntStream Returns sum of elements in
-```
-> **English:** stream long sum() LongStream double sum() DoubleStream IntSummaryStatistics IntStream
-> Returns object containing numerous stream statistics summaryStatistics()
->
-> **Türkçe:** stream long sum() LongStream double sum() DoubleStream IntSummaryStatistics IntStream
-> Sayısız stream istatistik içeren nesneyi döndürür summaryStatistics()
-> **English:** such as average, min, max, etc. LongSummaryStatistics LongStream summaryStatistics()
->
-> **Türkçe:** gibi ortalama, min, max, vb. LongSummaryStatistics LongStream summaryStatistics()
-> **English:** DoubleSummaryStatistics DoubleStream summaryStatistics()
->
-> **Türkçe:** DoubleSummaryStatistics DoubleStream summaryStatistics()
+
+| Method | Primitive stream | Description / Açıklama |
+|---|---|---|
+| `int sum()` | IntStream | Sum / Toplam |
+| `long sum()` | LongStream | Sum / Toplam |
+| `double sum()` | DoubleStream | Sum / Toplam |
+| `IntSummaryStatistics summaryStatistics()` | IntStream | Count, sum, average, min, max / Sayı, toplam, ortalama, en küçük/en büyük |
+| `LongSummaryStatistics summaryStatistics()` | LongStream | Count, sum, average, min, max / Sayı, toplam, ortalama, en küçük/en büyük |
+| `DoubleSummaryStatistics summaryStatistics()` | DoubleStream | Count, sum, average, min, max / Sayı, toplam, ortalama, en küçük/en büyük |
+
 > **English:** Some of the methods for creating a primitive stream are equivalent to how we created the
 > source for a regular Stream. You can create an empty stream with this:
 >
@@ -1991,8 +1927,8 @@ DoubleStream empty = DoubleStream.empty();
 > **English:** Another way is to use the of() factory method from a single value or by using the
 > varargs overload.
 >
-> **Türkçe:** Başka bir yol, of() factory method değerini tek bir değerden veya varargs aşırı
-> yüklenmesini kullanarak kullanmaktır.
+> **Türkçe:** Bir diğer yol, tek değer alan veya varargs kullanan `of()` factory method
+> overload'udur.
 ```java
 DoubleStream oneValue = DoubleStream.of(3.14);
 oneValue.forEach(System.out::println);
@@ -2021,20 +1957,18 @@ fractions.limit(3).forEach(System.out::println);
 > different. The second stream keeps creating smaller numbers, dividing the previous value
 > by two each time. The output from when we ran this code was as follows:
 >
-> **Türkçe:** streams sonsuz olduğundan, çıktının değerleri sonsuza kadar yazdırmaması için bir sınır
-> intermediate operation ekledik. İlk stream rastgele bir double elde etmek için Matematik
-> üzerinde statik bir yöntem çağırır. Sayılar rastgele olduğundan, çıktınız açıkça farklı
-> olacaktır. İkinci stream, önceki değeri her seferinde ikiye bölerek daha küçük sayılar
-> oluşturmaya devam ediyor. Bu kodu çalıştırdığımızda çıkan çıktı şu şekildeydi:
+> **Türkçe:** Stream'ler sonsuz olduğu için sürekli çıktı üretmemelerini sağlamak amacıyla `limit()`
+> intermediate operation'ı ekledik. İlk stream, `Math` sınıfındaki static method'u çağırarak
+> rastgele `double` üretir; bu yüzden sizin çıktınız farklı olabilir. İkinci stream, önceki değeri
+> her seferinde ikiye bölerek daha küçük sayılar üretir. Örnek çalıştırmanın çıktısı şöyledir:
 > **English:** 0.07890654781186413 0.28564363465842346 0.6311403511266134 0.5 0.25 0.125 You don’t need
 > to know this for the exam, but the Random class provides a method to get primitives
 > streams of random numbers directly. Fun fact! For example, ints() generates an infinite
 > IntStream of primitives.
 >
-> **Türkçe:** 0.07890654781186413 0.2856436344658423446 0.6311403511266134 0.5 0.25 0.125 Sınav için
-> bunu bilmenize gerek yok, ancak Rastgele sınıf, doğrudan rastgele sayıların streams
-> ilkellerini elde etmek için bir yöntem sunar. Eğlenceli bir gerçek! Örneğin, ints()
-> sonsuz IntStream ilkeller üretir.
+> **Türkçe:** `0.07890654781186413`, `0.28564363465842346`, `0.6311403511266134`, `0.5`, `0.25`,
+> `0.125` örnek çıktılardır. Sınav için gerekmez, ancak `Random` sınıfı doğrudan rastgele sayılardan
+> primitive stream üretir. Örneğin `ints()`, sonsuz bir `IntStream` oluşturur.
 > **English:** It works the same way for each type of primitive stream. When dealing with int or long
 > primitives, it is common to count. Suppose that we wanted a stream with the numbers from
 > 1 through 5. We could write this using what we’ve explained so far:
@@ -2049,8 +1983,8 @@ count.forEach(System.out::print); // 12345
 > **English:** This code does print out the numbers 1–5. However, it is a lot of code to do something
 > so simple. Java provides a method that can generate a range of numbers.
 >
-> **Türkçe:** Bu kod 15 numaralarını yazdırır. Ancak, bu kadar basit bir şey yapmak çok fazla kod.
-> Java bir dizi sayı üretebilecek bir yöntem sağlar.
+> **Türkçe:** Bu kod 1'den 5'e kadar olan sayıları yazdırır; ancak bu kadar basit bir işlem için
+> uzundur. Java, sayı aralığı üreten bir method sağlar.
 ```java
 IntStream range = IntStream.range(1, 6);
 range.forEach(System.out::print); // 12345
@@ -2061,11 +1995,9 @@ range.forEach(System.out::print); // 12345
 > number. However, it still could be clearer. We want the numbers 1–5 inclusive. Luckily,
 > there’s another method, rangeClosed(), which is inclusive on both parameters.
 >
-> **Türkçe:** Bu daha iyi. Eğer 15 numaralar istediysek, neden 16'yı geçtik? range() yönteminin ilk
-> parametresi kapsayıcıdır, yani sayıyı içerir. range() yönteminin ikinci parametresi
-> özeldir, yani bu sayıdan hemen önce durur. Ancak, yine de daha açık olabilir. 15
-> sayılarının dahil edilmesini istiyoruz. Neyse ki, her iki parametrede de kapsayıcı olan
-> rangeClosed() başka bir yöntem var.
+> **Türkçe:** Bu daha kısa. Peki 1–5 arasındaki sayıları isterken neden `1` ve `6` verdik? `range()`
+> başlangıç değerini dahil eder, bitiş değerini hariç tutar; yani 6'dan hemen önce durur. İki
+> sınırın da dahil olduğu 1–5 aralığını daha açık ifade etmek için `rangeClosed()` kullanabiliriz.
 ```java
 IntStream rangeClosed = IntStream.rangeClosed(1, 5);
 rangeClosed.forEach(System.out::print); // 12345
@@ -2085,22 +2017,21 @@ rangeClosed.forEach(System.out::print); // 12345
 > gösterir.
 
 <!-- source-page: 0561 -->
-> **English:** TABLE 10.6 Mapping methods between types of streams Source To create To create To create
-> To create stream class Stream DoubleStream IntStream LongStream Stream<T> map()
-> mapToDouble() mapToInt() mapToLong()
+#### Table 10.6 · Mapping methods between stream types
+
+> **English:** Mapping methods between types of streams.
 >
-> **Türkçe:** TABLE 10.6 Akış türleri arasındaki haritalama yöntemleri Kaynak Yaratmak için Oluşturun
-> Akış sınıfı oluşturmak için Stream DoubleStream IntStream LongStream StreamT> map()
-> mapToDouble() mapToInt() mapToLong()
-> **English:** DoubleStream mapToObj() map() mapToInt() mapToLong()
->
-> **Türkçe:** DoubleStream mapToObj() mapToInt() mapToLong()
-> **English:** IntStream mapToObj() mapToDouble() map() mapToLong()
->
-> **Türkçe:** IntStream mapToObj() mapToDouble() map() mapToLong()
-> **English:** LongStream mapToObj() mapToDouble() mapToInt() map()
->
-> **Türkçe:** LongStream mapToObj() mapToDouble() mapToInt() map
+> **Türkçe:** Başlangıç ve hedef stream türüne göre mapping method'u.
+
+<!-- keep-with-next -->
+
+| Source / Kaynak | Stream | DoubleStream | IntStream | LongStream |
+|---|---|---|---|---|
+| `Stream<T>` | `map()` | `mapToDouble()` | `mapToInt()` | `mapToLong()` |
+| `DoubleStream` | `mapToObj()` | `map()` | `mapToInt()` | `mapToLong()` |
+| `IntStream` | `mapToObj()` | `mapToDouble()` | `map()` | `mapToLong()` |
+| `LongStream` | `mapToObj()` | `mapToDouble()` | `mapToInt()` | `map()` |
+
 > **English:** Obviously, they have to be compatible types for this to work. Java requires a mapping
 > function to be provided as a parameter, for example:
 >
@@ -2156,20 +2087,25 @@ LongStream longs = integerList.stream()
 ```
 
 <!-- source-page: 0562 -->
-> **English:** TABLE 10.7 Function parameters when mapping between types of streams To create To create
-> To create To create Source stream class Stream DoubleStream IntStream LongStream ToInt
-> ToLongStream<T> Function<T,R> ToDouble Function<T> Function<T> Function<T> DoubleStream
-> Double DoubleUnary DoubleToInt DoubleToLong Function<R> Operator Function Function
-> IntStream IntFunction<R> IntToDouble IntUnary IntToLong Function Operator Function
-> LongStream Long LongToDouble LongToInt LongUnary Function<R> Function Function Operator
-> Additionally, you can create a Stream from a primitive stream. These methods show two
-> ways of accomplishing this:
+#### Table 10.7 · Function parameters for mapping
+
+> **English:** Function parameters when mapping between types of streams.
 >
-> **Türkçe:** TABLE 10.7 Akış türleri arasında eşleme yaparken fonksiyon parametreleri Oluşturulmak
-> için oluşturmak için Kaynak akışı sınıfı oluşturmak için Stream DoubleStream IntStream
-> LongStream ToInt ToLongStreamT> İşleviT> İşleviT> ÇiftStream DoubleUnary ÇiftStream
-> UzunStream İşleviR> Operatör İşlevi IntStream İşlevi IntDoubleTot İşlevi Bu yöntemler
-> bunu başarmanın iki yolunu göstermektedir:
+> **Türkçe:** Mapping method'una verilecek functional interface, kaynak ve hedef türlerle belirlenir.
+
+<!-- keep-with-next -->
+
+| Source / Kaynak | Stream | DoubleStream | IntStream | LongStream |
+|---|---|---|---|---|
+| `Stream<T>` | `Function<T,R>` | `ToDoubleFunction<T>` | `ToIntFunction<T>` | `ToLongFunction<T>` |
+| `DoubleStream` | `DoubleFunction<R>` | `DoubleUnaryOperator` | `DoubleToIntFunction` | `DoubleToLongFunction` |
+| `IntStream` | `IntFunction<R>` | `IntToDoubleFunction` | `IntUnaryOperator` | `IntToLongFunction` |
+| `LongStream` | `LongFunction<R>` | `LongToDoubleFunction` | `LongToIntFunction` | `LongUnaryOperator` |
+
+> **English:** Additionally, you can create a Stream from a primitive stream. These methods show two ways of accomplishing this:
+>
+> **Türkçe:** Bir primitive stream'den object stream de oluşturabilirsiniz. Aşağıdaki method'lar bunun iki yolunu gösterir:
+
 ```java
 private static Stream<Integer> mapping(IntStream stream) {
 return stream.mapToObj(x -> x);
@@ -2183,17 +2119,16 @@ return stream.boxed();
 > primitive to the corresponding wrapper object. The boxed() method exists on all three
 > types of primitive streams.
 >
-> **Türkçe:** İlki, daha önce gördüğümüz mapToObj() yöntemini kullanıyor. İkincisi ise daha özdür.
-> mapping function gerektirmez, çünkü tek yaptığı her bir ilkeli ilgili ambalaj nesnesine
-> otomatik kutulamaktır. boxed() yöntemi her üç primitive streams türünde de mevcuttur.
+> **Türkçe:** İlk biçim, daha önce gördüğümüz `mapToObj()` method'unu kullanır. İkincisi daha
+> kısadır: her primitive değeri uygun wrapper nesnesine boxing ile dönüştürdüğü için ayrıca mapping
+> function gerekmez. `boxed()` üç primitive stream türünde de bulunur.
 ### Using Optional with Primitive Streams
 > **English:** Earlier in the chapter, we wrote a method to calculate the average of an int[] and
 > promised a better way later. Now that you know about primitive streams, you can
 > calculate the average in one line.
 >
-> **Türkçe:** Bölümün başlarında, bir int ortalamasını hesaplamak için bir yöntem yazdık ve daha sonra
-> daha iyi bir yol vaat ettik. Artık primitive streams hakkında bilgi sahibi olduğunuza
-> göre, bir satırdaki ortalamayı hesaplayabilirsiniz.
+> **Türkçe:** Bölümün başında `int[]` içindeki sayıların ortalamasını hesaplayan bir method
+> yazmıştık. Primitive stream'leri öğrendiğinize göre artık bunu tek satırda hesaplayabilirsiniz.
 ```java
 var stream = IntStream.rangeClosed(1,10);
 OptionalDouble optional = stream.average();
@@ -2204,11 +2139,9 @@ OptionalDouble optional = stream.average();
 > Optional<Double> is for the Double wrapper class. Working with the primitive optional
 > class looks similar to working with the Optional class itself.
 >
-> **Türkçe:** return type kullanmaya alıştığınız Optional değildir. OptionalDouble olarak adlandırılan
-> yeni bir türdür. Neden ayrı bir tipimiz var, merak edebilirsiniz. Neden sadece
-> Optional<Double> kullanmıyorsunuz? Aradaki fark, OptionalDouble ilkel ve
-> Optional<Double> ise Double ambalaj sınıfı içindir. İlkel optional sınıfıyla çalışmak,
-> Optional sınıfıyla çalışmaya benzer.
+> **Türkçe:** Dönüş türü alıştığınız `Optional` değil, `OptionalDouble` olur. Neden
+> `Optional<Double>` kullanılmıyor? `OptionalDouble` doğrudan primitive `double` taşırken
+> `Optional<Double>` bir `Double` wrapper nesnesi taşır. Kullanımları birbirine benzer.
 
 <!-- source-page: 0563 -->
 ```java
@@ -2220,9 +2153,8 @@ System.out.println(optional.orElseGet(() -> Double.NaN)); // 5.5
 > makes it clear that we are working with a primitive. Also, orElseGet() takes a
 > DoubleSupplier instead of a Supplier.
 >
-> **Türkçe:** Fark edilen tek fark, get() yerine getAsDouble() olarak adlandırdığımızdır. Bu, ilkel
-> bir şeyle çalıştığımızı açıkça ortaya koymaktadır. Ayrıca, orElseGet() bir Supplier
-> yerine bir Çift Tedarikçi alır.
+> **Türkçe:** Belirgin fark, `get()` yerine `getAsDouble()` çağrılmasıdır; bu ad primitive değerle
+> çalıştığımızı gösterir. Ayrıca `orElseGet()`, `Supplier` yerine `DoubleSupplier` alır.
 > **English:** As with the primitive streams, there are three type-specific classes for primitives.
 > Table 10.8 shows the minor differences among the three. You probably won’t be surprised
 > that you have to memorize this table as well. This is really easy to remember since the
@@ -2234,30 +2166,33 @@ System.out.println(optional.orElseGet(() -> Double.NaN)); // 5.5
 > returns an OptionalDouble since an average can potentially have fractional data for any
 > type.
 >
-> **Türkçe:** primitive streams'te olduğu gibi, ilkeller için üç tipe özgü sınıf vardır. Tablo 10.8,
-> üçü arasındaki küçük farklılıkları göstermektedir. Muhtemelen bu masayı da ezberlemek
-> zorunda olduğunuza şaşırmazsınız. Bunu hatırlamak çok kolaydır, çünkü ilkel isim tek
-> değişikliktir. terminal operations bölümünden hatırlamanız gereken gibi, bir dizi stream
-> yöntemi min() veya findAny() gibi bir optional döndürür. Bunların her biri karşılık
-> gelen optional türünü döndürür. primitive stream uygulamaları ayrıca bilmeniz gereken
-> iki yeni yöntem ekler. sum() yöntemi bir optional döndürmez. Boş bir stream eklemeye
-> çalışırsanız, sadece sıfır elde edersiniz. average() yöntemi her zaman bir
-> OptionalDouble döndürür, çünkü bir ortalama herhangi bir tür için potansiyel olarak
-> kesirli verilere sahip olabilir.
-> **English:** TABLE 10.8 Optional types for primitives OptionalDouble OptionalInt OptionalLong Getting
-> as primitive getAsDouble() getAsInt() getAsLong()
+> **Türkçe:** Primitive stream'lerde olduğu gibi primitive Optional için de üç özel tür vardır.
+> Tablo 10.8 bunları karşılaştırır; adlandırmadaki temel fark primitive türüdür. `min()` ve
+> `findAny()` ilgili primitive Optional türünü döndürür. `sum()` ise Optional döndürmez; boş
+> stream'in toplamı sıfırdır. Ortalama hangi sayısal türden hesaplanırsa hesaplansın kesirli
+> olabileceği için `average()` her zaman `OptionalDouble` döndürür.
+#### Table 10.8 · Optional types for primitives
+
+> **English:** Optional types for primitives.
 >
-> **Türkçe:** TABLE 10.8 Optional ilkeller için OptionalDouble OptionalInt OptionalLong İlkel
-> getAsDouble() getAsInt() getAsLong()
-> **English:** orElseGet() parameter type DoubleSupplier IntSupplier LongSupplier Return type of max()
-> and min() OptionalDouble OptionalInt OptionalLong Return type of sum() double int long
-> Return type of average() OptionalDouble OptionalDouble OptionalDouble Let’s try an
-> example to make sure that you understand this:
+> **Türkçe:** Primitive Optional türleri ve ilgili stream işlemlerinin dönüşleri.
+
+<!-- keep-with-next -->
+
+| Operation / İşlem | Double ailesi | Int ailesi | Long ailesi |
+|---|---|---|---|
+| Getting the value / Optional değerini alma | `getAsDouble()` | `getAsInt()` | `getAsLong()` |
+| `orElseGet()` parameter | `DoubleSupplier` | `IntSupplier` | `LongSupplier` |
+| Stream `max()` / `min()` result | `OptionalDouble` | `OptionalInt` | `OptionalLong` |
+| Stream `sum()` result | `double` | `int` | `long` |
+| Stream `average()` result | `OptionalDouble` | `OptionalDouble` | `OptionalDouble` |
+
+> **Editör notu:** `max()`, `min()`, `sum()` ve `average()` Optional method'ları değildir; ilgili primitive stream üzerinde çağrılır.
+
+> **English:** Let’s try an example to make sure that you understand this:
 >
-> **Türkçe:** orElseGet() parametre türü Çift Tedarikçi Int Tedarikçi Uzun Tedarikçi Max() ve min()
-> OptionalDouble OptionalInt OptionalInt OptionalLong Return type of sum() double int long
-> Return type of average() OptionalDouble OptionalDouble OptionalDouble Bunu
-> anladığınızdan emin olmak için bir örnek deneyelim:
+> **Türkçe:** Bu ayrımı pekiştirmek için bir örneğe bakalım:
+
 ```java
 LongStream longs = LongStream.of(5, 10);
 long sum = longs.sum();
@@ -2270,18 +2205,17 @@ OptionalDouble min = doubles.min(); // runs infinitely
 > primitives. Line 9 is there to remind you that a question about code that runs
 > infinitely can appear with primitive streams as well.
 >
-> **Türkçe:** Line 5, iki elementli long ilkellerden oluşan bir stream oluşturur. Satır 6, bir toplamı
-> hesaplamak için bir optional kullanmadığımızı gösterir. Line 8, double ilkellerinden
-> oluşan bir infinite stream oluşturur. 9. satır, sonsuz çalışan kodla ilgili bir sorunun
-> primitive streams ile de görünebileceğini hatırlatmak için oradadır.
+> **Türkçe:** Satır 5, iki `long` öğeli bir stream oluşturur. Satır 6, toplam için Optional
+> kullanılmadığını gösterir. Satır 8 sonsuz bir `DoubleStream` oluşturur. Satır 9 ise sonsuza kadar
+> çalışan kod sorularının primitive stream'lerde de karşınıza çıkabileceğini hatırlatır.
 
 <!-- source-page: 0564 -->
 ### Summarizing Statistics
 > **English:** You’ve learned enough to be able to get the maximum value from a stream of int
 > primitives. If the stream is empty, we want to throw an exception.
 >
-> **Türkçe:** int ilkellerinin bir stream değerinden maksimum değeri elde edebilecek kadar şey
-> öğrendiniz. stream boşsa, bir istisna atmak istiyoruz.
+> **Türkçe:** Artık bir `IntStream` içindeki maksimum değeri bulabilirsiniz. Stream boşsa exception
+> fırlatmak istediğimizi varsayalım.
 ```java
 private static int max(IntStream ints) {
 OptionalInt optional = ints.max();
@@ -2291,8 +2225,8 @@ return optional.orElseThrow(RuntimeException::new);
 > **English:** This should be old hat by now. We got an OptionalInt because we have an IntStream. If
 > the optional contains a value, we return it. Otherwise, we throw a new RuntimeException.
 >
-> **Türkçe:** Bu şimdiye kadar eski bir şapka olmalıydı. OptionalInt var çünkü IntStream var. optional
-> bir değer içeriyorsa, onu iade ederiz. Aksi takdirde yeni bir RuntimeException atarız.
+> **Türkçe:** Bu kullanım artık tanıdık gelmelidir. Kaynak `IntStream` olduğu için sonuç
+> `OptionalInt` olur. Değer varsa döndürürüz; yoksa yeni bir `RuntimeException` fırlatırız.
 > **English:** Now we want to change the method to take an IntStream and return a range. The range is
 > the minimum value subtracted from the maximum value. Uh-oh. Both min() and max() are
 > terminal operations, which means that they use up the stream when they are run. We can’t
@@ -2300,12 +2234,11 @@ return optional.orElseThrow(RuntimeException::new);
 > and the primitive streams solve it for us with summary statistics. Statistic is just a
 > big word for a number that was calculated from data.
 >
-> **Türkçe:** Şimdi bir IntStream almak ve bir aralık döndürmek için yöntemi değiştirmek istiyoruz.
-> Menzil, maksimum değerden çıkarılan minimum değerdir. Uh-oh. Hem min() hem de max()
-> terminal operations'dir, bu da çalıştırıldıklarında stream'yı kullandıkları anlamına
-> gelir. Aynı stream karşısında iki terminal operations çalıştıramayız. Neyse ki, bu
-> yaygın bir sorundur ve primitive streams özet istatistiklerle bizim için çözer.
-> İstatistik, verilerden hesaplanan bir sayı için sadece büyük bir kelimedir.
+> **Türkçe:** Şimdi method'un bir `IntStream` alıp sayıların açıklığını, yani maksimumdan minimum
+> çıkarılınca elde edilen farkı döndürmesini istiyoruz. Hem `min()` hem `max()` terminal operation
+> olduğundan aynı stream üzerinde ikisini ayrı ayrı çalıştıramayız. Primitive stream'ler bu yaygın
+> ihtiyacı summary statistics ile çözer. Statistic burada veriden hesaplanan sayısal bir özet
+> anlamındadır.
 ```java
 private static int range(IntStream ints) {
 IntSummaryStatistics stats = ints.summaryStatistics();
@@ -2323,15 +2256,12 @@ return stats.getMax()- stats.getMin();
 > largest number (maximum) as a double, int, or long depend-ing on the type of the stream.
 > If the stream is empty, returns the smallest numeric value based on the type.
 >
-> **Türkçe:** Burada Java 'den stream ile ilgili birçok hesaplama yapmasını istedik. Özet
-> istatistikler şunları içerir: getCount(): Değer sayısını temsil eden bir long döndürür.
-> getAverage(): Ortalamayı temsil eden bir double döndürür. Akış boşsa, 0 döndürür.
-> getSum(): Toplamı DoubleSummaryStream için çift olarak ve IntSummaryStream ve
-> LongSummaryStream için uzun olarak döndürür. getMin(): Akışın türüne bağlı olarak en
-> küçük sayıyı (minimum) çift, int veya uzun olarak döndürür. Akış boşsa, türüne göre en
-> büyük sayısal değeri döndürür. getMax(): Akışın türüne bağlı olarak en büyük sayıyı
-> (maksimum) çift, int veya uzun olarak döndürür. stream boşsa, türüne göre en küçük
-> sayısal değeri döndürür.
+> **Türkçe:** Stream hakkında birden çok hesaplama yapılır: • `getCount()` öğe sayısını `long`
+> olarak verir. • `getAverage()` ortalamayı `double` olarak verir; boş stream için `0` döner. •
+> `getSum()` toplamı double ailesinde `double`, int ve long ailelerinde `long` olarak verir. •
+> `getMin()` ve `getMax()`, ilgili stream türüne göre `int`, `long` veya `double` döndürür. Kaynak,
+> boş stream için bunları türün en büyük/en küçük değeri olarak özetler; doğru API adları ve double
+> ailesinin özel durumu aşağıdaki editör notundadır.
 
 > **Editor note:** The source uses `DoubleSummaryStream`, `IntSummaryStream`, and
 > `LongSummaryStream` in this paragraph. The Java 17 API types are
@@ -2340,10 +2270,11 @@ return stats.getMax()- stats.getMin();
 > **Editör notu:** Kaynak bu paragrafta `DoubleSummaryStream`, `IntSummaryStream` ve
 > `LongSummaryStream` adlarını kullanıyor. Java 17 API'deki doğru type adları
 > `DoubleSummaryStatistics`, `IntSummaryStatistics` ve `LongSummaryStatistics`tır.
+>
+> **Java 17 ayrıntısı:** Boş `DoubleSummaryStatistics` için minimum `Double.POSITIVE_INFINITY`, maksimum `Double.NEGATIVE_INFINITY` olur. Int/long ailelerinde ise minimum ilgili `MAX_VALUE`, maksimum `MIN_VALUE` olur. Bu değerler gerçek bir öğe değildir; önce `getCount()` kontrol edilir. [Java 17 API](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/DoubleSummaryStatistics.html).
 
 <!-- source-page: 0565 -->
-## Working with Advanced Stream
-## Pipeline Concepts
+## Working with Advanced Stream Pipeline Concepts
 > **English:** Congrats, you only have a few more topics left! In this last stream section, we learn
 > about the relationship between streams and the underlying data, chaining Optional, and
 > grouping collectors. After this, you should be a pro with streams!
@@ -2370,11 +2301,10 @@ System.out.println(stream.count());
 > On line 30, the stream pipeline runs. First, it looks at the source and seeing three
 > elements.
 >
-> **Türkçe:** Doğru cevap 3'tür. 2527 satırları iki elemanlı bir List oluşturur. 28. satır, o List dan
-> bir stream oluşturulmasını ister. streams'nin tembelce değerlendirildiğini unutmayın.
-> Bu, stream'un 28. satırda oluşturulmadığı anlamına gelir. Gerektiğinde veriyi nerede
-> arayacağını bilen bir nesne oluşturulur. 29. hatta List yeni bir eleman alır. 30.
-> satırda stream pipeline çalışır. İlk olarak kaynağa bakar ve üç element görür.
+> **Türkçe:** Doğru cevap `3` olur. 25–27. satırlar iki öğeli bir `List` oluşturur. Satır 28 bu
+> list'ten bir stream ister. Lazy evaluation nedeniyle o anda öğeler işlenmez; gerektiğinde veriye
+> nereden erişeceğini bilen bir stream nesnesi oluşturulur. Satır 29 listeye yeni öğe ekler. Satır
+> 30'da pipeline çalıştığında source içinde üç öğe vardır.
 ### Chaining Optionals
 > **English:** By now, you are familiar with the benefits of chaining operations in a stream pipeline.
 > A few of the intermediate operations for streams are available for Optional.
@@ -2386,7 +2316,7 @@ System.out.println(stream.count());
 > following:
 >
 > **Türkçe:** Size bir Optional<Integer> verildiğini ve değeri yazdırmanız istendiğini, ancak yalnızca
-> üç basamaklı bir sayı olduğunu varsayalım. İşlevsel programlama olmadan şunları
+> üç basamaklı bir sayı olduğunu varsayalım. Functional programming olmadan şunları
 > yazabilirsiniz:
 ```java
 private static void threeDigit(Optional<Integer> optional) {
@@ -2403,8 +2333,8 @@ System.out.println(string);
 > **English:** It works, but it contains nested if statements. That’s extra complexity. Let’s try this
 > again with functional programming:
 >
-> **Türkçe:** İşe yarıyor, ancak ifadeler varsa yuvalanmış içeriyor. Bu ekstra bir karmaşıklık. Bunu
-> fonksiyonel programlama ile tekrar deneyelim:
+> **Türkçe:** Bu kod çalışır, ancak iç içe `if` ifadeleri ek karmaşıklık yaratır. Aynı işlemi
+> functional programming ile yazalım:
 ```java
 private static void threeDigit(Optional<Integer> optional) {
 optional.map(n -> "" + n)
@@ -2418,34 +2348,33 @@ optional.map(n -> "" + n)
 > what happens with both the functional programming and nonfunctional programming
 > approaches.
 >
-> **Türkçe:** Bu çok daha kısa ve daha etkileyicidir. lambdas ile sınav, tek bir ifadeyi oymaya ve
-> parçaları bir yorumla tanımlamaya düşkündür. Bunu burada hem işlevsel programlama hem de
-> işlevsiz programlama yaklaşımlarında neler olduğunu göstermek için yaptık.
+> **Türkçe:** Bu biçim daha kısa ve amacı daha açık gösterir. Lambda sorularında tek bir
+> statement'ın parçaları yorumlarla işaretlenebilir. Burada iki yaklaşımda da hangi bölümün ne
+> yaptığını göstermek için bunu kullandık.
 > **English:** Suppose that we are given an empty Optional. The first approach returns false for the
 > outer if statement. The second approach sees an empty Optional and has both map() and
 > filter() pass it through. Then ifPresent() sees an empty Optional and doesn’t call the
 > Consumer parameter.
 >
-> **Türkçe:** Bize boş bir Optional verildiğini varsayalım. İlk yaklaşım, dış ifade için yanlış döner.
-> İkinci yaklaşım boş bir Optional görür ve hem map() hem de filter() geçer. Ardından
-> ifPresent() boş bir Optional görür ve Consumer parametresini çağırmaz.
+> **Türkçe:** Boş bir `Optional` verildiğini varsayalım. İlk yaklaşımda dış `if` koşulu `false`
+> olur. İkinci yaklaşımda `map()` ve `filter()` boş `Optional` sonucunu korur; `ifPresent()` de
+> değer bulamadığından `Consumer` çağrılmaz.
 > **English:** The next case is where we are given an Optional.of(4). The first approach returns false
 > for the inner if statement. The second approach maps the number 4 to "4". The filter()
 > then returns an empty Optional since the filter doesn’t match, and ifPresent() doesn’t
 > call the Consumer parameter.
 >
-> **Türkçe:** Bir sonraki durum bize bir Optional.of(4) verildiği yerdir. İlk yaklaşım iç ifade için
-> yanlış döner. İkinci yaklaşım maps 4'ten "4"'e kadar olan sayı. filter() daha sonra
-> filtre eşleşmediği için boş bir Optional döndürür ve ifPresent() Consumer parametresini
-> çağırmaz.
+> **Türkçe:** `Optional.of(4)` verildiğinde ilk yaklaşımın iç `if` koşulu `false` olur. İkinci
+> yaklaşım `4` sayısını `"4"` String'ine dönüştürür. Uzunluk koşulu sağlanmadığından `filter()` boş
+> `Optional` döndürür ve `ifPresent()` içindeki `Consumer` çalışmaz.
 > **English:** The final case is where we are given an Optional.of(123). The first approach returns
 > true for both if statements. The second approach maps the number 123 to "123". The
 > filter() then returns the same Optional, and ifPresent() now does call the Consumer
 > parameter.
 >
-> **Türkçe:** Son durum, bize bir Optional.of(123) verildiği yerdir. İlk yaklaşım, her iki ifade için
-> de geçerlidir. İkinci yaklaşım maps "123" için 123 sayısıdır. filter() daha sonra aynı
-> Optional değerini gönderir ve ifPresent() şimdi Consumer parametresini çağırır.
+> **Türkçe:** `Optional.of(123)` verildiğinde ilk yaklaşımda her iki `if` koşulu da `true` olur.
+> İkinci yaklaşım `123` sayısını `"123"` String'ine dönüştürür. `filter()` aynı değeri içeren
+> `Optional`ı korur; `ifPresent()` bu kez `Consumer`ı çağırır.
 > **English:** Now suppose that we wanted to get an Optional<Integer> representing the length of the
 > String contained in another Optional. Easy enough:
 >
@@ -2467,9 +2396,8 @@ Optional<Integer> result = optional
 > Optional, giving us Optional<Optional<Integer>>. Well, that’s no good. The solution is
 > to call flatMap(), instead:
 >
-> **Türkçe:** Sorun, hesap makinesinin Optional<Integer> döndürmesidir. map() yöntemi başka bir
-> Optional ekleyerek bize Optional<Optional<Integer> verir. Bu hiç iyi değil. Çözüm, bunun
-> yerine flatMap() aramaktır:
+> **Türkçe:** `calculator`, `Optional<Integer>` döndürür. `map()` bunu bir kat daha sararak
+> `Optional<Optional<Integer>>` üretir; bu, hedeflenen tür değildir. Çözüm `flatMap()` çağırmaktır:
 ```java
 Optional<Integer> result = optional
 .flatMap(ChainingOptionals::calculator);
@@ -2508,11 +2436,13 @@ throw new IOException();
 public void good() throws IOException {
 ExceptionCaseStudy.create().stream().count();
 }
-Nothing new here. The create() method throws a checked exception. The calling method
 ```
-> **English:** handles or declares it. Now, what about this one?
+> **English:** Nothing new here. The create() method throws a checked exception. The calling method
+> handles or declares it. Now, what about this one?
 >
-> **Türkçe:** tutar veya ilan eder. Peki ya bu?
+> **Türkçe:** `create()` checked exception fırlatır; çağıran method bunu yakalar veya `throws` ile
+> bildirir. Burada yeni bir kural yoktur. Peki aşağıdaki örnek ne olur?
+
 ```java
 public void bad() throws IOException {
 Supplier<List<String>> s = ExceptionCaseStudy::create; // DOES NOT COMPILE
@@ -2526,10 +2456,9 @@ Supplier<List<String>> s = ExceptionCaseStudy::create; // DOES NOT COMPILE
 > interface does not allow checked exceptions. There are two approaches to get around this
 > problem. One is to catch the exception and turn it into an unchecked exception.
 >
-> **Türkçe:** unhandled exception type IOException Şimdi ne diyeceksin? Sorun şu ki, bu method
-> reference genişlettiği lambda bir istisna beyan etmiyor. Supplier arayüzü checked
-> exceptions'ye izin vermez. Bu sorunun üstesinden gelmek için iki yaklaşım vardır. Biri
-> istisnayı yakalamak ve bir unchecked exception haline getirmektir.
+> **Türkçe:** Derleyici `unhandled exception type IOException` hatası verir. Sorun, method
+> reference'ın uyacağı `Supplier.get()` sözleşmesinin checked exception bildirmemesidir. İki çözüm
+> vardır. İlki exception'ı yakalayıp bir unchecked exception içine sarmaktır.
 ```java
 public void ugly() {
 Supplier<List<String>> s = () -> {
@@ -2547,9 +2476,8 @@ throw new RuntimeException(e);
 > the code is supposed to be easy to read and concise. Another alternative is to create a
 > wrapper method with try/catch.
 >
-> **Türkçe:** Bu işe yarıyor. Ama kod çirkin. İşlevsel programlamanın faydalarından biri, kodun
-> okunması kolay ve özlü olması gerektiğidir. Başka bir alternatif, deneme/yakalama ile
-> bir ambalajlama yöntemi oluşturmaktır.
+> **Türkçe:** Bu çözüm çalışır, ancak okuması güçleşir. Functional programming'in amaçlarından biri
+> kısa ve okunaklı koddur. Diğer seçenek, `try/catch` içeren bir wrapper method oluşturmaktır.
 ```java
 private static List<String> createSafe() {
 try {
@@ -2560,7 +2488,7 @@ throw new RuntimeException(e);
 ```
 > **English:** Now we can use the safe wrapper in our Supplier without issue.
 >
-> **Türkçe:** Artık Supplier güvenli ambalajı sorunsuz bir şekilde kullanabiliriz.
+> **Türkçe:** Artık bu wrapper method'u `Supplier` içinde sorunsuz kullanabiliriz.
 ```java
 public void wrapped() {
 Supplier<List<String>> s2 = ExceptionCaseStudy::createSafe;
@@ -2596,81 +2524,66 @@ Supplier<List<String>> s2 = ExceptionCaseStudy::createSafe;
 > exam. You do need to know how to work with some of the common methods declared on this
 > interface. The simplified methods you need to know are in Table 10.9.
 >
-> **Türkçe:** Kendi Spliterator uygulamanız karmaşıklaşabilir ve sınavda uygun bir şekilde değildir.
-> Bu arayüzde ilan edilen bazı yaygın yöntemlerle nasıl çalışılacağını bilmeniz gerekir.
-> Bilmeniz gereken basitleştirilmiş yöntemler Tablo 10.9'dadır.
+> **Türkçe:** Kendi `Spliterator` implementation'ınızı yazmak karmaşık olabilir ve kaynak kitabın
+> sınav kapsamına dahil değildir. Ancak bu interface'in yaygın method'larını kullanmayı
+> bilmelisiniz. Tablo 10.9 bunların sadeleştirilmiş biçimlerini gösterir.
 
 <!-- source-page: 0569 -->
-> **English:** TABLE 10.9 Spliterator methods Method Description Spliterator<T> trySplit()
+#### Table 10.9 · Spliterator methods
+
+> **English:** Spliterator methods.
 >
-> **Türkçe:** TABLE 10.9 Spliterator yöntemleri Yöntem Açıklaması Spliterator<T> trySplit()
-> **English:** Returns Spliterator containing ideally half of the data, which is removed from current
-> Spliterator. This method can be called multiple times and will eventually return null
-> when data is no longer splittable.
->
-> **Türkçe:** Geçerli Spliterator 'den kaldırılan ideal olarak verilerin yarısını içeren Spliterator
-> döndürür. Bu yöntem birden fazla kez çağrılabilir ve sonunda veriler artık bölünemez
-> olduğunda null döndürür.
-> **English:** Processes remaining elements in void forEachRemaining( Consumer<T> c)
->
-> **Türkçe:** void forEachRemaining( Consumer<T> c) içinde kalan öğeleri işler
-> **English:** Spliterator.
->
-> **Türkçe:** Spliterator.
-> **English:** boolean tryAdvance(Consumer<T> c) Processes single element from Spliterator if any
-> remain. Returns whether element was processed.
->
-> **Türkçe:** boolean tryAdvance(Consumer<T> c) Kalan varsa Spliterator tek elemanı işler. Elementin
-> işlenip işlenmediğini döndürür.
+> **Türkçe:** Spliterator method'larının sadeleştirilmiş signature'ları.
+
+<!-- keep-with-next -->
+
+| Method | Description / Açıklama |
+|---|---|
+| `Spliterator<T> trySplit()` | **English:** Returns a Spliterator for part of the remaining data; returns null when it cannot split. **Türkçe:** Kalan verinin bir bölümünü ayırıp yeni Spliterator döndürür; bölemiyorsa null döndürür. |
+| `void forEachRemaining(Consumer<T> c)` | **English:** Processes remaining elements. **Türkçe:** Kalan öğeleri işler. |
+| `boolean tryAdvance(Consumer<T> c)` | **English:** Processes one remaining element and returns whether one was processed. **Türkçe:** Varsa bir öğe işler; öğe işlenip işlenmediğini döndürür. |
+
+> **Kaynak ayrıntısı:** Kitap, `trySplit()` için ideal bölmenin yaklaşık yarı yarıya olduğunu söyler. Bu bir boyut garantisi değildir; ayrılan parça asıl Spliterator'ın kalan kapsamından çıkarılır. Sonraki örnekler kaynaktaki somut bölme davranışını gösterir.
+
 > **English:** Now let’s look at an example where we divide the bag into three:
 >
 > **Türkçe:** Şimdi çantayı üçe böldüğümüz bir örneğe bakalım:
 ```java
-var stream = List.of("bird- ", "bunny- ", "cat- ", "dog- ", "fish- ", "lamb- ",
-"mouse- ");
-Spliterator<String> originalBagOfFood = stream.spliterator();
-Spliterator<String> emmasBag = originalBagOfFood.trySplit();
-emmasBag.forEachRemaining(System.out::print); // bird-bunny-cat-
+12: var stream = List.of("bird-", "bunny-", "cat-", "dog-", "fish-", "lamb-",
+13:    "mouse-");
+14: Spliterator<String> originalBagOfFood = stream.spliterator();
+15: Spliterator<String> emmasBag = originalBagOfFood.trySplit();
+16: emmasBag.forEachRemaining(System.out::print); // bird-bunny-cat-
+17:
+18: Spliterator<String> jillsBag = originalBagOfFood.trySplit();
+19: jillsBag.tryAdvance(System.out::print); // dog-
+20: jillsBag.forEachRemaining(System.out::print); // fish-
+21:
+22: originalBagOfFood.forEachRemaining(System.out::print); // lamb-mouse-
 ```
-> **English:** 17:
->
-> **Türkçe:** 17:
-```java
-Spliterator<String> jillsBag = originalBagOfFood.trySplit();
-jillsBag.tryAdvance(System.out::print); // dog-
-jillsBag.forEachRemaining(System.out::print); // fish-
-```
-> **English:** 21:
->
-> **Türkçe:** 21:
-```java
-originalBagOfFood.forEachRemaining(System.out::print); // lamb-mouse-
-```
+
 > **English:** On lines 12 and 13, we define a List. Lines 14 and 15 create two Spliterator references.
 > The first is the original bag, which contains all seven elements. The second is our
 > split of the original bag, putting roughly half of the elements at the front into Emma’s
 > bag. We then print the three contents of Emma’s bag on line 16.
 >
-> **Türkçe:** 12 ve 13 satırlarında bir List tanımlarız. 14. ve 15. satırlar iki Spliterator referans
-> oluşturur. Birincisi, yedi elementin tümünü içeren orijinal çantadır. İkincisi, orijinal
-> çantanın yaklaşık yarısını Emma'nın çantasına koyarak, orijinal çantanın bölünmesidir.
-> Daha sonra Emma'nın çantasının üç içeriğini 16. hatta basıyoruz.
+> **Türkçe:** 12 ve 13. satırlar bir `List` tanımlar. 14 ve 15. satırlar iki `Spliterator` referansı
+> oluşturur. İlki başta yedi öğeyi içeren asıl torbadır. İkincisi, öndeki öğelerin yaklaşık
+> yarısının ayrıldığı Emma'nın torbasıdır. Satır 16, Emma'nın torbasındaki üç öğeyi yazdırır.
 > **English:** Our original bag of food now contains four elements. We create a new Spliterator on line
 > 18 and put the first two elements into Jill’s bag. We use tryAdvance() on line 19 to
 > output a single element, and then line 20 prints all remaining elements (just one
 > left!).
 >
-> **Türkçe:** Orijinal gıda torbamız şu anda dört element içeriyor. 18. hatta yeni bir Spliterator
-> oluşturuyoruz ve ilk iki elemanı Jill'in çantasına koyuyoruz. Tek bir eleman çıkarmak
-> için tryAdvance() satırını kullanıyoruz ve daha sonra kalan tüm elemanları (sadece bir
-> tane kaldı!) satır 20 yazdırıyoruz.
+> **Türkçe:** Asıl torbada artık dört öğe kalır. Satır 18'de yeni bir `Spliterator` oluşturup ilk
+> iki öğeyi Jill'in torbasına ayırırız. Satır 19, `tryAdvance()` ile bir öğeyi; satır 20 ise geriye
+> kalan tek öğeyi yazdırır.
 > **English:** We started with seven elements, removed three, and then removed two more. This leaves us
 > with two elements in the original bag created on line 14. These two items are output on
 > line 22.
 >
-> **Türkçe:** Yedi elementle başladık, üç elementi kaldırdık ve iki elementi daha kaldırdık. Bu da
-> bize 14. hatta oluşturulan orijinal çantada iki eleman bırakıyor. Bu iki parça 22. hatta
-> çıktı.
+> **Türkçe:** Yedi öğeden önce üçü, sonra ikisi ayrıldığı için asıl torbada iki öğe kalır. Satır 22
+> bu iki öğeyi yazdırır.
 
 <!-- source-page: 0570 -->
 > **English:** Now let’s try an example with a Stream. This is a complicated way to print out 123:
@@ -2714,16 +2627,15 @@ newBag.tryAdvance(System.out::print); // 3
 > 'i gördünüz. Tablo 10.10'da gösterilenler de dahil olmak üzere birçok önceden
 > tanımlanmış collectors vardır. Bu collectors, Collectors sınıfı üzerinde statik
 > yöntemlerle kullanılabilir. Aşağıdaki bölümlerde farklı collectors türlerine bakıyoruz.
-> Basitlik için jenerik tipleri dışarıda bıraktık.
-```java
-There is one more collector called reducing(). You don’t need to know it
-```
-> **English:** for the exam. It is a general reduction in case all of the previous collectors don’t
-> meet your needs.
+> Basitlik için generic tipleri dışarıda bıraktık.
+> **English:** There is one more collector called reducing(). You don’t need to know it for the
+> exam. It is a general reduction in case all of the previous collectors don’t meet your needs.
 >
-> **Türkçe:** Sınav için. Önceki collectors tüm gereksinimlerinizi karşılamaması durumunda genel bir
-> reduction'dir.
-#### Using Basic Collectors
+> **Türkçe:** `reducing()` adlı başka bir collector da vardır. Kaynak kitap bunu sınav için gerekli
+> görmez. Önceki collector'lar ihtiyacınızı karşılamadığında kullanılabilecek genel bir reduction
+> sağlar.
+
+### Using Basic Collectors
 > **English:** Luckily, many of these collectors work the same way. Let’s look at an example:
 >
 > **Türkçe:** Neyse ki, bu collectors ların çoğu aynı şekilde çalışır. Bir örneğe bakalım:
@@ -2737,121 +2649,64 @@ System.out.println(result); // lions, tigers, bears
 > Collections. In fact, you see this pattern again in Chapter 14 when working with Paths
 > and Path and other related types.
 >
-> **Türkçe:** Collector arayüzü yerine Collectors sınıfında önceden tanımlanmış collectors öğesinin
-> nasıl olduğuna dikkat edin. Bu, Collection ve Collections ile gördüğünüz ortak bir
-> temadır. Aslında, Bölüm 14'te Paths and Path ve diğer ilgili türlerle çalışırken bu
-> deseni tekrar görüyorsunuz.
+> **Türkçe:** Hazır collector'ların `Collector` interface'inde değil `Collectors` sınıfında
+> bulunduğuna dikkat edin. `Collection`–`Collections` ayrımında da aynı düzeni gördünüz. Bölüm
+> 14'teki `Path`–`Paths` ilişkisi de benzer bir örnektir.
 
 <!-- source-page: 0571 -->
-> **English:** TABLE 10.10 Examples of grouping/partitioning collectors Return value when passed
-> Collector Description to collect Calculates average for averagingDouble( Double three
-> core primitive ToDoubleFunction f)
+#### Table 10.10 · Examples of grouping/partitioning collectors
+
+> **English:** Examples of grouping/partitioning collectors. Return value when passed to collect.
 >
-> **Türkçe:** TABLE 10.10 grouping/partitioning collectors Örnekleri Collector Tanımlandığında geri
-> dönüş değeri averagingDouble( Double three core primitive ToDoubleFunction f) için
-> ortalama hesaplar
-> **English:** types averagingInt (ToIntFunction f) averagingLong (ToLongFunction f)
->
-> **Türkçe:** türleri averagingInt (ToIntFunction f) averagingLong (ToLongFunction f)
-> **English:** counting() Counts number of ele-Long ments Applies filter before filtering(Predicate p,
-> R calling downstream Collector c)
->
-> **Türkçe:** counting() Ele-Long ments sayısını sayar filtering(Predicate p, R calling downstream
-> Collector c) önce filtre uygular
-> **English:** collector Creates map grouping groupingBy(Function f)
->
-> **Türkçe:** collector map grouping groupingBy(Function f) oluşturur
-> **English:** Map<K, List<T>> by specified function groupingBy(Function f, with optional map Collector
-> dc)
->
-> **Türkçe:** Map<K, List<T> belirtilen function groupingBy(Function f, with optional map Collector
-> dc)
-> **English:** type supplier and groupingBy(Function f, optional downstream Supplier s, Collector dc)
->
-> **Türkçe:** supplier ve groupingBy(Function f, optional downstream Supplier s, Collector dc) yazın
-> **English:** collector joining(CharSequence cs) Creates String single String using cs as delimiter
-> bet-ween elements if one is specified Finds largest/smallest maxBy(Comparator c)
->
-> **Türkçe:** collector joining(CharSequence cs) Cs'yi sınırlayıcı olarak kullanarak String tek String
-> oluşturur Eğer belirtilmişse en büyük/en küçük maxBy(Comparator c) bulur
-> **English:** Optional<T> elements minBy(Comparator c)
->
-> **Türkçe:** Optional<T> elemanları minBy(Comparator c)
-> **English:** Adds another level of mapping(Function f, Collector collectors Collector dc)
->
-> **Türkçe:** Başka bir mapping(Function f, Collector collectors Collector dc) seviyesi ekler
-> **English:** Creates map grouping partitioningBy(Predicate p)
->
-> **Türkçe:** map grouping partitioningBy(Predicate p) oluşturur
-> **English:** Map<Boolean, List<T>> by specified predicate partitioningBy(Predicate p, with optional
-> further Collector dc)
->
-> **Türkçe:** Map<Boolean, List<T> belirtilen predicate partitioningBy(Predicate p, with optional
-> further Collector dc)
-> **English:** downstream collector Calculates average, summarizingDouble( DoubleSummaryStatistics min,
-> max, etc. ToDoubleFunction f)
->
-> **Türkçe:** aşağı akış collector Ortalamayı hesaplar, summarizingDouble( DoubleSummaryStatistics
-> min, max, etc. ToDoubleFunction f)
-> **English:** IntSummaryStatistics LongSummaryStatistics summarizingInt( ToIntFunction f)
-> summarizingLong( ToLongFunction f)
->
-> **Türkçe:** IntSummaryStatistics LongSummaryStatistics summarizingInt( ToIntFunction f)
-> summarizingLong( ToLongFunction f)
-> **English:** (continued)
->
-> **Türkçe:** (devam)
+> **Türkçe:** Grouping/partitioning dahil yaygın collector'lar ve `collect()` sonucunun türü. Kaynak sayfa 571–572'deki bütün overload aileleri aşağıda korunmuştur; signature'lardaki generic ayrıntılar kaynakta olduğu gibi sadeleştirilmiştir.
+
+<!-- keep-with-next -->
+
+| Collector | Description / Açıklama | collect sonucu |
+|---|---|---|
+| `averagingDouble(ToDoubleFunction f)` | Average / Ortalama | `Double` |
+| `averagingInt(ToIntFunction f)` | Average / Ortalama | `Double` |
+| `averagingLong(ToLongFunction f)` | Average / Ortalama | `Double` |
+| `counting()` | Count elements / Öğeleri sayar | `Long` |
+| `filtering(Predicate p, Collector c)` | Filter before downstream collector / Downstream öncesinde filtreler | `R` |
+| `groupingBy(Function f)` | Group by function / Function sonucuna göre gruplar | `Map<K,List<T>>` |
+| `groupingBy(Function f, Collector dc)` | Group, then collect each group / Her grubu downstream ile toplar | `Map<K,D>` |
+| `groupingBy(Function f, Supplier s, Collector dc)` | Choose map type and downstream / Map türünü ve downstream'i seçer | `M extends Map<K,D>` |
+| `joining(CharSequence cs)` | Join with delimiter / Ayraçla birleştirir | `String` |
+| `maxBy(Comparator c)` | Maximum / En büyük öğe | `Optional<T>` |
+| `minBy(Comparator c)` | Minimum / En küçük öğe | `Optional<T>` |
+| `mapping(Function f, Collector dc)` | Transform before downstream / Downstream öncesinde dönüştürür | `R` |
+| `partitioningBy(Predicate p)` | Group by boolean / true ve false grupları | `Map<Boolean,List<T>>` |
+| `partitioningBy(Predicate p, Collector dc)` | Partition with downstream / Grupları downstream ile toplar | `Map<Boolean,D>` |
+| `summarizingDouble(ToDoubleFunction f)` | Summary statistics / Özet istatistikler | `DoubleSummaryStatistics` |
+| `summarizingInt(ToIntFunction f)` | Summary statistics / Özet istatistikler | `IntSummaryStatistics` |
+| `summarizingLong(ToLongFunction f)` | Summary statistics / Özet istatistikler | `LongSummaryStatistics` |
 
 <!-- source-page: 0572 -->
-> **English:** TABLE 10.10 Examples of grouping/partitioning collectors Return value when passed
-> Collector Description to collect Calculates sum for our summingDouble( Double three core
-> primitive ToDoubleFunction f)
->
-> **Türkçe:** TABLE 10.10 grouping/partitioning collectors Örnekleri Collector Çıktığında geri dönüş
-> değeri summingDouble( Double three core primitive ToDoubleFunction f) için toplam
-> hesaplama açıklaması
-> **English:** Integer types summingInt(ToIntFunction f)
->
-> **Türkçe:** Integer türleri summingInt(ToIntFunction f)
-> **English:** Long summingLong(ToLongFunction f)
->
-> **Türkçe:** Long summingLong(ToLongFunction f)
-> **English:** Works with results of teeing(Collector c1, R two collectors to cre-Collector c2,
-> BiFunction f)
->
-> **Türkçe:** teeing(Collector c1, R two collectors to cre-Collector c2, BiFunction f) sonuçlarıyla
-> çalışır
-> **English:** ate new type Creates arbitrary type toList()
->
-> **Türkçe:** yeni tip yedi Rastgele tip oluşturur toList()
-> **English:** List of list or set toSet()
->
-> **Türkçe:** List list veya set toSet()
-> **English:** Set toCollection(Supplier s) Creates Collection Collection of specified type Creates map
-> using toMap(Function k, Function v)
->
-> **Türkçe:** Set toCollection(Supplier s) Belirtilen türün Collection Collection oluşturur
-> toMap(Function k, Function v) kullanarak map oluşturur
-> **English:** Map functions to map toMap(Function k, Function v, keys, values, optional BinaryOperator
-> m)
->
-> **Türkçe:** Map functions için map toMap(Function k, Function v, keys, values, optional
-> BinaryOperator m)
-> **English:** merge function, and toMap(Function k, Function v, optional map type BinaryOperator m,
-> Supplier s)
->
-> **Türkçe:** function ve toMap(Function k, Function v, optional map type BinaryOperator m, Supplier
-> s) birleştirin
-> **English:** supplier We pass the predefined joining() collector to the collect() method. All
+
+| Collector | Description / Açıklama | collect sonucu |
+|---|---|---|
+| `summingDouble(ToDoubleFunction f)` | Sum / Toplam | `Double` |
+| `summingInt(ToIntFunction f)` | Sum / Toplam | `Integer` |
+| `summingLong(ToLongFunction f)` | Sum / Toplam | `Long` |
+| `teeing(Collector c1, Collector c2, BiFunction f)` | Merge two collector results / İki collector sonucunu birleştirir | `R` |
+| `toList()` | List implementation / Liste | `List<T>` |
+| `toSet()` | Set implementation / Set | `Set<T>` |
+| `toCollection(Supplier s)` | Selected collection type / Seçilen collection türü | `C extends Collection<T>` |
+| `toMap(Function k, Function v)` | Key/value mapping / Key ve value üretir | `Map<K,V>` |
+| `toMap(Function k, Function v, BinaryOperator m)` | Merge duplicate keys / Duplicate key'ler için birleştirme | `Map<K,V>` |
+| `toMap(Function k, Function v, BinaryOperator m, Supplier s)` | Choose map type / Map türünü de seçer | `M extends Map<K,V>` |
+
+> **Editör notu · Dönüş türleri:** Kaynak tabloda `mapping()` satırındaki “Collector”, method'un ürettiği yardımcı nesneyi anlatır; `collect()` sonucunun türü downstream collector'ın `R` türüdür. `groupingBy()` ve `partitioningBy()` için de downstream verilince value mutlaka List olmaz. Tabloda bu sonuç türleri açıkça düzeltilmiştir. `toList()` ve `toSet()` belirli bir implementation veya mutability garantisi vermez. [Java 17 Collectors API](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/Collectors.html).
+
+> **English:** We pass the predefined joining() collector to the collect() method. All
 > elements of the stream are then merged into a String with the specified delimiter
 > between each element. It is important to pass the Collector to the collect method. It
 > exists to help collect elements. A Collector doesn’t do anything on its own.
 >
-> **Türkçe:** supplier Önceden tanımlanmış joining() collector metodunu collect() metoduna geçiririz.
-> stream 'nın tüm elemanları daha sonra her eleman arasında belirtilen sınırlayıcı ile bir
-> String olarak birleştirilir. Collector'u toplama yöntemine geçirmek önemlidir.
-> Elementleri toplamaya yardımcı olmak için vardır. Bir Collector kendi başına hiçbir şey
-> yapmaz.
+> **Türkçe:** Hazır `joining()` collector'ını `collect()` method'una veririz. Stream'in öğeleri,
+> aralarına belirtilen ayraç konarak tek bir String'de birleştirilir. Collector'ı `collect()`
+> işlemine vermek gerekir; collector kendi başına öğeleri işlemeye başlamaz.
 > **English:** Let’s try another one. What is the average length of the three animal names?
 >
 > **Türkçe:** Bir tane daha deneyelim. Üç hayvan adının ortalama uzunluğu nedir?
@@ -2866,11 +2721,10 @@ System.out.println(result); // 5.333333333333333
 > the result of an average was always a double, regardless of what type is being averaged.
 > For collectors, it is a Double since those need an Object.
 >
-> **Türkçe:** Desen aynı. collector'den collect()'a geçiyoruz ve bizim için ortalamayı
-> gerçekleştiriyor. Bu sefer, collector ortalamasını söylemek için bir function geçmemiz
-> gerekiyordu. method reference kullandık, bu da yürütme üzerine int döndürür. primitive
-> streams ile, bir ortalamanın sonucu, hangi tür ortalamaya sahip olursa olsun, her zaman
-> bir double idi. collectors için, bir Nesneye ihtiyaç duydukları için bir Double 'dir.
+> **Türkçe:** Yine bir collector'ı `collect()` method'una veriyoruz; bu kez ortalama hesaplanıyor.
+> Hangi değerin ortalamasının alınacağını belirtmek için `int` döndüren bir method reference verdik.
+> Primitive stream'deki `average()` bir `OptionalDouble` döndürür; varsa içindeki değer `double`
+> olur. Bu collector ise nesne sonucu gerektiğinden `Double` döndürür.
 
 <!-- source-page: 0573 -->
 > **English:** Often, you’ll find yourself interacting with code that was written without streams. This
@@ -2908,9 +2762,9 @@ System.out.println(result); // [tigers]
 > Make sure that you understand each example before going on to the next one. Let’s start
 > with a straightforward example to create a map from a stream:
 >
-> **Türkçe:** maps içeren Collectors kodu oldukça long alabilir. Yavaş yavaş inşa edeceğiz. Bir
-> sonrakine geçmeden önce her örneği anladığınızdan emin olun. Bir stream 'den bir map
-> oluşturmak için basit bir örnekle başlayalım:
+> **Türkçe:** Map üreten collector kodları uzayabilir. Örnekleri adım adım geliştireceğiz; sonrakine
+> geçmeden her birini anladığınızdan emin olun. Önce stream'den map oluşturan basit bir örneğe
+> bakalım:
 ```java
 var ohMy = Stream.of("lions", "tigers", "bears");
 Map<String, Integer> map = ohMy.collect(
@@ -2922,26 +2776,21 @@ System.out.println(map); // {lions=5, bears=5, tigers=6}
 > The second function tells the collector how to create the value. In our example, we use
 > the length of the String as the value.
 >
-> **Türkçe:** Bir map oluştururken, iki functions belirtmeniz gerekir. İlk function, collector
-> anahtarın nasıl oluşturulacağını söyler. Örneğimizde, sağlanan String anahtar olarak
-> kullanılır. İkinci function collector değerini nasıl oluşturacağını söyler. Örneğimizde,
-> String uzunluğunu değer olarak kullanırız.
-> **English:** Returning the same value passed into a lambda is a common oper-ation, so Java provides a
-> method for it. You can rewrite s -> s as
+> **Türkçe:** Map oluştururken iki function verilir. İlki key'in nasıl üretileceğini belirler;
+> burada String'in kendisi key olur. İkincisi value'yu belirler; burada String uzunluğu kullanılır.
+> **English:** Returning the same value passed into a lambda is a common operation, so Java provides
+> a method for it. You can rewrite s -> s as Function.identity(). It is not shorter and may or may
+> not be clearer, so use your judgment about whether to use it.
 >
-> **Türkçe:** lambda'a aktarılan aynı değeri döndürmek yaygın bir operasyondur, bu nedenle Java bunun
-> için bir yöntem sağlar. s'yi yeniden yazabilirsiniz -> s olarak
-```java
-Function.identity(). It is not shorter and may or may not be clearer,
-```
-> **English:** so use your judgment about whether to use it.
->
-> **Türkçe:** Bu yüzden onu kullanıp kullanmayacağınıza dair kararınızı kullanın.
+> **Türkçe:** Girdiyi değiştirmeden döndürmek yaygın bir işlem olduğu için Java
+> `Function.identity()` sağlar. `s -> s` yerine bu method kullanılabilir. Daha kısa değildir;
+> hangisinin daha anlaşılır olduğuna bağlama göre karar verin.
+
 > **English:** Now we want to do the reverse and map the length of the animal name to the name itself.
 > Our first incorrect attempt is shown here:
 >
-> **Türkçe:** Şimdi tam tersini yapmak istiyoruz ve map hayvan adının kendi adına olan uzunluğunu. İlk
-> yanlış girişimimiz burada gösterilmiştir:
+> **Türkçe:** Şimdi ters eşlemeyi yapıp hayvan adının uzunluğunu key, adın kendisini value yapmak
+> istiyoruz. İlk, hatalı denememiz şöyledir:
 ```java
 var ohMy = Stream.of("lions", "tigers", "bears");
 Map<Integer, String> map = ohMy.collect(Collectors.toMap(
@@ -2952,11 +2801,9 @@ k -> k)); // BAD
 <!-- source-page: 0574 -->
 > **English:** Running this gives an exception similar to the following:
 >
-> **Türkçe:** Bunu çalıştırmak aşağıdakilere benzer bir istisna verir:
-> **English:** Exception in thread "main"
->
-> **Türkçe:** Exception iş parçacığında "ana"
-```java
+> **Türkçe:** Bu kod çalıştırıldığında aşağıdakine benzer bir exception oluşur:
+```text
+Exception in thread "main"
 java.lang.IllegalStateException: Duplicate key 5
 ```
 > **English:** What’s wrong? Two of the animal names are the same length. We didn’t tell Java what to
@@ -2966,11 +2813,10 @@ java.lang.IllegalStateException: Duplicate key 5
 > our requirement is to create a comma-separated String with the animal names. We could
 > write this:
 >
-> **Türkçe:** Sorun ne? Hayvan adlarından ikisi aynı uzunluktadır. Java ne yapacağımızı söylemedik.
-> collector karşılaştığı ilk kişiyi Optional mi? Karşılaştığı son kişi? İkisini bir araya
-> getirmek mi? collector ne yapacağını bilmediğinden, bir istisna atarak ve onu bizim
-> problemimiz yaparak sorunu "çözer". Ne kadar düşüncelisin. Diyelim ki, gereksinimimiz
-> hayvan isimleriyle virgülle ayrılmış bir String oluşturmak. Bunu yazabiliriz:
+> **Türkçe:** Sorun, iki hayvan adının aynı uzunlukta olmasıdır. Java'ya aynı key için hangi
+> value'nun seçileceğini söylemedik: ilk değer mi, son değer mi, yoksa ikisinin birleşimi mi?
+> Collector bunu kendisi belirleyemediği için exception fırlatır. İstenen sonucun hayvan adlarını
+> virgülle birleştiren bir String olduğunu varsayalım; bunu şöyle belirtebiliriz:
 ```java
 var ohMy = Stream.of("lions", "tigers", "bears");
 Map<Integer, String> map = ohMy.collect(Collectors.toMap(
@@ -2984,9 +2830,8 @@ System.out.println(map.getClass()); // class java.util.HashMap
 > Suppose that we want to mandate that the code return a TreeMap instead. No problem. We
 > would just add a constructor reference as a parameter:
 >
-> **Türkçe:** Böylece Map döndürülen bir HashMap olur. Bu davranışın garantisi yoktur. Diyelim ki,
-> kodun yerine bir TreeMap döndürmesi için yetki vermek istiyoruz. Önemli değil. Bir
-> parametre olarak bir constructor referansı ekleriz:
+> **Türkçe:** Bu çalıştırmada dönen `Map` bir `HashMap`tir; API bu implementation'ı garanti etmez.
+> Özellikle `TreeMap` istiyorsak ek parametre olarak constructor reference verebiliriz:
 ```java
 var ohMy = Stream.of("lions", "tigers", "bears");
 TreeMap<Integer, String> map = ohMy.collect(Collectors.toMap(
@@ -2994,14 +2839,13 @@ String::length,
 k -> k,
 (s1, s2) -> s1 + "," + s2,
 TreeMap::new));
-System.out.println(map); // // {5=lions,bears, 6=tigers}
+System.out.println(map); // {5=lions,bears, 6=tigers}
 System.out.println(map.getClass()); // class java.util.TreeMap
 ```
 > **English:** This time we get the type that we specified. With us so far? This code is long but not
 > particularly complicated. We did promise you that the code would be long!
 >
-> **Türkçe:** Bu sefer belirttiğimiz türe ulaşıyoruz. Şimdiye kadar bizimle mi? Bu kod long ama
-> özellikle karmaşık değil. Kodun long olacağına söz verdik!
+> **Türkçe:** Bu kez belirttiğimiz türü elde ederiz. Kod uzun olsa da adımları karmaşık değildir.
 #### Grouping, Partitioning, and Mapping
 > **English:** Great job getting this far. The exam creators like asking about groupingBy() and
 > partitioningBy(), so make sure you understand these sections very well. Now suppose that
@@ -3024,22 +2868,23 @@ System.out.println(map); // {5=[lions, bears], 6=[tigers]}
 > the stream into a Map. The function determines the keys in the Map. Each value in the
 > Map is a List of all entries that match that key.
 >
-> **Türkçe:** groupingBy() toplayıcısı collection()'a, akışın tüm öğelerini bir Haritaya gruplaması
-> gerektiğini söyler. function, Map içindeki anahtarları belirler. Map içindeki her değer,
-> bu anahtarla eşleşen tüm girdilerin bir List değeridir.
-```java
-Note that the function you call in groupingBy() cannot return null. It
-```
-> **English:** does not allow null keys.
+> **Türkçe:** `groupingBy()` collector'ı, `collect()` işlemine stream'in öğelerini bir `Map` içinde
+> gruplamasını söyler. Verilen function key'leri belirler. Her key'in value'su, o gruba düşen bütün
+> öğeleri içeren bir `List` olur.
+
+> **English:** Note that the function you call in groupingBy() cannot return null. It does not allow
+> null keys.
 >
-> **Türkçe:** null tuşlarına izin vermiyor.
+> **Türkçe:** `groupingBy()` için kullanılan classifier function `null` döndüremez; bu collector
+> `null` key kabul etmez.
+
 > **English:** Suppose that we don’t want a List as the value in the map and prefer a Set instead. No
 > problem. There’s another method signature that lets us pass a downstream collector. This
 > is a second collector that does something special with the values.
 >
-> **Türkçe:** map değeri olarak List istemediğimizi ve bunun yerine Set tercih ettiğimizi varsayalım.
-> Önemli değil. Başka bir method signature daha var, bu da collector akışını geçmemizi
-> sağlıyor. Bu değerlerle özel bir şey yapan ikinci bir collector dir.
+> **Türkçe:** Map'in value'ları için `List` yerine `Set` istediğimizi varsayalım. Başka bir
+> overload, downstream collector vermemizi sağlar. Bu ikinci collector, her gruptaki değerlere
+> uygulanacak toplama işlemini belirler.
 ```java
 var ohMy = Stream.of("lions", "tigers", "bears");
 Map<Integer, Set<String>> map = ohMy.collect(
@@ -3081,16 +2926,15 @@ System.out.println(map);
 > **English:** Partitioning is a special case of grouping. With partitioning, there are only two
 > possible groups: true and false. Partitioning is like splitting a list into two parts.
 >
-> **Türkçe:** Partitioning özel bir grouping durumudur. partitioning ile sadece iki olası grup vardır:
-> doğru ve yanlış. Partitioning bir list'ü iki parçaya bölmek gibidir.
+> **Türkçe:** Partitioning, grouping'in özel bir biçimidir. Yalnız iki grup vardır: `true` ve
+> `false`. Bir listeyi koşula göre iki parçaya ayırmaya benzer.
 > **English:** Suppose that we are making a sign to put outside each animal’s exhibit. We have two
 > sizes of signs. One can accommodate names with five or fewer characters. The other is
 > needed for longer names. We can partition the list according to which sign we need.
 >
-> **Türkçe:** Farz edelim ki, her hayvanın sergisinin dışına çıkmak için bir işaret yapıyoruz. İki
-> boyutlu işaretlerimiz var. Beş veya daha az karakterli isimleri barındırabilirsiniz.
-> Diğeri daha uzun isimler için gereklidir. list işaretini hangi işarete ihtiyaç
-> duyduğumuza göre bölebiliriz.
+> **Türkçe:** Hayvanların bulunduğu alanlar için iki boy tabela hazırladığımızı düşünün. Küçük
+> tabelaya en fazla beş karakterlik adlar, büyük tabelaya daha uzun adlar sığar. Listeyi hangi
+> tabelanın gerektiğine göre iki gruba ayırabiliriz.
 ```java
 var ohMy = Stream.of("lions", "tigers", "bears");
 Map<Boolean, List<String>> map = ohMy.collect(
@@ -3135,9 +2979,9 @@ System.out.println(map); // {false=[], true=[lions, tigers, bears]}
 > collectors that we’ve already shown. For example, we can group by the length of the
 > animal name to see how many of each length we have.
 >
-> **Türkçe:** Türü belirtmek için collector alt akımını kullanmak yerine, daha önce gösterdiğimiz
-> collectors herhangi birini kullanabiliriz. Örneğin, her bir uzunluğun kaç tane olduğunu
-> görmek için hayvan adı uzunluğuna göre gruplayabiliriz.
+> **Türkçe:** Downstream collector yalnız collection türünü seçmek için kullanılmaz; gördüğümüz
+> diğer collector'lar da verilebilir. Örneğin adları uzunluklarına göre gruplandırıp her uzunluktan
+> kaç tane bulunduğunu sayabiliriz.
 ```java
 var ohMy = Stream.of("lions", "tigers", "bears");
 Map<Integer, Long> map = ohMy.collect(
@@ -3150,13 +2994,12 @@ System.out.println(map); // {5=2, 6=1}
 <!-- source-page: 0577 -->
 > **English:** Debugging Complicated Generics
 >
-> **Türkçe:** Hata Ayıklama Karmaşık Jenerikler
-```java
-When working with collect(), there are often many levels of generics, making compiler
-```
-> **English:** errors unreadable. Here are three useful techniques for dealing with this situation:
+> **Türkçe:** Karmaşık generic türlerde hata ayıklama
+> **English:** When working with collect(), there are often many levels of generics, making compiler errors unreadable. Here are three useful techniques for dealing with this situation:
 >
-> **Türkçe:** Hatalar okunamaz. İşte bu durumla başa çıkmak için üç yararlı teknik:
+> **Türkçe:** `collect()` ifadelerinde iç içe generic türler derleyici hatalarını okumayı güçleştirebilir. Bu durumda üç yöntem işe yarar:
+
+
 > **English:** • Start over with a simple statement, and keep adding to it. By making one tiny change
 > at a time, you will know which code introduced the error.
 >
@@ -3167,26 +3010,24 @@ When working with collect(), there are often many levels of generics, making com
 > that the problem lies elsewhere. If it doesn’t compile, you have a much shorter
 > statement to troubleshoot.
 >
-> **Türkçe:** İfadenin parçalarını ayrı ifadelere ayırın. Örneğin,
-> Collectors.groupingBy(String::length, Collectors.counting() yazmayı deneyin; Eğer
-> derlenirse, sorunun başka bir yerde olduğunu bilirsiniz. Derlemiyorsa, sorun gidermek
-> için çok daha kısa bir ifadeniz vardır.
+> **Türkçe:** • İfadenin parçalarını ayrı statement'lara çıkarın. Örneğin
+> `Collectors.groupingBy(String::length, Collectors.counting());` ifadesini tek başına deneyin.
+> Derleniyorsa sorun başka yerdedir; derlenmiyorsa incelemeniz gereken ifade artık çok daha kısadır.
 > **English:** • Use generic wildcards for the return type of the final statement: for example,
 > Map<?,?>. If that change alone allows the code to compile, you’ll know that the problem
 > lies with the return type not being what you expect.
 >
-> **Türkçe:** Son ifadenin return type için genel jokerleri kullanın: örneğin, Map<?,?>. Bu değişiklik
-> tek başına kodun derlenmesine izin veriyorsa, sorunun return type beklediğiniz gibi
-> olmamasıyla ilgili olduğunu bileceksiniz.
+> **Türkçe:** • Sonucun türünde `Map<?, ?>` gibi generic wildcard'lar kullanın. Yalnız bu değişiklik
+> kodu derlenebilir hâle getiriyorsa, beklediğiniz sonuç türü gerçek türle uyuşmuyor demektir.
 > **English:** Finally, there is a mapping() collector that lets us go down a level and add another
 > collector. Suppose that we wanted to get the first letter of the first animal
 > alphabetically of each length. Why? Perhaps for random sampling. The examples on this
 > part of the exam are fairly contrived as well. We’d write the following:
 >
-> **Türkçe:** Son olarak, bir seviye aşağı inmemize ve başka bir collector eklememize izin veren bir
-> mapping() collector var. Farz edelim ki ilk hayvanın ilk harfini alfabetik olarak her
-> uzunlukta almak istedik. Neden sordun? Belki de rastgele örnekleme için. Sınavın bu
-> bölümündeki örnekler de oldukça uydurmadır. Aşağıdakileri yazacağız:
+> **Türkçe:** `mapping()` collector'ı, her grupta değerleri dönüştürüp başka bir collector'a
+> iletmeyi sağlar. Her ad uzunluğu için alfabetik olarak ilk gelen hayvan adının ilk harfini
+> istediğimizi varsayalım. Bu, örnek seçiminde kullanılabilir. Sınavdaki bazı örnekler de böyle
+> yapay gereksinimler içerir. Şöyle yazabiliriz:
 ```java
 var ohMy = Stream.of("lions", "tigers", "bears");
 Map<Integer, Optional<Character>> map = ohMy.collect(
@@ -3239,7 +3080,7 @@ System.out.println(map); // {5=Optional[b], 6=Optional[t]}
 > döndürebilirsiniz.
 > **English:** First, define the return type. We use a record here:
 >
-> **Türkçe:** İlk olarak, return type değerini belirleyin. Burada bir kayıt kullanıyoruz:
+> **Türkçe:** Önce dönüş türünü tanımlayın. Burada bir `record` kullanıyoruz:
 ```java
 record Separations(String spaceSeparated, String commaSeparated) {}
 ```
@@ -3264,11 +3105,10 @@ System.out.println(result);
 > This way, Java is happy because only one object is returned, and we are happy because we
 > don’t have to go through the stream twice.
 >
-> **Türkçe:** Ayrılıklar[spaceSeparated=x y z, commaSeparated=x,y,z] Bu kodda üç Collectors vardır.
-> Bunlardan ikisi joining() içindir ve geri dönmek istediğimiz değerleri üretir. Üçüncüsü,
-> sonuçları dönmek istediğimiz tek nesneye birleştiren teeing(). Bu şekilde, Java mutludur
-> çünkü sadece bir nesne döndürülür ve biz mutluyuz çünkü stream üzerinden iki kez geçmek
-> zorunda değiliz.
+> **Türkçe:** Çıktı `Separations[spaceSeparated=x y z, commaSeparated=x,y,z]` olur. Kodda üç
+> collector vardır. İki `joining()` collector'ı istenen String sonuçlarını üretir. `teeing()` bu iki
+> sonucu döndürülecek tek nesnede birleştirir. Böylece stream iki kez dolaşılmadan iki hesaplamanın
+> sonucu elde edilir.
 ## Summary
 
 > **English:** An Optional<T> can be empty or store a value. You can check whether it contains a value
@@ -3287,22 +3127,19 @@ System.out.println(result);
 > metotları sırasıyla `getAsDouble()`, `getAsInt()` ve `getAsLong()`dur.
 
 > **English:** A stream pipeline has three parts. The source is required, and it creates the data in
-> the stream. There can be zero or more intermediate operations, which aren’t executed
-> until the
+> the stream. There can be zero or more intermediate operations, which aren’t executed until the
+> terminal operation runs. The first stream class we covered was Stream<T>, which takes a generic
+> argument T. The Stream<T> class includes many useful intermediate operations including filter(),
+> map(), flatMap(), and sorted(). Examples of terminal operations include allMatch(), count(), and
+> forEach().
 >
-> **Türkçe:** Bir stream pipeline üç bölümden oluşur. Zorunlu olan kaynak, stream'in verilerini sağlar. Sıfır veya
-> daha fazla intermediate operation (ara işlem) bulunabilir; ancak bu işlemler…
+> **Türkçe:** Bir stream pipeline üç bölümden oluşur. Zorunlu olan source, stream'in verilerini
+> sağlar. Sıfır veya daha fazla intermediate operation bulunabilir; bunlar terminal operation
+> başlayana kadar yürütülmez. İlk ele aldığımız stream türü, `T` type argument'ını kullanan
+> `Stream<T>` idi. `filter()`, `map()`, `flatMap()` ve `sorted()` yararlı intermediate
+> operation'lardır. `allMatch()`, `count()` ve `forEach()` ise terminal operation örnekleridir.
 
 <!-- source-page: 0579 -->
-
-> **English:** terminal operation runs. The first stream class we covered was Stream<T>, which takes a
-> generic argument T. The Stream<T> class includes many useful intermediate operations
-> including filter(), map(), flatMap(), and sorted(). Examples of terminal operations
-> include allMatch(), count(), and forEach().
->
-> **Türkçe:** …terminal operation (sonlandırıcı işlem) çalışana kadar yürütülmez. İlk ele aldığımız stream türü, `T`
-> tür parametresini kullanan `Stream<T>` idi. `filter()`, `map()`, `flatMap()` ve `sorted()` yararlı ara
-> işlemlerdir. `allMatch()`, `count()` ve `forEach()` ise sonlandırıcı işlem örnekleridir.
 
 > **Editör notu · Java 17:** Kaynakta “class” denilen `Stream<T>`, `DoubleStream`, `IntStream` ve `LongStream` Java'da interface'tir. `Optional` türleri ise sınıftır.
 
@@ -4268,16 +4105,15 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 <!-- appendix-source-page: 0942 -->
 ### Official Answer 1
 > **English:** 1.D. No terminal operation is called, so the stream never executes. The first line
-> creates an infi-nite stream reference. If the stream were executed on the second line,
+> creates an infinite stream reference. If the stream were executed on the second line,
 > it would get the first two elements from that infinite stream, "" and "1", and add an
 > extra character, resulting in "2" and "12", respectively. Since the stream is not
 > executed, the reference is printed instead, giving us option D.
 >
-> **Türkçe:** 1.D. terminal operation olarak adlandırılmaz, bu nedenle stream asla çalıştırılmaz. İlk
-> satır bir infi-nite stream referans oluşturur. stream ikinci satırda çalıştırılırsa, ilk
-> iki elemanı o infinite stream, "" ve "1" den alır ve sırasıyla "2" ve "12" ile
-> sonuçlanan ekstra bir karakter ekler. stream çalıştırılmadığından, referans bunun yerine
-> basılır ve bize D seçeneği verilir.
+> **Türkçe:** 1. D. Terminal operation çağrılmadığı için pipeline çalışmaz. İlk satır sonsuz bir
+> stream referansı oluşturur. İkinci satırdaki işlemler yürütülseydi ilk iki öğe `""` ve `"1"`
+> alınarak sonlarına karakter eklenir, sırasıyla `"2"` ve `"12"` elde edilirdi. Ancak pipeline
+> yürütülmediğinden içeriği değil stream referansı yazdırılır; bu yüzden D doğrudur.
 ### Official Answer 2
 > **English:** 2.F. Both streams created in this code snippet are infinite streams. The variable b1 is
 > set to true since anyMatch() terminates. Even though the stream is infinite, Java finds
@@ -4285,30 +4121,28 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > to keep going until the end of the stream since it keeps finding matches. Since all
 > elements continue to match, the program hangs, making option F the answer.
 >
-> **Türkçe:** 2.F. Bu kod snippet'inde oluşturulan her iki streams de infinite streams'dir. anyMatch()
-> sona erdiğinden beri b1 değişkeni set doğrudur. stream sonsuz olsa da, Java ilk elemanda
-> bir eşleşme bulur ve aramayı durdurur. Bununla birlikte, allMatch() çalıştığında,
-> eşleşmeleri bulmaya devam ettiği için stream sonuna kadar devam etmesi gerekir. Tüm
-> elemanlar eşleşmeye devam ettiğinden, program asılır ve F seçeneği cevap olur.
+> **Türkçe:** 2. F. İki kaynak da infinite stream üretir. `anyMatch()` ilk öğede eşleşme bulup
+> sonlandığı için `b1`, `true` olur. `allMatch()` ise sürekli eşleşen öğeler görür; aksini bulmadan
+> veya kaynağın sonuna ulaşmadan sonucu belirleyemez. Kaynak sonsuz olduğundan program sona ermez; F
+> doğrudur.
 ### Official Answer 3
 > **English:** 3.E. An infinite stream is generated where each element is twice as long as the previous
 > one.
 >
-> **Türkçe:** 3.E. Her bir elemanın bir öncekinden iki kat daha uzun olduğu sonsuz bir akış oluşur.
+> **Türkçe:** 3. E. Her öğenin bir öncekinden iki kat uzun olduğu infinite stream oluşturulur.
 > **English:** While this code uses the three-parameter iterate() method, the condition is never false.
 >
-> **Türkçe:** Bu kod üç parametreli iterate() metodunu kullanırken, durum asla yanlış değildir.
+> **Türkçe:** Üç parametreli `iterate()` kullanılsa da koşul hiçbir zaman `false` olmaz.
 > **English:** The variable b1 is set to false because Java finds an element that matches when it gets
 > to the element of length 4. However, the next line tries to operate on the same stream.
 > Since streams can be used only once, this throws an exception that the “stream has
 > already been operated upon or closed” and making option E the answer. If two different
 > streams were used, the result would be option B.
 >
-> **Türkçe:** B1 değişkeni set ile yanlıştır, çünkü Java uzunluk 4 öğesine geldiğinde eşleşen bir
-> eleman bulur. Bununla birlikte, bir sonraki satır aynı stream üzerinde çalışmaya
-> çalışır. streams yalnızca bir kez kullanılabileceğinden, bu, "stream'nin zaten üzerinde
-> çalıştığı veya kapatıldığı" bir istisna atar ve E seçeneğini cevap yapar. Eğer iki
-> farklı streams kullanılmış olsaydı, sonuç B seçeneği olurdu.
+> **Türkçe:** Uzunluğu 4 olan öğe predicate ile eşleştiğinde `noneMatch()` sonucu `false` olur ve
+> `b1` bu değeri alır. Sonraki satır aynı stream'i yeniden kullanır. Stream tek kullanımlık
+> olduğundan `IllegalStateException` oluşur; mesaj `stream has already been operated upon or closed`
+> biçimindedir. Bu yüzden E doğrudur. İki ayrı stream kullanılsaydı B'deki sonuç elde edilirdi.
 ### Official Answer 4
 > **English:** 4.A, B. Terminal operations are the final step in a stream pipeline. Exactly one is
 > required, because it triggers the execution of the entire stream pipeline. Therefore,
@@ -4317,24 +4151,20 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > Finally, option E is incorrect because once a stream pipeline is run, the Stream is
 > marked invalid.
 >
-> **Türkçe:** 4.A, B. Terminal operations bir stream pipeline içindeki son adımdır. Tam olarak bir
-> tane gereklidir, çünkü tüm stream pipeline uygulamasının çalıştırılmasını tetikler. Bu
-> nedenle, A ve B seçenekleri doğrudur. C seçeneği terminal operations yerine intermediate
-> operations için geçerlidir. D seçeneği yanlış çünkü peek() bir intermediate operation.
-> Son olarak, E seçeneği yanlıştır, çünkü bir stream pipeline çalıştırıldığında, Stream
-> geçersiz olarak işaretlenir.
+> **Türkçe:** 4. A, B. Terminal operation pipeline'ın son adımıdır ve işlemenin başlamasını sağlar;
+> bu nedenle A ve B doğrudur. C, intermediate operation'ları anlatır. D yanlıştır çünkü `peek()`
+> intermediate operation'dır. E de yanlıştır: pipeline yürütüldükten sonra aynı stream tekrar
+> kullanılamaz.
 ### Official Answer 5
 > **English:** 5.C, F. Yes, we know this question is a lot of reading. Remember to look for the
 > differences between options rather than studying each line. These options all have much
 > in common. All of them start out with a LongStream and attempt to convert it to an
-> IntStream. How-ever, options B and E are incorrect because they do not cast the long to
+> IntStream. However, options B and E are incorrect because they do not cast the long to
 > an int, resulting in a compiler error on the mapToInt() calls.
 >
-> **Türkçe:** 5.C, F. Evet, bu sorunun çok okunan bir soru olduğunu biliyoruz. Her satırı incelemek
-> yerine seçenekler arasındaki farkları aramayı unutmayın. Bu seçeneklerin hepsinin birçok
-> ortak noktası vardır. Hepsi bir LongStream ile başlar ve bir IntStream'ye dönüştürmeye
-> çalışır. Ne olursa olsun, B ve E seçenekleri yanlıştır, çünkü long yi bir int dosyasına
-> atmaz, bu da mapToInt() çağrılarında bir derleyici hatasına neden olur.
+> **Türkçe:** 5. C, F. Uzun seçenekleri incelerken ortak satırlardan çok farklara odaklanın. Hepsi
+> `LongStream` ile başlayıp `IntStream`e dönüştürmeye çalışır. B ve E, `long` değeri `int` türüne
+> explicit cast ile dönüştürmediğinden `mapToInt()` çağrısında derlenmez.
 
 <!-- appendix-source-page: 0943 -->
 > **English:** Next, we hit the second difference. Options A and D are incorrect because they are
@@ -4342,24 +4172,21 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > we need a nonprimitive Stream. The final difference is that option F specifies the type
 > of Collection. This is allowed, though, meaning both options C and F are correct.
 >
-> **Türkçe:** Daha sonra ikinci farka ulaştık. A ve D seçenekleri yanlış çünkü collect() çağrısından
-> önce boxed() eksik. groupingBy() bir Collection oluşturduğundan, birincil olmayan Stream
-> gerekiyor. Son fark, F seçeneğinin Collection türünü belirtmesidir. Buna izin verilir,
-> ancak C ve F seçeneklerinin her ikisinin de doğru olduğu anlamına gelir.
+> **Türkçe:** A ve D'de `collect()` öncesindeki `boxed()` eksiktir. `groupingBy()` ile üretilen
+> collector'ı kullanmak için burada primitive stream yerine object stream gerekir. F ayrıca sonuç
+> collection türünü seçer; bu geçerlidir. Dolayısıyla C ve F doğrudur.
 ### Official Answer 6
 > **English:** 6.A. Options C and D do not compile because these methods do not take a Predicate
 > parameter and do not return a boolean. When working with streams, it is important to
 > remember the behavior of the underlying functional interfaces. Options B and E are
-> incor-rect. While the code compiles, it runs infinitely. The stream has no way to know
+> incorrect. While the code compiles, it runs infinitely. The stream has no way to know
 > that a match won’t show up later. Option A is correct because it is safe to return false
 > as soon as one element passes through the stream that doesn’t match.
 >
-> **Türkçe:** 6.A. C ve D seçenekleri derlemez, çünkü bu yöntemler bir Predicate parametresi almaz ve
-> bir boolean döndürmez. streams ile çalışırken, altta yatan functional interfaces
-> davranışını hatırlamak önemlidir. B ve E seçenekleri incor-rect'tir. Kod derlenirken,
-> sonsuz çalışır. stream bir maçın daha sonra gelmeyeceğini bilmenin hiçbir yolu yoktur. A
-> seçeneği doğrudur, çünkü bir eleman eşleşmeyen stream 'den geçer geçmez yanlış dönmek
-> güvenlidir.
+> **Türkçe:** 6. A. C ve D'deki method'lar `Predicate` almaz ve `boolean` döndürmez; bu seçenekler
+> derlenmez. B ve E derlenir ama sonsuza kadar çalışır: stream, sonraki bir öğenin eşleşmeyeceğini
+> önceden bilemez. A'da ise eşleşmeyen ilk öğe görülür görülmez `false` döndürmek mümkündür; doğru
+> seçenek A'dır.
 ### Official Answer 7
 > **English:** 7.F. There is no Stream<T> method called compare() or compareTo(), so options A through
 > D can be eliminated. The sorted() method is correct to use in a stream pipeline to
@@ -4367,11 +4194,9 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > The collect() method requires a collector be selected, making option E incorrect and
 > option F correct.
 >
-> **Türkçe:** 7.F. compare() veya compareTo() olarak adlandırılan bir Stream<T> yöntemi yoktur, bu
-> nedenle A ile D arasındaki seçenekler ortadan kaldırılabilir. sorted() yöntemi,
-> sıralanmış bir Stream döndürmek için bir stream pipeline 'da kullanmak için doğrudur.
-> collect() yöntemi stream'u List'a dönüştürmek için kullanılabilir. collect() yöntemi bir
-> collector seçilmesini gerektirir, E seçeneği yanlış ve F seçeneği doğru olur.
+> **Türkçe:** 7. F. `Stream<T>` içinde `compare()` veya `compareTo()` yoktur; A–D elenir. Stream'i
+> sıralamak için `sorted()`, sonucu listeye toplamak için `collect()` kullanılır. Buradaki
+> `collect()` çağrısına collector verilmesi gerektiğinden E yanlış, F doğrudur.
 ### Official Answer 8
 > **English:** 8.D, E. The average() method returns an OptionalDouble since averages of any type can
 > result in a fraction. Therefore, options A and B are both incorrect. The findAny()
@@ -4379,56 +4204,46 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > Therefore, option D is correct. The sum() method returns an int rather than an
 > OptionalInt because the sum of an empty list is zero. Therefore, option E is correct.
 >
-> **Türkçe:** 8.D, E. average() yöntemi bir OptionalDouble döndürür, çünkü herhangi bir türün
-> ortalamaları bir kesirle sonuçlanabilir. Bu nedenle, A ve B seçeneklerinin her ikisi de
-> yanlıştır. findAny() yöntemi bir OptionalInt döndürür, çünkü bulunacak herhangi bir
-> eleman olmayabilir. Bu nedenle D seçeneği doğrudur. sum() yöntemi OptionalInt yerine int
-> döndürür çünkü boş list toplamı sıfırdır. Bu nedenle, E seçeneği doğrudur.
+> **Türkçe:** 8. D, E. Ortalama kesirli olabileceğinden `average()` sonucu `OptionalDouble` olur; A
+> ve B yanlıştır. `IntStream.findAny()`, öğe bulunmaması olasılığı nedeniyle `OptionalInt` döndürür;
+> D doğrudur. `sum()` ise boş stream için sıfır verdiğinden `OptionalInt` yerine `int` döndürür; E
+> doğrudur.
 ### Official Answer 9
 > **English:** 9.B, D. Lines 4–6 compile and run without issue, making option F incorrect. Line 4
 > creates a stream of elements [1, 2, 3]. Line 5 maps the stream to a new stream with
 > values [10, 20, 30]. Line 6 filters out all items not less than 5, which in this case
 > results in an empty stream. For this reason, findFirst() returns an empty Optional.
 >
-> **Türkçe:** 9.B, D. 4 6 satırları sorunsuz bir şekilde derleyip çalıştırır, F seçeneğinin yanlış
-> olmasını sağlar. Line 4, elemanların bir stream oluşturur [1, 2, 3]. Satır 5 maps stream
-> değeri [10, 20, 30] olan yeni bir stream'e. Hat 6, 5'ten az olmayan tüm öğeleri
-> filtreler, bu durumda boş bir stream ile sonuçlanır. Bu nedenle findFirst() boş bir
-> Optional döndürür.
+> **Türkçe:** 9. B, D. 4–6. satırlar derlenip çalışır; F yanlıştır. Satır 4, `[1, 2, 3]` öğelerini
+> oluşturur. Satır 5 bunları `[10, 20, 30]` değerlerine dönüştürür. Satır 6, 5'ten küçük olmayan
+> öğeleri elediği için stream boş kalır ve `findFirst()` boş `OptionalLong` döndürür.
 > **English:** Option A does not compile. It would work for a Stream<T> object, but we have a
 > LongStream and therefore need to call getAsLong(). Option C also does not compile, as it
 > is missing the:: that would make it a method reference. Options B and D both compile and
 > run without error, although neither produces any output at runtime since the stream is
 > empty.
 >
-> **Türkçe:** A seçeneği derlenmiyor. Bir Stream<T> nesnesi için çalışırdı, ancak LongStream var ve bu
-> nedenle getAsLong() aramamız gerekiyor. C seçeneği de derlemez, çünkü eksik olan:: bu
-> onu bir method reference yapar. B ve D seçenekleri, stream boş olduğu için çalışma
-> zamanında herhangi bir çıktı üretmese de, hatasız olarak derlenir ve çalıştırılır.
+> **Türkçe:** A derlenmez: generic `Optional` için kullanılabilen `get()` yerine burada
+> `getAsLong()` gerekir. C de method reference için gereken `::` eksik olduğundan derlenmez. B ve D
+> derlenip hatasız çalışır; Optional boş olduğundan ikisi de çıktı üretmez.
 ### Official Answer 10
-> **English:** 10.F. Only one of the method calls, forEach(), is a terminal operation, so any answer in
-> which M is not the last line will not execute the pipeline. This eliminates all but
-> options C, E, and F. Option C is incorrect because filter() is called before limit().
-> Since none of the elements of the stream meets the requirement for the
-> Predicate<String>, the filter()
+> **English:** 10.F. Only one of the method calls, forEach(), is a terminal operation, so any answer
+> in which M is not the last line will not execute the pipeline. This eliminates all but options C,
+> E, and F. Option C is incorrect because filter() is called before limit(). Since none of the
+> elements of the stream meets the requirement for the Predicate<String>, the filter() operation
+> will run infinitely, never passing any elements to limit(). Option E is incorrect because there is
+> no limit() operation, which means that the code would run infinitely.
 >
-> **Türkçe:** 10.F. Yöntem çağrılarından sadece biri, forEach(), bir terminal operation'dir, bu
-> nedenle M'nin son satır olmadığı herhangi bir cevap pipeline çalıştırmayacaktır. Bu, C,
-> E ve F seçenekleri dışındaki tüm seçenekleri ortadan kaldırır. C seçeneği yanlıştır,
-> çünkü filter() limit()'den önce çağrılır. stream ögelerinin hiçbiri Predicate<String>
-> gereksinimini karşılamadığından, filter()
-> **English:** operation will run infinitely, never passing any elements to limit(). Option E is
-> incorrect because there is no limit() operation, which means that the code would run
-> infinitely.
->
-> **Türkçe:** işlem sonsuza kadar çalışacak, hiçbir öğeyi limit()'a aktarmayacak. E seçeneği
-> yanlıştır, çünkü limit() işlemi yoktur, bu da kodun sonsuza kadar çalışacağı anlamına
-> gelir.
+> **Türkçe:** 10. F. Çağrılar içinde yalnız `forEach()` terminal operation'dır; M son adım
+> olmalıdır. Böylece yalnız C, E ve F kalır. C'de `filter()`, `limit()`ten önce gelir. Hiçbir öğe
+> `Predicate<String>` koşulunu sağlamadığından filtreleme sürekli devam eder ve `limit()` aşamasına
+> hiçbir öğe iletilmez. E'de ise `limit()` hiç bulunmadığı için işlem sonsuza kadar sürer.
+
 > **English:** Only option F is correct. It first limits the infinite stream to a finite stream of ten
 > elements and then prints the result.
 >
-> **Türkçe:** Tek Optional F doğrudur. Önce infinite stream on elementin finite stream ile sınırlanır
-> ve daha sonra sonucu yazdırır.
+> **Türkçe:** Yalnız F doğrudur: önce infinite stream en fazla on öğeyle sınırlandırılır, sonra
+> kalan işlemler uygulanır ve sonuç yazdırılır.
 ### Official Answer 11
 > **English:** 11.B, C, E. As written, the code doesn’t compile because the Collectors.joining()
 > expects to get a Stream<String>. Option B fixes this, at which point nothing is output
@@ -4437,30 +4252,27 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > stream contains an infinite number of the character 1. Option C fixes this and causes
 > the stream to contain increasing numbers.
 >
-> **Türkçe:** 11.B, C, E. Yazıldığı gibi, kod derlemez çünkü Collectors.joining() bir Stream<String>
-> almayı bekler. B seçeneği bunu düzeltir, bu noktada hiçbir şey çıktı değildir, çünkü
-> collector sonucu çıkarmadan bir String oluşturur. E seçeneği bunu düzeltir ve çıktının
-> 11111 olmasına neden olur. Artış sonrası operatör kullanıldığından, stream sonsuz sayıda
-> karakter içerir. C seçeneği bunu düzeltir ve stream sayısının artan sayılar içermesine
-> neden olur.
+> **Türkçe:** 11. B, C, E. Verilen kodda `Collectors.joining()` ile öğe türü uyuşmadığından derleme
+> hatası vardır. B bu tür sorununu çözer, ancak oluşan String yazdırılmadığı için çıktı yoktur. E
+> yazdırmayı ekler ve `11111` elde edilir. Post-increment eski değeri döndürdüğünden kaynak aynı `1`
+> değerini tekrar üretir. C, güncellenmiş değerin döndürülmesini sağlayarak artan sayılar üretir.
 
 <!-- appendix-source-page: 0944 -->
 ### Official Answer 12
 > **English:** 12.F. The code does not compile because Stream.concat() takes two parameters, not the
 > three provided. This makes the answer option F.
 >
-> **Türkçe:** 12.F. Kod derlemez çünkü Stream.concat() verilen üç parametreyi değil, iki parametreyi
-> alır. Bu, cevap seçeneğini F yapar.
+> **Türkçe:** 12. F. `Stream.concat()` iki stream parametresi alır; örnekte üç parametre verildiği
+> için kod derlenmez. F doğrudur.
 ### Official Answer 13
 > **English:** 13.F. If the map() and flatMap() calls were reversed, option B would be correct. In this
 > case, the Stream created from the source is of type Stream<List>. Trying to use the
 > addition operator (+) on a List is not supported in Java. Therefore, the code does not
 > compile, and option F is correct.
 >
-> **Türkçe:** 13.F. map() ve flatMap() çağrıları tersine çevrilseydi, B seçeneği doğru olurdu. Bu
-> durumda, kaynaktan oluşturulan Stream Stream<List> tipindedir. List üzerinde (+) ek
-> operatörünü kullanmaya çalışmak Java içinde desteklenmez. Bu nedenle, kod derlemez ve F
-> seçeneği doğrudur.
+> **Türkçe:** 13. F. Source, liste öğeleri içeren bir stream oluşturur. Listeye sayısal `+` işlemi
+> uygulanamayacağından kod derlenmez. `map()` ile `flatMap()` sırası ters çevrilseydi B'deki sonuç
+> elde edilirdi; mevcut kod için F doğrudur.
 ### Official Answer 14
 > **English:** 14.B, D. Line 4 creates a Stream and uses autoboxing to put the Integer wrapper of 1
 > inside. Line 5 does not compile because boxed() is available only on primitive streams
@@ -4469,57 +4281,53 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > implicitly cast to a double. Line 7 does not compile for two reasons making option D the
 > second answer. First, converting from a double to an int would require an explicit cast.
 >
-> **Türkçe:** 14.B, D. Line 4 bir Stream oluşturur ve Integer ambalajını 1 içine koymak için otomatik
-> kutulama kullanır. Stream<Integer> değil, IntStream gibi boxed() yalnızca primitive
-> streams üzerinde mevcut olduğu için satır 5 derlenmiyor. Bu Optional B bir cevap yapar.
-> Line 6, Integer'den beri çalışan bir double ilkeline dönüşür ve double'e dolaylı olarak
-> atılabilecek bir değere kutulanamaz. Line 7, D seçeneğini ikinci cevap yapan iki
-> nedenden dolayı derlemez. İlk olarak, bir double'dan bir int'a dönüştürmek açık bir
-> döküm gerektirecektir.
+> **Türkçe:** 14. B, D. Satır 4 bir `Stream<Integer>` oluşturur; `1`, autoboxing ile `Integer`
+> nesnesi olarak tutulur. Satır 5 derlenmez: `boxed()` yalnız `IntStream` gibi primitive
+> stream'lerde vardır, `Stream<Integer>` üzerinde yoktur. Bu yüzden B doğrudur. Satır 6 geçerlidir:
+> `Integer`, unboxing ile `int` olur ve `double` türüne genişletilebilir. Satır 7 iki nedenle
+> derlenmez; ilk neden `double` → `int` dönüşümünün explicit cast gerektirmesidir.
 > **English:** Also, mapToInt() returns an IntStream, so the data type of s2 is incorrect. The rest of
 > the lines compile without issue.
 >
-> **Türkçe:** Ayrıca, mapToInt() bir IntStream döndürür, bu nedenle s2'nin veri türü yanlıştır.
-> Çizgilerin geri kalanı sorunsuz bir şekilde derlenir.
+> **Türkçe:** İkinci neden, `mapToInt()` sonucunun `IntStream` olması ve `s2` için bildirilen türle
+> uyuşmamasıdır. Bu nedenle D de doğrudur. Diğer satırlar derlenir.
 ### Official Answer 15
 > **English:** 15.B, D. Options A and C do not compile because they are invalid generic declarations.
-> Prim-itives are not allowed as generics, and Map must have two generic type parameters.
+> Primitives are not allowed as generics, and Map must have two generic type parameters.
 > Option E is incorrect because partitioning only gives a Boolean key. Options B and D are
 > correct because they return a Map with a Boolean key and a value type that can be
 > customized to any Collection.
 >
-> **Türkçe:** 15.B, D. A ve C seçenekleri, geçersiz jenerik beyanlar oldukları için derlemez.
-> İlkellere jenerik olarak izin verilmez ve Map iki jenerik tip parametreye sahip
-> olmalıdır. E seçeneği yanlıştır çünkü partitioning sadece Boolean anahtarı verir. B ve D
-> seçenekleri doğrudur, çünkü bir Map anahtarı ve herhangi bir Collection için
-> özelleştirilebilir bir değer türü ile bir Boolean döndürürler.
+> **Türkçe:** 15. B, D. A ve C'deki generic bildirimler geçersizdir: primitive türler type argument
+> olamaz ve `Map` iki type parameter alır. E yanlıştır; partitioning sonucunda key türü `Boolean`
+> olur. B ve D, `Boolean` key'li bir `Map` üretir; value collection türü downstream collector ile
+> seçilebilir.
 ### Official Answer 16
 > **English:** 16.B, C. First, this mess of code does compile. While it starts with an infinite stream
 > on line 23, it becomes finite on line 24 thanks to limit(), making option F incorrect.
 > The pipeline preserves only nonempty elements on line 25. Since there aren’t any of
 > those, the pipeline is empty. Line 26 converts this to an empty map.
 >
-> **Türkçe:** 16.B, C. İlk olarak, bu kod karmaşası derlenir. 23. hatta bir infinite stream ile
-> başlarken, limit() sayesinde 24. satırda sonlu hale gelir ve F seçeneğini yanlış yapar.
-> pipeline, 25. satırda sadece boş olmayan elemanları korur. Bunlardan hiçbiri
-> olmadığından, pipeline boştur. Satır 26, bunu boş bir map'e dönüştürür.
+> **Türkçe:** 16. B, C. Kod derlenir. Satır 23'teki sonsuz kaynak, 24. satırdaki `limit()` ile
+> sınırlandığı için F yanlıştır. Satır 25 yalnız boş olmayan öğeleri geçirir; böyle bir öğe
+> olmadığından pipeline boş kalır. Satır 26 boş map oluşturur.
 > **English:** Lines 27 and 28 create a Set with no elements and then another empty stream. Lines 29
 > and 30 convert the generic type of the Stream to List<String> and then String. Finally,
 > line 31 gives us another Map<Boolean, List<String>>.
 >
-> **Türkçe:** 27 ve 28. satırlar elementsiz bir Set ve sonra başka bir boş stream oluşturur. Satır 29
-> ve 30, Stream genel türünü List<String> ve daha sonra String olarak dönüştürür. Son
-> olarak, 31. satır bize başka bir Map<Boolean, List<String> verir.
+> **Türkçe:** 27 ve 28. satırlar önce boş bir `Set`, ardından boş bir stream oluşturur. 29 ve 30.
+> satırlarda stream'in öğe türü önce `List<String>`, sonra `String` olur. Satır 31'de yeniden
+> `Map<Boolean, List<String>>` elde edilir.
 > **English:** The partitioningBy() operation always returns a map with two Boolean keys, even if there
 > are no corresponding values. Therefore, option B is correct if the code is kept as is.
 >
-> **Türkçe:** partitioningBy() işlemi her zaman karşılık gelen değerler olmasa bile iki Boolean
-> tuşuyla bir map döndürür. Bu nedenle, kod olduğu gibi tutulursa B seçeneği doğrudur.
+> **Türkçe:** `partitioningBy()`, eşleşen öğe bulunmasa da `true` ve `false` key'lerini içeren bir
+> map üretir. Kod değiştirilmezse bu nedenle B doğrudur.
 > **English:** By contrast, groupingBy() returns only keys that are actually needed, making option C
 > correct if the code is modified on line 31.
 >
-> **Türkçe:** Buna karşılık, groupingBy() yalnızca gerçekten gerekli olan anahtarları döndürür ve kod
-> 31. satırda değiştirilirse C seçeneğini düzeltir.
+> **Türkçe:** `groupingBy()` ise yalnız oluşan grupların key'lerini üretir. Satır 31 bu şekilde
+> değiştirilirse C doğru olur.
 ### Official Answer 17
 > **English:** 17.D. The terminal operation is count(). Since there is a terminal operation, the
 > intermediate operations run. The peek() operation comes before the filter(), so both
@@ -4527,66 +4335,57 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > to be 1 since one of the numbers is filtered out. However, the result of the stream
 > pipeline isn’t stored in a variable or printed, and it is ignored.
 >
-> **Türkçe:** 17.D. terminal operation count() şeklindedir. terminal operation olduğundan,
-> intermediate operations çalıştırılır. peek() işlemi filter()'den önce gelir, bu nedenle
-> her iki sayı da basılır ve D seçeneği cevap olur. filter()'den sonra count(), sayılardan
-> biri filtrelendiğinden 1 olur. Bununla birlikte, stream pipeline sonucu bir değişkende
-> veya basılı olarak depolanmaz ve göz ardı edilir.
+> **Türkçe:** 17. D. Bu pipeline'daki terminal operation `count()`tur. Öğeler `filter()` ile
+> eleneceği için sayım sırasında değerlendirilir. `peek()` filtreden önce olduğundan iki sayıyı da
+> yazdırır; D doğrudur. Filtre bir sayıyı elediği için `count()` sonucu `1` olur, ancak bu sonuç ne
+> saklanır ne yazdırılır.
 ### Official Answer 18
 > **English:** 18.D. This compiles, ruling out options E, F, and G. Since line 29 filters by names
 > starting with E, that rules out options A and B. Finally, line 31 counts the entire
 > list, which is of size 2, giving us option D as the answer.
 >
-> **Türkçe:** 18.D. Bu, E, F ve G seçeneklerini ele alarak derler. 29. satır E ile başlayan isimlere
-> göre filtrelendiğinden, bu A ve B seçeneklerini dışlar. Son olarak, satır 31, 2
-> boyutundaki tüm list'u sayar ve bize cevap olarak D seçeneğini verir.
+> **Türkçe:** 18. D. Kod derlendiğinden E, F ve G elenir. Satır 29 yalnız E ile başlayan adları ilk
+> downstream collector'a geçirir; bu yüzden A ve B elenir. Satır 31'deki ikinci collector ise iki
+> öğenin tamamını sayar. Sonuç D'dir.
 
 <!-- appendix-source-page: 0945 -->
 ### Official Answer 19
 > **English:** 19.B. Both lists and streams have forEach() methods. There is no reason to collect into
 > a list just to loop through it. Option A is incorrect because it does not contain a
 > terminal operation or print anything. Options B and C both work. However, the question
-> asks about the sim-plest way, which is option B.
+> asks about the simplest way, which is option B.
 >
-> **Türkçe:** 19.B. Hem listeler hem de akışlar forEach() yöntemlerine sahiptir. Bir list içine sadece
-> döngü içine toplamak için bir neden yoktur. A seçeneği yanlıştır, çünkü bir terminal
-> operation içermiyor veya herhangi bir şey yazdırmıyor. B ve C seçenekleri her ikisi de
-> çalışır. Bununla birlikte, soru sim-plest yolunu, yani B seçeneğini sorar.
+> **Türkçe:** 19. B. Hem list hem stream `forEach()` sağlar; yalnız dolaşmak için önce listeye
+> toplamak gerekmez. A terminal operation içermediğinden öğeleri yazdırmaz. B ve C çalışır, ancak
+> soru en sade biçimi istediğinden B doğrudur.
 ### Official Answer 20
 > **English:** 20.C, E, F. Options A and B compile and return an empty string without throwing an
-> exception, using a String and Supplier parameter, respectively. Option G does not
-> compile as the get() method does not take a parameter. Options C and F throw a
-> NoSuchElementException. Option E throws a RuntimeException. Option D looks correct but
-> will compile only if the throw is removed. Remember, the orElseThrow()
+> exception, using a String and Supplier parameter, respectively. Option G does not compile as the
+> get() method does not take a parameter. Options C and F throw a NoSuchElementException. Option E
+> throws a RuntimeException. Option D looks correct but will compile only if the throw is removed.
+> Remember, the orElseThrow() should get a lambda expression or method reference that returns an
+> exception, not one that throws an exception.
 >
-> **Türkçe:** 20.C, E, F. Seçenekler A ve B sırasıyla bir String ve Supplier parametresi kullanarak
-> bir istisna atmadan boş bir string derleyip döndürür. Option G, get() yöntemi parametre
-> almadığı için derlemez. C ve F seçenekleri NoSuchElementException atar. Optional E bir
-> RuntimeException atar. Option D doğru görünüyor, ancak sadece atış kaldırılırsa
-> derlenecek. Hatırlayın, orElseThrow()
-> **English:** should get a lambda expression or method reference that returns an exception, not one
-> that throws an exception.
->
-> **Türkçe:** lambda ifadesi veya method reference bir istisnayı döndüren bir istisnayı değil, bir
-> istisnayı atan bir ifadeyi almalıdır.
+> **Türkçe:** 20. C, E, F. A ve B, sırasıyla String ve Supplier parametresi kullanarak exception
+> oluşturmadan boş String döndürür. G derlenmez; `get()` parametre almaz. C ve F
+> `NoSuchElementException`, E `RuntimeException` fırlatır. D'deki `() -> throw ...` sözdizimi
+> geçersizdir; `throw` kaldırılıp checked exception çağıran tarafta ele alınırsa düzeltilebilir.
+> `orElseThrow()` için normal kullanım, exception nesnesini döndüren bir lambda veya method
+> reference vermektir; o nesneyi fırlatmayı `orElseThrow()` yapar.
+
 ### Official Answer 21
 > **English:** 21.B. We start with an infinite stream where each element is x. The spliterator()
+> method is a terminal operation since it returns a Spliterator rather than a Stream. The
+> tryAdvance() method gets the first element and prints a single x. The trySplit() method takes a
+> large number of elements from the stream. Since this is an infinite stream, it doesn’t attempt to
+> take half. Then tryAdvance() is called on the new split variable, and another x is printed. Since
+> there are two values printed, option B is correct.
 >
-> **Türkçe:** 21.B. Her elemanın x olduğu bir infinite stream ile başlıyoruz. spliterator()
-> **English:** method is a terminal operation since it returns a Spliterator rather than a Stream.
->
-> **Türkçe:** Stream yerine Spliterator döndürdüğü için terminal operation yöntemidir.
-> **English:** The tryAdvance() method gets the first element and prints a single x. The trySplit()
->
-> **Türkçe:** tryAdvance() yöntemi ilk elemanı alır ve tek bir x yazdırır. trySplit()
-> **English:** method takes a large number of elements from the stream. Since this is an infinite
-> stream, it doesn’t attempt to take half. Then tryAdvance() is called on the new split
-> variable, and another x is printed. Since there are two values printed, option B is
-> correct.
->
-> **Türkçe:** Yöntem, stream 'den çok sayıda eleman alır. Bu bir infinite stream olduğundan, yarısını
-> almaya çalışmaz. Daha sonra tryAdvance() yeni bölünmüş değişkene çağrılır ve başka bir x
-> yazdırılır. Basılı iki değer olduğundan, B seçeneği doğrudur.
+> **Türkçe:** 21. B. Her öğesi `x` olan infinite stream ile başlanır. `spliterator()`, bir `Stream`
+> yerine `Spliterator` döndüren terminal operation'dır. `tryAdvance()` ilk öğeyi işleyip bir `x`
+> yazdırır. `trySplit()` stream'den bir grup öğe ayırır; sonsuz kaynağın yarısını almaya çalışmaz.
+> Yeni `split` üzerinde `tryAdvance()` çağrıldığında bir `x` daha yazdırılır. Toplam iki `x`
+> yazıldığı için B doğrudur.
 
 ## Kapsam doğrulaması
 

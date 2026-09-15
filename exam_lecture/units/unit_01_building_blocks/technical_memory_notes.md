@@ -64,6 +64,9 @@ otomatik import edilir, current package type'ları da import gerektirmez.
 
 ## 3. `main()` giriş noktası
 
+Aşağıdaki imzalar alternatif yazımlardır; aynı class içinde birlikte
+bildirilirlerse aynı signature nedeniyle derlenmezler.
+
 ```java
 public static void main(String[] args) {}
 public static void main(String... args) {} // eşdeğer parameter biçimi
@@ -121,8 +124,10 @@ var name = "lion";     // String
 final var limit = 10;   // geçerli
 ```
 
-`var` yalnız local variable için ve initializer ile aynı statement'ta
-kullanılabilir. Aşağıdakiler derlenmez:
+Normal local variable declaration'da `var` kullanıldığında aynı declaration
+içinde initializer gerekir. Enhanced `for` variable'ı ve lambda parameter'ı
+gibi özel bağlamlarda ayrıca kurallar vardır; `var` field, return type veya
+sıradan method parameter type'ı olamaz. Aşağıdakiler derlenmez:
 
 ```java
 // var missing;
@@ -146,7 +151,10 @@ blocks source order ile bir kez çalışır. Her `new` işleminde:
    çalışır,
 3. constructor body çalışır.
 
-Inheritance varsa her aşamada parent önce gelir. Ayrıntılı constructor zinciri
+Inheritance varsa static initialization superclass'tan subclass'a ilerler.
+Object alanları önce default değerlerini alır; ardından constructor zincirinde
+superclass'ın instance initialization'ı ve constructor gövdesi, subclass'ın
+instance initialization'ından önce tamamlanır. Ayrıntılı constructor zinciri
 için [Unit 06 teknik hafıza notuna](../unit_06_class_design/technical_memory_notes.md)
 bak.
 

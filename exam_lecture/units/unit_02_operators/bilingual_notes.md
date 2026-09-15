@@ -61,7 +61,7 @@ dosyalarını kullan.
 
 > **English:** [x] Use primitives and wrapper classes including Math API, parentheses, type promotion, and casting to evaluate arithmetic and boolean expressions
 
-> **Türkçe:** [x] Aritmetik ve boolean ifadeleri değerlendirmek için Math API, parantezler, type promotion ve casting dahil temel öğeleri ve wrapper class'ları kullanın
+> **Türkçe:** [x] Aritmetik ve boolean ifadeleri değerlendirmek için Math API, parantezler, type promotion ve casting dahil primitive type'ları ve wrapper class'ları kullanın
 
 <!-- source-page: 0066 -->
 
@@ -109,7 +109,7 @@ var c = a + b;
 
 > **English:** While many should be review for you, some (such as the compound assignment operators) may be new to you.
 
-> **Türkçe:** Birçoğunun sizin için gözden geçirilmesi gerekirken bazıları (bileşik atama operatörleri gibi) sizin için yeni olabilir.
+> **Türkçe:** Bunların çoğu sizin için tekrar niteliğinde olsa da compound assignment operator'ları gibi bazıları yeni olabilir.
 
 ### Types of Operators
 
@@ -130,6 +130,12 @@ var c = a + b;
 > **English:** Java operators are not necessarily evaluated from left-to-right order. In this following example, the second expression is actually evaluated from right to left, given the specific operators involved:
 
 > **Türkçe:** Java operatörlerinin mutlaka soldan sağa sırayla değerlendirilmesi gerekmez. Aşağıdaki örnekte, ikinci ifade, ilgili belirli operator'lar göz önüne alındığında aslında sağdan sola doğru değerlendirilir:
+
+> **Editör notu · Precedence ve evaluation order:** Kaynaktaki “sağdan sola”
+> ifadesi bu örnekte işlemlerin gruplanmasını anlatır. Operand'lar Java'da
+> soldan sağa değerlendirilir; sağdaki yüksek öncelikli işlem, soldaki
+> operand'ın side effect'ini öne geçerek atlayamaz.
+> [JLS 17 §15.7](https://docs.oracle.com/javase/specs/jls/se17/html/jls-15.html#jls-15.7).
 
 ```java
 int cookies = 4;
@@ -155,7 +161,7 @@ Zoo animal receives: 9.0 reward points
 
 > **English:** When reading a book or a newspaper, some written languages are evaluated from left to right, while some are evaluated from right to left. In mathematics, certain operators can override other operators and be evaluated first. Determining which operators are evaluated in what order is referred to as operator precedence. In this manner, Java more closely follows the rules for mathematics. Consider the following expression:
 
-> **Türkçe:** Kitap veya gazete okurken bazı yazı dilleri soldan sağa doğru değerlendirilirken bazıları sağdan sola doğru değerlendirilir. Matematikte belirli operator'lar diğer operatörleri geçersiz kılabilir ve ilk önce değerlendirilebilir. Hangi operatörlerin hangi sırayla değerlendirileceğinin belirlenmesine operator önceliği denir. Bu şekilde Java matematik kurallarına daha yakından uyar. Aşağıdaki ifadeyi göz önünde bulundurun:
+> **Türkçe:** Bazı yazı dilleri soldan sağa, bazıları sağdan sola okunur. Matematikte ise bazı operator'lar diğerlerinden önce uygulanır. Bu işlem sırasını operator precedence (işlem önceliği) belirler. Java da bu açıdan matematik kurallarını izler. Aşağıdaki expression'ı inceleyin:
 
 ```java
 var perimeter = 2 * height + 2 * length;
@@ -175,7 +181,7 @@ var perimeter = ((2 * height) + (2 * length));
 
 > **English:** Unless overridden with parentheses, Java operators follow order of operation, listed in Table 2.1, by decreasing order of operator precedence. If two operators have the same level of precedence, then Java guarantees left-to-right evaluation for most operators other than the ones marked in the table.
 
-> **Türkçe:** Parantezlerle geçersiz kılınmadığı sürece, Java operatörleri Tablo 2.1'de listelenen işlem sırasını operator önceliği sırasını azaltarak takip eder. İki operatörün aynı öncelik düzeyi varsa, Java, tabloda işaretlenenler dışındaki çoğu operator için soldan sağa değerlendirmeyi garanti eder.
+> **Türkçe:** Parantezlerle değiştirilmedikçe Java operator'ları Tablo 2.1'de yüksekten düşüğe gösterilen precedence sırasına göre gruplanır. Aynı precedence düzeyindeki operator'ların çoğu soldan sağa birleşir; ters yönde birleşenler tabloda ayrıca işaretlenmiştir.
 
 <!-- source-page: 0068 -->
 
@@ -438,7 +444,7 @@ int price = 10 + 12 -8;
 
 > **English:** You might have noticed we said “Unless overridden with parentheses” prior to presenting Table 2.1 on operator precedence. That’s because you can change the order of operation explicitly by wrapping parentheses around the sections you want evaluated first.
 
-> **Türkçe:** Operatör önceliğine ilişkin Tablo 2.1'i sunmadan önce “Parantezlerle geçersiz kılınmadığı sürece” dediğimizi fark etmişsinizdir. Bunun nedeni, ilk önce değerlendirilmesini istediğiniz bölümlerin etrafına parantez koyarak işlem sırasını açıkça değiştirebilmenizdir.
+> **Türkçe:** Tablo 2.1'den önce “Parantezlerle değiştirilmedikçe” dediğimize dikkat edin. Öncelikli olarak hesaplanmasını istediğiniz bölümleri paranteze alarak gruplamayı açıkça değiştirebilirsiniz.
 
 ### Changing the Order of Operation
 
@@ -527,7 +533,7 @@ short robin = 3 + [(4 * 2) + 4]; // DOES NOT COMPILE
 
 ### Division and Modulus Operators
 
-> **Türkçe başlık:** Bölme ve Modül Operatörleri
+> **Türkçe başlık:** Division ve Remainder Operator’ları
 
 > **English:** As we said earlier, the modulus operator, %, may be new to you. The modulus operator, sometimes called the remainder operator, is simply the remainder when two numbers are divided. For example, 9 divided by 3 divides evenly and has no remainder; therefore, the result of 9 % 3 is 0. On the other hand, 11 divided by 3 does not divide evenly; therefore, the result of 11 % 3 is 2.
 
@@ -606,6 +612,13 @@ System.out.println(12 % 3); // 0
 > **English:** The last two rules are the ones most people have trouble with and the ones likely to trip you up on the exam. For the third rule, note that unary operators are excluded from this rule. For example, applying ++ to a short value results in a short value.
 
 > **Türkçe:** Son iki kural, çoğu kişinin zorlandığı ve sınavda sizi yanıltabilecek kurallardır. Üçüncü kuralın unary operator'ları kapsamadığına dikkat edin. Örneğin `short` bir value'ya `++` uygulandığında result yine `short` type'ındadır.
+
+> **Editör notu · Promotion'ın sınırı:** Literal ve constant expression'lar da
+> numeric promotion kurallarına tabidir. `byte b = 1 + 2;` örneğinde toplamın
+> type'ı `int`tir; `byte`a atamayı sağlayan ayrı constant narrowing kuralıdır.
+> Unary `+`, `-` ve `~` de `byte`/`short`/`char` operand'ı `int`e yükseltir;
+> `++`/`--` variable'ın type'ını korur.
+> [JLS 17 §5.6](https://docs.oracle.com/javase/specs/jls/se17/html/jls-5.html#jls-5.6).
 
 > **English:** Let’s tackle some examples for illustrative purposes:
 
@@ -690,7 +703,7 @@ var z = w * x / y;
 
 > **English:** An assignment operator is a binary operator that modifies, or assigns, the variable on the left side of the operator with the result of the value on the right side of the equation. Unlike most other Java operators, the assignment operator is evaluated from right to left.
 
-> **Türkçe:** Atama operator'ı, operatörün sol tarafındaki variable'ı denklemin sağ tarafındaki değerin sonucuyla değiştiren veya atayan ikili bir operatördür. Diğer çoğu Java operatörünün aksine, atama operator'ı sağdan sola doğru değerlendirilir.
+> **Türkçe:** Assignment operator, sağındaki expression'ın sonucunu soldaki variable'a atayan binary bir operator'dır. Çoğu Java operator'ından farklı olarak sağdan sola birleşir: `a = b = 3`, `a = (b = 3)` biçiminde gruplanır.
 
 > **English:** The simplest assignment operator is the = assignment, which you have seen already:
 
@@ -718,7 +731,7 @@ int herd = 1;
 
 ### Casting Values
 
-> **Türkçe başlık:** casting Değerleri
+> **Türkçe başlık:** Değerlere Cast Uygulama
 
 > **English:** Seems easy so far, right? Well, we can’t really talk about the assignment operator in detail until we’ve covered casting. Casting is a unary operation where one data type is explicitly interpreted as another data type. Casting is optional and unnecessary when converting to a
 
@@ -734,7 +747,7 @@ int herd = 1;
 
 > **English:** Casting is performed by placing the data type, enclosed in parentheses, to the left of the value you want to cast. Here are some examples of casting:
 
-> **Türkçe:** casting, parantez içindeki veri tipinin, casting yapmak istediğiniz değerin soluna yerleştirilmesiyle gerçekleştirilir. İşte bazı casting örnekleri:
+> **Türkçe:** Cast uygulamak için hedef type parantez içinde değerin soluna yazılır. Şu örnekleri inceleyin:
 
 ```java
 int fur = (int)5;
@@ -795,7 +808,7 @@ long reptile = 192_301_398_193_810_323; // DOES NOT COMPILE
 
 ### Applying Casting
 
-> **Türkçe başlık:** casting Uygulamak
+> **Türkçe başlık:** Cast Uygulama
 
 > **English:** We can fix three of the previous examples by casting the results to a smaller data type.
 
@@ -907,7 +920,7 @@ short capybara = 1 + (short)(mouse * hamster); // DOES NOT COMPILE
 
 ### Casting Values vs. Variables
 
-> **Türkçe başlık:** casting Değerleri ve Variable'lar
+> **Türkçe başlık:** Değerlere ve Variable'lara Cast Uygulama
 
 > **English:** Revisiting our third numeric promotional rule, the compiler doesn’t require casting when working with literal values that fit into the data type. Consider these examples:
 
@@ -1004,7 +1017,7 @@ sheep *= goat;
 
 > **English:** One final thing to know about assignment operators is that the result of an assignment is an expression in and of itself equal to the value of the assignment. For example, the following snippet of code is perfectly valid, if a little odd-looking:
 
-> **Türkçe:** Atama operatörleri hakkında bilinmesi gereken son bir şey, bir atamanın sonucunun, kendisinin atamanın değerine eşit bir ifade olduğudur. Örneğin, aşağıdaki kod parçacığı biraz tuhaf görünse de tamamen geçerlidir:
+> **Türkçe:** Assignment'ın kendisi de atanan değeri üreten bir expression'dır. Bu nedenle aşağıdaki kod alışılmadık görünse de tamamen geçerlidir:
 
 ```java
 long wolf = 5;
@@ -1450,11 +1463,11 @@ if(duck!=null && duck.getAge()<5) {
 
 > **Dil çalışması:** `side effect` için [ünite sözlüğü](vocabulary.md); cümle yapıları için [grammar notu](grammar_notes.md).
 
-> **Türkçe başlık:** Gerçekleştirilmemiş Yan Etkilerin Kontrol Edilmesi
+> **Türkçe başlık:** Atlanan Side Effect’leri İzleme
 
 > **English:** Be wary of short-circuit behavior on the exam, as questions are known to alter a variable on the right side of the expression that may never be reached. This is referred to as an unperformed side effect. For example, what is the output of the following code?
 
-> **Türkçe:** Soruların ifadenin sağ tarafında asla ulaşılamayacak bir variable'ı değiştirdiği bilindiğinden, sınavda kısa devre davranışına karşı dikkatli olun. Bu, gerçekleştirilmemiş bir yan etki olarak adlandırılır. Örneğin aşağıdaki kodun çıktısı nedir?
+> **Türkçe:** Sınavda short-circuit davranışına dikkat edin: Sağ operand'daki bir variable değişikliği, o operand atlandığı için hiç gerçekleşmeyebilir. Kaynak bunu unperformed side effect olarak adlandırır. Örneğin aşağıdaki kodun çıktısı nedir?
 
 ```java
 int rabbit = 6;
@@ -1532,6 +1545,10 @@ int food2 = (owl < 4? ((owl > 2)? 3: 4): 5);
 
 > **Türkçe:** Sınav için, ternary operation'daki ikinci ve üçüncü expression'ın aynı data type'ta olmasının zorunlu olmadığını bilin. Ancak expression assignment operator ile birlikte kullanıldığında type uyumluluğu önem kazanır. Variable declaration'dan sonraki iki statement'ı karşılaştırın:
 
+> **OCP teknik notu:** Seçilmeyen operand runtime'da çalışmaz; buna rağmen
+> bütün expression derleme sırasında type kontrolünden geçer. Sonuç type'ını
+> yalnız o çalıştırmada seçilen değere bakarak belirleme.
+
 ```java
 int stripes = 7;
 System.out.print((stripes > 5)? 21: "Zebra");
@@ -1544,11 +1561,11 @@ int animal = (stripes < 9)? 3: "Horse"; // DOES NOT COMPILE
 
 ### Ternary Expression and Unperformed Side Effects
 
-> **Türkçe başlık:** Üçlü İfade ve Gerçekleştirilmeyen Yan Etkiler
+> **Türkçe başlık:** Ternary Expression ve Atlanan Side Effect’ler
 
 > **English:** As we saw with the conditional operators, a ternary expression can contain an unperformed side effect, as only one of the expressions on the right side will be evaluated at runtime. Let’s illustrate this principle with the following example:
 
-> **Türkçe:** Koşullu operatörlerde gördüğümüz gibi, sağ taraftaki ifadelerden yalnızca biri runtime'da değerlendirileceğinden, üçlü bir ifade gerçekleştirilmemiş bir yan etki içerebilir. Bu prensibi aşağıdaki örnekle açıklayalım:
+> **Türkçe:** Conditional operator'larda olduğu gibi ternary expression'da da bir side effect atlanabilir: Son iki operand'dan yalnızca seçilen operand runtime'da değerlendirilir. Şu örneği inceleyin:
 
 ```java
 int sheep = 1;

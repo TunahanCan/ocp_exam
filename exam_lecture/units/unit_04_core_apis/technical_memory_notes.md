@@ -36,7 +36,7 @@ yeniden atanmadıkça original reference aynı object'i göstermeye devam eder.
 
 | Method | Ana kural |
 |---|---|
-| `length()` | karakter sayısı |
+| `length()` | UTF-16 code unit sayısı (`char` sayısı) |
 | `charAt(i)` | valid index `0..length-1` |
 | `indexOf(...)` | bulunamazsa `-1` |
 | `substring(begin,end)` | begin inclusive, end exclusive |
@@ -51,7 +51,7 @@ String s = "abcdef";
 System.out.println(s.substring(2, 5)); // cde
 ```
 
-`begin == end` empty String verir. Negative index, end'in length'i aşması veya
+Geçerli sınırlar içinde `begin == end` empty String verir. Negative index, end'in length'i aşması veya
 begin'in end'den büyük olması runtime exception üretir.
 
 ## 2. String pool, identity ve equality
@@ -70,8 +70,9 @@ System.out.println(a.equals(c)); // true
 - `String.equals()` character content,
 - `intern()` pooled canonical reference döndürür.
 
-Runtime concatenation genellikle yeni object üretir. Compile-time constant
-concatenation pool'da birleştirilebilir.
+Constant expression olmayan String concatenation yeni bir String nesnesi
+üretir. Compile-time constant String expression ise intern edilir ve pool'daki
+reference'ı kullanır.
 
 ## 3. StringBuilder: aynı object üzerinde çalışır
 
@@ -150,7 +151,7 @@ Bu class'ların constructor'ları yerine `now()`, `of()`, `parse()` gibi factory
 methods kullanılır. Hepsi immutable'dır:
 
 ```java
-LocalDate date = LocalDate.of(2024, 1, 31);
+java.time.LocalDate date = java.time.LocalDate.of(2024, 1, 31);
 date.plusDays(1);
 System.out.println(date); // 2024-01-31
 date = date.plusDays(1);  // 2024-02-01
@@ -165,8 +166,8 @@ derlenir ve `DateTimeException` runtime'da oluşur.
 - `Duration`: seconds/nanos tabanlı time amount.
 
 ```java
-Period oneDay = Period.ofDays(1);
-Duration twentyFourHours = Duration.ofHours(24);
+java.time.Period oneDay = java.time.Period.ofDays(1);
+java.time.Duration twentyFourHours = java.time.Duration.ofHours(24);
 ```
 
 `Period` date-based types ile, `Duration` time/instant-based types ile doğal

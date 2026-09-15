@@ -1321,7 +1321,7 @@ interface StringCopier {
 
 ### Table 8.4 · Common functional interfaces · Part 1
 
-| Functional interface / Fonksiyonel arayüz | Return type / Dönüş tipi | Method name / Method adı | Number of parameters / Parameter sayısı |
+| Functional interface / Tek abstract contract taşıyan interface | Return type / Dönüş tipi | Method name / Method adı | Number of parameters / Parameter sayısı |
 |---|---|---|---|
 | `Supplier<T>` | `T` | `get()` | 0 |
 | `Consumer<T>` | `void` | `accept(T)` | 1 (`T`) |
@@ -1334,7 +1334,7 @@ interface StringCopier {
 
 ### Table 8.4 · Common functional interfaces · Part 2
 
-| Functional interface / Fonksiyonel arayüz | Return type / Dönüş tipi | Method name / Method adı | Number of parameters / Parameter sayısı |
+| Functional interface / Tek abstract contract taşıyan interface | Return type / Dönüş tipi | Method name / Method adı | Number of parameters / Parameter sayısı |
 |---|---|---|---|
 | `BiFunction<T, U, R>` | `R` | `apply(T,U)` | 2 (`T`, `U`) |
 | `UnaryOperator<T>` | `T` | `apply(T)` | 1 (`T`) |
@@ -2158,7 +2158,7 @@ public interface BooleanSupplier {
 
 #### Table 8.6 · Common functional interfaces for primitives · Part 1
 
-| Functional interfaces / Fonksiyonel arayüzler | Return type / Dönüş tipi | Single abstract method / Tek abstract method | Number of parameters / Parameter sayısı |
+| Functional interfaces / Functional interface türleri | Return type / Dönüş tipi | Single abstract method / Tek abstract method | Number of parameters / Parameter sayısı |
 |---|---|---|---|
 | `DoubleSupplier` | `double` | `getAsDouble` | 0 |
 | `IntSupplier` | `int` | `getAsInt` | 0 |
@@ -2177,7 +2177,7 @@ public interface BooleanSupplier {
 
 #### Table 8.6 · Common functional interfaces for primitives · Part 2
 
-| Functional interfaces / Fonksiyonel arayüzler | Return type / Dönüş tipi | Single abstract method / Tek abstract method | Number of parameters / Parameter sayısı |
+| Functional interfaces / Functional interface türleri | Return type / Dönüş tipi | Single abstract method / Tek abstract method | Number of parameters / Parameter sayısı |
 |---|---|---|---|
 | `DoubleUnaryOperator` | `double` | `applyAsDouble` | 1 (`double`) |
 | `IntUnaryOperator` | `int` | `applyAsInt` | 1 (`int`) |
@@ -2254,7 +2254,7 @@ f1.applyAsInt(d);
 
 ### Table 8.7 · Primitive-specific functional interfaces
 
-| Functional interfaces / Fonksiyonel arayüzler | Return type / Dönüş tipi | Single abstract method / Tek abstract method | Number of parameters / Parameter sayısı |
+| Functional interfaces / Functional interface türleri | Return type / Dönüş tipi | Single abstract method / Tek abstract method | Number of parameters / Parameter sayısı |
 |---|---|---|---|
 | `ToDoubleFunction<T>` | `double` | `applyAsDouble` | 1 (`T`) |
 | `ToIntFunction<T>` | `int` | `applyAsInt` | 1 (`T`) |

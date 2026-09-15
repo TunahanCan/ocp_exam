@@ -59,7 +59,10 @@ both + item A + and + item B
 >
 > **Türkçe:** “Her ikisi de functional interface implement ederken kullanılır.”
 
-Subject `both` çoğul olduğu için verb de çoğuldur: `both are`, `both have`.
+Bu kaynak örneğinde `both`, önceki cümledeki lambda ve method reference'a dönen
+bir pronoun'dur; `both A and B` kalıbının tamamı yazılı değildir. Tam kalıp
+örneği: `Both lambdas and method references implement functional interfaces.`
+İki öğe özneyi oluşturduğunda fiil çoğuldur: `both are`, `both have`.
 
 ## 4. Contrast marker: `by contrast`
 

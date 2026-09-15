@@ -46,6 +46,29 @@ Bir üniteyi tek günde bitirme hedefi koymaz.
 Markdown sürümleri arama, not alma ve bağlantıları izleme için; PDF sürümleri
 ekrandan veya çıktı alarak kesintisiz çalışma için uygundur.
 
+## Çevirilerde teknik dil
+
+`interface`, `constructor`, `overload`, `override`, `stream`, `thread`,
+`exception`, `generic type` ve `garbage collection` gibi yazılım terimlerini
+İngilizce kullanıyoruz. İlk karşılaşmada kısa bir Türkçe açıklama yardımcı
+olabilir; her cümlede terime yeni bir Türkçe ad vermek gerekmez. Anlam ve örnek
+için çalıştığın ünitenin sözlüğüne dön.
+
+Örneğin “Bu method bir exception fırlatabilir” doğal ve teknik anlamı koruyan
+bir çeviridir. `checked exception` ifadesindeki `checked`, gündelik dildeki
+“kontrol edildi” şeklinde çevrilmez. Buna karşılık *file*, *line* ve *output*
+sıradan anlatımda “dosya”, “satır” ve “çıktı” olabilir; `File`, `readLine()`
+gibi API adları aynen kalır.
+
+**Anlamı belirleyen sözcükleri atlama:** `may` (olabilir), `must` (zorunludur),
+`only` (yalnızca), `unless` (…medikçe) ve `at least` (en az) Java kuralının
+sınırını belirler. Terimi İngilizce bırakmak, bu ayrımları çevirmemek anlamına
+gelmez. Kod, komut, string literal ve terminal çıktıları çevrilmez.
+
+Ana ders PDF'lerinde **mavi English**, **yeşil Türkçe** alanları aynı paragraf
+çiftini gösterir. **Turuncu kutular** editör açıklaması, sınav tuzağı veya ek
+öğrenme notudur; bunları kaynak metinden ayrı oku.
+
 On beş ünitenin ana notlarında toplam **356 kaynak Review Question** bulunur.
 Bu sorular ek practice quiz'lerden ayrıdır; kaynak metin, seçenek sırası,
 line number ve Java code block'ları korunarak sunulur.
@@ -66,6 +89,12 @@ karşılık gelir; soruların gerçek sertifika sınavından alındığını ifa
 
 Yapılan incelemenin kapsamı ve doğrulamalar [doküman inceleme notunda](review_report.md)
 kayıtlıdır.
+
+Yerel kitabın PDF bilgileri kaynağı **Jeanne Boyarsky ve Scott Selikoff,
+OCP Java SE 17 Developer Study Guide** olarak tanımlar. Çeviri kontrolünde
+[projede bulunan bu PDF](../OCP_Java_SE17_Chapter1den_Itibaren.pdf) esas alınır.
+Ünite girişindeki sayfa aralığı, bu dosyanın fiziksel PDF sayfalarını gösterir;
+kitapta basılı sayfa numarası farklı olabilir.
 
 ## Ünite rotası
 

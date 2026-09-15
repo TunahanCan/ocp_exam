@@ -4,12 +4,12 @@ Bu notlar Chapter 4 metninde ve review questions bölümünde geçen, teknik
 İngilizce ile YDS açısından yararlı sentence structure'ları toplar. Eşdeğer
 yapılar tek başlık altında birleştirilmiştir.
 
-## 1. `which of the following + plural verb`
+## 1. `which of the following` ile seçim sorusu
 
 Bir seçenek grubundan seçim ister; bu yapı bir doğrudan sorudur, relative clause
 değildir. Seçilecek öğe tekilse `returns`, çoğulsa `return` kullanılır.
 
-**Formül:** `Which of the following + plural verb ...?`
+**Formül:** `Which of the following + singular/plural verb ...?`
 **EN:** Which of the following return 5?
 **TR:** Aşağıdakilerden hangileri 5 döndürür?
 
@@ -133,8 +133,8 @@ Bir işlemin hangi amaçla yapıldığını açıklar.
 API kurallarında hem gerçek koşul hem de gerçekleşmemiş varsayım kullanılır.
 
 **Formül 1:** `If + present, present/will`
-**EN:** If either operand is a `String`, Java uses concatenation.
-**TR:** Operand'lardan biri `String` ise Java birleştirme kullanır.
+**EN:** If either operand of `+` is a `String`, Java uses concatenation.
+**TR:** `+` operator'ının operand'larından biri `String` ise Java concatenation uygular.
 
 **Formül 2:** `If + past perfect, would have + V3`
 **EN:** If the return value had been assigned, the date would have changed.

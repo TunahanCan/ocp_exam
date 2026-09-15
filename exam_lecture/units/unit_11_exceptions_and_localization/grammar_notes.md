@@ -203,7 +203,7 @@ either + verb phrase A + or + verb phrase B
 > **English:** “You can either deal with the exception or make it the calling
 > code’s problem.”
 >
-> **Türkçe:** “İstisnayı ya ele alabilir ya da sorumluluğunu çağıran koda bırakabilirsiniz.”
+> **Türkçe:** “Exception’ı ya ele alabilir ya da sorumluluğunu çağıran koda bırakabilirsiniz.”
 
 İki tarafta verb biçimini eşleştir: `either deal ... or make ...`.
 
@@ -243,10 +243,20 @@ Kural veya zorunluluk bildirir.
 > **English:** “A method is not required to throw an exception that it
 > declares.”
 >
-> **Türkçe:** “Bir metot, bildirdiği istisnayı fırlatmak zorunda değildir.”
+> **Türkçe:** “Bir metot, bildirdiği exception’ı fırlatmak zorunda değildir.”
 
 `must` ile yakın anlamlıdır; `not required to` “yapması yasaktır” değil,
 “yapmak zorunda değildir” demektir.
+
+**İzin ve yasak karşılaştırması:** `It is permissible to + V1`, “yapılması
+mümkündür/izin verilir” anlamındadır. Kaynak cümle:
+
+> **English:** “It is permissible to handle or declare an unchecked exception.”
+>
+> **Türkçe:** “Unchecked exception’ı ele almak veya bildirmek mümkündür.”
+
+`permissible` → izin; `required` → zorunluluk; `forbidden` / `must not` →
+yasak. `not required` ifadesini yasak olarak çevirmek teknik kuralı tersine çevirir.
 
 ## 14. `be capable of + gerund`
 
@@ -301,7 +311,7 @@ Bir koşulun sonucu değiştirmediğini anlatır: “... bakılmaksızın”.
 > **English:** “The first line produces a runtime exception regardless of what
 > is inserted into the blank.”
 >
-> **Türkçe:** “Boşluğa ne yazılırsa yazılsın ilk satır çalışma zamanı istisnası üretir.”
+> **Türkçe:** “Boşluğa ne yazılırsa yazılsın ilk satır çalışma zamanı exception’ı üretir.”
 
 `regardless` sonrasında çoğunlukla `of` gerekir.
 
@@ -357,7 +367,7 @@ Bir seçenek yerine başka seçeneği kullanmayı anlatır.
 
 > **English:** “The method returns `-1` instead of throwing an exception.”
 >
-> **Türkçe:** “Metot, bir istisna fırlatmak yerine `-1` döndürür.”
+> **Türkçe:** “Metot, bir exception fırlatmak yerine `-1` döndürür.”
 
 `instead of throw` değil, `instead of throwing` kullanılır.
 
@@ -406,13 +416,16 @@ A if and only if B
 Necessary and sufficient condition (gerekli ve yeterli koşul) bildirir;
 matematikte `iff`.
 
-> **English:** “The variable is effectively final if and only if it is not
-> reassigned after initialization.”
+> **English:** “A non-final local variable declared with an initializer is effectively final
+> if and only if it is never reassigned, incremented, or decremented.”
 >
-> **Türkçe:** “Değişken, ancak ve ancak ilk değer atamasından sonra yeniden atanmadığında effectively final kabul edilir.”
+> **Türkçe:** “İlk değer atamasıyla bildirilen ve final olmayan bir local variable, ancak ve ancak
+> yeniden atanmaz, artırılmaz veya azaltılmazsa effectively final’dır.”
 
 Sıradan `if` yalnız bir yönlü yeter koşul verebilir; `if and only if` iki yönü
-de kapsar.
+de kapsar. Buradaki örnek, initializer içeren non-final local variable ile
+sınırlıdır; field’lar için effectively final kuralı kullanılmaz. `x++` ve
+`x += 1` de bu koşulu bozar.
 
 ## 23. `the more specific ..., the earlier ...`
 
@@ -444,7 +457,7 @@ Koşul gerçekleşse bile sonucun değişmediğini bildirir.
 > **English:** “The method compiles even if it never throws the declared
 > exception.”
 >
-> **Türkçe:** “Metot, bildirdiği istisnayı hiç fırlatmasa bile derlenir.”
+> **Türkçe:** “Metot, bildirdiği exception’ı hiç fırlatmasa bile derlenir.”
 
 `even though` gerçek bir duruma, `even if` olası/varsayımsal duruma daha
 yatkındır.

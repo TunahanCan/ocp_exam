@@ -57,9 +57,11 @@ Constructor:
 - overload edilebilir,
 - inherited veya overridden olmaz.
 
-Compiler yalnız class hiçbir constructor bildirmediyse default no-argument
+Compiler yalnız normal class hiçbir constructor bildirmediyse default no-argument
 constructor ekler. Her constructor'ın ilk statement'ında explicit `this(...)`
-veya `super(...)` yoksa compiler `super()` ekler.
+veya `super(...)` yoksa compiler `super()` ekler. Bu zincirin kökü `Object`tir;
+`Object` constructor'ı başka bir superclass constructor'ı çağırmaz. Record'un
+canonical constructor kuralları [Ünite 07'de](../unit_07_beyond_classes/technical_memory_notes.md#5-records-state-declarationdan-generated-apiye) ayrıca ele alınır.
 
 ```java
 class Parent {

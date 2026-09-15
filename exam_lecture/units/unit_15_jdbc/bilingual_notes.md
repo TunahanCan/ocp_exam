@@ -270,6 +270,8 @@ names.species_id ──────────► exhibits.id
 >
 > **Türkçe:** TABLE 15.1 CRUD işlemleri.
 
+<!-- keep-with-next -->
+
 | Operation | SQL keyword | Description |
 |---|---|---|
 | Create | `INSERT` | Adds a new row to a table |
@@ -305,6 +307,8 @@ names.species_id ──────────► exhibits.id
 > **English:** TABLE 15.2 · Basic SQL statements.
 >
 > **Türkçe:** TABLE 15.2 Temel SQL ifadeleri.
+
+<!-- keep-with-next -->
 
 | SQL | Explanation |
 |---|---|
@@ -353,7 +357,7 @@ names.species_id ──────────► exhibits.id
 > implementation is provided by an imaginary Foo driver JAR. They cleverly stick the name
 > Foo in all classes.
 >
-> **Türkçe:** FIGURE 15.2, bilmeniz gereken beş temel arayüzü gösterir. Ayrıca uygulamanın hayali bir
+> **Türkçe:** FIGURE 15.2, bilmeniz gereken beş temel interface’i gösterir. Ayrıca uygulamanın hayali bir
 > Foo sürücüsü JAR tarafından sağlandığını gösterir. Foo adını tüm sınıflara akıllıca
 > yapıştırırlar.
 > **English:** You’ve probably noticed that we didn’t tell you what the implementing classes are called
@@ -363,11 +367,11 @@ names.species_id ──────────► exhibits.id
 >
 > **Türkçe:** Muhtemelen, uygulama sınıflarının herhangi bir gerçek veritabanında ne olarak
 > adlandırıldığını söylemediğimizi fark ettiniz. Önemli olan, bilmemeniz gerektiğidir.
-> JDBC ile, yalnızca kodunuzdaki arayüzleri kullanırsınız ve asla uygulama sınıflarını
+> JDBC ile, yalnızca kodunuzdaki interface’leri kullanırsınız ve asla uygulama sınıflarını
 > doğrudan kullanmazsınız. Hatta public sınıfı bile olmayabilirler.
 > **English:** What do these five interfaces do? On a very high level, we have the following:
 >
-> **Türkçe:** Bu beş arayüz ne yapar? Çok yüksek bir seviyede, aşağıdakiler var:
+> **Türkçe:** Bu beş interface ne yapar? Çok yüksek bir seviyede, aşağıdakiler var:
 > **English:** Driver: Establishes a connection to the database Connection: Sends commands to a
 > database PreparedStatement: Executes a SQL query CallableStatement: Executes commands
 > stored in the database ResultSet: Reads the results of a query
@@ -380,8 +384,10 @@ names.species_id ──────────► exhibits.id
 > **English:** FIGURE 15.2 · Key JDBC interfaces. The interfaces are in the JDK; their concrete
 > implementations are supplied by the database driver.
 >
-> **Türkçe:** FIGURE 15.2 Anahtar JDBC arayüzleri. Arayüzler JDK içerisindedir; somut uygulamaları
+> **Türkçe:** FIGURE 15.2 Anahtar JDBC interface’leri. Interface’ler JDK içerisindedir; somut uygulamaları
 > database driver tarafından sağlanır.
+
+<!-- keep-with-next -->
 
 ```text
 Interfaces in the JDK          Implementation in the imaginary Foo driver
@@ -505,6 +511,8 @@ jdbc:hsqldb:file:zoo
 > **English:** FIGURE 15.3 · The JDBC URL format.
 >
 > **Türkçe:** FIGURE 15.3 JDBC URL biçimi.
+
+<!-- keep-with-next -->
 
 ```text
 jdbc : hsqldb : //localhost:5432/zoo
@@ -690,11 +698,19 @@ org.postgresql.jdbc4.Jdbc4Connection@eed1f14
 >
 > **Türkçe:** FIGURE 15.4 · `Statement` türleri.
 
+<!-- keep-with-next -->
+
 ```text
-                  Statement
-                  ├── PreparedStatement
-                  └── CallableStatement
+Statement
+└── PreparedStatement
+    └── CallableStatement
 ```
+
+> **Editör notu · Java 17:** Kaynak şekil iki alt interface'i yan yana gösterir;
+> burada doğrudan inheritance ilişkisi açıklaştırılmıştır. `CallableStatement`,
+> `PreparedStatement`ı extend eder; `PreparedStatement` da `Statement`ı extend eder.
+> Böylece `CallableStatement`, `Statement`ın dolaylı bir alt interface'idir.
+> [Java 17 CallableStatement bildirimi](https://docs.oracle.com/en/java/javase/17/docs/api/java.sql/java/sql/CallableStatement.html).
 
 > **English:** Later in the chapter, you learn about using CallableStatement for queries that are
 > inside the database. In this section, we look at PreparedStatement.
@@ -806,8 +822,8 @@ try (var ps = conn.prepareStatement()) { // DOES NOT COMPILE
 > concurrency mode. On the exam, you only need to know how to use the default options,
 > which process the results in order.
 >
-> **Türkçe:** `ResultSet` tipini ve eşzamanlılık modunu belirtmenize izin veren aşırı yüklenmiş imzalar
-> vardır. Sınavda, yalnızca sonuçları sırayla işleyen varsayılan seçenekleri nasıl
+> **Türkçe:** `ResultSet` tipini ve eşzamanlılık modunu belirtmenize izin veren overload edilmiş
+> imzalar vardır. Sınavda, yalnızca sonuçları sırayla işleyen varsayılan seçenekleri nasıl
 > kullanacağınızı bilmeniz gerekir.
 
 > [!IMPORTANT]
@@ -934,7 +950,7 @@ System.out.println("ran an update");
 > **English:** What do you think happens if we use the wrong method for a SQL statement? Let’s take a
 > look:
 >
-> **Türkçe:** SQL ifadesi için yanlış yöntem kullanırsak ne olur sizce? Bir göz atalım:
+> **Türkçe:** SQL ifadesi için yanlış metot kullanırsak ne olur sizce? Bir göz atalım:
 ```java
 var sql = "SELECT * FROM names";
 try (var ps = conn.prepareStatement(sql)) {
@@ -969,12 +985,14 @@ statement does not generate a result set
 > TABLE 15.4 shows what is returned by each method.
 >
 > **Türkçe:** İncelemek için, TABLE 15.3 ve TABLE 15.4'ü iyi bildiğinizden emin olun. TABLE 15.3 hangi
-> SQL ifadelerinin `PreparedStatement` üzerindeki üç anahtar yöntemin her biri tarafından
-> çalıştırılabileceğini gösterir. TABLE 15.4, her bir yöntemle neyin iade edildiğini
+> SQL ifadelerinin `PreparedStatement` üzerindeki üç anahtar metodun her biri tarafından
+> çalıştırılabileceğini gösterir. TABLE 15.4, her bir metotla neyin iade edildiğini
 > gösterir.
 > **English:** TABLE 15.3 · SQL runnable by each execute method.
 >
-> **Türkçe:** TABLE 15.3 SQL her yürütme yöntemiyle çalıştırılabilir.
+> **Türkçe:** TABLE 15.3 SQL her yürütme metoduyla çalıştırılabilir.
+
+<!-- keep-with-next -->
 
 | Method | `DELETE` | `INSERT` | `SELECT` | `UPDATE` |
 |---|:---:|:---:|:---:|:---:|
@@ -985,7 +1003,9 @@ statement does not generate a result set
 <!-- source-page: 0878 -->
 > **English:** TABLE 15.4 · Return types of execute methods.
 >
-> **Türkçe:** TABLE 15.4 Return types yürütme yöntemleri.
+> **Türkçe:** TABLE 15.4 Return types yürütme metotları.
+
+<!-- keep-with-next -->
 
 | Method | Return type | What is returned for `SELECT` | What is returned for `DELETE` / `INSERT` / `UPDATE` |
 |---|---|---|---|
@@ -1037,7 +1057,7 @@ String sql = "INSERT INTO names VALUES(?,?,?)";
 > String values in the SQL. Now we can pass the parameters to the method itself.
 >
 > **Türkçe:** Bind variable'lar, SQL'deki `String` değerlerin çevresinde quotation mark kullanmanız
-> gerekmediğinden SQL'ın okunmasını kolaylaştırır. Şimdi parametreleri yöntemin kendisine
+> gerekmediğinden SQL'ın okunmasını kolaylaştırır. Şimdi parametreleri metodun kendisine
 > aktarabiliriz.
 ```java
 14: public static void register(Connection conn, int key,
@@ -1135,7 +1155,11 @@ row column count mismatch in statement [INSERT INTO names VALUES(?,?)]
 > Date ile ilgili olanlar gibi başka birçok setter sınav kapsamı dışındadır.
 > **English:** TABLE 15.5 · PreparedStatement methods.
 >
-> **Türkçe:** TABLE 15.5 `PreparedStatement` yöntemleri.
+> **Türkçe:** TABLE 15.5 `PreparedStatement` metotları.
+
+<!-- keep-with-next -->
+
+<!-- keep-with-next -->
 
 | Method | Java parameter type | Example database type |
 |---|---|---|
@@ -1187,7 +1211,7 @@ ps.executeUpdate();
 > wrong type instead of a runtime error.
 >
 > **Türkçe:** Java sizin için tür dönüştürme işlemini halledecektir. Yine de daha spesifik ayarlayıcı
-> yöntemlerini çağırmak daha iyidir, çünkü bu, çalışma zamanı hatası yerine yanlış tip
+> metotlarını çağırmak daha iyidir, çünkü bu, çalışma zamanı hatası yerine yanlış tip
 > geçerseniz size bir derleme zamanı hatası verecektir.
 
 <!-- source-page: 0881 -->
@@ -1234,7 +1258,7 @@ ps.executeUpdate();
 > **English:** You don’t need to know the addBatch() and executeBatch() methods for the exam, but they
 > are useful in practice.
 >
-> **Türkçe:** Sınav için `addBatch()` ve `executeBatch()` yöntemlerini bilmenize gerek yoktur, ancak
+> **Türkçe:** Sınav için `addBatch()` ve `executeBatch()` metotlarını bilmenize gerek yoktur, ancak
 > uygulamada yararlıdırlar.
 ```java
 public static void register(Connection conn, int firstKey,
@@ -1287,7 +1311,7 @@ register(conn, 100, 1, "Elias", "Ester");
 >
 > **Türkçe:** Veri tabanı, verilerinizi alamıyorsanız kullanışlı değildir. `ResultSet` üzerinden nasıl
 > geçileceğini göstererek başlıyoruz. Daha sonra sütunları tipe göre almak için farklı
-> yöntemlerden geçeriz.
+> metotlardan geçeriz.
 ### Reading a ResultSet
 > **English:** When working with a ResultSet, most of the time, you will write a loop to look at each
 > row. The code looks like this:
@@ -1336,6 +1360,8 @@ register(conn, 100, 1, "Elias", "Ester");
 > **English:** FIGURE 15.5 · The ResultSet cursor.
 >
 > **Türkçe:** FIGURE 15.5 `ResultSet` imleci.
+
+<!-- keep-with-next -->
 
 ```text
 Initial position
@@ -1499,13 +1525,15 @@ rs.getInt(1); // SQLException
 > methods that you need to know. These are the getter equivalents of the setters in TABLE
 > 15.5.
 >
-> **Türkçe:** `ResultSet` arayüzünde birçok yöntem vardır. TABLE 15.6, bilmeniz gereken yöntemleri
+> **Türkçe:** `ResultSet` interface’inde birçok metot vardır. TABLE 15.6, bilmeniz gereken metotları
 > gösterir. Bunlar TABLE 15.5'teki setterlerin getter eşdeğerleridir.
 
 <!-- source-page: 0886 -->
 > **English:** TABLE 15.6 · ResultSet get methods.
 >
 > **Türkçe:** TABLE 15.6 · `ResultSet` get method'ları.
+
+<!-- keep-with-next -->
 
 | Method | Return type |
 |---|---|
@@ -1522,8 +1550,8 @@ rs.getInt(1); // SQLException
 > nice of the exam creators?
 >
 > **Türkçe:** İlkel türlerin hepsinin TABLE 15.6'da olmadığını fark edebilirsiniz. getByte() ve
-> getFloat() yöntemleri vardır, ancak sınav için bunları bilmeniz gerekmez. getChar()
-> yöntemi yoktur. Neyse ki bunu hatırlamanıza gerek yok. Sınav, JDBC için mevcut olmayan
+> getFloat() metotları vardır, ancak sınav için bunları bilmeniz gerekmez. getChar()
+> metodu yoktur. Neyse ki bunu hatırlamanıza gerek yok. Sınav, JDBC için mevcut olmayan
 > bir get metodu adı kullanarak sizi kandırmaya çalışmayacaktır. Bu sınav yaratıcıları
 > için hoş değil mi?
 > **English:** The getObject() method can return any type. For a primitive, it uses the wrapper class.
@@ -1636,6 +1664,8 @@ rs.getInt(1); // SQLException
 > **English:** TABLE 15.7 · Sample stored procedures.
 >
 > **Türkçe:** TABLE 15.7 Örnek stored procedures.
+
+<!-- keep-with-next -->
 
 | Name | Parameter name | Parameter type | Description |
 |---|---|---|---|
@@ -1835,6 +1865,10 @@ cs.setString("prefix", "Z");
 > **English:** TABLE 15.8 · Stored procedure parameter types.
 >
 > **Türkçe:** TABLE 15.8 Stored procedure parametre türleri.
+
+<!-- keep-with-next -->
+
+<!-- keep-with-next -->
 
 | Rule | `IN` | `OUT` | `INOUT` |
 |---|:---:|:---:|:---:|
@@ -2079,11 +2113,13 @@ ResultSet.CONCUR_UPDATABLE);
 > **English:** There aren’t many methods for working with transactions, but you need to know all of the
 > ones in TABLE 15.9.
 >
-> **Türkçe:** transactions ile çalışmak için çok fazla yöntem yoktur, ancak TABLE 15.9'daki tüm
-> yöntemleri bilmeniz gerekir.
+> **Türkçe:** transactions ile çalışmak için çok fazla metot yoktur, ancak TABLE 15.9'daki tüm
+> metotları bilmeniz gerekir.
 > **English:** TABLE 15.9 · Connection APIs for transactions.
 >
 > **Türkçe:** TABLE 15.9 `Connection` transactions için API'ler.
+
+<!-- keep-with-next -->
 
 | Method | Description |
 |---|---|
@@ -2131,7 +2167,7 @@ ResultSet.CONCUR_UPDATABLE);
 > and exceptions.
 >
 > **Türkçe:** Kaynakları doğru düzende kapatmak önemlidir. Bu, hem kaynak sızıntılarını hem de
-> istisnaları önler.
+> exception’ları önler.
 
 > [!NOTE]
 > **Ownership ayrıntısı:** ResultSet → statement → Connection reverse order'ı
@@ -2146,7 +2182,7 @@ ResultSet.CONCUR_UPDATABLE);
 > before a try-with-resources statement. Do you see why this method is bad?
 >
 > **Türkçe:** Bölüm 11'de, bir try-with-resources statement'dan önce bir tür beyan etmenin mümkün
-> olduğunu öğrendiniz. Bu yöntemin neden kötü olduğunu anlıyor musunuz?
+> olduğunu öğrendiniz. Bu metodun neden kötü olduğunu anlıyor musunuz?
 ```java
 40: public void bad() throws SQLException {
 41:     var url = "jdbc:hsqldb:zoo";
@@ -2219,9 +2255,9 @@ Column 'NOT_A_COLUMN' is either not in any table...
 > error. In comparison, getErrorCode() is a database-specific code. On this database, it
 > doesn’t do anything.
 >
-> **Türkçe:** Bu yöntemlerin her biri size farklı bir bilgi verir. getMessage() yöntemi, neyin yanlış
+> **Türkçe:** Bu metotların her biri size farklı bir bilgi verir. getMessage() metodu, neyin yanlış
 > gittiği hakkında insan tarafından okunabilir bir mesaj döndürür. Biz sadece başlangıcını
-> buraya ekledik. getSQLState() yöntemi, neyin yanlış gittiğine dair bir kod döndürür.
+> buraya ekledik. getSQLState() metodu, neyin yanlış gittiğine dair bir kod döndürür.
 > Hata hakkında daha fazla bilgi almak için veritabanınızın adını ve SQL durumunu
 > Google'da bulabilirsiniz. Karşılaştırmada, getErrorCode() veritabanına özgü bir koddur.
 > Bu veritabanında, hiçbir şey yapmaz.
@@ -2238,8 +2274,8 @@ Column 'NOT_A_COLUMN' is either not in any table...
 > PreparedStatement, CallableStatement, and ResultSet. The interfaces are part of the Java
 > API. A database-specific JAR file provides the implementations.
 >
-> **Türkçe:** Beş temel JDBC arayüzünü tanıyın: `Driver`, `Connection`, `PreparedStatement`,
-> `CallableStatement` ve `ResultSet`. Arayüzler Java API’sinin parçasıdır; somut
+> **Türkçe:** Beş temel JDBC interface’ini tanıyın: `Driver`, `Connection`, `PreparedStatement`,
+> `CallableStatement` ve `ResultSet`. Interface’ler Java API’sinin parçasıdır; somut
 > gerçekleştirimleri veritabanına özgü JAR dosyası sağlar.
 
 > **English:** To connect to a database, you need the JDBC URL. A JDBC URL has three parts separated by
@@ -2312,8 +2348,8 @@ Column 'NOT_A_COLUMN' is either not in any table...
 > CallableStatement, and ResultSet. The interfaces are part of the core Java APIs. The
 > implementations are part of a database driver JAR file.
 >
-> **Türkçe:** Beş temel JDBC arayüzünü ve nerede tanımlandıklarını söyleyebilmelisiniz: `Driver`,
-> `Connection`, `PreparedStatement`, `CallableStatement` ve `ResultSet`. Arayüzler Java
+> **Türkçe:** Beş temel JDBC interface’ini ve nerede tanımlandıklarını söyleyebilmelisiniz: `Driver`,
+> `Connection`, `PreparedStatement`, `CallableStatement` ve `ResultSet`. Interface’ler Java
 > API’sinde, gerçekleştirimler veritabanı sürücüsünün JAR dosyasında bulunur.
 
 > **English:** Identify correct and incorrect JDBC URLs. A JDBC URL starts with jdbc:, followed by the

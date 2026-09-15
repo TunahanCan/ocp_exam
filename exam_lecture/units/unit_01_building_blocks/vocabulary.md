@@ -238,10 +238,10 @@ Bu sözlük Unit 01 ana notundaki **Java environment**, **class structure**,
 
 ### instance · noun
 
-- **Türkçe:** örnek
+- **Türkçe:** instance; bir class'tan oluşturulan nesne
 - **Teknik bağlam:** Bir class'tan oluşturulan somut object.
 - **Example:** Each call to `new Bird()` creates a new instance.
-- **Çeviri:** Her `new Bird()` çağrısı yeni bir örnek oluşturur.
+- **Çeviri:** Her `new Bird()` çağrısı yeni bir instance oluşturur.
 - **Related:** object; **phrase:** instance of
 
 ## L–R
@@ -414,7 +414,7 @@ Bu sözlük Unit 01 ana notundaki **Java environment**, **class structure**,
 - **Teknik bağlam:** Programda bir eylemi gerçekleştiren Java instruction;
   kaynak metinde `import statement` kalıbında da geçer.
 - **Example:** The `println` statement displays the field value.
-- **Çeviri:** `println` ifadesi field değerini gösterir.
+- **Çeviri:** `println` statement'ı field değerini gösterir.
 - **Word family:** state (v.), stated (adj.)
 
 ### supply · verb

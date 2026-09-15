@@ -442,6 +442,22 @@ def audit_unit(unit: Path) -> tuple[int, int, list[str]]:
     bilingual_notes = unit / "bilingual_notes.md"
     expected_review_count = REVIEW_QUESTION_COUNTS.get(unit.name)
     if bilingual_notes.exists() and expected_review_count is not None:
+        # Source and translation must alternate, including lettered answer
+        # options. Matching totals alone misses a translation attached to the
+        # wrong source paragraph or two consecutive English blocks.
+        language_labels = re.findall(
+            r"^>\s*\*\*(English|Türkçe)(?:\s+—\s+([A-Z]))?:\*\*",
+            "\n".join(prose_lines(bilingual_notes.read_text(encoding="utf-8"))),
+            re.MULTILINE,
+        )
+        if len(language_labels) % 2:
+            errors.append(f"{bilingual_notes}: unpaired bilingual block")
+        for index in range(0, len(language_labels) - 1, 2):
+            source, translation = language_labels[index:index + 2]
+            if (source[0], translation[0]) != ("English", "Türkçe"):
+                errors.append(f"{bilingual_notes}: wrong language order at pair {index // 2 + 1}")
+            elif source[1] != translation[1]:
+                errors.append(f"{bilingual_notes}: mismatched option labels at pair {index // 2 + 1}")
         review_count = audit_review_questions(
             bilingual_notes,
             expected_review_count,

@@ -722,6 +722,8 @@ Bir I/O sorusunda şu sırayla ilerle:
 12. Sonucu **does not compile**, checked/runtime exception, deterministic output
     veya environment-dependent result olarak sınıflandır.
 
+<!-- page-break -->
+
 ## 35. Mini quiz
 
 ### Soru 1
@@ -785,6 +787,8 @@ D. `IOException`
 ### Soru 8
 
 `BasicFileAttributes` üzerinden `setTimes()` çağrılabilir mi?
+
+<!-- page-break -->
 
 ## 36. Cevaplar ve açıklamalar
 

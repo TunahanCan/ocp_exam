@@ -93,6 +93,14 @@ alfabetiktir.
 - **Çeviri:** “Empty stream'in count değeri sıfırdır.”
 - **Related:** emptiness; antonym: populated
 
+### exclusive · adjective
+
+- **Türkçe:** hariç, sınırı kapsamayan
+- **Java bağlamı:** `IntStream.range(a, b)` üst sınır `b`yi içermez.
+- **Example:** The upper bound of `range()` is exclusive.
+- **Çeviri:** `range()` üst sınırı hariç tutar.
+- **Related:** exclude; antonym: inclusive
+
 ### finite · adjective
 
 - **Türkçe:** sonlu
@@ -109,6 +117,15 @@ alfabetiktir.
 - **Example:** “Flatten the nested streams before collecting.”
 - **Çeviri:** “Sonucu toplamadan önce iç içe stream’leri tek katmana indirin.”
 - **Related:** flat, flat mapping
+
+### foreperson · noun
+
+- **Türkçe:** ustabaşı, işi yöneten kişi
+- **Java bağlamı:** Kitabın montaj hattı benzetmesinde pipeline'ın başlamasını ve
+  durmasını yöneten Java çalışma mekanizmasını temsil eder; bir API adı değildir.
+- **Example:** The foreperson waits for the terminal operation.
+- **Çeviri:** Ustabaşı terminal operation'ı bekler.
+- **Related:** supervisor; oversee
 
 ### generate · verb
 
@@ -136,6 +153,14 @@ alfabetiktir.
 - **Example:** “Zero is the identity for addition.”
 - **Çeviri:** “Sıfır, toplama işleminin sonucunu değiştirmeyen özdeş elemandır.”
 - **Related:** identical; phrase: identity value
+
+### inclusive · adjective
+
+- **Türkçe:** dahil, sınırı kapsayan
+- **Java bağlamı:** `rangeClosed(a, b)` her iki sınırı da içerir.
+- **Example:** Both bounds of `rangeClosed()` are inclusive.
+- **Çeviri:** `rangeClosed()` için iki sınır da dahildir.
+- **Related:** include, inclusion; antonym: exclusive
 
 ### infinite · adjective
 
@@ -173,6 +198,14 @@ alfabetiktir.
 - **Example:** “Map each name to its length.”
 - **Çeviri:** “Her adı length değerine dönüştürün.”
 - **Related:** mapping; contrast: flat map
+
+### old hat · idiom
+
+- **Türkçe:** artık tanıdık, yeni olmayan şey
+- **Java bağlamı:** Optional kullanımının tekrar sayesinde tanıdık gelmesi.
+- **Example:** This should be old hat by now.
+- **Çeviri:** Bu kullanım artık tanıdık gelmelidir.
+- **Related:** familiar; eski şapka diye çevrilmez.
 
 ### partition · verb / noun
 
@@ -239,6 +272,14 @@ alfabetiktir.
 - **Related:** Contrast: easy to learn; steep bu bağlamda dik diye çevrilmek zorunda değildir.
 - **Kaynak bağlam:** [steep learning curve](bilingual_notes.md#chapter-10--streams).
 
+### stencil · verb / noun
+
+- **Türkçe:** şablonla yazmak veya boyamak; şablon
+- **Java bağlamı:** Montaj hattı benzetmesinde tabelaya hayvan adını yazma aşaması.
+- **Example:** Stencil the name on the sign.
+- **Çeviri:** Adı tabelaya şablonla yazın.
+- **Related:** lettering, template; smell (koklamak) ile ilgili değildir.
+
 ### stream · noun
 
 - **Türkçe:** akış; Java'da stream
@@ -268,6 +309,14 @@ alfabetiktir.
 - **Çeviri:** “İşlem hattını tamamlayan tam olarak bir terminal operation vardır.”
 - **Related:** terminate, termination; antonym: intermediate
 
+### thread · noun
+
+- **Türkçe:** thread; iş parçacığı
+- **Java bağlamı:** Parallel stream'in işini yürütebilen execution birimi.
+- **Example:** Separate threads can process intermediate results.
+- **Çeviri:** Farklı thread'ler ara sonuçları işleyebilir.
+- **Related:** threading, concurrency; bu bağlamda iplik anlamı kullanılmaz.
+
 ### traversal · noun
 
 - **Türkçe:** sırayla dolaşma
@@ -293,6 +342,15 @@ alfabetiktir.
 - **Example:** “The empty result follows the rule of vacuous truth.”
 - **Çeviri:** “Empty sonuç vacuous truth kuralını izler.”
 - **Related:** logic, universal condition
+
+### wrapper · noun / adjective
+
+- **Türkçe:** sarmalayıcı; teknik kullanımda wrapper
+- **Java bağlamı:** `Integer` gibi primitive değeri nesneyle temsil eden sınıf
+  veya çağrıyı `try/catch` ile saran yardımcı method.
+- **Example:** `boxed()` converts primitives to wrapper objects.
+- **Çeviri:** `boxed()`, primitive değerleri wrapper nesnelerine dönüştürür.
+- **Related:** wrap, unwrap, boxing; ambalaj diye çevrilmez.
 
 ## Karıştırılan anlamlar ve kapalı kitap hatırlama
 

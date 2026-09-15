@@ -57,7 +57,7 @@ Bir kişi veya bileşene eylem olanağı verir.
 > **English:** “Multithreaded processing allows an application to execute
 > several tasks.”
 >
-> **Türkçe:** “Çok iş parçacıklı işleme, uygulamanın birden fazla görev yürütmesine olanak sağlar.”
+> **Türkçe:** “Multithreaded processing, uygulamanın birden fazla görev yürütmesine olanak verir.”
 
 Passive: `Tasks are allowed to continue.` Sık hata: object'ten sonra `to`
 unutmak.
@@ -75,7 +75,8 @@ what is known as + term
 > **English:** “Operating systems support what is known as multithreaded
 > processing.”
 >
-> **Türkçe:** “İşletim sistemleri, çok iş parçacıklı işleme olarak bilinen yapıyı destekler.”
+> **Türkçe:** “İşletim sistemleri, multithreaded processing olarak bilinen çalışma biçimini
+> destekler.”
 
 `what` kendi antecedent'ını içerir; önüne ayrıca `the thing` getirilmez.
 
@@ -109,7 +110,7 @@ Bir sonuca ulaşma yöntemini açıklar.
 
 > **English:** “The executor improves efficiency by reusing worker threads.”
 >
-> **Türkçe:** “Yürütücü, çalışan iş parçacıklarını yeniden kullanarak verimliliği artırır.”
+> **Türkçe:** “Executor, worker thread’leri yeniden kullanarak verimliliği artırır.”
 
 `by` sonrası base verb değil gerund gerekir.
 
@@ -127,7 +128,7 @@ Genel kural veya gelecekteki koşullu zamanı anlatır.
 > **English:** “When the final thread arrives, the barrier releases all
 > parties.”
 >
-> **Türkçe:** “Son iş parçacığı ulaştığında bariyer, bütün katılımcıları serbest bırakır.”
+> **Türkçe:** “Son thread ulaştığında bariyer, bütün katılımcıları serbest bırakır.”
 
 Future anlamında time clause içinde çoğunlukla `will arrive` değil `arrives`
 kullanılır.
@@ -145,7 +146,7 @@ Eşzamanlılık veya contrast bildirir.
 
 > **English:** “One thread waits while another thread holds the lock.”
 >
-> **Türkçe:** “Bir iş parçacığı beklerken diğeri kilidi tutar.”
+> **Türkçe:** “Bir thread beklerken diğeri kilidi tutar.”
 
 Context'e göre “...iken” zaman, “oysa” contrast anlamını ayır.
 
@@ -322,7 +323,7 @@ Neden bildirir.
 
 > **English:** “The result varies because of different thread interleavings.”
 >
-> **Türkçe:** “Sonuç, iş parçacıklarının adımlarının farklı sıralarda iç içe geçmesi nedeniyle değişir.”
+> **Türkçe:** “Sonuç, thread’lerin adımlarının farklı sıralarda iç içe geçmesi nedeniyle değişir.”
 
 YDS ipucu: `because` tam clause, `because of` noun phrase alır.
 
@@ -378,7 +379,7 @@ Bir durumun başka bir eylemi doğurmasını anlatır.
 > **English:** “An interrupt can cause a sleeping thread to throw an
 > exception.”
 >
-> **Türkçe:** “Bir kesme isteği, uyuyan iş parçacığının istisna fırlatmasına yol açabilir.”
+> **Türkçe:** “Bir kesme isteği, uyuyan thread’in exception fırlatmasına yol açabilir.”
 
 Passive: `The thread is caused to wake` grammatical olsa da teknik metinde
 çoğunlukla active neden yapısı kullanılır.
@@ -432,7 +433,8 @@ the + comparative + clause, the + comparative + clause
 > **English:** “The more shared state a task modifies, the harder it is to
 > reason about thread safety.”
 >
-> **Türkçe:** “Bir görev paylaşılan durumu ne kadar çok değiştirirse iş parçacığı güvenliğini değerlendirmek o kadar zorlaşır.”
+> **Türkçe:** “Bir görev paylaşılan durumu ne kadar çok değiştirirse thread güvenliğini değerlendirmek
+> o kadar zorlaşır.”
 
 İlk `the` article değil, comparative correlative marker'dır.
 
@@ -449,7 +451,7 @@ either + alternative A + or + alternative B
 > **English:** “A task either completes normally or records an exception in
 > its future.”
 >
-> **Türkçe:** “Bir görev ya normal biçimde tamamlanır ya da `Future` nesnesine bir istisna kaydeder.”
+> **Türkçe:** “Bir görev ya normal biçimde tamamlanır ya da `Future` nesnesine bir exception kaydeder.”
 
 Subject agreement yakın öğeye göre değişebilir; teknik listelerde parallel
 structure'ı koru.

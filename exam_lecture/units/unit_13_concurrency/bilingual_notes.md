@@ -1011,7 +1011,7 @@ service.shutdown();
 > that its call() method returns a value and can throw a checked exception. The following
 > is the definition of the Callable interface:
 >
-> **Türkçe:** `java.util.concurrent.Callable` functional interface'i (işlevsel arayüz),
+> **Türkçe:** `java.util.concurrent.Callable` functional interface'i (işlevsel interface),
 > `call()` metodunun bir değer döndürmesi ve checked exception atabilmesi dışında
 > `Runnable`'a benzer. `Callable` interface'inin tanımı şöyledir:
 ```java
@@ -2595,9 +2595,9 @@ System.out.println("Size: " + favNumbers.size()); // Size: 6
 > eliminate them. In practice, finding and identifying threading issues within an
 > application is often one of the most difficult tasks a developer can undertake.
 >
-> **Türkçe:** Concurrency API, iş parçacıklarıyla ilgili sorunların ortaya çıkma
-> olasılığını azaltsa da bunları tamamen ortadan kaldırmaz. Uygulamada bu sorunları
-> bulup tanımlamak, bir geliştiricinin üstlenebileceği en zor işlerden biridir.
+> **Türkçe:** Concurrency API, thread’lerle ilgili sorunların ortaya çıkma olasılığını azaltsa da
+> bunları tamamen ortadan kaldırmaz. Uygulamada bu sorunları bulup tanımlamak, bir
+> geliştiricinin üstlenebileceği en zor işlerden biridir.
 
 > **Dil çalışması:** `although` ile beklenene aykırı sonucu ve `potential`
 > sözcüğünü [grammar notlarında](grammar_notes.md#17-even-though--clause) ve
@@ -2900,7 +2900,7 @@ Stream<Integer> p2 = collection.parallelStream();
 >
 > **Türkçe:** İlk yol mevcut bir stream'i `parallel()` ile parallel hâle getirmektir;
 > herhangi bir stream bu şekilde dönüştürülebilir. İkinci yol bir Java `Collection`
-> üzerinden `parallelStream()` çağırmaktır. Bu bölümde iki yöntem de kullanılacaktır.
+> üzerinden `parallelStream()` çağırmaktır. Bu bölümde iki metot de kullanılacaktır.
 > **English:** The Stream interface includes a method isParallel() that can be used to test whether the
 > instance of a stream supports parallel processing.
 >
@@ -3384,7 +3384,7 @@ return data;
 ```
 > **English:** Let’s say this method is executed with a serial stream:
 >
-> **Türkçe:** Bu yöntemin seri stream ile çalıştırıldığını varsayalım:
+> **Türkçe:** Bu metodun seri stream ile çalıştırıldığını varsayalım:
 ```java
 var list = addValues(IntStream.range(1, 11));
 System.out.print(list); // [2, 4, 6, 8, 10]
@@ -3431,18 +3431,17 @@ return source.filter(s -> s % 2 == 0)
 > pause and interrupt the thread. When working with the Concurrency API, you should also
 > know how to create threads using Callable lambda expressions.
 >
-> **Türkçe:** Bu bölüm, iş parçacıklarını tanıttı ve sınavda bilmeniz gereken temel eşzamanlılık
-> kavramlarını özetledi. Bir `Runnable` nesnesiyle iş parçacığının yapacağı işi
-> tanımlamayı; iş parçacığını bekletmeyi ve ona kesme isteği göndermeyi bilmelisiniz.
-> Concurrency API kullanırken `Callable` lambda ifadeleriyle görev oluşturmayı da
-> öğrenmiş olmalısınız.
+> **Türkçe:** Bu bölüm, thread’leri tanıttı ve sınavda bilmeniz gereken temel eşzamanlılık
+> kavramlarını özetledi. Bir `Runnable` nesnesiyle thread’in yapacağı işi tanımlamayı;
+> thread’i bekletmeyi ve ona kesme isteği göndermeyi bilmelisiniz. Concurrency API
+> kullanırken `Callable` lambda ifadeleriyle görev oluşturmayı da öğrenmiş olmalısınız.
 
 > **English:** At this point, you should know how to concurrently execute tasks using ExecutorService
 > like a pro. You should also know which ExecutorService instances are available,
 > including scheduled and pooled services.
 >
 > **Türkçe:** Bu aşamada `ExecutorService` ile görevleri eşzamanlı yürütebilmeli; zamanlanmış
-> servisler ve iş parçacığı havuzları dahil mevcut yürütücü türlerini tanımalısınız.
+> servisler ve thread pool’lar dahil mevcut yürütücü türlerini tanımalısınız.
 
 > **English:** Thread-safety is about protecting data from being corrupted by multiple threads
 > modifying it at the same time. Java offers many tools to keep data safe, including
@@ -3452,13 +3451,13 @@ return source.filter(s -> s % 2 == 0)
 > CopyOnWrite classes, which create a new underlying structure any time the underlying
 > collection is modified.
 >
-> **Türkçe:** İş parçacığı güvenliği, birden fazla iş parçacığının paylaşılan veriyi değiştirmesi
-> nedeniyle oluşabilecek bozulmaları önlemektir. Atomik sınıflar, `synchronized` metot
-> ve bloklar ile `Lock` API’si atomiklik veya karşılıklı dışlama sağlayabilir.
-> `CyclicBarrier`, aşamalar arasında eşgüdüm ve happens-before ilişkisi sağlar; tek
-> başına karşılıklı dışlama veya atomiklik sağlamaz. Concurrency API, çok iş parçacıklı
-> erişimi yöneten koleksiyonları da içerir. Alttaki yapı değiştiğinde yeni bir kopya
-> oluşturan `CopyOnWrite` sınıflarını tanımalısınız.
+> **Türkçe:** Thread safety, birden fazla thread’in paylaşılan veriyi değiştirmesi nedeniyle
+> oluşabilecek bozulmaları önlemektir. Atomik sınıflar, `synchronized` metot ve bloklar
+> ile `Lock` API’si atomiklik veya karşılıklı dışlama sağlayabilir. `CyclicBarrier`,
+> aşamalar arasında eşgüdüm ve happens-before ilişkisi sağlar; tek başına karşılıklı
+> dışlama veya atomiklik sağlamaz. Concurrency API, çok iş parçacıklı erişimi yöneten
+> koleksiyonları da içerir. Alttaki yapı değiştiğinde yeni bir kopya oluşturan
+> `CopyOnWrite` sınıflarını tanımalısınız.
 
 > **English:** When processing tasks concurrently, a variety of potential threading issues can arise.
 > Deadlock, starvation, and livelock can result in programs that appear stuck, while race
@@ -3466,11 +3465,10 @@ return source.filter(s -> s % 2 == 0)
 > basic theory behind these concepts. In professional software development, however,
 > finding and resolving such problems is a valuable skill.
 >
-> **Türkçe:** Görevler eşzamanlı işlenirken çeşitli iş parçacığı sorunları doğabilir. Deadlock,
-> starvation ve livelock programın takılmış gibi görünmesine; race condition ise
-> öngörülemeyen verilere yol açabilir. Kaynak, sınav için bu kavramların temel
-> teorisinin bilinmesini ister. Mesleki yazılım geliştirmede bu sorunları bulup çözmek
-> de değerli bir beceridir.
+> **Türkçe:** Görevler eşzamanlı işlenirken çeşitli thread sorunları doğabilir. Deadlock, starvation
+> ve livelock programın takılmış gibi görünmesine; race condition ise öngörülemeyen
+> verilere yol açabilir. Kaynak, sınav için bu kavramların temel teorisinin bilinmesini
+> ister. Mesleki yazılım geliştirmede bu sorunları bulup çözmek de değerli bir beceridir.
 
 > **English:** Finally, we discussed parallel streams and showed you how to use them to perform
 > parallel decompositions and reductions. Parallel streams can greatly improve the
@@ -3494,20 +3492,19 @@ return source.filter(s -> s % 2 == 0)
 > locks. To achieve synchronization, two or more threads must coordinate on the same
 > shared object.
 >
-> **Türkçe:** İş parçacıkları arasında güvenli kod yazabilin. Amaç, paylaşılan veriyi eşzamanlı
-> erişimin yol açabileceği bozulmalardan korumaktır. `synchronized` blok veya metot,
-> nesnenin intrinsic monitor mekanizmasını kullanır; `Lock`, ayrıca sunulan açık bir
-> kilitleme API’sidir. İkisi karşılıklı dışlama sağlayabilir; ancak aynı mekanizma
-> değildir. `ReentrantLock`, beklemeden kilit edinmeyi deneme ve adil kilit edinimini
-> destekleme gibi avantajlar sunar. İş parçacıkları aynı monitor veya aynı `Lock`
-> nesnesi üzerinde eşgüdüm sağlamalıdır.
+> **Türkçe:** Thread-safe kod yazabilin. Amaç, paylaşılan veriyi eşzamanlı erişimin yol açabileceği
+> bozulmalardan korumaktır. `synchronized` blok veya metot, nesnenin intrinsic monitor
+> mekanizmasını kullanır; `Lock`, ayrıca sunulan açık bir kilitleme API’sidir. İkisi
+> karşılıklı dışlama sağlayabilir; ancak aynı mekanizma değildir. `ReentrantLock`,
+> beklemeden kilit edinmeyi deneme ve adil kilit edinimini destekleme gibi avantajlar
+> sunar. Thread’ler aynı monitor veya aynı `Lock` nesnesi üzerinde eşgüdüm sağlamalıdır.
 
 > **English:** Be able to apply the atomic classes. An atomic operation is one that occurs without
 > interference from another thread. The Concurrency API includes a set of atomic classes
 > that are similar to the primitive classes, except that they ensure that operations on
 > them are
 >
-> **Türkçe:** Atomik sınıfları kullanabilin. Atomik işlem, başka bir iş parçacığının gözünde bölünmez
+> **Türkçe:** Atomik sınıfları kullanabilin. Atomik işlem, başka bir thread’in gözünde bölünmez
 > biçimde gerçekleşir. Concurrency API, primitive türlerle benzer amaçlara hizmet eden
 > atomik sınıflar sunar.
 
@@ -3528,12 +3525,11 @@ return source.filter(s -> s % 2 == 0)
 > interval between executions.
 >
 > **Türkçe:** `Runnable` ve `Callable` ile yürütücüye eşzamanlı görevler gönderin. `ExecutorService`,
-> tek bir iş parçacığını veya bir iş parçacığı havuzunu oluşturup yönetir. Her iki
-> görev türü de yürütücüye gönderilebilir ve servisteki uygun iş parçacıklarında
-> çalıştırılır. `Callable`, `Runnable`’dan farklı olarak tür parametresiyle belirlenen
-> bir değer döndürür ve checked exception fırlatabilir. `ScheduledExecutorService`,
-> görevleri sabit aralıklarla veya bir çalışmanın bitişinden sonrakinin başlangıcına
-> kadar sabit gecikmeyle zamanlayabilir.
+> tek bir thread’i veya bir thread pool’u oluşturup yönetir. Her iki görev türü de
+> yürütücüye gönderilebilir ve servisteki uygun thread’lerde çalıştırılır. `Callable`,
+> `Runnable`’dan farklı olarak tür parametresiyle belirlenen bir değer döndürür ve checked
+> exception fırlatabilir. `ScheduledExecutorService`, görevleri sabit aralıklarla veya bir
+> çalışmanın bitişinden sonrakinin başlangıcına kadar sabit gecikmeyle zamanlayabilir.
 
 > **English:** Be able to use the concurrent collection classes. The Concurrency API includes numerous
 > collection classes that include built-in support for multithreaded processing, such as
@@ -3555,13 +3551,13 @@ return source.filter(s -> s % 2 == 0)
 > Finally, race conditions occur when two threads execute at the same time, resulting in
 > an unexpected outcome.
 >
-> **Türkçe:** Olası iş parçacığı sorunlarını tanımlayın. Deadlock, starvation ve livelock görevlerin
-> tamamlanmasını engelleyebilir. Deadlock durumunda iki veya daha fazla iş parçacığı
-> birbirini sonsuza kadar bekler. Starvation, bir iş parçacığının paylaşılan kaynağa
-> erişiminin sürekli engellenmesidir. Livelock durumunda iş parçacıkları etkin kalır;
-> ancak işte ilerleme sağlayamaz. Race condition, programın doğruluğunun eşgüdüm
-> sağlanmamış işlemlerin zamanlamasına veya iç içe geçme sırasına bağlı olmasıdır;
-> fiziksel olarak aynı anda yürütülmeleri şart değildir.
+> **Türkçe:** Olası thread sorunlarını tanımlayın. Deadlock, starvation ve livelock görevlerin
+> tamamlanmasını engelleyebilir. Deadlock durumunda iki veya daha fazla thread birbirini
+> sonsuza kadar bekler. Starvation, bir thread’in paylaşılan kaynağa erişiminin sürekli
+> engellenmesidir. Livelock durumunda thread’ler etkin kalır; ancak işte ilerleme
+> sağlayamaz. Race condition, programın doğruluğunun eşgüdüm sağlanmamış işlemlerin
+> zamanlamasına veya iç içe geçme sırasına bağlı olmasıdır; fiziksel olarak aynı anda
+> yürütülmeleri şart değildir.
 
 > **English:** Understand the impact of using parallel streams. The Stream API allows for the easy
 > creation of parallel streams. Using a parallel stream can cause unexpected results,
@@ -3649,7 +3645,7 @@ var p = ______;
 > **Türkçe:** C. 45'ten büyük bir sayı yazdırılır.
 > **English:** D. An exception is thrown.
 >
-> **Türkçe:** D. Bir istisna atılır.
+> **Türkçe:** D. Bir exception atılır.
 > **English:** E. None of the above, as the code does not compile.
 >
 > **Türkçe:** E. Yukarıdakilerin hiçbiri; kod derlenmez.
@@ -4726,7 +4722,7 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 >
 > **Türkçe:** Dikkat edilmesi gereken iki önemli şey var. İlk olarak, ilk değişken üzerinde senkronize
 > etmek kodun sonuçlarını etkilemez. İkincisi, bir parallel stream üzerinde sıralama
-> yapmak, findAny() ilk kaydı iade edeceği anlamına gelmez. findAny() yöntemi, bir kaydı
+> yapmak, findAny() ilk kaydı iade edeceği anlamına gelmez. findAny() metodu, bir kaydı
 > alan ilk thread değerini döndürür. Bu nedenle, çıkış garanti edilmez ve F seçeneği
 > doğrudur. A seçeneği doğru görünüyor, ancak serial stream'lerde bile `findAny()`
 > herhangi bir öğeyi seçmekte özgürdür.
@@ -4851,7 +4847,7 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > ahead of time, and option E is correct. Finally, the thread executor is never shut down;
 > therefore, the code will run but never terminate, making option G also correct.
 >
-> **Türkçe:** 19. E, G. Uygulama derlenir ve bir istisna atmaz. stream sıralı olarak işlense de,
+> **Türkçe:** 19. E, G. Uygulama derlenir ve bir exception atmaz. stream sıralı olarak işlense de,
 > görevler herhangi bir sırada görevleri tamamlayabilecek bir thread yöneticiye
 > gönderilir. Bu nedenle, çıktı önceden belirlenemez ve E seçeneği doğrudur. Son olarak,
 > thread yürütücüsü asla kapanmaz; bu nedenle, kod çalışacak ancak asla sonlandırmayacak
@@ -4945,7 +4941,7 @@ Aşağıdaki cevaplar kaynak Appendix bölümündeki sıra ve gerekçeleri korur
 > yanlıştır. performCount()'nin return type'si void'dir, bu nedenle submit() bir Runnable
 > ifadesine uygulandığı şeklinde yorumlanır. submit(Runnable) bir Future<?> döndürürken,
 > üzerinde get() çağrısı her zaman null döndürür. Bu nedenle, A ve B seçenekleri yanlıştır
-> ve C seçeneği doğrudur. performCount() yöntemi, daha sonra get() çağrısı tarafından
+> ve C seçeneği doğrudur. performCount() metodu, daha sonra get() çağrısı tarafından
 > ExecutionException olarak atılacak bir runtime exception de atabilir; bu nedenle, D
 > seçeneği de doğru bir cevaptır. Son olarak, performCount() deadlock veya sonsuz döngü
 > gibi süresiz olarak asılması da mümkündür. Neyse ki, get() çağrısı bir zaman aşımı

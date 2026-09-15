@@ -47,11 +47,18 @@ Date-Time API bağlamından seçilmiştir. Maddeler alfabetik sıralıdır.
 - **Çeviri:** `String` immutable'dır. Buna karşılık `StringBuilder` mutable'dır.
 - **Synonym:** conversely, on the other hand
 
+### code unit · noun phrase
+- **Türkçe:** kod birimi
+- **Bağlam:** Java String uzunluğu ve indeksleri UTF-16 code unit üzerinden hesaplanır; her biri bir `char` değerine karşılık gelir.
+- **Example:** An emoji may occupy two UTF-16 code units.
+- **Çeviri:** Bir emoji iki UTF-16 code unit kaplayabilir.
+- **Related:** code point, character, surrogate pair
+
 ### concatenation · noun
 - **Türkçe:** birleştirme
 - **Bağlam:** `+` ile String değerlerini art arda eklemek.
-- **Example:** Concatenation is used if either operand is a `String`.
-- **Çeviri:** Operand'lardan biri `String` ise birleştirme kullanılır.
+- **Example:** Concatenation is used if either operand of `+` is a `String`.
+- **Çeviri:** `+` operator'ının operand'larından biri `String` ise concatenation uygulanır.
 - **Word family:** concatenate (v.)
 
 ### convenience method · noun phrase
@@ -196,8 +203,8 @@ Date-Time API bağlamından seçilmiştir. Maddeler alfabetik sıralıdır.
 ### operand · noun
 - **Türkçe:** işlenen
 - **Bağlam:** `+` operatörünün sağındaki veya solundaki değer.
-- **Example:** If either operand is a `String`, Java concatenates.
-- **Çeviri:** Operand'lardan biri `String` ise Java birleştirme yapar.
+- **Example:** If either operand of `+` is a `String`, Java concatenates.
+- **Çeviri:** `+` operator'ının operand'larından biri `String` ise Java concatenation uygular.
 - **Related:** operator, expression
 
 ### out of bounds · adjective phrase

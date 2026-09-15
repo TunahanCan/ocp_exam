@@ -123,8 +123,8 @@ dil çalışması bölümünde kısa active recall kartları gibi kullan:
 - **Türkçe:** fixed arity / sabit sayıda parameter'lı
 - **Bağlam:** Varargs expansion kullanmadan belirli sayıda argument kabul eden
   method invocation/declaration.
-- **Example:** Fixed-arity methods are considered before variable-arity methods.
-- **Çeviri:** Fixed-arity method'lar varargs method'lardan önce değerlendirilir.
+- **Example:** A varargs method can also be invoked as a fixed-arity method.
+- **Çeviri:** Varargs bildirimi olan bir method, fixed-arity method olarak da çağrılabilir.
 - **Antonym:** variable arity
 
 ### immutable · adjective
@@ -198,7 +198,7 @@ dil çalışması bölümünde kısa active recall kartları gibi kullan:
 - **Word family:** omission (n.); **synonym:** leave out
 
 ### overload · verb / noun
-- **Türkçe:** aşırı yüklemek; aynı adlı metodun farklı parametreli sürümü
+- **Türkçe:** overload etmek; aynı adlı method'un farklı parameter listesi olan sürümünü tanımlamak
 - **Bağlam:** Aynı class'ta aynı method name'i farklı parameter list'lerle bildirmek.
 - **Example:** You cannot overload a method by changing only its return type.
 - **Çeviri:** Yalnızca return type'ı değiştirerek bir method'u overload edemezsiniz.
@@ -306,8 +306,8 @@ dil çalışması bölümünde kısa active recall kartları gibi kullan:
 ### wildcard · noun
 - **Türkçe:** wildcard, joker karakter
 - **Bağlam:** Import statement'ta bir package veya class'ın uygun bütün member'larını temsil eden `*`.
-- **Example:** A static wildcard import can import all static members.
-- **Çeviri:** Static wildcard import bütün `static` member'ları import edebilir.
+- **Example:** A static wildcard import can import accessible static members.
+- **Çeviri:** Static wildcard import erişilebilir `static` member'ları import edebilir.
 - **Related:** import, asterisk
 
 ## Önce anlam farkını geri çağır

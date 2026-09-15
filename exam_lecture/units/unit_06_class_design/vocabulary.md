@@ -24,8 +24,8 @@ vocabulary adımında kullan:
 ### ancestor · noun
 - **Türkçe:** ata, üst tür
 - **Bağlam:** Inheritance zincirinde bir class'ın üstünde bulunan superclass.
-- **Example:** Object is an ancestor of every class.
-- **Çeviri:** Object her class'ın atasıdır.
+- **Example:** Object is an ancestor of every other class.
+- **Çeviri:** `Object`, kendisi dışındaki her class'ın üst türüdür.
 - **Antonym:** descendant
 
 ### broader · adjective
@@ -86,7 +86,7 @@ vocabulary adımında kullan:
 - **Türkçe:** alt tür
 - **Bağlam:** Inheritance ağacında başka bir class'tan türeyen subclass.
 - **Example:** Rhinoceros is a descendant of Mammal.
-- **Çeviri:** Rhinoceros, Mammal'ın alt tür'ıdır.
+- **Çeviri:** `Rhinoceros`, `Mammal`ın alt türüdür.
 - **Antonym:** ancestor
 
 ### directly · adverb
@@ -180,7 +180,7 @@ vocabulary adımında kullan:
 - **Antonym:** broader
 
 ### override · verb
-- **Türkçe:** inherited instance method'u geçersiz kılmak
+- **Türkçe:** override etmek; inherited instance method'a alt türde yeni implementation sağlamak
 - **Bağlam:** Same signature, compatible access/exception ve covariant return
   kurallarıyla child implementation sağlamak.
 - **Example:** A `final` method cannot be overridden.
@@ -220,7 +220,7 @@ vocabulary adımında kullan:
 
 ### single inheritance · noun phrase
 - **Türkçe:** tekli kalıtım
-- **Bağlam:** Her Java class'ının yalnızca bir direct superclass'a sahip olması.
+- **Bağlam:** `Object` dışındaki her Java class'ının tam bir direct superclass'a sahip olması.
 - **Example:** Java class design follows single inheritance.
 - **Çeviri:** Java class tasarımı single inheritance modelini izler.
 - **Antonym:** multiple inheritance

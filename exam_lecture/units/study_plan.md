@@ -51,6 +51,20 @@ Her sözcüğü sırayla çevirmeden önce cümlenin iskeletini bul:
 5. Önce ana yargıyı, sonra koşul/neden/karşıtlık ilişkisini doğal Türkçeye aktar.
 6. Java kuralı değişti mi diye kontrol et: olasılık zorunluluğa dönüşmüş mü?
 
+### Teknik terimi koruyarak çevir
+
+`override`, `overload`, `interface`, `thread` veya `exception` gördüğünde
+terimi Türkçeleştirmeye çalışmak yerine cümledeki görevini çöz. Örneğin
+“This method may throw an exception” cümlesi “Bu method bir exception
+fırlatabilir” olur. Burada öğrenilecek ayrım `may` sözcüğünün olasılık
+bildirmesidir; cümle method'un **her çağrıda** exception fırlattığını söylemez.
+
+Kod adını genel sözcükten ayır: `File` bir API adı olarak aynen kalır;
+“save the file” ise “dosyayı kaydet” diye çevrilebilir. Bir terimi zaten
+biliyorsan sırf İngilizce olduğu için kelime listene ekleme. Ünitenin
+sözlüğünde özellikle karıştırdığın teknik anlamı ve sınav sonucunu değiştiren
+kalıpları çalış.
+
 ### Birlikte çözüm · Unit 01
 
 Unit 01 grammar notundaki örnek:

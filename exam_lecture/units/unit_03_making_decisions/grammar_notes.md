@@ -34,8 +34,8 @@ açıklamalarında geçen grammar yapılarını ele alır.
 Bir olay gerçekleştiğinde başlayan sonucu anlatır; teknik metinde “-dığında”
 diye çevrilir.
 
-**EN:** An object is unreachable once no live reference points to it.
-**TR:** Hiçbir live reference onu göstermediğinde object unreachable olur.
+**EN:** An object is unreachable once no path from a GC root leads to it.
+**TR:** Bir GC root'tan object'e ulaşan hiçbir yol kalmadığında object unreachable olur.
 
 ## 4. `if` ile gerçek koşul, `whether` ile dolaylı soru
 

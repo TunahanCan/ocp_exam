@@ -1,6 +1,96 @@
 # Çalışma Dokümanları · İnceleme ve İyileştirme Kaydı
 
-**İnceleme tarihi:** 9 Eylül 2026.
+## 14–15 Eylül 2026 · Teknik dil ve ders kullanılabilirliği incelemesi
+
+Bu inceleme 15 ünitedeki 90 Markdown kaynağını ve ortak çalışma belgelerini
+kapsar. Yerel kitap PDF'si, özgün metin, kaynak soru ve OCR düzeltmelerinde
+karşılaştırma kaynağıdır. İngilizce teknik terimler korunurken doğal Türkçe
+anlatım, anlamı değiştiren modal/koşul yapıları ve Java 17 kuralları birlikte
+kontrol edilmiştir. Mevcut konu sırası, ünite yapısı ve önceki çalışmalar korunur.
+
+### Çeviri ve okuma düzeni
+
+- `overload`, `override`, `interface`, `stream`, `thread`, `exception`,
+  `wrapper` ve `garbage collection` gibi yerleşik terimler bağlamına uygun
+  biçimde korunur. Dosya/satır/çıktı gibi normal Türkçe sözcükler gereksiz
+  yere İngilizceleştirilmez. [Çalışma Merkezi](README.md#çevirilerde-teknik-dil)
+  ve [çalışma planı](study_plan.md#teknik-terimi-koruyarak-çevir) bu yaklaşımı
+  örnekler.
+- Kod veya terminal çıktısı olduğu hâlde çeviri paragrafına dönüşmüş içerik,
+  kaynakla karşılaştırılarak doğru blok türüne taşınmıştır. Bu nedenle bazı
+  ünitelerde paragraf çifti sayısı azalırken okunabilir kod/çıktı blokları artar.
+- İngilizce ve Türkçe PDF blokları aynı kartta, sırasıyla mavi ve yeşil alanlarda
+  gösterilir. Editör açıklamaları turuncu kutularda kalır. Kaynak sayfa
+  numaraları konu başlıklarından daha küçük gösterilir.
+- Belge denetimine yalnız blok sayısını değil, English → Türkçe sırasını ve
+  seçenek harflerinin eşleşmesini de kontrol eden bir kural eklenmiştir.
+
+### Somut teknik düzeltmeler
+
+- **Unit 01–05:** `var` bağlamları, initialization sırası, operator precedence
+  ve operand evaluation farkı, constant narrowing sınırı, UTF-16 `length()`
+  anlamı, blank final field ve overload seçim aşamaları netleştirilmiştir.
+  Label içeren bölünmüş kodlar kaynakla birleştirilmiştir.
+- **Unit 06–10:** Parameterized `instanceof` için Java 17'de geçerli olan
+  istisnalar açıklanmış; Streams metnindeki `Optional`, boxing/unboxing ve
+  terminal operation çevirileri düzeltilmiştir. Streams içindeki sekiz OCR
+  tablosu yeniden kurulmuş ve sayfa sınırında bölünen Spliterator örneği
+  kaynak PDF sayfası 569 ile karşılaştırılarak birleştirilmiştir.
+- **Unit 11–15:** Unchecked exception için ters çevrilmiş izin cümlesi,
+  `NumberFormat` türü, suppressed exception koşulu ve çevrilmiş stack trace
+  satırları düzeltilmiştir. Teknik terimlerin vocabulary/grammar içindeki
+  kullanımları da bağlamıyla kontrol edilmiştir. Exceptions içindeki 12 tablo
+  düzenlenmiş; `s`/`S` tarih biçimlendirme ayrımı ve ResourceBundle seçim
+  önceliği doğrulanmıştır. I/O içindeki 27 şekil/tablo caption çifti art arda
+  alınmış, sekiz çift tablo satır bazında iki dilli tek tabloda birleştirilmiştir.
+  JDBC şekline `CallableStatement → PreparedStatement → Statement` doğrudan
+  inheritance zinciri, kaynak açıklamasından ayrılan bir editör notuyla eklenmiştir.
+
+### Doğrulama ve sınırlar
+
+- **356 kaynak cevabının harfleri** yerel PDF'nin Appendix bölümünden yeniden
+  çıkarılan anahtarla karşılaştırılmış, tamamı eşleşmiştir. Bu, kitaptaki her
+  açıklamanın teknik olarak hatasız olduğu anlamına gelmez; bulunan kaynak
+  hataları ayrı editör açıklamasıyla işaretlenmiştir.
+- Markdown başlıkları, yerel dosya/başlık bağlantıları, kaynak soru sınırları,
+  kod çitleri ve çift dilli eşlemeler denetlenmiştir. **93 Markdown dosyası**
+  denetimi geçmiştir. Kaynak bölümlerin 908 sayfa işareti ve Appendix sayfa
+  işaretleri korunmuştur. Sayfa işaretleri, metnin kelime kelime eksiksiz
+  olduğunun kanıtı olarak kullanılmaz.
+- **76 PDF / 2.081 sayfa** güncel Markdown kaynaklarından üretilmiştir.
+  Bütün sayfalar görüntüye dönüştürülmüş; 173 toplu sayfa görünümü ve gereken
+  tekil sayfa büyütmeleriyle görsel olarak incelenmiştir. İngilizce–Türkçe
+  eşleşmeleri, caption/şekil/tablo birlikteliği, Türkçe karakterler, kod
+  blokları ve sayfa kırılmaları kontrol edilmiştir. Son otomatik yerleşim
+  taramasında metin taşması, boş içerik sayfası veya ayrılmış paragraf çifti
+  bulgusu kalmamıştır.
+- Tablo başlıklarındaki inline code ve link renkleri beyaza alınmıştır.
+  Son kontrast düzeltmesinin uygulandığı 10 PDF'de 464 sayfanın metni ve
+  koordinatları aynı kalmış; rengi değişen 17 sayfa ayrıca görsel olarak
+  kontrol edilmiştir. Unit 15 ana PDF'si son şekil düzeltmesi ve yeni
+  renklerle ayrıca baştan sona incelenmiştir.
+- Bütün PDF ve kaynak Markdown dosyalarının SHA256 özetleri render sırasında
+  kaydedilen son sürümle eşleşmiştir. Kaynak kitap PDF'si değiştirilmemiştir.
+- Java kontrollerinde gerçek **Amazon Corretto JDK 17.0.20.1** kullanılmıştır;
+  yalnızca daha yeni JDK üzerinde `--release 17` ile yetinilmemiştir.
+  [Dağıtımın resmî indirme kaynağı](https://docs.aws.amazon.com/corretto/latest/corretto-17-ug/downloads-list.html).
+- **57 özgün quiz programı ve 18 odaklı örnek** Java 17 ile doğrulanmıştır.
+  Beklenen derleme hataları ve runtime exception'lar başarıyla çalışan
+  örneklerden ayrı değerlendirilmiştir. Ünite 01–05'te 26, 06–10'da 29,
+  11–15'te 19 kontrol beklenen sonucu vermiştir. JDBC için haricî driver veya
+  veritabanı kurulmamış; uygun soruda standart `CachedRowSet` kullanılmıştır.
+  Ek son kontrolde JDBC interface'lerinin doğrudan üst türleri reflection ile
+  doğrulanmıştır; toplam **75 Java 17 kontrolü** beklenen sonucu vermiştir.
+- Bu inceleme bütün kitabın yeniden çevirisi veya bütün örneklerinin çalıştırma
+  testi değildir. Geniş yapısal tarama ile tespit edilen anlam/teknik sorunların
+  kaynak karşılaştırması ve odaklı kod doğrulaması birlikte yapılmıştır.
+
+Aşağıdaki 9 Eylül kaydı önceki çalışmanın tarihçesidir; içindeki üretim sayıları
+ve doğrulama ifadeleri o tarihteki sürüme aittir.
+
+---
+
+**Önceki inceleme tarihi:** 9 Eylül 2026.
 
 İnceleme 15 ünitenin girişlerini, vocabulary, grammar, teknik hafıza ve özgün
 quiz materyallerini kapsar. Ana çift dilli notlarda soru/cevap bütünlüğü,

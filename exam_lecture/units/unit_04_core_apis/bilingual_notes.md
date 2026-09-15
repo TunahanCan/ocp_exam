@@ -274,6 +274,13 @@ System.out.println(1 + 2 + three + four);
 public int length()
 ```
 
+> **OCP teknik notu · Unicode:** `String.length()` görünen sembol sayısını
+> değil, UTF-16 code unit sayısını döndürür. Örneğin `"\uD83D\uDE00".length()`
+> sonucu `2`dir; burada tek bir Unicode code point iki `char` ile temsil edilir.
+> `charAt()` ve substring indeksleri de aynı birimi kullanır.
+> [Sözlük: code unit](vocabulary.md#code-unit--noun-phrase) ·
+> [Java 17 String API](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html#length()).
+
 <!-- source-page: 0159 -->
 <!-- retained-source-lines: 35; removed-running-header-lines: 1; sha256: 4298501eed6a0011 -->
 
@@ -399,7 +406,7 @@ public String substring(int beginIndex, int endIndex)
 
 ### FIGURE 4.2 Indexes for a substring
 
-> **Türkçe başlık:** ŞEKİL 4.2 Bir alt String için dizinler
+> **Türkçe başlık:** ŞEKİL 4.2 Substring için indeks sınırları
 
 > **English:** a n i m a l s 0 1 2 3 4 5 6 7 The following code shows how to use substring():
 >
@@ -451,7 +458,7 @@ System.out.println(name.substring(3, 8)); // exception
 
 ### Adjusting Case
 
-> **Türkçe başlık:** Case'i Ayarlama
+> **Türkçe başlık:** Büyük/Küçük Harfi Değiştirme
 
 > **English:** Whew. After that mental exercise, it is nice to have methods that act exactly as they sound!
 >
@@ -540,7 +547,7 @@ System.out.println("abc".equalsIgnoreCase("ABC")); // true
 
 > **English:** All of these methods provide a default implementation in Object, but if you want to make intelligent use of them, you should override them.
 >
-> **Türkçe:** Bu method'ların tümü objectte default bir uygulama sağlar, ancak bunları akıllıca kullanmak istiyorsanız bunları geçersiz kılmalısınız.
+> **Türkçe:** Bu method'ların hepsinin `Object` içinde bir default implementasyonu vardır. Class'ınıza uygun davranış sağlamak istediğinizde bunları override edebilirsiniz.
 
 <!-- source-page: 0163 -->
 <!-- retained-source-lines: 35; removed-running-header-lines: 1; sha256: aacf82b9762e55f8 -->
@@ -551,7 +558,7 @@ System.out.println("abc".equalsIgnoreCase("ABC")); // true
 
 > **English:** Often, you need to search a larger string to determine if a substring is contained within it.
 >
-> **Türkçe:** Çoğu zaman, içinde bir alt dizenin bulunup bulunmadığını belirlemek için daha büyük bir String'i aramanız gerekir.
+> **Türkçe:** Çoğu zaman bir String içinde belirli bir substring bulunup bulunmadığını kontrol etmeniz gerekir.
 
 > **English:** The startsWith() and endsWith() methods look at whether the provided value matches part of the String. The contains() method isn’t as particular; it looks for matches anywhere in the String. The method signatures are as follows:
 >
@@ -747,7 +754,7 @@ public String stripIndent()
 
 > **English:** Lines 10-16 create similar strings using a text block and a regular String, respectively.
 >
-> **Türkçe:** 10-16. satırlar, sırasıyla bir text block ve normal bir String kullanarak benzer dizeler oluşturur.
+> **Türkçe:** 10–16. satırlar, sırasıyla text block ve normal String yazımıyla benzer String değerleri oluşturur.
 
 > **English:** We say “similar” because concat has a whitespace character at the beginning of each line while block does not.
 >
@@ -1815,7 +1822,7 @@ String names[] = new String[2];
 
 > **English:** At runtime, the code throws an ArrayStoreException. You don’t need to memorize the name of this exception, but you do need to know that the code will throw an exception.
 >
-> **Türkçe:** runtime'da kod bir ArrayStoreException oluşturur. Bu istisnanın adını ezberlemenize gerek yoktur ancak kodun bir istisna atacağını bilmeniz gerekir.
+> **Türkçe:** Kod runtime'da `ArrayStoreException` fırlatır. Kaynak, exception adını ezberlemek yerine kodun bir exception ile sonlanacağını anlamanızı vurgular.
 
 ### Using an Array
 
@@ -1951,7 +1958,7 @@ System.out.print(s + " ");
 
 ### Searching
 
-> **Türkçe başlık:** Searching
+> **Türkçe başlık:** Arama
 
 > **English:** Java also provides a convenient way to search, but only if the array is already sorted.
 >
@@ -2029,7 +2036,7 @@ System.out.print(s + " ");
 
 > **English:** Java also provides methods to compare two arrays to determine which is “smaller.” First we cover the compare() method, and then we go on to mismatch(). These methods are overloaded to take a variety of parameters.
 >
-> **Türkçe:** Java ayrıca hangisinin "daha küçük" olduğunu belirlemek için iki array'i karşılaştırmaya yönelik method'lar sağlar. İlk önce compare() method'unu ele alıyoruz ve ardından mismatch() method'una geçiyoruz. Bu method'lar çeşitli parametreleri alacak şekilde aşırı yüklenmiştir.
+> **Türkçe:** Java, iki array'den hangisinin sıralamada önce geldiğini belirleyen karşılaştırma method'ları da sunar. Önce `compare()`, ardından `mismatch()` method'unu ele alacağız. Bu method'ların farklı parameter type'ları alan overload'ları vardır.
 
 #### Using compare()
 
@@ -2096,7 +2103,7 @@ System.out.println(Arrays.compare(new int[] {1}, new int[] {2}));
 
 > **English:** Finally, what does smaller mean? Here are some more rules that apply here and to compareTo(), which you see in Chapter 8, “Lambdas and Functional Interfaces”:
 >
-> **Türkçe:** Son olarak, daha küçük ne anlama geliyor? Bölüm 8, “Lambdalar ve Fonksiyonel Arayüzler”de göreceğiniz, burada ve compareTo() için geçerli olan bazı kurallar şunlardır:
+> **Türkçe:** Peki sıralamada “daha küçük” ne demektir? Aşağıdaki kurallar hem burada hem de Chapter 8, “Lambdas and Functional Interfaces” bölümünde göreceğiniz `compareTo()` için geçerlidir:
 
 > **English:** • `null` is smaller than any other value.
 >
@@ -2108,15 +2115,15 @@ System.out.println(Arrays.compare(new int[] {1}, new int[] {2}));
 
 > **English:** For strings, one is smaller if it is a prefix of another.
 >
-> **Türkçe:** Dizeler için, eğer biri diğerinin öneki ise daha küçüktür.
+> **Türkçe:** String'lerden biri diğerinin prefix'i ise daha kısa olan sıralamada önce gelir.
 
 > **English:** For strings/characters, numbers are smaller than letters.
 >
-> **Türkçe:** Dizeler/karakterler için sayılar harflerden küçüktür.
+> **Türkçe:** String/char karşılaştırmasında rakam karakterleri, örnekteki Latin harflerinden önce gelir.
 
 > **English:** For strings/characters, uppercase is smaller than lowercase.
 >
-> **Türkçe:** Dizeler/karakterler için büyük harf, küçük harften küçüktür.
+> **Türkçe:** String/char karşılaştırmasında örnekteki büyük Latin harfleri, küçük Latin harflerinden önce gelir.
 
 > **English:** Table 4.4 shows examples of these rules in action.
 >
@@ -2288,7 +2295,7 @@ rectangle[0][1] = "set";
 
 ### FIGURE 4.7 A sparsely populated multidimensional array
 
-> **Türkçe başlık:** ŞEKİL 4.7 Seyrek nüfuslu çok boyutlu bir array
+> **Türkçe başlık:** ŞEKİL 4.7 Az sayıda elemanına değer atanmış multidimensional array
 
 > **English:** rectangle 0 1 2 0 1 0 1 "set" 0 1 While that array happens to be rectangular in shape, an array doesn’t need to be. Consider this one:
 >
@@ -2929,7 +2936,7 @@ date = date.plusMinutes(1); // DOES NOT COMPILE
 
 ### TABLE 4.6 Methods in LocalDate, LocalTime, LocalDateTime, and ZonedDateTime
 
-> **Türkçe başlık:** TABLO 4.6 LocalDate, LocalTime, LocalDateTime ve ZonedDateTimedaki method'lar
+> **Türkçe başlık:** TABLO 4.6 LocalDate, LocalTime, LocalDateTime ve ZonedDateTime method'ları
 
 > **English:** Method | Can call on LocalDate?
 >
@@ -3950,7 +3957,7 @@ System.out.print(numbers.substring(7));
 
 > **English:** G. An exception is thrown.
 >
-> **Türkçe:** G. Bir istisna atılır.
+> **Türkçe:** G. Bir exception fırlatılır.
 
 <!-- source-page: 0214 -->
 <!-- retained-source-lines: 36; removed-running-header-lines: 3; sha256: 61e98a51443982a2 -->
@@ -3993,7 +4000,7 @@ public class Lion {
 
 > **English:** E. An exception is thrown.
 >
-> **Türkçe:** E. Bir istisna atılır.
+> **Türkçe:** E. Bir exception fırlatılır.
 
 > **English:** F. The code does not compile.
 >
@@ -4195,7 +4202,7 @@ H. letters.substring(6, 6) throws an exception.
 
 > **English:** G. An exception is thrown.
 >
-> **Türkçe:** G. Bir istisna atılır.
+> **Türkçe:** G. Bir exception fırlatılır.
 
 > **English:** H. The code does not compile.
 >

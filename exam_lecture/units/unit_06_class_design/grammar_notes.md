@@ -24,12 +24,12 @@ grammar adımında kullan:
 
 ## 2. `regardless of`
 
-**EN:** The overridden method runs regardless of the reference type.
-**TR:** Reference type ne olursa olsun overridden method çalışır.
+**EN (özgün çalışma cümlesi):** The overriding implementation runs regardless of the reference type.
+**TR:** Reference type ne olursa olsun runtime nesnenin overriding implementation'ı çalışır.
 
 **Formül:** `regardless of + isim/isim grubu`; “-den bağımsız olarak / ne olursa olsun”. `regardless of whether + cümle` de mümkündür.
 
-**Çözümleme:** `The overridden method` özne, `runs` yüklem, `regardless of the reference type` sonuç üzerinde etkisiz olan koşuldur. “Regardless” sözcüğünü görüp referans türünün derleme aşamasında önemsiz olduğunu çıkarma; cümle çalışma zamanındaki geçerli instance override seçimini anlatır.
+**Çözümleme:** `The overriding implementation` özne, `runs` yüklem, `regardless of the reference type` sonuç üzerinde etkisiz olan koşuldur. “Regardless” sözcüğünü görüp referans türünün derleme aşamasında önemsiz olduğunu çıkarma; cümle çalışma zamanındaki geçerli instance override seçimini anlatır.
 
 **Kaynak bağlam:** [Inheriting Members](bilingual_notes.md#inheriting-members).
 

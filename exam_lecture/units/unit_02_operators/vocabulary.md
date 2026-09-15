@@ -11,8 +11,8 @@ anlamıyla çalış.
 - **Türkçe:** eşlik edilen, birlikte bulunan
 - **Teknik bağlam:** Bir unary operator'ın numeric literal ile birlikte
   kullanılmasını anlatır.
-- **Example:** A number is positive unless accompanied by a minus sign.
-- **Çeviri:** Bir sayı, minus sign eşlik etmedikçe pozitiftir.
+- **Example:** The literal `8` becomes negative when accompanied by unary minus.
+- **Çeviri:** `8` literal'ına unary minus uygulandığında değer negatif olur.
 - **Word family:** accompany (v.), accompaniment (n.)
 
 ### apply · verb
@@ -173,7 +173,7 @@ anlamıyla çalış.
 - **Türkçe:** geçersiz kılmak, önüne geçmek
 - **Teknik bağlam:** Parentheses'in normal precedence sırasını değiştirmesi.
 - **Example:** Parentheses override operator precedence.
-- **Çeviri:** Parentheses operator precedence'ını geçersiz kılar.
+- **Çeviri:** Parantezler, varsayılan operator precedence'ın belirlediği gruplamayı değiştirir.
 - **Word family:** overriding (adj.)
 
 ### postpone · verb
@@ -251,8 +251,8 @@ anlamıyla çalış.
 - **Türkçe:** çevreleyen
 - **Teknik bağlam:** Bir unary expression'ın dışında kalan binary veya ternary
   operation'ları niteler.
-- **Example:** Unary operators run before surrounding binary operators.
-- **Çeviri:** Unary operator'lar çevreleyen binary operator'lardan önce çalışır.
+- **Example:** Unary operators have higher precedence than the surrounding binary arithmetic operators.
+- **Çeviri:** Unary operator'ların precedence'ı binary arithmetic operator'lardan yüksektir.
 - **Word family:** surround (v.), surroundings (n.)
 
 ### unwieldy · adjective

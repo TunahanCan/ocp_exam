@@ -41,8 +41,11 @@ additive             + -
 shift                << >> >>>
 relational           < > <= >= instanceof
 equality             == !=
-bitwise/logical      &  ^  |
-short-circuit        && ||
+bitwise/logical AND  &
+bitwise/logical XOR  ^
+bitwise/logical OR   |
+short-circuit AND    &&
+short-circuit OR     ||
 ternary              ?:
 assignment           = += -= *= ...
 arrow                ->
@@ -92,8 +95,9 @@ concatenation olur; parentheses yeni bir ada kurar.
 
 ## 5. Assignment, constant narrowing ve compound assignment
 
-Compile-time constant representable ise küçük type'a explicit cast olmadan
-atanabilir:
+Assignment'ta `byte`, `short`, `char` veya `int` type'ındaki compile-time
+constant, hedef `byte`/`short`/`char` aralığına sığıyorsa explicit cast gerekmez.
+Örneğin `byte a = 100L;` bu kurala girmez; sabitin type'ı `long`dur:
 
 ```java
 byte a = 100;       // constant value byte aralığında
@@ -112,8 +116,6 @@ s++;                // short olarak kalır
 ```
 
 `s = s + 7;` ise right side `int` olduğu için derlenmez.
-
-<!-- page-break -->
 
 **Hafıza cümlesi:** **`+=` daraltmayı saklar; `+` saklamaz.**
 
@@ -142,10 +144,11 @@ operand evaluation sırasını tersine çevirmez.
 
 - **`&&` · logical AND:** Sağ operand, sol taraf `false` ise atlanır.
 - **`||` · logical OR:** Sağ operand, sol taraf `true` ise atlanır.
-- **`&` · logical AND:** İki operand da her zaman değerlendirilir.
-- **`|` · logical OR:** İki operand da her zaman değerlendirilir.
-- **`^` · XOR:** İki operand da her zaman değerlendirilir; değerler farklıysa
-  sonuç `true` olur.
+- **`&` · logical AND:** Sol operand normal tamamlanırsa sağ operand da değerlendirilir.
+- **`|` · logical OR:** Sol operand normal tamamlanırsa sağ operand da değerlendirilir.
+- **`^` · XOR:** Short-circuit yapmaz; boolean değerler farklıysa sonuç `true` olur.
+
+Sol operand exception fırlatırsa hiçbirinde sağ operanda geçilmez.
 
 ```java
 int x = 0;

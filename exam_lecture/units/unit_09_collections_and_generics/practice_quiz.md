@@ -60,7 +60,9 @@ D. İkinci `add()` çağrısı `IllegalArgumentException` fırlatır.
 
 ### Soru 3
 
-Wildcard kullanımı hakkında doğru olan **iki seçeneği** seçin.
+Wildcard kullanımı hakkında **compile-time tür uyumluluğu açısından** doğru olan
+**iki seçeneği** seçin. Collection'ın mutation ve null kabulü ayrı runtime
+kurallarıdır.
 
 A. `List<? super Integer>` içine bir `Integer` eklenebilir.<br>
 B. `List<? extends Number>` içinden okunan değer her zaman `Integer` variable'a
@@ -177,8 +179,9 @@ D. Başarıyla derlenir fakat ClassCastException fırlatır.<br>
 ### Soru 2 — B
 
 - **A yanlış:** İlk element sete eklenir.
-- **B doğru:** Comparator hem `1` hem `3` için `1` üretir; comparison sonucu
-  `0` olduğundan `TreeSet` ikinci item'ı duplicate kabul eder.
+- **B doğru:** `comparingInt()` içindeki key extractor, hem id `1` hem id `3`
+  için `1` üretir. Comparator bu iki eşit key'i karşılaştırıp `0` döndürür;
+  `TreeSet` ikinci item'ı duplicate kabul eder.
 - **C yanlış:** Sorted set uniqueness kararında `equals()` yerine ordering
   sonucunu kullanır.
 - **D yanlış:** Duplicate add exception üretmez; `false` döndürür.

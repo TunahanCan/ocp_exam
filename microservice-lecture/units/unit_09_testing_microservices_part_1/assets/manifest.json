@@ -1,0 +1,332 @@
+{
+  "source_pdf": "microservice-lecture/Microservices_Patterns_1_Bolumden_Itibaren.pdf",
+  "source_sha256": "0ed35ffec713a7a929df1efcd2aaf8f153c70aa3b918c1bbc6ccdd50d549d382",
+  "source_page_size_pt": [
+    531,
+    666
+  ],
+  "render_dpi": 240,
+  "coordinate_system": "top-left origin; crop_box_pt is [left, top, right, bottom] in PDF points (1/72 inch)",
+  "method": "Original PDF page rendered by pdftoppm at 240 dpi, cropped with Pillow; no figure content, color, or labels changed. Captions stored separately.",
+  "figures": [
+    {
+      "figure": "9.1",
+      "file": "figure_09_01.png",
+      "source_pdf_page": 295,
+      "caption_english": "The goal of a test is to verify the behavior of the system under test. An SUT might be as small as a class or as large as an entire application.",
+      "caption_box_pt": [
+        341,
+        122,
+        465,
+        169
+      ],
+      "crop_box_pt": [
+        98.7,
+        50.1,
+        332.7,
+        172.2
+      ],
+      "crop_box_pixels": [
+        329,
+        167,
+        1109,
+        574
+      ],
+      "pixel_size": [
+        780,
+        407
+      ],
+      "sha256": "aff90141cfee854e42d27ab9870ac406e6c3a79d5bed98c918ba8eef7b906061"
+    },
+    {
+      "figure": "9.2",
+      "file": "figure_09_02.png",
+      "source_pdf_page": 295,
+      "caption_english": "Each automated test is implemented by a test method, which belongs to a test class. A test consists of four phases: setup, which initializes the test fixture, which is everything required to run the test; execute, which invokes the SUT; verify, which verifies the outcome of the test; and teardown, which cleans up the test fixture.",
+      "caption_box_pt": [
+        102,
+        417,
+        463,
+        454
+      ],
+      "crop_box_pt": [
+        98.4,
+        254.7,
+        467.1,
+        410.4
+      ],
+      "crop_box_pixels": [
+        328,
+        849,
+        1557,
+        1368
+      ],
+      "pixel_size": [
+        1229,
+        519
+      ],
+      "sha256": "8eba91abd22cba1a2f71cef112ed08806d1e4b35db39048cfe6801aa7fdc5a47"
+    },
+    {
+      "figure": "9.3",
+      "file": "figure_09_03.png",
+      "source_pdf_page": 296,
+      "caption_english": "Replacing a dependency with a test double enables the SUT to be tested in isolation. The test is simpler and faster.",
+      "caption_box_pt": [
+        93,
+        417,
+        366,
+        434
+      ],
+      "crop_box_pt": [
+        89.7,
+        250.8,
+        369.9,
+        409.2
+      ],
+      "crop_box_pixels": [
+        299,
+        836,
+        1233,
+        1364
+      ],
+      "pixel_size": [
+        934,
+        528
+      ],
+      "sha256": "d3fb27df822676c5327319335cfcd0a166b4527b60ee0f48ca82d49f64f4d0c6"
+    },
+    {
+      "figure": "9.4",
+      "file": "figure_09_04.png",
+      "source_pdf_page": 298,
+      "caption_english": "The test quadrant categorizes tests along two dimensions. The first dimension is whether a test is business facing or technology facing. The second is whether the purpose of the test is to support programming or critique the application.",
+      "caption_box_pt": [
+        256,
+        153,
+        453,
+        200
+      ],
+      "crop_box_pt": [
+        89.4,
+        50.1,
+        248.1,
+        203.7
+      ],
+      "crop_box_pixels": [
+        298,
+        167,
+        827,
+        679
+      ],
+      "pixel_size": [
+        529,
+        512
+      ],
+      "sha256": "498f60e6e99433eae938313efca5fbfa47860996023cc5e3676ad67811f554de"
+    },
+    {
+      "figure": "9.5",
+      "file": "figure_09_05.png",
+      "source_pdf_page": 299,
+      "caption_english": "The test pyramid describes the relative proportions of each type of test that you need to write. As you move up the pyramid, you should write fewer and fewer tests.",
+      "caption_box_pt": [
+        102,
+        223,
+        414,
+        240
+      ],
+      "crop_box_pt": [
+        98.1,
+        49.8,
+        411.3,
+        214.2
+      ],
+      "crop_box_pixels": [
+        327,
+        166,
+        1371,
+        714
+      ],
+      "pixel_size": [
+        1044,
+        548
+      ],
+      "sha256": "c6ef34ee022569921e5e27f2afc907acdb3351e58ea15788623577cea1ec38b7"
+    },
+    {
+      "figure": "9.6",
+      "file": "figure_09_06.png",
+      "source_pdf_page": 300,
+      "caption_english": "Some of the interservice communication in the FTGO application. Each arrow points from a consumer service to a producer service.",
+      "caption_box_pt": [
+        93,
+        437,
+        439,
+        454
+      ],
+      "crop_box_pt": [
+        89.1,
+        113.4,
+        442.5,
+        428.7
+      ],
+      "crop_box_pixels": [
+        297,
+        378,
+        1475,
+        1429
+      ],
+      "pixel_size": [
+        1178,
+        1051
+      ],
+      "sha256": "9fe3617ee3c984337068b04dd6684a78f1632aba81bb7ca9ad395de83e097d78"
+    },
+    {
+      "figure": "9.7",
+      "file": "figure_09_07.png",
+      "source_pdf_page": 302,
+      "caption_english": "Each team that develops a service that consumes Order Service’s API contributes a contract test suite. The test suite verifies that the API matches the consumer’s expectations. This test suite, along with those contributed by other teams, is run by Order Service’s deployment pipeline.",
+      "caption_box_pt": [
+        93,
+        389,
+        440,
+        426
+      ],
+      "crop_box_pt": [
+        89.7,
+        138.9,
+        441.9,
+        381.3
+      ],
+      "crop_box_pixels": [
+        299,
+        463,
+        1473,
+        1271
+      ],
+      "pixel_size": [
+        1174,
+        808
+      ],
+      "sha256": "34d874b01b57a5b298cb995640117916dbd1265f1e5d8a9aea4360884332cd2c"
+    },
+    {
+      "figure": "9.8",
+      "file": "figure_09_08.png",
+      "source_pdf_page": 304,
+      "caption_english": "The API Gateway team writes the contracts. The Order Service team uses those contracts to test Order Service and publishes them to a repository. The API Gateway team uses the published contracts to test API Gateway.",
+      "caption_box_pt": [
+        93,
+        285,
+        400,
+        312
+      ],
+      "crop_box_pt": [
+        89.7,
+        50.4,
+        398.1,
+        277.5
+      ],
+      "crop_box_pixels": [
+        299,
+        168,
+        1327,
+        925
+      ],
+      "pixel_size": [
+        1028,
+        757
+      ],
+      "sha256": "6c0a010c1b4bb56d39169299b90846dcb8a80f92519ce3aa73a1736d1f8832d4"
+    },
+    {
+      "figure": "9.9",
+      "file": "figure_09_09.png",
+      "source_pdf_page": 306,
+      "caption_english": "An example deployment pipeline for Order Service. It consists of a series of stages. The pre-commit tests are run by the developer prior to committing their code. The remaining stages are executed by an automated tool, such as the Jenkins CI server.",
+      "caption_box_pt": [
+        93,
+        247,
+        453,
+        274
+      ],
+      "crop_box_pt": [
+        89.4,
+        109.8,
+        458.1,
+        239.4
+      ],
+      "crop_box_pixels": [
+        298,
+        366,
+        1527,
+        798
+      ],
+      "pixel_size": [
+        1229,
+        432
+      ],
+      "sha256": "970650a208154005774705484357aa550ed7d9bd86a2fdcc819d932a76242a91"
+    },
+    {
+      "figure": "9.10",
+      "file": "figure_09_10.png",
+      "source_pdf_page": 307,
+      "caption_english": "Unit tests are the base of the pyramid. They’re fast running, easy to write, and reliable. A solitary unit test tests a class in isolation, using mocks or stubs for its dependencies. A sociable unit test tests a class and its dependencies.",
+      "caption_box_pt": [
+        102,
+        555,
+        461,
+        582
+      ],
+      "crop_box_pt": [
+        98.7,
+        303.0,
+        466.8,
+        546.3
+      ],
+      "crop_box_pixels": [
+        329,
+        1010,
+        1556,
+        1821
+      ],
+      "pixel_size": [
+        1227,
+        811
+      ],
+      "sha256": "8b43eafa6a96621ea8818bf8f7da47ed234c483c4e749d70a3c348b6f6108122"
+    },
+    {
+      "figure": "9.11",
+      "file": "figure_09_11.png",
+      "source_pdf_page": 308,
+      "caption_english": "The responsibilities of a class determine whether to use a solitary or sociable unit test.",
+      "caption_box_pt": [
+        57,
+        596,
+        420,
+        603
+      ],
+      "crop_box_pt": [
+        53.1,
+        185.1,
+        468.6,
+        590.7
+      ],
+      "crop_box_pixels": [
+        177,
+        617,
+        1562,
+        1969
+      ],
+      "pixel_size": [
+        1385,
+        1352
+      ],
+      "sha256": "075443fe69c031deef9963ce978d237fc9e95af76afca77dba008db379627ff3"
+    }
+  ]
+}

@@ -1,0 +1,419 @@
+{
+  "source_pdf": "microservice-lecture/Microservices_Patterns_1_Bolumden_Itibaren.pdf",
+  "source_sha256": "0ed35ffec713a7a929df1efcd2aaf8f153c70aa3b918c1bbc6ccdd50d549d382",
+  "source_page_size_pt": [
+    531,
+    666
+  ],
+  "render_dpi": 240,
+  "coordinate_system": "top-left origin; crop_box_pt is [left, top, right, bottom] in PDF points (1/72 inch)",
+  "method": "Original PDF page rendered by pdftoppm at 240 dpi, cropped with Pillow; no figure content, color, or labels changed. Captions stored separately.",
+  "figures": [
+    {
+      "figure": "5.1",
+      "file": "figure_05_01.png",
+      "source_pdf_page": 148,
+      "caption_english": "The Order Service has a hexagonal architecture. It consists of the business logic and one or more adapters that interface with external applications and other services.",
+      "caption_box_pt": [
+        93,
+        444,
+        444,
+        461
+      ],
+      "crop_box_pt": [
+        89.7,
+        50.1,
+        451.8,
+        434.4
+      ],
+      "crop_box_pixels": [
+        299,
+        167,
+        1506,
+        1448
+      ],
+      "pixel_size": [
+        1207,
+        1281
+      ],
+      "sha256": "565f5906a6b5c44e3b2cf0ab6f35913ce77699c0121db25e7ea896ce109506e9"
+    },
+    {
+      "figure": "5.2",
+      "file": "figure_05_02.png",
+      "source_pdf_page": 149,
+      "caption_english": "Organizing business logic as transaction scripts. In a typical transaction script–based design, one set of classes implements behavior and another set stores state. The transaction scripts are organized into classes that typically have no state. The scripts use data classes, which typically have no behavior.",
+      "caption_box_pt": [
+        323,
+        296,
+        458,
+        383
+      ],
+      "crop_box_pt": [
+        98.1,
+        215.7,
+        313.5,
+        395.1
+      ],
+      "crop_box_pixels": [
+        327,
+        719,
+        1045,
+        1317
+      ],
+      "pixel_size": [
+        718,
+        598
+      ],
+      "sha256": "a7209fe24d18c4890bad5ddeb56df9aaf59950aff56c44f54cac2d45f46605c5"
+    },
+    {
+      "figure": "5.3",
+      "file": "figure_05_03.png",
+      "source_pdf_page": 150,
+      "caption_english": "Organizing business logic as a domain model. The majority of the business logic consists of classes that have state and behavior.",
+      "caption_box_pt": [
+        93,
+        584,
+        359,
+        601
+      ],
+      "crop_box_pt": [
+        89.4,
+        359.7,
+        364.5,
+        577.8
+      ],
+      "crop_box_pixels": [
+        298,
+        1199,
+        1215,
+        1926
+      ],
+      "pixel_size": [
+        917,
+        727
+      ],
+      "sha256": "9625fac7f5c03be7dc18537a8875558137226316cafac49a1b8b9a606741a944"
+    },
+    {
+      "figure": "5.4",
+      "file": "figure_05_04.png",
+      "source_pdf_page": 152,
+      "caption_english": "A traditional domain model is a web of interconnected classes. It doesn’t explicitly specify the boundaries of business objects, such as Consumer and Order.",
+      "caption_box_pt": [
+        57,
+        515,
+        444,
+        532
+      ],
+      "crop_box_pt": [
+        53.1,
+        325.8,
+        468.6,
+        505.5
+      ],
+      "crop_box_pixels": [
+        177,
+        1086,
+        1562,
+        1685
+      ],
+      "pixel_size": [
+        1385,
+        599
+      ],
+      "sha256": "7c966645e487badb3dac18f299e2d6606759bf32e7c5776f42bdd5b4bdcf9d87"
+    },
+    {
+      "figure": "5.5",
+      "file": "figure_05_05.png",
+      "source_pdf_page": 155,
+      "caption_english": "Structuring a domain model as a set of aggregates makes the boundaries explicit.",
+      "caption_box_pt": [
+        102,
+        230,
+        442,
+        237
+      ],
+      "crop_box_pt": [
+        99.0,
+        50.1,
+        468.6,
+        222.0
+      ],
+      "crop_box_pixels": [
+        330,
+        167,
+        1562,
+        740
+      ],
+      "pixel_size": [
+        1232,
+        573
+      ],
+      "sha256": "97117bc83aaa02acd39bd07c0493e09c1fd11937705e1b3bcdf52da58ff99dfd"
+    },
+    {
+      "figure": "5.6",
+      "file": "figure_05_06.png",
+      "source_pdf_page": 156,
+      "caption_english": "References between aggregates are by primary key rather than by object reference. The Order aggregate has the IDs of the Consumer and Restaurant aggregates. Within an aggregate, objects have references to one another.",
+      "caption_box_pt": [
+        93,
+        440,
+        454,
+        467
+      ],
+      "crop_box_pt": [
+        90.0,
+        261.3,
+        459.6,
+        433.5
+      ],
+      "crop_box_pixels": [
+        300,
+        871,
+        1532,
+        1445
+      ],
+      "pixel_size": [
+        1232,
+        574
+      ],
+      "sha256": "74d262e77aa67d31cd2ac9db5cab41e2bd7f39e01db273cc9d1b93d0acbe0e86"
+    },
+    {
+      "figure": "5.7",
+      "file": "figure_05_07.png",
+      "source_pdf_page": 157,
+      "caption_english": "A transaction can only create or update a single aggregate, so an application uses a saga to update multiple aggregates. Each step of the saga creates or updates one aggregate.",
+      "caption_box_pt": [
+        102,
+        363,
+        463,
+        380
+      ],
+      "crop_box_pt": [
+        98.4,
+        233.4,
+        467.4,
+        355.5
+      ],
+      "crop_box_pixels": [
+        328,
+        778,
+        1558,
+        1185
+      ],
+      "pixel_size": [
+        1230,
+        407
+      ],
+      "sha256": "45f21b83c489f9f29bf3a35322b4c58349875d232c08821d73b0ef4d720d48c0"
+    },
+    {
+      "figure": "5.8",
+      "file": "figure_05_08.png",
+      "source_pdf_page": 158,
+      "caption_english": "An alternative design defines a Customer aggregate that contains the Customer and Order classes. This design enables an application to atomically update a Consumer and one or more of its Orders.",
+      "caption_box_pt": [
+        93,
+        400,
+        454,
+        427
+      ],
+      "crop_box_pt": [
+        89.7,
+        219.9,
+        458.1,
+        392.1
+      ],
+      "crop_box_pixels": [
+        299,
+        733,
+        1527,
+        1307
+      ],
+      "pixel_size": [
+        1228,
+        574
+      ],
+      "sha256": "58ecdc74c634a2c891b5aaea7c86fad30f409a55edfca161963f18a1cef63180"
+    },
+    {
+      "figure": "5.9",
+      "file": "figure_05_09.png",
+      "source_pdf_page": 159,
+      "caption_english": "An aggregate-based design for the Order Service business logic",
+      "caption_box_pt": [
+        102,
+        525,
+        388,
+        532
+      ],
+      "crop_box_pt": [
+        98.7,
+        181.5,
+        465.0,
+        515.4
+      ],
+      "crop_box_pixels": [
+        329,
+        605,
+        1550,
+        1718
+      ],
+      "pixel_size": [
+        1221,
+        1113
+      ],
+      "sha256": "e9997fd62e7467e9fda556af5d7d6a116a95102e17a7746e609722ffc9813087"
+    },
+    {
+      "figure": "5.10",
+      "file": "figure_05_10.png",
+      "source_pdf_page": 163,
+      "caption_english": "The result of an event-storming workshop that lasted a couple of hours. The sticky notes are events, which are laid out along a timeline; commands, which represent user actions; and aggregates, which emit events in response to a command.",
+      "caption_box_pt": [
+        102,
+        486,
+        461,
+        513
+      ],
+      "crop_box_pt": [
+        98.4,
+        281.1,
+        467.1,
+        477.0
+      ],
+      "crop_box_pixels": [
+        328,
+        937,
+        1557,
+        1590
+      ],
+      "pixel_size": [
+        1229,
+        653
+      ],
+      "sha256": "af98ec5f699d4dba25aa9d0b62301d11279e729d30010e752afe4dfa7d8ed74a"
+    },
+    {
+      "figure": "5.11",
+      "file": "figure_05_11.png",
+      "source_pdf_page": 169,
+      "caption_english": "The design of Kitchen Service",
+      "caption_box_pt": [
+        66,
+        405,
+        238,
+        412
+      ],
+      "crop_box_pt": [
+        62.1,
+        50.4,
+        477.6,
+        396.0
+      ],
+      "crop_box_pixels": [
+        207,
+        168,
+        1592,
+        1320
+      ],
+      "pixel_size": [
+        1385,
+        1152
+      ],
+      "sha256": "e196d2ee3228b1f24bf344e19dcf76db514d0cfd4fb331d76c49db3fcda3bc35"
+    },
+    {
+      "figure": "5.12",
+      "file": "figure_05_12.png",
+      "source_pdf_page": 174,
+      "caption_english": "The design of the Order Service. It has a REST API for managing orders. It exchanges messages and events with other services via several message channels.",
+      "caption_box_pt": [
+        57,
+        494,
+        461,
+        511
+      ],
+      "crop_box_pt": [
+        52.8,
+        50.4,
+        468.6,
+        487.8
+      ],
+      "crop_box_pixels": [
+        176,
+        168,
+        1562,
+        1626
+      ],
+      "pixel_size": [
+        1386,
+        1458
+      ],
+      "sha256": "98c4f841593475424dfc140ba67b9dbb6dcfc714536114736fdcd6c35471bc1e"
+    },
+    {
+      "figure": "5.13",
+      "file": "figure_05_13.png",
+      "source_pdf_page": 175,
+      "caption_english": "The design of the Order aggregate, which consists of the Order aggregate root and various value objects.",
+      "caption_box_pt": [
+        102,
+        581,
+        438,
+        598
+      ],
+      "crop_box_pt": [
+        98.4,
+        358.2,
+        439.5,
+        574.5
+      ],
+      "crop_box_pixels": [
+        328,
+        1194,
+        1465,
+        1915
+      ],
+      "pixel_size": [
+        1137,
+        721
+      ],
+      "sha256": "87c292c9d1bcbeca3324a95d210358d0112d83df1a0f3074fcbb67c2a059301c"
+    },
+    {
+      "figure": "5.14",
+      "file": "figure_05_14.png",
+      "source_pdf_page": 177,
+      "caption_english": "Part of the state machine model of the Order aggregate",
+      "caption_box_pt": [
+        66,
+        356,
+        321,
+        363
+      ],
+      "crop_box_pt": [
+        62.1,
+        162.9,
+        477.3,
+        349.5
+      ],
+      "crop_box_pixels": [
+        207,
+        543,
+        1591,
+        1165
+      ],
+      "pixel_size": [
+        1384,
+        622
+      ],
+      "sha256": "8b2253684ea7704b3ec8aff6a184b655d36ba8f4448fd5899e74538ab7b4b286"
+    }
+  ]
+}

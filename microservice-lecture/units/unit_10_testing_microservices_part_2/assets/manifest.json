@@ -1,0 +1,245 @@
+{
+  "source_pdf": "microservice-lecture/Microservices_Patterns_1_Bolumden_Itibaren.pdf",
+  "source_sha256": "0ed35ffec713a7a929df1efcd2aaf8f153c70aa3b918c1bbc6ccdd50d549d382",
+  "source_page_size_pt": [
+    531,
+    666
+  ],
+  "render_dpi": 240,
+  "coordinate_system": "top-left origin; crop_box_pt is [left, top, right, bottom] in PDF points (1/72 inch)",
+  "method": "Original PDF page rendered by pdftoppm at 240 dpi, cropped with Pillow; no figure content, color, or labels changed. Captions stored separately.",
+  "figures": [
+    {
+      "figure": "10.1",
+      "file": "figure_10_01.png",
+      "source_pdf_page": 319,
+      "caption_english": "Integration tests must verify that a service can communicate with its clients and dependencies. But rather than testing whole services, the strategy is to test the individual adapter classes that implement the communication.",
+      "caption_box_pt": [
+        102,
+        482,
+        460,
+        509
+      ],
+      "crop_box_pt": [
+        98.4,
+        205.8,
+        467.4,
+        474.0
+      ],
+      "crop_box_pixels": [
+        328,
+        686,
+        1558,
+        1580
+      ],
+      "pixel_size": [
+        1230,
+        894
+      ],
+      "sha256": "e1d841b044a2cc2f5471fa40863c1db1e5d3931446e17d101173ba4c735e8936"
+    },
+    {
+      "figure": "10.2",
+      "file": "figure_10_02.png",
+      "source_pdf_page": 320,
+      "caption_english": "Integration tests are the layer above unit tests. They verify that a service can communicate with its dependencies, which includes infrastructure services, such as the database, and application services.",
+      "caption_box_pt": [
+        266,
+        262,
+        426,
+        310
+      ],
+      "crop_box_pt": [
+        89.4,
+        149.1,
+        258.0,
+        313.2
+      ],
+      "crop_box_pixels": [
+        298,
+        497,
+        860,
+        1044
+      ],
+      "pixel_size": [
+        562,
+        547
+      ],
+      "sha256": "a377be3e4b1b19c33cfd11ba437510066fe9943eb09f46fd63b2cf9212fd2738"
+    },
+    {
+      "figure": "10.3",
+      "file": "figure_10_03.png",
+      "source_pdf_page": 323,
+      "caption_english": "The contracts are used to verify that the adapter classes on both sides of the REST-based communication between API Gateway and Order Service conform to the contract. The consumer-side tests verify that OrderServiceProxy invokes Order Service correctly. The provider-side tests verify that OrderController implements the REST API endpoints correctly.",
+      "caption_box_pt": [
+        102,
+        558,
+        457,
+        595
+      ],
+      "crop_box_pt": [
+        98.4,
+        356.7,
+        463.2,
+        549.0
+      ],
+      "crop_box_pixels": [
+        328,
+        1189,
+        1544,
+        1830
+      ],
+      "pixel_size": [
+        1216,
+        641
+      ],
+      "sha256": "8f943f66ad1f214ebaef7b2acd99e49dc58cadbe6c55b1144cb23f07deaa3557"
+    },
+    {
+      "figure": "10.4",
+      "file": "figure_10_04.png",
+      "source_pdf_page": 327,
+      "caption_english": "The contracts are used to test both sides of the publish/subscribe interaction. The provider-side tests verify that OrderDomainEventPublisher publishes events that confirm to the contract. The consumer-side tests verify that OrderHistoryEventHandlers consume the example events from the contract.",
+      "caption_box_pt": [
+        66,
+        371,
+        457,
+        408
+      ],
+      "crop_box_pt": [
+        62.7,
+        50.4,
+        462.9,
+        363.6
+      ],
+      "crop_box_pixels": [
+        209,
+        168,
+        1543,
+        1212
+      ],
+      "pixel_size": [
+        1334,
+        1044
+      ],
+      "sha256": "6bc001a0200f1004b031021d5ddb578920e2909a3eb7f025a72c40a02e777852"
+    },
+    {
+      "figure": "10.5",
+      "file": "figure_10_05.png",
+      "source_pdf_page": 331,
+      "caption_english": "The contracts are used to test the adapter classes that implement each side of the asynchronous request/response interaction. The provider-side tests verify that KitchenServiceCommandHandler handles commands and sends back replies. The consumer-side tests verify KitchenServiceProxy sends commands that conform to the contract, and that it handles the example replies from the contract.",
+      "caption_box_pt": [
+        66,
+        350,
+        470,
+        387
+      ],
+      "crop_box_pt": [
+        62.7,
+        50.7,
+        474.9,
+        341.4
+      ],
+      "crop_box_pixels": [
+        209,
+        169,
+        1583,
+        1138
+      ],
+      "pixel_size": [
+        1374,
+        969
+      ],
+      "sha256": "b57ea74511fa2f132e2a262d7066f9e7346fd99fb3cbacd6419418f158116d50"
+    },
+    {
+      "figure": "10.6",
+      "file": "figure_10_06.png",
+      "source_pdf_page": 336,
+      "caption_english": "A component test tests a service in isolation. It typically uses stubs for the service’s dependencies.",
+      "caption_box_pt": [
+        93,
+        223,
+        451,
+        240
+      ],
+      "crop_box_pt": [
+        89.7,
+        50.1,
+        457.8,
+        215.7
+      ],
+      "crop_box_pixels": [
+        299,
+        167,
+        1526,
+        719
+      ],
+      "pixel_size": [
+        1227,
+        552
+      ],
+      "sha256": "85291931ede5fbbc70cd75ef42a097e0dbca28aa27d5548494d8cf9b7bb6c355"
+    },
+    {
+      "figure": "10.7",
+      "file": "figure_10_07.png",
+      "source_pdf_page": 341,
+      "caption_english": "The component tests for Order Service use the Cucumber testing framework to execute tests scenarios written using Gherkin acceptance testing DSL. The tests use Docker to run Order Service along with its infrastructure services, such as Apache Kafka and MySQL.",
+      "caption_box_pt": [
+        102,
+        274,
+        462,
+        301
+      ],
+      "crop_box_pt": [
+        98.4,
+        50.1,
+        467.4,
+        265.8
+      ],
+      "crop_box_pixels": [
+        328,
+        167,
+        1558,
+        886
+      ],
+      "pixel_size": [
+        1230,
+        719
+      ],
+      "sha256": "18eef80703296ea0f8fa67c3fe4a2dfe1c88df078e17f121cab13a8df9880d6b"
+    },
+    {
+      "figure": "10.8",
+      "file": "figure_10_08.png",
+      "source_pdf_page": 345,
+      "caption_english": "End-to-end tests are at the top of the test pyramid. They are slow, brittle, and time consuming to develop. You should minimize the number of end-to-end tests.",
+      "caption_box_pt": [
+        102,
+        411,
+        451,
+        428
+      ],
+      "crop_box_pt": [
+        98.7,
+        239.1,
+        466.8,
+        405.0
+      ],
+      "crop_box_pixels": [
+        329,
+        797,
+        1556,
+        1350
+      ],
+      "pixel_size": [
+        1227,
+        553
+      ],
+      "sha256": "fa72195ca8dd1b7f80a0f33e8a41c6e22f24211b8929a77b6e4a3b1e14a7cc41"
+    }
+  ]
+}

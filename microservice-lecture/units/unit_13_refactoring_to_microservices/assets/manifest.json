@@ -1,0 +1,680 @@
+{
+  "source_pdf": "microservice-lecture/Microservices_Patterns_1_Bolumden_Itibaren.pdf",
+  "source_sha256": "0ed35ffec713a7a929df1efcd2aaf8f153c70aa3b918c1bbc6ccdd50d549d382",
+  "source_page_size_pt": [
+    531,
+    666
+  ],
+  "render_dpi": 240,
+  "coordinate_system": "top-left origin; crop_box_pt is [left, top, right, bottom] in PDF points (1/72 inch)",
+  "method": "Original PDF page rendered by pdftoppm at 240 dpi, cropped with Pillow; no figure content, color, or labels changed. Captions stored separately.",
+  "figures": [
+    {
+      "figure": "13.1",
+      "file": "figure_13_01.png",
+      "source_pdf_page": 431,
+      "caption_english": "The monolith is incrementally replaced by a strangler application comprised of services. Eventually, the monolith is replaced entirely by the strangler application or becomes another microservice.",
+      "caption_box_pt": [
+        102,
+        486,
+        463,
+        513
+      ],
+      "crop_box_pt": [
+        98.1,
+        204.3,
+        467.4,
+        476.7
+      ],
+      "crop_box_pixels": [
+        327,
+        681,
+        1558,
+        1589
+      ],
+      "pixel_size": [
+        1231,
+        908
+      ],
+      "sha256": "d195ea9c2b0157756d7b69015a50c5a2053b0d55d7f90415e66e1ede00c069a5"
+    },
+    {
+      "figure": "13.2",
+      "file": "figure_13_02.png",
+      "source_pdf_page": 435,
+      "caption_english": "A new feature is implemented as a service that’s part of the strangler application. The integration glue integrates the service with the monolith and consists of adapters that implement synchronous and asynchronous APIs. An API gateway routes requests that invoke new functionality to the service.",
+      "caption_box_pt": [
+        102,
+        367,
+        460,
+        404
+      ],
+      "crop_box_pt": [
+        98.4,
+        50.7,
+        465.0,
+        359.4
+      ],
+      "crop_box_pixels": [
+        328,
+        169,
+        1550,
+        1198
+      ],
+      "pixel_size": [
+        1222,
+        1029
+      ],
+      "sha256": "bcbdf27556039e8bc69c42f83823fde17dafe06797593acbe23648f2ba1755cc"
+    },
+    {
+      "figure": "13.3",
+      "file": "figure_13_03.png",
+      "source_pdf_page": 436,
+      "caption_english": "Splitting the frontend from the backend enables each to be deployed independently. It also exposes an API for services to invoke.",
+      "caption_box_pt": [
+        57,
+        586,
+        461,
+        603
+      ],
+      "crop_box_pt": [
+        52.8,
+        273.9,
+        468.6,
+        579.6
+      ],
+      "crop_box_pixels": [
+        176,
+        913,
+        1562,
+        1932
+      ],
+      "pixel_size": [
+        1386,
+        1019
+      ],
+      "sha256": "cb6b831b10567ddb1c18234c80a27830deb59880ea23485fe9a45dc5edf2d5d0"
+    },
+    {
+      "figure": "13.4",
+      "file": "figure_13_04.png",
+      "source_pdf_page": 438,
+      "caption_english": "Break apart the monolith by extracting services. You identify a slice of functionality, which consists of business logic and adapters, to extract into a service. You move that code into the service. The newly extracted service and the monolith collaborate via the APIs provided by the integration glue.",
+      "caption_box_pt": [
+        57,
+        344,
+        460,
+        371
+      ],
+      "crop_box_pt": [
+        53.1,
+        50.1,
+        468.3,
+        336.0
+      ],
+      "crop_box_pixels": [
+        177,
+        167,
+        1561,
+        1120
+      ],
+      "pixel_size": [
+        1384,
+        953
+      ],
+      "sha256": "93489cc87bab4796c4d0bdc82bf174985bbd8228be7798de31ef350908e2420e"
+    },
+    {
+      "figure": "13.5",
+      "file": "figure_13_05.png",
+      "source_pdf_page": 439,
+      "caption_english": "The Order domain class has a reference to a Restaurant class. If we extract Order into a separate service, we need to do something about its reference to Restaurant, because object references between processes don’t make sense.",
+      "caption_box_pt": [
+        102,
+        331,
+        444,
+        358
+      ],
+      "crop_box_pt": [
+        98.7,
+        189.9,
+        459.0,
+        321.6
+      ],
+      "crop_box_pixels": [
+        329,
+        633,
+        1530,
+        1072
+      ],
+      "pixel_size": [
+        1201,
+        439
+      ],
+      "sha256": "80f07491ef949b4a4db52c6befc52f9ca9afa3501f61c59cab5362b982174fd3"
+    },
+    {
+      "figure": "13.6",
+      "file": "figure_13_06.png",
+      "source_pdf_page": 439,
+      "caption_english": "The Order class’s reference to Restaurant is replaced with the Restaurant's primary key in order to eliminate an object that would span process boundaries.",
+      "caption_box_pt": [
+        102,
+        568,
+        452,
+        585
+      ],
+      "crop_box_pt": [
+        98.7,
+        460.8,
+        467.1,
+        561.0
+      ],
+      "crop_box_pixels": [
+        329,
+        1536,
+        1557,
+        1870
+      ],
+      "pixel_size": [
+        1228,
+        334
+      ],
+      "sha256": "9d3d409d47fb97dd4bc8d709d1f0532a19c2b63b639afe66cd342d54e8c2a0ac"
+    },
+    {
+      "figure": "13.7",
+      "file": "figure_13_07.png",
+      "source_pdf_page": 441,
+      "caption_english": "Minimize the scope of the changes to the FTGO monolith by replicating delivery-related data from the newly extracted Delivery Service back to the monolith’s database.",
+      "caption_box_pt": [
+        66,
+        584,
+        472,
+        601
+      ],
+      "crop_box_pt": [
+        62.1,
+        272.1,
+        477.6,
+        577.8
+      ],
+      "crop_box_pixels": [
+        207,
+        907,
+        1592,
+        1926
+      ],
+      "pixel_size": [
+        1385,
+        1019
+      ],
+      "sha256": "50d31a490ac943ff489da1aa35ce41988be598e39d2946169a01530214f820e0"
+    },
+    {
+      "figure": "13.8",
+      "file": "figure_13_08.png",
+      "source_pdf_page": 443,
+      "caption_english": "When migrating a monolith to microservices, the services and monolith often need to access each other’s data. This interaction is facilitated by the integration glue, which consists of adapters that implement APIs. Some APIs are messaging based. Other APIs are RPI based.",
+      "caption_box_pt": [
+        66,
+        509,
+        472,
+        536
+      ],
+      "crop_box_pt": [
+        62.1,
+        328.2,
+        477.6,
+        501.9
+      ],
+      "crop_box_pixels": [
+        207,
+        1094,
+        1592,
+        1673
+      ],
+      "pixel_size": [
+        1385,
+        579
+      ],
+      "sha256": "674004f6f71e40adb1c29001078ac5ade953a8e71f88fdcdc409467e742fb16a"
+    },
+    {
+      "figure": "13.9",
+      "file": "figure_13_09.png",
+      "source_pdf_page": 445,
+      "caption_english": "The adapter that implements the CustomerContactInfoRepository interface invokes the monolith’s REST API to retrieve the customer information.",
+      "caption_box_pt": [
+        66,
+        460,
+        460,
+        477
+      ],
+      "crop_box_pt": [
+        62.4,
+        285.6,
+        477.3,
+        452.1
+      ],
+      "crop_box_pixels": [
+        208,
+        952,
+        1591,
+        1507
+      ],
+      "pixel_size": [
+        1383,
+        555
+      ],
+      "sha256": "6d796d10e0fcda8782cc9bbdeea57a971609c02db3ec5e95288f9b268c47c709"
+    },
+    {
+      "figure": "13.10",
+      "file": "figure_13_10.png",
+      "source_pdf_page": 446,
+      "caption_english": "The integration glue replicates data from the monolith to the service. The monolith publishes domain events, and an event handler implemented by the service updates the service’s database.",
+      "caption_box_pt": [
+        57,
+        336,
+        447,
+        353
+      ],
+      "crop_box_pt": [
+        54.0,
+        110.7,
+        469.5,
+        327.0
+      ],
+      "crop_box_pixels": [
+        180,
+        369,
+        1565,
+        1090
+      ],
+      "pixel_size": [
+        1385,
+        721
+      ],
+      "sha256": "8fd409f423dd0533e581ebe51986cf5de99dc86883c68915c1ad20e2c7859a1a"
+    },
+    {
+      "figure": "13.11",
+      "file": "figure_13_11.png",
+      "source_pdf_page": 447,
+      "caption_english": "A service adapter that invokes the monolith must translate between the service’s domain model and the monolith’s domain model.",
+      "caption_box_pt": [
+        66,
+        517,
+        468,
+        534
+      ],
+      "crop_box_pt": [
+        62.1,
+        340.2,
+        477.6,
+        510.0
+      ],
+      "crop_box_pixels": [
+        207,
+        1134,
+        1592,
+        1700
+      ],
+      "pixel_size": [
+        1385,
+        566
+      ],
+      "sha256": "26d607f5c58868ca9c6c32ab6b35d03197bb3af68a4fcfebead0ccbd21d0e09d"
+    },
+    {
+      "figure": "13.12",
+      "file": "figure_13_12.png",
+      "source_pdf_page": 448,
+      "caption_english": "An event handler must translate from the event publisher’s domain model to the subscriber’s domain model.",
+      "caption_box_pt": [
+        57,
+        318,
+        465,
+        335
+      ],
+      "crop_box_pt": [
+        54.0,
+        125.4,
+        469.5,
+        308.1
+      ],
+      "crop_box_pixels": [
+        180,
+        418,
+        1565,
+        1027
+      ],
+      "pixel_size": [
+        1385,
+        609
+      ],
+      "sha256": "0e48d7f09e9dea2520c61577aebe6a9f07abf321bea0d638c825402df6add314"
+    },
+    {
+      "figure": "13.13",
+      "file": "figure_13_13.png",
+      "source_pdf_page": 454,
+      "caption_english": "The login handler is enhanced to set a USERINFO cookie, which is a JWT containing user information. API Gateway transfers the USERINFO cookie to an authorization header when it invokes a service.",
+      "caption_box_pt": [
+        57,
+        350,
+        435,
+        377
+      ],
+      "crop_box_pt": [
+        53.1,
+        123.9,
+        468.6,
+        341.7
+      ],
+      "crop_box_pixels": [
+        177,
+        413,
+        1562,
+        1139
+      ],
+      "pixel_size": [
+        1385,
+        726
+      ],
+      "sha256": "d02c4cb726a253cf0d50007b5d0e824186af0310a5910a64909760f54c6d5649"
+    },
+    {
+      "figure": "13.14",
+      "file": "figure_13_14.png",
+      "source_pdf_page": 457,
+      "caption_english": "The design of Delayed Delivery Service. The integration glue provides Delayed Delivery Service access to data owned by the monolith, such as the Order and Restaurant entities, and the customer contact information.",
+      "caption_box_pt": [
+        66,
+        357,
+        471,
+        384
+      ],
+      "crop_box_pt": [
+        62.1,
+        50.1,
+        477.6,
+        345.9
+      ],
+      "crop_box_pixels": [
+        207,
+        167,
+        1592,
+        1153
+      ],
+      "pixel_size": [
+        1385,
+        986
+      ],
+      "sha256": "83340ddab78904dd7e1e9f41b40211698e319ef06b1f55cedf6269859b2f60e2"
+    },
+    {
+      "figure": "13.15",
+      "file": "figure_13_15.png",
+      "source_pdf_page": 458,
+      "caption_english": "The integration glue provides Delayed Delivery Service with access to the data owned by the monolith.",
+      "caption_box_pt": [
+        57,
+        263,
+        458,
+        280
+      ],
+      "crop_box_pt": [
+        53.1,
+        84.6,
+        468.3,
+        255.3
+      ],
+      "crop_box_pixels": [
+        177,
+        282,
+        1561,
+        851
+      ],
+      "pixel_size": [
+        1384,
+        569
+      ],
+      "sha256": "4aa7af651d098d5715a3baf968fb863d344c86ec0b57664275d8e7e245f42557"
+    },
+    {
+      "figure": "13.16",
+      "file": "figure_13_16.png",
+      "source_pdf_page": 461,
+      "caption_english": "Delivery management is entangled with order management within the FTGO monolith.",
+      "caption_box_pt": [
+        102,
+        447,
+        463,
+        454
+      ],
+      "crop_box_pt": [
+        98.7,
+        50.4,
+        466.8,
+        437.7
+      ],
+      "crop_box_pixels": [
+        329,
+        168,
+        1556,
+        1459
+      ],
+      "pixel_size": [
+        1227,
+        1291
+      ],
+      "sha256": "5b4e548309c74310f2866d73b5423a325371d67079d89f5eb7f54931d901c889"
+    },
+    {
+      "figure": "13.17",
+      "file": "figure_13_17.png",
+      "source_pdf_page": 462,
+      "caption_english": "The high-level view of the FTGO application after extracting Delivery Service. The FTGO monolith and Delivery Service collaborate using the integration glue, which consists of APIs in each of them. The two key decisions that need to be made are which functionality and data are moved to Delivery Service and how do the monolith and Delivery Service collaborate via APIs?",
+      "caption_box_pt": [
+        57,
+        412,
+        458,
+        449
+      ],
+      "crop_box_pt": [
+        53.4,
+        154.8,
+        468.0,
+        404.7
+      ],
+      "crop_box_pixels": [
+        178,
+        516,
+        1560,
+        1349
+      ],
+      "pixel_size": [
+        1382,
+        833
+      ],
+      "sha256": "109e9b81c8f737f753cc33dc15be29bcaf71cbb313b18e90541c554a45bf3e16"
+    },
+    {
+      "figure": "13.18",
+      "file": "figure_13_18.png",
+      "source_pdf_page": 463,
+      "caption_english": "The entities and fields that are accessed by delivery management and other functionality implemented by the monolith. A field can be read or written or both. It can be accessed by delivery management, the monolith, or both.",
+      "caption_box_pt": [
+        102,
+        459,
+        391,
+        486
+      ],
+      "crop_box_pt": [
+        98.7,
+        271.8,
+        392.7,
+        451.8
+      ],
+      "crop_box_pixels": [
+        329,
+        906,
+        1309,
+        1506
+      ],
+      "pixel_size": [
+        980,
+        600
+      ],
+      "sha256": "16fe3f90c169034acdf1eaced5ca043df61857ce731f6dca1e0cd52f7d153ac4"
+    },
+    {
+      "figure": "13.19",
+      "file": "figure_13_19.png",
+      "source_pdf_page": 465,
+      "caption_english": "The design of the Delivery Service's domain model",
+      "caption_box_pt": [
+        102,
+        378,
+        357,
+        385
+      ],
+      "crop_box_pt": [
+        98.4,
+        50.1,
+        467.4,
+        369.9
+      ],
+      "crop_box_pixels": [
+        328,
+        167,
+        1558,
+        1233
+      ],
+      "pixel_size": [
+        1230,
+        1066
+      ],
+      "sha256": "a156cc3045b4089d1cf632f04693c7a8de419fb9e6b14cca4898573bf10aa235"
+    },
+    {
+      "figure": "13.20",
+      "file": "figure_13_20.png",
+      "source_pdf_page": 466,
+      "caption_english": "The design of the Delivery Service integration glue. Delivery Service has a delivery management API. The service and the FTGO monolith synchronize data by exchanging domain events.",
+      "caption_box_pt": [
+        57,
+        249,
+        448,
+        267
+      ],
+      "crop_box_pt": [
+        53.1,
+        50.7,
+        468.6,
+        240.9
+      ],
+      "crop_box_pixels": [
+        177,
+        169,
+        1562,
+        803
+      ],
+      "pixel_size": [
+        1385,
+        634
+      ],
+      "sha256": "c71b70aaebb664959d75ae36ecb7cc606e8d4685e1bc2b8589eacb83fc8dad1d"
+    },
+    {
+      "figure": "13.21",
+      "file": "figure_13_21.png",
+      "source_pdf_page": 467,
+      "caption_english": "The first step is to define DeliveryService, which is a coarse-grained, remotable API for invoking the delivery management logic.",
+      "caption_box_pt": [
+        102,
+        568,
+        351,
+        595
+      ],
+      "crop_box_pt": [
+        98.1,
+        369.6,
+        361.5,
+        560.7
+      ],
+      "crop_box_pixels": [
+        327,
+        1232,
+        1205,
+        1869
+      ],
+      "pixel_size": [
+        878,
+        637
+      ],
+      "sha256": "c1dc9c15982e083e8ede592120cdc3bb738208781761512ade19ca8d912edbff"
+    },
+    {
+      "figure": "13.22",
+      "file": "figure_13_22.png",
+      "source_pdf_page": 468,
+      "caption_english": "The second step is to change the FTGO monolith to invoke delivery management via the DeliveryService interface.",
+      "caption_box_pt": [
+        93,
+        407,
+        336,
+        424
+      ],
+      "crop_box_pt": [
+        89.1,
+        207.0,
+        350.4,
+        398.7
+      ],
+      "crop_box_pixels": [
+        297,
+        690,
+        1168,
+        1329
+      ],
+      "pixel_size": [
+        871,
+        639
+      ],
+      "sha256": "21471095989e32fc48899182243ebfb165f0e7e85ae5a8a87be60a48d3ea9f25"
+    },
+    {
+      "figure": "13.23",
+      "file": "figure_13_23.png",
+      "source_pdf_page": 469,
+      "caption_english": "The final step is to implement DeliveryService with a proxy class that sends messages Delivery Service. A feature toggle controls whether the FTGO monolith uses the old implementation or the new Delivery Service.",
+      "caption_box_pt": [
+        102,
+        286,
+        461,
+        313
+      ],
+      "crop_box_pt": [
+        98.7,
+        50.1,
+        466.8,
+        278.1
+      ],
+      "crop_box_pixels": [
+        329,
+        167,
+        1556,
+        927
+      ],
+      "pixel_size": [
+        1227,
+        760
+      ],
+      "sha256": "1b33fc04147e213db12dbc185bf7ebb33e60de18bc490f699ea67736e7a204bf"
+    }
+  ]
+}

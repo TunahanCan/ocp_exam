@@ -1,0 +1,449 @@
+{
+  "source_pdf": "microservice-lecture/Microservices_Patterns_1_Bolumden_Itibaren.pdf",
+  "source_sha256": "0ed35ffec713a7a929df1efcd2aaf8f153c70aa3b918c1bbc6ccdd50d549d382",
+  "source_page_size_pt": [
+    531,
+    666
+  ],
+  "render_dpi": 240,
+  "coordinate_system": "top-left origin; crop_box_pt is [left, top, right, bottom] in PDF points (1/72 inch)",
+  "method": "Original PDF page rendered by pdftoppm at 240 dpi, cropped with Pillow; no figure content, color, or labels changed. Captions stored separately.",
+  "figures": [
+    {
+      "figure": "4.1",
+      "file": "figure_04_01.png",
+      "source_pdf_page": 113,
+      "caption_english": "The createOrder() operation updates data in several services. It must use a mechanism to maintain data consistency across those services.",
+      "caption_box_pt": [
+        102,
+        376,
+        436,
+        393
+      ],
+      "crop_box_pt": [
+        98.7,
+        49.8,
+        467.1,
+        366.0
+      ],
+      "crop_box_pixels": [
+        329,
+        166,
+        1557,
+        1220
+      ],
+      "pixel_size": [
+        1228,
+        1054
+      ],
+      "sha256": "538fda93f686bc563091822a432948c51517ebbb442948d994afdc453ee705a3"
+    },
+    {
+      "figure": "4.2",
+      "file": "figure_04_02.png",
+      "source_pdf_page": 115,
+      "caption_english": "Creating an Order using a saga. The createOrder() operation is implemented by a saga that consists of local transactions in several services.",
+      "caption_box_pt": [
+        102,
+        220,
+        461,
+        237
+      ],
+      "crop_box_pt": [
+        98.7,
+        50.4,
+        467.1,
+        211.8
+      ],
+      "crop_box_pixels": [
+        329,
+        168,
+        1557,
+        706
+      ],
+      "pixel_size": [
+        1228,
+        538
+      ],
+      "sha256": "901ef1c330f5367f0da572c28ecd2d514e9cac6e4c22bf3823a116f0d703d24c"
+    },
+    {
+      "figure": "4.3",
+      "file": "figure_04_03.png",
+      "source_pdf_page": 116,
+      "caption_english": "When a step of a saga fails because of a business rule violation, the saga must explicitly undo the updates made by previous steps by executing compensating transactions.",
+      "caption_box_pt": [
+        93,
+        305,
+        455,
+        322
+      ],
+      "crop_box_pt": [
+        89.7,
+        166.2,
+        458.1,
+        295.8
+      ],
+      "crop_box_pixels": [
+        299,
+        554,
+        1527,
+        986
+      ],
+      "pixel_size": [
+        1228,
+        432
+      ],
+      "sha256": "cd780a7242229aae216f9fae919c3241959cb6e042d8e3948adf4e75d9026a76"
+    },
+    {
+      "figure": "4.4",
+      "file": "figure_04_04.png",
+      "source_pdf_page": 118,
+      "caption_english": "Implementing the Create Order Saga using choreography. The saga participants communicate by exchanging events.",
+      "caption_box_pt": [
+        57,
+        578,
+        461,
+        595
+      ],
+      "crop_box_pt": [
+        53.1,
+        293.4,
+        468.6,
+        568.8
+      ],
+      "crop_box_pixels": [
+        177,
+        978,
+        1562,
+        1896
+      ],
+      "pixel_size": [
+        1385,
+        918
+      ],
+      "sha256": "b65bfd4e69d39072c79d1612ce921097370978af826023843cb206618be04a11"
+    },
+    {
+      "figure": "4.5",
+      "file": "figure_04_05.png",
+      "source_pdf_page": 120,
+      "caption_english": "The sequence of events in the Create Order Saga when the authorization of the consumer’s credit card fails. Accounting Service publishes the Credit Card Authorization Failed event, which causes Kitchen Service to reject the Ticket, and Order Service to reject the Order.",
+      "caption_box_pt": [
+        57,
+        333,
+        463,
+        360
+      ],
+      "crop_box_pt": [
+        53.1,
+        50.4,
+        468.6,
+        325.8
+      ],
+      "crop_box_pixels": [
+        177,
+        168,
+        1562,
+        1086
+      ],
+      "pixel_size": [
+        1385,
+        918
+      ],
+      "sha256": "97f0bbba37a2c5928ed6cfad63cc87a6d1a093f8b7ccc46b3355cf4001766b25"
+    },
+    {
+      "figure": "4.6",
+      "file": "figure_04_06.png",
+      "source_pdf_page": 122,
+      "caption_english": "Implementing the Create Order Saga using orchestration. Order Service implements a saga orchestrator, which invokes the saga participants using asynchronous request/ response.",
+      "caption_box_pt": [
+        93,
+        555,
+        445,
+        582
+      ],
+      "crop_box_pt": [
+        89.7,
+        225.6,
+        458.1,
+        546.6
+      ],
+      "crop_box_pixels": [
+        299,
+        752,
+        1527,
+        1822
+      ],
+      "pixel_size": [
+        1228,
+        1070
+      ],
+      "sha256": "e0ff8955202bf7688e7ed0da4afc4d9fc8a301bb52bfa41d8e17a3a03bd61f82"
+    },
+    {
+      "figure": "4.7",
+      "file": "figure_04_07.png",
+      "source_pdf_page": 124,
+      "caption_english": "The state machine model for the Create Order Saga",
+      "caption_box_pt": [
+        217,
+        373,
+        460,
+        380
+      ],
+      "crop_box_pt": [
+        53.1,
+        50.1,
+        468.6,
+        384.0
+      ],
+      "crop_box_pixels": [
+        177,
+        167,
+        1562,
+        1280
+      ],
+      "pixel_size": [
+        1385,
+        1113
+      ],
+      "sha256": "d4855cd59517e7a91465823193853338ce56628dcdb1d45436b969863107c4c5",
+      "caption_exclusion_note": "Caption lies alongside final-state circle; only caption rectangle was replaced with white to preserve the full original diagram. No drawing pixels were changed."
+    },
+    {
+      "figure": "4.8",
+      "file": "figure_04_08.png",
+      "source_pdf_page": 129,
+      "caption_english": "A saga consists of three different types of transactions: compensatable transactions, which can be rolled back, so have a compensating transaction, a pivot transaction, which is the saga’s go/no-go point, and retriable transactions, which are transactions that don’t need to be rolled back and are guaranteed to complete.",
+      "caption_box_pt": [
+        102,
+        303,
+        456,
+        340
+      ],
+      "crop_box_pt": [
+        98.4,
+        85.5,
+        467.4,
+        293.1
+      ],
+      "crop_box_pixels": [
+        328,
+        285,
+        1558,
+        977
+      ],
+      "pixel_size": [
+        1230,
+        692
+      ],
+      "sha256": "8d2827f85bdfca4899cc3dbabe661f9334a09b531c8663229a5ab554b64f076c"
+    },
+    {
+      "figure": "4.9",
+      "file": "figure_04_09.png",
+      "source_pdf_page": 132,
+      "caption_english": "The design of the Order Service and its sagas",
+      "caption_box_pt": [
+        57,
+        592,
+        278,
+        599
+      ],
+      "crop_box_pt": [
+        53.7,
+        208.5,
+        468.6,
+        584.1
+      ],
+      "crop_box_pixels": [
+        179,
+        695,
+        1562,
+        1947
+      ],
+      "pixel_size": [
+        1383,
+        1252
+      ],
+      "sha256": "cc86a82a93b3971b77b860578ef7e18a3f21d8a25a58f649a006c64d628331eb"
+    },
+    {
+      "figure": "4.10",
+      "file": "figure_04_10.png",
+      "source_pdf_page": 133,
+      "caption_english": "OrderService creates and updates Orders, invokes the OrderRepository to persist Orders, and creates sagas, including the CreateOrderSaga.",
+      "caption_box_pt": [
+        102,
+        563,
+        370,
+        590
+      ],
+      "crop_box_pt": [
+        99.0,
+        392.7,
+        384.6,
+        553.5
+      ],
+      "crop_box_pixels": [
+        330,
+        1309,
+        1282,
+        1845
+      ],
+      "pixel_size": [
+        952,
+        536
+      ],
+      "sha256": "e23d3b481fe6e44fe8426e809b891e07affb0c78b39d15d9089728c7303464b2"
+    },
+    {
+      "figure": "4.11",
+      "file": "figure_04_11.png",
+      "source_pdf_page": 135,
+      "caption_english": "The OrderService's sagas, such as Create Order Saga, are implemented using the Eventuate Tram Saga framework.",
+      "caption_box_pt": [
+        102,
+        457,
+        460,
+        474
+      ],
+      "crop_box_pt": [
+        98.4,
+        49.8,
+        467.1,
+        450.0
+      ],
+      "crop_box_pixels": [
+        328,
+        166,
+        1557,
+        1500
+      ],
+      "pixel_size": [
+        1229,
+        1334
+      ],
+      "sha256": "b56f48d249e4cdd4fefa9eb262f2873cd5df3afe6d0516d5c319c7c194df7fa7"
+    },
+    {
+      "figure": "4.12",
+      "file": "figure_04_12.png",
+      "source_pdf_page": 140,
+      "caption_english": "Eventuate Tram Saga is a framework for writing both saga orchestrators and saga participants.",
+      "caption_box_pt": [
+        93,
+        425,
+        440,
+        442
+      ],
+      "crop_box_pt": [
+        89.1,
+        111.9,
+        458.7,
+        413.7
+      ],
+      "crop_box_pixels": [
+        297,
+        373,
+        1529,
+        1379
+      ],
+      "pixel_size": [
+        1232,
+        1006
+      ],
+      "sha256": "7e757178da1c88eacb8e40d6532d13e50467fe1ad1f270f4c1e47a5b1d10615b"
+    },
+    {
+      "figure": "4.13",
+      "file": "figure_04_13.png",
+      "source_pdf_page": 141,
+      "caption_english": "The sequence of events when OrderService creates an instance of Create Order Saga",
+      "caption_box_pt": [
+        66,
+        225,
+        448,
+        232
+      ],
+      "crop_box_pt": [
+        62.1,
+        50.1,
+        477.6,
+        219.6
+      ],
+      "crop_box_pixels": [
+        207,
+        167,
+        1592,
+        732
+      ],
+      "pixel_size": [
+        1385,
+        565
+      ],
+      "sha256": "befdbca0d46bac4231a3d9f83cdce55e0512d4fd8897fbe10cb183e5caf39e5f"
+    },
+    {
+      "figure": "4.14",
+      "file": "figure_04_14.png",
+      "source_pdf_page": 141,
+      "caption_english": "The sequence of events when the SagaManager receives a reply message from a saga participant",
+      "caption_box_pt": [
+        66,
+        514,
+        470,
+        521
+      ],
+      "crop_box_pt": [
+        62.1,
+        336.9,
+        477.6,
+        506.1
+      ],
+      "crop_box_pixels": [
+        207,
+        1123,
+        1592,
+        1687
+      ],
+      "pixel_size": [
+        1385,
+        564
+      ],
+      "sha256": "e9d58025cab1949e9d9a4789f4c1648f96a836e40ca22ef3917dc825a2894bb6"
+    },
+    {
+      "figure": "4.15",
+      "file": "figure_04_15.png",
+      "source_pdf_page": 142,
+      "caption_english": "OrderCommandHandlers implements command handlers for the commands that are sent by the various Order Service sagas.",
+      "caption_box_pt": [
+        93,
+        587,
+        453,
+        604
+      ],
+      "crop_box_pt": [
+        89.4,
+        330.3,
+        458.1,
+        579.0
+      ],
+      "crop_box_pixels": [
+        298,
+        1101,
+        1527,
+        1930
+      ],
+      "pixel_size": [
+        1229,
+        829
+      ],
+      "sha256": "765d9475c659e76818fa929b039e8939fd9bef1700cc07786123f3bd0aeb0c83"
+    }
+  ]
+}

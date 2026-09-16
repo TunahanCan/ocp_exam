@@ -1,0 +1,332 @@
+{
+  "source_pdf": "microservice-lecture/Microservices_Patterns_1_Bolumden_Itibaren.pdf",
+  "source_sha256": "0ed35ffec713a7a929df1efcd2aaf8f153c70aa3b918c1bbc6ccdd50d549d382",
+  "source_page_size_pt": [
+    531,
+    666
+  ],
+  "render_dpi": 240,
+  "coordinate_system": "top-left origin; crop_box_pt is [left, top, right, bottom] in PDF points (1/72 inch)",
+  "method": "Original PDF page rendered by pdftoppm at 240 dpi, cropped with Pillow; no figure content, color, or labels changed. Captions stored separately.",
+  "figures": [
+    {
+      "figure": "8.1",
+      "file": "figure_08_01.png",
+      "source_pdf_page": 255,
+      "caption_english": "The FTGO application’s services and their clients. There are several different types of clients. Some are inside the firewall, and others are outside. Those outside the firewall access the services over the lower-performance internet/mobile network. Those clients inside the firewall use a higher- performance LAN.",
+      "caption_box_pt": [
+        102,
+        327,
+        389,
+        374
+      ],
+      "crop_box_pt": [
+        98.7,
+        50.4,
+        393.0,
+        321.6
+      ],
+      "crop_box_pixels": [
+        329,
+        168,
+        1310,
+        1072
+      ],
+      "pixel_size": [
+        981,
+        904
+      ],
+      "sha256": "a758e8213d4fd0ff3e6a63fd4447dc6b43f15c08c9329430695dc19a266e8997"
+    },
+    {
+      "figure": "8.2",
+      "file": "figure_08_02.png",
+      "source_pdf_page": 256,
+      "caption_english": "A client can retrieve the order details from the monolithic FTGO application with a single request. But the client must make multiple requests to retrieve the same information in a microservice architecture.",
+      "caption_box_pt": [
+        93,
+        555,
+        438,
+        582
+      ],
+      "crop_box_pt": [
+        89.7,
+        181.8,
+        444.0,
+        549.0
+      ],
+      "crop_box_pixels": [
+        299,
+        606,
+        1480,
+        1830
+      ],
+      "pixel_size": [
+        1181,
+        1224
+      ],
+      "sha256": "82b69223a99a3e445b50ca7940ae3347c72ffb31eb0847bd33b4cb6265474e91"
+    },
+    {
+      "figure": "8.3",
+      "file": "figure_08_03.png",
+      "source_pdf_page": 260,
+      "caption_english": "The API gateway is the single entry point into the application for API calls from outside the firewall.",
+      "caption_box_pt": [
+        93,
+        366,
+        453,
+        383
+      ],
+      "crop_box_pt": [
+        89.4,
+        85.8,
+        458.1,
+        357.0
+      ],
+      "crop_box_pixels": [
+        298,
+        286,
+        1527,
+        1190
+      ],
+      "pixel_size": [
+        1229,
+        904
+      ],
+      "sha256": "b1ebaf7b49b62282aac0c9900a26525e61383c893611a32ca0d7b93c17b205fc"
+    },
+    {
+      "figure": "8.4",
+      "file": "figure_08_04.png",
+      "source_pdf_page": 261,
+      "caption_english": "An API gateway often does API composition, which enables a client such as a mobile device to efficiently retrieve data using a single API request.",
+      "caption_box_pt": [
+        102,
+        569,
+        455,
+        586
+      ],
+      "crop_box_pt": [
+        98.4,
+        177.9,
+        467.4,
+        559.8
+      ],
+      "crop_box_pixels": [
+        328,
+        593,
+        1558,
+        1866
+      ],
+      "pixel_size": [
+        1230,
+        1273
+      ],
+      "sha256": "a41ae159236ea44c151287ce166b88022c2e834c5b3df982a2cdcc3f77f4b7f5"
+    },
+    {
+      "figure": "8.5",
+      "file": "figure_08_05.png",
+      "source_pdf_page": 263,
+      "caption_english": "An API gateway has a layered modular architecture. The API for each client is implemented by a separate module. The common layer implements functionality common to all APIs, such as authentication.",
+      "caption_box_pt": [
+        102,
+        567,
+        444,
+        594
+      ],
+      "crop_box_pt": [
+        98.7,
+        328.5,
+        460.8,
+        562.2
+      ],
+      "crop_box_pixels": [
+        329,
+        1095,
+        1536,
+        1874
+      ],
+      "pixel_size": [
+        1207,
+        779
+      ],
+      "sha256": "72bdd8d310595509acac488e8c71c28267407ec2206f98dc476699b049dfb0bb"
+    },
+    {
+      "figure": "8.6",
+      "file": "figure_08_06.png",
+      "source_pdf_page": 265,
+      "caption_english": "A client team owns their API module. As they change the client, they can change the API module and not ask the API gateway team to make the changes.",
+      "caption_box_pt": [
+        102,
+        413,
+        463,
+        430
+      ],
+      "crop_box_pt": [
+        98.1,
+        51.0,
+        465.3,
+        405.0
+      ],
+      "crop_box_pixels": [
+        327,
+        170,
+        1551,
+        1350
+      ],
+      "pixel_size": [
+        1224,
+        1180
+      ],
+      "sha256": "c9438e678b691a1b5716f635b9cf9df63d09375529dacbb272921e399993c30b"
+    },
+    {
+      "figure": "8.7",
+      "file": "figure_08_07.png",
+      "source_pdf_page": 266,
+      "caption_english": "The Backends for frontends pattern defines a separate API gateway for each client. Each client team owns their API gateway. An API gateway team owns the common layer.",
+      "caption_box_pt": [
+        93,
+        352,
+        454,
+        369
+      ],
+      "crop_box_pt": [
+        89.7,
+        50.4,
+        457.8,
+        342.0
+      ],
+      "crop_box_pixels": [
+        299,
+        168,
+        1526,
+        1140
+      ],
+      "pixel_size": [
+        1227,
+        972
+      ],
+      "sha256": "7267b7d81e8da22b89904cc73db5501ddf685baed00e57111af47bea87c13d2f"
+    },
+    {
+      "figure": "8.8",
+      "file": "figure_08_08.png",
+      "source_pdf_page": 274,
+      "caption_english": "The architecture of an API gateway built using Spring Cloud Gateway",
+      "caption_box_pt": [
+        57,
+        495,
+        350,
+        502
+      ],
+      "crop_box_pt": [
+        53.1,
+        132.9,
+        468.6,
+        486.9
+      ],
+      "crop_box_pixels": [
+        177,
+        443,
+        1562,
+        1623
+      ],
+      "pixel_size": [
+        1385,
+        1180
+      ],
+      "sha256": "bc5c916147dfaee325a8cc9ca1ccb725dfee8ce0cb10b5baf1f9d84da8600a87"
+    },
+    {
+      "figure": "8.9",
+      "file": "figure_08_09.png",
+      "source_pdf_page": 280,
+      "caption_english": "The API gateway’s API consists of a graph-based schema that’s mapped to the services. A client issues a query that retrieves multiple graph nodes. The graph-based API framework executes the query by retrieving data from one or more services.",
+      "caption_box_pt": [
+        57,
+        532,
+        453,
+        559
+      ],
+      "crop_box_pt": [
+        53.1,
+        333.6,
+        468.6,
+        524.1
+      ],
+      "crop_box_pixels": [
+        177,
+        1112,
+        1562,
+        1747
+      ],
+      "pixel_size": [
+        1385,
+        635
+      ],
+      "sha256": "b8c5d2297d7ba3a7d97462d38ce3dbe9b07962458da72a8a8fda9795cfe3fe0b"
+    },
+    {
+      "figure": "8.10",
+      "file": "figure_08_10.png",
+      "source_pdf_page": 282,
+      "caption_english": "The design of the GraphQL-based FTGO API Gateway",
+      "caption_box_pt": [
+        57,
+        506,
+        295,
+        513
+      ],
+      "crop_box_pt": [
+        53.1,
+        50.7,
+        468.6,
+        497.4
+      ],
+      "crop_box_pixels": [
+        177,
+        169,
+        1562,
+        1658
+      ],
+      "pixel_size": [
+        1385,
+        1489
+      ],
+      "sha256": "564434bebd1b0ac779d947f70b6aab126cdb84742e50b355b610c1e04cd5c161"
+    },
+    {
+      "figure": "8.11",
+      "file": "figure_08_11.png",
+      "source_pdf_page": 287,
+      "caption_english": "GraphQL executes a query by recursively invoking the resolver functions for the fields specified in the Query document. First, it executes the resolver for the query, and then it recursively invokes the resolvers for the fields in the result object hierarchy.",
+      "caption_box_pt": [
+        66,
+        509,
+        471,
+        536
+      ],
+      "crop_box_pt": [
+        62.1,
+        311.7,
+        477.3,
+        501.9
+      ],
+      "crop_box_pixels": [
+        207,
+        1039,
+        1591,
+        1673
+      ],
+      "pixel_size": [
+        1384,
+        634
+      ],
+      "sha256": "63ec8b08fcbcbc8d5ac063c0db6a580bc9fb940c47385ee392c46d3b2c068d06"
+    }
+  ]
+}

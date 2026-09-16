@@ -1,0 +1,632 @@
+{
+  "source_pdf": "microservice-lecture/Microservices_Patterns_1_Bolumden_Itibaren.pdf",
+  "source_sha256": "0ed35ffec713a7a929df1efcd2aaf8f153c70aa3b918c1bbc6ccdd50d549d382",
+  "total_pdf_pages": 492,
+  "printed_page_numbers_equal_pdf_pages": true,
+  "chapters": [
+    {
+      "number": 1,
+      "title_english": "Escaping monolithic hell",
+      "title_turkish": "Monolitik çıkmazdan kurtulmak",
+      "pdf_start_page": 1,
+      "pdf_end_page": 32,
+      "page_count": 32
+    },
+    {
+      "number": 2,
+      "title_english": "Decomposition strategies",
+      "title_turkish": "Ayrıştırma stratejileri",
+      "pdf_start_page": 33,
+      "pdf_end_page": 64,
+      "page_count": 32
+    },
+    {
+      "number": 3,
+      "title_english": "Interprocess communication in a microservice architecture",
+      "title_turkish": "Microservice mimarisinde süreçler arası iletişim",
+      "pdf_start_page": 65,
+      "pdf_end_page": 109,
+      "page_count": 45
+    },
+    {
+      "number": 4,
+      "title_english": "Managing transactions with sagas",
+      "title_turkish": "Transaction işlemlerini saga ile yönetme",
+      "pdf_start_page": 110,
+      "pdf_end_page": 145,
+      "page_count": 36
+    },
+    {
+      "number": 5,
+      "title_english": "Designing business logic in a microservice architecture",
+      "title_turkish": "Microservice mimarisinde iş mantığını tasarlama",
+      "pdf_start_page": 146,
+      "pdf_end_page": 182,
+      "page_count": 37
+    },
+    {
+      "number": 6,
+      "title_english": "Developing business logic with event sourcing",
+      "title_turkish": "Event sourcing ile iş mantığı geliştirme",
+      "pdf_start_page": 183,
+      "pdf_end_page": 219,
+      "page_count": 37
+    },
+    {
+      "number": 7,
+      "title_english": "Implementing queries in a microservice architecture",
+      "title_turkish": "Microservice mimarisinde sorguları uygulama",
+      "pdf_start_page": 220,
+      "pdf_end_page": 252,
+      "page_count": 33
+    },
+    {
+      "number": 8,
+      "title_english": "External API patterns",
+      "title_turkish": "Dış API örüntüleri",
+      "pdf_start_page": 253,
+      "pdf_end_page": 291,
+      "page_count": 39
+    },
+    {
+      "number": 9,
+      "title_english": "Testing microservices: Part 1",
+      "title_turkish": "Microservice testleri: Bölüm 1",
+      "pdf_start_page": 292,
+      "pdf_end_page": 317,
+      "page_count": 26
+    },
+    {
+      "number": 10,
+      "title_english": "Testing microservices: Part 2",
+      "title_turkish": "Microservice testleri: Bölüm 2",
+      "pdf_start_page": 318,
+      "pdf_end_page": 347,
+      "page_count": 30
+    },
+    {
+      "number": 11,
+      "title_english": "Developing production-ready services",
+      "title_turkish": "Üretim ortamına hazır servisler geliştirme",
+      "pdf_start_page": 348,
+      "pdf_end_page": 382,
+      "page_count": 35
+    },
+    {
+      "number": 12,
+      "title_english": "Deploying microservices",
+      "title_turkish": "Microservice servislerini dağıtma",
+      "pdf_start_page": 383,
+      "pdf_end_page": 427,
+      "page_count": 45
+    },
+    {
+      "number": 13,
+      "title_english": "Refactoring to microservices",
+      "title_turkish": "Microservice mimarisine yeniden düzenleme",
+      "pdf_start_page": 428,
+      "pdf_end_page": 471,
+      "page_count": 44
+    }
+  ],
+  "other_pages": [
+    {
+      "pdf_start_page": 472,
+      "pdf_end_page": 472,
+      "content": "blank"
+    },
+    {
+      "pdf_start_page": 473,
+      "pdf_end_page": 490,
+      "content": "index"
+    },
+    {
+      "pdf_start_page": 491,
+      "pdf_end_page": 491,
+      "content": "promotional summary diagrams"
+    },
+    {
+      "pdf_start_page": 492,
+      "pdf_end_page": 492,
+      "content": "back cover"
+    }
+  ],
+  "first_chapter": {
+    "number": 1,
+    "sections": [
+      {
+        "number": "1.1",
+        "title_english": "The slow march toward monolithic hell",
+        "source_pdf_page": 2
+      },
+      {
+        "number": "1.1.1",
+        "title_english": "The architecture of the FTGO application",
+        "source_pdf_page": 3
+      },
+      {
+        "number": "1.1.2",
+        "title_english": "The benefits of the monolithic architecture",
+        "source_pdf_page": 4
+      },
+      {
+        "number": "1.1.3",
+        "title_english": "Living in monolithic hell",
+        "source_pdf_page": 4
+      },
+      {
+        "number": "1.2",
+        "title_english": "Why this book is relevant to you",
+        "source_pdf_page": 7
+      },
+      {
+        "number": "1.3",
+        "title_english": "What you’ll learn in this book",
+        "source_pdf_page": 7
+      },
+      {
+        "number": "1.4",
+        "title_english": "Microservice architecture to the rescue",
+        "source_pdf_page": 8
+      },
+      {
+        "number": "1.4.1",
+        "title_english": "Scale cube and microservices",
+        "source_pdf_page": 8
+      },
+      {
+        "number": "1.4.2",
+        "title_english": "Microservices as a form of modularity",
+        "source_pdf_page": 11
+      },
+      {
+        "number": "1.4.3",
+        "title_english": "Each service has its own database",
+        "source_pdf_page": 12
+      },
+      {
+        "number": "1.4.4",
+        "title_english": "The FTGO microservice architecture",
+        "source_pdf_page": 12
+      },
+      {
+        "number": "1.4.5",
+        "title_english": "Comparing the microservice architecture and SOA",
+        "source_pdf_page": 13
+      },
+      {
+        "number": "1.5",
+        "title_english": "Benefits and drawbacks of the microservice architecture",
+        "source_pdf_page": 14
+      },
+      {
+        "number": "1.5.1",
+        "title_english": "Benefits of the microservice architecture",
+        "source_pdf_page": 14
+      },
+      {
+        "number": "1.5.2",
+        "title_english": "Drawbacks of the microservice architecture",
+        "source_pdf_page": 17
+      },
+      {
+        "number": "1.6",
+        "title_english": "The Microservice architecture pattern language",
+        "source_pdf_page": 19
+      },
+      {
+        "number": "1.6.1",
+        "title_english": "Microservice architecture is not a silver bullet",
+        "source_pdf_page": 19
+      },
+      {
+        "number": "1.6.2",
+        "title_english": "Patterns and pattern languages",
+        "source_pdf_page": 20
+      },
+      {
+        "number": "1.6.3",
+        "title_english": "Overview of the Microservice architecture pattern language",
+        "source_pdf_page": 23
+      },
+      {
+        "number": "1.7",
+        "title_english": "Beyond microservices: Process and organization",
+        "source_pdf_page": 29
+      },
+      {
+        "number": "1.7.1",
+        "title_english": "Software development and delivery organization",
+        "source_pdf_page": 29
+      },
+      {
+        "number": "1.7.2",
+        "title_english": "Software development and delivery process",
+        "source_pdf_page": 30
+      },
+      {
+        "number": "1.7.3",
+        "title_english": "The human side of adopting microservices",
+        "source_pdf_page": 31
+      }
+    ],
+    "figures": [
+      {
+        "figure": "1.1",
+        "file": "figure_01_01.png",
+        "source_pdf_page": 3,
+        "crop_box_pt": [
+          96,
+          141,
+          464,
+          418
+        ],
+        "crop_box_pixels": [
+          320,
+          470,
+          1547,
+          1394
+        ],
+        "pixel_size": [
+          1227,
+          924
+        ],
+        "sha256": "36f8ec25a8bd2ebf9d1fb742624fa9197c9b2aeff0ea34ad05254a3f4bec79a9",
+        "caption_english": "The FTGO application has a hexagonal architecture. It consists of business logic surrounded by adapters that implement UIs and interface with external systems, such as mobile applications and cloud services for payments, messaging, and email."
+      },
+      {
+        "figure": "1.2",
+        "file": "figure_01_02.png",
+        "source_pdf_page": 5,
+        "crop_box_pt": [
+          97,
+          49,
+          467,
+          264
+        ],
+        "crop_box_pixels": [
+          323,
+          163,
+          1557,
+          880
+        ],
+        "pixel_size": [
+          1234,
+          717
+        ],
+        "sha256": "7d649618b7367386a16ccff9d8b54a5bd3a367ef9a2d08be75822f3ed0b2bfbf",
+        "caption_english": "A case of monolithic hell. The large FTGO developer team commits their changes to a single source code repository. The path from code commit to production is long and arduous and involves manual testing. The FTGO application is large, complex, unreliable, and difficult to maintain."
+      },
+      {
+        "figure": "1.3",
+        "file": "figure_01_03.png",
+        "source_pdf_page": 9,
+        "crop_box_pt": [
+          96,
+          88,
+          450,
+          318
+        ],
+        "crop_box_pixels": [
+          320,
+          293,
+          1500,
+          1060
+        ],
+        "pixel_size": [
+          1180,
+          767
+        ],
+        "sha256": "f05ae61a79e7bfdd45e5c10ce357cffe023572cc377acc0015d6f7c97377dab4",
+        "caption_english": "The scale cube defines three separate ways to scale an application: X-axis scaling load balances requests across multiple, identical instances; Z-axis scaling routes requests based on an attribute of the request; Y-axis functionally decomposes an application into services."
+      },
+      {
+        "figure": "1.4",
+        "file": "figure_01_04.png",
+        "source_pdf_page": 10,
+        "crop_box_pt": [
+          88,
+          48,
+          408,
+          221
+        ],
+        "crop_box_pixels": [
+          293,
+          160,
+          1360,
+          737
+        ],
+        "pixel_size": [
+          1067,
+          577
+        ],
+        "sha256": "f2f739bee87890dc140fa1e07ccbb8b1d68b883c22dbe91f1274ceab6e549464",
+        "caption_english": "X-axis scaling runs multiple, identical instances of the monolithic application behind a load balancer."
+      },
+      {
+        "figure": "1.5",
+        "file": "figure_01_05.png",
+        "source_pdf_page": 10,
+        "crop_box_pt": [
+          87,
+          273,
+          437,
+          449
+        ],
+        "crop_box_pixels": [
+          290,
+          910,
+          1457,
+          1497
+        ],
+        "pixel_size": [
+          1167,
+          587
+        ],
+        "sha256": "0a3bf983f35babfa4d5ff96e775e29b7337963dc8ef5fa9733f32137b9d6d451",
+        "caption_english": "Z-axis scaling runs multiple identical instances of the monolithic application behind a router, which routes based on a request attribute . Each instance is responsible for a subset of the data."
+      },
+      {
+        "figure": "1.6",
+        "file": "figure_01_06.png",
+        "source_pdf_page": 11,
+        "crop_box_pt": [
+          97,
+          49,
+          465,
+          268
+        ],
+        "crop_box_pixels": [
+          323,
+          163,
+          1550,
+          894
+        ],
+        "pixel_size": [
+          1227,
+          731
+        ],
+        "sha256": "555392f65b607df21d5965022ca48543d55ee707b6e18dfb503eac5cdf2a9efb",
+        "caption_english": "Y-axis scaling splits the application into a set of services. Each service is responsible for a particular function. A service is scaled using X-axis scaling and, possibly, Z-axis scaling."
+      },
+      {
+        "figure": "1.7",
+        "file": "figure_01_07.png",
+        "source_pdf_page": 13,
+        "crop_box_pt": [
+          96,
+          102,
+          470,
+          365
+        ],
+        "crop_box_pixels": [
+          320,
+          340,
+          1567,
+          1217
+        ],
+        "pixel_size": [
+          1247,
+          877
+        ],
+        "sha256": "e659f493a248cf0250040acf464f9a629a2ba6ee4654bf4a97ae1e2e9589dc64",
+        "caption_english": "Some of the services of the microservice architecture-based version of the FTGO application. An API Gateway routes requests from the mobile applications to services. The services collaborate via APIs."
+      },
+      {
+        "figure": "1.8",
+        "file": "figure_01_08.png",
+        "source_pdf_page": 16,
+        "crop_box_pt": [
+          88,
+          49,
+          459,
+          335
+        ],
+        "crop_box_pixels": [
+          293,
+          163,
+          1530,
+          1117
+        ],
+        "pixel_size": [
+          1237,
+          954
+        ],
+        "sha256": "ba34d674d521b7a891e20196658ef3ee31e53c9685a918ff14614590da0e0e96",
+        "caption_english": "The microservices-based FTGO application consists of a set of loosely coupled services. Each team develops, tests, and deploys their services independently."
+      },
+      {
+        "figure": "1.9",
+        "file": "figure_01_09.png",
+        "source_pdf_page": 22,
+        "crop_box_pt": [
+          88,
+          276,
+          377,
+          437
+        ],
+        "crop_box_pixels": [
+          293,
+          920,
+          1257,
+          1457
+        ],
+        "pixel_size": [
+          964,
+          537
+        ],
+        "sha256": "2521b8ce226a53c3777e2c609728140ca991a4068fdf61775ebd882b9724bc83",
+        "caption_english": "The visual representation of different types of relationships between the patterns: a successor pattern solves a problem created by applying the predecessor pattern; two or more patterns can be alternative solutions to the same problem; one pattern can be a specialization of another pattern; and patterns that solve problems in the same area can be grouped, or generalized."
+      },
+      {
+        "figure": "1.10",
+        "file": "figure_01_10.png",
+        "source_pdf_page": 23,
+        "crop_box_pt": [
+          62,
+          301,
+          477,
+          552
+        ],
+        "crop_box_pixels": [
+          206,
+          1003,
+          1590,
+          1840
+        ],
+        "pixel_size": [
+          1384,
+          837
+        ],
+        "sha256": "20d9ffea8b726d22286c1b120798c69978646a9bf6e8410f9f401417486d6e48",
+        "caption_english": "A high-level view of the Microservice architecture pattern language showing the different problem areas that the patterns solve. On the left are the application architecture patterns: Monolithic architecture and Microservice architecture. All the other groups of patterns solve problems that result from choosing the Microservice architecture pattern."
+      },
+      {
+        "figure": "1.11",
+        "file": "figure_01_11.png",
+        "source_pdf_page": 24,
+        "crop_box_pt": [
+          89,
+          277,
+          305,
+          370
+        ],
+        "crop_box_pixels": [
+          296,
+          923,
+          1017,
+          1234
+        ],
+        "pixel_size": [
+          721,
+          311
+        ],
+        "sha256": "c721f21ec5577e15e41b848012053a790b34d28e8ee239dff59c4a022bcbe334",
+        "caption_english": "There are two decomposition patterns: Decompose by business capability, which organizes services around business capabilities, and Decompose by subdomain, which organizes services around domain-driven design (DDD) subdomains."
+      },
+      {
+        "figure": "1.12",
+        "file": "figure_01_12.png",
+        "source_pdf_page": 25,
+        "crop_box_pt": [
+          98,
+          51,
+          468,
+          360
+        ],
+        "crop_box_pixels": [
+          326,
+          170,
+          1560,
+          1200
+        ],
+        "pixel_size": [
+          1234,
+          1030
+        ],
+        "sha256": "72f053848b2e4eee010fe8903814857468fb22902f8f9ca7f1075a0e13651785",
+        "caption_english": "The five groups of communication patterns"
+      },
+      {
+        "figure": "1.13",
+        "file": "figure_01_13.png",
+        "source_pdf_page": 26,
+        "crop_box_pt": [
+          88,
+          50,
+          454,
+          160
+        ],
+        "crop_box_pixels": [
+          293,
+          166,
+          1514,
+          534
+        ],
+        "pixel_size": [
+          1221,
+          368
+        ],
+        "sha256": "02d1939bf8e62401edac6fa7848f05b4092b2d651af0be1707924d27ba54f56e",
+        "caption_english": "Because each service has its own database, you must use the Saga pattern to maintain data consistency across services."
+      },
+      {
+        "figure": "1.14",
+        "file": "figure_01_14.png",
+        "source_pdf_page": 26,
+        "crop_box_pt": [
+          88,
+          207,
+          370,
+          299
+        ],
+        "crop_box_pixels": [
+          293,
+          690,
+          1234,
+          997
+        ],
+        "pixel_size": [
+          941,
+          307
+        ],
+        "sha256": "90dd46c67db50a9dad28faf1b1135ce69deeb5ac2e95be894990e8993f65de94",
+        "caption_english": "Because each service has its own database, you must use one of the querying patterns to retrieve data scattered across multiple services."
+      },
+      {
+        "figure": "1.15",
+        "file": "figure_01_15.png",
+        "source_pdf_page": 27,
+        "crop_box_pt": [
+          97,
+          49,
+          468,
+          289
+        ],
+        "crop_box_pixels": [
+          323,
+          163,
+          1560,
+          964
+        ],
+        "pixel_size": [
+          1237,
+          801
+        ],
+        "sha256": "54371630a189288c80c925ecb34084b44c562dd8dde23df641454dadd2c89f65",
+        "caption_english": "Several patterns for deploying microservices. The traditional approach is to deploy services in a language-specific packaging format. There are two modern approaches to deploying services. The first deploys services as VM or containers. The second is the serverless approach. You simply upload the service’s code and the serverless platform runs it. You should use a service deployment platform, which is an automated, self-service platform for deploying and managing services."
+      },
+      {
+        "figure": "1.16",
+        "file": "figure_01_16.png",
+        "source_pdf_page": 29,
+        "crop_box_pt": [
+          96,
+          164,
+          364,
+          316
+        ],
+        "crop_box_pixels": [
+          320,
+          546,
+          1214,
+          1054
+        ],
+        "pixel_size": [
+          894,
+          508
+        ],
+        "sha256": "f41c06cea0d47507351f01b9bb02a1cebb47a772cc83b4bbb68e990bd306a79d",
+        "caption_english": "The rapid, frequent, and reliable delivery of large, complex applications requires a combination of DevOps, which includes continuous delivery/deployment, small, autonomous teams, and the microservice architecture."
+      }
+    ],
+    "tables": [
+      {
+        "number": "1.1",
+        "source_pdf_page": 14,
+        "description": "SOA and microservice architecture comparison"
+      }
+    ],
+    "figure_type": "Vector PDF graphics and text; no embedded raster images reported by pdfimages. PNG assets are unmodified crops of 240 dpi page renders."
+  }
+}

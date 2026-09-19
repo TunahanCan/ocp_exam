@@ -370,7 +370,7 @@
 
 <!-- source-record: u02_0060 -->
 
-### Pattern: Monolithic architecture — Şekil: Monolit mimarisi
+### Pattern: Monolithic architecture — Örüntü: Monolitik mimari
 
 <!-- source-record: u02_0061 -->
 
@@ -782,27 +782,31 @@ Then the state of the order is changed to ACCEPTED
 
 > **English:** Table 2.1 Key system commands for the FTGO application
 >
-> **Türkçe:** Tablo 2.1 FTGO uygulaması için ana sistem komutları
+> **Türkçe:** Tablo 2.1 FTGO uygulamasının temel sistem komutları
 
-| **EN:** Actor<br/>**TR:** Oyuncu | **EN:** Story<br/>**TR:** Hikaye | **EN:** Command<br/>**TR:** Komutanlık | **EN:** Description<br/>**TR:** Açıklama |
+| **EN:** Actor<br/>**TR:** Aktör | **EN:** Story<br/>**TR:** Kullanıcı hikâyesi | **EN:** Command<br/>**TR:** Komut | **EN:** Description<br/>**TR:** Açıklama |
 | --- | --- | --- | --- |
-| **EN:** Consumer<br/>**TR:** Consumer | **EN:** Create Order<br/>**TR:** Order oluştur | **EN:** createOrder()<br/>**TR:** createOrder() | **EN:** Creates an order<br/>**TR:** Bir düzen oluşturur. |
-| **EN:** Restaurant<br/>**TR:** Restaurant | **EN:** Accept Order<br/>**TR:** Order'i kabul et | **EN:** acceptOrder()<br/>**TR:** acceptOrder() | **EN:** Indicates that the restaurant has accepted the order and is committed to preparing it by the indicated time<br/>**TR:** Restoranın siparişi kabul ettiğini ve belirtilen zamana kadar hazırlamaya kararlı olduğunu belirtir. |
+| **EN:** Consumer<br/>**TR:** Tüketici | **EN:** Create Order<br/>**TR:** Sipariş oluşturma | **EN:** createOrder()<br/>**TR:** createOrder() | **EN:** Creates an order<br/>**TR:** Bir sipariş oluşturur. |
+| **EN:** Restaurant<br/>**TR:** Restoran | **EN:** Accept Order<br/>**TR:** Siparişi kabul etme | **EN:** acceptOrder()<br/>**TR:** acceptOrder() | **EN:** Indicates that the restaurant has accepted the order and is committed to preparing it by the indicated time<br/>**TR:** Restoranın siparişi kabul ettiğini ve belirtilen zamana kadar hazırlamayı taahhüt ettiğini belirtir. |
 
 <!-- source-pages: 49 -->
+
+<!-- page-break -->
 
 <!-- source-record: u02_0126 -->
 
 > **English:** Table 2.1 Key system commands for the FTGO application (continued)
 >
-> **Türkçe:** Tablo 2.1 FTGO uygulaması için ana sistem komutları (gelişmiş)
+> **Türkçe:** Tablo 2.1 FTGO uygulamasının temel sistem komutları (devamı)
 
-| **EN:** Actor<br/>**TR:** Oyuncu | **EN:** Story<br/>**TR:** Hikaye | **EN:** Command<br/>**TR:** Komutanlık | **EN:** Description<br/>**TR:** Açıklama |
+| **EN:** Actor<br/>**TR:** Aktör | **EN:** Story<br/>**TR:** Kullanıcı hikâyesi | **EN:** Command<br/>**TR:** Komut | **EN:** Description<br/>**TR:** Açıklama |
 | --- | --- | --- | --- |
-| **EN:** Restaurant<br/>**TR:** Restaurant | **EN:** Order Ready for Pickup<br/>**TR:** Order Çıkarım için hazır | **EN:** noteOrderReadyForPickup()<br/>**TR:** noteOrderReadyForPickup() | **EN:** Indicates that the order is ready for pickup<br/>**TR:** Sipariş alınmaya hazır olduğunu gösterir . |
-| **EN:** Courier<br/>**TR:** Courier | **EN:** Update Location<br/>**TR:** Location güncelleme | **EN:** noteUpdatedLocation()<br/>**TR:** noteUpdatedLocation() | **EN:** Updates the current location of the courier<br/>**TR:** Kurye'nin mevcut konumunu güncelleyebilir |
-| **EN:** Courier<br/>**TR:** Courier | **EN:** Delivery picked up<br/>**TR:** Delivery alındı | **EN:** noteDeliveryPickedUp()<br/>**TR:** noteDeliveryPickedUp() | **EN:** Indicates that the courier has picked up the order<br/>**TR:** Kürenin siparişi aldığını gösterir. |
-| **EN:** Courier<br/>**TR:** Courier | **EN:** Delivery delivered<br/>**TR:** Delivery teslim edildi | **EN:** noteDeliveryDelivered()<br/>**TR:** noteDeliveryDelivered() | **EN:** Indicates that the courier has delivered the order<br/>**TR:** Kurye'nin siparişi teslim ettiğini gösterir. |
+| **EN:** Restaurant<br/>**TR:** Restoran | **EN:** Order Ready for Pickup<br/>**TR:** Sipariş teslim alınmaya hazır | **EN:** noteOrderReadyForPickup()<br/>**TR:** noteOrderReadyForPickup() | **EN:** Indicates that the order is ready for pickup<br/>**TR:** Siparişin teslim alınmaya hazır olduğunu belirtir. |
+| **EN:** Courier<br/>**TR:** Kurye | **EN:** Update Location<br/>**TR:** Konumu güncelleme | **EN:** noteUpdatedLocation()<br/>**TR:** noteUpdatedLocation() | **EN:** Updates the current location of the courier<br/>**TR:** Kuryenin mevcut konumunu günceller. |
+| **EN:** Courier<br/>**TR:** Kurye | **EN:** Delivery picked up<br/>**TR:** Sipariş teslimat için alındı | **EN:** noteDeliveryPickedUp()<br/>**TR:** noteDeliveryPickedUp() | **EN:** Indicates that the courier has picked up the order<br/>**TR:** Kuryenin siparişi teslimat için aldığını belirtir. |
+| **EN:** Courier<br/>**TR:** Kurye | **EN:** Delivery delivered<br/>**TR:** Sipariş teslim edildi | **EN:** noteDeliveryDelivered()<br/>**TR:** noteDeliveryDelivered() | **EN:** Indicates that the courier has delivered the order<br/>**TR:** Kuryenin siparişi teslim ettiğini belirtir. |
+
+<!-- page-break -->
 
 <!-- source-record: u02_0127 -->
 
@@ -814,16 +818,18 @@ Then the state of the order is changed to ACCEPTED
 
 |  |  |
 | --- | --- |
-| **EN:** Operation<br/>**TR:** İşlem | **EN:** createOrder (consumer id, payment method, delivery address, delivery time, restaurant id, order line items)<br/>**TR:** createOrder (tüketici kimliği, ödeme yöntemi, teslimat adresi, teslimat zamanı, restoran kimliği, sipariş çizgisi ürünleri) |
-| **EN:** Returns<br/>**TR:** Geri dönüşler | **EN:** orderId, …<br/>**TR:** orderId, ... |
-| **EN:** Preconditions<br/>**TR:** Ön koşullar | **EN:** • The consumer exists and can place orders. • The line items correspond to the restaurant’s menu items. • The delivery address and time can be serviced by the restaurant.<br/>**TR:** - Kullanıcı var ve sipariş verebilir. - Satır ürünleri restoranın menü ürünlerine karşılık gelir. |
-| **EN:** Post-conditions<br/>**TR:** Sonraki koşullar | **EN:** • The consumer’s credit card was authorized for the order total. • An order was created in the PENDING_ACCEPTANCE state.<br/>**TR:** - Bir sipariş PENDING_ACCEPTANCE devletinde oluşturuldu. |
+| **EN:** Operation<br/>**TR:** İşlem | **EN:** createOrder (consumer id, payment method, delivery address, delivery time, restaurant id, order line items)<br/>**TR:** createOrder (tüketici kimliği, ödeme yöntemi, teslimat adresi, teslimat zamanı, restoran kimliği, sipariş kalemleri) |
+| **EN:** Returns<br/>**TR:** Dönüş değeri | **EN:** orderId, …<br/>**TR:** orderId, … |
+| **EN:** Preconditions<br/>**TR:** Ön koşullar | **EN:** • The consumer exists and can place orders. • The line items correspond to the restaurant’s menu items. • The delivery address and time can be serviced by the restaurant.<br/>**TR:** • Tüketici sistemde kayıtlıdır ve sipariş verebilir. • Sipariş kalemleri, restoranın menüsündeki ürünlere karşılık gelir. • Restoran, belirtilen adrese ve zamanda teslimat yapabilir. |
+| **EN:** Post-conditions<br/>**TR:** Son koşullar | **EN:** • The consumer’s credit card was authorized for the order total. • An order was created in the PENDING_ACCEPTANCE state.<br/>**TR:** • Tüketicinin kredi kartından siparişin toplam tutarı için provizyon alınmıştır. • PENDING_ACCEPTANCE durumunda bir sipariş oluşturulmuştur. |
 
 <!-- source-record: u02_0129 -->
 
 > **English:** The preconditions mirror the givens in the Place Order user scenario described earlier. The post-conditions mirror the thens from the scenario. When a system operation is invoked it will verify the preconditions and perform the actions required to make the post-conditions true.
 >
 > **Türkçe:** Ön koşullar, daha önce açıklanan Place Order kullanıcı senaryosundaki Given ifadelerini yansıtır. Son koşullar ise senaryodaki Then ifadelerini yansıtır. Bir sistem işlemi çağrıldığında ön koşulları doğrular ve son koşulların sağlanması için gereken eylemleri gerçekleştirir.
+
+<!-- page-break -->
 
 <!-- source-record: u02_0130 -->
 
@@ -836,9 +842,9 @@ Then the state of the order is changed to ACCEPTED
 |  |  |
 | --- | --- |
 | **EN:** Operation<br/>**TR:** İşlem | **EN:** acceptOrder(restaurantId, orderId, readyByTime)<br/>**TR:** acceptOrder(restaurantId, orderId, readyByTime) |
-| **EN:** Returns<br/>**TR:** Geri dönüşler | **EN:** —<br/>**TR:** - Evet . |
-| **EN:** Preconditions<br/>**TR:** Ön koşullar | **EN:** • The order.status is PENDING_ACCEPTANCE. • A courier is available to deliver the order.<br/>**TR:** - Sipariş.Statuus PENDING_ACCEPTANCE. - Sipariş teslim etmek için bir kurye var. |
-| **EN:** Post-conditions<br/>**TR:** Sonraki koşullar | **EN:** • The order.status was changed to ACCEPTED. • The order.readyByTime was changed to the readyByTime. • The courier was assigned to deliver the order.<br/>**TR:** - Sipariş.Status değişti ACCEPTED. - Sipariş.readyByTime değiştirildi readyByTime. - Kurye sipariş teslimat görevlendirildi. |
+| **EN:** Returns<br/>**TR:** Dönüş değeri | **EN:** —<br/>**TR:** — |
+| **EN:** Preconditions<br/>**TR:** Ön koşullar | **EN:** • The order.status is PENDING_ACCEPTANCE. • A courier is available to deliver the order.<br/>**TR:** • order.status değeri PENDING_ACCEPTANCE’tır. • Siparişi teslim edebilecek uygun bir kurye vardır. |
+| **EN:** Post-conditions<br/>**TR:** Son koşullar | **EN:** • The order.status was changed to ACCEPTED. • The order.readyByTime was changed to the readyByTime. • The courier was assigned to deliver the order.<br/>**TR:** • order.status değeri ACCEPTED olarak değiştirilmiştir. • order.readyByTime değeri, readyByTime parametresinin değerine ayarlanmıştır. • Kurye, siparişi teslim etmek üzere atanmıştır. |
 
 <!-- source-pages: 50 -->
 
@@ -952,7 +958,7 @@ Then the state of the order is changed to ACCEPTED
 
 <!-- source-record: u02_0150 -->
 
-### Pattern: Decompose by business capability — Şekil: İşletme kapasitesine göre parçalanma
+### Pattern: Decompose by business capability — Örüntü: İş yetkinliğine göre ayrıştırma
 
 <!-- source-record: u02_0151 -->
 
@@ -1102,7 +1108,9 @@ Then the state of the order is changed to ACCEPTED
 
 > **English:** Having said that, it’s important to remember that the services shown in figure 2.8 are merely the first attempt at defining the architecture. They may evolve over time as we learn more about the application domain. In particular, an important step in the architecture definition process is investigating how the services collaborate in each of the key architectural services. You might, for example, discover that a particular decomposition is inefficient due to excessive interprocess communication and that you must combine services. Conversely, a service might grow in complexity to the point where it becomes worthwhile to split it into multiple services. What’s more, in section 2.2.5, I describe several obstacles to decomposition that might cause you to revisit your decision.
 >
-> **Türkçe:** Bununla birlikte, Şekil 2.8’deki servislerin mimariyi tanımlamaya yönelik yalnızca ilk deneme olduğunu hatırlamak gerekir. Uygulamanın iş alanını daha iyi öğrendikçe bu servisler değişebilir. Mimari tanımlama sürecinin önemli bir adımı, servislerin temel mimari servislerin her birinde nasıl işbirliği yaptığını incelemektir. Örneğin belirli bir ayrıştırmanın aşırı süreçler arası iletişim nedeniyle verimsiz olduğunu ve servisleri birleştirmeniz gerektiğini görebilirsiniz. Tersine, bir servis onu birden fazla servise bölmenin yararlı olacağı kadar karmaşık hale gelebilir. Ayrıca 2.2.5’te, kararınızı yeniden değerlendirmenize yol açabilecek çeşitli ayrıştırma engellerini anlatıyorum.
+> **Türkçe:** Bununla birlikte, Şekil 2.8’deki servislerin mimariyi tanımlamaya yönelik yalnızca ilk deneme olduğunu hatırlamak gerekir. Uygulamanın iş alanını daha iyi öğrendikçe bu servisler değişebilir. Mimari tanımlama sürecinin önemli bir adımı, servislerin temel mimari senaryoların her birinde nasıl iş birliği yaptığını incelemektir. Örneğin belirli bir ayrıştırmanın aşırı süreçler arası iletişim nedeniyle verimsiz olduğunu ve servisleri birleştirmeniz gerektiğini görebilirsiniz. Tersine, bir servis onu birden fazla servise bölmenin yararlı olacağı kadar karmaşık hale gelebilir. Ayrıca 2.2.5’te, kararınızı yeniden değerlendirmenize yol açabilecek çeşitli ayrıştırma engellerini anlatıyorum.
+
+> **Editör notu — bağlamsal çıkarım:** Önceki paragrafta kaynak “key architectural services” der. İzleyen aşırı iletişim, servisleri birleştirme ve bölme örnekleri nedeniyle burada “temel mimari senaryolar” anlamı kastedildiği değerlendirilmiş ve Türkçeye böyle aktarılmıştır. Bu bir bağlam yorumudur; İngilizce kaynak ifadesi korunmuştur.
 
 <!-- source-pages: 54 -->
 
@@ -1124,7 +1132,7 @@ Then the state of the order is changed to ACCEPTED
 
 <!-- source-record: u02_0179 -->
 
-### Pattern: Decompose by subdomain — Örüntü: Alt alanlar tarafından parçalan
+### Pattern: Decompose by subdomain — Örüntü: Alt alana göre ayrıştırma
 
 <!-- source-record: u02_0180 -->
 
@@ -1502,19 +1510,21 @@ Then the state of the order is changed to ACCEPTED
 >
 > **Türkçe:** Tablo 2.2, FTGO’daki hangi servislerin hangi işlemlerden sorumlu olduğunu gösterir.
 
+<!-- page-break -->
+
 <!-- source-record: u02_0242 -->
 
 > **English:** Table 2.2 Mapping system operations to services in the FTGO application
 >
-> **Türkçe:** Tablo 2.2 FTGO uygulamasında servislere sistem operasyonlarını eşleme
+> **Türkçe:** Tablo 2.2 FTGO uygulamasındaki sistem işlemlerinin servislerle eşlenmesi
 
-| **EN:** Service<br/>**TR:** servis | **EN:** Operations<br/>**TR:** İşlemler |
+| **EN:** Service<br/>**TR:** Servis | **EN:** Operations<br/>**TR:** İşlemler |
 | --- | --- |
 | **EN:** Consumer Service<br/>**TR:** Consumer Service | **EN:** createConsumer()<br/>**TR:** createConsumer() |
 | **EN:** Order Service<br/>**TR:** Order Service | **EN:** createOrder()<br/>**TR:** createOrder() |
 | **EN:** Restaurant Service<br/>**TR:** Restaurant Service | **EN:** findAvailableRestaurants()<br/>**TR:** findAvailableRestaurants() |
-| **EN:** Kitchen Service<br/>**TR:** Kitchen Service | **EN:** • acceptOrder() • noteOrderReadyForPickup()<br/>**TR:** - acceptOrder() - noteOrderReadyForPickup() |
-| **EN:** Delivery Service<br/>**TR:** Delivery Service | **EN:** • noteUpdatedLocation() • noteDeliveryPickedUp() • noteDeliveryDelivered()<br/>**TR:** - noteUpdatedLocation() - noteDeliveryPickedUp() - noteDeliveryDelivered() |
+| **EN:** Kitchen Service<br/>**TR:** Kitchen Service | **EN:** • acceptOrder() • noteOrderReadyForPickup()<br/>**TR:** • acceptOrder() • noteOrderReadyForPickup() |
+| **EN:** Delivery Service<br/>**TR:** Delivery Service | **EN:** • noteUpdatedLocation() • noteDeliveryPickedUp() • noteDeliveryDelivered()<br/>**TR:** • noteUpdatedLocation() • noteDeliveryPickedUp() • noteDeliveryDelivered() |
 
 <!-- source-record: u02_0243 -->
 
@@ -1564,20 +1574,22 @@ Then the state of the order is changed to ACCEPTED
 
 <!-- source-pages: 63 -->
 
+<!-- page-break -->
+
 <!-- source-record: u02_0251 -->
 
 > **English:** Table 2.3 The services, their revised APIs, and their collaborators
 >
-> **Türkçe:** Tablo 2.3 servisler, gözden geçirilmiş API'leri ve işbirlikçileri
+> **Türkçe:** Tablo 2.3 Servisler, güncellenmiş API’leri ve işbirliği yaptıkları servisler
 
-| **EN:** Service<br/>**TR:** servis | **EN:** Operations<br/>**TR:** İşlemler | **EN:** Collaborators<br/>**TR:** İşbirliği yapanlar |
+| **EN:** Service<br/>**TR:** Servis | **EN:** Operations<br/>**TR:** İşlemler | **EN:** Collaborators<br/>**TR:** İşbirliği yaptığı servisler |
 | --- | --- | --- |
-| **EN:** Consumer Service<br/>**TR:** Consumer Service | **EN:** verifyConsumerDetails()<br/>**TR:** verifyConsumerDetails() | **EN:** —<br/>**TR:** - Evet . |
-| **EN:** Order Service<br/>**TR:** Order Service | **EN:** createOrder()<br/>**TR:** createOrder() | **EN:** • Consumer Service verifyConsumerDetails() • Restaurant Service verifyOrderDetails() • Kitchen Service createTicket() • Accounting Service authorizeCard()<br/>**TR:** - Consumer Service verifyConsumerDetails() - Restaurant Service verifyOrderDetails() - Kitchen Service createTicket() - Accounting Service authorizeCard() |
-| **EN:** Restaurant Service<br/>**TR:** Restaurant Service | **EN:** • findAvailableRestaurants() • verifyOrderDetails()<br/>**TR:** - findAvailableRestaurants() - verifyOrderDetails() | **EN:** —<br/>**TR:** - Evet . |
-| **EN:** Kitchen Service<br/>**TR:** Kitchen Service | **EN:** • createTicket() • acceptOrder() • noteOrderReadyForPickup()<br/>**TR:** - createTicket() - acceptOrder() - noteOrderReadyForPickup() | **EN:** • Delivery Service scheduleDelivery()<br/>**TR:** - Delivery Service scheduleDelivery() |
-| **EN:** Delivery Service<br/>**TR:** Delivery Service | **EN:** • scheduleDelivery() • noteUpdatedLocation() • noteDeliveryPickedUp() • noteDeliveryDelivered()<br/>**TR:** - scheduleDelivery() - noteUpdatedLocation() - noteDeliveryPickedUp() - noteDeliveryDelivered() | **EN:** —<br/>**TR:** - Evet . |
-| **EN:** Accounting Service<br/>**TR:** Accounting Service | **EN:** • authorizeCard()<br/>**TR:** - authorizeCard() | **EN:** —<br/>**TR:** - Evet . |
+| **EN:** Consumer Service<br/>**TR:** Consumer Service | **EN:** verifyConsumerDetails()<br/>**TR:** verifyConsumerDetails() | **EN:** —<br/>**TR:** — |
+| **EN:** Order Service<br/>**TR:** Order Service | **EN:** createOrder()<br/>**TR:** createOrder() | **EN:** • Consumer Service verifyConsumerDetails() • Restaurant Service verifyOrderDetails() • Kitchen Service createTicket() • Accounting Service authorizeCard()<br/>**TR:** • Consumer Service verifyConsumerDetails() • Restaurant Service verifyOrderDetails() • Kitchen Service createTicket() • Accounting Service authorizeCard() |
+| **EN:** Restaurant Service<br/>**TR:** Restaurant Service | **EN:** • findAvailableRestaurants() • verifyOrderDetails()<br/>**TR:** • findAvailableRestaurants() • verifyOrderDetails() | **EN:** —<br/>**TR:** — |
+| **EN:** Kitchen Service<br/>**TR:** Kitchen Service | **EN:** • createTicket() • acceptOrder() • noteOrderReadyForPickup()<br/>**TR:** • createTicket() • acceptOrder() • noteOrderReadyForPickup() | **EN:** • Delivery Service scheduleDelivery()<br/>**TR:** • Delivery Service scheduleDelivery() |
+| **EN:** Delivery Service<br/>**TR:** Delivery Service | **EN:** • scheduleDelivery() • noteUpdatedLocation() • noteDeliveryPickedUp() • noteDeliveryDelivered()<br/>**TR:** • scheduleDelivery() • noteUpdatedLocation() • noteDeliveryPickedUp() • noteDeliveryDelivered() | **EN:** —<br/>**TR:** — |
+| **EN:** Accounting Service<br/>**TR:** Accounting Service | **EN:** • authorizeCard()<br/>**TR:** • authorizeCard() | **EN:** —<br/>**TR:** — |
 
 <!-- source-record: u02_0252 -->
 

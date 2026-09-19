@@ -14,11 +14,11 @@
 
 > **English — Kaynak örneği (s. 76):** Despite these drawbacks, REST seems to be the de facto standard for APIs, though there are a couple of interesting alternatives.
 >
-> **Türkçe:** Bu dezavantajlara rağmen, REST, API'ler için gerçek standart gibi görünüyor, ancak birkaç ilginç alternatif vardır.
+> **Türkçe:** Bu sakıncalara rağmen REST, birkaç ilgi çekici alternatif bulunsa da API’ler için fiilen benimsenmiş standart gibi görünmektedir.
 
 > **English — Kaynak örneği (s. 100):** One approach is to use the message broker’s client library, although there are several problems with using such a library directly:
 >
-> **Türkçe:** Bir yaklaşım, mesaj aracı'nın istemci kütüphanesini kullanmaktır, ancak bu kütüphanenin doğrudan kullanılması için birkaç sorun vardır:
+> **Türkçe:** Bir yaklaşım mesaj aracısının istemci kütüphanesini kullanmaktır; ancak böyle bir kütüphaneyi doğrudan kullanmanın çeşitli sorunları vardır:
 
 > **YDS ipucu:** Despite of kullanılmaz. Çekimli cümle varsa although; isim grubu varsa despite düşünün.
 
@@ -30,11 +30,11 @@
 
 > **English — Kaynak örneği (s. 66):** In contrast, as you saw in chapter 2, the microservice architecture structures an application as a set of services.
 >
-> **Türkçe:** Öte yandan, 2. bölümde gördüğünüz gibi, mikroservis mimarisi bir uygulamayı bir dizi servis olarak yapılandırır.
+> **Türkçe:** Buna karşılık 2. bölümde gördüğünüz gibi mikroservis mimarisi, uygulamayı bir servisler kümesi olarak yapılandırır.
 
 > **English — Kaynak örneği (s. 83):** Application-level service discovery using Eureka, for example, works across both environments, whereas Kubernetes-based service discovery only works within Kubernetes.
 >
-> **Türkçe:** Örneğin Eureka'yı kullanan uygulama düzeyinde servis keşfi, her iki ortamda da çalışırken, Kubernetes tabanlı servis keşfi sadece Kubernetes içinde çalışır.
+> **Türkçe:** Örneğin Eureka kullanan uygulama düzeyindeki servis keşfi her iki ortamda da çalışırken, Kubernetes tabanlı servis keşfi yalnızca Kubernetes içinde çalışır.
 
 > **YDS ipucu:** Whereas karşıtlık kurar; zaman bildiren when ile aynı değildir. On the other hand cümleler arasında geçiş ifadesidir.
 
@@ -46,7 +46,7 @@
 
 > **English — Kaynak örneği (s. 68):** As described in chapter 2, a service’s API consists of operations, which clients can invoke, and events, which are published by the service.
 >
-> **Türkçe:** Bölüm 2'de açıklandığı gibi, bir servisin API'si, istemcilerin çağırabileceği işlemlerden ve servis tarafından yayınlanan olaylardan oluşur.
+> **Türkçe:** 2. bölümde açıklandığı gibi servisin API’si, istemcilerin çağırabildiği işlemlerden ve servisin yayımladığı olaylardan oluşur.
 
 > **YDS ipucu:** Virgüllü ek bilgi cümleciğinde that kullanılmaz. Edat + which yapısında edatın anlamını çeviriye katın. Bir fiilin içeriğini veren “ensure that ...” ise isim niteleyen relative clause değildir; that öncesindeki yapıyı kontrol edin.
 
@@ -58,7 +58,7 @@
 
 > **English — Kaynak örneği (s. 99):** This approach can be used to publish messages written to an OUTBOX table in an RDBMS or messages appended to records in a NoSQL database.
 >
-> **Türkçe:** Bu yaklaşım OUTBOX tablosuna yazılmış mesajları RDBMS'de veya NoSQL veritabanındaki kayıtlara eklenmiş mesajları yayınlamak için kullanılabilir.
+> **Türkçe:** Bu yaklaşım, RDBMS içindeki OUTBOX tablosuna yazılmış mesajları veya NoSQL veritabanındaki kayıtlara eklenmiş mesajları yayımlamak için kullanılabilir.
 
 > **YDS ipucu:** Cümlenin asıl çekimli fiilini ayrı bulun. İsimden sonra gelen V3 her zaman yeni bir ana yüklem değildir.
 
@@ -70,11 +70,13 @@
 
 > **English — Kaynak örneği (s. 104):** Mathematically speaking, the availability of a system operation is the product of the availability of the services that are invoked by that operation.
 >
-> **Türkçe:** Matematik açıdan bir sistem operasyonunun kullanılabilirliği, bu işlem tarafından talep edilen servislerin kullanılabilirliğinin ürünüdür.
+> **Türkçe:** Matematiksel olarak bir sistem işleminin kullanılabilirliği, o işlemin çağırdığı servislerin kullanılabilirliklerinin çarpımıdır.
+
+> **Teknik anlam notu:** Bu çarpım hesabı, gerekli servislerin erişilebilirlik olaylarının bağımsız kabul edildiği modele dayanır. Aynı altyapı arızasından birlikte etkilenmeleri gibi bağımlılıklar varsa basit çarpım yeterli olmaz; [ana ders](bilingual_notes.md) içindeki kullanılabilirlik açıklamasıyla birlikte okuyun.
 
 > **English — Kaynak örneği (s. 85):** One drawback of platform-provided service discovery is that it only supports the discovery of services that have been deployed using the platform.
 >
-> **Türkçe:** Platform sağlanan servis keşfinin bir dezavantajı, yalnızca platform kullanılarak dağıtılmış servislerin keşfini desteklemesidir.
+> **Türkçe:** Platformun sağladığı servis keşfinin bir sakıncası, yalnızca o platform kullanılarak dağıtılmış servislerin keşfini desteklemesidir.
 
 > **YDS ipucu:** Must be deployed doğrudur; must deployed yanlıştır. By + kişi/araç ile by + -ing yöntem yapısını bağlamdan ayırın.
 
@@ -86,11 +88,11 @@
 
 > **English — Kaynak örneği (s. 70):** If you’re implementing a REST API, you can, as mentioned below, use the major version as the first element of the URL path.
 >
-> **Türkçe:** REST API uygulamaya koyulursanız, aşağıda belirtildiği gibi, URL yolunun ilk elementi olarak ana versiyonu kullanabilirsiniz.
+> **Türkçe:** REST API gerçekleştiriyorsanız aşağıda belirtildiği gibi major version’ı (ana sürümü) URL yolunun ilk bileşeni olarak kullanabilirsiniz.
 
 > **English — Kaynak örneği (s. 68):** Moreover, because Java is a statically typed language, if the interface changes to be incompatible with the client, the application won’t compile.
 >
-> **Türkçe:** Dahası, Java statik bir dil olduğundan, arayüz istemciyle uyumsuz hale gelirse, uygulama birleştirilmez.
+> **Türkçe:** Üstelik Java statically typed (statik tür denetimli) bir dil olduğundan, interface istemciyle uyumsuz olacak biçimde değişirse uygulama derlenmez.
 
 > **YDS ipucu:** If cümleciğindeki past bazen geçmiş zamanı değil varsayımı gösterir. Türkçedeki “olsaydı” tek başına zamanı belirlemez.
 
@@ -102,11 +104,11 @@
 
 > **English — Kaynak örneği (s. 66):** Finally, I go through the concept of self-contained services that handle synchronous requests without communicating with other services in order to improve availability.
 >
-> **Türkçe:** Son olarak, erişilebilirliği artırmak için diğer servislerle iletişim kurmadan eşzamanlı istekleri ele alan bağımsız servisler kavramını inceledim.
+> **Türkçe:** Son olarak kullanılabilirliği artırmak için diğer servislerle iletişim kurmadan senkron istekleri işleyen, kendi kendine yeterli servisler kavramını ele alıyorum.
 
 > **English — Kaynak örneği (s. 80):** In order to make a request, your code needs to know the network location (IP address and port) of a service instance.
 >
-> **Türkçe:** Bir istek yapmak için, kodunuz bir servis örneğinin ağ konumunu (IP adresi ve portu) bilmelidir.
+> **Türkçe:** İstek gönderebilmek için kodunuzun bir servis örneğinin ağ konumunu — IP adresi ve portunu — bilmesi gerekir.
 
 > **YDS ipucu:** To sonrasında yalın fiil; so that sonrasında özne ve çekimli fiil gelir. So ... that derece-sonuç yapısıyla karıştırmayın.
 
@@ -118,11 +120,11 @@
 
 > **English — Kaynak örneği (s. 97):** As part of the database transaction that creates, updates, and deletes business objects, the service sends messages by inserting them into the OUTBOX table.
 >
-> **Türkçe:** İşleme nesneleri oluşturan, güncelleyen ve silen veritabanı işleminin bir parçası olarak, servis mesajları OUTBOX tabloya ekleyerek gönderir.
+> **Türkçe:** Servis; iş nesnelerini oluşturan, güncelleyen ve silen veritabanı transaction’ının parçası olarak mesajları OUTBOX tablosuna ekleyerek gönderir.
 
 > **English — Kaynak örneği (s. 79):** For example, chapter 7 describes how the API gateway could implement the findOrder() query operation by using the API composition pattern.
 >
-> **Türkçe:** Örneğin, bölüm 7 API kapısı API kompozisyon örneğini kullanarak findOrder() sorgu operasyonunu nasıl uygulayabileceğini açıklar.
+> **Türkçe:** Örneğin 7. bölüm, API gateway’in API composition örüntüsünü kullanarak findOrder() sorgu işlemini nasıl gerçekleştirebileceğini açıklar.
 
 > **YDS ipucu:** By implementing “uygulayarak” anlamındadır. Edat by sonrasında yalın fiil kullanılmaz.
 
@@ -134,11 +136,11 @@
 
 > **English — Kaynak örneği (s. 97):** Another option is for a message handler to record message ids in an application table instead of a dedicated table.
 >
-> **Türkçe:** Başka bir seçenek, mesaj işleyicisi için özel bir tablo yerine bir uygulama tablosunda mesaj kimliklerini kaydetmektir.
+> **Türkçe:** Diğer bir seçenek, mesaj handler’ının mesaj kimliklerini özel bir tablo yerine uygulama tablosunda kaydetmesidir.
 
 > **English — Kaynak örneği (s. 98):** That’s because rather than querying an OUTBOX table, the application must query the business entities, and that may or may not be possible to do efficiently.
 >
-> **Türkçe:** Çünkü bir OUTBOX tablosunu sormak yerine, uygulama iş entity’ler'i sormalıdır ve bu verimli bir şekilde yapılması mümkün olmayabilir.
+> **Türkçe:** Çünkü uygulama OUTBOX tablosunu sorgulamak yerine iş entity’lerini sorgulamak zorundadır; bunu verimli yapmak mümkün de olabilir, olmayabilir de.
 
 > **YDS ipucu:** Instead of sonrasında doğrudan çekimli cümle gelmez. Rather than ile karşılaştırılan parçaların dilbilgisel biçimini izleyin.
 
@@ -150,11 +152,11 @@
 
 > **English — Kaynak örneği (s. 105):** This would enable Order Service to handle a request to create an order without having to interact with those services.
 >
-> **Türkçe:** Bu, Order Service'ın bu servislerle etkileşime girmeden sipariş oluşturma talebini ele almasını sağlar.
+> **Türkçe:** Bu, Order Service’in söz konusu servislerle etkileşime girmek zorunda kalmadan sipariş oluşturma isteğini işlemesini mümkün kılar.
 
 > **English — Kaynak örneği (s. 104):** Fortunately, there are ways to handle synchronous requests without making synchronous requests.
 >
-> **Türkçe:** Neyse ki, eşzamanlı istekleri yapmadan eşzamanlı istekleri ele alma yolları vardır.
+> **Türkçe:** Neyse ki başka servislere senkron istek göndermeden, gelen senkron istekleri işlemenin yolları vardır.
 
 > **YDS ipucu:** Without not ile otomatik birleşmez. “Without losing data”, “veri kaybetmeden” anlamındadır.
 
@@ -166,11 +168,11 @@
 
 > **English — Kaynak örneği (s. 74):** Consequently, a common problem when designing a REST API is how to enable the client to retrieve multiple related objects in a single request.
 >
-> **Türkçe:** Sonuç olarak, REST API'si tasarlanırken yaygın bir sorun, istemcinin birden fazla ilgili nesneyi tek bir talepte nasıl geri almasını sağlamak.
+> **Türkçe:** Dolayısıyla REST API tasarımında sık karşılaşılan sorunlardan biri, istemcinin ilişkili birden fazla nesneyi tek istekle alabilmesinin nasıl sağlanacağıdır.
 
 > **English — Kaynak örneği (s. 75):** Another common REST API design problem is how to map the operations you want to perform on a business object to an HTTP verb.
 >
-> **Türkçe:** Diğer yaygın REST API tasarım sorunu, bir işletme nesnesinde yapmak istediğiniz işlemleri HTTP fiiline nasıl eşleme yapacağınızdır.
+> **Türkçe:** REST API tasarımında sık görülen başka bir sorun, bir iş nesnesinde gerçekleştirmek istediğiniz işlemleri HTTP verb’üne nasıl eşleyeceğinizdir.
 
 > **YDS ipucu:** Dolaylı soruda düz cümle sırası kullanılır: how the service works. How does the service work doğrudan sorudur.
 
@@ -182,11 +184,11 @@
 
 > **English — Kaynak örneği (s. 71):** This format enables a consumer of a message to pick out the values of interest and ignore the rest.
 >
-> **Türkçe:** Bu biçim, bir mesajın tüketicisinin ilgi çekici değerleri seçmesini ve geri kalanı görmezden gelmesini sağlar.
+> **Türkçe:** Bu biçim, mesaj tüketicisinin ilgilendiği değerleri seçip geri kalanını yok saymasını sağlar.
 
 > **English — Kaynak örneği (s. 76):** As a result, gRPC enables APIs to evolve while remaining backward-compatible.
 >
-> **Türkçe:** Sonuç olarak, gRPC, API'lerin geriye doğru uyumlu kalırken gelişmesini sağlar.
+> **Türkçe:** Böylece gRPC, API’lerin geriye dönük uyumluluğu koruyarak gelişmesini sağlar.
 
 > **YDS ipucu:** Enable/allow + object + to + V1; make + object + V1/adjective yapılarını arayın. Make a request gibi make + noun kullanımları bu yapı değildir. Edilgende make ile to geri gelir: be made to do.
 
@@ -198,11 +200,11 @@
 
 > **English — Kaynak örneği (s. 100):** That’s why I created the Eventuate Tram framework, which provides the messaging APIs as well as transaction tailing and polling.
 >
-> **Türkçe:** Bu yüzden Eventuate Tram çerçevesini yarattım, mesajlaşma API'lerini yanı sıra işlem takip ve anketleri sağlayan.
+> **Türkçe:** Mesajlaşma API’lerinin yanı sıra transaction log takibi ve polling (periyodik sorgulama) sağlayan Eventuate Tram framework’ünü bu nedenle geliştirdim.
 
 > **English — Kaynak örneği (s. 71):** As well as being useful documentation, a JSON schema can be used by an application to validate incoming messages.
 >
-> **Türkçe:** Bir JSON şeması yararlı bir belge olmaktan başka, gelen mesajları doğrulamak için bir uygulama tarafından kullanılabilir.
+> **Türkçe:** JSON schema, yararlı bir dokümantasyon olmasının yanı sıra uygulama tarafından gelen mesajları doğrulamak için de kullanılabilir.
 
 > **YDS ipucu:** As well as burada ekleme yapar; as fast as gibi eşitlik karşılaştırması değildir. İki as sözcüğü görünce yapıyı otomatik olarak karşılaştırma saymayın.
 
@@ -214,11 +216,11 @@
 
 > **English — Kaynak örneği (s. 94):** Because of delays due to network issues or garbage collections, messages might be processed out of order, which would result in strange behavior.
 >
-> **Türkçe:** Ağ sorunları veya çöp toplamaları nedeniyle gecikmeler nedeniyle, mesajlar düzensiz olarak işlenebilir, bu da garip davranışlara neden olabilir.
+> **Türkçe:** Ağ sorunlarından veya garbage collection’dan kaynaklanan gecikmeler nedeniyle mesajlar sıraları dışında işlenebilir; bu da beklenmedik davranışlara yol açabilir.
 
 > **English — Kaynak örneği (s. 75):** Because the client and service communicate directly without an intermediary to buffer messages, they must both be running for the duration of the exchange.
 >
-> **Türkçe:** istemci ve servis, tampon mesajlarını bir aracı olmadan doğrudan iletişim kurduğu için, ikisinin de değişimin süresi boyunca çalışması gerekir.
+> **Türkçe:** İstemci ve servis, mesajları tamponlayacak bir aracı olmadan doğrudan iletişim kurduğundan ikisi de iletişim boyunca çalışır durumda olmalıdır.
 
 > **YDS ipucu:** Because ile because of sonrasındaki yapı farklıdır. As a result of + noun, neden belirtir.
 
@@ -230,11 +232,11 @@
 
 > **English — Kaynak örneği (s. 108):** After the Order has been validated, Order Service completes the rest of the order-creation process, discussed in the next chapter.
 >
-> **Türkçe:** Order onaylandıktan sonra, Order Service, sonraki bölümde tartışılan sipariş oluşturma sürecinin geri kalanını tamamlar.
+> **Türkçe:** Order doğrulandıktan sonra Order Service, sonraki bölümde ele alınan sipariş oluşturma sürecinin geri kalanını tamamlar.
 
 > **English — Kaynak örneği (s. 79):** If the limit has been reached, it’s probably pointless to make additional requests, and those attempts should fail immediately.
 >
-> **Türkçe:** Eğer bu limit ulaştıysa, daha fazla talep yapmak muhtemelen anlamsızdır ve bu girişimler hemen başarısız olmalıdır.
+> **Türkçe:** Sınıra ulaşılmışsa ek istekler yapmak büyük olasılıkla anlamsızdır; bu girişimler hemen başarısız sonuçlanmalıdır.
 
 > **YDS ipucu:** Have/has ile V3 birlikte aranır. Been + V3 edilgen olabilir; been + -ing ise continuous yapıdır.
 
@@ -246,11 +248,11 @@
 
 > **English — Kaynak örneği (s. 95):** The message broker will deliver the unacknowledged message again, either to that client when it restarts or to another replica of the client.
 >
-> **Türkçe:** Mesaj aracı, onaylanmamış mesajı tekrar, yeniden başlatıldığında ya da istemcinin başka bir kopyasına teslim edecektir.
+> **Türkçe:** Mesaj aracısı, alındığı onaylanmamış mesajı ya aynı istemci yeniden başladığında ona ya da istemcinin başka bir replikasına yeniden teslim eder.
 
 > **English — Kaynak örneği (s. 106):** One way to solve that problem is for a service to delay interacting with other services until after it responds to its client.
 >
-> **Türkçe:** Bu sorunu çözmenin bir yolu, bir servisin diğer servislerle etkileşimi istemcisine cevap verdikten sonra geciktirmesi.
+> **Türkçe:** Bu sorunu çözmenin bir yolu, servisin diğer servislerle etkileşimini kendi istemcisine yanıt verdikten sonraya ertelemesidir.
 
 > **YDS ipucu:** Geleceğe yönelik zaman cümleciğinde genellikle present kullanılır: when it arrives. Until, “... olana kadar” sınırını verir. While eşzamanlılık ya da karşıtlık bildirebilir; anlam ilişkisini kontrol edin. Until + noun bir zaman ifadesidir, tam zaman cümleciği değildir.
 
@@ -262,11 +264,13 @@
 
 > **English — Kaynak örneği (s. 103):** The problem with REST, though, is that it’s a synchronous protocol: an HTTP client must wait for the service to send a response.
 >
-> **Türkçe:** REST'in sorunu ise senkron bir protokol olmasıdır: HTTP istemcisi, servisin bir yanıt göndermesini beklemek zorunda.
+> **Türkçe:** Ancak REST’in burada ele alınan sorunu senkron olmasıdır: HTTP istemcisi, servisin yanıt göndermesini beklemek zorundadır.
+
+> **Terim notu:** Kaynak REST’i “protocol” diye adlandırır; burada anlatılan davranış HTTP üzerinden senkron request/response etkileşimidir. REST bir mimari üsluptur. Örneğin grammar odağı, bekleme zorunluluğunu veren **must wait** yapısıdır.
 
 > **English — Kaynak örneği (s. 70):** In order for this to be painless, clients and services must use a request and response format that supports the Robustness principle.
 >
-> **Türkçe:** Bu durum ağrısız olması için, istemciler ve servisler dayanıklılık ilkesini destekleyen bir talep ve yanıt biçimi kullanmalıdır.
+> **Türkçe:** Bunun sorunsuz gerçekleşmesi için istemciler ve servisler, Robustness principle’ı (sağlamlık ilkesini) destekleyen bir istek ve yanıt biçimi kullanmalıdır.
 
 > **YDS ipucu:** Must not yasak; do not have to zorunluluk yokluğu bildirir. Might ve may olasılık anlatır, kesinlik vermez.
 
@@ -278,7 +282,7 @@
 
 > **English — Kaynak örneği (s. 87):** One of the valuable features of messaging is that it’s flexible enough to support all the interaction styles described in section 3.1.1.
 >
-> **Türkçe:** Mesajlaşmaların değerli özelliklerinden biri, bölüm 3.1.1'de açıklanan tüm etkileşim stillerini destekleyecek kadar esnek olmasıdır.
+> **Türkçe:** Mesajlaşmanın değerli özelliklerinden biri, 3.1.1. bölümde anlatılan bütün etkileşim biçimlerini destekleyecek kadar esnek olmasıdır.
 
 > **YDS ipucu:** Enough sıfattan sonra, isimden önce gelir: fast enough; enough memory.
 

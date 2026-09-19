@@ -20,6 +20,18 @@
 
 **İlişkili sözcükler:** synonym: tackle, deal with; karşıt yaklaşım: ignore.
 
+### at all times · adverbial phrase
+
+**Türkçe:** her zaman, kesintisiz biçimde
+
+**Bağlam — kaynak s. 385–386:** Hedeflenen servis örneği sayısının sürekli korunmasını anlatır.
+
+> **English:** The controller tries to keep two instances running at all times.
+>
+> **Türkçe:** Controller, iki örneği sürekli çalışır durumda tutmaya çalışır.
+
+**İlişkili sözcükler:** continuously; always; at any time: herhangi bir anda
+
 ## B
 
 ### benefit · noun / verb
@@ -122,6 +134,18 @@
 
 **İlişkili sözcükler:** deployment, deployable, redeploy. Release bağlama göre kullanıcılara sunmayı vurgulayabilir; her kullanımda bire bir eş değildir.
 
+### deployment pipeline · noun phrase
+
+**Türkçe:** dağıtım hattı
+
+**Bağlam — kaynak s. 385–387:** Kodun build, test ve dağıtım adımlarını otomatik sıralayan süreçtir.
+
+> **English:** The deployment pipeline builds and publishes the image.
+>
+> **Türkçe:** Dağıtım hattı imajı oluşturur ve yayımlar.
+
+**İlişkili sözcükler:** build pipeline; delivery pipeline
+
 ### distributed tracing · noun phrase
 
 **Türkçe:** dağıtık izleme
@@ -133,6 +157,18 @@
 > **Türkçe:** Dağıtık izleme, bir isteğin nerede zaman harcadığını gösterir.
 
 **İlişkili sözcükler:** trace; span
+
+### downtime · noun
+
+**Türkçe:** hizmet kesintisi süresi
+
+**Bağlam — kaynak s. 406–407:** Servisin istek karşılayamadığı süredir; zero-downtime dağıtım bu kesintiyi önlemeyi hedefler.
+
+> **English:** A rolling upgrade aims to avoid downtime.
+>
+> **Türkçe:** Kademeli yükseltme, hizmet kesintisini önlemeyi amaçlar.
+
+**İlişkili sözcükler:** uptime; outage
 
 ### drawback · noun
 
@@ -147,6 +183,18 @@
 **İlişkili sözcükler:** synonym: disadvantage, downside; antonym: benefit, advantage.
 
 ## E
+
+### elasticity · noun
+
+**Türkçe:** yükle birlikte kaynakları artırıp azaltabilme
+
+**Bağlam — kaynak s. 418:** Lambda örneklerinin yüke göre sağlanması bağlamında kullanılır.
+
+> **English:** Elasticity adapts capacity to demand.
+>
+> **Türkçe:** Esneklik, kapasiteyi talebe uyarlar.
+
+**İlişkili sözcükler:** elastic; elastic provisioning; scalability ile ilişkili
 
 ### encapsulate · verb
 
@@ -183,6 +231,30 @@
 > **Türkçe:** Bir entity, kalıcı bir kimliğe sahiptir.
 
 **İlişkili sözcükler:** identity; compare: value object
+
+### ephemeral · adjective
+
+**Türkçe:** kısa ömürlü, geçici
+
+**Bağlam — kaynak s. 384–385, 402:** Pod, container veya bilgi işlem kaynağının kalıcı bir makine kimliğine dayanmadığını vurgular.
+
+> **English:** An ephemeral pod may be replaced after a failure.
+>
+> **Türkçe:** Kısa ömürlü bir pod, arızadan sonra yenisiyle değiştirilebilir.
+
+**İlişkili sözcükler:** transient; short-lived; antonym: persistent
+
+### eventually · adverb
+
+**Türkçe:** sonunda, zaman içinde
+
+**Bağlam — kaynak s. 407:** Kademeli güncellemenin bir süre sonra ulaşacağı sonucu anlatır; anında olacağını söylemez.
+
+> **English:** Eventually, all pods run the new version.
+>
+> **Türkçe:** Sonunda bütün pod’lar yeni sürümü çalıştırır.
+
+**İlişkili sözcükler:** ultimately; finally; eventually ≠ possibly
 
 ## F
 
@@ -226,6 +298,18 @@
 
 ## I
 
+### image · noun
+
+**Türkçe:** çalıştırılabilir ortamın paketlenmiş imajı
+
+**Bağlam — kaynak s. 390–397:** VM veya container oluşturmak için kullanılan yazılım/dosya sistemi paketidir; bu bağlamda fotoğraf değildir.
+
+> **English:** A container is created from an image.
+>
+> **Türkçe:** Container, bir imajdan oluşturulur.
+
+**İlişkili sözcükler:** VM image; container image; base image
+
 ### immutable · adjective
 
 **Türkçe:** oluşturulduktan sonra değiştirilmeyen
@@ -242,11 +326,11 @@
 
 **Türkçe:** diğerlerinden ayrı olarak, yalıtılmış biçimde
 
-**Bağlam — kaynak s. 398:** Bir nesneyi, bileşeni veya servisi diğerlerinden ayrı olarak inceleme ya da sınama bağlamında kullanılır.
+**Bağlam — kaynak s. 398:** Dağıtım bağlamında servislerin bağımlılıklardan kopuk var olmadığını veya VM’lerin birbirinden yalıtıldığını belirtir.
 
-> **English:** The component test checks the service in isolation.
+> **English:** Services rarely exist in isolation.
 >
-> **Türkçe:** Bileşen testi, servisi diğerlerinden ayrı olarak sınar.
+> **Türkçe:** Servisler nadiren diğerlerinden bağımsız biçimde var olur.
 
 **İlişkili sözcükler:** isolate, isolated, isolation; karşılaştırma: test services together.
 
@@ -276,6 +360,42 @@
 
 **İlişkili sözcükler:** response time; compare: throughput
 
+### layer · noun
+
+**Türkçe:** katman
+
+**Bağlam — kaynak s. 397:** Container imajının ayrı aktarılabilen dosya sistemi bölümüdür.
+
+> **English:** Only the changed layers need to be transferred.
+>
+> **Türkçe:** Yalnızca değişen katmanların aktarılması gerekir.
+
+**İlişkili sözcükler:** layered; layer caching
+
+### lightweight · adjective
+
+**Türkçe:** hafif; görece az ek kaynak gerektiren
+
+**Bağlam — kaynak s. 384–385, 393–399:** Dağıtım seçeneklerinin başlatma süresi ve kaynak maliyeti bakımından karşılaştırılmasında kullanılır.
+
+> **English:** Containers are more lightweight than full virtual machines.
+>
+> **Türkçe:** Container’lar tam sanal makinelerden daha hafiftir.
+
+**İlişkili sözcükler:** antonym: heavyweight; düşük maliyet bağlama bağlıdır
+
+### liveness · noun
+
+**Türkçe:** çalışır olma durumu; yeniden başlatma gereksiniminin ölçütü
+
+**Bağlam — kaynak s. 403–404:** Liveness probe, örneğin yeniden başlatılmasına karar vermek için kullanılır.
+
+> **English:** A failed liveness probe can trigger a restart.
+>
+> **Türkçe:** Başarısız liveness kontrolü yeniden başlatmayı tetikleyebilir.
+
+**İlişkili sözcükler:** alive; health check; compare: readiness
+
 ### load balancer · noun phrase
 
 **Türkçe:** yük dengeleyici
@@ -287,6 +407,18 @@
 > **Türkçe:** Yük dengeleyici, bir servis örneği seçer.
 
 **İlişkili sözcükler:** load balancing
+
+### long-tail latency · noun phrase
+
+**Türkçe:** gecikme dağılımının uzun kuyruğu
+
+**Bağlam — kaynak s. 419, 426:** Bazı isteklerin çoğunluktan çok daha uzun sürmesini anlatır; tek başına ortalama gecikme değildir.
+
+> **English:** Cold starts can contribute to long-tail latency.
+>
+> **Türkçe:** Soğuk başlangıçlar, gecikme dağılımının uzun kuyruğuna katkıda bulunabilir.
+
+**İlişkili sözcükler:** tail latency; percentile; latency-sensitive
 
 ## M
 
@@ -301,6 +433,20 @@
 > **Türkçe:** Ekip, servisin ve dokümantasyonunun bakımını yapar.
 
 **İlişkili sözcükler:** maintenance, maintainable, maintainability; bağlamsal synonym: preserve, keep.
+
+## N
+
+### node · noun
+
+**Türkçe:** kümedeki işçi makine
+
+**Bağlam — kaynak s. 400–402:** Pod’ların üzerinde çalıştığı Kubernetes makinesidir.
+
+> **English:** The scheduler selects a node for the pod.
+>
+> **Türkçe:** Scheduler, pod için bir node seçer.
+
+**İlişkili sözcükler:** worker; cluster node
 
 ## O
 
@@ -320,11 +466,11 @@
 
 **Türkçe:** orkestrasyon; merkezi koordinasyon
 
-**Bağlam — kaynak s. 386, 390, 392, 393, 398 ve devamı:** Saga adımlarını merkezi bir orchestrator yönlendirir.
+**Bağlam — kaynak s. 386, 390, 392, 393, 398 ve devamı:** Bu ünitede container orchestration, container’ların makinelere yerleştirilmesini, ölçeklenmesini ve yaşam döngüsünü yönetmektir. Saga orchestration farklı bir bağlamdır.
 
-> **English:** Orchestration makes the sequence of steps explicit.
+> **English:** Container orchestration keeps the desired number of instances running.
 >
-> **Türkçe:** Orkestrasyon, adımların sırasını açıkça belirler.
+> **Türkçe:** Container orkestrasyonu, istenen sayıda örneği çalışır durumda tutar.
 
 **İlişkili sözcükler:** orchestrator; orchestrate
 
@@ -354,19 +500,67 @@
 
 **İlişkili sözcükler:** design pattern, architectural pattern; ilişkili: reusable solution. Her bağlam için tek reçete değildir.
 
+### pod · noun
+
+**Türkçe:** birlikte yönetilen container grubu
+
+**Bağlam — kaynak s. 400–403:** Bir veya daha fazla container’ın IP adresi ve depolama kaynaklarını paylaşabildiği Kubernetes dağıtım birimidir.
+
+> **English:** The pod contains the service and its sidecar.
+>
+> **Türkçe:** Pod, servisi ve sidecar’ını içerir.
+
+**İlişkili sözcükler:** pod template; replica; container
+
+### provision · verb
+
+**Türkçe:** çalıştırma kaynağı sağlamak, tahsis etmek
+
+**Bağlam — kaynak s. 415, 419, 426:** Talebi karşılayacak VM, container veya fonksiyon örneğinin hazır edilmesidir.
+
+> **English:** The platform provisions capacity for incoming requests.
+>
+> **Türkçe:** Platform, gelen istekler için kapasite sağlar.
+
+**İlişkili sözcükler:** provisioning; preprovision; underprovision; overprovision
+
 ## R
+
+### readiness · noun
+
+**Türkçe:** trafik almaya hazır olma durumu
+
+**Bağlam — kaynak s. 403–407:** Readiness probe, trafiğin örneğe yönlendirilip yönlendirilmemesini belirler.
+
+> **English:** The pod receives traffic after the readiness check succeeds.
+>
+> **Türkçe:** Hazır olma kontrolü başarılı olduktan sonra pod trafik alır.
+
+**İlişkili sözcükler:** ready; readiness probe; compare: liveness
 
 ### registry · noun
 
-**Türkçe:** kayıt servisi veya dizini
+**Türkçe:** bağlama göre imaj deposu veya servis kayıt dizini
 
-**Bağlam — kaynak s. 394, 395, 396, 397, 398 ve devamı:** Çalışan servis örneklerinin adresleri gibi bilgileri tutar.
+**Bağlam — kaynak s. 394, 395, 396, 397, 398 ve devamı:** Container registry imajları saklar; service registry ise çalışan servis örneklerinin ağ konumlarını tutar. Bu bölümde iki anlam da kullanılır.
 
-> **English:** The registry stores the locations of service instances.
+> **English:** The image registry stores the container image.
 >
-> **Türkçe:** Kayıt servisi, servis örneklerinin konumlarını saklar.
+> **Türkçe:** İmaj deposu, container imajını saklar.
 
 **İlişkili sözcükler:** register; registration
+
+### release · noun / verb
+
+**Türkçe:** kullanıma açma; kullanıma açmak
+
+**Bağlam — kaynak s. 407–408:** Bu bölümde, dağıtılmış yeni sürümü son kullanıcı trafiğine açmayı belirtir.
+
+> **English:** The team deploys the version before releasing it to users.
+>
+> **Türkçe:** Ekip, sürümü kullanıcılara açmadan önce dağıtır.
+
+**İlişkili sözcükler:** deployment; rollout; release a version
 
 ### reliability · noun
 
@@ -379,6 +573,18 @@
 > **Türkçe:** Sık arızalar, uygulamanın güvenilirliğini azaltır.
 
 **İlişkili sözcükler:** reliable, reliably, unreliable; karşılaştırma: availability.
+
+### replica · noun
+
+**Türkçe:** aynı tanımdan çalışan örnek, kopya
+
+**Bağlam — kaynak s. 402–403:** Deployment’ın istenen örnek sayısını anlatırken kullanılır.
+
+> **English:** The deployment requests two replicas.
+>
+> **Türkçe:** Deployment, iki replika ister.
+
+**İlişkili sözcükler:** replication; replicate
 
 ### repository · noun
 
@@ -396,25 +602,37 @@
 
 **Türkçe:** alıp getirmek, veriye erişip almak
 
-**Bağlam — kaynak s. 403, 409:** Bir sorgunun farklı servislerdeki verileri elde etmesi.
+**Bağlam — kaynak s. 403, 409:** Saklanan veya uzaktaki bilgiyi alıp getirmektir; burada Secret değerleri ve altyapıdaki servis bilgileri bağlamında kullanılır.
 
-> **English:** The query retrieves data from two services.
+> **English:** The controller retrieves information about healthy pods.
 >
-> **Türkçe:** Sorgu, iki servisten veri alır.
+> **Türkçe:** Controller, sağlıklı pod’lar hakkındaki bilgileri alır.
 
 **İlişkili sözcükler:** retrieval, retrievable; synonym: fetch, obtain; karşılaştırma: store.
 
-### rollback · verb / noun
+### rollback · noun; roll back · phrasal verb
 
 **Türkçe:** geri almak; geri alma
 
-**Bağlam — kaynak s. 402:** Commit edilmemiş değişiklikleri transaction sınırı içinde geri döndürmektir.
+**Bağlam — kaynak s. 402:** Bu ünitede deployment’ı önceki sürüme geri döndürmeyi anlatır. Transaction rollback başka bir bağlamdır.
 
-> **English:** The transaction rolls back when the operation fails.
+> **English:** The team rolls back the deployment after detecting an error.
 >
-> **Türkçe:** İşlem başarısız olduğunda transaction geri alınır.
+> **Türkçe:** Ekip, hata saptadıktan sonra deployment’ı önceki sürüme geri alır.
 
-**İlişkili sözcükler:** roll back; compare: compensation
+**İlişkili sözcükler:** roll back (fiil); rollout; restore a previous version
+
+### rolling upgrade · noun phrase
+
+**Türkçe:** kademeli sürüm yükseltme
+
+**Bağlam — kaynak s. 401, 406–407:** Eski örneklerin yeni örneklerle aşamalı değiştirilmesidir.
+
+> **English:** The rolling upgrade replaces old pods gradually.
+>
+> **Türkçe:** Kademeli yükseltme, eski pod’ları aşamalı olarak değiştirir.
+
+**İlişkili sözcükler:** rolling update; rollback
 
 ### rollout · noun
 
@@ -478,6 +696,42 @@
 
 **İlişkili sözcükler:** sidecar; proxy
 
+### sidecar · noun
+
+**Türkçe:** servisin yanında çalışan destekleyici süreç veya container
+
+**Bağlam — kaynak s. 402, 410–412:** Ortak teknik sorumlulukları ana servis kodundan ayırarak gerçekleştirir.
+
+> **English:** The sidecar proxy handles outgoing traffic.
+>
+> **Türkçe:** Sidecar proxy, dışarı giden trafiği işler.
+
+**İlişkili sözcükler:** proxy; cross-cutting concern
+
+### staging · noun modifier
+
+**Türkçe:** canlı ortam öncesi doğrulama ortamı
+
+**Bağlam — kaynak s. 407–408:** Sürümün canlı ortama alınmadan önce sınandığı ortamı belirtir.
+
+> **English:** A staging environment may differ from production.
+>
+> **Türkçe:** Staging ortamı canlı ortamdan farklı olabilir.
+
+**İlişkili sözcükler:** staging environment; production; test environment
+
+### stateless · adjective
+
+**Türkçe:** durumsuz
+
+**Bağlam — kaynak s. 416:** Fonksiyonun uygulama durumunu kendi kalıcı instance belleğine bağlamaması yaklaşımıdır.
+
+> **English:** A stateless handler reads persistent data from a database.
+>
+> **Türkçe:** Durumsuz handler, kalıcı veriyi veritabanından okur.
+
+**İlişkili sözcükler:** stateful; state; persistent storage
+
 ### straightforward · adjective
 
 **Türkçe:** anlaşılır, açık; uygulanması görece kolay
@@ -522,13 +776,39 @@
 
 **Türkçe:** görünüm
 
-**Bağlam — kaynak s. 385:** Bağlama göre mimari bakış açısı veya sorgulama için düzenlenmiş veri modelidir.
+**Bağlam — kaynak s. 385:** Burada canlı ortamın üst düzey mimari görünümünü anlatır; veritabanı view anlamından ayrılmalıdır.
 
-> **English:** The view combines data from several services.
+> **English:** The diagram gives a high-level view of the production environment.
 >
-> **Türkçe:** Görünüm, birkaç servisten gelen verileri birleştirir.
+> **Türkçe:** Şema, canlı ortamın üst düzey görünümünü verir.
 
-**İlişkili sözcükler:** materialized view; perspective
+**İlişkili sözcükler:** overview; perspective; high-level view
+
+## W
+
+### worthwhile · adjective
+
+**Türkçe:** yapmaya, incelemeye değer
+
+**Bağlam — kaynak s. 386:** Alternatifin sakıncalı olsa bile öğretici biçimde incelenmesini gerekçelendirir.
+
+> **English:** It is worthwhile exploring the deployment trade-offs.
+>
+> **Türkçe:** Dağıtım seçeneklerinin ödünleşimlerini incelemeye değer.
+
+**İlişkili sözcükler:** worth; valuable; worthwhile + -ing
+
+## Karıştırılan terimler
+
+| Terim çifti | Bu ünitedeki ayrım |
+|---|---|
+| deployment / release | Canlı ortamda çalıştırma / kullanıcı trafiğine açma |
+| readiness / liveness | Trafik yönlendirme kararı / yeniden başlatma kararı |
+| container registry / service registry | İmajları saklama / çalışan örneklerin konumlarını tutma |
+| image / instance | Oluşturma şablonu / o şablondan çalışan örnek |
+| rollout / rollback | Yeni sürümü kullanıma alma / önceki sürüme dönme |
+
+> **Memory tip:** Önce paket olan image, sonra çalışan instance; önce deployment, sonra release. Bu sıralama, kitabın güvenli sürüm geçişi anlatımını hatırlatır.
 
 ## Mini quiz — Özgün çalışma soruları
 
@@ -564,7 +844,7 @@ Aşağıdaki açıklamaların İngilizce karşılıklarını yazın. Cevapları 
 
 **6. overhead** — Asıl işi yapmanın yanında gereken zaman, bellek veya yönetim maliyetidir.
 
-**7. retrieve** — Bir sorgunun farklı servislerdeki verileri elde etmesi.
+**7. retrieve** — Saklanan veya uzaktaki bilgiyi alıp getirmektir; burada Secret değerleri ve altyapıdaki servis bilgileri bağlamında kullanılır.
 
 ## Kısa tekrar
 

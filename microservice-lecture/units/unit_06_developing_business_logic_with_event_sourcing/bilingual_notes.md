@@ -76,7 +76,7 @@
 
 <!-- source-record: u06_0011 -->
 
-### Pattern: Event sourcing — Şekil: event sourcing (olay kaynaklı durum yönetimi)
+### Pattern: Event sourcing — Örüntü: Event sourcing (olay kaynaklı durum yönetimi)
 
 <!-- source-record: u06_0012 -->
 

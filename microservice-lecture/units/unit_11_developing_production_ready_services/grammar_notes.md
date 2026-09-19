@@ -6,6 +6,8 @@
 
 **Gösterimler:** S = subject (özne); V = verb (fiil); V1 = yalın fiil; V3 = past participle (üçüncü biçim). Bir cümle birden fazla yapı içerebilir; başlık o örnekte odaklanılan yapıyı belirtir.
 
+> **Kaynak bağlamı:** OAuth/JWT cümleleri kitabın örnekleridir. OAuth–OpenID Connect ayrımı ve JWT iptalinin sınırları için [ana dersin teknik notlarını](bilingual_notes.md) okuyun. Grammar çözümlemesi kaynak yargısını güncel güvenlik önerisine dönüştürmez.
+
 ## 1. Concession — although / even though / despite
 
 **İşlev:** Beklenenin tersine gerçekleşen durumu, “rağmen” ilişkisiyle verir.
@@ -14,11 +16,11 @@
 
 > **English — Kaynak örneği (s. 357):** Although the original focus of OAuth 2.0 was authorizing access to public cloud services, you can also use it for authentication and authorization in your application.
 >
-> **Türkçe:** OAuth 2.0'un orijinal odak noktası kamu bulut servislerine erişimi yetkilendirmek olmasına rağmen, uygulamanızda doğrulama ve yetkililik için de kullanabilirsiniz.
+> **Türkçe:** OAuth 2.0 başlangıçta genel bulut servislerine erişimi yetkilendirmeye odaklansa da uygulamanızda kimlik doğrulama ve yetkilendirme için de kullanılabilir.
 
 > **English — Kaynak örneği (s. 380):** It also implements client-side service discovery, although the FTGO application relies on the infrastructure for service discovery.
 >
-> **Türkçe:** Ayrıca, FTGO uygulaması servis keşfi için altyapıya dayanan olsa da, istemci tarafındaki servis keşfi uygulamasını da uyguluyor.
+> **Türkçe:** FTGO uygulaması servis keşfi için altyapıya dayansa da bu framework istemci tarafında servis keşfini de gerçekleştirir.
 
 > **YDS ipucu:** Despite of kullanılmaz. Çekimli cümle varsa although; isim grubu varsa despite düşünün.
 
@@ -30,11 +32,11 @@
 
 > **English — Kaynak örneği (s. 366):** Similarly, for the Log aggregation pattern, a developer is responsible for ensuring that their services log useful information, whereas operations is responsible for log aggregation.
 >
-> **Türkçe:** Benzer şekilde, günlük toplama biçimi için, bir geliştiricinin servislerinin yararlı bilgiyi kayıt altına almasını sağlamak sorumluluğu vardır, operasyonlar ise günlük toplama sorumludur.
+> **Türkçe:** Benzer şekilde Log aggregation örüntüsünde geliştirici, servislerin yararlı bilgiler loglamasından; operasyon ekibi ise logların merkezde toplanmasından sorumludur.
 
 > **English — Kaynak örneği (s. 351):** In contrast, the Passport framework stores the security context as the user attribute of the request.
 >
-> **Türkçe:** Öte yandan Passport çerçevesinde güvenlik bağlamı, talebin kullanıcı özelliği olarak kaydedilir.
+> **Türkçe:** Buna karşılık Passport framework'ü güvenlik bağlamını isteğin user özelliğinde saklar.
 
 > **YDS ipucu:** Whereas karşıtlık kurar; zaman bildiren when ile aynı değildir. On the other hand cümleler arasında geçiş ifadesidir.
 
@@ -46,11 +48,11 @@
 
 > **English — Kaynak örneği (s. 357):** As a result, there’s no practical way to revoke an individual JWT that has fallen into the hands of a malicious third party.
 >
-> **Türkçe:** Sonuç olarak, JWT'ın kötü niyetli bir üçüncü tarafın eline düştüğünü bir bireyi iptal etmek için pratik bir yol yok.
+> **Türkçe:** Sonuç olarak kötü niyetli bir üçüncü tarafın eline geçmiş tek bir JWT'yi iptal etmenin pratik bir yolu yoktur.
 
 > **English — Kaynak örneği (s. 364):** One challenge of using encryption, though, is that usually the service instance needs to decrypt them, which means it needs the encryption keys.
 >
-> **Türkçe:** Şifrelemeyi kullanmanın bir zorluğu ise genellikle servis örneğinin onları şifrelemesi gerektiğidir, yani şifreleme anahtarlarına ihtiyacı vardır.
+> **Türkçe:** Ancak şifreleme kullanmanın güçlüklerinden biri, genellikle servis örneğinin bu verilerin şifresini çözmesi gerekmesidir; bu da şifreleme anahtarlarına ihtiyaç duyduğu anlamına gelir.
 
 > **YDS ipucu:** Virgüllü ek bilgi cümleciğinde that kullanılmaz. Edat + which yapısında edatın anlamını çeviriye katın. Bir fiilin içeriğini veren “ensure that ...” ise isim niteleyen relative clause değildir; that öncesindeki yapıyı kontrol edin.
 
@@ -62,11 +64,11 @@
 
 > **English — Kaynak örneği (s. 368):** By using convention over configuration, Spring Boot Actuator implements a sensible set of health checks based on the infrastructure services used by the service.
 >
-> **Türkçe:** Spring Boot Actuator, konfigürasyon üzerinde konvansiyon kullanılarak, servis tarafından kullanılan altyapı servislerine dayanan mantıklı bir sağlık kontrol kümesi uyguluyor.
+> **Türkçe:** Spring Boot Actuator, yapılandırma yerine yerleşik kabulleri kullanarak servisin yararlandığı altyapı servislerine uygun bir sağlık kontrolü kümesi oluşturur.
 
-> **English — Kaynak örneği (s. 351):** The sequence of events shown in Figure 11.2 is as follows:
+> **English — Kaynak örneği (s. 352):** The sequence of events shown in Figure 11.2 is as follows:
 >
-> **Türkçe:** Resim 11.2'de gösterilen olay sırası şöyle:
+> **Türkçe:** Şekil 11.2'de gösterilen olay sırası şöyledir:
 
 > **YDS ipucu:** Cümlenin asıl çekimli fiilini ayrı bulun. İsimden sonra gelen V3 her zaman yeni bir ana yüklem değildir.
 
@@ -78,11 +80,11 @@
 
 > **English — Kaynak örneği (s. 352):** The login request is handled by LoginHandler, which verifies the credentials, creates the session, and stores information about the principal in the session.
 >
-> **Türkçe:** Giriş talebi, İttifak bilgileri doğrulayan, oturum oluşturan ve oturumdaki müdürle ilgili bilgileri saklayan LoginHandler tarafından ele alınır.
+> **Türkçe:** Oturum açma isteğini işleyen LoginHandler, kimlik bilgilerini doğrular, oturumu oluşturur ve principal hakkındaki bilgileri oturumda saklar.
 
 > **English — Kaynak örneği (s. 357):** In this chapter, I can only provide a brief overview and describe how it can be used in a microservice architecture.
 >
-> **Türkçe:** Bu bölümde, sadece kısa bir genel bakış verebilirim ve mikroservis mimarisinde nasıl kullanılabileceğini açıklayabilirim.
+> **Türkçe:** Bu bölümde yalnızca kısa bir genel bakış sunabilir ve bunun mikroservis mimarisinde nasıl kullanılabileceğini anlatabilirim.
 
 > **YDS ipucu:** Must be deployed doğrudur; must deployed yanlıştır. By + kişi/araç ile by + -ing yöntem yapısını bağlamdan ayırın.
 
@@ -94,11 +96,11 @@
 
 > **English — Kaynak örneği (s. 366):** The deployment infrastructure periodically invokes this endpoint to determine the health of the service instance and takes the appropriate action if it’s unhealthy.
 >
-> **Türkçe:** Deployment altyapısı, servis durumunun sağlığını belirlemek için bu son noktayı düzenli olarak kullanır ve sağlıksızsa uygun eylemler görür.
+> **Türkçe:** Dağıtım altyapısı, servis örneğinin sağlık durumunu belirlemek için bu uç noktayı düzenli aralıklarla çağırır ve örnek sağlıksızsa uygun işlemi yapar.
 
 > **English — Kaynak örneği (s. 368):** Similarly, if the service uses the RabbitMQ message broker, it automatically configures a health check that verifies that the RabbitMQ server is up.
 >
-> **Türkçe:** Benzer şekilde, servis RabbitMQ mesaj aracı kullanırsa, otomatik olarak RabbitMQ sunucusunun çalışmadığını doğrulayan bir sağlık kontrolü yapılandırır.
+> **Türkçe:** Benzer şekilde servis RabbitMQ mesaj broker'ını kullanıyorsa RabbitMQ sunucusunun çalıştığını doğrulayan sağlık kontrolü otomatik olarak yapılandırılır.
 
 > **YDS ipucu:** If cümleciğindeki past bazen geçmiş zamanı değil varsayımı gösterir. Türkçedeki “olsaydı” tek başına zamanı belirlemez.
 
@@ -110,11 +112,11 @@
 
 > **English — Kaynak örneği (s. 349):** In order to make it easier to understand the behavior of your application and troubleshoot problems, you must implement several observability patterns.
 >
-> **Türkçe:** Uygulamanızın davranışını anlamak ve sorunları çözmek için birkaç gözlemsellik örneğini uygulamanız gerekir.
+> **Türkçe:** Uygulamanızın davranışını anlamayı ve sorunları gidermeyi kolaylaştırmak için çeşitli gözlemlenebilirlik örüntülerini uygulamalısınız.
 
 > **English — Kaynak örneği (s. 364):** What’s more, in order to eliminate duplicate configuration properties, some implementations let you define global defaults, which can be overridden on a per-service basis.
 >
-> **Türkçe:** Dahası, ikili yapılandırma özelliklerini ortadan kaldırmak için, bazı uygulamalar global öntanımları tanımlamanıza izin verir, bu da servis başına geçersiz kılabilir.
+> **Türkçe:** Üstelik yinelenen yapılandırma özelliklerini ortadan kaldırmak için bazı gerçekleştirimler, servis bazında geçersiz kılınabilen genel varsayılanlar tanımlamanıza izin verir.
 
 > **YDS ipucu:** To sonrasında yalın fiil; so that sonrasında özne ve çekimli fiil gelir. So ... that derece-sonuç yapısıyla karıştırmayın.
 
@@ -126,11 +128,11 @@
 
 > **English — Kaynak örneği (s. 358):** The API gateway authenticates the API client by making a request to the OAuth 2.0 authorization server, which returns an access token.
 >
-> **Türkçe:** API geçidi, bir erişim jetonu iade eden OAuth 2.0 yetki sunucusuna bir talep yaparak API istemcisini doğruluyor.
+> **Türkçe:** API gateway, erişim belirteci döndüren OAuth 2.0 yetkilendirme sunucusuna istek göndererek API istemcisinin kimliğini doğrular.
 
 > **English — Kaynak örneği (s. 367):** The health check code can, for example, verify that it’s connected to an RDBMS by obtaining a database connection and executing a test query.
 >
-> **Türkçe:** Sağlık kontrol kodu, örneğin, bir veritabanı bağlantısı elde ederek ve bir test sorgusunu yürüterek RDBMS ile bağlantılı olduğunu doğrulayabilir.
+> **Türkçe:** Örneğin sağlık kontrolü kodu, bir veritabanı bağlantısı alıp test sorgusu çalıştırarak RDBMS'e bağlı olduğunu doğrulayabilir.
 
 > **YDS ipucu:** By implementing “uygulayarak” anlamındadır. Edat by sonrasında yalın fiil kullanılmaz.
 
@@ -142,7 +144,7 @@
 
 > **English — Kaynak örneği (s. 370):** The trouble with this option is that it’s an average across requests rather than the timing breakdown for an individual request.
 >
-> **Türkçe:** Bu seçeneğin sorunu, bireysel bir istek için zaman ayrımı yerine istekler arasında ortalama olmasıdır.
+> **Türkçe:** Bu seçeneğin sorunu, tek bir istekte zamanın nasıl dağıldığını göstermek yerine istekler genelinde bir ortalama vermesidir.
 
 > **YDS ipucu:** Instead of sonrasında doğrudan çekimli cümle gelmez. Rather than ile karşılaştırılan parçaların dilbilgisel biçimini izleyin.
 
@@ -154,11 +156,11 @@
 
 > **English — Kaynak örneği (s. 363):** The deployment infrastructure might not allow you to change the externalized configuration of a running service without restarting it.
 >
-> **Türkçe:** Deployment altyapısı, çalışmakta olan bir servisin dışlandırılmış yapılandırmasını yeniden başlatmadan değiştirmenize izin vermeyebilir.
+> **Türkçe:** Dağıtım altyapısı, çalışan servisi yeniden başlatmadan dış yapılandırmasını değiştirmenize izin vermeyebilir.
 
 > **English — Kaynak örneği (s. 357):** OAuth 2.0 is an authorization protocol that was originally designed to enable a user of a public cloud service, such as GitHub or Google, to grant a third-party application access to its information without revealing its password.
 >
-> **Türkçe:** OAuth 2.0, başlangıçta GitHub veya Google gibi bir kamu bulut servisinin bir kullanıcısının, üçüncü taraf uygulamalarına şifresini açıklamadan bilgilerine erişim sağlaması için tasarlanmış bir yetki verme protokolüdür.
+> **Türkçe:** OAuth 2.0, başlangıçta GitHub veya Google gibi genel bulut servislerinin kullanıcılarının parolalarını açıklamadan üçüncü taraf uygulamalara kendi bilgilerine erişim izni vermesini sağlamak için tasarlanmış bir yetkilendirme protokolüdür.
 
 > **YDS ipucu:** Without not ile otomatik birleşmez. “Without losing data”, “veri kaybetmeden” anlamındadır.
 
@@ -170,11 +172,11 @@
 
 > **English — Kaynak örneği (s. 370):** You can then see how the services interact during the handling of external requests, including a breakdown of where the time is spent.
 >
-> **Türkçe:** Daha sonra, servislerin dış taleplerin işlenmesi sırasında nasıl etkileşime girdiğini görebilirsiniz.
+> **Türkçe:** Böylece haricî istekler işlenirken servislerin nasıl etkileştiğini, zamanın nerede harcandığının dökümüyle birlikte görebilirsiniz.
 
 > **English — Kaynak örneği (s. 353):** A request handler uses the security context to determine whether to allow a user to perform the requested operation and obtain their identity.
 >
-> **Türkçe:** Bir istek yöneticisi, bir kullanıcının istekli işlem yapmasına ve kimliğini elde etmesine izin vermeyeceğini belirlemek için güvenlik bağlamını kullanır.
+> **Türkçe:** Request handler, kullanıcının istenen işlemi yapmasına izin verilip verilmeyeceğini belirlemek ve kimliğini almak için güvenlik bağlamını kullanır.
 
 > **YDS ipucu:** Dolaylı soruda düz cümle sırası kullanılır: how the service works. How does the service work doğrudan sorudur.
 
@@ -186,7 +188,7 @@
 
 > **English — Kaynak örneği (s. 365):** But there are several patterns that you, as a service developer, must implement to make your service easier to manage and troubleshoot.
 >
-> **Türkçe:** Ancak bir servis geliştiricisi olarak servisinizi yönetmeyi ve sorunları çözmeyi kolaylaştırmak için uygulamanız gereken birkaç örnektir.
+> **Türkçe:** Ancak servis geliştirici olarak servisinizi yönetmeyi ve sorunlarını gidermeyi kolaylaştırmak için uygulamanız gereken çeşitli örüntüler vardır.
 
 > **YDS ipucu:** Enable/allow + object + to + V1; make + object + V1/adjective yapılarını arayın. Make a request gibi make + noun kullanımları bu yapı değildir. Edilgende make ile to geri gelir: be made to do.
 
@@ -198,7 +200,7 @@
 
 > **English — Kaynak örneği (s. 370):** Examples of logging servers include cloud services, such as AWS CloudWatch Logs, as well as numerous commercial offerings.
 >
-> **Türkçe:** Kayıtlama sunucularının örnekleri, AWS CloudWatch Logs gibi bulut servislerini ve birçok ticari teklifleri içerir.
+> **Türkçe:** Log sunucularına, çok sayıda ticari ürünün yanı sıra AWS CloudWatch Logs gibi bulut servisleri örnek verilebilir.
 
 > **YDS ipucu:** As well as burada ekleme yapar; as fast as gibi eşitlik karşılaştırması değildir. İki as sözcüğü görünce yapıyı otomatik olarak karşılaştırma saymayın.
 
@@ -210,11 +212,11 @@
 
 > **English — Kaynak örneği (s. 375):** Because this library is on the classpath, Spring Boot exposes a GET /actuator/prometheus endpoint, which returns metrics in the format that Prometheus expects.
 >
-> **Türkçe:** Bu kütüphanenin sınıf yolunda olduğu için, Spring Boot, Prometheus'un beklediği biçimdeki metrikleri iade eden GET /actuator/prometheus son noktasını ortaya çıkarır.
+> **Türkçe:** Bu kütüphane classpath'te bulunduğu için Spring Boot, metrikleri Prometheus'un beklediği biçimde döndüren GET /actuator/prometheus uç noktasını sunar.
 
-> **English — Kaynak örneği (s. 366):** But because it may contain sensitive information, some frameworks, such as Spring Boot Actuator, let you configure the level of detail in the health endpoint response.
+> **English — Kaynak örneği (s. 367):** But because it may contain sensitive information, some frameworks, such as Spring Boot Actuator, let you configure the level of detail in the health endpoint response.
 >
-> **Türkçe:** Ancak, hassas bilgileri içerebileceği için, Spring Boot Actuator gibi bazı çerçeveler sağlık son nokta tepkisinde detay seviyesini yapılandırmanıza izin verir.
+> **Türkçe:** Ancak hassas bilgiler içerebileceğinden Spring Boot Actuator gibi bazı framework'ler sağlık uç noktasının yanıtındaki ayrıntı düzeyini yapılandırmanıza izin verir.
 
 > **YDS ipucu:** Because ile because of sonrasındaki yapı farklıdır. As a result of + noun, neden belirtir.
 
@@ -226,11 +228,11 @@
 
 > **English — Kaynak örneği (s. 378):** This chapter has described numerous concerns that a service must implement, including metrics, reporting exceptions to an exception tracker, logging and health checks, externalized configuration, and security.
 >
-> **Türkçe:** Bu bölüm, bir servisin uygulaması gereken birçok kaygıyı, ölçümleri, istisna izleyicisine istisnaları bildirmek, kayıt ve sağlık kontrolleri, dışlandırılmış yapılandırma ve güvenlik de dahil olmak üzere tanımladı.
+> **Türkçe:** Bu bölümde; metrikler, istisnaları takip sistemine bildirme, loglama ve sağlık kontrolleri, dışarıdan yapılandırma ve güvenlik dâhil servisin gerçekleştirmesi gereken çok sayıda ortak gereksinim anlatıldı.
 
 > **English — Kaynak örneği (s. 354):** It must also verify that the request has been authenticated.
 >
-> **Türkçe:** Ayrıca talebin doğrulanmasını da kontrol etmelidir.
+> **Türkçe:** İsteğin kimliğinin doğrulanmış olduğunu da denetlemelidir.
 
 > **YDS ipucu:** Have/has ile V3 birlikte aranır. Been + V3 edilgen olabilir; been + -ing ise continuous yapıdır.
 
@@ -242,11 +244,11 @@
 
 > **English — Kaynak örneği (s. 349):** The FTGO team knew that much of what they had learned over the years developing the monolith also applied to microservices.
 >
-> **Türkçe:** FTGO ekibi, monoliti geliştirmek yılları boyunca öğrendiklerinin çoğunun mikroservislere de uygulanacağını biliyordu.
+> **Türkçe:** FTGO ekibi, monoliti geliştirirken yıllar içinde öğrendiklerinin büyük bölümünün mikroservisler için de geçerli olduğunu biliyordu.
 
 > **English — Kaynak örneği (s. 349):** The FTGO team had implemented monitoring and logging for the existing application.
 >
-> **Türkçe:** FTGO ekibi mevcut uygulama için izleme ve kayıt yaptırmıştı.
+> **Türkçe:** FTGO ekibi mevcut uygulama için izleme ve loglama geliştirmişti.
 
 > **YDS ipucu:** Had tek başına past perfect değildir; had a meeting gibi yapılarda ana fiildir.
 
@@ -258,11 +260,11 @@
 
 > **English — Kaynak örneği (s. 370):** It records information (for example, start time and end time) about the tree of service calls that are made when handling a request.
 >
-> **Türkçe:** Bir istek işlenirken yapılan servis aramaları hakkında bilgi (örneğin başlangıç ve son saatleri) kaydeder.
+> **Türkçe:** Bir istek işlenirken yapılan servis çağrılarının ağacı hakkında başlangıç ve bitiş zamanı gibi bilgileri kaydeder.
 
 > **English — Kaynak örneği (s. 366):** It would be pointless for the deployment infrastructure to route HTTP requests to a service instance until it’s ready to process them.
 >
-> **Türkçe:** Deployment altyapısının HTTP isteklerini işleme hazır olana kadar bir servis örneğine yönlendirmesi anlamsız olurdu.
+> **Türkçe:** Dağıtım altyapısının HTTP isteklerini, bunları işlemeye hazır olmayan bir servis örneğine yönlendirmesi anlamsız olur.
 
 > **YDS ipucu:** Geleceğe yönelik zaman cümleciğinde genellikle present kullanılır: when it arrives. Until, “... olana kadar” sınırını verir. While eşzamanlılık ya da karşıtlık bildirebilir; anlam ilişkisini kontrol edin. Until + noun bir zaman ifadesidir, tam zaman cümleciği değildir.
 
@@ -274,13 +276,25 @@
 
 > **English — Kaynak örneği (s. 353):** You must, for example, implement a session draining mechanism that waits for all sessions to expire before shutting down an application instance.
 >
-> **Türkçe:** Örneğin, bir uygulama örneğini kapatmadan önce tüm seansların sona ermesini bekleyen bir oturum boşaltma mekanizmasını uygulamalısınız.
+> **Türkçe:** Örneğin uygulama örneğini kapatmadan önce tüm oturumların süresinin dolmasını bekleyen bir oturum boşaltma mekanizması uygulamalısınız.
 
 > **English — Kaynak örneği (s. 366):** For example, a bug might cause an instance of Consumer Service to run out of database connections and be unable to access the database.
 >
-> **Türkçe:** Örneğin, bir hata, Consumer Service'ın bir örneğinin veritabanı bağlantılarının bitmesine ve veritabanına erişemeye neden olabilir.
+> **Türkçe:** Örneğin bir hata, Consumer Service örneğinin veritabanı bağlantılarını tüketmesine ve veritabanına erişememesine yol açabilir.
 
 > **YDS ipucu:** Must not yasak; do not have to zorunluluk yokluğu bildirir. Might ve may olasılık anlatır, kesinlik vermez.
+
+## Cümle çözümleme — özne ve zamir bağlantısı
+
+**Örnek:** One challenge of using encryption is that the service instance needs to decrypt them, which means it needs the encryption keys.
+
+- **Ana özne:** One challenge of using encryption.
+- **Ana yüklem:** is; ardından that ile açıklama gelir.
+- **decrypt them:** hassas verilerin şifresini çözmek; encrypt ile ters yöndedir.
+- **which means:** tek bir ismi değil, önceki yargının sonucunu açıklar.
+- **it:** servis örneğine döner; encryption keys nesnedir.
+
+> **Common mistake:** RabbitMQ server is up → sunucu çalışıyor. Bu olumlu ifadeye Türkçede olumsuzluk eklenmez.
 
 ## Mini quiz — Özgün çalışma soruları
 

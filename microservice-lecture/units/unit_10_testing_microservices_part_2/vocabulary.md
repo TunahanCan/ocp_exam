@@ -6,6 +6,7 @@
 
 **Çalışma yöntemi:** Türkçe satırını kapatıp örneği çevirin. Örnekler, bu ünitenin kavramlarını çalıştırmak için yazılmış **özgün çalışma cümleleridir**; kitaptan alıntı değildir. Eş anlamlı ve ilişkili sözcükler her bağlamda birbirinin yerine geçmez.
 
+
 ## A
 
 ### acceptance test · noun phrase
@@ -108,6 +109,18 @@
 
 **İlişkili sözcükler:** in-process; out-of-process; test double
 
+### conform to · verb phrase
+
+**Türkçe:** uygun olmak, uymak
+
+**Bağlam — kaynak s. 324–334:** İstek ya da yanıtın sözleşmeyle tanımlanan biçimi karşılamasıdır.
+
+> **English:** The command must conform to the contract.
+>
+> **Türkçe:** Komut sözleşmeye uymalıdır.
+
+**İlişkili sözcükler:** conformance; synonym: comply with
+
 ### consumer · noun
 
 **Türkçe:** tüketici
@@ -208,6 +221,18 @@
 
 **İlişkili sözcükler:** route; API
 
+### eventually · adverb
+
+**Türkçe:** sonunda, bir süre sonra
+
+**Bağlam — kaynak s. 343:** Asenkron işin hemen tamamlanmayabileceğini anlatır; örnekte eventually() doğrulamayı tekrarlar.
+
+> **English:** The order eventually reaches the expected state.
+>
+> **Türkçe:** Sipariş bir süre sonra beklenen duruma ulaşır.
+
+**İlişkili sözcükler:** eventual; related: retry, eventual consistency
+
 ## F
 
 ### feature · noun
@@ -236,6 +261,20 @@
 
 **İlişkili sözcükler:** feature; scenario; step definition
 
+## H
+
+### hook method · noun phrase
+
+**Türkçe:** özelleştirme veya tetikleme noktası sunan metot
+
+**Bağlam — kaynak s. 327–328:** Üretilen testin çağırdığı üst sınıf metodu, örnekte olay yayımını tetikler.
+
+> **English:** The generated test invokes a hook method.
+>
+> **Türkçe:** Üretilen test bir hook metodu çağırır.
+
+**İlişkili sözcükler:** hook; related: extension point
+
 ## I
 
 ### in isolation · prepositional phrase
@@ -249,6 +288,18 @@
 > **Türkçe:** Bileşen testi, servisi diğerlerinden ayrı olarak sınar.
 
 **İlişkili sözcükler:** isolate, isolated, isolation; karşılaştırma: test services together.
+
+### in-process · adjective
+
+**Türkçe:** aynı süreç içinde çalışan
+
+**Bağlam — kaynak s. 339:** Test ve servis aynı JVM sürecinde çalışır; bağımlılıklar bellek içi taklitlerle değiştirilebilir.
+
+> **English:** The in-process test runs the service in the same JVM.
+>
+> **Türkçe:** Süreç içi test, servisi aynı JVM içinde çalıştırır.
+
+**İlişkili sözcükler:** compare: out-of-process
 
 ### isolation · noun
 
@@ -301,6 +352,18 @@
 **İlişkili sözcükler:** mocking; compare: stub
 
 ## O
+
+### out-of-process · adjective
+
+**Türkçe:** ayrı süreçte çalışan
+
+**Bağlam — kaynak s. 339–345:** Servis testten ayrı süreçte, örneğin Docker container içinde çalıştırılır.
+
+> **English:** The out-of-process test starts a container.
+>
+> **Türkçe:** Süreç dışı test bir container başlatır.
+
+**İlişkili sözcükler:** compare: in-process
 
 ### overhead · noun
 
@@ -392,6 +455,30 @@
 
 **İlişkili sözcükler:** saga participant; saga orchestrator
 
+### sparingly · adverb
+
+**Türkçe:** ölçülü biçimde, az miktarda
+
+**Bağlam — kaynak s. 319:** Yavaş ve maliyetli end-to-end testlerin sayısını sınırlama önerisidir.
+
+> **English:** Use expensive end-to-end tests sparingly.
+>
+> **Türkçe:** Pahalı uçtan uca testleri az sayıda kullanın.
+
+**İlişkili sözcükler:** sparing; antonym in context: extensively
+
+### step definition · noun phrase
+
+**Türkçe:** senaryo adımının çalıştırılabilir tanımı
+
+**Bağlam — kaynak s. 337–344:** Gherkin adımını gerçekleştiren Java metodudur.
+
+> **English:** A step definition sends an HTTP request.
+>
+> **Türkçe:** Bir adım tanımı HTTP isteği gönderir.
+
+**İlişkili sözcükler:** define, definition; related: scenario
+
 ### stub · noun
 
 **Türkçe:** önceden belirlenmiş yanıt veren test nesnesi
@@ -441,6 +528,32 @@
 > **Türkçe:** Transaction, siparişi günceller.
 
 **İlişkili sözcükler:** transactional; commit
+
+### transitive dependency · noun phrase
+
+**Türkçe:** dolaylı bağımlılık
+
+**Bağlam — kaynak s. 335, 347:** Doğrudan bağımlı olunan bir bileşenin başka bir bileşene bağımlılığı yoluyla oluşur.
+
+> **English:** Starting one service may require its transitive dependencies.
+>
+> **Türkçe:** Bir servisi başlatmak, dolaylı bağımlılıklarını da gerektirebilir.
+
+**İlişkili sözcükler:** transitively; compare: direct dependency
+
+## U
+
+### user journey · noun phrase
+
+**Türkçe:** kullanıcı yolculuğu
+
+**Bağlam — kaynak s. 345–347:** Kullanıcının uygulamada ardışık yaptığı işlemleri tek akışta temsil eder.
+
+> **English:** The user journey creates, revises, and cancels an order.
+>
+> **Türkçe:** Kullanıcı yolculuğu bir sipariş oluşturur, değiştirir ve iptal eder.
+
+**İlişkili sözcükler:** journey; related: workflow, scenario
 
 ## V
 

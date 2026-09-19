@@ -78,3 +78,23 @@ pdftoppm -png -scale-to 1600 \
 Üretilen bütün sayfalarda paragraf sırasını ve dil eşleşmelerini, şekillerin
 tamlığını, açıklamaları, Türkçe karakterleri, kodları ve sayfa kırılmalarını kontrol
 et. Düzeltmeyi Markdown kaynağında yapıp PDF'yi yeniden üret.
+
+Kelime kartları ve grammar konuları bir sayfaya sığıyorsa bütün tutulur. Uzun
+konular gerektiğinde bölünebilir. Kod açıklaması etiketi onu izleyen açıklamayla
+aynı sayfada kalır. On görsel satırı aşmayan kısa kod blokları birlikte tutulur.
+PDF’de uzun kod satırlarının görsel devamı `->` ile işaretlenir;
+bu işaret Markdown kaynak koduna eklenmez.
+
+## Yapısal denetim
+
+```bash
+python3 microservice-lecture/tools/audit_study_materials.py \
+  --output /tmp/microservices_audit.json
+```
+
+Tek ünite için `--units 11`, birden çok ünite için `--units 9,10,11` kullanılabilir.
+Araç yerel dosya bağlantılarını, kod çitlerini, English/Türkçe blok sırasını,
+kaynak kayıtlarının sırasını, manifestteki şekillerle eşleşmeyi ve PDF sayfa
+sınırlarını denetler. Kaynak ve PDF SHA256 değerlerini rapora kaydeder. Bağımlılık
+kurmaz; mevcut `pdftotext` komutunu kullanır. Bu yapısal kontroller cümlelerin
+anlam doğruluğunun veya görsel kontrolün yerine geçmez.

@@ -84,7 +84,7 @@
 
 **Türkçe:** yetkilendirme
 
-**Bağlam — kaynak s. 453, 454, 455:** Bir kimliğin veya istemcinin belirli bir kaynak üzerinde hangi işlemleri yapmaya yetkili olduğunu belirleme ve denetleme sürecidir.
+**Bağlam — kaynak s. 453, 454, 455:** Bir kimliğin veya istemcinin belirli bir kaynak üzerinde hangi işlemleri yapmaya yetkili olduğunu belirleme ve denetleme sürecidir. Sipariş saga’sındaki **authorize a credit card** ise kredi kartından **provizyon almak** anlamındadır; kullanıcıya erişim yetkisi vermekle karıştırılmamalıdır.
 
 > **English:** Authorization controls access to an operation.
 >
@@ -96,7 +96,11 @@
 
 **Türkçe:** kullanılabilirlik, hizmete erişilebilir olma durumu
 
-**Bağlam — kaynak s. 445, 460, 463, 464, 465 ve devamı:** Uygulamanın ihtiyaç duyulduğunda istekleri karşılayabilir olması.
+**Bağlam — kaynak s. 445, 460, 463, 464, 465 ve devamı:** Sistem bağlamında uygulamanın ihtiyaç duyulduğunda istekleri karşılayabilir olmasıdır. **Courier availability** ise kuryenin **müsaitliği**, yani teslimat işi alabilir durumda olmasıdır.
+
+> **English:** The courier updates their availability.
+>
+> **Türkçe:** Kurye, müsaitlik durumunu günceller.
 
 > **English:** The team monitors the availability of the application.
 >
@@ -105,6 +109,18 @@
 **İlişkili sözcükler:** available, unavailable; ilişkili: uptime. Reliability ile ilişkili olsa da aynı kavram değildir.
 
 ## B
+
+### backlog · noun
+
+**Türkçe:** bekleyen işler listesi
+
+**Bağlam — kaynak s. 442:** Özellikler ile yeniden düzenleme işlerinin yarara göre önceliklendirildiği liste.
+
+> **English:** Refactoring tasks belong in the backlog.
+>
+> **Türkçe:** Yeniden düzenleme işleri backlog içinde yer alır.
+
+**İlişkili sözcükler:** related: prioritize, priority
 
 ### benefit · noun / verb
 
@@ -117,6 +133,18 @@
 > **Türkçe:** Bağımsız dağıtım, gevşek bağlılığın sağladığı yararlardan biridir.
 
 **İlişkili sözcükler:** beneficial; noun synonym: advantage; karşıt: drawback.
+
+### big bang rewrite · noun phrase
+
+**Türkçe:** tek seferde tüm sistemi yeniden yazma
+
+**Bağlam — kaynak s. 430:** Eski uygulamanın yerini alacak sistemi sıfırdan oluşturup yararı ancak tamamlanınca sunan yaklaşım.
+
+> **English:** A big bang rewrite delays feedback.
+>
+> **Türkçe:** Tek seferde tüm sistemi yeniden yazmak geri bildirimi geciktirir.
+
+**İlişkili sözcükler:** contrast: incremental migration
 
 ### bounded context · noun phrase
 
@@ -156,6 +184,18 @@
 
 ## C
 
+### coarse-grained · adjective
+
+**Türkçe:** iri taneli; daha kapsamlı işlemler sunan
+
+**Bağlam — kaynak s. 468:** Çok sayıda küçük çağrı yerine anlamlı iş işlemleri sunan API; uzak çağrı sınırına uygundur.
+
+> **English:** A coarse-grained API reduces the need for many small calls.
+>
+> **Türkçe:** İri taneli API, çok sayıda küçük çağrı gereksinimini azaltır.
+
+**İlişkili sözcükler:** antonym: fine-grained
+
 ### code base · noun phrase
 
 **Türkçe:** kod tabanı
@@ -167,6 +207,18 @@
 > **Türkçe:** Birden fazla ekip aynı kod tabanını değiştiriyor.
 
 **İlişkili sözcükler:** yaygın yazım: codebase; ilişkili: source code, repository. Repository kodun tutulduğu yerdir.
+
+### compensatable transaction · noun phrase
+
+**Türkçe:** telafi edilebilir işlem
+
+**Bağlam — kaynak s. 450:** Saga’da sonraki adım iş kuralı nedeniyle başarısız olabileceği için etkisi telafi edilebilen işlem.
+
+> **English:** The first transaction is compensatable.
+>
+> **Türkçe:** İlk işlem telafi edilebilirdir.
+
+**İlişkili sözcükler:** contrast: compensating transaction = telafiyi yapan işlem
 
 ### compensating transaction · noun phrase
 
@@ -191,6 +243,18 @@
 > **Türkçe:** Tüketici, bir mesajı işler.
 
 **İlişkili sözcükler:** consume; producer
+
+### countermeasure · noun
+
+**Türkçe:** karşı önlem
+
+**Bağlam — kaynak s. 450:** Saga’ların yalıtım eksikliğini ele alan tasarım tekniği.
+
+> **English:** A semantic lock is a countermeasure.
+>
+> **Türkçe:** Anlamsal kilit bir karşı önlemdir.
+
+**İlişkili sözcükler:** related: mitigate, mitigation
 
 ### coupling · noun
 
@@ -292,6 +356,18 @@
 
 **İlişkili sözcükler:** route; API
 
+### entangled · adjective / V3
+
+**Türkçe:** iç içe geçmiş
+
+**Bağlam — kaynak s. 459:** Bir modülü değiştirmeyi veya çıkarmayı güçleştiren kod bağımlılıklarını anlatır.
+
+> **English:** Delivery management is entangled with order management.
+>
+> **Türkçe:** Teslimat yönetimi sipariş yönetimiyle iç içe geçmiştir.
+
+**İlişkili sözcükler:** family: entangle, entanglement; opposite action: untangle
+
 ### entity · noun
 
 **Türkçe:** kimliği bulunan alan nesnesi
@@ -315,6 +391,18 @@
 > **Türkçe:** Event sourcing, değişiklikleri olaylar olarak saklar.
 
 **İlişkili sözcükler:** event store; replay
+
+### extract · verb
+
+**Türkçe:** içinden çıkarıp ayırmak
+
+**Bağlam — kaynak s. 437:** Bir işlevi, kodunu ve gerekli verilerini monolitten bağımsız servise taşımak.
+
+> **English:** The team extracts delivery management into a service.
+>
+> **Türkçe:** Ekip, teslimat yönetimini ayrı bir servise çıkarır.
+
+**İlişkili sözcükler:** family: extraction; pattern: extract X from Y
 
 ## F
 
@@ -342,6 +430,18 @@
 
 **İlişkili sözcükler:** feature-rich; yakın anlamlı: functionality. Feature branch, belirli bir özellik için açılan geliştirme dalıdır.
 
+### feature toggle · noun phrase
+
+**Türkçe:** özellik anahtarı
+
+**Bağlam — kaynak s. 468:** Dağıtılmış kodun eski veya yeni davranışını seçen ayar.
+
+> **English:** The feature toggle selects the new implementation.
+>
+> **Türkçe:** Özellik anahtarı yeni gerçekleştirimi seçer.
+
+**İlişkili sözcükler:** synonym: feature flag; related: rollout
+
 ### fit · noun / verb / adjective
 
 **Türkçe:** uygunluk; uymak; uygun
@@ -366,6 +466,18 @@
 
 **İlişkili sözcükler:** force someone to do something; forced; synonym: compel. İsim olarak forces, örüntü tasarımında çözümü etkileyen etkenlerdir.
 
+### from scratch · adverbial phrase
+
+**Türkçe:** sıfırdan
+
+**Bağlam — kaynak s. 430:** Mevcut kodu artımlı dönüştürmek yerine yeniden başlamayı anlatır.
+
+> **English:** We do not need to rewrite the application from scratch.
+>
+> **Türkçe:** Uygulamayı sıfırdan yeniden yazmamız gerekmez.
+
+**İlişkili sözcükler:** near synonym: from the beginning
+
 ## I
 
 ### inbound · adjective
@@ -380,6 +492,30 @@
 
 **İlişkili sözcükler:** antonym: outbound
 
+### incremental · adjective
+
+**Türkçe:** artımlı; küçük adımlarla ilerleyen
+
+**Bağlam — kaynak s. 428:** Monoliti bir anda değiştirmek yerine işlevleri parça parça taşıyan yaklaşım.
+
+> **English:** Incremental migration delivers value early.
+>
+> **Türkçe:** Artımlı geçiş erken değer sağlar.
+
+**İlişkili sözcükler:** family: increment, incrementally; contrast: big bang
+
+### integration glue · noun phrase
+
+**Türkçe:** bütünleştirme bağlantısı
+
+**Bağlam — kaynak s. 444:** Servis ve monolitin API’ler üzerinden birlikte çalışmasını sağlayan adaptör kodu.
+
+> **English:** The integration glue hides the IPC mechanism.
+>
+> **Türkçe:** Bütünleştirme bağlantısı IPC mekanizmasını gizler.
+
+**İlişkili sözcükler:** related: integrate, integration, adapter
+
 ### interprocess communication · noun phrase
 
 **Türkçe:** süreçler arası iletişim
@@ -388,7 +524,7 @@
 
 > **English:** Services use interprocess communication to collaborate.
 >
-> **Türkçe:** Servisler, işbirliği yapmak için süreçler arası iletişim kullanır.
+> **Türkçe:** Servisler, iş birliği yapmak için süreçler arası iletişim kullanır.
 
 **İlişkili sözcükler:** process, communicate, communication; karşılaştırma: local method call.
 
@@ -417,6 +553,18 @@
 > **Türkçe:** Ağ gecikmesi, yanıt süresini artırır.
 
 **İlişkili sözcükler:** response time; compare: throughput
+
+### legacy · adjective
+
+**Türkçe:** mevcut eski sistemden kalan
+
+**Bağlam — kaynak s. 430:** Kullanımda olan ancak modernleştirilmek istenen uygulama veya kod tabanı.
+
+> **English:** The legacy application continues to run during migration.
+>
+> **Türkçe:** Eski uygulama geçiş sırasında çalışmayı sürdürür.
+
+**İlişkili sözcükler:** related: legacy code; contrast: modernized
 
 ### loosely coupled · adjective phrase
 
@@ -448,7 +596,7 @@
 
 **Türkçe:** monolit; tek dağıtılabilir bütün
 
-**Bağlam — kaynak s. 428, 429, 430, 431, 432 ve devamı:** Kaynakta tek WAR dosyası gibi tek birim olarak paketlenip dağıtılan uygulama.
+**Bağlam — kaynak s. 428, 429, 430, 431, 432 ve devamı:** Tek birim olarak paketlenip dağıtılan uygulama; WAR, Java uygulamaları için olası paketleme örneklerinden biridir.
 
 > **English:** The monolith is packaged as a single WAR file.
 >
@@ -470,6 +618,18 @@
 
 **İlişkili sözcükler:** observe, observable, observation; ilişkili: metrics, tracing, logging.
 
+### on demand · adverbial phrase
+
+**Türkçe:** ihtiyaç oldukça
+
+**Bağlam — kaynak s. 442:** Özellik ya da hata düzeltme gereksinimi çıktığında ilgili servisi ayırmak.
+
+> **English:** The team extracts services on demand.
+>
+> **Türkçe:** Ekip ihtiyaç oldukça servis çıkarır.
+
+**İlişkili sözcükler:** near synonym: as needed
+
 ### outbound · adjective
 
 **Türkçe:** dışa giden
@@ -481,6 +641,18 @@
 > **Türkçe:** Giden yönlü bir adapter, veritabanına erişir.
 
 **İlişkili sözcükler:** antonym: inbound
+
+### outgrow · verb
+
+**Türkçe:** büyüyerek sınırlarını aşmak; artık sığmamak
+
+**Bağlam — kaynak s. 430:** Uygulamanın ihtiyaçlarının mevcut mimarinin karşılayabileceği düzeyi aşması.
+
+> **English:** The application has outgrown its architecture.
+>
+> **Türkçe:** Uygulamanın ihtiyaçları mevcut mimarisinin kapasitesini aşmıştır.
+
+**İlişkili sözcükler:** family: outgrew, outgrown; related: growth
 
 ### overhead · noun
 
@@ -508,6 +680,18 @@
 
 **İlişkili sözcükler:** design pattern, architectural pattern; ilişkili: reusable solution. Her bağlam için tek reçete değildir.
 
+### pivot transaction · noun phrase
+
+**Türkçe:** dönüm noktası işlemi
+
+**Bağlam — kaynak s. 450:** Saga’nın tamamlanma yönünde ilerlemesinin kesinleştiği iş adımı; sonrasındaki işlemler yeniden denenebilirdir.
+
+> **English:** The monolith executes the pivot transaction.
+>
+> **Türkçe:** Monolit, dönüm noktası işlemini yürütür.
+
+**İlişkili sözcükler:** related: point of no return; go/no-go point
+
 ### polling · noun
 
 **Türkçe:** düzenli aralıklarla sorgulama
@@ -519,6 +703,18 @@
 > **Türkçe:** Polling, tabloda yeni mesaj olup olmadığını denetler.
 
 **İlişkili sözcükler:** poll; poller
+
+### proactively · adverb
+
+**Türkçe:** sorun büyümeden önceden harekete geçerek
+
+**Bağlam — kaynak s. 455:** Müşteri şikâyet etmeden gecikmeyi fark edip telafi sunma yaklaşımı.
+
+> **English:** Customer service proactively contacts the customer.
+>
+> **Türkçe:** Müşteri hizmetleri, şikâyeti beklemeden müşteriyle iletişime geçer.
+
+**İlişkili sözcükler:** family: proactive; contrast: reactively
 
 ### provider · noun
 
@@ -572,6 +768,18 @@
 
 **İlişkili sözcükler:** reliable, reliably, unreliable; karşılaştırma: availability.
 
+### replica · noun
+
+**Türkçe:** veri kopyası
+
+**Bağlam — kaynak s. 446:** Sahiplik diğer bileşende kalırken yerel sorgulama için güncel tutulan veri kopyası.
+
+> **English:** The replica stores only the required attributes.
+>
+> **Türkçe:** Kopya yalnızca gereken nitelikleri saklar.
+
+**İlişkili sözcükler:** family: replicate, replication; related: synchronize
+
 ### repository · noun
 
 **Türkçe:** veri erişimini soyutlayan nesne
@@ -583,6 +791,18 @@
 > **Türkçe:** Repository, bir aggregate yükler.
 
 **İlişkili sözcükler:** retrieve; persistence
+
+### retriable transaction · noun phrase
+
+**Türkçe:** yeniden denenebilir işlem
+
+**Bağlam — kaynak s. 450:** Pivot’tan sonra yer alan, geçici hata giderildiğinde yeniden denenerek tamamlanabilen iş adımı.
+
+> **English:** A retriable transaction may encounter a temporary network failure.
+>
+> **Türkçe:** Yeniden denenebilir bir işlem geçici bir ağ hatasıyla karşılaşabilir.
+
+**İlişkili sözcükler:** family: retry; related: idempotent
 
 ### retrieve · verb
 
@@ -634,6 +854,18 @@
 
 **İlişkili sözcükler:** scale, scalable, scaling; ilişkili: horizontal scaling, partitioning.
 
+### seam · noun
+
+**Türkçe:** doğal ayrım hattı
+
+**Bağlam — kaynak s. 436:** Kodun daha az bağımlılıkla bölünebildiği arayüz sınırı; burada dikiş diye çevrilmez.
+
+> **English:** The facade provides a natural seam for splitting the application.
+>
+> **Türkçe:** Facade, uygulamayı bölmek için doğal bir ayrım hattı sunar.
+
+**İlişkili sözcükler:** related: boundary, interface
+
 ### semantic lock · noun phrase
 
 **Türkçe:** anlamsal kilit
@@ -658,6 +890,18 @@
 
 **İlişkili sözcükler:** discover; registry
 
+### shrink · verb
+
+**Türkçe:** küçülmek; küçültmek
+
+**Bağlam — kaynak s. 431:** İşlevler servislere taşındıkça monolitin kapsamının azalması.
+
+> **English:** The monolith shrinks as services take over its responsibilities.
+>
+> **Türkçe:** Servisler sorumluluklarını devraldıkça monolit küçülür.
+
+**İlişkili sözcükler:** family: shrank, shrunk; antonym: grow
+
 ### span · verb
 
 **Türkçe:** birden fazla alanı kapsamak, yayılmak
@@ -681,6 +925,18 @@
 > **Türkçe:** Tek bir uygulamayı dağıtmak görece kolaydır.
 
 **İlişkili sözcükler:** straightforwardly; synonym: uncomplicated, clear; antonym: complicated.
+
+### strangler application · noun phrase
+
+**Türkçe:** eski uygulamanın yerini aşamalı alan uygulama
+
+**Bağlam — kaynak s. 428:** Eski monolitin çevresinde geliştirilir; yeni servisler zamanla onun işlevlerini devralır.
+
+> **English:** The strangler application runs alongside the monolith.
+>
+> **Türkçe:** Strangler application monolitle birlikte çalışır.
+
+**İlişkili sözcükler:** related: strangler vine; incremental replacement
 
 ### synchronous · adjective
 
@@ -720,6 +976,18 @@
 
 **İlişkili sözcükler:** tech stack; ilişkili: framework, language, infrastructure.
 
+### time-boxed · adjective
+
+**Türkçe:** süresi önceden sınırlandırılmış
+
+**Bağlam — kaynak s. 442:** Mimariyi tanımlama çalışmasına baştan kısa ve belirli süre ayırmak.
+
+> **English:** A time-boxed workshop defines an initial architecture.
+>
+> **Türkçe:** Süresi önceden sınırlandırılmış bir atölye ilk mimariyi tanımlar.
+
+**İlişkili sözcükler:** related: time box, deadline
+
 ### transaction · noun
 
 **Türkçe:** bir bütün olarak yönetilen veri işlemi
@@ -736,13 +1004,39 @@
 
 **Türkçe:** geçiş, değişime uyum süreci; geçiş yapmak
 
-**Bağlam — kaynak s. 441:** Mimari değişimin yanında insanların yeni çalışma biçimine uyum sağlaması.
+**Bağlam — kaynak s. 441:** Eski ve yeni şemanın veya domain model sürümlerinin birlikte korunduğu geçiş dönemidir.
 
-> **English:** People need support during the transition.
+> **English:** The old schema remains available during the transition.
 >
-> **Türkçe:** İnsanlar, geçiş sürecinde desteğe ihtiyaç duyar.
+> **Türkçe:** Geçiş süresince eski şema kullanılabilir kalır.
 
-**İlişkili sözcükler:** transitional; ilişkili: change, adaptation. Kaynak, dış değişiklik ile ona verilen duygusal yanıtı ayırır.
+**İlişkili sözcükler:** transitional; ilişkili: change, adaptation. Bu bölümde transition period, eski istemcilerin aşamalı taşınmasını sağlayan teknik geçiş dönemidir.
+
+## U
+
+### ubiquitous language · noun phrase
+
+**Türkçe:** ortak alan dili
+
+**Bağlam — kaynak s. 447:** DDD’de bir bounded context içinde geliştiriciler ve alan uzmanlarının paylaştığı kavramlar ve adlandırmalar.
+
+> **English:** Each bounded context has its own ubiquitous language.
+>
+> **Türkçe:** Her bounded context’in kendi ortak alan dili vardır.
+
+**İlişkili sözcükler:** general meaning: ubiquitous = her yerde bulunan; teknik kalıp bütün olarak çevrilir
+
+### undertaking · noun
+
+**Türkçe:** üstlenilen büyük iş
+
+**Bağlam — kaynak s. 429:** Monoliti mikroservislere taşımanın önemli emek ve kaynak gerektiren bir girişim olması.
+
+> **English:** Extracting this service is a significant undertaking.
+>
+> **Türkçe:** Bu servisi çıkarmak büyük bir iştir.
+
+**İlişkili sözcükler:** family: undertake, undertook, undertaken
 
 ## V
 
@@ -757,6 +1051,20 @@
 > **Türkçe:** Görünüm, birkaç servisten gelen verileri birleştirir.
 
 **İlişkili sözcükler:** materialized view; perspective
+
+## W
+
+### widespread · adjective
+
+**Türkçe:** geniş çaplı; birçok yere yayılan
+
+**Bağlam — kaynak s. 432:** Küçük görünen bir model değişikliğinin kod tabanının pek çok yerine yayılması.
+
+> **English:** The new entity state requires widespread changes.
+>
+> **Türkçe:** Yeni entity durumu geniş çaplı değişiklikler gerektirir.
+
+**İlişkili sözcükler:** near synonyms: extensive, broad
 
 ## Mini quiz — Özgün çalışma soruları
 

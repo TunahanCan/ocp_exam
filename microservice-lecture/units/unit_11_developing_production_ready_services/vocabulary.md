@@ -132,6 +132,18 @@
 
 **İlişkili sözcükler:** open; closed; half-open
 
+### claim · noun
+
+**Türkçe:** beyan; belirteçte taşınan bilgi
+
+**Bağlam — kaynak s. 356:** JWT içindeki kullanıcı veya belirteç bilgisi.
+
+> **English:** A claim can identify the subject.
+>
+> **Türkçe:** Bir claim, özneyi tanımlayabilir.
+
+**İlişkili sözcükler:** subject, issuer, audience
+
 ### consumer · noun
 
 **Türkçe:** tüketici
@@ -168,6 +180,18 @@
 
 **İlişkili sözcükler:** coupled; decouple
 
+### credential · noun
+
+**Türkçe:** kimlik doğrulama bilgisi
+
+**Bağlam — kaynak s. 350–360:** Parola veya API anahtarı gibi kimliği doğrulamakta kullanılan veri.
+
+> **English:** The gateway verifies the credentials.
+>
+> **Türkçe:** Gateway kimlik bilgilerini doğrular.
+
+**İlişkili sözcükler:** credentials (çoğul); authentication
+
 ### cross-cutting concern · noun phrase
 
 **Türkçe:** birden fazla alanı kesen ortak sorumluluk
@@ -181,6 +205,18 @@
 **İlişkili sözcükler:** concern: ilgilenilmesi gereken konu; ilişkili: shared responsibility, infrastructure.
 
 ## D
+
+### decrypt · verb
+
+**Türkçe:** şifreyi çözmek
+
+**Bağlam — kaynak s. 364:** Şifreli yapılandırma verisini okunabilir hâle getirme.
+
+> **English:** The server decrypts the property.
+>
+> **Türkçe:** Sunucu özelliğin şifresini çözer.
+
+**İlişkili sözcükler:** antonym: encrypt; decryption, encryption
 
 ### deploy · verb
 
@@ -255,6 +291,18 @@
 > **Türkçe:** Event sourcing, değişiklikleri olaylar olarak saklar.
 
 **İlişkili sözcükler:** event store; replay
+### externalized configuration · noun phrase
+
+**Türkçe:** dışarıdan yapılandırma
+
+**Bağlam — kaynak s. 360–364:** Ortama bağlı değerlerin servis kodundan ayrılıp çalışma zamanında sağlanması.
+
+> **English:** Configuration values are supplied at runtime.
+>
+> **Türkçe:** Yapılandırma değerleri çalışma zamanında sağlanır.
+
+**İlişkili sözcükler:** configure, configuration, configurable
+
 
 ## F
 
@@ -262,11 +310,11 @@
 
 **Türkçe:** özellik, işlev
 
-**Bağlam — kaynak s. 366:** Kullanıcıya veya işletmeye değer sağlayan uygulama yeteneği; bir özellik birden çok servise yayılabilir.
+**Bağlam — kaynak s. 366:** Buradaki distinctive feature, bir örüntüyü ayırt eden niteliği anlatır. Yazılım işlevi anlamındaki feature ile bağlama göre ayrılır.
 
-> **English:** The new feature changes two services.
+> **English:** A distinctive feature is the shared responsibility.
 >
-> **Türkçe:** Yeni özellik, iki serviste değişiklik yapıyor.
+> **Türkçe:** Ayırt edici özellik, sorumluluğun paylaşılmasıdır.
 
 **İlişkili sözcükler:** feature-rich; yakın anlamlı: functionality. Feature branch, belirli bir özellik için açılan geliştirme dalıdır.
 
@@ -293,6 +341,20 @@
 > **Türkçe:** Uyumsuz bir API değişikliği, istemcileri sürüm yükseltmeye zorlayabilir.
 
 **İlişkili sözcükler:** force someone to do something; forced; synonym: compel. İsim olarak forces, örüntü tasarımında çözümü etkileyen etkenlerdir.
+
+## G
+### gauge · noun
+
+**Türkçe:** anlık değer göstergesi
+
+**Bağlam — kaynak s. 366:** Bellek kullanımı gibi o andaki değeri ölçen metrik.
+
+> **English:** A gauge reports the current value.
+>
+> **Türkçe:** Gauge o andaki değeri bildirir.
+
+**İlişkili sözcükler:** compare: counter; metric
+
 
 ## H
 
@@ -388,6 +450,18 @@
 
 **İlişkili sözcükler:** observe, observable, observation; ilişkili: metrics, tracing, logging.
 
+### opaque · adjective
+
+**Türkçe:** içeriği dışarıdan anlamlandırılamayan; opak
+
+**Bağlam — kaynak s. 351, 356:** Alıcının kullanıcı bilgisini belirtecin kendisinden okuyamadığı token türü.
+
+> **English:** An opaque token refers to server-side data.
+>
+> **Türkçe:** Opak belirteç sunucudaki verilere işaret eder.
+
+**İlişkili sözcükler:** antonym in this text: transparent
+
 ### outbound · adjective
 
 **Türkçe:** dışa giden
@@ -425,6 +499,18 @@
 > **Türkçe:** Polling, tabloda yeni mesaj olup olmadığını denetler.
 
 **İlişkili sözcükler:** poll; poller
+### principal · noun
+
+**Türkçe:** işlemi yapan özne
+
+**Bağlam — kaynak s. 350–360:** Kimliği doğrulanan kullanıcı veya uygulama; okul müdürü anlamında değildir.
+
+> **English:** The principal has two roles.
+>
+> **Türkçe:** İşlemi yapan öznenin iki rolü vardır.
+
+**İlişkili sözcükler:** identity, subject, role
+
 
 ## Q
 
@@ -454,15 +540,27 @@
 
 **İlişkili sözcükler:** recovery, recoverable; kalıp: recover from; ilişkili: restore service.
 
+### refresh token · noun phrase
+
+**Türkçe:** yenileme belirteci
+
+**Bağlam — kaynak s. 358–360:** Yeni access token almak için kullanılan belirteç.
+
+> **English:** The client uses a refresh token to obtain a new access token.
+>
+> **Türkçe:** İstemci yeni erişim belirteci almak için yenileme belirteci kullanır.
+
+**İlişkili sözcükler:** refresh, revoke, expire
+
 ### registry · noun
 
 **Türkçe:** kayıt servisi veya dizini
 
-**Bağlam — kaynak s. 375:** Çalışan servis örneklerinin adresleri gibi bilgileri tutar.
+**Bağlam — kaynak s. 375:** Buradaki MeterRegistry, uygulama metriklerinin oluşturulduğu ve yönetildiği kayıt nesnesidir. Service registry ise servis adreslerini tutar; iki bağlamı ayırın.
 
-> **English:** The registry stores the locations of service instances.
+> **English:** The meter registry manages application counters.
 >
-> **Türkçe:** Kayıt servisi, servis örneklerinin konumlarını saklar.
+> **Türkçe:** Metrik kayıt nesnesi, uygulamanın sayaçlarını yönetir.
 
 **İlişkili sözcükler:** register; registration
 
@@ -489,6 +587,18 @@
 > **Türkçe:** Sorgu, iki servisten veri alır.
 
 **İlişkili sözcükler:** retrieval, retrievable; synonym: fetch, obtain; karşılaştırma: store.
+
+### revoke · verb
+
+**Türkçe:** iptal etmek; verilmiş yetkiyi geri almak
+
+**Bağlam — kaynak s. 357, 360:** Bir token veya iznin geçerliliğini kaldırma.
+
+> **English:** The server can revoke the refresh token.
+>
+> **Türkçe:** Sunucu yenileme belirtecini iptal edebilir.
+
+**İlişkili sözcükler:** revocation, revocable, irrevocable
 
 ### routing · noun
 
@@ -601,18 +711,30 @@
 > **Türkçe:** Transaction, siparişi günceller.
 
 **İlişkili sözcükler:** transactional; commit
+### troubleshoot · verb
+
+**Türkçe:** sorunu teşhis edip gidermek
+
+**Bağlam — kaynak s. 349, 365–367:** Belirtileri inceleyerek sorunun nedenini bulup çözme.
+
+> **English:** The team uses logs to troubleshoot the failure.
+>
+> **Türkçe:** Ekip arızayı teşhis edip gidermek için logları kullanır.
+
+**İlişkili sözcükler:** troubleshooting; diagnose, root cause
+
 
 ## V
 
-### view · noun
+### view · noun / verb
 
 **Türkçe:** görünüm
 
-**Bağlam — kaynak s. 350, 368, 369, 376, 377:** Bağlama göre mimari bakış açısı veya sorgulama için düzenlenmiş veri modelidir.
+**Bağlam — kaynak s. 350, 368, 369, 376, 377:** High-level view genel bakışı; view logs ise logları görüntüleme eylemini anlatır. Bu ünitede her view, veritabanı görünümü değildir.
 
-> **English:** The view combines data from several services.
+> **English:** You can view and search the logs.
 >
-> **Türkçe:** Görünüm, birkaç servisten gelen verileri birleştirir.
+> **Türkçe:** Logları görüntüleyebilir ve arayabilirsiniz.
 
 **İlişkili sözcükler:** materialized view; perspective
 

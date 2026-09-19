@@ -698,6 +698,8 @@
 
 **İlişkili sözcükler:** materialized view; perspective
 
+<!-- page-break -->
+
 ## Mini quiz — Özgün çalışma soruları
 
 Aşağıdaki açıklamaların İngilizce karşılıklarını yazın. Cevapları alttaki anahtardan kontrol edin.

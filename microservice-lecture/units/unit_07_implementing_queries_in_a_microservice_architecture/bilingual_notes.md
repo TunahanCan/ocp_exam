@@ -194,7 +194,7 @@
 
 <!-- source-record: u07_0030 -->
 
-### Pattern: API composition — Şekil: API bileşimi
+### Pattern: API composition — Örüntü: API composition (API bileşimi)
 
 <!-- source-record: u07_0031 -->
 
@@ -462,7 +462,7 @@
 
 <!-- source-record: u07_0075 -->
 
-### Pattern: Command query responsibility segregation — örüntü: Komut sorgu sorumluluk ayrımı
+### Pattern: Command query responsibility segregation — Örüntü: Komut ve sorgu sorumluluklarının ayrılması (CQRS)
 
 <!-- source-record: u07_0076 -->
 

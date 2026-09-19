@@ -14,11 +14,11 @@
 
 > **English — Kaynak örneği (s. 123):** Note that in final step, the saga orchestrator sends a command message to Order Service, even though it’s a component of Order Service.
 >
-> **Türkçe:** Son adımda, saga orkestratörünün Order Service'ye bir komut mesajı gönderdiğine dikkat edin, bu Order Service'in bir bileşeni olmasına rağmen.
+> **Türkçe:** Son adımda saga orchestrator’ın, Order Service’in bir bileşeni olmasına rağmen Order Service’e komut mesajı gönderdiğine dikkat edin.
 
 > **English — Kaynak örneği (s. 145):** An application may even need to use locking in order to simplify the business logic, even though that risks deadlocks.
 >
-> **Türkçe:** Bir uygulama, iş mantığını basitleştirmek için bile kilitleme kullanması gerekebilir, hatta bu, çıkış noktası riskine rağmen.
+> **Türkçe:** Uygulamanın, deadlock (kilitlenme) riski doğursa bile iş mantığını basitleştirmek için kilitleme kullanması gerekebilir.
 
 > **YDS ipucu:** Despite of kullanılmaz. Çekimli cümle varsa although; isim grubu varsa despite düşünün.
 
@@ -30,7 +30,7 @@
 
 > **English — Kaynak örneği (s. 112):** In contrast, implementing the same operation in a microservice architecture is much more complicated.
 >
-> **Türkçe:** Öte yandan, aynı işlevi mikroservis mimarisinde uygulamak çok daha karmaşıktır.
+> **Türkçe:** Buna karşılık aynı işlemi mikroservis mimarisinde gerçekleştirmek çok daha karmaşıktır.
 
 > **YDS ipucu:** Whereas karşıtlık kurar; zaman bildiren when ile aynı değildir. On the other hand cümleler arasında geçiş ifadesidir.
 
@@ -42,11 +42,11 @@
 
 > **English — Kaynak örneği (s. 143):** The following listing is an excerpt of the OrderServiceConfiguration class, which is an @Configuration class that instantiates and wires together the Spring @Beans.
 >
-> **Türkçe:** Aşağıdaki liste OrderServiceConfiguration sınıfının bir parçasıdır, bu @Configuration sınıfıdır ve Spring @Beans'yi bir araya getirir.
+> **Türkçe:** Sonraki kod bloğu, Spring @Bean’lerini oluşturup birbirine bağlayan bir @Configuration sınıfı olan OrderServiceConfiguration sınıfından bir bölümdür.
 
 > **English — Kaynak örneği (s. 125):** Fortunately, you can avoid this problem by designing orchestrators that are solely responsible for sequencing and don’t contain any other business logic.
 >
-> **Türkçe:** Neyse ki, bu sorunu sıralanma sorumluluğu olan ve başka herhangi bir iş mantığı olmayan orkestrasyoncuları tasarlayarak önleyebilirsiniz.
+> **Türkçe:** Neyse ki yalnızca adımların sırasından sorumlu olan ve başka iş mantığı içermeyen orchestrator’lar tasarlayarak bu sorunu önleyebilirsiniz.
 
 > **YDS ipucu:** Virgüllü ek bilgi cümleciğinde that kullanılmaz. Edat + which yapısında edatın anlamını çeviriye katın. Bir fiilin içeriğini veren “ensure that ...” ise isim niteleyen relative clause değildir; that öncesindeki yapıyı kontrol edin.
 
@@ -58,11 +58,11 @@
 
 > **English — Kaynak örneği (s. 125):** Less coupling—Each service implements an API that is invoked by the orchestrator, so it does not need to know about the events published by the saga participants.
 >
-> **Türkçe:** Each service, orkestratör tarafından çağrılan bir API uyguluyor, bu nedenle saga katılımcıları tarafından yayınlanan olaylar hakkında bilgi sahibi olmama ihtiyacı yoktur.
+> **Türkçe:** Daha az coupling (bağlılık) — Her servis, orchestrator’ın çağırdığı bir API gerçekleştirir; dolayısıyla saga katılımcılarının yayımladığı olayları bilmesi gerekmez.
 
 > **English — Kaynak örneği (s. 133):** The SagaManager class is one of the classes provided by the Eventuate Tram Saga framework, which is a framework for writing saga orchestrators and participants, and is discussed a little later in this section.
 >
-> **Türkçe:** SagaManager sınıfı, saga orkeströrlerini ve katılımcılarını yazmak için bir çerçeve olan Eventuate Tram Saga çerçevesi tarafından sağlanan sınıflardan biridir ve bu bölümde biraz daha sonra tartışılır.
+> **Türkçe:** SagaManager, saga orchestrator’ları ve katılımcıları yazmak için kullanılan Eventuate Tram Saga framework’ünün sağladığı sınıflardan biridir. Bu framework bölümün biraz ilerleyen kısmında ele alınır.
 
 > **YDS ipucu:** Cümlenin asıl çekimli fiilini ayrı bulun. İsimden sonra gelen V3 her zaman yeni bir ana yüklem değildir.
 
@@ -74,11 +74,11 @@
 
 > **English — Kaynak örneği (s. 121):** As a result, there’s a risk that it would need to be updated in lockstep with the order lifecycle implemented by Order Service.
 >
-> **Türkçe:** Sonuç olarak, Order Service tarafından uygulanan sipariş yaşam döngüsü ile bağlı olarak güncellenmesi gerekebilir.
+> **Türkçe:** Sonuç olarak bunun, Order Service’in gerçekleştirdiği sipariş yaşam döngüsüyle birlikte güncellenmek zorunda kalması riski vardır.
 
 > **English — Kaynak örneği (s. 126):** An anomaly is when a transaction reads or writes data in a way that it wouldn’t if transactions were executed one at time.
 >
-> **Türkçe:** Anomali, bir işlemin verileri bir seferde teker teker yapılmasaydı yapmadığı bir şekilde okunduğu ya da yazdığı zaman.
+> **Türkçe:** Bir transaction’ın, transaction’lar sırayla yürütülseydi gerçekleşmeyecek biçimde veri okuması veya yazması anomali oluşturur.
 
 > **YDS ipucu:** Must be deployed doğrudur; must deployed yanlıştır. By + kişi/araç ile by + -ing yöntem yapısını bağlamdan ayırın.
 
@@ -90,7 +90,7 @@
 
 > **English — Kaynak örneği (s. 115):** That’s because if the recipient of a message is temporarily unavailable, the message broker buffers the message until it can be delivered.
 >
-> **Türkçe:** Çünkü mesaj alıcısı geçici olarak kullanılamazsa, mesaj aracı mesajı teslim edilene kadar bufferleştiriyor.
+> **Türkçe:** Çünkü mesajın alıcısı geçici olarak kullanılamıyorsa mesaj aracısı, mesajı teslim edilebilir hâle gelene kadar tamponda tutar.
 
 > **YDS ipucu:** If cümleciğindeki past bazen geçmiş zamanı değil varsayımı gösterir. Türkçedeki “olsaydı” tek başına zamanı belirlemez.
 
@@ -102,11 +102,11 @@
 
 > **English — Kaynak örneği (s. 131):** The version file countermeasure is so named because it records the operations that are performed on a record so that it can reorder them.
 >
-> **Türkçe:** Versiyon dosyası karşı önleminin adı, bir kayıt üzerinde yapılan işlemleri kaydettiğinden, onları yeniden düzenleyebilmesi için bu şekilde adlandırılmıştır.
+> **Türkçe:** Version file karşı önlemi, bir kayıt üzerinde gerçekleştirilen işlemleri yeniden sıralayabilmek için kaydettiğinden bu adı alır.
 
 > **English — Kaynak örneği (s. 125):** As described in chapter 3, a service must use transactional messaging in order to atomically update the database and publish messages.
 >
-> **Türkçe:** Bölüm 3'de açıklandığı gibi, bir servis, veri tabanını atomik olarak güncellemek ve mesajları yayınlamak için işlem mesajlaşmalarını kullanmalıdır.
+> **Türkçe:** 3. bölümde açıklandığı gibi servis, veritabanını güncelleme ile mesaj yayımlamayı atomik olarak gerçekleştirmek için transactional messaging (işlemsel mesajlaşma) kullanmalıdır.
 
 > **YDS ipucu:** To sonrasında yalın fiil; so that sonrasında özne ve çekimli fiil gelir. So ... that derece-sonuç yapısıyla karıştırmayın.
 
@@ -118,11 +118,11 @@
 
 > **English — Kaynak örneği (s. 132):** Also, because Order Service participates in its own sagas, it has an OrderCommandHandlers adapter class that handles command messages by invoking OrderService.
 >
-> **Türkçe:** Ayrıca, Order Service kendi saga’lar'de katıldığı için, OrderCommandHandlers uyarıcı sınıfına sahiptir ve OrderService'yi çağıracak şekilde komut mesajlarını ele alır.
+> **Türkçe:** Ayrıca Order Service kendi saga’larına katıldığından, OrderService’i çağırarak komut mesajlarını işleyen OrderCommandHandlers adapter sınıfına sahiptir.
 
 > **English — Kaynak örneği (s. 125):** Order Service processes the participant’s reply message by updating the state of the saga orchestrator and sending a command message to the next saga participant.
 >
-> **Türkçe:** Order Service, saga orkestratörünün durumunu güncelleyerek ve bir sonraki saga katılımcıya komut mesajı göndererek katılımcının cevap mesajını işliyor.
+> **Türkçe:** Order Service, saga orchestrator’ın durumunu güncelleyip sonraki saga katılımcısına komut mesajı göndererek katılımcının yanıt mesajını işler.
 
 > **YDS ipucu:** By implementing “uygulayarak” anlamındadır. Edat by sonrasında yalın fiil kullanılmaz.
 
@@ -134,11 +134,13 @@
 
 > **English — Kaynak örneği (s. 111):** Instead of an ACID transaction, an operation that spans services must use what’s known as a saga, a message-driven sequence of local transactions, to maintain data consistency.
 >
-> **Türkçe:** Bir ACID işleminin yerine, servisleri kapsayan bir işlem, verilerin tutarlılığını korumak için yerel işlemlerin mesaj yönlendirilen bir dizisi olan saga olarak bilinen bir işlem kullanmalıdır.
+> **Türkçe:** Servisler arasında yürütülen bir işlem, veri tutarlılığını korumak için ACID transaction yerine saga adı verilen, mesajlarla ilerleyen bir yerel transaction dizisi kullanmalıdır.
 
 > **English — Kaynak örneği (s. 113):** Today, architects prefer to have a system that’s available rather than one that’s consistent.
 >
-> **Türkçe:** Günümüzde mimarlar, tutarlı olmaktan ziyade mevcut bir sisteme sahip olmayı tercih ederler.
+> **Türkçe:** Kaynak anlatımında günümüz mimarları, tutarlı olan bir sistem yerine kullanılabilir durumda olan bir sistemi tercih eder.
+
+> **Bağlam notu:** Bu tercih cümlesi, kaynak bölümündeki dağıtık sistem ve ağ bölünmesi bağlamında okunmalıdır; her mimarın her durumda tutarlılıktan vazgeçtiği yönünde evrensel bir kural değildir. Grammar odağı **rather than** ile tercih edilen seçeneklerin ayrılmasıdır.
 
 > **YDS ipucu:** Instead of sonrasında doğrudan çekimli cümle gelmez. Rather than ile karşılaştırılan parçaların dilbilgisel biçimini izleyin.
 
@@ -150,11 +152,11 @@
 
 > **English — Kaynak örneği (s. 114):** Chapter 3 described how to send messages as part of a database transaction without using distributed transactions.
 >
-> **Türkçe:** Bölüm 3 dağıtılmış işlemleri kullanmadan bir veritabanı işleminin bir parçası olarak mesajların nasıl gönderileceğini açıkladı.
+> **Türkçe:** 3. bölüm, dağıtık transaction kullanmadan veritabanı transaction’ının parçası olarak mesajların nasıl gönderileceğini açıkladı.
 
 > **English — Kaynak örneği (s. 114):** Sagas are mechanisms to maintain data consistency in a microservice architecture without having to use distributed transactions.
 >
-> **Türkçe:** saga’lar, dağıtılmış işlemleri kullanmadan mikroservis mimarisinde veri tutarlılığını korumak için mekanizmalardır.
+> **Türkçe:** Saga’lar, dağıtık transaction kullanmak zorunda kalmadan mikroservis mimarisinde veri tutarlılığını korumaya yarayan mekanizmalardır.
 
 > **YDS ipucu:** Without not ile otomatik birleşmez. “Without losing data”, “veri kaybetmeden” anlamındadır.
 
@@ -166,11 +168,11 @@
 
 > **English — Kaynak örneği (s. 111):** I discuss how to use countermeasures to prevent or reduce the impact of concurrency anomalies caused by the lack of isolation between sagas.
 >
-> **Türkçe:** saga’lar arasındaki izolasyon eksikliğinden kaynaklanan eşzamanlı anomalilerin etkilerini önlemek veya azaltmak için karşı önlemleri nasıl kullanacağımızı tartışıyorum.
+> **Türkçe:** Saga’lar arasındaki yalıtım eksikliğinin yol açtığı eşzamanlılık anomalilerini önlemek veya etkilerini azaltmak için karşı önlemlerin nasıl kullanılacağını ele alıyorum.
 
 > **English — Kaynak örneği (s. 125):** Later on in section 4.4, I’ll describe the implementation of the Create Order Saga orchestrator in more detail, including how it uses transaction messaging.
 >
-> **Türkçe:** Daha sonra bölüm 4.4'te, Create Order Saga orkestratörünün uygulanmasını daha ayrıntılı bir şekilde tarif edeceğim.
+> **Türkçe:** İleride 4.4. bölümde, transaction messaging kullanımını da kapsayacak biçimde Create Order Saga orchestrator’ın gerçekleştirimini daha ayrıntılı açıklayacağım.
 
 > **YDS ipucu:** Dolaylı soruda düz cümle sırası kullanılır: how the service works. How does the service work doğrudan sorudur.
 
@@ -182,7 +184,7 @@
 
 > **English — Kaynak örneği (s. 120):** The solution is for a saga participant to publish events containing a correlation id, which is data that enables other participants to perform the mapping.
 >
-> **Türkçe:** Çözüm, saga katılımcısının, diğer katılımcıların eşlemeyı gerçekleştirmelerini sağlayan bir ilişki kimliği içeren olayları yayınlamasıdır.
+> **Türkçe:** Çözüm, saga katılımcısının correlation ID (ilişkilendirme kimliği) içeren olaylar yayımlamasıdır; bu kimlik, diğer katılımcıların eşlemeyi yapmasını sağlayan veridir.
 
 > **YDS ipucu:** Enable/allow + object + to + V1; make + object + V1/adjective yapılarını arayın. Make a request gibi make + noun kullanımları bu yapı değildir. Edilgende make ile to geri gelir: be made to do.
 
@@ -194,7 +196,7 @@
 
 > **English — Kaynak örneği (s. 145):** Nevertheless, transaction management is certainly more complicated than in a monolithic architecture.
 >
-> **Türkçe:** Bununla birlikte, işlem yönetimi kesinlikle monolit bir mimarlıkta olduğundan daha karmaşık.
+> **Türkçe:** Bununla birlikte transaction yönetimi, monolitik mimaridekinden kesinlikle daha karmaşıktır.
 
 > **YDS ipucu:** Much ve far, comparative yapıyı güçlendirir. More easier biçiminde çift karşılaştırma kullanmayın. As well as ekleme yapabilir; “As simple as it sounds, ...” ise ödünleme/karşıtlık bildirir.
 
@@ -206,11 +208,11 @@
 
 > **English — Kaynak örneği (s. 121):** Choreography can work well for simple sagas, but because of these drawbacks it’s often better for more complex sagas to use orchestration.
 >
-> **Türkçe:** koreografi basit saga’lar için iyi çalışabilir, ancak bu dezavantajlar nedeniyle genellikle daha karmaşık saga’lar için orkestrasyon kullanmak daha iyidir.
+> **Türkçe:** Choreography basit saga’larda iyi çalışabilir; ancak bu sakıncaları nedeniyle daha karmaşık saga’larda orchestration kullanmak çoğu zaman daha iyidir.
 
 > **English — Kaynak örneği (s. 126):** That’s because the updates made by each of a saga’s local transactions are immediately visible to other sagas once that transaction commits.
 >
-> **Türkçe:** Çünkü saga'un yerel işlemlerinden her birinin yaptıkları güncellemeler, işlem yapıldığında diğer saga’lar'lere hemen görünür.
+> **Türkçe:** Çünkü saga’nın her yerel transaction’ının yaptığı güncellemeler, o transaction commit edildiği anda diğer saga’lar tarafından görülebilir.
 
 > **YDS ipucu:** Because ile because of sonrasındaki yapı farklıdır. As a result of + noun, neden belirtir.
 
@@ -222,11 +224,11 @@
 
 > **English — Kaynak örneği (s. 130):** You also need to decide on a case-by-case basis how a saga should deal with a record that has been locked.
 >
-> **Türkçe:** saga'un kilitli bir kayıtla nasıl ilgilenmesi gerektiğine de karar vermelisiniz.
+> **Türkçe:** Saga’nın kilitlenmiş bir kayıtla nasıl başa çıkacağına da her durum için ayrı ayrı karar vermelisiniz.
 
 > **English — Kaynak örneği (s. 131):** But if the Order has been cancelled, the transaction aborts the saga, which causes its compensating transactions to be executed.
 >
-> **Türkçe:** Ancak Order iptal edildiğinde, işlem saga'yi iptal eder ve telafi işlemleri'nin yürütülmesine neden olur.
+> **Türkçe:** Ancak Order iptal edilmişse transaction saga’yı durdurur; bunun sonucunda saga’nın compensating transaction’ları (telafi işlemleri) yürütülür.
 
 > **YDS ipucu:** Have/has ile V3 birlikte aranır. Been + V3 edilgen olabilir; been + -ing ise continuous yapıdır.
 
@@ -238,11 +240,11 @@
 
 > **English — Kaynak örneği (s. 117):** When a saga is initiated by system command, the coordination logic must select and tell the first saga participant to execute a local transaction.
 >
-> **Türkçe:** Bir saga sistem komutu tarafından başlatıldığında, koordinasyon mantığı, yerel bir işlem yürütmesi için ilk saga katılımcısını seçmeli ve söylemelidir.
+> **Türkçe:** Saga bir sistem komutuyla başlatıldığında koordinasyon mantığı, ilk saga katılımcısını seçmeli ve ona yerel transaction’ı yürütmesini söylemelidir.
 
 > **English — Kaynak örneği (s. 125):** For example, when using orchestration, the Order class has no knowledge of any of the sagas, so it has a simpler state machine model.
 >
-> **Türkçe:** Örneğin, orkestrasyon kullanıldığında, Order sınıfının saga’lar'den herhangi bir bilgisi yoktur, bu nedenle daha basit bir durum makinesi modeline sahiptir.
+> **Türkçe:** Örneğin orchestration kullanıldığında Order sınıfı saga’ların hiçbirinden haberdar değildir; bu nedenle daha basit bir durum makinesi modeline sahiptir.
 
 > **YDS ipucu:** Geleceğe yönelik zaman cümleciğinde genellikle present kullanılır: when it arrives. Until, “... olana kadar” sınırını verir. While eşzamanlılık ya da karşıtlık bildirebilir; anlam ilişkisini kontrol edin. Until + noun bir zaman ifadesidir, tam zaman cümleciği değildir.
 
@@ -254,11 +256,13 @@
 
 > **English — Kaynak örneği (s. 119):** The Create Order Saga must also handle the scenario where a saga participant rejects the Order and publishes some kind of failure event.
 >
-> **Türkçe:** Create Order Saga, saga katılımcısının Order'i reddettiği ve bir tür başarısızlık olayını yayınladığı senaryoyu da ele almalıdır.
+> **Türkçe:** Create Order Saga, bir saga katılımcısının Order’ı reddedip bir tür başarısızlık olayı yayımladığı senaryoyu da ele almalıdır.
 
 > **English — Kaynak örneği (s. 130):** It must also implement a deadlock detection algorithm that performs a rollback of a saga to break a deadlock and re-execute it.
 >
-> **Türkçe:** Aynı zamanda bir çıkışsız algıramı uygulamalıdır ve bir çıkışsızlığı kırmak ve tekrar gerçekleştirmek için geri alma'yi bir saga'ye uygulanmalıdır.
+> **Türkçe:** Ayrıca deadlock’u gidermek için saga’yı geri alıp yeniden yürüten bir deadlock detection (kilitlenme saptama) algoritması da gerçekleştirmelidir.
+
+> **Terim notu:** Saga için rollback sözcüğü, uygun telafi adımlarıyla geri alma anlamında okunmalıdır; daha önce commit edilmiş bütün yerel transaction’ların tek bir veritabanı rollback’iyle silinmesi değildir.
 
 > **YDS ipucu:** Must not yasak; do not have to zorunluluk yokluğu bildirir. Might ve may olasılık anlatır, kesinlik vermez.
 
@@ -270,7 +274,7 @@
 
 > **English — Kaynak örneği (s. 127):** Let’s imagine a scenario that interleaves the execution of the Cancel Order and Create Order Sagas, and the Cancel Order Saga is rolled back because it’s too late to cancel the delivery.
 >
-> **Türkçe:** Order'i iptal etmek ve Order saga’lar'i oluşturmak için bir senaryo hayal edelim. Cancel Order Saga teslimatı iptal etmek için çok geç olduğu için geri döndürülmüştür.
+> **Türkçe:** Cancel Order ve Create Order saga’larının yürütülmesinin iç içe geçtiği ve teslimatı iptal etmek için artık çok geç olduğundan Cancel Order Saga’nın geri alındığı bir senaryo düşünelim.
 
 > **YDS ipucu:** Enough sıfattan sonra, isimden önce gelir: fast enough; enough memory.
 

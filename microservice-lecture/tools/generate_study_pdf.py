@@ -109,7 +109,8 @@ def make_code(code, styles):
         remaining = original.expandtabs(4)
         first = True
         while remaining:
-            prefix = '' if first else '↪  '
+            # The bundled monospace fonts do not all contain U+21AA.
+            prefix = '' if first else '-> '
             length = len(remaining)
             while length > 1 and stringWidth(prefix + remaining[:length], style.fontName, style.fontSize) > available:
                 length -= 1
@@ -137,7 +138,9 @@ def make_code(code, styles):
         ('TOPPADDING',(0,0),(-1,0),7),
         ('BOTTOMPADDING',(0,-1),(-1,-1),7),
     ]))
-    return table
+    # A two-line condition or a short SQL statement is one reading unit.
+    # Longer listings retain their normal row-by-row page splitting.
+    return KeepTogether([table]) if len(rows) <= 10 else table
 
 
 def make_table(rows, styles):
@@ -417,9 +420,62 @@ def render(source: Path, output: Path | None = None) -> Path:
     output = output or source.with_suffix(".pdf")
     output.parent.mkdir(parents=True, exist_ok=True)
     document = MicroservicesDoc(str(output), title, unit_label)
-    document.build(theme.markdown_to_story(markdown, styles))
+    story = theme.markdown_to_story(markdown, styles)
+    # A standalone annotation label must travel with its bilingual explanation.
+    for index, flowable in enumerate(story):
+        if isinstance(flowable, Paragraph) and flowable.getPlainText().strip() == "Kod açıklaması:":
+            flowable.keepWithNext = True
+            for following in story[index + 1:]:
+                if not isinstance(following, Spacer):
+                    break
+                following.keepWithNext = True
+    if source.stem in {"vocabulary", "grammar_notes"}:
+        story = keep_study_topics_together(story, source.stem)
+    document.build(story)
     print(f"Generated {output} ({document.page} pages, {len(figures)} figures)")
     return output
+
+
+def keep_study_topics_together(story, document_kind):
+    """Keep short study cards whole; oversized topics may still split normally.
+
+    Operate on the rendered flowables so Markdown remains the only content
+    source. KeepTogether releases its children when a group cannot fit a page;
+    headings and their PDF destinations remain ordinary child flowables.
+    """
+    result, pending = [], []
+    level = 3 if document_kind == "vocabulary" else 2
+
+    def flush():
+        if pending:
+            result.append(KeepTogether(pending.copy()))
+            pending.clear()
+
+    for item in story:
+        heading = getattr(item, "study_heading", None)
+        if heading and heading[0] <= level:
+            flush()
+            title = heading[1]
+            is_topic = heading[0] == level and title.casefold() not in {
+                "içindekiler", "contents", "table of contents"
+            }
+            if is_topic:
+                if document_kind == "vocabulary" and result:
+                    previous_heading = getattr(result[-1], "study_heading", None)
+                    if previous_heading and previous_heading[0] == 2:
+                        pending.append(result.pop())
+                pending.append(item)
+            else:
+                result.append(item)
+        elif isinstance(item, PageBreak):
+            flush()
+            result.append(item)
+        elif pending:
+            pending.append(item)
+        else:
+            result.append(item)
+    flush()
+    return result
 
 
 def main() -> None:

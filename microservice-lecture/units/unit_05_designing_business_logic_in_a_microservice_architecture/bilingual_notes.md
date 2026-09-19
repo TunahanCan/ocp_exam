@@ -172,7 +172,7 @@
 
 <!-- source-record: u05_0024 -->
 
-### Pattern: Transaction script — örüntü: İşlem senaryosu
+### Pattern: Transaction script — Örüntü: Transaction script (işlem betiği)
 
 <!-- source-record: u05_0025 -->
 
@@ -200,7 +200,7 @@
 
 <!-- source-record: u05_0029 -->
 
-### Pattern: Domain model — Şekil: Alan modeli
+### Pattern: Domain model — Örüntü: Domain model (alan modeli)
 
 <!-- source-record: u05_0030 -->
 
@@ -413,7 +413,7 @@ END TXN
 
 <!-- source-record: u05_0059 -->
 
-### Pattern: Aggregate — Şekil: Aggregate
+### Pattern: Aggregate — Örüntü: Aggregate
 
 <!-- source-record: u05_0060 -->
 
@@ -679,7 +679,7 @@ END TXN
 
 <!-- source-record: u05_0103 -->
 
-### Pattern: Domain event — örüntü: Alan olayı
+### Pattern: Domain event — Örüntü: Domain event (alan olayı)
 
 <!-- source-record: u05_0104 -->
 

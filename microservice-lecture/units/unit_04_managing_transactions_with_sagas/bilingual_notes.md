@@ -174,7 +174,7 @@
 
 <!-- source-record: u04_0027 -->
 
-### Pattern: Saga — Şekil: Saga
+### Pattern: Saga — Örüntü: Saga
 
 <!-- source-record: u04_0028 -->
 
@@ -344,14 +344,14 @@
 >
 > **Türkçe:** Tablo 4.1 Create Order Saga için telafi işlemleri
 
-| **EN:** Step<br/>**TR:** Adım | **EN:** Service<br/>**TR:** servis | **EN:** Transaction<br/>**TR:** İşlem | **EN:** Compensating transaction<br/>**TR:** telafi işlemi |
+| **EN:** Step<br/>**TR:** Adım | **EN:** Service<br/>**TR:** Servis | **EN:** Transaction<br/>**TR:** İşlem | **EN:** Compensating transaction<br/>**TR:** Telafi işlemi |
 | --- | --- | --- | --- |
 | **EN:** 1<br/>**TR:** 1 | **EN:** Order Service<br/>**TR:** Order Service | **EN:** createOrder()<br/>**TR:** createOrder() | **EN:** rejectOrder()<br/>**TR:** rejectOrder() |
-| **EN:** 2<br/>**TR:** 2 | **EN:** Consumer Service<br/>**TR:** Consumer Service | **EN:** verifyConsumerDetails()<br/>**TR:** verifyConsumerDetails() | **EN:** —<br/>**TR:** - Evet . |
+| **EN:** 2<br/>**TR:** 2 | **EN:** Consumer Service<br/>**TR:** Consumer Service | **EN:** verifyConsumerDetails()<br/>**TR:** verifyConsumerDetails() | **EN:** —<br/>**TR:** — |
 | **EN:** 3<br/>**TR:** 3 | **EN:** Kitchen Service<br/>**TR:** Kitchen Service | **EN:** createTicket()<br/>**TR:** createTicket() | **EN:** rejectTicket()<br/>**TR:** rejectTicket() |
-| **EN:** 4<br/>**TR:** 4 | **EN:** Accounting Service<br/>**TR:** Accounting Service | **EN:** authorizeCreditCard()<br/>**TR:** authorizeCreditCard() | **EN:** —<br/>**TR:** - Evet . |
-| **EN:** 5<br/>**TR:** 5 | **EN:** Kitchen Service<br/>**TR:** Kitchen Service | **EN:** approveTicket()<br/>**TR:** approveTicket() | **EN:** —<br/>**TR:** - Evet . |
-| **EN:** 6<br/>**TR:** 6 | **EN:** Order Service<br/>**TR:** Order Service | **EN:** approveOrder()<br/>**TR:** approveOrder() | **EN:** —<br/>**TR:** - Evet . |
+| **EN:** 4<br/>**TR:** 4 | **EN:** Accounting Service<br/>**TR:** Accounting Service | **EN:** authorizeCreditCard()<br/>**TR:** authorizeCreditCard() | **EN:** —<br/>**TR:** — |
+| **EN:** 5<br/>**TR:** 5 | **EN:** Kitchen Service<br/>**TR:** Kitchen Service | **EN:** approveTicket()<br/>**TR:** approveTicket() | **EN:** —<br/>**TR:** — |
+| **EN:** 6<br/>**TR:** 6 | **EN:** Order Service<br/>**TR:** Order Service | **EN:** approveOrder()<br/>**TR:** approveOrder() | **EN:** —<br/>**TR:** — |
 
 <!-- source-record: u04_0055 -->
 

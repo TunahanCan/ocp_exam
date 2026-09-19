@@ -14,11 +14,11 @@
 
 > **English — Kaynak örneği (s. 386):** It’s worthwhile exploring this option, because even though I recommend using one of the other options, its drawbacks motivate the other options.
 >
-> **Türkçe:** Bu seçeneği keşfetmeye değer, çünkü diğer seçeneklerden birini kullanmayı tavsiye ettiysem de dezavantajları diğer seçenekleri motive eder.
+> **Türkçe:** Diğer seçeneklerden birini kullanmanızı önersem de bu seçeneği incelemek yararlıdır; çünkü sakıncaları diğer seçeneklere neden ihtiyaç duyulduğunu açıklar.
 
 > **English — Kaynak örneği (s. 390):** Although you would get some benefit from using the cloud, this approach suffers from the drawbacks described in the preceding section.
 >
-> **Türkçe:** Bulut kullanmanın bazı yararları olsa da, bu yaklaşım önceki bölümde açıklanan dezavantajlardan muzdarip.
+> **Türkçe:** Bulut kullanmanın bazı yararlarını elde etseniz de bu yaklaşım önceki bölümde açıklanan sakıncaları taşır.
 
 > **YDS ipucu:** Despite of kullanılmaz. Çekimli cümle varsa although; isim grubu varsa despite düşünün.
 
@@ -30,11 +30,11 @@
 
 > **English — Kaynak örneği (s. 407):** On the other hand, this approach assumes that once a service version has passed the tests in the staging environment, it will work in production.
 >
-> **Türkçe:** Öte yandan, bu yaklaşım bir servis versiyonunun aşama ortamında testlerden geçtikten sonra üretimde çalışacağını varsayıyor.
+> **Türkçe:** Diğer yandan bu yaklaşım, staging ortamındaki testleri geçen bir servis sürümünün canlı ortamda da çalışacağını varsayar.
 
 > **English — Kaynak örneği (s. 426):** On the other hand, modern clouds such as Amazon EC2 are highly automated and provide a rich set of features.
 >
-> **Türkçe:** Öte yandan Amazon EC2 gibi modern bulutlar oldukça otomatik ve zengin bir dizi özellik sunmaktadır.
+> **Türkçe:** Diğer yandan Amazon EC2 gibi modern bulutlar büyük ölçüde otomatikleştirilmiştir ve zengin özellikler sağlar.
 
 > **YDS ipucu:** Whereas karşıtlık kurar; zaman bildiren when ile aynı değildir. On the other hand cümleler arasında geçiş ifadesidir.
 
@@ -46,7 +46,7 @@
 
 > **English — Kaynak örneği (s. 417):** For lambda functions that handle HTTP requests that are proxied by an AWS API Gateway, I and O are APIGatewayProxyRequestEvent and APIGatewayProxyResponseEvent, respectively.
 >
-> **Türkçe:** AWS API Gateway tarafından temsil edilen HTTP isteklerini işleyen lambda fonksiyonları için, I ve O sırasıyla APIGatewayProxyRequestEvent ve APIGatewayProxyResponseEvent'dir.
+> **Türkçe:** AWS API Gateway’in proxy olarak ilettiği HTTP isteklerini işleyen lambda function’larda I ve O sırasıyla APIGatewayProxyRequestEvent ve APIGatewayProxyResponseEvent türleridir.
 
 > **YDS ipucu:** Virgüllü ek bilgi cümleciğinde that kullanılmaz. Edat + which yapısında edatın anlamını çeviriye katın. Bir fiilin içeriğini veren “ensure that ...” ise isim niteleyen relative clause değildir; that öncesindeki yapıyı kontrol edin.
 
@@ -58,11 +58,11 @@
 
 > **English — Kaynak örneği (s. 385):** An application might have tens or hundreds of services written in a variety of languages and frameworks.
 >
-> **Türkçe:** Bir uygulama, çeşitli dillerde ve çerçevelerde yazılmış onlarca veya yüzlerce servis olabilir.
+> **Türkçe:** Bir uygulama, çeşitli diller ve framework’lerle yazılmış onlarca ya da yüzlerce servise sahip olabilir.
 
 > **English — Kaynak örneği (s. 391):** Interestingly, Elastic Beanstalk combines elements of the three deployment patterns described in this chapter.
 >
-> **Türkçe:** İlginçtir ki, Elastic Beanstalk, bu bölümde açıklanan üç yerleşim modelinin elementlerini birleştirir.
+> **Türkçe:** İlginç biçimde Elastic Beanstalk, bu bölümde anlatılan üç dağıtım örüntüsünün öğelerini birleştirir.
 
 > **YDS ipucu:** Cümlenin asıl çekimli fiilini ayrı bulun. İsimden sonra gelen V3 her zaman yeni bir ana yüklem değildir.
 
@@ -74,11 +74,11 @@
 
 > **English — Kaynak örneği (s. 419):** Limited event/request-based programming model—AWS Lambda isn’t intended to be used to deploy long-running services, such as a service that consumes messages from a third-party message broker.
 >
-> **Türkçe:** Sınırlı olay / istek tabanlı programlama modeli - AWS Lambda, üçüncü taraf bir mesaj aracından mesajlar tüketen bir servis gibi uzun süreli servisleri dağıtmak için kullanılmak üzere tasarlanmamıştır.
+> **Türkçe:** Sınırlı olay/istek tabanlı programlama modeli — AWS Lambda, üçüncü taraf mesaj aracısından mesaj tüketen bir servis gibi uzun süre çalışan servisleri dağıtmak amacıyla tasarlanmamıştır.
 
 > **English — Kaynak örneği (s. 395):** It specifies the base container image, a series of instructions for installing software and configuring the container, and the shell command to run when the container is created.
 >
-> **Türkçe:** Temel konteyner görüntüsünü, yazılım yükleme ve konteyneri yapılandırma için bir dizi talimat ve konteyner oluşturulduğunda çalıştırılması gereken kabuğu komutunu belirtir.
+> **Türkçe:** Temel container imajını, yazılım kurma ve container’ı yapılandırmaya yönelik talimatları ve container oluşturulduğunda çalıştırılacak shell komutunu belirtir.
 
 > **YDS ipucu:** Must be deployed doğrudur; must deployed yanlıştır. By + kişi/araç ile by + -ing yöntem yapısını bağlamdan ayırın.
 
@@ -90,11 +90,11 @@
 
 > **English — Kaynak örneği (s. 398):** The Docker engine provides some basic management features, such as automatically restarting containers if they crash or if the machine is rebooted.
 >
-> **Türkçe:** Docker motoru, konteynerlerin çöktüğünde veya makine yeniden başlatıldığında otomatik olarak yeniden başlatılması gibi bazı temel yönetim özelliklerini sağlar.
+> **Türkçe:** Docker engine, container çöktüğünde veya makine yeniden başlatıldığında container’ları otomatik yeniden başlatmak gibi bazı temel yönetim özellikleri sağlar.
 
 > **English — Kaynak örneği (s. 418):** Otherwise, if it invokes the lambda function asynchronously, the web service response indicates whether the execution of the lambda was successfully initiated.
 >
-> **Türkçe:** Aksi takdirde, lambda fonksiyonunu asenkron olarak çağırdığında, web servisinin cevabı lambda'nın yürütülmesinin başarılı bir şekilde başlatıldığını gösterir.
+> **Türkçe:** Asenkron çağırırsa web servisinin yanıtı, lambda’nın çalıştırılmasının başarıyla başlatılıp başlatılmadığını belirtir.
 
 > **YDS ipucu:** If cümleciğindeki past bazen geçmiş zamanı değil varsayımı gösterir. Türkçedeki “olsaydı” tek başına zamanı belirlemez.
 
@@ -106,11 +106,11 @@
 
 > **English — Kaynak örneği (s. 383):** The deployment process consists of the steps that must be performed by people— developers and operations—in order to get software into production.
 >
-> **Türkçe:** Yayınlama süreci, yazılımların üretime girmesi için insanlar tarafından - geliştiriciler ve işletmeler - gerçekleştirilmesi gereken adımlardan oluşur.
+> **Türkçe:** Dağıtım süreci, yazılımı canlı ortama almak için insanların — geliştiricilerin ve operasyon ekibinin — gerçekleştirmesi gereken adımlardan oluşur.
 
 > **English — Kaynak örneği (s. 410):** A pod should have an app label such as app: ftgo-consumer-service, which identifies the service, in order to support Istio distributed tracing.
 >
-> **Türkçe:** Bir pod, Istio dağıtılmış izlemeyi desteklemek için servisi tanımlayan bir app etiketine sahip olmalıdır.
+> **Türkçe:** Istio’nun distributed tracing özelliğini desteklemek için pod, servisi tanımlayan app: ftgo-consumer-service gibi bir app label’ına sahip olmalıdır.
 
 > **YDS ipucu:** To sonrasında yalın fiil; so that sonrasında özne ve çekimli fiil gelir. So ... that derece-sonuç yapısıyla karıştırmayın.
 
@@ -122,11 +122,11 @@
 
 > **English — Kaynak örneği (s. 402):** Now that we’ve reviewed the key Kubernetes concepts, let’s see them in action by looking at how to deploy an application service on Kubernetes.
 >
-> **Türkçe:** Şimdi önemli Kubernetes kavramlarını inceledikten sonra Kubernetes'te bir uygulama servisi nasıl dağıtılacağını incelerek onları harekete geçirelim.
+> **Türkçe:** Temel Kubernetes kavramlarını gözden geçirdiğimize göre bir uygulama servisinin Kubernetes üzerinde nasıl dağıtılacağını inceleyerek bunları uygulamada görelim.
 
 > **English — Kaynak örneği (s. 404):** Fortunately, we can avoid doing that by using the service discovery mechanism built in to Kubernetes and define a Kubernetes service.
 >
-> **Türkçe:** Neyse ki, Kubernetes'te yerleşik servis keşif mekanizmasını kullanarak ve bir Kubernetes service tanımlayarak bunu önleyebiliriz.
+> **Türkçe:** Neyse ki Kubernetes’in yerleşik servis keşif mekanizmasını kullanıp bir Kubernetes Service tanımlayarak buna gerek bırakmayabiliriz.
 
 > **YDS ipucu:** By implementing “uygulayarak” anlamındadır. Edat by sonrasında yalın fiil kullanılmaz.
 
@@ -138,11 +138,11 @@
 
 > **English — Kaynak örneği (s. 391):** It deploys the application as VMs, but rather than building an AMI, it uses a base image that installs the application on startup.
 >
-> **Türkçe:** Uygulamayı VM olarak dağıtır, ancak bir AMI oluşturmak yerine, uygulamayı başlatırken kuran bir temel görüntü kullanır.
+> **Türkçe:** Uygulamayı VM olarak dağıtır; ancak AMI oluşturmak yerine uygulamayı başlangıç sırasında kuran bir temel imaj kullanır.
 
 > **English — Kaynak örneği (s. 392):** Unlike a Docker orchestration framework, covered later in the chapter, the unit of scaling is the EC2 instance rather than a container.
 >
-> **Türkçe:** Daha sonra bölümde ele alınan Docker orkestrasyon çerçevesinden farklı olarak, ölçekleme birimi bir konteyner yerine EC2 örneğidir.
+> **Türkçe:** Bölümün ilerleyen kısmında ele alınan Docker orkestrasyon framework’lerinden farklı olarak ölçeklendirme birimi container değil, EC2 instance’ıdır.
 
 > **YDS ipucu:** Instead of sonrasında doğrudan çekimli cümle gelmez. Rather than ile karşılaştırılan parçaların dilbilgisel biçimini izleyin.
 
@@ -154,11 +154,11 @@
 
 > **English — Kaynak örneği (s. 390):** It’s important to assign service instances to machines in a way that uses the machines efficiently without overloading them.
 >
-> **Türkçe:** Makinelere servis örneklerini aşırı yüklemeden makineleri verimli bir şekilde kullanmak önemlidir.
+> **Türkçe:** Servis örneklerini, makineleri aşırı yüklemeden verimli kullanacak biçimde makinelere atamak önemlidir.
 
 > **English — Kaynak örneği (s. 408):** Deploy the new version into production without routing any end-user requests to it.
 >
-> **Türkçe:** Yeni versiyonu son kullanıcıların isteklerini yönlendirmeden üretime yerleştirin.
+> **Türkçe:** Yeni sürümü canlı ortama dağıtın, fakat hiçbir son kullanıcı isteğini ona yönlendirmeyin.
 
 > **YDS ipucu:** Without not ile otomatik birleşmez. “Without losing data”, “veri kaybetmeden” anlamındadır.
 
@@ -170,13 +170,25 @@
 
 > **English — Kaynak örneği (s. 408):** In this section, I show you how to use Istio, a popular, open source service mesh originally developed by Google, IBM, and Lyft.
 >
-> **Türkçe:** Bu bölümde size Istio'yu nasıl kullanacağınızı göstereceğim, Google, IBM ve Lyft tarafından geliştirilen popüler açık kaynaklı servis ağı.
+> **Türkçe:** Bu bölümde, ilk olarak Google, IBM ve Lyft tarafından geliştirilen yaygın açık kaynak service mesh Istio’nun nasıl kullanılacağını gösteriyorum.
 
 > **English — Kaynak örneği (s. 399):** Now that we’ve looked at containers and their trade-offs, let’s look at how to deploy the FTGO application’s Restaurant Service using Kubernetes.
 >
-> **Türkçe:** Şimdi konteynerlere ve onların ödünleşimlerina baktığımızda, şimdi FTGO uygulamasının Restaurant Service'ini Kubernetes kullanarak nasıl dağıtılacağını görelim.
+> **Türkçe:** Container’ları ve getirdikleri ödünleşimleri incelediğimize göre FTGO uygulamasındaki Restaurant Service’in Kubernetes ile nasıl dağıtılacağına bakalım.
 
 > **YDS ipucu:** Dolaylı soruda düz cümle sırası kullanılır: how the service works. How does the service work doğrudan sorudur.
+
+### Whether ile belirsizliği koruma
+
+**İşlev:** Bir işlemin başarıyla sonuçlanıp sonuçlanmadığını açık bırakır. Whether, olumlu bir sonuç garantisi değildir.
+
+> **Formül:** indicate / determine + whether + S + V
+
+> **English — Kaynak örneği (s. 418):** The web service response indicates whether the execution of the lambda was successfully initiated.
+>
+> **Türkçe:** Web servisinin yanıtı, lambda’nın çalıştırılmasının başarıyla başlatılıp başlatılmadığını belirtir.
+
+> **Common mistake:** “Başarıyla başlatıldığını gösterir” çevirisi whether anlamını siler. Ayrıca başlatılması ile işin başarıyla tamamlanması aynı değildir. 6. ve 11. bölümlerdeki koşul ve dolaylı soru açıklamalarıyla birlikte okuyun.
 
 ## 12. Causative meaning — enable / allow / make
 
@@ -186,11 +198,11 @@
 
 > **English — Kaynak örneği (s. 397):** That’s because a Docker image has what’s known as a layered file system, which enables Docker to only transfer part of the image over the network.
 >
-> **Türkçe:** Çünkü bir Docker görüntüsü, Docker'ın yalnızca bir kısmını ağ üzerinden aktarmasını sağlayan bir katmanlı dosya sistemi olarak bilinen bir şeye sahiptir.
+> **Türkçe:** Çünkü Docker imajı, Docker’ın ağ üzerinden yalnızca imajın bir bölümünü aktarmasını sağlayan katmanlı bir dosya sistemine sahiptir.
 
 > **English — Kaynak örneği (s. 404):** As described in chapter 11, a health check endpoint enables Kubernetes to determine the health of the service instance.
 >
-> **Türkçe:** Bölüm 11'de açıklandığı gibi, bir sağlık kontrol noktası Kubernetes'in servis durumunun sağlığını belirlemesini sağlar.
+> **Türkçe:** 11. bölümde açıklandığı gibi health check endpoint’i, Kubernetes’in servis örneğinin sağlığını belirlemesini sağlar.
 
 > **YDS ipucu:** Enable/allow + object + to + V1; make + object + V1/adjective yapılarını arayın. Make a request gibi make + noun kullanımları bu yapı değildir. Edilgende make ile to geri gelir: be made to do.
 
@@ -202,11 +214,11 @@
 
 > **English — Kaynak örneği (s. 391):** Elastic Beanstalk is perhaps not quite as fashionable as, say, Kubernetes, but it’s an easy way to deploy a microservices-based application on EC2.
 >
-> **Türkçe:** Elastic Beanstalk belki de Kubernetes kadar moda değil ama EC2'de mikroservis bazlı bir uygulama dağıtmanın kolay bir yolu.
+> **Türkçe:** Elastic Beanstalk, örneğin Kubernetes kadar gözde olmayabilir; fakat mikroservis tabanlı bir uygulamayı EC2 üzerinde dağıtmak için kolay bir yoldur.
 
 > **English — Kaynak örneği (s. 398):** For example, on my laptop it takes as little as five seconds to package a Spring Boot application as a container image.
 >
-> **Türkçe:** Örneğin, dizüstü bilgisayarımda Spring Boot uygulamasını bir konteyner görüntüsü olarak paketlemek beş saniye kadar sürer.
+> **Türkçe:** Örneğin benim dizüstü bilgisayarımda bir Spring Boot uygulamasını container imajı olarak paketlemek beş saniye kadar kısa sürebilir.
 
 > **YDS ipucu:** Much ve far, comparative yapıyı güçlendirir. More easier biçiminde çift karşılaştırma kullanmayın. As well as ekleme yapabilir; “As simple as it sounds, ...” ise ödünleme/karşıtlık bildirir.
 
@@ -218,11 +230,11 @@
 
 > **English — Kaynak örneği (s. 398):** One is that docker run isn’t a reliable way to deploy a service, because it creates a container running on a single machine.
 >
-> **Türkçe:** Birincisi, doker çalıştırmak bir servisi dağıtmanın güvenilir bir yolu değil çünkü tek bir makineyle çalışan bir konteyner oluşturur.
+> **Türkçe:** Bunlardan biri, docker run’ın tek makinede çalışan bir container oluşturduğu için servisi dağıtmanın güvenilir bir yolu olmamasıdır.
 
 > **English — Kaynak örneği (s. 426):** A serverless deployment isn’t a good fit for every service, because of long-tail latencies and the requirement to use an event/request-based programming model.
 >
-> **Türkçe:** Bir sunucusız dağıtım, uzun kuyruklu gecikmeler ve olay / talep tabanlı bir programlama modeli kullanma gereksinimleri nedeniyle her servis için iyi bir uygundur.
+> **Türkçe:** Gecikme dağılımının uzun kuyruğu ve olay/istek tabanlı programlama modeli kullanma zorunluluğu nedeniyle serverless dağıtım her servis için uygun değildir.
 
 > **YDS ipucu:** Because ile because of sonrasındaki yapı farklıdır. As a result of + noun, neden belirtir.
 
@@ -234,11 +246,11 @@
 
 > **English — Kaynak örneği (s. 392):** Once a service has been packaged as a virtual machine, it becomes a black box that encapsulates your service’s technology stack.
 >
-> **Türkçe:** Bir servis sanal bir makine olarak paketlendikten sonra, servisinizin teknoloji yığınını kapsüleyen bir kara kutu haline gelir.
+> **Türkçe:** Bir servis sanal makine olarak paketlendiğinde, teknoloji yığınını kapsülleyen bir kara kutuya dönüşür.
 
 > **English — Kaynak örneği (s. 408):** Traditionally, separating deployments and releases in this way has been challenging because it requires a lot of work to implement it.
 >
-> **Türkçe:** Geleneksel olarak, dağıtımları ve yayınları bu şekilde ayırmak zor olmuştur, çünkü bunu uygulamak için çok fazla iş gerektirir.
+> **Türkçe:** Geleneksel olarak deployment ve release süreçlerini bu şekilde ayırmak zordur; çünkü gerçekleştirmek için çok fazla iş gerekir.
 
 > **YDS ipucu:** Have/has ile V3 birlikte aranır. Been + V3 edilgen olabilir; been + -ing ise continuous yapıdır.
 
@@ -250,11 +262,11 @@
 
 > **English — Kaynak örneği (s. 399):** It endeavors to keep the desired number of instances of each service running at all times, even when service instances or machines crash.
 >
-> **Türkçe:** Her servisin istedikleri sayısını, servisin veya makinelerin çöktüğünde bile her zaman çalıştırmaya çalışır.
+> **Türkçe:** Servis örnekleri veya makineler çöktüğünde bile, her servisin istenen sayıda örneğini her zaman çalışır durumda tutmaya çalışır.
 
 > **English — Kaynak örneği (s. 386):** When using this pattern, what’s deployed in production and what’s managed by the service runtime is a service in its language-specific package.
 >
-> **Türkçe:** Bu örneği kullanırken, üretimde uygulanan ve servis çalıştırma süresi tarafından yönetilen şey, dil-sözü özel paketindeki bir servistir.
+> **Türkçe:** Bu örüntüde canlı ortama dağıtılan ve servis çalışma zamanı tarafından yönetilen şey, dile özgü paketi içindeki servistir.
 
 > **YDS ipucu:** Geleceğe yönelik zaman cümleciğinde genellikle present kullanılır: when it arrives. Until, “... olana kadar” sınırını verir. While eşzamanlılık ya da karşıtlık bildirebilir; anlam ilişkisini kontrol edin. Until + noun bir zaman ifadesidir, tam zaman cümleciği değildir.
 
@@ -266,13 +278,37 @@
 
 > **English — Kaynak örneği (s. 426):** Consequently, it may sometimes be easier to deploy a small, simple application using virtual machines than to set up a Docker orchestration framework.
 >
-> **Türkçe:** Sonuç olarak, bazen, Docker orkestrasyon çerçevesini kurmaktan daha kolay, sanal makineler kullanarak küçük, basit bir uygulamayı dağıtmak olabilir.
+> **Türkçe:** Bu nedenle küçük, basit bir uygulamayı sanal makinelerle dağıtmak bazen Docker orkestrasyon framework’ü kurmaktan daha kolay olabilir.
 
 > **English — Kaynak örneği (s. 387):** Sometimes you might deploy a single service instance on a machine, while retaining the option to deploy multiple service instances on the same machine.
 >
-> **Türkçe:** Bazen bir makineye tek bir servis örneğini yerleştirirken aynı makineye birden fazla servis örneğini yerleştirme seçeneğini saklarsınız.
+> **Türkçe:** Bazen bir makineye tek bir servis örneği dağıtırken aynı makineye birden fazla servis örneği dağıtma seçeneğini de korumak isteyebilirsiniz.
 
 > **YDS ipucu:** Must not yasak; do not have to zorunluluk yokluğu bildirir. Might ve may olasılık anlatır, kesinlik vermez.
+
+## 18. Correlative comparison — as many ... as are needed
+
+**İşlev:** İstenen miktarı gereksinimle eşleştirir; sınırsız kaynak garantisi vermez.
+
+> **Formül:** as many + plural noun + as + clause
+
+> **English — Kaynak örneği (s. 418):** AWS Lambda runs as many instances of your application as are needed to handle the load.
+>
+> **Türkçe:** AWS Lambda, yükü karşılamak için gereken sayıda uygulama örneği çalıştırır.
+
+> **YDS ipucu:** Sayılabilen çoğul isimle many, miktar bildiren sayılamayan isimle much kullanılır. Buradaki as ... as, “gerektiği kadar” ilişkisini verir.
+
+## 19. Neither ... nor — iki seçeneği birlikte dışlama
+
+**İşlev:** İki özne, nesne veya eylem için olumsuzluğu birlikte kurar.
+
+> **Formül:** neither A nor B
+
+> **English — Kaynak örneği (s. 417):** But the notion that neither you as a developer nor anyone in your organization need worry about any aspect of servers, virtual machines, or containers is incredibly powerful.
+>
+> **Türkçe:** Ancak geliştirici olarak sizin de kuruluşunuzdaki diğer kişilerin de sunucuların, sanal makinelerin veya container’ların hiçbir yönüyle uğraşmak zorunda kalmaması fikri son derece güçlüdür.
+
+> **YDS ipucu:** Buradaki yapı iki grubun da sorumluluğu taşımadığını anlatır. Türkçede daha açık bir alternatif: “Sunucu yönetimiyle ne sizin ne de kuruluşunuzdaki başka birinin uğraşmak zorunda kalmaması fikri çok güçlüdür.” Neither zaten olumsuzluk içerir; otomatik olarak ek not kullanmayın.
 
 ## Mini quiz — Özgün çalışma soruları
 

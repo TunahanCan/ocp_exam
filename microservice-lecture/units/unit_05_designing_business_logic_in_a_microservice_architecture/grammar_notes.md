@@ -14,11 +14,11 @@
 
 > **English — Kaynak örneği (s. 149):** Although I’m a strong advocate of the object-oriented approach, there are some situations where it is overkill, such as when you are developing simple business logic.
 >
-> **Türkçe:** Ben nesne yönelimli yaklaşımın güçlü bir savunucusu olsam da, basit bir iş mantığı geliştirdiğinizde gibi, aşırıya kaçan bazı durumlar vardır.
+> **Türkçe:** Nesne yönelimli yaklaşımın güçlü bir savunucusu olsam da basit iş mantığı geliştirmek gibi bazı durumlarda bu yaklaşım gereğinden fazla kapsamlı kalır.
 
 > **English — Kaynak örneği (s. 154):** As a result, the Order is no longer valid, even though the application verified that the order still satisfied the order minimum after each consumer’s update.
 >
-> **Türkçe:** Sonuç olarak, Order artık geçerli değil, her tüketici tarafından güncelleştirildikten sonra siparişlerin hala sipariş minimumunu karşıladığını doğruladığına rağmen.
+> **Türkçe:** Sonuç olarak uygulama, her tüketicinin güncellemesinden sonra siparişin asgari sipariş tutarını hâlâ karşıladığını doğrulamış olsa da Order artık geçerli değildir.
 
 > **YDS ipucu:** Despite of kullanılmaz. Çekimli cümle varsa although; isim grubu varsa despite düşünün.
 
@@ -30,11 +30,11 @@
 
 > **English — Kaynak örneği (s. 158):** On the other hand, because an aggregate is the scope of transaction, you may need to define a larger aggregate in order to make a particular update atomic.
 >
-> **Türkçe:** Öte yandan, bir aggregate işlem kapsamı olduğundan, belirli bir güncellemeyi atomik yapmak için daha büyük bir aggregate tanımlamanız gerekebilir.
+> **Türkçe:** Öte yandan aggregate bir transaction'ın sınırını oluşturduğundan, belirli bir güncellemeyi atomik yapmak için daha büyük bir aggregate tanımlamanız gerekebilir.
 
 > **English — Kaynak örneği (s. 181):** In contrast, Order Service relies heavily on sagas when creating and updating orders.
 >
-> **Türkçe:** Order Service, siparişler oluştururken ve güncelleştirirken saga’lar'ye büyük ölçüde güveniyor.
+> **Türkçe:** Buna karşılık Order Service, sipariş oluştururken ve güncellerken büyük ölçüde saga'lara dayanır.
 
 > **YDS ipucu:** Whereas karşıtlık kurar; zaman bildiren when ile aynı değildir. On the other hand cümleler arasında geçiş ifadesidir.
 
@@ -46,13 +46,13 @@
 
 > **English — Kaynak örneği (s. 156):** It requires that the root entity be the only part of an aggregate that can be referenced by classes outside of the aggregate.
 >
-> **Türkçe:** entity kökeninin aggregate dışında sınıflar tarafından referanslanabilecek aggregate'nin tek parçası olması gerekmektedir.
+> **Türkçe:** Bu kural, aggregate dışındaki sınıfların referans verebildiği tek parçanın root entity (kök varlık) olmasını gerektirir.
 
 > **English — Kaynak örneği (s. 166):** It’s a generic class that has two type parameters, A, the aggregate type, and E, the marker interface type for the domain events.
 >
-> **Türkçe:** Bu, iki tip parametre olan bir genel sınıf, A, aggregate tipi ve E, domen olayları için işaretçi arayüz tipi.
+> **Türkçe:** Bu, iki tür parametresi olan generic bir sınıftır: A, aggregate türünü; E ise domain event'ler için marker interface (işaretleyici arayüz) türünü belirtir.
 
-> **YDS ipucu:** Virgüllü ek bilgi cümleciğinde that kullanılmaz. Edat + which yapısında edatın anlamını çeviriye katın. Bir fiilin içeriğini veren “ensure that ...” ise isim niteleyen relative clause değildir; that öncesindeki yapıyı kontrol edin. İlk örnekte “requires that ...” içerik cümleciğidir; odak, “an aggregate that can be referenced ...” bölümündeki nitelemedir.
+> **YDS ipucu:** Virgüllü ek bilgi cümleciğinde that kullanılmaz. Edat + which yapısında edatın anlamını çeviriye katın. Bir fiilin içeriğini veren “ensure that ...” ise isim niteleyen relative clause değildir; that öncesindeki yapıyı kontrol edin. İlk örnekte “requires that ...” içerik cümleciğidir; odak, “the only part ... that can be referenced ...” ifadesinde hangi parçaya referans verilebildiğini belirten nitelemedir. “Requires that the root entity be ...” yapısındaki yalın be, gereklilik bildiren subjunctive kullanımıdır.
 
 ## 4. Reduced relative clauses — described / implemented
 
@@ -62,11 +62,11 @@
 
 > **English — Kaynak örneği (s. 155):** Updating an entire aggregate rather than its parts solves the consistency issues, such as the example described earlier.
 >
-> **Türkçe:** 'nin parçaları yerine bütün bir aggregate'yi güncelleme, daha önce açıklanan örnek gibi tutarlılık sorunlarını çözür.
+> **Türkçe:** Aggregate'ın parçaları yerine tamamını güncellemek, daha önce anlatılan örnekteki gibi tutarlılık sorunlarını çözer.
 
 > **English — Kaynak örneği (s. 167):** KitchenServiceEventConsumer subscribes to events published by Restaurant Service whenever a restaurant’s menu is updated.
 >
-> **Türkçe:** KitchenServiceEventConsumer, bir restoranın menüsü güncellenirken Restaurant Service tarafından yayınlanan olaylara abone olur.
+> **Türkçe:** KitchenServiceEventConsumer, bir restoranın menüsü her güncellendiğinde Restaurant Service'in yayımladığı olaylara abone olur.
 
 > **YDS ipucu:** Cümlenin asıl çekimli fiilini ayrı bulun. İsimden sonra gelen V3 her zaman yeni bir ana yüklem değildir.
 
@@ -78,11 +78,11 @@
 
 > **English — Kaynak örneği (s. 146):** But the majority of the FTGO application’s business logic is implemented in an object-oriented domain model that’s mapped to the database using JPA.
 >
-> **Türkçe:** Ama FTGO uygulamasının iş mantığını çoğunun JPA kullanarak veritabanına yerleştirilen nesne yönelimli bir alan modelinde uygulanır.
+> **Türkçe:** Ancak FTGO uygulamasının iş mantığının büyük bölümü, JPA kullanılarak veritabanına eşlenen nesne yönelimli bir domain model içinde gerçekleştirilir.
 
 > **English — Kaynak örneği (s. 177):** In each group, one method is invoked at the start of the saga, and the other methods are invoked at the end.
 >
-> **Türkçe:** Her grupta, saga'nin başlangıcında bir yöntem ve sonunda diğer yöntemler kullanılır.
+> **Türkçe:** Her grupta bir metot saga'nın başında, diğer metotlar ise sonunda çağrılır.
 
 > **YDS ipucu:** Must be deployed doğrudur; must deployed yanlıştır. By + kişi/araç ile by + -ing yöntem yapısını bağlamdan ayırın.
 
@@ -94,11 +94,11 @@
 
 > **English — Kaynak örneği (s. 150):** The problem is that if your business logic becomes complex, you can end up with code that’s a nightmare to maintain.
 >
-> **Türkçe:** Sorun şu ki eğer iş mantığınız karmaşıklaşırsa, korumak için kabus olan bir kodla sonuçlanabilirsiniz.
+> **Türkçe:** Sorun şu ki iş mantığınız karmaşıklaşırsa bakımı kâbusa dönüşen bir kodla karşı karşıya kalabilirsiniz.
 
 > **English — Kaynak örneği (s. 160):** An Order aggregate might, if there are interested consumers, publish one of the events each time it undergoes a state transition.
 >
-> **Türkçe:** Bir Order aggregate, eğer ilgilenmiş tüketiciler varsa, her devlete geçiş yapıldığı zaman bir olay yayınlayabilir.
+> **Türkçe:** Order aggregate'ı, ilgili olayları tüketmek isteyen bileşenler varsa her durum geçişinde bu olaylardan birini yayımlayabilir.
 
 > **YDS ipucu:** If cümleciğindeki past bazen geçmiş zamanı değil varsayımı gösterir. Türkçedeki “olsaydı” tek başına zamanı belirlemez.
 
@@ -110,7 +110,7 @@
 
 > **English — Kaynak örneği (s. 176):** In order to create or update an order, Order Service must collaborate with other services using sagas.
 >
-> **Türkçe:** Bir sipariş oluşturmak veya güncelleştirmek için, Order Service, saga’lar'yi kullanan diğer servislerle işbirliği yapmalıdır.
+> **Türkçe:** Order Service, bir sipariş oluşturmak veya güncellemek için saga'ları kullanarak diğer servislerle iş birliği yapmalıdır.
 
 > **YDS ipucu:** To sonrasında yalın fiil; so that sonrasında özne ve çekimli fiil gelir. So ... that derece-sonuç yapısıyla karıştırmayın.
 
@@ -122,13 +122,13 @@
 
 > **English — Kaynak örneği (s. 154):** For example, in chapter 2 we created a rough domain model by analyzing the nouns used in the requirements and by domain experts.
 >
-> **Türkçe:** Örneğin, 2. bölümde, gerekliliklerde kullanılan isimleri ve alan uzmanları tarafından analiz ederek kaba bir alan modeli oluşturduk.
+> **Türkçe:** Örneğin Bölüm 2'de, gereksinimlerde ve alan uzmanlarının anlatımlarında kullanılan isimleri analiz ederek kabaca bir domain model oluşturduk.
 
 > **English — Kaynak örneği (s. 147):** I begin this chapter by describing the different ways of organizing business logic: the Transaction script pattern and the Domain model pattern.
 >
-> **Türkçe:** İş mantığını düzenlemenin farklı yollarını açıklayarak başlıyorum: İşlem metni örneği ve Domain modeli örneği.
+> **Türkçe:** Bu bölüme, iş mantığını düzenlemenin farklı yollarını anlatarak başlıyorum: Transaction script ve Domain model kalıpları.
 
-> **YDS ipucu:** By implementing “uygulayarak” anlamındadır. Edat by sonrasında yalın fiil kullanılmaz.
+> **YDS ipucu:** By implementing “uygulayarak” anlamındadır. Edat by sonrasında yalın fiil kullanılmaz. İlk örnekte by analyzing yöntem bildirir; “used ... by domain experts” içindeki by ise isimlerin kim tarafından kullanıldığını belirtir.
 
 ## 9. Replacement — instead of / rather than
 
@@ -138,11 +138,11 @@
 
 > **English — Kaynak örneği (s. 181):** Unlike in a traditional object model, references between classes in different aggregates are in terms of primary key value rather than object references.
 >
-> **Türkçe:** Geleneksel bir nesne modelesinden farklı olarak, farklı aggregate’ler'deki sınıflar arasındaki referanslar nesne referansları yerine ana anahtar değeri açısındandır.
+> **Türkçe:** Geleneksel nesne modelinden farklı olarak, farklı aggregate'larda bulunan sınıflar arasındaki referanslar nesne referanslarıyla değil birincil anahtar değerleriyle kurulur.
 
 > **English — Kaynak örneği (s. 147):** Aggregates avoid any possibility of object references spanning service boundaries, because an inter-aggregate reference is a primary key value rather than an object reference.
 >
-> **Türkçe:** aggregate’ler, servis sınırlarını kapsayan nesne referanslarının herhangi bir olasılığını önler, çünkü bir aggregate referansı nesne referansı yerine bir ana anahtar değerdir.
+> **Türkçe:** Aggregate'lar, nesne referanslarının servis sınırlarını aşması olasılığını ortadan kaldırır; çünkü aggregate'lar arası referans, nesne referansı değil birincil anahtar değeridir.
 
 > **YDS ipucu:** Instead of sonrasında doğrudan çekimli cümle gelmez. Rather than ile karşılaştırılan parçaların dilbilgisel biçimini izleyin.
 
@@ -154,11 +154,11 @@
 
 > **English — Kaynak örneği (s. 150):** You can write code without having to carefully consider how to organize the classes.
 >
-> **Türkçe:** Sınıfları nasıl düzenleyeceğinizi dikkatlice düşünmeden kod yazabilirsiniz.
+> **Türkçe:** Sınıfları nasıl düzenleyeceğinizi ayrıntılı biçimde düşünmek zorunda kalmadan kod yazabilirsiniz.
 
 > **English — Kaynak örneği (s. 151):** Finally, an object-oriented design is easier to extend because it can use well-known design patterns, such as the Strategy pattern and the Template method pattern, that define ways of extending a component without modifying the code.
 >
-> **Türkçe:** Son olarak, nesne yönelimli bir tasarım genişletmek daha kolaydır, çünkü bir bileşenin kodunu değiştirmeden genişletme yollarını tanımlayan Strateji örneği ve Şablon yöntemi örneği gibi bilinen tasarım kalıplarını kullanabilir.
+> **Türkçe:** Son olarak nesne yönelimli bir tasarımı genişletmek daha kolaydır; çünkü mevcut kodu değiştirmeden bir bileşeni genişletmenin yollarını tanımlayan Strategy ve Template method gibi tanınmış tasarım kalıplarını kullanabilir.
 
 > **YDS ipucu:** Without not ile otomatik birleşmez. “Without losing data”, “veri kaybetmeden” anlamındadır.
 
@@ -170,11 +170,11 @@
 
 > **English — Kaynak örneği (s. 153):** For example, let’s look at how to ensure the order minimum is met when multiple consumers work together to create an order.
 >
-> **Türkçe:** Örneğin, bir sipariş oluşturmak için birden fazla tüketicinin birlikte çalıştığında sipariş minimumının nasıl yerine getirileceğini görelim.
+> **Türkçe:** Örneğin birden fazla tüketici birlikte sipariş oluştururken asgari sipariş tutarının karşılanmasını nasıl sağlayacağımıza bakalım.
 
 > **English — Kaynak örneği (s. 147):** The key decision you must make when developing business logic is whether to use an object-oriented approach or a procedural approach.
 >
-> **Türkçe:** İş mantığını geliştirirken önemli bir karar, nesne yönelimli bir yaklaşım mı yoksa prosedürel bir yaklaşım mı kullanmak.
+> **Türkçe:** İş mantığını geliştirirken vermeniz gereken temel karar, nesne yönelimli yaklaşım mı yoksa prosedürel yaklaşım mı kullanacağınızdır.
 
 > **YDS ipucu:** Dolaylı soruda düz cümle sırası kullanılır: how the service works. How does the service work doğrudan sorudur.
 
@@ -186,11 +186,11 @@
 
 > **English — Kaynak örneği (s. 151):** In addition, classes such as Account, BankingTransaction, and OverdraftPolicy closely mirror the real world, which makes their role in the design easier to understand.
 >
-> **Türkçe:** Ayrıca, Account, BankingTransaction ve OverdraftPolicy gibi sınıflar gerçek dünyayı yakından yansıtır, bu da tasarımdaki rollerini daha kolay anlayabilmelerini sağlar.
+> **Türkçe:** Ayrıca Account, BankingTransaction ve OverdraftPolicy gibi sınıflar gerçek dünyayı yakından yansıtır; bu da tasarımdaki rollerini anlamayı kolaylaştırır.
 
 > **English — Kaynak örneği (s. 153):** After that, I describe the rules that aggregates must obey and how they make aggregates a good fit for the microservice architecture.
 >
-> **Türkçe:** Bundan sonra, aggregate’ler'nin itaat etmesi gereken kuralları ve aggregate’ler'i mikroservis mimarisi için nasıl uygun hale getirdiklerini açıklarım.
+> **Türkçe:** Ardından aggregate'ların uyması gereken kuralları ve bu kuralların aggregate'ları mikroservis mimarisine nasıl uygun hâle getirdiğini açıklıyorum.
 
 > **YDS ipucu:** Enable/allow + object + to + V1; make + object + V1/adjective yapılarını arayın. Make a request gibi make + noun kullanımları bu yapı değildir. Edilgende make ile to geri gelir: be made to do.
 
@@ -202,11 +202,11 @@
 
 > **English — Kaynak örneği (s. 168):** Figure 5.11 shows these aggregates and other key parts of the service’s business logic, as well as the service’s adapters.
 >
-> **Türkçe:** Resim 5.11 bu aggregate’ler ve servisin iş mantığı diğer önemli parçaları, yanı sıra servisin adaptörlerini gösterir.
+> **Türkçe:** Şekil 5.11, bu aggregate'ları ve servisin iş mantığının diğer temel parçalarını, ayrıca servisin adaptörlerini gösterir.
 
 > **English — Kaynak örneği (s. 171):** These methods are invoked in response to REST API requests as well as events and command messages.
 >
-> **Türkçe:** Bu yöntemler REST API isteklerine yanı sıra olaylara ve komut mesajlarına cevap olarak çağrılır.
+> **Türkçe:** Bu metotlar, REST API isteklerinin yanı sıra olaylara ve komut mesajlarına yanıt olarak çağrılır.
 
 > **YDS ipucu:** As well as burada ekleme yapar; as fast as gibi eşitlik karşılaştırması değildir. İki as sözcüğü görünce yapıyı otomatik olarak karşılaştırma saymayın.
 
@@ -218,13 +218,13 @@
 
 > **English — Kaynak örneği (s. 146):** Mary had encouraged her team to apply object-oriented design principles, because in her experience this was the best way to implement complex business logic.
 >
-> **Türkçe:** Mary, takımını nesne yönelimli tasarım ilkelerini uygulamaya teşvik etmişti, çünkü deneyimine göre bu karmaşık iş mantığını uygulamanın en iyi yoluydu.
+> **Türkçe:** Mary, ekibini nesne yönelimli tasarım ilkelerini uygulamaya teşvik etmişti; çünkü deneyimine göre karmaşık iş mantığını gerçekleştirmenin en iyi yolu buydu.
 
 > **English — Kaynak örneği (s. 158):** Because updates to each aggregate are serialized, more fine-grained aggregates will increase the number of simultaneous requests that the application can handle, improving scalability.
 >
-> **Türkçe:** Her aggregate'nin güncellemeleri seriye edildiği için, daha ince taneleri olan aggregate’ler, uygulamanın ele alabileceği eşzamanlı taleplerin sayısını artıracak ve ölçeklenebilirliği iyileştirecektir.
+> **Türkçe:** Her aggregate'a yapılan güncellemeler sırayla yürütüldüğünden, daha ince taneli aggregate'lar uygulamanın işleyebildiği eşzamanlı istek sayısını artırarak ölçeklenebilirliği iyileştirir.
 
-> **YDS ipucu:** Because ile because of sonrasındaki yapı farklıdır. As a result of + noun, neden belirtir.
+> **YDS ipucu:** Because ile because of sonrasındaki yapı farklıdır. As a result of + noun, neden belirtir. Burada updates are serialized, güncellemelerin sırayla yürütülmesidir; nesneleri byte dizisine dönüştürmek anlamındaki serialization değildir.
 
 ## 15. Present perfect — have / has + V3
 
@@ -234,11 +234,11 @@
 
 > **English — Kaynak örneği (s. 152):** There is one more building block that has been generally ignored (myself included!) except by DDD purists: aggregates.
 >
-> **Türkçe:** DDD puristleri hariç, genel olarak görmezden gelen (kendim de dahil!) bir yapı taşı daha var: aggregate’ler.
+> **Türkçe:** DDD ilkelerini sıkı biçimde izleyenler dışında, benim de aralarında bulunduğum pek çok kişinin genellikle göz ardı ettiği bir yapı taşı daha vardır: aggregate'lar.
 
 > **English — Kaynak örneği (s. 179):** The noteApproved() method is invoked when the consumer’s credit card has been successfully authorized.
 >
-> **Türkçe:** noteApproved() yöntemi, tüketicinin kredi kartı başarılı bir şekilde onaylandığında kullanılır.
+> **Türkçe:** noteApproved() metodu, tüketicinin kredi kartından başarıyla provizyon alındığında çağrılır.
 
 > **YDS ipucu:** Have/has ile V3 birlikte aranır. Been + V3 edilgen olabilir; been + -ing ise continuous yapıdır.
 
@@ -250,11 +250,11 @@
 
 > **English — Kaynak örneği (s. 149):** When using the Transaction script pattern, the scripts are usually located in service classes, which in this example is the OrderService class.
 >
-> **Türkçe:** Transaction script modelini kullanırken, senaryolar genellikle servis sınıflarında yer almaktadır, bu örnekte OrderService sınıfıdır.
+> **Türkçe:** Transaction script kalıbında script'ler genellikle servis sınıflarında bulunur; bu örnekte söz konusu sınıf OrderService'tir.
 
 > **English — Kaynak örneği (s. 169):** As described in chapter 2, when talking about the concept of a Bounded Context, this aggregate represents the restaurant kitchen’s view of an order.
 >
-> **Türkçe:** Bölüm 2'de açıklandığı gibi, bir bounded context (sınırlı bağlam) kavramından söz ederken, bu aggregate restoran mutfağının bir sipariş görünümünü temsil eder.
+> **Türkçe:** Bölüm 2'de Bounded Context (sınırlı bağlam) kavramı anlatılırken açıklandığı gibi bu aggregate, restoran mutfağının siparişe bakışını temsil eder.
 
 > **YDS ipucu:** Geleceğe yönelik zaman cümleciğinde genellikle present kullanılır: when it arrives. Until, “... olana kadar” sınırını verir. While eşzamanlılık ya da karşıtlık bildirebilir; anlam ilişkisini kontrol edin. Until + noun bir zaman ifadesidir, tam zaman cümleciği değildir.
 
@@ -266,11 +266,11 @@
 
 > **English — Kaynak örneği (s. 153):** The FTGO application must ensure that any attempt to update an order doesn’t violate an invariant such as the minimum order amount.
 >
-> **Türkçe:** FTGO uygulaması, bir siparişi güncelleme girişiminin, en az sipariş miktarı gibi değişmez bir şeyi ihlal etmemesini sağlamalıdır.
+> **Türkçe:** FTGO uygulaması, bir siparişi güncelleme girişiminin asgari sipariş tutarı gibi bir invariant'ı (her zaman korunması gereken kuralı) ihlal etmemesini sağlamalıdır.
 
 > **English — Kaynak örneği (s. 161):** The ID of the aggregate that emitted the event might also be part of the envelope rather than an explicit event property.
 >
-> **Türkçe:** Olayı yayımlayan aggregate'nin ID'i de açık bir olay özelliği yerine zarfın bir parçası olabilir.
+> **Türkçe:** Olayı yayımlayan aggregate'ın ID'si de açıkça tanımlanmış bir olay alanı yerine envelope'un (mesaj zarfının) parçası olabilir.
 
 > **YDS ipucu:** Must not yasak; do not have to zorunluluk yokluğu bildirir. Might ve may olasılık anlatır, kesinlik vermez.
 
@@ -282,7 +282,7 @@
 
 > **English — Kaynak örneği (s. 176):** Otherwise, if a cancel() operation is rejected because, for example, it’s too late to cancel the order, then the Order transitions back to the APPROVED state.
 >
-> **Türkçe:** Aksi takdirde, bir cancel() işleminin reddedildiği için, örneğin, sipariş iptal etmek için çok geç olduğu için, Order yeniden APPROVED durumuna geçiyor.
+> **Türkçe:** Aksi durumda cancel() işlemi, örneğin siparişi iptal etmek için artık çok geç olduğu gerekçesiyle reddedilirse Order yeniden APPROVED durumuna geçer.
 
 > **YDS ipucu:** Enough sıfattan sonra, isimden önce gelir: fast enough; enough memory.
 

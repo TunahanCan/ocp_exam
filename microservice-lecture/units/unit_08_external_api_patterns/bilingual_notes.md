@@ -330,7 +330,7 @@
 
 <!-- source-record: u08_0054 -->
 
-### Pattern: API gateway — örüntü: API kapısı
+### Pattern: API gateway — Örüntü: API gateway (API geçidi)
 
 <!-- source-record: u08_0055 -->
 
@@ -612,7 +612,7 @@
 
 <!-- source-record: u08_0101 -->
 
-### Pattern: Backends for frontends — örüntü: Ön cepheler için arka cepheler
+### Pattern: Backends for frontends — Örüntü: Backends for frontends (istemci arayüzlerine özel backend’ler)
 
 <!-- source-record: u08_0102 -->
 
@@ -1843,7 +1843,7 @@ query {
 
 > **English:** Here’s a more elaborate query that returns a consumer, their orders, and the ID and name of each order’s restaurant:
 >
-> **Türkçe:** İşte bir müşteriyi, siparişlerini, ID'i ve her siparişin restoranının adını iade eden daha ayrıntılı bir sorgu:
+> **Türkçe:** İşte bir tüketiciyi, siparişlerini ve her siparişe ait restoranın kimliğini ve adını döndüren daha ayrıntılı bir sorgu:
 
 <!-- source-record: u08_0273 -->
 

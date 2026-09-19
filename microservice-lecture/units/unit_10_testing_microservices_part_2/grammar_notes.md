@@ -14,7 +14,7 @@
 
 > **English — Kaynak örneği (s. 340):** Despite not being a test class, OrderServiceComponentTestStepDefinitions is still annotated with @ContextConfiguration, which is part of the Spring Testing framework.
 >
-> **Türkçe:** OrderServiceComponentTestStepDefinitions bir test sınıfı olmamasına rağmen, hala Spring Testing çerçevesinin bir parçası olan @ContextConfiguration ile kaydedilmiştir.
+> **Türkçe:** Test sınıfı olmamasına rağmen OrderServiceComponentTestStepDefinitions, Spring Testing framework'ünün parçası olan @ContextConfiguration ile işaretlenmiştir.
 
 > **YDS ipucu:** Despite of kullanılmaz. Çekimli cümle varsa although; isim grubu varsa despite düşünün.
 
@@ -26,11 +26,11 @@
 
 > **English — Kaynak örneği (s. 327):** Each test method invokes a hook method defined by MessagingBase, which is expected to trigger the publication of an event by the service.
 >
-> **Türkçe:** Her test yöntemi, MessagingBase tarafından tanımlanan bir kanca yöntemi çağrısında bulunur ve bu, servis tarafından bir olayın yayınlanmasını tetikleyeceği beklenir.
+> **Türkçe:** Her test metodu, MessagingBase'in tanımladığı ve servisin olay yayımlamasını tetiklemesi beklenen bir hook metodunu çağırır.
 
 > **English — Kaynak örneği (s. 340):** This section describes the component tests for Order Service that use the out-of-process strategy to test the service running as a Docker container.
 >
-> **Türkçe:** Bu bölüm, Order Service için bir Docker konteyneri olarak çalışan servisi test etmek için dış süreç stratejisini kullanan bileşen testlerini açıklar.
+> **Türkçe:** Bu kısım, Docker container olarak çalışan servisi sınamak için out-of-process stratejiyi kullanan Order Service component testlerini anlatır.
 
 > **YDS ipucu:** Virgüllü ek bilgi cümleciğinde that kullanılmaz. Edat + which yapısında edatın anlamını çeviriye katın. Bir fiilin içeriğini veren “ensure that ...” ise isim niteleyen relative clause değildir; that öncesindeki yapıyı kontrol edin.
 
@@ -42,7 +42,7 @@
 
 > **English — Kaynak örneği (s. 329):** Each test method first invokes Spring Cloud to publish the event defined in the contract and then verifies that OrderHistoryEventHandlers invokes OrderHistoryDao correctly.
 >
-> **Türkçe:** Her test yöntemi, sözleşmede tanımlanan olayı yayınlamak için önce Spring Cloud'u çağırır ve sonra OrderHistoryEventHandlers'nin OrderHistoryDao'yi doğru şekilde çağrıştırdığını doğruluyor.
+> **Türkçe:** Her test metodu önce sözleşmede tanımlanan olayı yayımlamak için Spring Cloud'u çağırır, sonra OrderHistoryEventHandlers'ın OrderHistoryDao'yu doğru çağırdığını doğrular.
 
 > **YDS ipucu:** Cümlenin asıl çekimli fiilini ayrı bulun. İsimden sonra gelen V3 her zaman yeni bir ana yüklem değildir.
 
@@ -54,11 +54,11 @@
 
 > **English — Kaynak örneği (s. 328):** It also defines the methods, such as orderCreated(), which are invoked by the generated tests to trigger the publishing of the event.
 >
-> **Türkçe:** Ayrıca, olayın yayınlanmasını tetiklemek için oluşturulan testler tarafından çağrılan orderCreated() gibi yöntemleri de tanımlar.
+> **Türkçe:** Ayrıca üretilen testlerin olay yayımlanmasını tetiklemek için çağırdığı orderCreated() gibi metotları tanımlar.
 
 > **English — Kaynak örneği (s. 344):** The verifyEventPublished() method uses the MessageTracker class, a test helper class that records the events that have been published during the test.
 >
-> **Türkçe:** verifyEventPublished() yöntemi, test sırasında yayınlanan olayları kaydeten bir test yardımcıı sınıfı olan MessageTracker sınıfını kullanır.
+> **Türkçe:** verifyEventPublished() metodu, test sırasında yayımlanmış olayları kaydeden bir test yardımcı sınıfı olan MessageTracker'ı kullanır.
 
 > **YDS ipucu:** Must be deployed doğrudur; must deployed yanlıştır. By + kişi/araç ile by + -ing yöntem yapısını bağlamdan ayırın.
 
@@ -70,11 +70,11 @@
 
 > **English — Kaynak örneği (s. 345):** Also, if your test needs to deploy a large number of services, there’s a good chance one of them will fail to deploy, making the tests unreliable.
 >
-> **Türkçe:** Ayrıca, testinizin çok sayıda servis dağıtması gerekiyorsa, bunlardan birinin dağıtılmaması ihtimali çok yüksek, bu da testlerin güvenilirliğine neden olur.
+> **Türkçe:** Ayrıca testiniz çok sayıda servis dağıtmak zorundaysa bunlardan birinin dağıtımının başarısız olma olasılığı yüksektir; bu da testleri güvenilmez kılar.
 
 > **English — Kaynak örneği (s. 346):** Imagine if there were hundreds of containers and many more tests.
 >
-> **Türkçe:** Yüzlerce konteyner ve daha çok test olsaydı.
+> **Türkçe:** Yüzlerce container ve çok daha fazla test olduğunu düşünün.
 
 > **YDS ipucu:** If cümleciğindeki past bazen geçmiş zamanı değil varsayımı gösterir. Türkçedeki “olsaydı” tek başına zamanı belirlemez.
 
@@ -86,11 +86,11 @@
 
 > **English — Kaynak örneği (s. 323):** In order to be confident that API Gateway and Order Service can communicate without using an end-to-end test, we need to write integration tests.
 >
-> **Türkçe:** API Gateway ve Order Service'un bir uçtan sonuna test yapmadan iletişim kurabileceğinden emin olmak için entegrasyon testleri yazmamız gerekiyor.
+> **Türkçe:** End-to-end test kullanmadan API Gateway ile Order Service'in iletişim kurabildiğinden emin olmak için integration testler yazmamız gerekir.
 
 > **English — Kaynak örneği (s. 335):** In order to verify that a service as a whole works, we’ll move up the pyramid and look at how to write component tests.
 >
-> **Türkçe:** Bir servisin bir bütün olarak çalışıp çalışmadığını doğrultmak için, piramideyi yukarı kaldırıp bileşen testlerini nasıl yazılacağını göreceğiz.
+> **Türkçe:** Bir servisin bütün olarak çalıştığını doğrulamak için piramitte yukarı çıkıp component testlerin nasıl yazıldığına bakacağız.
 
 > **YDS ipucu:** To sonrasında yalın fiil; so that sonrasında özne ve çekimli fiil gelir. So ... that derece-sonuç yapısıyla karıştırmayın.
 
@@ -102,11 +102,11 @@
 
 > **English — Kaynak örneği (s. 320):** Similarly, in section 10.1.3 you’ll see a test that verifies that Order Service publishes correctly structured domain events by testing the OrderDomainEventPublisher class.
 >
-> **Türkçe:** Benzer şekilde, bölüm 10.1.3'te Order Service'nin OrderDomainEventPublisher sınıfını test ederek doğru şekilde yapılandırılmış etki alanı olaylarını yayınladığını doğrulayan bir test göreceksiniz.
+> **Türkçe:** Benzer biçimde 10.1.3 kısmında OrderDomainEventPublisher sınıfını test ederek Order Service'in doğru yapılandırılmış domain event'ler yayımladığını doğrulayan bir test göreceksiniz.
 
 > **English — Kaynak örneği (s. 340):** Instead, it defines the tests by reading the Gherkin features and uses the OrderServiceComponentTestStepDefinitions class to make them executable.
 >
-> **Türkçe:** Bunun yerine, Gherkin özelliklerini okuyarak testleri tanımlar ve uygulanabilir hale getirmek için OrderServiceComponentTestStepDefinitions sınıfını kullanır.
+> **Türkçe:** Bunun yerine Gherkin feature'larını okuyarak testleri tanımlar ve bunları yürütülebilir hale getirmek için OrderServiceComponentTestStepDefinitions sınıfını kullanır.
 
 > **YDS ipucu:** By implementing “uygulayarak” anlamındadır. Edat by sonrasında yalın fiil kullanılmaz.
 
@@ -118,11 +118,11 @@
 
 > **English — Kaynak örneği (s. 345):** For example, rather than test create order, revise order, and cancel order separately, you can write a single test that does all three.
 >
-> **Türkçe:** Örneğin, test düzen oluşturmak, düzenyi gözden geçirmek ve düzenlemeyi ayrı ayrı iptal etmek yerine, üçü de yapan tek bir test yazabilirsiniz.
+> **Türkçe:** Örneğin sipariş oluşturma, değiştirme ve iptal etme işlemlerini ayrı ayrı test etmek yerine üçünü de yapan tek test yazabilirsiniz.
 
 > **English — Kaynak örneği (s. 320):** The benefit of testing only a small number of classes rather than the entire service is that the tests are significantly simpler and faster.
 >
-> **Türkçe:** Tüm servis yerine sadece küçük sayıda sınıf deneme avantajı, testlerin önemli ölçüde daha basit ve daha hızlı olmasıdır.
+> **Türkçe:** Tüm servis yerine az sayıda sınıfı test etmenin yararı, testlerin belirgin biçimde daha basit ve hızlı olmasıdır.
 
 > **YDS ipucu:** Instead of sonrasında doğrudan çekimli cümle gelmez. Rather than ile karşılaştırılan parçaların dilbilgisel biçimini izleyin.
 
@@ -134,7 +134,7 @@
 
 > **English — Kaynak örneği (s. 320):** Instead, we use a couple of strategies that significantly simplify the tests without impacting their effectiveness.
 >
-> **Türkçe:** Bunun yerine, testlerin etkinliğini etkilemeden testleri önemli ölçüde basitleştiren birkaç strateji kullanıyoruz.
+> **Türkçe:** Bunun yerine testlerin etkililiğini azaltmadan onları önemli ölçüde basitleştiren birkaç strateji kullanırız.
 
 > **YDS ipucu:** Without not ile otomatik birleşmez. “Without losing data”, “veri kaybetmeden” anlamındadır.
 
@@ -146,11 +146,11 @@
 
 > **English — Kaynak örneği (s. 335):** I begin by briefly describing how to use a testing DSL called Gherkin to write acceptance tests for services, such as Order Service.
 >
-> **Türkçe:** adı verilen bir testleme DSL'i, Gherkin olarak adlandırılan bir testleme Order Service gibi servisler için kabul sınavları yazmak için nasıl kullanacağımı kısaca açıklayarak başlayayım.
+> **Türkçe:** Order Service gibi servisler için kabul testleri yazmakta Gherkin adlı test DSL'inin nasıl kullanıldığını kısaca anlatarak başlıyorum.
 
 > **English — Kaynak örneği (s. 340):** Now that we’ve looked at how to design component tests, let’s consider how to write component tests for the FTGO Order Service.
 >
-> **Türkçe:** Şimdi bileşen testlerini nasıl tasarlayacağımızı inceledikten sonra, FTGO Order Service için bileşen testlerini nasıl yazacağımızı düşünelim.
+> **Türkçe:** Component testlerin tasarımına baktığımıza göre şimdi FTGO Order Service için bu testlerin nasıl yazıldığını ele alalım.
 
 > **YDS ipucu:** Dolaylı soruda düz cümle sırası kullanılır: how the service works. How does the service work doğrudan sorudur.
 
@@ -162,7 +162,7 @@
 
 > **English — Kaynak örneği (s. 321):** They use the contracts to configure stubs that simulate the provider, enabling you to write integration tests for a consumer that don’t require a running provider.
 >
-> **Türkçe:** stub’lar'i sunucuyu simüle eden, çalışan bir sunucu gerektirmeyen bir tüketici için entegrasyon testlerini yazmanıza olanak tanıyan kontratları kullanıyorlar.
+> **Türkçe:** Sağlayıcıyı taklit eden stub'ları yapılandırmak için sözleşmeleri kullanırlar; böylece çalışan bir sağlayıcı gerektirmeden tüketici için integration test yazabilirsiniz.
 
 > **YDS ipucu:** Enable/allow + object + to + V1; make + object + V1/adjective yapılarını arayın. Make a request gibi make + noun kullanımları bu yapı değildir. Edilgende make ile to geri gelir: be made to do.
 
@@ -174,11 +174,11 @@
 
 > **English — Kaynak örneği (s. 339):** The drawback is that this type of test is more complex to write, slower to execute, and potentially more brittle than an in-process component test.
 >
-> **Türkçe:** Eksikliği, bu tür testlerin yazılması daha karmaşık, yürütülmesi daha yavaş ve süreç içindeki bileşen testinden daha kırılgan olmasıdır.
+> **Türkçe:** Dezavantajı, bu tür testin in-process component teste göre daha karmaşık yazılması, daha yavaş çalışması ve daha kırılgan olabilmesidir.
 
 > **English — Kaynak örneği (s. 345):** As I’ve explained, it’s best to write as few of these as possible.
 >
-> **Türkçe:** Açıkladığım gibi, bu türleri mümkün olduğunca az yazmak en iyisidir.
+> **Türkçe:** Açıkladığım gibi bu testlerden mümkün olduğunca az yazmak en iyisidir.
 
 > **YDS ipucu:** Much ve far, comparative yapıyı güçlendirir. More easier biçiminde çift karşılaştırma kullanmayın. As well as ekleme yapabilir; “As simple as it sounds, ...” ise ödünleme/karşıtlık bildirir.
 
@@ -190,13 +190,15 @@
 
 > **English — Kaynak örneği (s. 339):** Because Order Service interacts with those services using messaging, these stubs would consume messages from Apache Kafka and send back reply messages.
 >
-> **Türkçe:** Because Order Service mesajlaşma kullanarak bu servislerle etkileşim kurar, bu stub’lar Apache Kafka'dan mesajlar tüketir ve cevap mesajları gönderir.
+> **Türkçe:** Order Service bu servislerle mesajlaşarak etkileştiği için stub'lar Apache Kafka'dan mesajları alır ve yanıt mesajları gönderir.
 
 > **English — Kaynak örneği (s. 339):** A key benefit of out-of-process component testing is that it improves test coverage, because what’s being tested is much closer to what’s being deployed.
 >
-> **Türkçe:** İşlem dışı bileşen testlerinin önemli bir avantajı test kapsamını iyileştirmektir, çünkü test edilen şey, uygulanmaya çok daha yakındır.
+> **Türkçe:** Out-of-process component testing'in temel yararı, test edilen şey dağıtıma alınana çok daha yakın olduğu için test kapsamını iyileştirmesidir.
 
 > **YDS ipucu:** Because ile because of sonrasındaki yapı farklıdır. As a result of + noun, neden belirtir.
+
+> **Cümle çözümü — what + clause:** “what’s being tested” = “test edilen şey”; “what’s being deployed” = “dağıtıma alınan şey”. What burada soru değil isim cümleciği başlatır. **Is being + V3**, present continuous passive yapısıdır; işlemden etkilenen şeyi öne çıkarır.
 
 ## 14. Present perfect — have / has + V3
 
@@ -206,7 +208,7 @@
 
 > **English — Kaynak örneği (s. 323):** The consumer-side OrderServiceProxyTest invokes OrderServiceProxy, which has been configured to make HTTP requests to WireMock.
 >
-> **Türkçe:** Tüketiciler tarafındaki OrderServiceProxyTest, WireMock'ye HTTP istekleri yapmak için yapılandırılmış OrderServiceProxy'yi çağırır.
+> **Türkçe:** Tüketici tarafındaki OrderServiceProxyTest, WireMock'a HTTP istekleri yapacak şekilde yapılandırılmış OrderServiceProxy'yi çağırır.
 
 > **YDS ipucu:** Have/has ile V3 birlikte aranır. Been + V3 edilgen olabilir; been + -ing ise continuous yapıdır.
 
@@ -218,7 +220,7 @@
 
 > **English — Kaynak örneği (s. 344):** We can use the Gradle Docker Compose plugin to run the containers before executing the tests and stop the containers once the tests complete:
 >
-> **Türkçe:** Gradle Docker Compose eklentisini testleri yürütmeden önce konteynerleri çalıştırmak ve testler tamamlandığında konteynerleri durdurmak için kullanabiliriz:
+> **Türkçe:** Testlerden önce container'ları çalıştırmak ve testler tamamlandığında durdurmak için Gradle Docker Compose eklentisini kullanabiliriz:
 
 > **YDS ipucu:** Geleceğe yönelik zaman cümleciğinde genellikle present kullanılır: when it arrives. Until, “... olana kadar” sınırını verir. While eşzamanlılık ya da karşıtlık bildirebilir; anlam ilişkisini kontrol edin. Until + noun bir zaman ifadesidir, tam zaman cümleciği değildir.
 
@@ -230,11 +232,11 @@
 
 > **English — Kaynak örneği (s. 322):** The client must send an HTTP request to the correct endpoint, and the service must send back the response that the client expects.
 >
-> **Türkçe:** istemci doğru son noktaya bir HTTP talebi göndermelidir ve servis, istemci'nin beklediği cevabı geri göndermelidir.
+> **Türkçe:** İstemci doğru endpoint'e HTTP isteği göndermeli ve servis de istemcinin beklediği yanıtı döndürmelidir.
 
 > **English — Kaynak örneği (s. 346):** That may not seem like a long time, but this is a relatively simple application with just a handful of containers and tests.
 >
-> **Türkçe:** Bu uzun bir süre gibi görünmeyebilir, ama bu nispeten basit bir uygulamadır. Sadece bir avuç konteyner ve test ile.
+> **Türkçe:** Bu uzun bir süre gibi görünmeyebilir; ancak söz konusu uygulama, yalnızca birkaç container ve test içeren görece basit bir uygulamadır.
 
 > **YDS ipucu:** Must not yasak; do not have to zorunluluk yokluğu bildirir. Might ve may olasılık anlatır, kesinlik vermez.
 

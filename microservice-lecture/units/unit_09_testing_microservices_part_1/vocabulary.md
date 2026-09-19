@@ -6,7 +6,20 @@
 
 **Çalışma yöntemi:** Türkçe satırını kapatıp örneği çevirin. Örnekler, bu ünitenin kavramlarını çalıştırmak için yazılmış **özgün çalışma cümleleridir**; kitaptan alıntı değildir. Eş anlamlı ve ilişkili sözcükler her bağlamda birbirinin yerine geçmez.
 
+
 ## A
+
+### acceptance test · noun phrase
+
+**Türkçe:** kabul testi
+
+**Bağlam — kaynak s. 297:** Bileşenin ya da uygulamanın dışarıdan gözlenen davranışını iş gereksinimlerine göre sınar.
+
+> **English:** The acceptance test checks the order workflow.
+>
+> **Türkçe:** Kabul testi, sipariş iş akışını denetler.
+
+**İlişkili sözcükler:** accept, acceptable; related: business-facing test
 
 ### adopt · verb
 
@@ -107,6 +120,30 @@
 > **Türkçe:** Birden fazla ekip aynı kod tabanını değiştiriyor.
 
 **İlişkili sözcükler:** yaygın yazım: codebase; ilişkili: source code, repository. Repository kodun tutulduğu yerdir.
+
+### component test · noun phrase
+
+**Türkçe:** bileşen testi
+
+**Bağlam — kaynak s. 297:** Bu bölümde tek bir servisin kabul testini anlatır; bağımlılıklar stub ile değiştirilebilir.
+
+> **English:** A component test treats the service as a black box.
+>
+> **Türkçe:** Bileşen testi, servisi kara kutu olarak ele alır.
+
+**İlişkili sözcükler:** component; compare: end-to-end test
+
+### conform to · verb phrase
+
+**Türkçe:** uygun olmak, uymak
+
+**Bağlam — kaynak s. 303:** Tüketicinin ya da sağlayıcının sözleşmeyle belirlenen davranışa uymasıdır.
+
+> **English:** Both adapters must conform to the contract.
+>
+> **Türkçe:** Her iki adapter sözleşmeye uymalıdır.
+
+**İlişkili sözcükler:** conformance, conformity; synonym: comply with
 
 ### consumer · noun
 
@@ -220,6 +257,18 @@
 
 ## E
 
+### end-to-end test · noun phrase
+
+**Türkçe:** uçtan uca test
+
+**Bağlam — kaynak s. 297–299:** Birden çok servisi veya bütün uygulamayı birlikte sınar; geniş kapsam yürütme maliyetini artırır.
+
+> **English:** End-to-end tests run several services together.
+>
+> **Türkçe:** Uçtan uca testler, birkaç servisi birlikte çalıştırır.
+
+**İlişkili sözcükler:** end to end; compare: unit test
+
 ### endpoint · noun
 
 **Türkçe:** API erişim noktası
@@ -319,6 +368,18 @@
 > **Türkçe:** Gelen yönlü bir adapter, iş mantığını çağırır.
 
 **İlişkili sözcükler:** antonym: outbound
+
+### interchangeably · adverb
+
+**Türkçe:** birbirinin yerine
+
+**Bağlam — kaynak s. 296:** Stub ve mock adlarının bazen aynı kavramı anlatmak için kullanıldığını belirtir; davranışlarının aynı olduğunu garanti etmez.
+
+> **English:** The two terms are sometimes used interchangeably.
+>
+> **Türkçe:** Bu iki terim bazen birbirinin yerine kullanılır.
+
+**İlişkili sözcükler:** interchangeable, interchangeability
 
 ### interprocess communication · noun phrase
 
@@ -488,6 +549,30 @@
 
 **İlişkili sözcükler:** saga participant; saga orchestrator
 
+### sociable unit test · noun phrase
+
+**Türkçe:** sınıfı bağımlılıklarıyla birlikte sınayan birim testi
+
+**Bağlam — kaynak s. 308–311:** Örneğin Order nesnesini Money gibi gerçek bağımlılıklarıyla test eder.
+
+> **English:** A sociable unit test includes collaborating classes.
+>
+> **Türkçe:** Sociable unit test, birlikte çalışan sınıfları kapsar.
+
+**İlişkili sözcükler:** sociable; compare: solitary unit test
+
+### solitary unit test · noun phrase
+
+**Türkçe:** yalıtılmış birim testi
+
+**Bağlam — kaynak s. 308–316:** Sınıfın bağımlılıklarını mock veya stub ile değiştirerek sınıfı ayrı sınar.
+
+> **English:** The solitary test replaces the repository with a mock.
+>
+> **Türkçe:** Yalıtılmış test, repository yerine bir mock kullanır.
+
+**İlişkili sözcükler:** solitary; synonym in context: isolated
+
 ### stub · noun
 
 **Türkçe:** önceden belirlenmiş yanıt veren test nesnesi
@@ -499,6 +584,18 @@
 > **Türkçe:** Stub, önceden belirlenmiş bir yanıt döndürür.
 
 **İlişkili sözcükler:** stubbing; compare: mock
+
+### subject to · verb phrase
+
+**Türkçe:** bir şeye tabi tutmak
+
+**Bağlam — kaynak s. 305:** Subject X to Y yapısında X nesnesi Y işlemine maruz bırakılır. Subject burada özne anlamında isim değildir.
+
+> **English:** The pipeline subjects the code to further testing.
+>
+> **Türkçe:** Pipeline, kodu ek testlere tabi tutar.
+
+**İlişkili sözcükler:** subjected; related: undergo testing
 
 ### synchronous · adjective
 
@@ -513,6 +610,54 @@
 **İlişkili sözcükler:** synchronously; antonym: asynchronous
 
 ## T
+
+### test double · noun phrase
+
+**Türkçe:** test taklidi
+
+**Bağlam — kaynak s. 296:** SUT bağımlılığının davranışını taklit eden nesnelerin üst adıdır. Bu bölüm özellikle stub ve mock üzerinde durur.
+
+> **English:** A test double simulates a dependency.
+>
+> **Türkçe:** Test double, bir bağımlılığı taklit eder.
+
+**İlişkili sözcükler:** stub, mock; other categories: fake, spy, dummy
+
+### test pyramid · noun phrase
+
+**Türkçe:** test piramidi
+
+**Bağlam — kaynak s. 298:** Hızlı ve küçük kapsamlı testlerin çoğunlukta, yavaş ve geniş kapsamlı testlerin azınlıkta olmasını öneren modeldir.
+
+> **English:** The test pyramid guides the distribution of tests.
+>
+> **Türkçe:** Test piramidi, testlerin dağılımına yol gösterir.
+
+**İlişkili sözcükler:** pyramid; related: test scope
+
+### test suite · noun phrase
+
+**Türkçe:** test paketi
+
+**Bağlam — kaynak s. 294–296:** Birbiriyle ilişkili testlerin oluşturduğu kümedir.
+
+> **English:** The test runner executes the whole test suite.
+>
+> **Türkçe:** Test runner, test paketinin tamamını çalıştırır.
+
+**İlişkili sözcükler:** suite; related: test case, test runner
+
+### thorough · adjective
+
+**Türkçe:** kapsamlı, titiz
+
+**Bağlam — kaynak s. 305:** Testin davranışları yüzeysel değil ayrıntılı incelemesini anlatır.
+
+> **English:** The later stage performs more thorough testing.
+>
+> **Türkçe:** Sonraki aşama daha kapsamlı test yapar.
+
+**İlişkili sözcükler:** thoroughly, thoroughness; synonym: comprehensive
 
 ### transaction · noun
 

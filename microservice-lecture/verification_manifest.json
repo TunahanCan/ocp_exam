@@ -1,0 +1,474 @@
+{
+  "source_pdf_unchanged": true,
+  "units": [
+    {
+      "unit": "unit_01_escaping_monolithic_hell",
+      "documents": [
+        {
+          "source": "bilingual_notes.md",
+          "pdf": "bilingual_notes.pdf",
+          "pages": 62,
+          "source_sha256": "09613379e6aca2133fdcc5e163890f22c566eabc728c77f731ec837fe38c665f",
+          "pdf_sha256": "50cc9dcbe54eb8518c362291507581ba6eb77f1298cf56f54f02008160b9c6c1",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        },
+        {
+          "source": "grammar_notes.md",
+          "pdf": "grammar_notes.pdf",
+          "pages": 17,
+          "source_sha256": "f3e189696609e2e0fc800d295853435436e3cd75eb3fa0ea8ad5e57674b689af",
+          "pdf_sha256": "a31aeeeff26f030d7895a471bed34feb016bcb95d2c7bc183a27133175f950a6",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        },
+        {
+          "source": "vocabulary.md",
+          "pdf": "vocabulary.pdf",
+          "pages": 18,
+          "source_sha256": "89edd609be671fb05b73d8857ea4700fa60ed1ad025621dfc55c72d212ccaa2c",
+          "pdf_sha256": "eecc2e525840d5cc29329fe480fae1785367d7de5483681ffb61b457df72ea49",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        }
+      ],
+      "errors": []
+    },
+    {
+      "unit": "unit_02_decomposition_strategies",
+      "documents": [
+        {
+          "source": "bilingual_notes.md",
+          "pdf": "bilingual_notes.pdf",
+          "pages": 56,
+          "source_sha256": "872f73449009fa83c4cd7021433b723b3d38fed8c9d7889a29748aa270dd9692",
+          "pdf_sha256": "092295984d9151fc6d6107e7276da5f5d03750ae4db4cf2c8a7df97c7567545c",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        },
+        {
+          "source": "grammar_notes.md",
+          "pdf": "grammar_notes.pdf",
+          "pages": 13,
+          "source_sha256": "41a24d435f3f4baa93b7ac2858f955471495523b5be76c20e890dc4b1c85bb5b",
+          "pdf_sha256": "1d85dc21f279a1bce428fa7a9f8b8532aba491d89c5bc43909cd02bc1576eac6",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        },
+        {
+          "source": "vocabulary.md",
+          "pdf": "vocabulary.pdf",
+          "pages": 22,
+          "source_sha256": "13d718e69a3285562d0e523b546f9361c540bb36382c6e40c70327766b7eaaa7",
+          "pdf_sha256": "25facdf2a3cd5369a0afb38ebf24bd9195658b93af080453e90baf1a7584657e",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        }
+      ],
+      "errors": []
+    },
+    {
+      "unit": "unit_03_interprocess_communication_in_a_microservice_architecture",
+      "documents": [
+        {
+          "source": "bilingual_notes.md",
+          "pdf": "bilingual_notes.pdf",
+          "pages": 81,
+          "source_sha256": "2e75d85e05372018865cf392a8adf3c15d5fc2fc4a1bf4de91db2c45d9c0411a",
+          "pdf_sha256": "bb8672c8a168fa34bfaeabca0a2fbd284d4e48b42246fd53a16a3007571136a6",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        },
+        {
+          "source": "grammar_notes.md",
+          "pdf": "grammar_notes.pdf",
+          "pages": 13,
+          "source_sha256": "c7772587de2a1ec2426e7c3797ac6de35f566bf4ef4a2ce5eb0f4981afc15709",
+          "pdf_sha256": "26cc657acc094561d9c6c8876000afb5d68ba811eb1ba3ec2d7392d689e59056",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        },
+        {
+          "source": "vocabulary.md",
+          "pdf": "vocabulary.pdf",
+          "pages": 22,
+          "source_sha256": "02a2ed600b6b80e944013b659ebeb6dda533e7f426963f31822ecf41868e7c44",
+          "pdf_sha256": "37deb3daaae1e20ab42b45e7d68b16abaf30b54c2cdf095175d9c172504c1b2f",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        }
+      ],
+      "errors": []
+    },
+    {
+      "unit": "unit_04_managing_transactions_with_sagas",
+      "documents": [
+        {
+          "source": "bilingual_notes.md",
+          "pdf": "bilingual_notes.pdf",
+          "pages": 64,
+          "source_sha256": "c57261200e38831eb8e407e40f1a8427328ddb0e5a84bf8e78a37e6bcbd947cd",
+          "pdf_sha256": "26b8e1d6fc200a62d660518527718c44f7c026125e0b0ce9667de6338bbdc044",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        },
+        {
+          "source": "grammar_notes.md",
+          "pdf": "grammar_notes.pdf",
+          "pages": 13,
+          "source_sha256": "8eb8db1be9d74d12ab4992f42466fc62f4884f45f48b6a7a951cea1c00209afe",
+          "pdf_sha256": "9c29875c83b856c5c14408892cd897a59f9f23f0a10df3153727ce7402ec0d86",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        },
+        {
+          "source": "vocabulary.md",
+          "pdf": "vocabulary.pdf",
+          "pages": 20,
+          "source_sha256": "864162c4580312db13e233c3e842d0b1486a3a808ca1cbc29c0a7a1d6c43c26a",
+          "pdf_sha256": "54331c0b005848e4c5d5d04df742f2222b3b40775bfd3504468068bd41098d22",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        }
+      ],
+      "errors": []
+    },
+    {
+      "unit": "unit_05_designing_business_logic_in_a_microservice_architecture",
+      "documents": [
+        {
+          "source": "bilingual_notes.md",
+          "pdf": "bilingual_notes.pdf",
+          "pages": 62,
+          "source_sha256": "89774c04e17cc2cde6a4f98d3244edc9598076456a927e2d746f0fd286ffc517",
+          "pdf_sha256": "c3807126620107c5187454093bc7a988457bc027d46b8bdb64d8e7791508f6eb",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        },
+        {
+          "source": "grammar_notes.md",
+          "pdf": "grammar_notes.pdf",
+          "pages": 12,
+          "source_sha256": "4405d9c1d1fdf3f8743901a05587aa4bf158186e524751dd48d7c268813ccad1",
+          "pdf_sha256": "1389cdc474dc8d8b8e9a28d1ab1ed7eb84a3dc7eb0dc177a1572b249fdd97624",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        },
+        {
+          "source": "vocabulary.md",
+          "pdf": "vocabulary.pdf",
+          "pages": 19,
+          "source_sha256": "d1a6b37eeb4f8a5a732c266cfb514ddd8a5edaba082e968e23283971ce154b67",
+          "pdf_sha256": "932289b253a46e2f625250a93776f97da1e3a824e07a6f6c1197ebb5b220a5e7",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        }
+      ],
+      "errors": []
+    },
+    {
+      "unit": "unit_06_developing_business_logic_with_event_sourcing",
+      "documents": [
+        {
+          "source": "bilingual_notes.md",
+          "pdf": "bilingual_notes.pdf",
+          "pages": 67,
+          "source_sha256": "66e8ade2430b2bd4b22878defdea50bfa7095cea922fc20e27f0c03407100a13",
+          "pdf_sha256": "5c849c6dccebb27df481be99db9482d26e6b38d389bdfc0e8c02e47710b259bb",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        },
+        {
+          "source": "grammar_notes.md",
+          "pdf": "grammar_notes.pdf",
+          "pages": 13,
+          "source_sha256": "710cc40956df6a0fe63f001d5f3d42fa349c08160742cad77ddbd6ed0791a832",
+          "pdf_sha256": "33e6683b3b585562e1265973cf795014928080af92e3f268095089fc466ef7c1",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        },
+        {
+          "source": "vocabulary.md",
+          "pdf": "vocabulary.pdf",
+          "pages": 18,
+          "source_sha256": "d07f0b411de717f4d59f4a14ac138c2922a609764b7d1af054a4f5e0035f49eb",
+          "pdf_sha256": "99122992b01029caaa0a35ff06cf8f640672c405827624d0aeb69251ccbe39d8",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        }
+      ],
+      "errors": []
+    },
+    {
+      "unit": "unit_07_implementing_queries_in_a_microservice_architecture",
+      "documents": [
+        {
+          "source": "bilingual_notes.md",
+          "pdf": "bilingual_notes.pdf",
+          "pages": 60,
+          "source_sha256": "0c7060ad3df623395f8ac51d9e1064e1e758e6d3f51aa457c7b1a6e077d2d640",
+          "pdf_sha256": "1dfb341a8dbae3c42f1ed1e31185fd937aad5a8b63579d7a83a3edc164c4cde8",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        },
+        {
+          "source": "grammar_notes.md",
+          "pdf": "grammar_notes.pdf",
+          "pages": 12,
+          "source_sha256": "0676ac1c59b1aa3f5981192f2751443e94c7f3a40b3ed180e8a4f990279c5b56",
+          "pdf_sha256": "6736a8429205b2e93d7a93c4fad0086579f7bbbae34fa6053a0183d2e1779531",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        },
+        {
+          "source": "vocabulary.md",
+          "pdf": "vocabulary.pdf",
+          "pages": 18,
+          "source_sha256": "828cfd4c9cdf8b8723378df635ff64e46ea6719ee2a67507cfa0c5c69a5bfeac",
+          "pdf_sha256": "2a3c17a40befe4ce596c5ecf08792bcfe1bf788535692e9e5e589ab16f637ea5",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        }
+      ],
+      "errors": []
+    },
+    {
+      "unit": "unit_08_external_api_patterns",
+      "documents": [
+        {
+          "source": "bilingual_notes.md",
+          "pdf": "bilingual_notes.pdf",
+          "pages": 69,
+          "source_sha256": "f404d8a3689987374ff8a4317cdd2a691e0ad3afecd29db15b00ba6f7b767ee1",
+          "pdf_sha256": "2836d2b932f68927b233490d4d07616d7373a3cfe13692b2aeb324807e40b6fe",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        },
+        {
+          "source": "grammar_notes.md",
+          "pdf": "grammar_notes.pdf",
+          "pages": 13,
+          "source_sha256": "6ac76b0e498392b9910c9892d13af88720d9dc5b22928b1f95a20b008dbebb01",
+          "pdf_sha256": "00c6a8ee8438cebcf256067f140657317df5915119da48a15b9e5aa1707af7fc",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        },
+        {
+          "source": "vocabulary.md",
+          "pdf": "vocabulary.pdf",
+          "pages": 17,
+          "source_sha256": "610a8f88055980a2fe82afff1b5f561585a0ea6eb09935493dd265f64f90bc8b",
+          "pdf_sha256": "42fce5ee925cd98349bba3745112dbb5d6c017796d59fbf83415ba8052b1fdd8",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        }
+      ],
+      "errors": []
+    },
+    {
+      "unit": "unit_09_testing_microservices_part_1",
+      "documents": [
+        {
+          "source": "bilingual_notes.md",
+          "pdf": "bilingual_notes.pdf",
+          "pages": 49,
+          "source_sha256": "49edc95bfced619ffbbd6e6466f9721cdb19d4ddc31c93d71a0a3cb6cacaf395",
+          "pdf_sha256": "a80cd68ca55c8e8cda2264ee24665b84f954aeb461d952a1c15eb8e0669410c4",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        },
+        {
+          "source": "grammar_notes.md",
+          "pdf": "grammar_notes.pdf",
+          "pages": 12,
+          "source_sha256": "a2a9e390a3f36a34c4725b63b67f8dd938c0ee7185b73e8ce1612cc6b791e70d",
+          "pdf_sha256": "b800a8ba73fbdc1c12b5c13d8296b7b3c4e406b6ab7dd5b44b478270bd5f8db0",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        },
+        {
+          "source": "vocabulary.md",
+          "pdf": "vocabulary.pdf",
+          "pages": 21,
+          "source_sha256": "3f7c84bc1a01bd6a115cf129ce9deda37c9bf906f44178a11919326c0f12a644",
+          "pdf_sha256": "e6e174f91c337260bab86bd97792e5da6c1a60174db0fd1ea8b2a27bdcbda2a9",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        }
+      ],
+      "errors": []
+    },
+    {
+      "unit": "unit_10_testing_microservices_part_2",
+      "documents": [
+        {
+          "source": "bilingual_notes.md",
+          "pdf": "bilingual_notes.pdf",
+          "pages": 51,
+          "source_sha256": "665ebb02f1a4d2422470c193f6ab2b8641afbc54896a593723d3c3d477f18ad3",
+          "pdf_sha256": "ff322d5ea277b1d828ee33d18c9c461f350fa82116bc506d50f62e5dae20d506",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        },
+        {
+          "source": "grammar_notes.md",
+          "pdf": "grammar_notes.pdf",
+          "pages": 12,
+          "source_sha256": "5267a6d47875313663c7668b43128b3bfd9a084dbfc95d7f7f03651de57393e9",
+          "pdf_sha256": "878c30607510f90a034b8ae0ef5983bf806252abbfefc7ff1ad6f2ed85725825",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        },
+        {
+          "source": "vocabulary.md",
+          "pdf": "vocabulary.pdf",
+          "pages": 18,
+          "source_sha256": "b8d6cb3b3d412b3f29518610429faec023f5c8356b04bd1feb809bfcf861a51f",
+          "pdf_sha256": "c6ced420c39e911285645cc5f9185e435d42224e969ebe9e97f325c3137543f3",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        }
+      ],
+      "errors": []
+    },
+    {
+      "unit": "unit_11_developing_production_ready_services",
+      "documents": [
+        {
+          "source": "bilingual_notes.md",
+          "pdf": "bilingual_notes.pdf",
+          "pages": 63,
+          "source_sha256": "fa0d3c0b68377e9af9fe536aee4b6fa665c2b8e6286ac46bfaf79a7da6619b33",
+          "pdf_sha256": "b0b823943f3398ea86bf739aab17769190f7534e36fb3fd0ad58c2912b01757d",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        },
+        {
+          "source": "grammar_notes.md",
+          "pdf": "grammar_notes.pdf",
+          "pages": 13,
+          "source_sha256": "afc57d46c83a76eba83016442e2df9463b7d52ea4d6354f52176fc668121fe2b",
+          "pdf_sha256": "df0358a059ca8563a489e8a2005adb80b10aa743dcceb9116563226c8a6cec75",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        },
+        {
+          "source": "vocabulary.md",
+          "pdf": "vocabulary.pdf",
+          "pages": 22,
+          "source_sha256": "d0dda4c5e940fe4adf71208ecd6e42fb992a137de182b00fc99cba3b2d56ca63",
+          "pdf_sha256": "84dbcbd2f4182a4c16c25f5783412a77b25787cf4ed631402703370271aa6dd3",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        }
+      ],
+      "errors": []
+    },
+    {
+      "unit": "unit_12_deploying_microservices",
+      "documents": [
+        {
+          "source": "bilingual_notes.md",
+          "pdf": "bilingual_notes.pdf",
+          "pages": 87,
+          "source_sha256": "2a0f4f9416533217b5bdbbbb2d775f7add9b4075a3aca9f980f01699b84e5c30",
+          "pdf_sha256": "790cc8c1d15ae27ddd8cae4148adf04b116495886fa36d44ac840467847efe65",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        },
+        {
+          "source": "grammar_notes.md",
+          "pdf": "grammar_notes.pdf",
+          "pages": 13,
+          "source_sha256": "c1ec92f8e00bfb5b023c6b8d19fe1bf5d7c3e59676d47dced17df1054fced588",
+          "pdf_sha256": "168472fc9b81be67c626bf4ca3d4cf4f4a254d842d8a65be51b8fc115323e91c",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        },
+        {
+          "source": "vocabulary.md",
+          "pdf": "vocabulary.pdf",
+          "pages": 25,
+          "source_sha256": "dc41992482a84287117203e0ca436e86d8f81322142c75d0c7b49edc22bd73f0",
+          "pdf_sha256": "9909d50a85e2d736ddfc2d262548599e821293db483f2036e38738f724225745",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        }
+      ],
+      "errors": []
+    },
+    {
+      "unit": "unit_13_refactoring_to_microservices",
+      "documents": [
+        {
+          "source": "bilingual_notes.md",
+          "pdf": "bilingual_notes.pdf",
+          "pages": 76,
+          "source_sha256": "5fd48086462ea66023f2d9445859d870531385f48516384e3608e7f16febc3cf",
+          "pdf_sha256": "14ed945063cbe07482bd4f9dd95a3a0e07363906bf13ab70b729d0fcde38c729",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        },
+        {
+          "source": "grammar_notes.md",
+          "pdf": "grammar_notes.pdf",
+          "pages": 15,
+          "source_sha256": "6a9fbe60bc95fa915679d96f901f2cbc4447be13b4101bf1fcb3126c4a73afa7",
+          "pdf_sha256": "73996ba26e400f5efe6f24e7c9a57016ad8804dc1a60f2e57b59c065a8f2b848",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        },
+        {
+          "source": "vocabulary.md",
+          "pdf": "vocabulary.pdf",
+          "pages": 31,
+          "source_sha256": "0a3e6b574ccc1cc3cebd4b07a2db56c12f4c5f3b18e73f4c7fab7139a2cf5631",
+          "pdf_sha256": "56d83a3eaf446b1e921ce2d4b1a748f55a62f2abb70ebcc6bd8fb4383d4b744e",
+          "page_pair_count_differences": [],
+          "overflow": [],
+          "empty_content_pages": []
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "scope": "Structural checks only; visual and semantic review reported separately."
+}

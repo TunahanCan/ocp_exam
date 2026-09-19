@@ -70,15 +70,19 @@
 
 ### authorization · noun
 
-**Türkçe:** yetkilendirme
+**Türkçe:** bağlama göre yetkilendirme; kredi kartından provizyon alma
 
-**Bağlam — kaynak s. 179:** Bir kimliğin veya istemcinin belirli bir kaynak üzerinde hangi işlemleri yapmaya yetkili olduğunu belirleme ve denetleme sürecidir.
+**Bağlam — kaynak s. 179:** Genel güvenlik bağlamında bir kimliğin veya istemcinin hangi işlemleri yapmaya yetkili olduğunu belirleme sürecidir. Bu ünitedeki **authorize the consumer’s credit card** ise tüketicinin kredi kartından **provizyon almak** anlamındadır; kullanıcıya erişim yetkisi vermek değildir.
 
 > **English:** Authorization controls access to an operation.
 >
 > **Türkçe:** Yetkilendirme, bir işleme erişimi denetler.
 
-**İlişkili sözcükler:** authorize; authorized
+> **English:** The service authorizes the consumer’s credit card.
+>
+> **Türkçe:** Servis, tüketicinin kredi kartından provizyon alır.
+
+**İlişkili sözcükler:** authorize; authorized; credit-card authorization = kredi kartı provizyonu
 
 ## B
 

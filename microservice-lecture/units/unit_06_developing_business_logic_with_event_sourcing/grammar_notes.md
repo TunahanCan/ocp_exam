@@ -14,11 +14,11 @@
 
 > **English — Kaynak örneği (s. 216):** An application that uses a NoSQL-based event store, such as Eventuate SaaS, can use an analogous approach, despite having a very limited transaction model.
 >
-> **Türkçe:** Eventuate SaaS gibi NoSQL tabanlı bir olay mağazasını kullanan bir uygulama, çok sınırlı bir işlem modeli olmasına rağmen benzer bir yaklaşım kullanabilir.
+> **Türkçe:** Eventuate SaaS gibi NoSQL tabanlı bir event store (olay deposu) kullanan uygulama, çok sınırlı bir transaction modeline sahip olmasına rağmen benzer bir yaklaşım kullanabilir.
 
 > **English — Kaynak örneği (s. 218):** But despite these drawbacks, event sourcing has a major role to play in a microservice architecture.
 >
-> **Türkçe:** Ancak bu dezavantajlara rağmen, event sourcing (olay kaynaklı durum yönetimi), mikroservis mimarisinde önemli bir rol oynamaktadır.
+> **Türkçe:** Ancak bu sakıncalara rağmen event sourcing'in (olay geçmişinden durum oluşturmanın) mikroservis mimarisinde önemli bir rolü vardır.
 
 > **YDS ipucu:** Despite of kullanılmaz. Çekimli cümle varsa although; isim grubu varsa despite düşünün.
 
@@ -30,11 +30,11 @@
 
 > **English — Kaynak örneği (s. 200):** In contrast, an event sourcing-based application can immediately market to customers who have done this in the past.
 >
-> **Türkçe:** Öte yandan, event sourcing (olay kaynaklı durum yönetimi) tabanlı bir uygulama, bunu geçmişte yapmış olan müşterilere derhal pazarlayabilir.
+> **Türkçe:** Buna karşılık event sourcing tabanlı bir uygulama, bunu geçmişte yapmış müşterilere yönelik pazarlamaya hemen başlayabilir.
 
 > **English — Kaynak örneği (s. 198):** On the other hand, it creates a challenge, because the structure of events often changes over time.
 >
-> **Türkçe:** Öte yandan, bu bir zorluk yaratır, çünkü olayların yapısı zamanla değişir.
+> **Türkçe:** Öte yandan bu bir zorluk yaratır; çünkü olayların yapısı çoğu zaman zaman içinde değişir.
 
 > **YDS ipucu:** Whereas karşıtlık kurar; zaman bildiren when ile aynı değildir. On the other hand cümleler arasında geçiş ifadesidir.
 
@@ -46,11 +46,11 @@
 
 > **English — Kaynak örneği (s. 194):** The problem with this approach is that transactions can commit in an order that’s different from the order in which they generate events.
 >
-> **Türkçe:** Bu yaklaşımla ilgili sorun, işlemlerin commit'yi olayların oluşturduğu sıradan farklı bir sırada yapabilmesidir.
+> **Türkçe:** Bu yaklaşımın sorunu, transaction'ların olay üretme sıralarından farklı bir sırada commit edilebilmesidir.
 
 > **English — Kaynak örneği (s. 204):** If a snapshot exists, the find() operation queries the events table to find all events whose event_id is greater than the snapshot’s entity_version.
 >
-> **Türkçe:** Bir anlık görüntüleri varsa, find() işlevi, anlık görüntünün entite_versiyonundan daha büyük olan tüm olayları bulmak için olaylar tablosunu sorar.
+> **Türkçe:** Bir snapshot (anlık görüntü) varsa find() işlemi, event_id değeri snapshot'ın entity_version değerinden büyük olan tüm olayları bulmak için events tablosunu sorgular.
 
 > **YDS ipucu:** Virgüllü ek bilgi cümleciğinde that kullanılmaz. Edat + which yapısında edatın anlamını çeviriye katın. Bir fiilin içeriğini veren “ensure that ...” ise isim niteleyen relative clause değildir; that öncesindeki yapıyı kontrol edin. İlk örnekte odak “an order that’s different ...” ve “the order in which ...” yapılarıdır; “the problem ... is that ...” içerik bildirir.
 
@@ -62,11 +62,11 @@
 
 > **English — Kaynak örneği (s. 190):** The Eventuate Client framework, an event-sourcing framework described in more detail in section 6.2.2, names these methods process() and apply().
 >
-> **Türkçe:** 6.2.2 bölümünde daha ayrıntılı bir şekilde açıklanan Eventuate Client çerçevesinde bu yöntemler process() ve apply() olarak adlandırılır.
+> **Türkçe:** Kısım 6.2.2'de daha ayrıntılı anlatılan bir event sourcing framework'ü olan Eventuate Client, bu metotları process() ve apply() olarak adlandırır.
 
 > **English — Kaynak örneği (s. 205):** The aggregate ID is used as the partition key, which preserves the ordering of events published by a given aggregate.
 >
-> **Türkçe:** aggregate ID, verilen aggregate tarafından yayınlanan olayların sırasını koruyan bir bölüm anahtarı olarak kullanılır.
+> **Türkçe:** Aggregate ID'si partition key (bölümleme anahtarı) olarak kullanılır; böylece belirli bir aggregate'ın yayımladığı olayların sırası korunur.
 
 > **YDS ipucu:** Cümlenin asıl çekimli fiilini ayrı bulun. İsimden sonra gelen V3 her zaman yeni bir ana yüklem değildir.
 
@@ -78,11 +78,11 @@
 
 > **English — Kaynak örneği (s. 195):** One solution to this problem is to add an extra column to the EVENTS table that tracks whether an event has been published.
 >
-> **Türkçe:** Bu sorunun bir çözümü, bir olayın yayınlandığını takip eden EVENTS tablosuna ek bir sütun eklemektir.
+> **Türkçe:** Bu sorunun bir çözümü, EVENTS tablosuna bir olayın yayımlanıp yayımlanmadığını izleyen ek bir sütun eklemektir.
 
 > **English — Kaynak örneği (s. 200):** A traditional application wouldn’t preserve this information, so could only market to customers who add and remove items after the feature is implemented.
 >
-> **Türkçe:** Geleneksel bir uygulama bu bilgileri koruyamaz, bu nedenle yalnızca özelliğin uygulandıktan sonra öğeleri ekleyen ve kaldıran müşterilere pazarlanabilir.
+> **Türkçe:** Geleneksel bir uygulama bu bilgiyi saklamazdı; dolayısıyla yalnızca özellik geliştirildikten sonra öğe ekleyip çıkaran müşterilere yönelik pazarlama yapabilirdi.
 
 > **YDS ipucu:** Must be deployed doğrudur; must deployed yanlıştır. By + kişi/araç ile by + -ing yöntem yapısını bağlamdan ayırın.
 
@@ -94,13 +94,13 @@
 
 > **English — Kaynak örneği (s. 210):** For example, if updating an aggregate would violate a business rule, then the aggregate must emit an event to report the error.
 >
-> **Türkçe:** Örneğin, bir aggregate'yi güncelleme bir iş kuralı ihlal ederse, aggregate hatayı bildirmek için bir olay göndermelidir.
+> **Türkçe:** Örneğin bir aggregate'ı güncellemek bir iş kuralını ihlal edecekse aggregate, hatayı bildirmek için bir olay üretmelidir.
 
 > **English — Kaynak örneği (s. 211):** If a service uses an RDBMS-based event store, it can update the event store and create a saga orchestrator within the same ACID transaction.
 >
-> **Türkçe:** Bir servis, RDBMS tabanlı bir olay mağazası kullanırsa, olay mağazasını güncelleyebilir ve aynı ACID işleminde bir saga orkestratörü oluşturabilir.
+> **Türkçe:** Bir servis RDBMS tabanlı bir event store kullanıyorsa aynı ACID transaction içinde event store'u güncelleyebilir ve bir saga orchestrator (saga orkestratörü) oluşturabilir.
 
-> **YDS ipucu:** If cümleciğindeki past bazen geçmiş zamanı değil varsayımı gösterir. Türkçedeki “olsaydı” tek başına zamanı belirlemez.
+> **YDS ipucu:** If cümleciğindeki past bazen geçmiş zamanı değil varsayımı gösterir. Türkçedeki “olsaydı” tek başına zamanı belirlemez. İlk kaynak örneğindeki “if updating ... would violate” yapısında would, önerilen güncellemenin doğuracağı olası sonucu anlatır; sıradan gelecek zaman ifadesi değildir.
 
 ## 7. Purpose — in order to / so that
 
@@ -110,11 +110,11 @@
 
 > **English — Kaynak örneği (s. 196):** The application only needs to load the snapshot and the two events that follow it in order to restore the state of the aggregate.
 >
-> **Türkçe:** Uygulamanın sadece aggregate'ın durumunu geri getirmek için anlık görüntüyü ve ardından gelen iki olayı yüklemesi gerekir.
+> **Türkçe:** Aggregate'ın durumunu geri oluşturmak için uygulamanın yalnızca snapshot'ı ve onu izleyen iki olayı yüklemesi yeterlidir.
 
 > **English — Kaynak örneği (s. 205):** In order to restart correctly, it periodically saves the current position in the binlog—filename and offset—in a special Apache Kafka topic.
 >
-> **Türkçe:** Doğru bir şekilde yeniden başlatmak için, binlog'daki mevcut pozisyonu - dosya adı ve ofset - özel bir Apache Kafka konusunda periyodik olarak kaydediyor.
+> **Türkçe:** Doğru biçimde yeniden başlayabilmek için binlog'daki mevcut konumu — dosya adı ve offset değerini — özel bir Apache Kafka topic'inde düzenli aralıklarla saklar.
 
 > **YDS ipucu:** To sonrasında yalın fiil; so that sonrasında özne ve çekimli fiil gelir. So ... that derece-sonuç yapısıyla karıştırmayın.
 
@@ -126,11 +126,11 @@
 
 > **English — Kaynak örneği (s. 213):** Before updating an aggregate, the saga participant verifies that it hasn’t processed the message before by looking for the message ID in the events.
 >
-> **Türkçe:** aggregate'yi güncelleştirmeden önce, saga katılımcısı, olaylarda ID mesajını arayarak daha önce mesajı işlemeyip işlemediğini doğruluyor.
+> **Türkçe:** Saga katılımcısı, aggregate'ı güncellemeden önce olaylar içinde mesaj ID'sini arayarak mesajı daha önce işlemediğini doğrular.
 
 > **English — Kaynak örneği (s. 184):** After all, event sourcing eliminates a source of programming errors by guaranteeing that an event will be published whenever an aggregate is created or updated.
 >
-> **Türkçe:** Sonuçta, event sourcing (olay kaynaklı durum yönetimi), bir aggregate oluşturulduğunda veya güncellendiğinde bir olayın yayınlanacağını garanti ederek bir programlama hatası kaynağını ortadan kaldırır.
+> **Türkçe:** Sonuçta event sourcing, her aggregate oluşturulduğunda veya güncellendiğinde bir olayın yayımlanacağını garanti ederek programlama hatalarının bir kaynağını ortadan kaldırır.
 
 > **YDS ipucu:** By implementing “uygulayarak” anlamındadır. Edat by sonrasında yalın fiil kullanılmaz.
 
@@ -142,13 +142,13 @@
 
 > **English — Kaynak örneği (s. 199):** But instead of migrating events to the new schema version in situ, event sourcing frameworks transform events when they’re loaded from the event store.
 >
-> **Türkçe:** Fakat event sourcing (olay kaynaklı durum yönetimi) çerçeveleri, olayları yeni şema sürümüne yerle bir etmek yerine, olay mağazasından yüklendiğinde olayları dönüştürür.
+> **Türkçe:** Ancak event sourcing framework'leri, saklanan olayları bulundukları yerde yeni şema sürümüne taşımak yerine, olayları event store'dan yüklenirken dönüştürür.
 
 > **English — Kaynak örneği (s. 194):** The main difference is that it permanently stores events in an EVENTS table rather than temporarily saving events in an OUTBOX table and then deleting them.
 >
-> **Türkçe:** Ana fark, OUTBOX tablosundaki olayları geçici olarak kaydetmek ve ardından silmek yerine, EVENTS tablosunda olayları kalıcı olarak kaydetmesidir.
+> **Türkçe:** Temel fark, olayları OUTBOX tablosunda geçici olarak saklayıp sonra silmek yerine EVENTS tablosunda kalıcı olarak saklamasıdır.
 
-> **YDS ipucu:** Instead of sonrasında doğrudan çekimli cümle gelmez. Rather than ile karşılaştırılan parçaların dilbilgisel biçimini izleyin.
+> **YDS ipucu:** Instead of sonrasında doğrudan çekimli cümle gelmez. Rather than ile karşılaştırılan parçaların dilbilgisel biçimini izleyin. In situ, “bulunduğu yerde” anlamındadır: kaynak kayıtları yerinde değiştirmek ile yükleme sırasında dönüştürmek karşılaştırılır.
 
 ## 10. Absence — without + -ing
 
@@ -158,11 +158,11 @@
 
 > **English — Kaynak örneği (s. 189):** It validates its arguments, and without changing the state of the aggregate, returns a list of events representing the state changes.
 >
-> **Türkçe:** aggregate'nin durumunu değiştirmeden, durum değişikliklerini temsil eden olayların bir listesini gönderir.
+> **Türkçe:** Argümanlarını doğrular ve aggregate'ın durumunu değiştirmeden, durum değişikliklerini temsil eden olayların listesini döndürür.
 
 > **English — Kaynak örneği (s. 201):** The application somehow must forget about the user without deleting the events.
 >
-> **Türkçe:** Uygulama olayları silmeden kullanıcıyı bir şekilde unutmalıdır.
+> **Türkçe:** Uygulama, olayları silmeden kullanıcıya ilişkin bilgileri bir şekilde unutmalıdır.
 
 > **YDS ipucu:** Without not ile otomatik birleşmez. “Without losing data”, “veri kaybetmeden” anlamındadır.
 
@@ -174,11 +174,11 @@
 
 > **English — Kaynak örneği (s. 212):** Now that we’ve looked at how to reliably create a saga orchestrator, let’s see how event sourcing-based services can participate in orchestration-based sagas.
 >
-> **Türkçe:** saga orkestratörü nasıl güvenilir bir şekilde oluşturulacağını inceledikten sonra, event sourcing (olay kaynaklı durum yönetimi) tabanlı servislerin orkestrasyon tabanlı saga’lar'e nasıl katılabileceğini görelim.
+> **Türkçe:** Bir saga orchestrator'ın nasıl güvenilir biçimde oluşturulacağını gördüğümüze göre event sourcing tabanlı servislerin orkestrasyon tabanlı saga'lara nasıl katılabileceğine bakalım.
 
 > **English — Kaynak örneği (s. 196):** Figure 6.8 shows how to recreate a Customer from a snapshot corresponding to the state of a Customer as of event #103.
 >
-> **Türkçe:** Şekil 6.8 bir Customer'ın olay # 103'e göre bir Customer'nin durumuna karşılık gelen bir anlık çekimden nasıl yeniden oluşturulduğunu gösterir.
+> **Türkçe:** Şekil 6.8, 103 numaralı olay itibarıyla Customer'ın durumunu temsil eden bir snapshot'tan Customer'ın nasıl yeniden oluşturulduğunu gösterir.
 
 > **YDS ipucu:** Dolaylı soruda düz cümle sırası kullanılır: how the service works. How does the service work doğrudan sorudur.
 
@@ -190,13 +190,13 @@
 
 > **English — Kaynak örneği (s. 205):** The Eventuate client framework enables developers to write event sourcing-based applications that use the Eventuate Local event store.
 >
-> **Türkçe:** Eventuate istemci çerçevesi geliştiricilerin Eventuate Local olay mağazasını kullanan event sourcing (olay kaynaklı durum yönetimi) tabanlı uygulamaları yazmalarını sağlar.
+> **Türkçe:** Eventuate client framework'ü, geliştiricilerin Eventuate Local event store'u kullanan event sourcing tabanlı uygulamalar yazmasını sağlar.
 
 > **English — Kaynak örneği (s. 202):** To make matters worse, a NoSQL-based event store will typically only support primary key-based lookup.
 >
-> **Türkçe:** İşleri daha da kötüleştirmek için, NoSQL tabanlı bir olay mağazası genellikle yalnızca ana anahtar tabanlı aramaları destekler.
+> **Türkçe:** Daha da kötüsü, NoSQL tabanlı bir event store genellikle yalnızca birincil anahtara dayalı aramayı destekler.
 
-> **YDS ipucu:** Enable/allow + object + to + V1; make + object + V1/adjective yapılarını arayın. Make a request gibi make + noun kullanımları bu yapı değildir. Edilgende make ile to geri gelir: be made to do.
+> **YDS ipucu:** Enable/allow + object + to + V1; make + object + V1/adjective yapılarını arayın. Make a request gibi make + noun kullanımları bu yapı değildir. Edilgende make ile to geri gelir: be made to do. “To make matters worse” kalıbı burada bir amaç değil, “daha da kötüsü” anlamında geçiş ifadesidir.
 
 ## 13. Comparisons — more / less / as ... as
 
@@ -206,11 +206,11 @@
 
 > **English — Kaynak örneği (s. 188):** This is a much more stringent requirement than before, when an aggregate only emitted events that were of interest to consumers.
 >
-> **Türkçe:** Bu, aggregate'nin yalnızca tüketicilerin ilgisini çeken olayları yaydığı için daha önce olduğundan çok daha sıkı bir gereklilik.
+> **Türkçe:** Bu, aggregate'ın yalnızca tüketicileri ilgilendiren olayları ürettiği önceki duruma göre çok daha katı bir gereksinimdir.
 
 > **English — Kaynak örneği (s. 188):** A state change might be as simple as changing the value of the field of an object, such as Order.state.
 >
-> **Türkçe:** Bir durum değişimi, bir nesnenin alanının değerini değiştirmek kadar basit olabilir, örneğin Order.state.
+> **Türkçe:** Bir durum değişikliği, örneğin Order.state gibi bir nesne alanının değerini değiştirmek kadar basit olabilir.
 
 > **YDS ipucu:** Much ve far, comparative yapıyı güçlendirir. More easier biçiminde çift karşılaştırma kullanmayın. As well as ekleme yapabilir; “As simple as it sounds, ...” ise ödünleme/karşıtlık bildirir.
 
@@ -222,11 +222,11 @@
 
 > **English — Kaynak örneği (s. 188):** Because events are used to persist an aggregate, you no longer have the option of using a minimal OrderCreated event that contains the orderId.
 >
-> **Türkçe:** aggregate'yi kalıcılaştırmak için olaylar kullanıldığından, artık orderId içeren minimal OrderCreated olayını kullanma seçeneğiniz kalmadı.
+> **Türkçe:** Aggregate'ı kalıcı olarak saklamak için olaylar kullanıldığından, artık yalnızca orderId içeren asgari bir OrderCreated olayı kullanma seçeneğiniz yoktur.
 
 > **English — Kaynak örneği (s. 186):** Consequently, as with history and auditing, developers must bolt on event-generation logic, which risks not being synchronized with the business logic.
 >
-> **Türkçe:** Sonuç olarak, tarih ve denetleme gibi, geliştiriciler de olay üretimi mantığına başvurmalıdırlar, bu da iş mantığı ile senkronize edilmemek riski taşır.
+> **Türkçe:** Bu nedenle, geçmiş tutma ve denetim kaydı oluşturmada olduğu gibi, geliştiriciler olay üretme mantığını da sonradan eklemek zorundadır; bu mantığın iş mantığıyla uyumlu kalmama riski vardır.
 
 > **YDS ipucu:** Because ile because of sonrasındaki yapı farklıdır. As a result of + noun, neden belirtir.
 
@@ -238,11 +238,11 @@
 
 > **English — Kaynak örneği (s. 185):** To be fair, I’ve used Hibernate successfully to develop applications where the database schema has been derived from the object model.
 >
-> **Türkçe:** Açıkçası, veritabanı şeması nesne modelinden alınan uygulamaları geliştirmek için Hibernate'i başarılı bir şekilde kullandım.
+> **Türkçe:** Hakkını teslim etmek gerekirse, veritabanı şemasının nesne modelinden türetildiği uygulamaları geliştirmek için Hibernate'i başarıyla kullandım.
 
 > **English — Kaynak örneği (s. 193):** The second one will fail because the version number has changed, so it won’t accidentally overwrite the first transaction’s changes.
 >
-> **Türkçe:** İkincisi başarısız olur çünkü versiyon numarası değişti, bu yüzden ilk işlemdeki değişiklikleri yanlışlıkla yazmaz.
+> **Türkçe:** Sürüm numarası değiştiği için ikinci işlem başarısız olur; böylece ilk transaction'ın değişikliklerinin üzerine yanlışlıkla yazmaz.
 
 > **YDS ipucu:** Have/has ile V3 birlikte aranır. Been + V3 edilgen olabilir; been + -ing ise continuous yapıdır.
 
@@ -254,7 +254,7 @@
 
 > **English — Kaynak örneği (s. 184):** Many years ago, Mary had learned about event sourcing, an event-centric way of writing business logic and persisting domain objects.
 >
-> **Türkçe:** Yıllar önce, Mary, event sourcing (olay kaynaklı durum yönetimi)'yi öğrenmişti, olay merkezli bir iş mantığı ve devam eden alan nesneleri yazma şekli.
+> **Türkçe:** Mary, yıllar önce iş mantığı yazmanın ve domain nesnelerini kalıcı olarak saklamanın olay merkezli bir yolu olan event sourcing'i öğrenmişti.
 
 > **YDS ipucu:** Had tek başına past perfect değildir; had a meeting gibi yapılarda ana fiildir.
 
@@ -266,7 +266,7 @@
 
 > **English — Kaynak örneği (s. 211):** One issue to keep in mind when writing an event handler that creates a saga orchestrator is that it must handle duplicate events.
 >
-> **Türkçe:** saga orkestratörü oluşturan bir olay yöneticisini yazarken aklınızda tutmanız gereken bir konu, çift olaylarla ilgilenmesi gerektiğidir.
+> **Türkçe:** Saga orchestrator oluşturan bir event handler (olay işleyici) yazarken akılda tutulması gereken bir konu, yinelenen olayları ele alması gerektiğidir.
 
 > **YDS ipucu:** Geleceğe yönelik zaman cümleciğinde genellikle present kullanılır: when it arrives. Until, “... olana kadar” sınırını verir. While eşzamanlılık ya da karşıtlık bildirebilir; anlam ilişkisini kontrol edin. Until + noun bir zaman ifadesidir, tam zaman cümleciği değildir.
 
@@ -278,11 +278,11 @@
 
 > **English — Kaynak örneği (s. 211):** Instead, a service must have an event handler that creates the saga orchestrator in response to a domain event emitted by the aggregate.
 >
-> **Türkçe:** Bunun yerine, bir servisin aggregate tarafından yayımlanan bir etki alanı olayına cevap olarak saga orkestratörü oluşturan bir olay yöneticisi olması gerekir.
+> **Türkçe:** Bunun yerine serviste, aggregate'ın ürettiği bir domain event'e yanıt olarak saga orchestrator oluşturan bir olay işleyici bulunmalıdır.
 
 > **English — Kaynak örneği (s. 186):** It is time consuming to implement an aggregate history mechanism and involves duplicating code that must be synchronized with the business logic.
 >
-> **Türkçe:** aggregate tarih mekanizmasını uygulamak zaman alıcıdır ve iş mantığı ile senkronize edilmesi gereken kodun çoğaltılmasını içerir.
+> **Türkçe:** Aggregate geçmişini tutan bir mekanizmayı gerçekleştirmek zaman alır ve iş mantığıyla uyumlu tutulması gereken kodu yinelemeyi gerektirir.
 
 > **YDS ipucu:** Must not yasak; do not have to zorunluluk yokluğu bildirir. Might ve may olasılık anlatır, kesinlik vermez.
 
@@ -294,7 +294,7 @@
 
 > **English — Kaynak örneği (s. 190):** The process() method either returns an OrderRevisionProposed event, or throws an exception if it’s too late to revise the Order or if the proposed revision doesn’t meet the order minimum.
 >
-> **Türkçe:** process() yöntemi ya bir OrderRevisionProposed olayını iade eder ya da Order'i gözden geçirmek için çok geç kalırsa veya önerilen gözden geçirme sipariş minimumuna uymarsa bir istisna atar.
+> **Türkçe:** process() metodu ya bir OrderRevisionProposed olayı döndürür ya da Order'ı değiştirmek için çok geçse veya önerilen değişiklik asgari sipariş tutarını karşılamıyorsa exception fırlatır.
 
 > **YDS ipucu:** Enough sıfattan sonra, isimden önce gelir: fast enough; enough memory.
 
